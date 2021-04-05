@@ -38,12 +38,13 @@ the different approval paths for these types of software.
 </p>   
 <h4 class='subsectionHead'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Identifying the Software</h4>
 <!-- l. 12 --><p class='noindent'>COTS software includes any software built for non-government, public activity. While COTS software implies a
-commercial aspect to the application, open-source and public domain software are allowed to be procured as if they
-were COTS software. While Shareware, Freeware, Adware, and as-is trial software are also COTS, they require
-explicit AO approval on each system they’re installed in most DoD components.[<a href='#cite.0@20210405-ar25-2'>3</a>, II.4–6.g] Each COTS component
-is listed in the system’s software list, tracked by the change control board, and updates are subscribed to by a
-member of the security team. After listing the COTS software in the software list, its procurement (license costs and
-support information) are recorded in the system’s Army Portfolio Management Solution (APMS)
+commercial aspect to the application, open-source and public domain software are also included in the definition of
+COTS software. While Shareware, Freeware, Adware, and as-is trial software are also COTS, they require explicit
+Army SISO approval on each system they’re installed on and are not considered as part of this article.[<a href='#cite.0@20210405-ar25-2'>3</a>, 4–12.a.6]
+Open source components should be treated as any other COTS software for approval in a system. Each COTS
+component is listed in the system’s software list, tracked by the change control board, and updates are subscribed
+to by a member of the security team. After listing the COTS software in the software list, its procurement (license
+costs and support information) are recorded in the system’s Army Portfolio Management Solution (APMS)
 record. Remember that stand-alone COTS software should never be placed alone into APMS. Doing so
 will cause the APMS records to indicate that the Army is paying multiple times for software and
 has been used as an attempt to inflate budgets. The procurement cost for the software is dependent
@@ -114,21 +115,21 @@ definition of GOTS. If you cannot build the software or are not provided the sou
 the definition of GOTS computer software per the FAR.
 </p><!-- l. 43 --><p class='indent'>   Once the software has been identified as GOTS, the ASD STIG is evaluated and any relevant SA-11 controls are
 tailored in to the RMF control selection.
-</p><!-- l. 45 --><p class='indent'>   There is a final class of software that pretends to be GOTS but does not provide source code or
-build instructions. This is considered “NOTS” software. This is often proprietary or IP-protected code,
-written at taxpayer expense, and not provided back to the public. Instead, contractors and civilians
-attempt to re-sell the software repeatedly back to the taxpayers who funded its development. This is
-why the DFARS regulations under 48 CFR § 252.227-7014 were written. Note the very definition of
-computer software to fall under DFARS’s definition of restricted rights GOTS software (emphasis added):
-“Computer software means computer programs, <strong>source code</strong>, source code listings, object code listings,
-design details, algorithms, processes, flow charts, formulae, and related material that would enable the
-software to be reproduced, recreated, or recompiled. Computer software does not include computer
+</p><!-- l. 45 --><p class='indent'>   There is a final class of software that pretends to be GOTS but does not provide source code or build
+instructions. This is considered “NOTS” software. This is often proprietary or IP-protected code, written at
+taxpayer expense, and not provided back to the public. Instead, contractors and civilians attempt to re-sell the
+software repeatedly back to the taxpayers who funded its development. This is why the DFARS regulations
+under 48 CFR § 252.227-7014 were written. Note the very definition of computer software to fall under
+DFARS’s definition of restricted rights GOTS software (emphasis added): “Computer software means
+computer programs, <strong>source code</strong>, source code listings, object code listings, design details, algorithms,
+processes, flow charts, formulae, and related material that would enable the software to be reproduced,
+recreated, or recompiled. Computer software does not include computer databases or computer software
                                                                                          
                                                                                          
-databases or computer software documentation.” By legal definition, you will have the source code
-and everything you need to rebuild the source code to a working product if the software claims to be
-GOTS. A contractor may then say, “Well, we’ll just say that the software is COTS then.” Now, that
-contractor must abide by the FAR definitions of commercial software (FAR 2.101). The software must
+documentation.” By legal definition, you will have the source code and everything you need to rebuild the
+source code to a working product if the software claims to be GOTS. A contractor may then say,
+“Well, we’ll just say that the software is COTS then.” Now, that contractor must abide by the FAR
+definitions of commercial software (FAR 2.101) and Non-Developmental Items. The software must
 be:  
 </p>
 <blockquote class='quote'>     
@@ -166,24 +167,25 @@ POA&amp;M for tracking and obtain AO approval for the non-compliant software.
 <h3 class='sectionHead'><a id='x1-40001.2'></a>References</h3>
 <!-- l. 40 --><p class='noindent'>    
 </p>
-<dl class='thebibliography'><dt class='thebibliography' id='X0-20210405-far'>
+<dl class='thebibliography'><dt id='X0-20210405-far' class='thebibliography'>
 [1]  
-</dt><dd class='thebibliography' id='bib-1'>
+</dt><dd id='bib-1' class='thebibliography'>
 <!-- l. 40 --><p class='noindent'><a id='cite.0@20210405-far'></a>GSA.    <span class='rm-lmri-10'>Federal   Acuisition   Regulation.   Definitions</span>.    Department    of    Defense.    2019.    <span class='small-caps'>url</span>:
 <a class='url' href='https://www.acquisition.gov/far/2.101'><span class='ec-lmtt-10'>https://www.acquisition.gov/far/2.101</span></a>.
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-swatips'>
+<dt id='X0-swatips' class='thebibliography'>
 [2]  
-</dt><dd class='thebibliography' id='bib-2'>
+</dt><dd id='bib-2' class='thebibliography'>
 <!-- l. 40 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20210405-ar25-2'>
+<dt id='X0-20210405-ar25-2' class='thebibliography'>
 [3]  
-</dt><dd class='thebibliography' id='bib-3'>
+</dt><dd id='bib-3' class='thebibliography'>
 <!-- l. 40 --><p class='noindent'><a id='cite.0@20210405-ar25-2'></a>HQDA. <span class='rm-lmri-10'>Army Regulation 25–2. Information Management: Information Assurance</span>. Department of the
-Army. Washington, DC, USA, 2007. <span class='small-caps'>url</span>: <a class='url' href='https://fas.org/irp/doddir/army/ar25-2.pdf'><span class='ec-lmtt-10'>https://fas.org/irp/doddir/army/ar25-2.pdf</span></a>.</p></dd></dl>
+Army.                 Washington,                 DC,                 USA,                 2019.                 <span class='small-caps'>url</span>:
+<a class='url' href='https://armypubs.army.mil/epubs/DR_pubs/DR_a/pdf/web/ARN17503_AR25_2_Admin_FINAL.pdf'><span class='ec-lmtt-10'>https://armypubs.army.mil/epubs/DR_pubs/DR_a/pdf/web/ARN17503_AR25_2_Admin_FINAL.pdf</span></a>.</p></dd></dl>
  
 </body> 
 </html>
