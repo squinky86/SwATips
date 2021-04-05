@@ -1,0 +1,40 @@
+% Template created by Jon Hood in 2021 and dedicated to the public domain.
+% Code released under the CC-0
+% Artistic/article Contents released under the CC-BY 4.0
+
+\documentclass[letterpaper, 10pt]{article}
+
+\usepackage[style=numeric,backend=biber]{biblatex}
+\usepackage{datetime}
+\usepackage{fancyhdr}
+\usepackage[letterpaper, top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{noto}
+
+\addbibresource{sources.bib}
+\input{NUM.pre}
+
+\author{\AuthorName}
+\date{\ArticleDate}
+
+\hypersetup
+{
+	pdfauthor= (\AuthorName),
+	pdftitle =  (\ArticleName)
+}
+
+\title{
+	\textmd{\textbf{Software Assurance Tips}}\\
+	\normalsize{A product of the Software Assurance Tips Team\autocite{swatips}}\\
+	\vspace{.5em}
+	Generated \today
+}
+
+\begin{document}
+\maketitle
+\clearpage
+\section{\ArticleName}
+\input{NUM.tex}
+\clearpage
+\printbibliography
+\end{document}

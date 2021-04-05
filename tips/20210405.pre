@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{COTS, GOTS, and NOTS software in RMF for the Army}
+\newcommand{\ArticleDate}{\formatdate{5}{4}{2021}}
+\addbibresource{20210405.bib}

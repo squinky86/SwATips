@@ -1,0 +1,191 @@
+<!DOCTYPE html> 
+<html xml:lang='en-US' lang='en-US'> 
+<head><title> Software Assurance Tips
+A product of the Software Assurance Tips Team[2]
+Generated Monday 5th April, 2021</title> 
+<meta charset='utf-8' /> 
+<meta content='TeX4ht (https://tug.org/tex4ht/)' name='generator' /> 
+<meta content='width=device-width,initial-scale=1' name='viewport' /> 
+<link rel='stylesheet' href='article.css' type='text/css' /> 
+<meta content='article.tex' name='src' /> 
+</head><body>
+<h2>Return to <a href="../">SwATips</a> | <a href="20210405.pdf">pdf,</a></h2>
+<div class='maketitle'>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
+A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>2</a>]<br />
+Generated Monday 5<sup class='textsuperscript'>th</sup> April, 2021</h2>
+<div class='author'><span class='rm-lmr-12'>Jon Hood</span></div><br />
+<div class='date'><span class='rm-lmr-12'>Monday 5</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> April, 2021</span></div>
+</div>
+                                                                                         
+                                                                                         
+   
+<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>COTS, GOTS, and NOTS software in RMF for the Army</h3>
+<!-- l. 1 --><p class='noindent'>When working as a government contractor security professional for a system that includes custom software, three
+different classes of software must be considered as part of the RMF process: </p>
+<ul class='itemize1'>     
+<li class='itemize'>COTS—Commercial Off-The-Shelf
+</li>     
+<li class='itemize'>GOTS—Government Off-The-Shelf
+</li>     
+<li class='itemize'>NOTS—Not Off-The-Shelf</li></ul>
+<!-- l. 8 --><p class='indent'>   A compliant Risk Management Framework (RMF) software list or Software Bill of Materials (S-BoM) manages
+the different approval paths for these types of software.
+</p><!-- l. 10 --><p class='noindent'>
+</p>   
+<h4 class='subsectionHead'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Identifying the Software</h4>
+<!-- l. 12 --><p class='noindent'>COTS software includes any software built for non-government, public activity. While COTS software implies a
+commercial aspect to the application, open-source and public domain software are allowed to be procured as if they
+were COTS software. While Shareware, Freeware, Adware, and as-is trial software are also COTS, they require
+explicit AO approval on each system they’re installed in most DoD components.[<a href='#cite.0@20210405-ar25-2'>3</a>, II.4–6.g] Each COTS component
+is listed in the system’s software list, tracked by the change control board, and updates are subscribed to by a
+member of the security team. After listing the COTS software in the software list, its procurement (license costs and
+support information) are recorded in the system’s Army Portfolio Management Solution (APMS)
+record. Remember that stand-alone COTS software should never be placed alone into APMS. Doing so
+will cause the APMS records to indicate that the Army is paying multiple times for software and
+has been used as an attempt to inflate budgets. The procurement cost for the software is dependent
+upon the system implementing the software and is recorded in each implementing system’s APMS
+record.
+</p><!-- l. 14 --><p class='indent'>   GOTS software is software that is not sold commercially or provided publicly. It is software created for or owned
+by a government agency. This doesn’t mean that commercial/contractor providers don’t own the software. GOTS
+software falls into three sub-categories:
+</p>     
+<ol class='enumerate1'>
+<li class='enumerate' id='x1-2002x1'>     
+<i>GOTS software created by direction of the government for a particular purpose.</i> This software is then
+owned by the public domain (owned by the taxpayers) and is generally easy to share with other
+government agencies or protect at appropriate levels.
+</li>     
+<li class='enumerate' id='x1-2004x2'>
+<i>GOTS software created by a company or individual for fulfilling a government-directed duty.</i> When
+the government gives direction to create software, this should include contract language to direct the
+company creating it. By default, the restrictions of DFARS, specifically 48 CFR § 252.227-7014, apply
+to the software.
+</li>     
+<li class='enumerate' id='x1-2006x3'>
+<i>Software assigned to government ownership.</i> When software is created by the government, it falls
+under non-copyrighted public-domain software. When a copyright holder assigns copyright to the US,
+the software is treated as public-domain, but the attribution of copyright assignment is retained for
+non-repudiation purposes. You will see something like, “Copyright © 2020 Jon Hood; assigned to US
+government on 8/9/2020” in the source files. There must be a valid previous copyright holder to assign
+the copyright to the government.</li></ol>
+                                                                                         
+                                                                                         
+<!-- l. 21 --><p class='noindent'>
+</p>   
+<h4 class='subsectionHead'><span class='titlemark'>1.2   </span> <a id='x1-30001.2'></a>Assessing the Software</h4>
+<!-- l. 23 --><p class='noindent'>COTS products can be assessed in multiple ways: </p>
+<ul class='itemize1'>     
+<li class='itemize'>If the COTS product has an official Security Technical Implementation Guide (STIG) or Security
+Requirements Guide (SRG), it is approved by DISA and reciprocity allows its use throughout the DoD.
+The software is assessed in the implementing environment by applying the STIG/SRG.
+</li>     
+<li class='itemize'>If the COTS software has no STIG or SRG, Software Assurance (SwA) is performed on the
+product.
+<ul class='itemize2'>         
+<li class='itemize'>If the software has source code available, it is scanned using static source analysis. The Application
+Security and Development (ASD) STIG is filled out and supplied, along with the SA-11* controls.
+</li>         
+<li class='itemize'>If the software does not have source code and the product is being assessed for mission support
+functionality, a dynamic binary analysis scan is performed. SA-11* controls are filled out and a
+partial STIG report is provided.
+</li>         
+<li class='itemize'>If the software is being used in a mission essential or mission critical environment, particularly
+on tactical systems, a static binary analysis with reverse engineering is recommended. The ASD
+STIG and any relevant SA-11* controls are completed.</li></ul>
+</li></ul>
+<!-- l. 34 --><p class='indent'>   When filling out the ASD STIG for COTS software, several of the checks deal with a development environment
+that is not geared towards developing the software for a government environment. Checks that pertain to
+development processes and requirements can be marked as Not Applicable because the COTS software has
+already been selected because it fulfills a requirements for a particular mission. If a mission dictates
+new requirements that require custom development, that development should consider falling under
+GOTS.
+</p><!-- l. 36 --><p class='indent'>   For GOTS software, the software is first assessed for compliance from a legal perspective: </p>
+<ul class='itemize1'>     
+<li class='itemize'>Is the software in the public domain with source code available?
+</li>     
+<li class='itemize'>Does  the  software  meet  the  definition  of  “computer  software”  under  GOTS  Fdederal  Acquisition
+Regulation (FAR) definitions?</li></ul>
+<!-- l. 41 --><p class='noindent'>If the software is GOTS, you will have the entirety of instructions for how to build the software. This is the legal
+definition of GOTS. If you cannot build the software or are not provided the source code, the software does not meet
+the definition of GOTS computer software per the FAR.
+</p><!-- l. 43 --><p class='indent'>   Once the software has been identified as GOTS, the ASD STIG is evaluated and any relevant SA-11 controls are
+tailored in to the RMF control selection.
+</p><!-- l. 45 --><p class='indent'>   There is a final class of software that pretends to be GOTS but does not provide source code or
+build instructions. This is considered “NOTS” software. This is often proprietary or IP-protected code,
+written at taxpayer expense, and not provided back to the public. Instead, contractors and civilians
+attempt to re-sell the software repeatedly back to the taxpayers who funded its development. This is
+why the DFARS regulations under 48 CFR § 252.227-7014 were written. Note the very definition of
+computer software to fall under DFARS’s definition of restricted rights GOTS software (emphasis added):
+“Computer software means computer programs, <strong>source code</strong>, source code listings, object code listings,
+design details, algorithms, processes, flow charts, formulae, and related material that would enable the
+software to be reproduced, recreated, or recompiled. Computer software does not include computer
+                                                                                         
+                                                                                         
+databases or computer software documentation.” By legal definition, you will have the source code
+and everything you need to rebuild the source code to a working product if the software claims to be
+GOTS. A contractor may then say, “Well, we’ll just say that the software is COTS then.” Now, that
+contractor must abide by the FAR definitions of commercial software (FAR 2.101). The software must
+be:  
+</p>
+<blockquote class='quote'>     
+<!-- l. 46 --><p class='noindent'>(i) A commercial item...;<br class='newline' />(ii) Sold in substantial quantities in the commercial marketplace; and<br class='newline' />(iii) Offered to the Government, under a contract or subcontract at any tier, without modification,
+in the same form in which it is sold in the commercial marketplace;...[<a href='#cite.0@20210405-far'>1</a>]</p></blockquote>
+<!-- l. 50 --><p class='indent'>   A piece of software that is not sold in a public, commercial marketplace is not COTS. Likewise, software that
+does not provide source code and build instructions is not GOTS. These software packages are non-COTS,
+non-GOTS, and simply ”not off-the-shelf” NOTS software that must have explicit AO approval and be tracked using
+non-FAR-compliant acquisition processes.
+</p><!-- l. 52 --><p class='indent'>   Nevertheless, there is a non-trivial amount of NOTS software that is in use by the Army. Our
+recommendation: perform a best-effort SwA scan, but also mark high-risk findings against the following checklists:
+</p>     
+<ul class='itemize1'>
+<li class='itemize'>On the ASD STIG, mark SV-222658r508029_rule (as of ASD V5R1) as a finding with the comment,
+“The  support  contract  does  not  meet  the  requirements  of  COTS,  nor  does  the  application  meet
+the definition of Computer Software for GOTS. COTS software must be procured through proper
+acquisition channels (<a href='https://www.acquisition.gov/content/2101-definitions#i1125359' class='url'><span class='ec-lmtt-10'>https://www.acquisition.gov/content/2101-definitions#i1125359</span></a>), and
+GOTS computer software must provide source code and build instructions (48 CFR § 252.227-7014).”
+</li>     
+<li class='itemize'>Tailor  in  (if  not  already  in  the  baseline)  and  mark  as  NON-COMPLIANT  RMF  control  SA-22,
+CCI-3376 with the comment, “A software package does not provide either COTS or GOTS support
+mechanisms.”
+</li>     
+<li class='itemize'>Tailor in (if not already in the baseline) and mark as NON-COMPLIANT RMF control SA-4 (6),
+CCI-631 with the comment, “The system employs software that is not COTS or GOTS.”</li></ul>
+<!-- l. 59 --><p class='indent'>   Note that RMF CCI-631 requires your software solutions to be either COTS or GOTS: “The organization
+employs only government off-the-shelf (GOTS) or commercial off-the-shelf (COTS) information assurance (IA) and
+IA-enabled information technology products that compose an NSA-approved solution to protect classified
+information when the networks used to transmit the information are at a lower classification level than the
+information being transmitted.” By attaching a finding to CCI-631, the program must POA&amp;M for support and
+obtain AO approval for the non-compliant software.
+                                                                                         
+                                                                                         
+</p>   
+<h3 class='sectionHead'><a id='x1-40001.2'></a>References</h3>
+<!-- l. 40 --><p class='noindent'>    
+</p>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-20210405-far'>
+[1]  
+</dt><dd class='thebibliography' id='bib-1'>
+<!-- l. 40 --><p class='noindent'><a id='cite.0@20210405-far'></a>GSA.    <span class='rm-lmri-10'>Federal   Acuisition   Regulation.   Definitions</span>.    Department    of    Defense.    2019.    <span class='small-caps'>url</span>:
+<a href='https://www.acquisition.gov/far/2.101' class='url'><span class='ec-lmtt-10'>https://www.acquisition.gov/far/2.101</span></a>.
+</p>    
+</dd>
+<dt class='thebibliography' id='X0-swatips'>
+[2]  
+</dt><dd class='thebibliography' id='bib-2'>
+<!-- l. 40 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a href='https://www.SwATips.com/' class='url'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt class='thebibliography' id='X0-20210405-ar25-2'>
+[3]  
+</dt><dd class='thebibliography' id='bib-3'>
+<!-- l. 40 --><p class='noindent'><a id='cite.0@20210405-ar25-2'></a>HQDA. <span class='rm-lmri-10'>Army Regulation 25–2. Information Management: Information Assurance</span>. Department of the
+Army. Washington, DC, USA, 2007. <span class='small-caps'>url</span>: <a href='https://fas.org/irp/doddir/army/ar25-2.pdf' class='url'><span class='ec-lmtt-10'>https://fas.org/irp/doddir/army/ar25-2.pdf</span></a>.</p></dd></dl>
+ 
+</body> 
+</html>
