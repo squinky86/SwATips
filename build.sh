@@ -24,6 +24,7 @@ for x in tips/*.tex; do
 	head -n 11 article.html > ${NUM}.html
 	cat article_template.html >> ${NUM}.html
 	tail -n +12 article.html >> ${NUM}.html
+	sed -i -z "s|<title>.*</title>|<title>${ARTICLENAME}</title>|g" ${NUM}.html
 	popd
 	cp ${TMPDIR}/article.pdf html/articles/${NUM}.pdf
 	git ls-files --error-unmatch html/articles/${NUM}.pdf || git add html/articles/${NUM}.pdf
