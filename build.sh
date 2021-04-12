@@ -18,6 +18,10 @@ LUAOTFLOAD=1
 # Latex Package Dependencies
 SCANNEDPACKAGES=()
 
+# Article List
+ARTICLES=()
+NUMS=()
+
 if [ -f "build.sh.cache" ]; then
 	. build.sh.cache
 fi
@@ -138,7 +142,8 @@ if [ $PDF == true ]; then
 	check "$GIT" "git" "GIT"
 	GIT=$?
 
-	echo "<ul>" > html/articles.inc
+	echo -n "" > html/articles.inc
+	echo -n "" > html/rss.inc
 	for x in tips/*.tex; do
 		TMPDIR=$(mktemp -d)
 		NUM=${x/tips\//}
@@ -170,8 +175,15 @@ if [ $PDF == true ]; then
 		else
 			echo "Already built!"
 		fi
+		ARTICLES+=( "${ARTICLENAME}" )
+		NUMS+=( "${NUM}" )
 		echo "<li>${NUM} - <a href=\"articles/${NUM}.html\">${ARTICLENAME}</a></li>" >> html/articles.inc
 		rm -rf ${TMPDIR}
 	done
-	echo "</ul>" >> html/articles.inc
+	for ((i=${#ARTICLES[@]} - 1; i >= 0; i--)); do
+		echo "	<item>" >> html/rss.inc
+		echo "		<title>${ARTICLES[$i]}</title>" >> html/rss.inc
+		echo "		<link>https://www.SwATips.com/articles/${NUMS[$i]}.html</link>" >> html/rss.inc
+		echo "	</item>" >> html/rss.inc
+	done
 fi
