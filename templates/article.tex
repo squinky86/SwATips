@@ -9,6 +9,7 @@
 \usepackage{fancyhdr}
 \usepackage[letterpaper, top=1in, bottom=1in, left=1in, right=1in]{geometry}
 \usepackage[breaklinks=true]{hyperref}
+\usepackage{lstlisting}
 \usepackage{noto}
 
 \addbibresource{sources.bib}
@@ -29,6 +30,10 @@
 	\vspace{.5em}
 	Generated \today
 }
+
+\lstdefinestyle{CStyle} {language=C}
+
+\lstset{language=C}
 
 \begin{document}
 \maketitle

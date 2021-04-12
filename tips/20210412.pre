@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Sticking with a RAII Standard}
+\newcommand{\ArticleDate}{\formatdate{12}{4}{2021}}
+\addbibresource{20210412.bib}
