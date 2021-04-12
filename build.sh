@@ -163,13 +163,15 @@ if [ $PDF == true ]; then
 			fi
 			popd >/dev/null
 			cp ${TMPDIR}/article.pdf html/articles/${NUM}.pdf
-			git ls-files --error-unmatch html/articles/${NUM}.pdf > /dev/null || git add html/articles/${NUM}.pdf > /dev/null
+			git ls-files --error-unmatch html/articles/${NUM}.pdf > /dev/null 2>&1 || git add html/articles/${NUM}.pdf > /dev/null
 			cp ${TMPDIR}/${NUM}.html html/articles/
-			git ls-files --error-unmatch html/articles/${NUM}.html >/dev/null || git add html/articles/${NUM}.html > /dev/null
+			git ls-files --error-unmatch html/articles/${NUM}.html >/dev/null 2>&1 || git add html/articles/${NUM}.html > /dev/null
+			echo "OK!"
+		else
+			echo "Already built!"
 		fi
 		echo "<li>${NUM} - <a href=\"articles/${NUM}.html\">${ARTICLENAME}</a></li>" >> html/articles.inc
 		rm -rf ${TMPDIR}
 	done
-	echo "OK!"
 	echo "</ul>" >> html/articles.inc
 fi

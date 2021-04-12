@@ -2,7 +2,7 @@ Resource Acquisition Is Initialization (RAII). When working with legacy code, of
 
 To solve this, C++ implemented two ways of initializing new memory: \textit{default} initialization and \textit{value} initialization. While default initialization is typically faster, developers quickly realized that there was rarely a reason to keep memory uninitialized. Initializing memory as soon as it's allocated allows keeps developers from shooting themselves in the foot.
 
-One of the best ways to prevent memory errors is to use RAII. Particularly in exception-based code, RAII concepts provide a memory-safe technique for resource management.\autocite{20210412-stroustrup2001} Several issues face developers when maintaining legacy code with new programming concepts, particularly in the DoD. Legacy code is generally void of RAII concepts and has not been built with the latest starndards of safe programming practices.
+One of the best ways to prevent memory errors is to use RAII. Particularly in exception-based code, RAII concepts provide a memory-safe technique for resource management.\autocite{20210412-stroustrup2001} Several issues face developers when maintaining legacy code with new programming concepts, particularly in the DoD. Legacy code is generally void of RAII concepts and has not been built with the latest standards of safe programming practices.
 
 \subsection{Updating the Code}
 
@@ -30,7 +30,7 @@ There are several issues with updating the old code to the RAII-compliant code:
 \begin{enumerate}
 	\item Forgetting to remove the manual memory management can cause double-free errors.
 	\item Updating the code can cause translation issues (eg: between default and value initialization)
-	\item Inconcistency can increase maintenance burdens for maintained code.
+	\item Inconsistency can increase maintenance burdens for maintained code.
 	\item Deletion of arrays require special handling.
 \end{enumerate}
 
@@ -63,7 +63,7 @@ shared_ptr<bool> test1 (new bool);
 cout << "Test1 is: " << *test1 << endl;
 \end{lstlisting}
 
-The unpredictable nature of this issue can be demonstrated in the following example where the boolean uses default initialization and obtains a random value from previously-freed memory.
+The unpredictable nature of this issue can be demonstrated in the following example where the Boolean uses default initialization and obtains a random value from previously-freed memory.
 
 \begin{lstlisting}[caption={Uninitialized Boolean},captionpos=b,style=CStyle,basicstyle=\small]
 #include <climits>
@@ -104,7 +104,7 @@ Consistency is more important than updating. Introducing multiple memory handlin
 
 \subsection{Smart Pointers and Arrays}
 
-Finally, some special considerations are needed for allowing smart pointers to handle arrays. The \texttt{shared\_ptr} construct permits the developer to define a custom deleter like the one for this array of 10 booleans:
+Finally, some special considerations are needed for allowing smart pointers to handle arrays. The \texttt{shared\_ptr} construct permits the developer to define a custom deleter like the one for this array of 10 Booleans:
 
 \begin{lstlisting}[caption={Custom Deleter},captionpos=b,style=CStyle,basicstyle=\small]
 shared_ptr<bool> test1{
@@ -114,4 +114,4 @@ shared_ptr<bool> test1{
 
 \subsection{Conclusion}
 
-Smart pointers and RAII concepts help developers prevent memory errors that can plague software. Updating legacy code to RAII concepts can increase its maintainability, usefullness, and security. Nevertheless, updates to the code should not come at a price of inconsistency. When updates can only be applied partially or introduce additional complexity, consistency should be preferred.
+Smart pointers and RAII concepts help developers prevent memory errors that can plague software. Updating legacy code to RAII concepts can increase its maintainability, usefulness, and security. Nevertheless, updates to the code should not come at a price of inconsistency. When updates can only be applied partially or introduce additional complexity, consistency should be preferred.

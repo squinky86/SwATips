@@ -1,0 +1,173 @@
+<!DOCTYPE html> 
+<html xml:lang='en-US' lang='en-US'> 
+<head><title>Sticking with a RAII Standard</title> 
+<meta charset='utf-8' /> 
+<meta name='generator' content='TeX4ht (https://tug.org/tex4ht/)' /> 
+<meta name='viewport' content='width=device-width,initial-scale=1' /> 
+<link href='article.css' type='text/css' rel='stylesheet' /> 
+<meta name='src' content='article.tex' /> 
+</head><body>
+<p>Return to <a href="../">SwATips</a> | <a href="20210412.pdf">pdf</a></p>
+<div class='maketitle'>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
+A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>1</a>]<br />
+Generated Monday 12<sup class='textsuperscript'>th</sup> April, 2021</h2>
+<div class='author'><span class='rm-lmr-12'>Jon Hood</span></div><br />
+<div class='date'><span class='rm-lmr-12'>Monday 12</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> April, 2021</span></div>
+</div>
+                                                                                         
+                                                                                         
+   
+<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Sticking with a RAII Standard</h3>
+<!-- l. 1 --><p class='noindent'>Resource Acquisition Is Initialization (RAII). When working with legacy code, often variables and memory
+management do not use RAII concepts. When memory is created in an uninitialized state, developers risk the use of
+uninitialized memory further down in the application data flow.
+</p><!-- l. 3 --><p class='indent'>   To solve this, C++ implemented two ways of initializing new memory: <i>default</i> initialization and <i>value</i>
+initialization. While default initialization is typically faster, developers quickly realized that there was rarely a
+reason to keep memory uninitialized. Initializing memory as soon as it’s allocated allows keeps developers from
+shooting themselves in the foot.
+</p><!-- l. 5 --><p class='indent'>   One of the best ways to prevent memory errors is to use RAII. Particularly in exception-based code, RAII
+concepts provide a memory-safe technique for resource management.[<a href='#cite.0@20210412-stroustrup2001'>2</a>] Several issues face developers when
+maintaining legacy code with new programming concepts, particularly in the DoD. Legacy code is
+generally void of RAII concepts and has not been built with the latest standards of safe programming
+practices.
+</p><!-- l. 7 --><p class='noindent'>
+</p>   
+<h4 class='subsectionHead'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Updating the Code</h4>
+<!-- l. 9 --><p class='noindent'>The first option for maintaining legacy code in a memory-safe way is to update the code. Wrapping old pointers in
+smart pointers can help make the code more maintainable.
+</p>   
+<!-- l. 11 -->
+<p><a id='x1-2001r1'></a></p>
+<p><a id='x1-2002'></a></p>   
+<div class='lstlisting' id='listing-1'><span class='label'><a id='x1-2003r1'></a></span><span class='ec-lmtt-9'>bool *newBool = new bool(); </span><br /><span class='label'><a id='x1-2004r2'></a></span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*newBool) </span><br /><span class='label'><a id='x1-2005r3'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "We’re␣true!" &lt;&lt; endl; </span><br /><span class='label'><a id='x1-2006r4'></a></span><span class='ec-lmtk-10x-x-90'>else</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-2007r5'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "We’re␣false!" &lt;&lt; endl; </span><br /><span class='label'><a id='x1-2008r6'></a></span><span class='ec-lmtt-9'>delete newBool;</span>
+<figcaption class='caption'><span class='id'>Listing 1:</span><span class='content'>Non-compliant listing</span></figcaption><!-- tex4ht:label?: x1-2001r1  -->
+   
+</div>
+<!-- l. 20 -->
+<p><a id='x1-2009r2'></a></p>
+<p><a id='x1-2010'></a></p>   
+<div class='lstlisting' id='listing-2'><span class='label'><a id='x1-2011r1'></a></span><span class='ec-lmtk-10x-x-90'>auto</span><span class='ec-lmtt-9'> newBool = make_shared&lt;bool&gt;(); </span><br /><span class='label'><a id='x1-2012r2'></a></span><span class='ec-lmtti-10x-x-90'>//Another way: shared_ptr&lt;bool&gt; newBool(new bool());</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-2013r3'></a></span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*newBool) </span><br /><span class='label'><a id='x1-2014r4'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "We’re␣true!" &lt;&lt; endl; </span><br /><span class='label'><a id='x1-2015r5'></a></span><span class='ec-lmtk-10x-x-90'>else</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-2016r6'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "We’re␣false!" &lt;&lt; endl;</span>
+<figcaption class='caption'><span class='id'>Listing 2:</span><span class='content'>RAII-compliant listing</span></figcaption><!-- tex4ht:label?: x1-2009r1  -->
+   
+</div>
+<!-- l. 29 --><p class='indent'>   There are several issues with updating the old code to the RAII-compliant code:
+</p>     
+<ol class='enumerate1'>
+<li class='enumerate' id='x1-2018x1'>     
+Forgetting to remove the manual memory management can cause double-free errors.
+</li>     
+<li class='enumerate' id='x1-2020x2'>
+Updating the code can cause translation issues (eg: between default and value initialization)
+</li>     
+<li class='enumerate' id='x1-2022x3'>
+Inconsistency can increase maintenance burdens for maintained code.
+</li>     
+<li class='enumerate' id='x1-2024x4'>
+Deletion of arrays require special handling.</li></ol>
+                                                                                         
+                                                                                         
+<!-- l. 37 --><p class='noindent'>
+</p>   
+<h4 class='subsectionHead'><span class='titlemark'>1.2   </span> <a id='x1-30001.2'></a>Double Frees</h4>
+<!-- l. 39 --><p class='noindent'>Developers can introduce double free conditions where a pointer is managed by both a smart pointer and in the
+code itself. Also, conditions arise when a single pointer is handed over to multiple smart pointers for
+management.
+</p><!-- l. 41 --><p class='indent'>   At the time of this writing, the latest versions of Fortify, Coverity, Checkmarx, Parasoft, clang-analyzer, and the
+GCC 10 <span class='ec-lmtt-10'>-fanalyzer </span>flag are all incapable of identifying the double free in the following snippets:
+</p>   
+<!-- l. 43 -->
+<p><a id='x1-3001r3'></a></p>
+<p><a id='x1-3002'></a></p>   
+<div class='lstlisting' id='listing-3'><span class='label'><a id='x1-3003r1'></a></span><span class='ec-lmtt-9'>bool *newBool = new bool(); </span><br /><span class='label'><a id='x1-3004r2'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1 (newBool); </span><br /><span class='label'><a id='x1-3005r3'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test2 (newBool); </span><br /><span class='label'><a id='x1-3006r4'></a></span><span class='ec-lmtti-10x-x-90'>//...</span>
+<figcaption class='caption'><span class='id'>Listing 3:</span><span class='content'>Double Smart Pointer</span></figcaption><!-- tex4ht:label?: x1-3001r1  -->
+   
+</div>
+<!-- l. 50 -->
+<p><a id='x1-3007r4'></a></p>
+<p><a id='x1-3008'></a></p>   
+<div class='lstlisting' id='listing-4'><span class='label'><a id='x1-3009r1'></a></span><span class='ec-lmtt-9'>bool *newBool = new bool(); </span><br /><span class='label'><a id='x1-3010r2'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1 (newBool); </span><br /><span class='label'><a id='x1-3011r3'></a></span><span class='ec-lmtti-10x-x-90'>//...</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-3012r4'></a></span><span class='ec-lmtt-9'>delete newBool;</span>
+<figcaption class='caption'><span class='id'>Listing 4:</span><span class='content'>Smart and Dumb Pointer</span></figcaption><!-- tex4ht:label?: x1-3007r1  -->
+   
+</div>
+<!-- l. 57 --><p class='noindent'>
+</p>   
+<h4 class='subsectionHead'><span class='titlemark'>1.3   </span> <a id='x1-40001.3'></a>Initialization Errors</h4>
+<!-- l. 59 --><p class='noindent'>We’ve also seen a large number of initialization errors when updating to smart pointers. Using the above examples,
+it’s tempting for a developer to use shortcuts and do something like the following:
+</p>   
+<!-- l. 61 -->
+<p><a id='x1-4001r5'></a></p>
+<p><a id='x1-4002'></a></p>   
+<div class='lstlisting' id='listing-5'><span class='label'><a id='x1-4003r1'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1 (new bool); </span><br /><span class='label'><a id='x1-4004r2'></a></span><span class='ec-lmtt-9'>cout &lt;&lt; "Test1␣is:␣" &lt;&lt; *test1 &lt;&lt; endl;</span>
+<figcaption class='caption'><span class='id'>Listing 5:</span><span class='content'>Uninitialized Boolean</span></figcaption><!-- tex4ht:label?: x1-4001r1  -->
+   
+</div>
+<!-- l. 66 --><p class='indent'>   The unpredictable nature of this issue can be demonstrated in the following example where the Boolean uses
+default initialization and obtains a random value from previously-freed memory.
+</p>   
+<!-- l. 68 -->
+<p><a id='x1-4005r6'></a></p>
+<p><a id='x1-4006'></a></p>   
+<div class='lstlisting' id='listing-6'><span class='label'><a id='x1-4007r1'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;climits&gt; </span><br /><span class='label'><a id='x1-4008r2'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;iostream&gt; </span><br /><span class='label'><a id='x1-4009r3'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;memory&gt; </span><br /><span class='label'><a id='x1-4010r4'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;random&gt; </span><br /><span class='label'><a id='x1-4011r5'></a></span><span class='ec-lmtt-9'>using namespace std; </span><br /><span class='label'><a id='x1-4012r6'></a></span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> main() </span><br /><span class='label'><a id='x1-4013r7'></a></span><span class='ec-lmtt-9'>{ </span><br /><span class='label'><a id='x1-4014r8'></a></span><span class='ec-lmtt-9'>        random_device rd; </span><br /><span class='label'><a id='x1-4015r9'></a></span><span class='ec-lmtt-9'>        mt19937 gen(rd()); </span><br /><span class='label'><a id='x1-4016r10'></a></span><span class='ec-lmtt-9'>        uniform_int_distribution&lt;&gt; distrib(INT_MIN, INT_MAX); </span><br /><span class='label'><a id='x1-4017r11'></a></span><span class='ec-lmtt-9'>        vector&lt;</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'>*&gt; deleteLater; </span><br /><span class='label'><a id='x1-4018r12'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>for</span><span class='ec-lmtt-9'> (</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> i = 0; i &lt; 100; i++) </span><br /><span class='label'><a id='x1-4019r13'></a></span><span class='ec-lmtt-9'>        { </span><br /><span class='label'><a id='x1-4020r14'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> *deleteMe = new </span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'>; </span><br /><span class='label'><a id='x1-4021r15'></a></span><span class='ec-lmtt-9'>               *deleteMe = distrib(gen); </span><br /><span class='label'><a id='x1-4022r16'></a></span><span class='ec-lmtti-10x-x-90'>               //delete some memory now</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4023r17'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*deleteMe &gt; 0) </span><br /><span class='label'><a id='x1-4024r18'></a></span><span class='ec-lmtt-9'>                       delete deleteMe; </span><br /><span class='label'><a id='x1-4025r19'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>else</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4026r20'></a></span><span class='ec-lmtt-9'>                       deleteLater.push_back(deleteMe); </span><br /><span class='label'><a id='x1-4027r21'></a></span><span class='ec-lmtt-9'>        } </span><br /><span class='label'><a id='x1-4028r22'></a></span><span class='ec-lmtt-9'>        shared_ptr&lt;bool&gt; newBool(new bool); </span><br /><span class='label'><a id='x1-4029r23'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "Value:␣" &lt;&lt; *newBool &lt;&lt; endl; </span><br /><span class='label'><a id='x1-4030r24'></a></span><span class='ec-lmtti-10x-x-90'>        //delete some memory later</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4031r25'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>for</span><span class='ec-lmtt-9'> (</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> *n : deleteLater) </span><br /><span class='label'><a id='x1-4032r26'></a></span><span class='ec-lmtt-9'>               delete n; </span><br /><span class='label'><a id='x1-4033r27'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>return</span><span class='ec-lmtt-9'> 0; </span><br /><span class='label'><a id='x1-4034r28'></a></span><span class='ec-lmtt-9'>}</span>
+<figcaption class='caption'><span class='id'>Listing 6:</span><span class='content'>Uninitialized Boolean</span></figcaption><!-- tex4ht:label?: x1-4005r1  -->
+   
+</div>
+                                                                                         
+                                                                                         
+<!-- l. 99 --><p class='noindent'>
+</p>   
+<h4 class='subsectionHead'><span class='titlemark'>1.4   </span> <a id='x1-50001.4'></a>Inconsistency Can Increase Maintenance Costs</h4>
+<!-- l. 101 --><p class='noindent'>Consider updated code that uses a multitude of different memory handling methods. Some memory is managed
+manually using <span class='ec-lmtt-10'>malloc </span>and <span class='ec-lmtt-10'>free</span>. Some pass the previous pointer values to smart pointers for their management.
+Others have been updated to use the <span class='ec-lmtt-10'>make_shared </span>construct. Still others have been updated to custom classes and
+structs.
+</p><!-- l. 103 --><p class='indent'>   Consistency is more important than updating. Introducing multiple memory handling patterns to a section of
+code increases its complexity. If old memory handling methods cannot be replaced or are not planned to be replaced,
+it may make more sense to stick with confusing (but consistent) code rather than adding additional
+complexity.
+</p><!-- l. 105 --><p class='noindent'>
+</p>   
+<h4 class='subsectionHead'><span class='titlemark'>1.5   </span> <a id='x1-60001.5'></a>Smart Pointers and Arrays</h4>
+<!-- l. 107 --><p class='noindent'>Finally, some special considerations are needed for allowing smart pointers to handle arrays. The <span class='ec-lmtt-10'>shared_ptr</span>
+construct permits the developer to define a custom deleter like the one for this array of 10 Booleans:
+</p>   
+<!-- l. 109 -->
+<p><a id='x1-6001r7'></a></p>
+<p><a id='x1-6002'></a></p>   
+<div class='lstlisting' id='listing-7'><span class='label'><a id='x1-6003r1'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1{ </span><br /><span class='label'><a id='x1-6004r2'></a></span><span class='ec-lmtt-9'>        new bool[10], [](</span><span class='ec-lmtk-10x-x-90'>const</span><span class='ec-lmtt-9'> bool *ptr) { delete [] ptr; } </span><br /><span class='label'><a id='x1-6005r3'></a></span><span class='ec-lmtt-9'>};</span>
+<figcaption class='caption'><span class='id'>Listing 7:</span><span class='content'>Custom Deleter</span></figcaption><!-- tex4ht:label?: x1-6001r1  -->
+   
+</div>
+<!-- l. 115 --><p class='noindent'>
+</p>   
+<h4 class='subsectionHead'><span class='titlemark'>1.6   </span> <a id='x1-70001.6'></a>Conclusion</h4>
+<!-- l. 117 --><p class='noindent'>Smart pointers and RAII concepts help developers prevent memory errors that can plague software. Updating legacy
+code to RAII concepts can increase its maintainability, usefulness, and security. Nevertheless, updates to the code
+should not come at a price of inconsistency. When updates can only be applied partially or introduce additional
+complexity, consistency should be preferred.
+                                                                                         
+                                                                                         
+</p>   
+<h3 class='sectionHead'><a id='x1-80001.6'></a>References</h3>
+<!-- l. 45 --><p class='noindent'>    
+</p>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-swatips'>
+[1]  
+</dt><dd class='thebibliography' id='bib-1'>
+<!-- l. 45 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt class='thebibliography' id='X0-20210412-stroustrup2001'>
+[2]  
+</dt><dd class='thebibliography' id='bib-2'>
+<!-- l. 45 --><p class='noindent'><a id='cite.0@20210412-stroustrup2001'></a>Bjarne    Stroustrup.    “Exception    Safety:    Concepts    and    Techniques”.    In:    (2001).    <span class='small-caps'>url</span>:
+<a class='url' href='https://www.stroustrup.com/except.pdf'><span class='ec-lmtt-10'>https://www.stroustrup.com/except.pdf</span></a>.</p></dd></dl>
+ 
+</body> 
+</html>
