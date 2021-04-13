@@ -185,6 +185,9 @@ if [ $PDF == true ]; then
 		echo "		<title>${ARTICLES[$i]}</title>" >> html/rss.inc
 		echo "		<link>https://www.SwATips.com/articles/${NUMS[$i]}.html</link>" >> html/rss.inc
 		echo "		<pubDate>$(date -R -d "${NUMS[$i]}")</pubDate>" >> html/rss.inc
+		echo -n "<description><![CDATA[" >> html/rss.inc
+		xmllint --xpath "//body/node()" html/articles/${NUMS[$i]}.html >> html/rss.inc
+		echo "]]>" >> html/rss.inc
 		echo "	</item>" >> html/rss.inc
 	done
 fi
