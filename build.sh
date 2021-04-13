@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Action Variables
-CLEAN=true
+CLEAN=false
 EPUB=true
 PDF=true
 HTML=true
@@ -186,7 +186,7 @@ if [ $PDF == true ]; then
 		echo "		<link>https://www.SwATips.com/articles/${NUMS[$i]}.html</link>" >> html/rss.inc
 		echo "		<pubDate>$(date -R -d "${NUMS[$i]}")</pubDate>" >> html/rss.inc
 		echo -n "<description><![CDATA[" >> html/rss.inc
-		xmllint --xpath "//body/node()" html/articles/${NUMS[$i]}.html >> html/rss.inc
+		xmllint --xpath "//body/node()" html/articles/${NUMS[$i]}.html | sed -e "s:href=\"${NUMS[$i]}.pdf\":href=\"articles/${NUMS[$i]}.pdf\":g" -e "s:href=\"../\":href=\"/\":g" >> html/rss.inc
 		echo "]]></description>" >> html/rss.inc
 		echo "	</item>" >> html/rss.inc
 	done
