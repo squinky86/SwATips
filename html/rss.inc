@@ -165,7 +165,7 @@ complexity, consistency should be preferred.
 <!-- l. 45 --><p class="noindent"><a id="cite.0@20210412-stroustrup2001"/>Bjarne    Stroustrup.    &#x201C;Exception    Safety:    Concepts    and    Techniques&#x201D;.    In:    (2001).    <span class="small-caps">url</span>:
 <a href="https://www.stroustrup.com/except.pdf" class="url"><span class="ec-lmtt-10">https://www.stroustrup.com/except.pdf</span></a>.</p></dd></dl>
  
-]]>
+]]></description>
 	</item>
 	<item>
 		<title>COTS, GOTS, and NOTS software in RMF for the Army</title>
@@ -352,5 +352,5 @@ POA&amp;M for tracking and obtain AO approval for the non-compliant software.
 Army.                 Washington,                 DC,                 USA,                 2019.                 <span class="small-caps">url</span>:
 <a class="url" href="https://armypubs.army.mil/epubs/DR_pubs/DR_a/pdf/web/ARN17503_AR25_2_Admin_FINAL.pdf"><span class="ec-lmtt-10">https://armypubs.army.mil/epubs/DR_pubs/DR_a/pdf/web/ARN17503_AR25_2_Admin_FINAL.pdf</span></a>.</p></dd></dl>
  
-]]>
+]]></description>
 	</item>

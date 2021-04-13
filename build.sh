@@ -187,7 +187,7 @@ if [ $PDF == true ]; then
 		echo "		<pubDate>$(date -R -d "${NUMS[$i]}")</pubDate>" >> html/rss.inc
 		echo -n "<description><![CDATA[" >> html/rss.inc
 		xmllint --xpath "//body/node()" html/articles/${NUMS[$i]}.html >> html/rss.inc
-		echo "]]>" >> html/rss.inc
+		echo "]]></description>" >> html/rss.inc
 		echo "	</item>" >> html/rss.inc
 	done
 fi
