@@ -1,10 +1,10 @@
 <!DOCTYPE html> 
-<html xml:lang='en-US' lang='en-US'> 
+<html lang='en-US' xml:lang='en-US'> 
 <head><title>Sticking with a RAII Standard</title> 
 <meta charset='utf-8' /> 
-<meta name='generator' content='TeX4ht (https://tug.org/tex4ht/)' /> 
+<meta name='generator' content='TeX4ht (http://www.tug.org/tex4ht/)' /> 
 <meta name='viewport' content='width=device-width,initial-scale=1' /> 
-<link type='text/css' href='article.css' rel='stylesheet' /> 
+<link rel='stylesheet' type='text/css' href='article.css' /> 
 <meta name='src' content='article.tex' /> 
 </head><body>
 <p>Return to <a href="../">SwATips</a> | <a href="20210412.pdf">pdf</a></p>
@@ -15,8 +15,8 @@
                                                                                          
 
 <h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
-A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>1</a>]<br />
-Generated Monday 12<sup class='textsuperscript'>th</sup> April, 2021</h2>
+A product of the Software Assurance Tips Team[<a id='page.3'></a><a href='article.html#X0-swatips'>1</a>]<br />
+Generated Tuesday 20<sup class='textsuperscript'>th</sup> April, 2021</h2>
 <div class='author'><span class='rm-lmr-12'>Jon Hood</span></div><br />
 <div class='date'><span class='rm-lmr-12'>Monday 12</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> April, 2021</span></div>
 </div>
@@ -32,7 +32,7 @@ initialization. While default initialization is typically faster, developers qui
 reason to keep memory uninitialized. Initializing memory as soon as it’s allocated keeps developers from shooting
 themselves in the foot.
 </p><!-- l. 5 --><p class='indent'>   One of the best ways to prevent memory errors is to use RAII. Particularly in exception-based code, RAII
-concepts provide a memory-safe technique for resource management.[<a href='#cite.0@20210412-stroustrup2001'>2</a>] Several issues face developers when
+concepts provide a memory-safe technique for resource management.[<a id='page.4'></a><a href='article.html#X0-20210412-stroustrup2001'>2</a>] Several issues face developers when
 maintaining legacy code with new programming concepts, particularly in the DoD. Legacy code is
 generally void of RAII concepts and has not been built with the latest standards of safe programming
 practices.
@@ -45,14 +45,14 @@ smart pointers can help make the code more maintainable.
 <!-- l. 11 -->
 <p><a id='x1-2001r1'></a></p>
 <p><a id='x1-2002'></a></p>   
-<div id='listing-1' class='lstlisting'><span class='label'><a id='x1-2003r1'></a></span><span class='ec-lmtt-9'>bool *newBool = new bool(); </span><br /><span class='label'><a id='x1-2004r2'></a></span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*newBool) </span><br /><span class='label'><a id='x1-2005r3'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "We’re␣true!" &lt;&lt; endl; </span><br /><span class='label'><a id='x1-2006r4'></a></span><span class='ec-lmtk-10x-x-90'>else</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-2007r5'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "We’re␣false!" &lt;&lt; endl; </span><br /><span class='label'><a id='x1-2008r6'></a></span><span class='ec-lmtt-9'>delete newBool;</span>
+<div id='listing-1' class='lstlisting'><span class='label'><a id='x1-2003r1'></a></span><span class='ec-lmtt-9'>bool *newBool = new bool(); </span><br /><span class='label'><a id='x1-2004r2'></a></span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*newBool) </span><br /><span class='label'><a id='x1-2005r3'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re␣true!"␣&lt;&lt;␣endl; </span><br /><span class='label'><a id='x1-2006r4'></a></span><span class='ec-lmtt-9'>else </span><br /><span class='label'><a id='x1-2007r5'></a></span><span class='ec-lmtt-9'>␣␣␣␣␣␣␣␣cout␣&lt;&lt;␣"We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re false!" &lt;&lt; endl; </span><br /><span class='label'><a id='x1-2008r6'></a></span><span class='ec-lmtt-9'>delete newBool;</span>
 <figcaption class='caption'><span class='id'>Listing 1:</span><span class='content'>Non-compliant listing</span></figcaption><!-- tex4ht:label?: x1-2001r1  -->
    
 </div>
 <!-- l. 20 -->
 <p><a id='x1-2009r2'></a></p>
 <p><a id='x1-2010'></a></p>   
-<div id='listing-2' class='lstlisting'><span class='label'><a id='x1-2011r1'></a></span><span class='ec-lmtk-10x-x-90'>auto</span><span class='ec-lmtt-9'> newBool = make_shared&lt;bool&gt;(); </span><br /><span class='label'><a id='x1-2012r2'></a></span><span class='ec-lmtti-10x-x-90'>//Another way: shared_ptr&lt;bool&gt; newBool(new bool());</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-2013r3'></a></span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*newBool) </span><br /><span class='label'><a id='x1-2014r4'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "We’re␣true!" &lt;&lt; endl; </span><br /><span class='label'><a id='x1-2015r5'></a></span><span class='ec-lmtk-10x-x-90'>else</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-2016r6'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "We’re␣false!" &lt;&lt; endl;</span>
+<div id='listing-2' class='lstlisting'><span class='label'><a id='x1-2011r1'></a></span><span class='ec-lmtk-10x-x-90'>auto</span><span class='ec-lmtt-9'> newBool = make_shared&lt;bool&gt;(); </span><br /><span class='label'><a id='x1-2012r2'></a></span><span class='ec-lmtti-10x-x-90'>//Another way: shared_ptr&lt;bool&gt; newBool(new bool());</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-2013r3'></a></span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*newBool) </span><br /><span class='label'><a id='x1-2014r4'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re␣true!"␣&lt;&lt;␣endl; </span><br /><span class='label'><a id='x1-2015r5'></a></span><span class='ec-lmtt-9'>else </span><br /><span class='label'><a id='x1-2016r6'></a></span><span class='ec-lmtt-9'>␣␣␣␣␣␣␣␣cout␣&lt;&lt;␣"We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re false!" &lt;&lt; endl;</span>
 <figcaption class='caption'><span class='id'>Listing 2:</span><span class='content'>RAII-compliant listing</span></figcaption><!-- tex4ht:label?: x1-2009r1  -->
    
 </div>
@@ -104,7 +104,7 @@ it’s tempting for a developer to use shortcuts and do something like the follo
 <!-- l. 61 -->
 <p><a id='x1-4001r5'></a></p>
 <p><a id='x1-4002'></a></p>   
-<div id='listing-5' class='lstlisting'><span class='label'><a id='x1-4003r1'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1 (new bool); </span><br /><span class='label'><a id='x1-4004r2'></a></span><span class='ec-lmtt-9'>cout &lt;&lt; "Test1␣is:␣" &lt;&lt; *test1 &lt;&lt; endl;</span>
+<div id='listing-5' class='lstlisting'><span class='label'><a id='x1-4003r1'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1 (new bool); </span><br /><span class='label'><a id='x1-4004r2'></a></span><span class='ec-lmtt-9'>cout &lt;&lt; "Test1 is: " &lt;&lt; *test1 &lt;&lt; endl;</span>
 <figcaption class='caption'><span class='id'>Listing 5:</span><span class='content'>Uninitialized Boolean</span></figcaption><!-- tex4ht:label?: x1-4001r1  -->
    
 </div>
@@ -114,7 +114,7 @@ default initialization and obtains a random value from previously-freed memory.
 <!-- l. 68 -->
 <p><a id='x1-4005r6'></a></p>
 <p><a id='x1-4006'></a></p>   
-<div id='listing-6' class='lstlisting'><span class='label'><a id='x1-4007r1'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;climits&gt; </span><br /><span class='label'><a id='x1-4008r2'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;iostream&gt; </span><br /><span class='label'><a id='x1-4009r3'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;memory&gt; </span><br /><span class='label'><a id='x1-4010r4'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;random&gt; </span><br /><span class='label'><a id='x1-4011r5'></a></span><span class='ec-lmtt-9'>using namespace std; </span><br /><span class='label'><a id='x1-4012r6'></a></span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> main() </span><br /><span class='label'><a id='x1-4013r7'></a></span><span class='ec-lmtt-9'>{ </span><br /><span class='label'><a id='x1-4014r8'></a></span><span class='ec-lmtt-9'>        random_device rd; </span><br /><span class='label'><a id='x1-4015r9'></a></span><span class='ec-lmtt-9'>        mt19937 gen(rd()); </span><br /><span class='label'><a id='x1-4016r10'></a></span><span class='ec-lmtt-9'>        uniform_int_distribution&lt;&gt; distrib(INT_MIN, INT_MAX); </span><br /><span class='label'><a id='x1-4017r11'></a></span><span class='ec-lmtt-9'>        vector&lt;</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'>*&gt; deleteLater; </span><br /><span class='label'><a id='x1-4018r12'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>for</span><span class='ec-lmtt-9'> (</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> i = 0; i &lt; 100; i++) </span><br /><span class='label'><a id='x1-4019r13'></a></span><span class='ec-lmtt-9'>        { </span><br /><span class='label'><a id='x1-4020r14'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> *deleteMe = new </span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'>; </span><br /><span class='label'><a id='x1-4021r15'></a></span><span class='ec-lmtt-9'>               *deleteMe = distrib(gen); </span><br /><span class='label'><a id='x1-4022r16'></a></span><span class='ec-lmtti-10x-x-90'>               //delete some memory now</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4023r17'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*deleteMe &gt; 0) </span><br /><span class='label'><a id='x1-4024r18'></a></span><span class='ec-lmtt-9'>                       delete deleteMe; </span><br /><span class='label'><a id='x1-4025r19'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>else</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4026r20'></a></span><span class='ec-lmtt-9'>                       deleteLater.push_back(deleteMe); </span><br /><span class='label'><a id='x1-4027r21'></a></span><span class='ec-lmtt-9'>        } </span><br /><span class='label'><a id='x1-4028r22'></a></span><span class='ec-lmtt-9'>        shared_ptr&lt;bool&gt; newBool(new bool); </span><br /><span class='label'><a id='x1-4029r23'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "Value:␣" &lt;&lt; *newBool &lt;&lt; endl; </span><br /><span class='label'><a id='x1-4030r24'></a></span><span class='ec-lmtti-10x-x-90'>        //delete some memory later</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4031r25'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>for</span><span class='ec-lmtt-9'> (</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> *n : deleteLater) </span><br /><span class='label'><a id='x1-4032r26'></a></span><span class='ec-lmtt-9'>               delete n; </span><br /><span class='label'><a id='x1-4033r27'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>return</span><span class='ec-lmtt-9'> 0; </span><br /><span class='label'><a id='x1-4034r28'></a></span><span class='ec-lmtt-9'>}</span>
+<div id='listing-6' class='lstlisting'><span class='label'><a id='x1-4007r1'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;climits&gt; </span><br /><span class='label'><a id='x1-4008r2'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;iostream&gt; </span><br /><span class='label'><a id='x1-4009r3'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;memory&gt; </span><br /><span class='label'><a id='x1-4010r4'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;random&gt; </span><br /><span class='label'><a id='x1-4011r5'></a></span><span class='ec-lmtt-9'>using namespace std; </span><br /><span class='label'><a id='x1-4012r6'></a></span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> main() </span><br /><span class='label'><a id='x1-4013r7'></a></span><span class='ec-lmtt-9'>{ </span><br /><span class='label'><a id='x1-4014r8'></a></span><span class='ec-lmtt-9'>        random_device rd; </span><br /><span class='label'><a id='x1-4015r9'></a></span><span class='ec-lmtt-9'>        mt19937 gen(rd()); </span><br /><span class='label'><a id='x1-4016r10'></a></span><span class='ec-lmtt-9'>        uniform_int_distribution&lt;&gt; distrib(INT_MIN, INT_MAX); </span><br /><span class='label'><a id='x1-4017r11'></a></span><span class='ec-lmtt-9'>        vector&lt;</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'>*&gt; deleteLater; </span><br /><span class='label'><a id='x1-4018r12'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>for</span><span class='ec-lmtt-9'> (</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> i = 0; i &lt; 100; i++) </span><br /><span class='label'><a id='x1-4019r13'></a></span><span class='ec-lmtt-9'>        { </span><br /><span class='label'><a id='x1-4020r14'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> *deleteMe = new </span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'>; </span><br /><span class='label'><a id='x1-4021r15'></a></span><span class='ec-lmtt-9'>               *deleteMe = distrib(gen); </span><br /><span class='label'><a id='x1-4022r16'></a></span><span class='ec-lmtti-10x-x-90'>               //delete some memory now</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4023r17'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*deleteMe &gt; 0) </span><br /><span class='label'><a id='x1-4024r18'></a></span><span class='ec-lmtt-9'>                       delete deleteMe; </span><br /><span class='label'><a id='x1-4025r19'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>else</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4026r20'></a></span><span class='ec-lmtt-9'>                       deleteLater.push_back(deleteMe); </span><br /><span class='label'><a id='x1-4027r21'></a></span><span class='ec-lmtt-9'>        } </span><br /><span class='label'><a id='x1-4028r22'></a></span><span class='ec-lmtt-9'>        shared_ptr&lt;bool&gt; newBool(new bool); </span><br /><span class='label'><a id='x1-4029r23'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "Value: " &lt;&lt; *newBool &lt;&lt; endl; </span><br /><span class='label'><a id='x1-4030r24'></a></span><span class='ec-lmtti-10x-x-90'>        //delete some memory later</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4031r25'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>for</span><span class='ec-lmtt-9'> (</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> *n : deleteLater) </span><br /><span class='label'><a id='x1-4032r26'></a></span><span class='ec-lmtt-9'>               delete n; </span><br /><span class='label'><a id='x1-4033r27'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>return</span><span class='ec-lmtt-9'> 0; </span><br /><span class='label'><a id='x1-4034r28'></a></span><span class='ec-lmtt-9'>}</span>
 <figcaption class='caption'><span class='id'>Listing 6:</span><span class='content'>Uninitialized Boolean</span></figcaption><!-- tex4ht:label?: x1-4005r1  -->
    
 </div>
@@ -155,19 +155,19 @@ complexity, consistency should be preferred.
                                                                                          
 </p>   
 <h3 class='sectionHead'><a id='x1-80001.6'></a>References</h3>
-<!-- l. 45 --><p class='noindent'>    
+<!-- l. 49 --><p class='noindent'>    
 </p>
-<dl class='thebibliography'><dt id='X0-swatips' class='thebibliography'>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-swatips'>
 [1]  
-</dt><dd id='bib-1' class='thebibliography'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a href='https://www.SwATips.com/' class='url'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+</dt><dd class='thebibliography' id='bib-1'>
+<!-- l. 49 --><p class='noindent'><a id='page.7'></a><a id='X0-' href='article.html'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt id='X0-20210412-stroustrup2001' class='thebibliography'>
+<dt class='thebibliography' id='X0-20210412-stroustrup2001'>
 [2]  
-</dt><dd id='bib-2' class='thebibliography'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@20210412-stroustrup2001'></a>Bjarne    Stroustrup.    “Exception    Safety:    Concepts    and    Techniques”.    In:    (2001).    <span class='small-caps'>url</span>:
-<a href='https://www.stroustrup.com/except.pdf' class='url'><span class='ec-lmtt-10'>https://www.stroustrup.com/except.pdf</span></a>.</p></dd></dl>
+</dt><dd class='thebibliography' id='bib-2'>
+<!-- l. 49 --><p class='noindent'>Bjarne    Stroustrup.    “Exception    Safety:    Concepts    and    Techniques”.    In:    (2001).    <span class='small-caps'>url</span>:
+<a class='url' href='https://www.stroustrup.com/except.pdf'><span class='ec-lmtt-10'>https://www.stroustrup.com/except.pdf</span></a>.</p></dd></dl>
  
 </body> 
 </html>

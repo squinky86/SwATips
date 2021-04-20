@@ -1,0 +1,5 @@
+\def \AuthorName{Andrew Perry}
+\def \ArticleName{Heap Inspection}
+\newcommand{\ArticleDate}{\formatdate{19}{4}{2021}}
+\addbibresource{20210419.bib}
+\lstset{language=[Sharp]C}

@@ -1,4 +1,177 @@
 	<item>
+		<title>Heap Inspection</title>
+		<link>https://www.SwATips.com/articles/20210419.html</link>
+		<pubDate>Mon, 19 Apr 2021 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p>Return to <a href="/">SwATips</a> | <a href="articles/20210419.pdf">pdf</a></p>
+
+
+<div class="maketitle">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a id="page.3"/><a href="article.html#X0-swatips">2</a>]<br/>
+Generated Tuesday 20<sup class="textsuperscript">th</sup> April, 2021</h2>
+<div class="author"><span class="rm-lmr-12">Andrew Perry</span></div><br/>
+<div class="date"><span class="rm-lmr-12">Monday 19</span><sup class="textsuperscript"><span class="rm-lmr-9">th</span></sup><span class="rm-lmr-12"> April, 2021</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001"/>Heap Inspection</h3>
+
+
+<!-- l. 1 -->
+<p class="noindent">One of the first findings that I found when I began validating software assurance scans and something that intrigued
+me to learn more about was <i>Heap Inspections</i>.[<a id="page.4"/><a href="article.html#X0-20210419-cwe-244">1</a>] In order to know how to resolve this issue, there are some things to
+understand about how heap is used in RAM in order to see how this vulnerability plays out and ways to fix
+it.
+</p>
+<!-- l. 3 -->
+<p class="noindent">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1"/>What is Heap?</h4>
+
+
+<!-- l. 5 -->
+<p class="noindent">When we declare a variable in an application, it allocates some memory in RAM. A stack is an array of memory
+that stores variables and implements a block allocation that is reserved in a LIFO (Last in, First out). When data
+are written, the stack trends downwards towards the heap. The heap is a location in memory that a program can
+use to store data in some various amount that may not be known until the program is running. Heap trends
+upwards when data is passed whereas a stack trends in a downward direction. When creating an object string that
+points to the stack memory, its value is stored in the heap. Heap is different than stack in that it is dynamically
+stored in memory which means that it can be stored and removed in any order. If the heap has data that has
+a fixed length memory block, it will overwrite expired or free values that were originally stored.[<a href="article.html#X0-20210419-guru99">5</a>,
+<a href="article.html#X0-20210419-indika">3</a>]
+</p>
+<!-- l. 7 -->
+<p class="noindent">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a id="x1-30001.2"/>What is Heap Inspection?</h4>
+
+
+<!-- l. 9 -->
+<p class="noindent">In the case of a Heap Inspection, when information is stored in machine memory that is unencrypted and is using a
+<span class="ec-lmtt-10">realloc() </span>function to increase the size of the block of allocated memory, an attacker can perform a memory dump
+that could compromise the system. This can cause all kinds of problems such as crash the program, but it can also
+expose sensitive information because it is not removed from memory properly. There are some ways to help mitigate
+this issue in C# or .NET applications.
+</p>
+<!-- l. 11 -->
+<p class="noindent">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a id="x1-40001.3"/>Heap Inspection Prevention</h4>
+
+
+<!-- l. 13 -->
+<p class="noindent">Using the <span class="ec-lmtt-10">String </span>object should not be used if the information contains sensitive information such as a password,
+credit card number, etc. It is important to not allow plain text passwords; hash them with a crytographically secure
+hasing algorithm. An important note is to invoke a Disposable method to use as a garbage collector to
+free computer memory when an object is no longer needed. One of the ways you can avoid a heap
+inspection and to protect sensitive data is by using a <span class="ec-lmtt-10">SecureString</span>. Consider the code in Figure <a href="#x1-4001r1">1<!-- tex4ht:ref: fig:20210419:1  --></a>.[<a href="article.html#X0-20210419-codeproject">6</a>,
+<a href="article.html#X0-20210419-swain">4</a>]
+</p>
+   
+
+<!-- l. 15 -->
+
+
+<p><a id="x1-4001r1"/></p>
+
+
+<p><a id="x1-4002"/></p>
+   
+
+<div class="lstlisting" id="listing-1"><span class="label"><a id="x1-4003r1"/></span><span class="ec-lmtt-9">SecureString securePwd = </span><span class="ec-lmtk-10x-x-90">new</span><span class="ec-lmtt-9"> SecureString(); </span><br/><span class="label"><a id="x1-4004r2"/></span><span class="ec-lmtt-9">ConsoleKeyInfo key; </span><br/><span class="label"><a id="x1-4005r3"/></span><span class="ec-lmtt-9">Console.Write("Enter password: "); </span><br/><span class="label"><a id="x1-4006r4"/></span><span class="ec-lmtk-10x-x-90">do</span><span class="ec-lmtt-9"> { </span><br/><span class="label"><a id="x1-4007r5"/></span><span class="ec-lmtt-9">        key = Console.ReadKey(</span><span class="ec-lmtk-10x-x-90">true</span><span class="ec-lmtt-9">);…</span>
+<figcaption class="caption"><span class="id">Listing 1:</span><span class="content">SecureString Example</span></figcaption><!-- tex4ht:label?: x1-4001r1  -->
+   
+</div>
+
+                                                                                         
+                                                                                         
+
+<!-- l. 24 -->
+<p class="noindent">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.4   </span> <a id="x1-50001.4"/>Conclusion</h4>
+
+
+<!-- l. 26 -->
+<p class="noindent">In conclusion, avoiding this issue can be a challenge, if not impossible. However, it’s important that if this finding
+has been found in a static analysis scan, it should not be marked as a false positive, particularly if the code
+could ever be placed in a shared environment. Doing so may allow the code to go unnoticed while
+it continues to have unintended results and could allow sensitive information to be obtained by an
+adversary.
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead"><a id="x1-60001.4"/>References</h3>
+
+
+<!-- l. 49 -->
+<p class="noindent">    
+</p>
+
+
+<dl class="thebibliography"><dt class="thebibliography" id="X0-20210419-cwe-244">
+[1]  
+</dt><dd class="thebibliography" id="bib-1">
+<!-- l. 49 --><p class="noindent"><a id="page.6"/><a href="article.html" id="X0-"/>CWE  Content  Team.  “CWE-244:  Improper  Clearing  of  Heap  Memory  Before  Release  (’Heap
+Inspection’)”. In: (2020). <span class="small-caps">url</span>: <a class="url" href="https://cwe.mitre.org/data/definitions/244.html"><span class="ec-lmtt-10">https://cwe.mitre.org/data/definitions/244.html</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-swatips">
+[2]  
+</dt><dd class="thebibliography" id="bib-2">
+<!-- l. 49 --><p class="noindent">Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a class="url" href="https://www.SwATips.com/"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20210419-indika">
+[3]  
+</dt><dd class="thebibliography" id="bib-3">
+<!-- l. 49 --><p class="noindent">Indika.        “Difference        Between        Stack        and        Heap”.        In:        (2011).        <span class="small-caps">url</span>:
+<a class="url" href="https://www.differencebetween.com/difference-between-stack-and-vs-heap/"><span class="ec-lmtt-10">https://www.differencebetween.com/difference-between-stack-and-vs-heap/</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20210419-swain">
+[4]  
+</dt><dd class="thebibliography" id="bib-4">
+<!-- l. 49 --><p class="noindent">Chittaranjan Swain. “How to fix heap inspection vulnerability in c#”. In: (2019). <span class="small-caps">url</span>: <a class="url" href="https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp"><span class="ec-lmtt-10">https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20210419-guru99">
+[5]  
+</dt><dd class="thebibliography" id="bib-5">
+<!-- l. 49 --><p class="noindent">Unknown.       “Stack       vs       Heap:       Know       the       Difference”.       In:       ().       <span class="small-caps">url</span>:
+<a class="url" href="https://www.guru99.com/stack-vs-heap.html"><span class="ec-lmtt-10">https://www.guru99.com/stack-vs-heap.html</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20210419-codeproject">
+[6]  
+</dt><dd class="thebibliography" id="bib-6">
+<!-- l. 49 --><p class="noindent">Unknown. “To Avoid Heap Inspection”. In: (2015). <span class="small-caps">url</span>: <a class="url" href="https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste"><span class="ec-lmtt-10">https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Sticking with a RAII Standard</title>
 		<link>https://www.SwATips.com/articles/20210412.html</link>
 		<pubDate>Mon, 12 Apr 2021 00:00:00 -0500</pubDate>
@@ -14,8 +187,8 @@
                                                                                          
 
 <h2 class="titleHead"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a href="#cite.0@swatips">1</a>]<br/>
-Generated Monday 12<sup class="textsuperscript">th</sup> April, 2021</h2>
+A product of the Software Assurance Tips Team[<a id="page.3"/><a href="article.html#X0-swatips">1</a>]<br/>
+Generated Tuesday 20<sup class="textsuperscript">th</sup> April, 2021</h2>
 <div class="author"><span class="rm-lmr-12">Jon Hood</span></div><br/>
 <div class="date"><span class="rm-lmr-12">Monday 12</span><sup class="textsuperscript"><span class="rm-lmr-9">th</span></sup><span class="rm-lmr-12"> April, 2021</span></div>
 </div>
@@ -40,7 +213,7 @@ themselves in the foot.
 </p>
 <!-- l. 5 -->
 <p class="indent">   One of the best ways to prevent memory errors is to use RAII. Particularly in exception-based code, RAII
-concepts provide a memory-safe technique for resource management.[<a href="#cite.0@20210412-stroustrup2001">2</a>] Several issues face developers when
+concepts provide a memory-safe technique for resource management.[<a id="page.4"/><a href="article.html#X0-20210412-stroustrup2001">2</a>] Several issues face developers when
 maintaining legacy code with new programming concepts, particularly in the DoD. Legacy code is
 generally void of RAII concepts and has not been built with the latest standards of safe programming
 practices.
@@ -68,7 +241,7 @@ smart pointers can help make the code more maintainable.
 <p><a id="x1-2002"/></p>
    
 
-<div id="listing-1" class="lstlisting"><span class="label"><a id="x1-2003r1"/></span><span class="ec-lmtt-9">bool *newBool = new bool(); </span><br/><span class="label"><a id="x1-2004r2"/></span><span class="ec-lmtk-10x-x-90">if</span><span class="ec-lmtt-9"> (*newBool) </span><br/><span class="label"><a id="x1-2005r3"/></span><span class="ec-lmtt-9">        cout &lt;&lt; "We’re␣true!" &lt;&lt; endl; </span><br/><span class="label"><a id="x1-2006r4"/></span><span class="ec-lmtk-10x-x-90">else</span><span class="ec-lmtt-9"> </span><br/><span class="label"><a id="x1-2007r5"/></span><span class="ec-lmtt-9">        cout &lt;&lt; "We’re␣false!" &lt;&lt; endl; </span><br/><span class="label"><a id="x1-2008r6"/></span><span class="ec-lmtt-9">delete newBool;</span>
+<div id="listing-1" class="lstlisting"><span class="label"><a id="x1-2003r1"/></span><span class="ec-lmtt-9">bool *newBool = new bool(); </span><br/><span class="label"><a id="x1-2004r2"/></span><span class="ec-lmtk-10x-x-90">if</span><span class="ec-lmtt-9"> (*newBool) </span><br/><span class="label"><a id="x1-2005r3"/></span><span class="ec-lmtt-9">        cout &lt;&lt; "We</span><span class="ts1-lmtt9-">'</span><span class="ec-lmtt-9">re␣true!"␣&lt;&lt;␣endl; </span><br/><span class="label"><a id="x1-2006r4"/></span><span class="ec-lmtt-9">else </span><br/><span class="label"><a id="x1-2007r5"/></span><span class="ec-lmtt-9">␣␣␣␣␣␣␣␣cout␣&lt;&lt;␣"We</span><span class="ts1-lmtt9-">'</span><span class="ec-lmtt-9">re false!" &lt;&lt; endl; </span><br/><span class="label"><a id="x1-2008r6"/></span><span class="ec-lmtt-9">delete newBool;</span>
 <figcaption class="caption"><span class="id">Listing 1:</span><span class="content">Non-compliant listing</span></figcaption><!-- tex4ht:label?: x1-2001r1  -->
    
 </div>
@@ -83,7 +256,7 @@ smart pointers can help make the code more maintainable.
 <p><a id="x1-2010"/></p>
    
 
-<div id="listing-2" class="lstlisting"><span class="label"><a id="x1-2011r1"/></span><span class="ec-lmtk-10x-x-90">auto</span><span class="ec-lmtt-9"> newBool = make_shared&lt;bool&gt;(); </span><br/><span class="label"><a id="x1-2012r2"/></span><span class="ec-lmtti-10x-x-90">//Another way: shared_ptr&lt;bool&gt; newBool(new bool());</span><span class="ec-lmtt-9"> </span><br/><span class="label"><a id="x1-2013r3"/></span><span class="ec-lmtk-10x-x-90">if</span><span class="ec-lmtt-9"> (*newBool) </span><br/><span class="label"><a id="x1-2014r4"/></span><span class="ec-lmtt-9">        cout &lt;&lt; "We’re␣true!" &lt;&lt; endl; </span><br/><span class="label"><a id="x1-2015r5"/></span><span class="ec-lmtk-10x-x-90">else</span><span class="ec-lmtt-9"> </span><br/><span class="label"><a id="x1-2016r6"/></span><span class="ec-lmtt-9">        cout &lt;&lt; "We’re␣false!" &lt;&lt; endl;</span>
+<div id="listing-2" class="lstlisting"><span class="label"><a id="x1-2011r1"/></span><span class="ec-lmtk-10x-x-90">auto</span><span class="ec-lmtt-9"> newBool = make_shared&lt;bool&gt;(); </span><br/><span class="label"><a id="x1-2012r2"/></span><span class="ec-lmtti-10x-x-90">//Another way: shared_ptr&lt;bool&gt; newBool(new bool());</span><span class="ec-lmtt-9"> </span><br/><span class="label"><a id="x1-2013r3"/></span><span class="ec-lmtk-10x-x-90">if</span><span class="ec-lmtt-9"> (*newBool) </span><br/><span class="label"><a id="x1-2014r4"/></span><span class="ec-lmtt-9">        cout &lt;&lt; "We</span><span class="ts1-lmtt9-">'</span><span class="ec-lmtt-9">re␣true!"␣&lt;&lt;␣endl; </span><br/><span class="label"><a id="x1-2015r5"/></span><span class="ec-lmtt-9">else </span><br/><span class="label"><a id="x1-2016r6"/></span><span class="ec-lmtt-9">␣␣␣␣␣␣␣␣cout␣&lt;&lt;␣"We</span><span class="ts1-lmtt9-">'</span><span class="ec-lmtt-9">re false!" &lt;&lt; endl;</span>
 <figcaption class="caption"><span class="id">Listing 2:</span><span class="content">RAII-compliant listing</span></figcaption><!-- tex4ht:label?: x1-2009r1  -->
    
 </div>
@@ -182,7 +355,7 @@ it’s tempting for a developer to use shortcuts and do something like the follo
 <p><a id="x1-4002"/></p>
    
 
-<div id="listing-5" class="lstlisting"><span class="label"><a id="x1-4003r1"/></span><span class="ec-lmtt-9">shared_ptr&lt;bool&gt; test1 (new bool); </span><br/><span class="label"><a id="x1-4004r2"/></span><span class="ec-lmtt-9">cout &lt;&lt; "Test1␣is:␣" &lt;&lt; *test1 &lt;&lt; endl;</span>
+<div id="listing-5" class="lstlisting"><span class="label"><a id="x1-4003r1"/></span><span class="ec-lmtt-9">shared_ptr&lt;bool&gt; test1 (new bool); </span><br/><span class="label"><a id="x1-4004r2"/></span><span class="ec-lmtt-9">cout &lt;&lt; "Test1 is: " &lt;&lt; *test1 &lt;&lt; endl;</span>
 <figcaption class="caption"><span class="id">Listing 5:</span><span class="content">Uninitialized Boolean</span></figcaption><!-- tex4ht:label?: x1-4001r1  -->
    
 </div>
@@ -203,7 +376,7 @@ default initialization and obtains a random value from previously-freed memory.
 <p><a id="x1-4006"/></p>
    
 
-<div id="listing-6" class="lstlisting"><span class="label"><a id="x1-4007r1"/></span><span class="ec-lmtk-10x-x-90">#include</span><span class="ec-lmtt-9"> &lt;climits&gt; </span><br/><span class="label"><a id="x1-4008r2"/></span><span class="ec-lmtk-10x-x-90">#include</span><span class="ec-lmtt-9"> &lt;iostream&gt; </span><br/><span class="label"><a id="x1-4009r3"/></span><span class="ec-lmtk-10x-x-90">#include</span><span class="ec-lmtt-9"> &lt;memory&gt; </span><br/><span class="label"><a id="x1-4010r4"/></span><span class="ec-lmtk-10x-x-90">#include</span><span class="ec-lmtt-9"> &lt;random&gt; </span><br/><span class="label"><a id="x1-4011r5"/></span><span class="ec-lmtt-9">using namespace std; </span><br/><span class="label"><a id="x1-4012r6"/></span><span class="ec-lmtk-10x-x-90">int</span><span class="ec-lmtt-9"> main() </span><br/><span class="label"><a id="x1-4013r7"/></span><span class="ec-lmtt-9">{ </span><br/><span class="label"><a id="x1-4014r8"/></span><span class="ec-lmtt-9">        random_device rd; </span><br/><span class="label"><a id="x1-4015r9"/></span><span class="ec-lmtt-9">        mt19937 gen(rd()); </span><br/><span class="label"><a id="x1-4016r10"/></span><span class="ec-lmtt-9">        uniform_int_distribution&lt;&gt; distrib(INT_MIN, INT_MAX); </span><br/><span class="label"><a id="x1-4017r11"/></span><span class="ec-lmtt-9">        vector&lt;</span><span class="ec-lmtk-10x-x-90">int</span><span class="ec-lmtt-9">*&gt; deleteLater; </span><br/><span class="label"><a id="x1-4018r12"/></span><span class="ec-lmtt-9">        </span><span class="ec-lmtk-10x-x-90">for</span><span class="ec-lmtt-9"> (</span><span class="ec-lmtk-10x-x-90">int</span><span class="ec-lmtt-9"> i = 0; i &lt; 100; i++) </span><br/><span class="label"><a id="x1-4019r13"/></span><span class="ec-lmtt-9">        { </span><br/><span class="label"><a id="x1-4020r14"/></span><span class="ec-lmtt-9">               </span><span class="ec-lmtk-10x-x-90">int</span><span class="ec-lmtt-9"> *deleteMe = new </span><span class="ec-lmtk-10x-x-90">int</span><span class="ec-lmtt-9">; </span><br/><span class="label"><a id="x1-4021r15"/></span><span class="ec-lmtt-9">               *deleteMe = distrib(gen); </span><br/><span class="label"><a id="x1-4022r16"/></span><span class="ec-lmtti-10x-x-90">               //delete some memory now</span><span class="ec-lmtt-9"> </span><br/><span class="label"><a id="x1-4023r17"/></span><span class="ec-lmtt-9">               </span><span class="ec-lmtk-10x-x-90">if</span><span class="ec-lmtt-9"> (*deleteMe &gt; 0) </span><br/><span class="label"><a id="x1-4024r18"/></span><span class="ec-lmtt-9">                       delete deleteMe; </span><br/><span class="label"><a id="x1-4025r19"/></span><span class="ec-lmtt-9">               </span><span class="ec-lmtk-10x-x-90">else</span><span class="ec-lmtt-9"> </span><br/><span class="label"><a id="x1-4026r20"/></span><span class="ec-lmtt-9">                       deleteLater.push_back(deleteMe); </span><br/><span class="label"><a id="x1-4027r21"/></span><span class="ec-lmtt-9">        } </span><br/><span class="label"><a id="x1-4028r22"/></span><span class="ec-lmtt-9">        shared_ptr&lt;bool&gt; newBool(new bool); </span><br/><span class="label"><a id="x1-4029r23"/></span><span class="ec-lmtt-9">        cout &lt;&lt; "Value:␣" &lt;&lt; *newBool &lt;&lt; endl; </span><br/><span class="label"><a id="x1-4030r24"/></span><span class="ec-lmtti-10x-x-90">        //delete some memory later</span><span class="ec-lmtt-9"> </span><br/><span class="label"><a id="x1-4031r25"/></span><span class="ec-lmtt-9">        </span><span class="ec-lmtk-10x-x-90">for</span><span class="ec-lmtt-9"> (</span><span class="ec-lmtk-10x-x-90">int</span><span class="ec-lmtt-9"> *n : deleteLater) </span><br/><span class="label"><a id="x1-4032r26"/></span><span class="ec-lmtt-9">               delete n; </span><br/><span class="label"><a id="x1-4033r27"/></span><span class="ec-lmtt-9">        </span><span class="ec-lmtk-10x-x-90">return</span><span class="ec-lmtt-9"> 0; </span><br/><span class="label"><a id="x1-4034r28"/></span><span class="ec-lmtt-9">}</span>
+<div id="listing-6" class="lstlisting"><span class="label"><a id="x1-4007r1"/></span><span class="ec-lmtk-10x-x-90">#include</span><span class="ec-lmtt-9"> &lt;climits&gt; </span><br/><span class="label"><a id="x1-4008r2"/></span><span class="ec-lmtk-10x-x-90">#include</span><span class="ec-lmtt-9"> &lt;iostream&gt; </span><br/><span class="label"><a id="x1-4009r3"/></span><span class="ec-lmtk-10x-x-90">#include</span><span class="ec-lmtt-9"> &lt;memory&gt; </span><br/><span class="label"><a id="x1-4010r4"/></span><span class="ec-lmtk-10x-x-90">#include</span><span class="ec-lmtt-9"> &lt;random&gt; </span><br/><span class="label"><a id="x1-4011r5"/></span><span class="ec-lmtt-9">using namespace std; </span><br/><span class="label"><a id="x1-4012r6"/></span><span class="ec-lmtk-10x-x-90">int</span><span class="ec-lmtt-9"> main() </span><br/><span class="label"><a id="x1-4013r7"/></span><span class="ec-lmtt-9">{ </span><br/><span class="label"><a id="x1-4014r8"/></span><span class="ec-lmtt-9">        random_device rd; </span><br/><span class="label"><a id="x1-4015r9"/></span><span class="ec-lmtt-9">        mt19937 gen(rd()); </span><br/><span class="label"><a id="x1-4016r10"/></span><span class="ec-lmtt-9">        uniform_int_distribution&lt;&gt; distrib(INT_MIN, INT_MAX); </span><br/><span class="label"><a id="x1-4017r11"/></span><span class="ec-lmtt-9">        vector&lt;</span><span class="ec-lmtk-10x-x-90">int</span><span class="ec-lmtt-9">*&gt; deleteLater; </span><br/><span class="label"><a id="x1-4018r12"/></span><span class="ec-lmtt-9">        </span><span class="ec-lmtk-10x-x-90">for</span><span class="ec-lmtt-9"> (</span><span class="ec-lmtk-10x-x-90">int</span><span class="ec-lmtt-9"> i = 0; i &lt; 100; i++) </span><br/><span class="label"><a id="x1-4019r13"/></span><span class="ec-lmtt-9">        { </span><br/><span class="label"><a id="x1-4020r14"/></span><span class="ec-lmtt-9">               </span><span class="ec-lmtk-10x-x-90">int</span><span class="ec-lmtt-9"> *deleteMe = new </span><span class="ec-lmtk-10x-x-90">int</span><span class="ec-lmtt-9">; </span><br/><span class="label"><a id="x1-4021r15"/></span><span class="ec-lmtt-9">               *deleteMe = distrib(gen); </span><br/><span class="label"><a id="x1-4022r16"/></span><span class="ec-lmtti-10x-x-90">               //delete some memory now</span><span class="ec-lmtt-9"> </span><br/><span class="label"><a id="x1-4023r17"/></span><span class="ec-lmtt-9">               </span><span class="ec-lmtk-10x-x-90">if</span><span class="ec-lmtt-9"> (*deleteMe &gt; 0) </span><br/><span class="label"><a id="x1-4024r18"/></span><span class="ec-lmtt-9">                       delete deleteMe; </span><br/><span class="label"><a id="x1-4025r19"/></span><span class="ec-lmtt-9">               </span><span class="ec-lmtk-10x-x-90">else</span><span class="ec-lmtt-9"> </span><br/><span class="label"><a id="x1-4026r20"/></span><span class="ec-lmtt-9">                       deleteLater.push_back(deleteMe); </span><br/><span class="label"><a id="x1-4027r21"/></span><span class="ec-lmtt-9">        } </span><br/><span class="label"><a id="x1-4028r22"/></span><span class="ec-lmtt-9">        shared_ptr&lt;bool&gt; newBool(new bool); </span><br/><span class="label"><a id="x1-4029r23"/></span><span class="ec-lmtt-9">        cout &lt;&lt; "Value: " &lt;&lt; *newBool &lt;&lt; endl; </span><br/><span class="label"><a id="x1-4030r24"/></span><span class="ec-lmtti-10x-x-90">        //delete some memory later</span><span class="ec-lmtt-9"> </span><br/><span class="label"><a id="x1-4031r25"/></span><span class="ec-lmtt-9">        </span><span class="ec-lmtk-10x-x-90">for</span><span class="ec-lmtt-9"> (</span><span class="ec-lmtk-10x-x-90">int</span><span class="ec-lmtt-9"> *n : deleteLater) </span><br/><span class="label"><a id="x1-4032r26"/></span><span class="ec-lmtt-9">               delete n; </span><br/><span class="label"><a id="x1-4033r27"/></span><span class="ec-lmtt-9">        </span><span class="ec-lmtk-10x-x-90">return</span><span class="ec-lmtt-9"> 0; </span><br/><span class="label"><a id="x1-4034r28"/></span><span class="ec-lmtt-9">}</span>
 <figcaption class="caption"><span class="id">Listing 6:</span><span class="content">Uninitialized Boolean</span></figcaption><!-- tex4ht:label?: x1-4005r1  -->
    
 </div>
@@ -281,22 +454,22 @@ complexity, consistency should be preferred.
 <h3 class="sectionHead"><a id="x1-80001.6"/>References</h3>
 
 
-<!-- l. 45 -->
+<!-- l. 49 -->
 <p class="noindent">    
 </p>
 
 
-<dl class="thebibliography"><dt id="X0-swatips" class="thebibliography">
+<dl class="thebibliography"><dt class="thebibliography" id="X0-swatips">
 [1]  
-</dt><dd id="bib-1" class="thebibliography">
-<!-- l. 45 --><p class="noindent"><a id="cite.0@swatips"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a href="https://www.SwATips.com/" class="url"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
+</dt><dd class="thebibliography" id="bib-1">
+<!-- l. 49 --><p class="noindent"><a id="page.7"/><a id="X0-" href="article.html"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a class="url" href="https://www.SwATips.com/"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt id="X0-20210412-stroustrup2001" class="thebibliography">
+<dt class="thebibliography" id="X0-20210412-stroustrup2001">
 [2]  
-</dt><dd id="bib-2" class="thebibliography">
-<!-- l. 45 --><p class="noindent"><a id="cite.0@20210412-stroustrup2001"/>Bjarne    Stroustrup.    “Exception    Safety:    Concepts    and    Techniques”.    In:    (2001).    <span class="small-caps">url</span>:
-<a href="https://www.stroustrup.com/except.pdf" class="url"><span class="ec-lmtt-10">https://www.stroustrup.com/except.pdf</span></a>.</p></dd></dl>
+</dt><dd class="thebibliography" id="bib-2">
+<!-- l. 49 --><p class="noindent">Bjarne    Stroustrup.    “Exception    Safety:    Concepts    and    Techniques”.    In:    (2001).    <span class="small-caps">url</span>:
+<a class="url" href="https://www.stroustrup.com/except.pdf"><span class="ec-lmtt-10">https://www.stroustrup.com/except.pdf</span></a>.</p></dd></dl>
 
  
 

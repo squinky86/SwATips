@@ -11,6 +11,7 @@
 \usepackage[breaklinks=true]{hyperref}
 \usepackage{listings}
 \usepackage{noto}
+\usepackage{textcomp}
 
 \addbibresource{sources.bib}
 \input{NUM.pre}
@@ -32,8 +33,11 @@
 }
 
 \lstdefinestyle{CStyle} {language=C}
+\lstdefinestyle{CSharpStyle} {language=[Sharp]C}
 
 \lstset{language=C}
+\lstset{upquote=true}
+\lstset{literate={"}{\textquotedbl}1}
 
 \begin{document}
 \maketitle
