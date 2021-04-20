@@ -10,7 +10,7 @@ In the case of a Heap Inspection, when information is stored in machine memory t
 
 \subsection{Heap Inspection Prevention}
 
-Using the \texttt{String} object should not be used if the information contains sensitive information such as a password, credit card number, etc. It is important to not allow plain text passwords; hash them with a crytographically secure hasing algorithm. An important note is to invoke a Disposable method to use as a garbage collector to free computer memory when an object is no longer needed. One of the ways you can avoid a heap inspection and to protect sensitive data is by using a \texttt{SecureString}. Consider the code in Figure~\ref{fig:20210419:1}.\autocites{20210419-codeproject}{20210419-swain}
+Using the \texttt{String} object should not be used if the information contains sensitive information such as a password, credit card number, etc. It is important to not allow plain text passwords; hash them with a crytographically secure hasing algorithm. An important note is to invoke a Disposable method to use as a garbage collector to free computer memory when an object is no longer needed. One of the ways you can avoid a heap inspection and to protect sensitive data is by using a \texttt{SecureString}. Consider the code in Listing~\ref{fig:20210419:1}.\autocites{20210419-codeproject}{20210419-swain}
 
 \begin{lstlisting}[caption={SecureString Example},captionpos=b,style=CSharpStyle,basicstyle=\small,label={fig:20210419:1}]
 SecureString securePwd = new SecureString();

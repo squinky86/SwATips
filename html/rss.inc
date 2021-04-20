@@ -80,7 +80,7 @@ this issue in C# or .NET applications.
 credit card number, etc. It is important to not allow plain text passwords; hash them with a crytographically secure
 hasing algorithm. An important note is to invoke a Disposable method to use as a garbage collector to
 free computer memory when an object is no longer needed. One of the ways you can avoid a heap
-inspection and to protect sensitive data is by using a <span class="ec-lmtt-10">SecureString</span>. Consider the code in Figure <a href="#x1-4001r1">1<!-- tex4ht:ref: fig:20210419:1  --></a>.[<a href="article.html#X0-20210419-codeproject">6</a>,
+inspection and to protect sensitive data is by using a <span class="ec-lmtt-10">SecureString</span>. Consider the code in Listing <a href="#x1-4001r1">1<!-- tex4ht:ref: fig:20210419:1  --></a>.[<a href="article.html#X0-20210419-codeproject">6</a>,
 <a href="article.html#X0-20210419-swain">4</a>]
 </p>
    
@@ -129,42 +129,42 @@ adversary.
 </p>
 
 
-<dl class="thebibliography"><dt class="thebibliography" id="X0-20210419-cwe-244">
+<dl class="thebibliography"><dt id="X0-20210419-cwe-244" class="thebibliography">
 [1]  
-</dt><dd class="thebibliography" id="bib-1">
-<!-- l. 49 --><p class="noindent"><a id="page.6"/><a href="article.html" id="X0-"/>CWE  Content  Team.  “CWE-244:  Improper  Clearing  of  Heap  Memory  Before  Release  (’Heap
+</dt><dd id="bib-1" class="thebibliography">
+<!-- l. 49 --><p class="noindent"><a id="page.6"/><a id="X0-" href="article.html"/>CWE  Content  Team.  “CWE-244:  Improper  Clearing  of  Heap  Memory  Before  Release  (’Heap
 Inspection’)”. In: (2020). <span class="small-caps">url</span>: <a class="url" href="https://cwe.mitre.org/data/definitions/244.html"><span class="ec-lmtt-10">https://cwe.mitre.org/data/definitions/244.html</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-swatips">
+<dt id="X0-swatips" class="thebibliography">
 [2]  
-</dt><dd class="thebibliography" id="bib-2">
+</dt><dd id="bib-2" class="thebibliography">
 <!-- l. 49 --><p class="noindent">Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a class="url" href="https://www.SwATips.com/"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20210419-indika">
+<dt id="X0-20210419-indika" class="thebibliography">
 [3]  
-</dt><dd class="thebibliography" id="bib-3">
+</dt><dd id="bib-3" class="thebibliography">
 <!-- l. 49 --><p class="noindent">Indika.        “Difference        Between        Stack        and        Heap”.        In:        (2011).        <span class="small-caps">url</span>:
 <a class="url" href="https://www.differencebetween.com/difference-between-stack-and-vs-heap/"><span class="ec-lmtt-10">https://www.differencebetween.com/difference-between-stack-and-vs-heap/</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20210419-swain">
+<dt id="X0-20210419-swain" class="thebibliography">
 [4]  
-</dt><dd class="thebibliography" id="bib-4">
+</dt><dd id="bib-4" class="thebibliography">
 <!-- l. 49 --><p class="noindent">Chittaranjan Swain. “How to fix heap inspection vulnerability in c#”. In: (2019). <span class="small-caps">url</span>: <a class="url" href="https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp"><span class="ec-lmtt-10">https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20210419-guru99">
+<dt id="X0-20210419-guru99" class="thebibliography">
 [5]  
-</dt><dd class="thebibliography" id="bib-5">
+</dt><dd id="bib-5" class="thebibliography">
 <!-- l. 49 --><p class="noindent">Unknown.       “Stack       vs       Heap:       Know       the       Difference”.       In:       ().       <span class="small-caps">url</span>:
 <a class="url" href="https://www.guru99.com/stack-vs-heap.html"><span class="ec-lmtt-10">https://www.guru99.com/stack-vs-heap.html</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20210419-codeproject">
+<dt id="X0-20210419-codeproject" class="thebibliography">
 [6]  
-</dt><dd class="thebibliography" id="bib-6">
+</dt><dd id="bib-6" class="thebibliography">
 <!-- l. 49 --><p class="noindent">Unknown. “To Avoid Heap Inspection”. In: (2015). <span class="small-caps">url</span>: <a class="url" href="https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste"><span class="ec-lmtt-10">https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste</span></a>.</p></dd></dl>
 
  
