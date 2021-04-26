@@ -119,9 +119,6 @@ while [ "$1" != "" ]; do
 	shift
 done
 
-
-
-
 if [ $CLEAN == true ]; then
 	echo -n "Cleaning extraneous files..."
 	if [ -e "build.sh.cache" ]; then
@@ -144,6 +141,12 @@ if [ $PDF == true ]; then
 
 	echo -n "" > html/articles.inc
 	echo -n "" > html/rss.inc
+	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" > html/sitemap.xml
+	echo "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">" >> html/sitemap.xml
+	echo "<url>" >> html/sitemap.xml
+	echo -e "\t<loc>https://www.SwATips.com/</loc>" >> html/sitemap.xml
+	echo -e "\t<lastmod>$(date -Iseconds)</lastmod>" >> html/sitemap.xml
+	echo "</url>" >> html/sitemap.xml
 	for x in tips/*.tex; do
 		TMPDIR=$(mktemp -d)
 		NUM=${x/tips\//}
@@ -178,8 +181,13 @@ if [ $PDF == true ]; then
 		ARTICLES+=( "${ARTICLENAME}" )
 		NUMS+=( "${NUM}" )
 		echo "<li>${NUM} - <a href=\"articles/${NUM}.html\">${ARTICLENAME}</a></li>" >> html/articles.inc
+		echo "<url>" >> html/sitemap.xml
+		echo -e "\t<loc>https://www.SwATips.com/articles/${NUM}.html</loc>" >> html/sitemap.xml
+		echo -e "\t<lastmod>$(date -Iseconds -r tips/${NUM}.tex)</lastmod>" >> html/sitemap.xml
+		echo "</url>" >> html/sitemap.xml
 		rm -rf ${TMPDIR}
 	done
+	echo "</urlset>" >> html/sitemap.xml
 	for ((i=${#ARTICLES[@]} - 1; i >= 0; i--)); do
 		echo "	<item>" >> html/rss.inc
 		echo "		<title>${ARTICLES[$i]}</title>" >> html/rss.inc
