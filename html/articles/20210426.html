@@ -1,0 +1,158 @@
+<!DOCTYPE html> 
+<html lang='en-US' xml:lang='en-US'> 
+<head><title>Polymorphic Catch Performance in C#</title> 
+<meta charset='utf-8' /> 
+<meta content='TeX4ht (https://tug.org/tex4ht/)' name='generator' /> 
+<meta content='width=device-width,initial-scale=1' name='viewport' /> 
+<link type='text/css' rel='stylesheet' href='article.css' /> 
+<meta content='article.tex' name='src' /> 
+</head><body>
+<p>Return to <a href="../">SwATips</a> | <a href="20210426.pdf">pdf</a></p>
+<div class='maketitle'>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
+A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>1</a>]<br />
+Generated Monday 26<sup class='textsuperscript'>th</sup> April, 2021</h2>
+<div class='author'><span class='rm-lmr-12'>Jon Hood</span></div><br />
+<div class='date'><span class='rm-lmr-12'>Monday 26</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> April, 2021</span></div>
+</div>
+                                                                                         
+                                                                                         
+   
+<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Polymorphic Catch Performance in C#</h3>
+<!-- l. 1 --><p class='noindent'>In a recent code review, one of our customers were marked for being sloppy with catch-all exceptions (CWE-396),
+which is sometimes an indicator of poorly designed program flow. To fix this, the developers changed the catch
+blocks to something like the one in Figure <a href='#x1-10051'>1<!-- tex4ht:ref: fig:20170518:exception  --></a>.
+</p>   
+<figure class='figure'> 
+
+                                                                                         
+                                                                                         
+<a id='x1-10051'></a>
+                                                                                         
+                                                                                         
+<!-- l. 4 -->
+<div id='listing-1' class='lstlisting'><span class='label'><a id='x1-1001r1'></a>1</span><span class='ec-lmtk-10'>try</span><span class='ec-lmtt-10'> </span><br /><span class='label'><a id='x1-1002r2'></a>2</span><span class='ec-lmtt-10'>{ DoSomethingWith("C:\\File.txt"); } </span><br /><span class='label'><a id='x1-1003r3'></a>3</span><span class='ec-lmtk-10'>catch</span><span class='ec-lmtt-10'> (Exception e) when (e </span><span class='ec-lmtk-10'>is</span><span class='ec-lmtt-10'> FileNotFoundException) </span><br /><span class='label'><a id='x1-1004r4'></a>4</span><span class='ec-lmtt-10'>{ DoSomethingElse(e); }</span>
+</div>
+<figcaption class='caption'><span class='id'>Figure 1:</span><span class='content'>When-Conditioned Exception</span></figcaption><!-- tex4ht:label?: x1-10051  -->
+                                                                                         
+                                                                                         
+   
+</figure>
+<!-- l. 14 --><p class='indent'>   The intent of a “when” clause in an exception is for situations where the exception may have an error
+code. For example, a SqlException may return different codes that can be used to differentiate their
+catch blocks and clean up a failed state. So how does the code in Figure <a href='#x1-10051'>1<!-- tex4ht:ref: fig:20170518:exception  --></a> differ from the code in
+Figure <a href='#x1-10102'>2<!-- tex4ht:ref: fig:20170518:exception2  --></a>?
+</p>   
+<figure class='figure'> 
+
+                                                                                         
+                                                                                         
+<a id='x1-10102'></a>
+                                                                                         
+                                                                                         
+<!-- l. 17 -->
+<div id='listing-2' class='lstlisting'><span class='label'><a id='x1-1006r1'></a>1</span><span class='ec-lmtk-10'>try</span><span class='ec-lmtt-10'> </span><br /><span class='label'><a id='x1-1007r2'></a>2</span><span class='ec-lmtt-10'>{ DoSomethingWith("C:\\File.txt"); } </span><br /><span class='label'><a id='x1-1008r3'></a>3</span><span class='ec-lmtk-10'>catch</span><span class='ec-lmtt-10'> (FileNotFoundException e) </span><br /><span class='label'><a id='x1-1009r4'></a>4</span><span class='ec-lmtt-10'>{ DoSomethingElse(e); }</span>
+</div>
+<figcaption class='caption'><span class='id'>Figure 2:</span><span class='content'>Classically-Conditioned Exception</span></figcaption><!-- tex4ht:label?: x1-10102  -->
+                                                                                         
+                                                                                         
+   
+</figure>
+<!-- l. 27 --><p class='indent'>   While both blocks of code achieve the same result, the generated code to catch the exception in Figure <a href='#x1-10051'>1<!-- tex4ht:ref: fig:20170518:exception  --></a> has
+twelve times as many instructions to execute. The .NET Intermediate Language (IL) is very different between the
+two implementations. The “when” clause creates what the IL defines as a filter block and instantiates a structure
+similar to a truth stack. This additional structure and the extra operations on it reduce performance and add
+unnecessary bloat to the software. The generated IL can be compared in Figures <a href='#x1-10253'>3<!-- tex4ht:ref: fig:20170518:exceptionil  --></a> and <a href='#x1-10274'>4<!-- tex4ht:ref: fig:20170518:exception2il  --></a>. The IL was created in
+optimized Release mode.
+</p>   
+<figure class='figure'> 
+
+                                                                                         
+                                                                                         
+<a id='x1-10253'></a>
+                                                                                         
+                                                                                         
+<!-- l. 30 -->
+<div id='listing-3' class='lstlisting'><span class='label'><a id='x1-1011r1'></a>1</span><span class='ec-lmtt-10'>filter { </span><br /><span class='label'><a id='x1-1012r2'></a>2</span><span class='ec-lmtt-10'>IL_000d:  isinst [System.Runtime]System.Exception </span><br /><span class='label'><a id='x1-1013r3'></a>3</span><span class='ec-lmtt-10'>IL_0012:  dup </span><br /><span class='label'><a id='x1-1014r4'></a>4</span><span class='ec-lmtt-10'>IL_0013:  brtrue.s IL_0019 </span><br /><span class='label'><a id='x1-1015r5'></a>5</span><span class='ec-lmtt-10'>IL_0015:  pop </span><br /><span class='label'><a id='x1-1016r6'></a>6</span><span class='ec-lmtt-10'>IL_0016:  ldc.i4.0 </span><br /><span class='label'><a id='x1-1017r7'></a>7</span><span class='ec-lmtt-10'>IL_0017:  br.s IL_0024 </span><br /><span class='label'><a id='x1-1018r8'></a>8</span><span class='ec-lmtt-10'>IL_0019:  isinst [System.Runtime]System.IO.FileNotFoundException </span><br /><span class='label'><a id='x1-1019r9'></a>9</span><span class='ec-lmtt-10'>IL_001e:  ldnull </span><br /><span class='label'><a id='x1-1020r10'></a>10</span><span class='ec-lmtt-10'>IL_001f:  cgt.un </span><br /><span class='label'><a id='x1-1021r11'></a>11</span><span class='ec-lmtt-10'>IL_0021:  ldc.i4.0 </span><br /><span class='label'><a id='x1-1022r12'></a>12</span><span class='ec-lmtt-10'>IL_0022:  cgt.un </span><br /><span class='label'><a id='x1-1023r13'></a>13</span><span class='ec-lmtt-10'>IL_0024:  endfilter </span><br /><span class='label'><a id='x1-1024r14'></a>14</span><span class='ec-lmtt-10'>}</span>
+</div>
+<figcaption class='caption'><span class='id'>Figure 3:</span><span class='content'>When-Conditioned Exception IL</span></figcaption><!-- tex4ht:label?: x1-10253  -->
+                                                                                         
+                                                                                         
+   
+</figure>
+<figure class='figure'> 
+
+                                                                                         
+                                                                                         
+<a id='x1-10274'></a>
+                                                                                         
+                                                                                         
+<!-- l. 51 -->
+<div id='listing-4' class='lstlisting'><span class='label'><a id='x1-1026r1'></a></span><span class='ec-lmtk-10'>catch</span><span class='ec-lmtt-10'> </span><span class='ec-lmtk-10'>class</span><span class='ec-lmtt-10'> [mscorlib]System.IO.FileNotFoundException</span>
+</div>
+<figcaption class='caption'><span class='id'>Figure 4:</span><span class='content'>Classically-Conditioned Exception IL</span></figcaption><!-- tex4ht:label?: x1-10274  -->
+                                                                                         
+                                                                                         
+   
+</figure>
+<!-- l. 58 --><p class='indent'>   This leads to another question: what’s the most optimal way to catch several types of exceptions? The most
+optimal way is to catch the general exception, then use polymorphism to operate on it (code in Figure <a href='#x1-10375'>5<!-- tex4ht:ref: fig:20170518:exceptionif  --></a>). The IL
+code adds a single comparison for each conditional in an if statement and avoids the overhead incurred by the when
+clause’s filter block. Note that most scanning tools and style checkers will identify Figure <a href='#x1-10375'>5<!-- tex4ht:ref: fig:20170518:exceptionif  --></a> as a catch
+for the generic exception, but this should be marked as a false positive if the handler appropriately
+determines the failure scenarios for the appropriate exception types. The IL code for Figure <a href='#x1-10375'>5<!-- tex4ht:ref: fig:20170518:exceptionif  --></a> up to the
+first exception type is shown in Figure <a href='#x1-10406'>6<!-- tex4ht:ref: fig:20170518:exceptionifil  --></a>. Please also realize that such minimal performance gains
+should not be interpreted as a reason to violate a consistent standard already established in a code
+base.
+</p>   
+<figure class='figure'> 
+
+                                                                                         
+                                                                                         
+<a id='x1-10375'></a>
+                                                                                         
+                                                                                         
+<!-- l. 61 -->
+<div id='listing-5' class='lstlisting'><span class='label'><a id='x1-1028r1'></a>1</span><span class='ec-lmtk-10'>try</span><span class='ec-lmtt-10'> </span><br /><span class='label'><a id='x1-1029r2'></a>2</span><span class='ec-lmtt-10'>{ DoSomethingWith("C:\\File.txt"); } </span><br /><span class='label'><a id='x1-1030r3'></a>3</span><span class='ec-lmtk-10'>catch</span><span class='ec-lmtt-10'> (Exception e) </span><br /><span class='label'><a id='x1-1031r4'></a>4</span><span class='ec-lmtt-10'>{ </span><br /><span class='label'><a id='x1-1032r5'></a>5</span><span class='ec-lmtt-10'>       </span><span class='ec-lmtk-10'>if</span><span class='ec-lmtt-10'> ((e </span><span class='ec-lmtk-10'>is</span><span class='ec-lmtt-10'> FileNotFoundException) || (e </span><span class='ec-lmtk-10'>is</span><span class='ec-lmtt-10'> SecurityException)) </span><br /><span class='label'><a id='x1-1033r6'></a>6</span><span class='ec-lmtt-10'>               DoSomethingElse(e); </span><br /><span class='label'><a id='x1-1034r7'></a>7</span><span class='ec-lmtt-10'>       </span><span class='ec-lmtk-10'>else</span><span class='ec-lmtt-10'> </span><br /><span class='label'><a id='x1-1035r8'></a>8</span><span class='ec-lmtt-10'>               Log(e); </span><br /><span class='label'><a id='x1-1036r9'></a>9</span><span class='ec-lmtt-10'>}</span>
+</div>
+<figcaption class='caption'><span class='id'>Figure 5:</span><span class='content'>If-Formatted Exception Chain</span></figcaption><!-- tex4ht:label?: x1-10375  -->
+                                                                                         
+                                                                                         
+   
+</figure>
+<figure class='figure'> 
+
+                                                                                         
+                                                                                         
+<a id='x1-10406'></a>
+                                                                                         
+                                                                                         
+<!-- l. 77 -->
+<div id='listing-6' class='lstlisting'><span class='label'><a id='x1-1038r1'></a></span><span class='ec-lmtk-10'>catch</span><span class='ec-lmtt-10'> </span><span class='ec-lmtk-10'>class</span><span class='ec-lmtt-10'> [mscorlib]System.Exception { </span><br /><span class='label'><a id='x1-1039r2'></a></span><span class='ec-lmtt-10'>       IL_000d:  isinst [System.Runtime]System.IO.FileNotFoundException</span>
+</div>
+<figcaption class='caption'><span class='id'>Figure 6:</span><span class='content'>If-Formatted Exception Chain IL</span></figcaption><!-- tex4ht:label?: x1-10406  -->
+                                                                                         
+                                                                                         
+   
+</figure>
+<!-- l. 85 --><p class='indent'>   When performance is a primary concern, developers should include comments that indicate their consideration of
+exceptional cases in generic catch blocks. Validators should watch for these comments to help them mark the generic
+exception catches as false positives.
+                                                                                         
+                                                                                         
+</p>   
+<h3 class='sectionHead'><a id='x1-20001'></a>References</h3>
+<!-- l. 49 --><p class='noindent'>    
+</p>
+<dl class='thebibliography'><dt id='X0-swatips' class='thebibliography'>
+[1]  
+</dt><dd id='bib-1' class='thebibliography'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.</p></dd></dl>
+ 
+</body> 
+</html>

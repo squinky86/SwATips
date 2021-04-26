@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Polymorphic Catch Performance in C\#}
+\newcommand{\ArticleDate}{\formatdate{26}{4}{2021}}
+\lstset{language=[Sharp]C}

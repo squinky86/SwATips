@@ -1,0 +1,85 @@
+In a recent code review, one of our customers were marked for being sloppy with catch-all exceptions (CWE-396), which is sometimes an indicator of poorly designed program flow. To fix this, the developers changed the catch blocks to something like the one in Figure~\ref{fig:20170518:exception}.
+
+\begin{figure}[h]
+\begin{lstlisting}[style=CSharpStyle,numbers=left,stepnumber=1]
+try
+{ DoSomethingWith("C:\\File.txt"); }
+catch (Exception e) when (e is FileNotFoundException)
+{ DoSomethingElse(e); }
+\end{lstlisting}
+\caption{When-Conditioned Exception}
+\label{fig:20170518:exception}
+\end{figure}
+
+The intent of a ``when'' clause in an exception is for situations where the exception may have an error code. For example, a SqlException may return different codes that can be used to differentiate their catch blocks and clean up a failed state. So how does the code in Figure~\ref{fig:20170518:exception} differ from the code in Figure~\ref{fig:20170518:exception2}?
+
+\begin{figure}[h]
+\begin{lstlisting}[style=CSharpStyle,numbers=left,stepnumber=1]
+try
+{ DoSomethingWith("C:\\File.txt"); }
+catch (FileNotFoundException e)
+{ DoSomethingElse(e); }
+\end{lstlisting}
+\caption{Classically-Conditioned Exception}
+\label{fig:20170518:exception2}
+\end{figure}
+
+While both blocks of code achieve the same result, the generated code to catch the exception in Figure~\ref{fig:20170518:exception} has twelve times as many instructions to execute. The .NET Intermediate Language (IL) is very different between the two implementations. The ``when'' clause creates what the IL defines as a filter block and instantiates a structure similar to a truth stack. This additional structure and the extra operations on it reduce performance and add unnecessary bloat to the software. The generated IL can be compared in Figures~\ref{fig:20170518:exceptionil} and~\ref{fig:20170518:exception2il}. The IL was created in optimized Release mode.
+
+\begin{figure}[h]
+\begin{lstlisting}[style=CSharpStyle,numbers=left,stepnumber=1]
+filter {
+IL_000d:  isinst [System.Runtime]System.Exception
+IL_0012:  dup 
+IL_0013:  brtrue.s IL_0019
+IL_0015:  pop 
+IL_0016:  ldc.i4.0 
+IL_0017:  br.s IL_0024
+IL_0019:  isinst [System.Runtime]System.IO.FileNotFoundException
+IL_001e:  ldnull 
+IL_001f:  cgt.un 
+IL_0021:  ldc.i4.0 
+IL_0022:  cgt.un 
+IL_0024:  endfilter 
+}
+\end{lstlisting}
+\caption{When-Conditioned Exception IL}
+\label{fig:20170518:exceptionil}
+\end{figure}
+
+\begin{figure}[h]
+\begin{lstlisting}[style=CSharpStyle]
+catch class [mscorlib]System.IO.FileNotFoundException
+\end{lstlisting}
+\caption{Classically-Conditioned Exception IL}
+\label{fig:20170518:exception2il}
+\end{figure}
+
+This leads to another question: what's the most optimal way to catch several types of exceptions? The most optimal way is to catch the general exception, then use polymorphism to operate on it (code in Figure~\ref{fig:20170518:exceptionif}). The IL code adds a single comparison for each conditional in an if statement and avoids the overhead incurred by the when clause's filter block. Note that most scanning tools and style checkers will identify Figure~\ref{fig:20170518:exceptionif} as a catch for the generic exception, but this should be marked as a false positive if the handler appropriately determines the failure scenarios for the appropriate exception types. The IL code for Figure~\ref{fig:20170518:exceptionif} up to the first exception type is shown in Figure~\ref{fig:20170518:exceptionifil}. Please also realize that such minimal performance gains should not be interpreted as a reason to violate a consistent standard already established in a code base.
+
+\begin{figure}[h]
+\begin{lstlisting}[style=CSharpStyle,numbers=left,stepnumber=1]
+try
+{ DoSomethingWith("C:\\File.txt"); }
+catch (Exception e)
+{
+	if ((e is FileNotFoundException) || (e is SecurityException))
+		DoSomethingElse(e);
+	else
+		Log(e);
+}
+\end{lstlisting}
+\caption{If-Formatted Exception Chain}
+\label{fig:20170518:exceptionif}
+\end{figure}
+
+\begin{figure}[h]
+\begin{lstlisting}[style=CSharpStyle]
+catch class [mscorlib]System.Exception {
+	IL_000d:  isinst [System.Runtime]System.IO.FileNotFoundException
+\end{lstlisting}
+\caption{If-Formatted Exception Chain IL}
+\label{fig:20170518:exceptionifil}
+\end{figure}
+
+When performance is a primary concern, developers should include comments that indicate their consideration of exceptional cases in generic catch blocks. Validators should watch for these comments to help them mark the generic exception catches as false positives.
