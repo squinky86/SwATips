@@ -1,12 +1,12 @@
 <!DOCTYPE html> 
-<html xml:lang='en-US' lang='en-US'> 
+<html lang='en-US' xml:lang='en-US'> 
 <head><title>Heap Inspection</title> 
 <meta charset='utf-8' /> 
-<meta name='generator' content='TeX4ht (http://www.tug.org/tex4ht/)' /> 
+<meta name='generator' content='TeX4ht (https://tug.org/tex4ht/)' /> 
 <meta name='viewport' content='width=device-width,initial-scale=1' /> 
-<link type='text/css' href='article.css' rel='stylesheet' /> 
+<link rel='stylesheet' href='article.css' type='text/css' /> 
 <meta name='src' content='article.tex' /> 
-</head><body>
+<script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script></head><body>
 <p>Return to <a href="../">SwATips</a> | <a href="20210419.pdf">pdf</a></p>
 <div class='maketitle'>
                                                                                          
@@ -15,8 +15,8 @@
                                                                                          
 
 <h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
-A product of the Software Assurance Tips Team[<a id='page.3'></a><a href='article.html#X0-swatips'>2</a>]<br />
-Generated Tuesday 20<sup class='textsuperscript'>th</sup> April, 2021</h2>
+A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>2</a>]<br />
+Generated Wednesday 28<sup class='textsuperscript'>th</sup> April, 2021</h2>
 <div class='author'><span class='rm-lmr-12'>Andrew Perry</span></div><br />
 <div class='date'><span class='rm-lmr-12'>Monday 19</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> April, 2021</span></div>
 </div>
@@ -25,7 +25,7 @@ Generated Tuesday 20<sup class='textsuperscript'>th</sup> April, 2021</h2>
    
 <h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Heap Inspection</h3>
 <!-- l. 1 --><p class='noindent'>One of the first findings that I found when I began validating software assurance scans and something that intrigued
-me to learn more about was <i>Heap Inspections</i>.[<a id='page.4'></a><a href='article.html#X0-20210419-cwe-244'>1</a>] In order to know how to resolve this issue, there are some things to
+me to learn more about was <i>Heap Inspections</i>.[<a href='#cite.0@20210419-cwe-244'>1</a>] In order to know how to resolve this issue, there are some things to
 understand about how heap is used in RAM in order to see how this vulnerability plays out and ways to fix
 it.
 </p><!-- l. 3 --><p class='noindent'>
@@ -38,8 +38,8 @@ use to store data in some various amount that may not be known until the program
 upwards when data is passed whereas a stack trends in a downward direction. When creating an object string that
 points to the stack memory, its value is stored in the heap. Heap is different than stack in that it is dynamically
 stored in memory which means that it can be stored and removed in any order. If the heap has data that has
-a fixed length memory block, it will overwrite expired or free values that were originally stored.[<a href='article.html#X0-20210419-guru99'>5</a>,
-<a href='article.html#X0-20210419-indika'>3</a>]
+a fixed length memory block, it will overwrite expired or free values that were originally stored.[<a href='#cite.0@20210419-guru99'>5</a>,
+<a href='#cite.0@20210419-indika'>3</a>]
 </p><!-- l. 7 --><p class='noindent'>
 </p>   
 <h4 class='subsectionHead'><span class='titlemark'>1.2   </span> <a id='x1-30001.2'></a>What is Heap Inspection?</h4>
@@ -55,8 +55,8 @@ this issue in C# or .NET applications.
 credit card number, etc. It is important to not allow plain text passwords; hash them with a crytographically secure
 hasing algorithm. An important note is to invoke a Disposable method to use as a garbage collector to
 free computer memory when an object is no longer needed. One of the ways you can avoid a heap
-inspection and to protect sensitive data is by using a <span class='ec-lmtt-10'>SecureString</span>. Consider the code in Listing <a href='#x1-4001r1'>1<!-- tex4ht:ref: fig:20210419:1  --></a>.[<a href='article.html#X0-20210419-codeproject'>6</a>,
-<a href='article.html#X0-20210419-swain'>4</a>]
+inspection and to protect sensitive data is by using a <span class='ec-lmtt-10'>SecureString</span>. Consider the code in Listing <a href='#x1-4001r1'>1<!-- tex4ht:ref: fig:20210419:1  --></a>.[<a href='#cite.0@20210419-codeproject'>6</a>,
+<a href='#cite.0@20210419-swain'>4</a>]
 </p>   
 <!-- l. 15 -->
 <p><a id='x1-4001r1'></a></p>
@@ -81,43 +81,43 @@ adversary.
 <h3 class='sectionHead'><a id='x1-60001.4'></a>References</h3>
 <!-- l. 49 --><p class='noindent'>    
 </p>
-<dl class='thebibliography'><dt id='X0-20210419-cwe-244' class='thebibliography'>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-20210419-cwe-244'>
 [1]  
-</dt><dd id='bib-1' class='thebibliography'>
-<!-- l. 49 --><p class='noindent'><a id='page.6'></a><a id='X0-' href='article.html'></a>CWE  Content  Team.  “CWE-244:  Improper  Clearing  of  Heap  Memory  Before  Release  (’Heap
+</dt><dd class='thebibliography' id='bib-1'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20210419-cwe-244'></a>CWE  Content  Team.  “CWE-244:  Improper  Clearing  of  Heap  Memory  Before  Release  (’Heap
 Inspection’)”. In: (2020). <span class='small-caps'>url</span>: <a class='url' href='https://cwe.mitre.org/data/definitions/244.html'><span class='ec-lmtt-10'>https://cwe.mitre.org/data/definitions/244.html</span></a>.
 </p>    
 </dd>
-<dt id='X0-swatips' class='thebibliography'>
+<dt class='thebibliography' id='X0-swatips'>
 [2]  
-</dt><dd id='bib-2' class='thebibliography'>
-<!-- l. 49 --><p class='noindent'>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+</dt><dd class='thebibliography' id='bib-2'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt id='X0-20210419-indika' class='thebibliography'>
+<dt class='thebibliography' id='X0-20210419-indika'>
 [3]  
-</dt><dd id='bib-3' class='thebibliography'>
-<!-- l. 49 --><p class='noindent'>Indika.        “Difference        Between        Stack        and        Heap”.        In:        (2011).        <span class='small-caps'>url</span>:
+</dt><dd class='thebibliography' id='bib-3'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20210419-indika'></a>Indika.        “Difference        Between        Stack        and        Heap”.        In:        (2011).        <span class='small-caps'>url</span>:
 <a class='url' href='https://www.differencebetween.com/difference-between-stack-and-vs-heap/'><span class='ec-lmtt-10'>https://www.differencebetween.com/difference-between-stack-and-vs-heap/</span></a>.
 </p>    
 </dd>
-<dt id='X0-20210419-swain' class='thebibliography'>
+<dt class='thebibliography' id='X0-20210419-swain'>
 [4]  
-</dt><dd id='bib-4' class='thebibliography'>
-<!-- l. 49 --><p class='noindent'>Chittaranjan Swain. “How to fix heap inspection vulnerability in c#”. In: (2019). <span class='small-caps'>url</span>: <a class='url' href='https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp'><span class='ec-lmtt-10'>https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp</span></a>.
+</dt><dd class='thebibliography' id='bib-4'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20210419-swain'></a>Chittaranjan Swain. “How to fix heap inspection vulnerability in c#”. In: (2019). <span class='small-caps'>url</span>: <a class='url' href='https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp'><span class='ec-lmtt-10'>https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp</span></a>.
 </p>    
 </dd>
-<dt id='X0-20210419-guru99' class='thebibliography'>
+<dt class='thebibliography' id='X0-20210419-guru99'>
 [5]  
-</dt><dd id='bib-5' class='thebibliography'>
-<!-- l. 49 --><p class='noindent'>Unknown.       “Stack       vs       Heap:       Know       the       Difference”.       In:       ().       <span class='small-caps'>url</span>:
+</dt><dd class='thebibliography' id='bib-5'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20210419-guru99'></a>Unknown.       “Stack       vs       Heap:       Know       the       Difference”.       In:       ().       <span class='small-caps'>url</span>:
 <a class='url' href='https://www.guru99.com/stack-vs-heap.html'><span class='ec-lmtt-10'>https://www.guru99.com/stack-vs-heap.html</span></a>.
 </p>    
 </dd>
-<dt id='X0-20210419-codeproject' class='thebibliography'>
+<dt class='thebibliography' id='X0-20210419-codeproject'>
 [6]  
-</dt><dd id='bib-6' class='thebibliography'>
-<!-- l. 49 --><p class='noindent'>Unknown. “To Avoid Heap Inspection”. In: (2015). <span class='small-caps'>url</span>: <a class='url' href='https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste'><span class='ec-lmtt-10'>https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste</span></a>.</p></dd></dl>
+</dt><dd class='thebibliography' id='bib-6'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20210419-codeproject'></a>Unknown. “To Avoid Heap Inspection”. In: (2015). <span class='small-caps'>url</span>: <a class='url' href='https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste'><span class='ec-lmtt-10'>https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste</span></a>.</p></dd></dl>
  
 </body> 
 </html>

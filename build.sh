@@ -168,6 +168,7 @@ if [ $PDF == true ]; then
 				cat article_template.html >> ${NUM}.html
 				tail -n +12 article.html >> ${NUM}.html
 				sed -i -z "s|<title>.*</title>|<title>${ARTICLENAME}</title>|g" ${NUM}.html
+				sed -i -e 's|</head>|<script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script></head>|g' ${NUM}.html
 			fi
 			popd >/dev/null
 			cp ${TMPDIR}/article.pdf html/articles/${NUM}.pdf

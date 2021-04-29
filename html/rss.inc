@@ -15,7 +15,7 @@
 
 <h2 class="titleHead"> <strong>Software Assurance Tips</strong><br/>
 A product of the Software Assurance Tips Team[<a href="#cite.0@swatips">1</a>]<br/>
-Generated Monday 26<sup class="textsuperscript">th</sup> April, 2021</h2>
+Generated Wednesday 28<sup class="textsuperscript">th</sup> April, 2021</h2>
 <div class="author"><span class="rm-lmr-12">Jon Hood</span></div><br/>
 <div class="date"><span class="rm-lmr-12">Monday 26</span><sup class="textsuperscript"><span class="rm-lmr-9">th</span></sup><span class="rm-lmr-12"> April, 2021</span></div>
 </div>
@@ -42,7 +42,7 @@ blocks to something like the one in Figure <a href="#x1-10051">1<!-- tex4ht:ref
                                                                                          
                                                                                          
 <!-- l. 4 -->
-<div id="listing-1" class="lstlisting"><span class="label"><a id="x1-1001r1"/>1</span><span class="ec-lmtk-10">try</span><span class="ec-lmtt-10"> </span><br/><span class="label"><a id="x1-1002r2"/>2</span><span class="ec-lmtt-10">{ DoSomethingWith("C:\\File.txt"); } </span><br/><span class="label"><a id="x1-1003r3"/>3</span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> (Exception e) when (e </span><span class="ec-lmtk-10">is</span><span class="ec-lmtt-10"> FileNotFoundException) </span><br/><span class="label"><a id="x1-1004r4"/>4</span><span class="ec-lmtt-10">{ DoSomethingElse(e); }</span>
+<div class="lstlisting" id="listing-1"><span class="label"><a id="x1-1001r1"/>1</span><span class="ec-lmtk-10">try</span><span class="ec-lmtt-10"> </span><br/><span class="label"><a id="x1-1002r2"/>2</span><span class="ec-lmtt-10">{ DoSomethingWith("C:\\File.txt"); } </span><br/><span class="label"><a id="x1-1003r3"/>3</span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> (Exception e) when (e </span><span class="ec-lmtk-10">is</span><span class="ec-lmtt-10"> FileNotFoundException) </span><br/><span class="label"><a id="x1-1004r4"/>4</span><span class="ec-lmtt-10">{ DoSomethingElse(e); }</span>
 </div>
 <figcaption class="caption"><span class="id">Figure 1:</span><span class="content">When-Conditioned Exception</span></figcaption><!-- tex4ht:label?: x1-10051  -->
                                                                                          
@@ -67,7 +67,7 @@ Figure <a href="#x1-10102">2<!-- tex4ht:ref: fig:20170518:exception2  --></a>?
                                                                                          
                                                                                          
 <!-- l. 17 -->
-<div id="listing-2" class="lstlisting"><span class="label"><a id="x1-1006r1"/>1</span><span class="ec-lmtk-10">try</span><span class="ec-lmtt-10"> </span><br/><span class="label"><a id="x1-1007r2"/>2</span><span class="ec-lmtt-10">{ DoSomethingWith("C:\\File.txt"); } </span><br/><span class="label"><a id="x1-1008r3"/>3</span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> (FileNotFoundException e) </span><br/><span class="label"><a id="x1-1009r4"/>4</span><span class="ec-lmtt-10">{ DoSomethingElse(e); }</span>
+<div class="lstlisting" id="listing-2"><span class="label"><a id="x1-1006r1"/>1</span><span class="ec-lmtk-10">try</span><span class="ec-lmtt-10"> </span><br/><span class="label"><a id="x1-1007r2"/>2</span><span class="ec-lmtt-10">{ DoSomethingWith("C:\\File.txt"); } </span><br/><span class="label"><a id="x1-1008r3"/>3</span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> (FileNotFoundException e) </span><br/><span class="label"><a id="x1-1009r4"/>4</span><span class="ec-lmtt-10">{ DoSomethingElse(e); }</span>
 </div>
 <figcaption class="caption"><span class="id">Figure 2:</span><span class="content">Classically-Conditioned Exception</span></figcaption><!-- tex4ht:label?: x1-10102  -->
                                                                                          
@@ -94,7 +94,7 @@ optimized Release mode.
                                                                                          
                                                                                          
 <!-- l. 30 -->
-<div id="listing-3" class="lstlisting"><span class="label"><a id="x1-1011r1"/>1</span><span class="ec-lmtt-10">filter { </span><br/><span class="label"><a id="x1-1012r2"/>2</span><span class="ec-lmtt-10">IL_000d:  isinst [System.Runtime]System.Exception </span><br/><span class="label"><a id="x1-1013r3"/>3</span><span class="ec-lmtt-10">IL_0012:  dup </span><br/><span class="label"><a id="x1-1014r4"/>4</span><span class="ec-lmtt-10">IL_0013:  brtrue.s IL_0019 </span><br/><span class="label"><a id="x1-1015r5"/>5</span><span class="ec-lmtt-10">IL_0015:  pop </span><br/><span class="label"><a id="x1-1016r6"/>6</span><span class="ec-lmtt-10">IL_0016:  ldc.i4.0 </span><br/><span class="label"><a id="x1-1017r7"/>7</span><span class="ec-lmtt-10">IL_0017:  br.s IL_0024 </span><br/><span class="label"><a id="x1-1018r8"/>8</span><span class="ec-lmtt-10">IL_0019:  isinst [System.Runtime]System.IO.FileNotFoundException </span><br/><span class="label"><a id="x1-1019r9"/>9</span><span class="ec-lmtt-10">IL_001e:  ldnull </span><br/><span class="label"><a id="x1-1020r10"/>10</span><span class="ec-lmtt-10">IL_001f:  cgt.un </span><br/><span class="label"><a id="x1-1021r11"/>11</span><span class="ec-lmtt-10">IL_0021:  ldc.i4.0 </span><br/><span class="label"><a id="x1-1022r12"/>12</span><span class="ec-lmtt-10">IL_0022:  cgt.un </span><br/><span class="label"><a id="x1-1023r13"/>13</span><span class="ec-lmtt-10">IL_0024:  endfilter </span><br/><span class="label"><a id="x1-1024r14"/>14</span><span class="ec-lmtt-10">}</span>
+<div class="lstlisting" id="listing-3"><span class="label"><a id="x1-1011r1"/>1</span><span class="ec-lmtt-10">filter { </span><br/><span class="label"><a id="x1-1012r2"/>2</span><span class="ec-lmtt-10">IL_000d:  isinst [System.Runtime]System.Exception </span><br/><span class="label"><a id="x1-1013r3"/>3</span><span class="ec-lmtt-10">IL_0012:  dup </span><br/><span class="label"><a id="x1-1014r4"/>4</span><span class="ec-lmtt-10">IL_0013:  brtrue.s IL_0019 </span><br/><span class="label"><a id="x1-1015r5"/>5</span><span class="ec-lmtt-10">IL_0015:  pop </span><br/><span class="label"><a id="x1-1016r6"/>6</span><span class="ec-lmtt-10">IL_0016:  ldc.i4.0 </span><br/><span class="label"><a id="x1-1017r7"/>7</span><span class="ec-lmtt-10">IL_0017:  br.s IL_0024 </span><br/><span class="label"><a id="x1-1018r8"/>8</span><span class="ec-lmtt-10">IL_0019:  isinst [System.Runtime]System.IO.FileNotFoundException </span><br/><span class="label"><a id="x1-1019r9"/>9</span><span class="ec-lmtt-10">IL_001e:  ldnull </span><br/><span class="label"><a id="x1-1020r10"/>10</span><span class="ec-lmtt-10">IL_001f:  cgt.un </span><br/><span class="label"><a id="x1-1021r11"/>11</span><span class="ec-lmtt-10">IL_0021:  ldc.i4.0 </span><br/><span class="label"><a id="x1-1022r12"/>12</span><span class="ec-lmtt-10">IL_0022:  cgt.un </span><br/><span class="label"><a id="x1-1023r13"/>13</span><span class="ec-lmtt-10">IL_0024:  endfilter </span><br/><span class="label"><a id="x1-1024r14"/>14</span><span class="ec-lmtt-10">}</span>
 </div>
 <figcaption class="caption"><span class="id">Figure 3:</span><span class="content">When-Conditioned Exception IL</span></figcaption><!-- tex4ht:label?: x1-10253  -->
                                                                                          
@@ -111,7 +111,7 @@ optimized Release mode.
                                                                                          
                                                                                          
 <!-- l. 51 -->
-<div id="listing-4" class="lstlisting"><span class="label"><a id="x1-1026r1"/></span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> </span><span class="ec-lmtk-10">class</span><span class="ec-lmtt-10"> [mscorlib]System.IO.FileNotFoundException</span>
+<div class="lstlisting" id="listing-4"><span class="label"><a id="x1-1026r1"/></span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> </span><span class="ec-lmtk-10">class</span><span class="ec-lmtt-10"> [mscorlib]System.IO.FileNotFoundException</span>
 </div>
 <figcaption class="caption"><span class="id">Figure 4:</span><span class="content">Classically-Conditioned Exception IL</span></figcaption><!-- tex4ht:label?: x1-10274  -->
                                                                                          
@@ -141,7 +141,7 @@ base.
                                                                                          
                                                                                          
 <!-- l. 61 -->
-<div id="listing-5" class="lstlisting"><span class="label"><a id="x1-1028r1"/>1</span><span class="ec-lmtk-10">try</span><span class="ec-lmtt-10"> </span><br/><span class="label"><a id="x1-1029r2"/>2</span><span class="ec-lmtt-10">{ DoSomethingWith("C:\\File.txt"); } </span><br/><span class="label"><a id="x1-1030r3"/>3</span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> (Exception e) </span><br/><span class="label"><a id="x1-1031r4"/>4</span><span class="ec-lmtt-10">{ </span><br/><span class="label"><a id="x1-1032r5"/>5</span><span class="ec-lmtt-10">       </span><span class="ec-lmtk-10">if</span><span class="ec-lmtt-10"> ((e </span><span class="ec-lmtk-10">is</span><span class="ec-lmtt-10"> FileNotFoundException) || (e </span><span class="ec-lmtk-10">is</span><span class="ec-lmtt-10"> SecurityException)) </span><br/><span class="label"><a id="x1-1033r6"/>6</span><span class="ec-lmtt-10">               DoSomethingElse(e); </span><br/><span class="label"><a id="x1-1034r7"/>7</span><span class="ec-lmtt-10">       </span><span class="ec-lmtk-10">else</span><span class="ec-lmtt-10"> </span><br/><span class="label"><a id="x1-1035r8"/>8</span><span class="ec-lmtt-10">               Log(e); </span><br/><span class="label"><a id="x1-1036r9"/>9</span><span class="ec-lmtt-10">}</span>
+<div class="lstlisting" id="listing-5"><span class="label"><a id="x1-1028r1"/>1</span><span class="ec-lmtk-10">try</span><span class="ec-lmtt-10"> </span><br/><span class="label"><a id="x1-1029r2"/>2</span><span class="ec-lmtt-10">{ DoSomethingWith("C:\\File.txt"); } </span><br/><span class="label"><a id="x1-1030r3"/>3</span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> (Exception e) </span><br/><span class="label"><a id="x1-1031r4"/>4</span><span class="ec-lmtt-10">{ </span><br/><span class="label"><a id="x1-1032r5"/>5</span><span class="ec-lmtt-10">       </span><span class="ec-lmtk-10">if</span><span class="ec-lmtt-10"> ((e </span><span class="ec-lmtk-10">is</span><span class="ec-lmtt-10"> FileNotFoundException) || (e </span><span class="ec-lmtk-10">is</span><span class="ec-lmtt-10"> SecurityException)) </span><br/><span class="label"><a id="x1-1033r6"/>6</span><span class="ec-lmtt-10">               DoSomethingElse(e); </span><br/><span class="label"><a id="x1-1034r7"/>7</span><span class="ec-lmtt-10">       </span><span class="ec-lmtk-10">else</span><span class="ec-lmtt-10"> </span><br/><span class="label"><a id="x1-1035r8"/>8</span><span class="ec-lmtt-10">               Log(e); </span><br/><span class="label"><a id="x1-1036r9"/>9</span><span class="ec-lmtt-10">}</span>
 </div>
 <figcaption class="caption"><span class="id">Figure 5:</span><span class="content">If-Formatted Exception Chain</span></figcaption><!-- tex4ht:label?: x1-10375  -->
                                                                                          
@@ -158,7 +158,7 @@ base.
                                                                                          
                                                                                          
 <!-- l. 77 -->
-<div id="listing-6" class="lstlisting"><span class="label"><a id="x1-1038r1"/></span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> </span><span class="ec-lmtk-10">class</span><span class="ec-lmtt-10"> [mscorlib]System.Exception { </span><br/><span class="label"><a id="x1-1039r2"/></span><span class="ec-lmtt-10">       IL_000d:  isinst [System.Runtime]System.IO.FileNotFoundException</span>
+<div class="lstlisting" id="listing-6"><span class="label"><a id="x1-1038r1"/></span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> </span><span class="ec-lmtk-10">class</span><span class="ec-lmtt-10"> [mscorlib]System.Exception { </span><br/><span class="label"><a id="x1-1039r2"/></span><span class="ec-lmtt-10">       IL_000d:  isinst [System.Runtime]System.IO.FileNotFoundException</span>
 </div>
 <figcaption class="caption"><span class="id">Figure 6:</span><span class="content">If-Formatted Exception Chain IL</span></figcaption><!-- tex4ht:label?: x1-10406  -->
                                                                                          
@@ -187,7 +187,7 @@ exception catches as false positives.
 <dl class="thebibliography"><dt id="X0-swatips" class="thebibliography">
 [1]  
 </dt><dd id="bib-1" class="thebibliography">
-<!-- l. 49 --><p class="noindent"><a id="cite.0@swatips"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a class="url" href="https://www.SwATips.com/"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.</p></dd></dl>
+<!-- l. 49 --><p class="noindent"><a id="cite.0@swatips"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a href="https://www.SwATips.com/" class="url"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.</p></dd></dl>
 
  
 
@@ -209,8 +209,8 @@ exception catches as false positives.
                                                                                          
 
 <h2 class="titleHead"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a id="page.3"/><a href="article.html#X0-swatips">2</a>]<br/>
-Generated Tuesday 20<sup class="textsuperscript">th</sup> April, 2021</h2>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips">2</a>]<br/>
+Generated Wednesday 28<sup class="textsuperscript">th</sup> April, 2021</h2>
 <div class="author"><span class="rm-lmr-12">Andrew Perry</span></div><br/>
 <div class="date"><span class="rm-lmr-12">Monday 19</span><sup class="textsuperscript"><span class="rm-lmr-9">th</span></sup><span class="rm-lmr-12"> April, 2021</span></div>
 </div>
@@ -224,7 +224,7 @@ Generated Tuesday 20<sup class="textsuperscript">th</sup> April, 2021</h2>
 
 <!-- l. 1 -->
 <p class="noindent">One of the first findings that I found when I began validating software assurance scans and something that intrigued
-me to learn more about was <i>Heap Inspections</i>.[<a id="page.4"/><a href="article.html#X0-20210419-cwe-244">1</a>] In order to know how to resolve this issue, there are some things to
+me to learn more about was <i>Heap Inspections</i>.[<a href="#cite.0@20210419-cwe-244">1</a>] In order to know how to resolve this issue, there are some things to
 understand about how heap is used in RAM in order to see how this vulnerability plays out and ways to fix
 it.
 </p>
@@ -244,8 +244,8 @@ use to store data in some various amount that may not be known until the program
 upwards when data is passed whereas a stack trends in a downward direction. When creating an object string that
 points to the stack memory, its value is stored in the heap. Heap is different than stack in that it is dynamically
 stored in memory which means that it can be stored and removed in any order. If the heap has data that has
-a fixed length memory block, it will overwrite expired or free values that were originally stored.[<a href="article.html#X0-20210419-guru99">5</a>,
-<a href="article.html#X0-20210419-indika">3</a>]
+a fixed length memory block, it will overwrite expired or free values that were originally stored.[<a href="#cite.0@20210419-guru99">5</a>,
+<a href="#cite.0@20210419-indika">3</a>]
 </p>
 <!-- l. 7 -->
 <p class="noindent">
@@ -275,8 +275,8 @@ this issue in C# or .NET applications.
 credit card number, etc. It is important to not allow plain text passwords; hash them with a crytographically secure
 hasing algorithm. An important note is to invoke a Disposable method to use as a garbage collector to
 free computer memory when an object is no longer needed. One of the ways you can avoid a heap
-inspection and to protect sensitive data is by using a <span class="ec-lmtt-10">SecureString</span>. Consider the code in Listing <a href="#x1-4001r1">1<!-- tex4ht:ref: fig:20210419:1  --></a>.[<a href="article.html#X0-20210419-codeproject">6</a>,
-<a href="article.html#X0-20210419-swain">4</a>]
+inspection and to protect sensitive data is by using a <span class="ec-lmtt-10">SecureString</span>. Consider the code in Listing <a href="#x1-4001r1">1<!-- tex4ht:ref: fig:20210419:1  --></a>.[<a href="#cite.0@20210419-codeproject">6</a>,
+<a href="#cite.0@20210419-swain">4</a>]
 </p>
    
 
@@ -324,43 +324,43 @@ adversary.
 </p>
 
 
-<dl class="thebibliography"><dt id="X0-20210419-cwe-244" class="thebibliography">
+<dl class="thebibliography"><dt class="thebibliography" id="X0-20210419-cwe-244">
 [1]  
-</dt><dd id="bib-1" class="thebibliography">
-<!-- l. 49 --><p class="noindent"><a id="page.6"/><a id="X0-" href="article.html"/>CWE  Content  Team.  “CWE-244:  Improper  Clearing  of  Heap  Memory  Before  Release  (’Heap
+</dt><dd class="thebibliography" id="bib-1">
+<!-- l. 49 --><p class="noindent"><a id="cite.0@20210419-cwe-244"/>CWE  Content  Team.  “CWE-244:  Improper  Clearing  of  Heap  Memory  Before  Release  (’Heap
 Inspection’)”. In: (2020). <span class="small-caps">url</span>: <a class="url" href="https://cwe.mitre.org/data/definitions/244.html"><span class="ec-lmtt-10">https://cwe.mitre.org/data/definitions/244.html</span></a>.
 </p>    
 </dd>
-<dt id="X0-swatips" class="thebibliography">
+<dt class="thebibliography" id="X0-swatips">
 [2]  
-</dt><dd id="bib-2" class="thebibliography">
-<!-- l. 49 --><p class="noindent">Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a class="url" href="https://www.SwATips.com/"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
+</dt><dd class="thebibliography" id="bib-2">
+<!-- l. 49 --><p class="noindent"><a id="cite.0@swatips"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a class="url" href="https://www.SwATips.com/"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt id="X0-20210419-indika" class="thebibliography">
+<dt class="thebibliography" id="X0-20210419-indika">
 [3]  
-</dt><dd id="bib-3" class="thebibliography">
-<!-- l. 49 --><p class="noindent">Indika.        “Difference        Between        Stack        and        Heap”.        In:        (2011).        <span class="small-caps">url</span>:
+</dt><dd class="thebibliography" id="bib-3">
+<!-- l. 49 --><p class="noindent"><a id="cite.0@20210419-indika"/>Indika.        “Difference        Between        Stack        and        Heap”.        In:        (2011).        <span class="small-caps">url</span>:
 <a class="url" href="https://www.differencebetween.com/difference-between-stack-and-vs-heap/"><span class="ec-lmtt-10">https://www.differencebetween.com/difference-between-stack-and-vs-heap/</span></a>.
 </p>    
 </dd>
-<dt id="X0-20210419-swain" class="thebibliography">
+<dt class="thebibliography" id="X0-20210419-swain">
 [4]  
-</dt><dd id="bib-4" class="thebibliography">
-<!-- l. 49 --><p class="noindent">Chittaranjan Swain. “How to fix heap inspection vulnerability in c#”. In: (2019). <span class="small-caps">url</span>: <a class="url" href="https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp"><span class="ec-lmtt-10">https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp</span></a>.
+</dt><dd class="thebibliography" id="bib-4">
+<!-- l. 49 --><p class="noindent"><a id="cite.0@20210419-swain"/>Chittaranjan Swain. “How to fix heap inspection vulnerability in c#”. In: (2019). <span class="small-caps">url</span>: <a class="url" href="https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp"><span class="ec-lmtt-10">https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp</span></a>.
 </p>    
 </dd>
-<dt id="X0-20210419-guru99" class="thebibliography">
+<dt class="thebibliography" id="X0-20210419-guru99">
 [5]  
-</dt><dd id="bib-5" class="thebibliography">
-<!-- l. 49 --><p class="noindent">Unknown.       “Stack       vs       Heap:       Know       the       Difference”.       In:       ().       <span class="small-caps">url</span>:
+</dt><dd class="thebibliography" id="bib-5">
+<!-- l. 49 --><p class="noindent"><a id="cite.0@20210419-guru99"/>Unknown.       “Stack       vs       Heap:       Know       the       Difference”.       In:       ().       <span class="small-caps">url</span>:
 <a class="url" href="https://www.guru99.com/stack-vs-heap.html"><span class="ec-lmtt-10">https://www.guru99.com/stack-vs-heap.html</span></a>.
 </p>    
 </dd>
-<dt id="X0-20210419-codeproject" class="thebibliography">
+<dt class="thebibliography" id="X0-20210419-codeproject">
 [6]  
-</dt><dd id="bib-6" class="thebibliography">
-<!-- l. 49 --><p class="noindent">Unknown. “To Avoid Heap Inspection”. In: (2015). <span class="small-caps">url</span>: <a class="url" href="https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste"><span class="ec-lmtt-10">https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste</span></a>.</p></dd></dl>
+</dt><dd class="thebibliography" id="bib-6">
+<!-- l. 49 --><p class="noindent"><a id="cite.0@20210419-codeproject"/>Unknown. “To Avoid Heap Inspection”. In: (2015). <span class="small-caps">url</span>: <a class="url" href="https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste"><span class="ec-lmtt-10">https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste</span></a>.</p></dd></dl>
 
  
 
@@ -382,8 +382,8 @@ Inspection’)”. In: (2020). <span class="small-caps">url</span>: <a class="ur
                                                                                          
 
 <h2 class="titleHead"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a id="page.3"/><a href="article.html#X0-swatips">1</a>]<br/>
-Generated Tuesday 20<sup class="textsuperscript">th</sup> April, 2021</h2>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips">1</a>]<br/>
+Generated Wednesday 28<sup class="textsuperscript">th</sup> April, 2021</h2>
 <div class="author"><span class="rm-lmr-12">Jon Hood</span></div><br/>
 <div class="date"><span class="rm-lmr-12">Monday 12</span><sup class="textsuperscript"><span class="rm-lmr-9">th</span></sup><span class="rm-lmr-12"> April, 2021</span></div>
 </div>
@@ -408,7 +408,7 @@ themselves in the foot.
 </p>
 <!-- l. 5 -->
 <p class="indent">   One of the best ways to prevent memory errors is to use RAII. Particularly in exception-based code, RAII
-concepts provide a memory-safe technique for resource management.[<a id="page.4"/><a href="article.html#X0-20210412-stroustrup2001">2</a>] Several issues face developers when
+concepts provide a memory-safe technique for resource management.[<a href="#cite.0@20210412-stroustrup2001">2</a>] Several issues face developers when
 maintaining legacy code with new programming concepts, particularly in the DoD. Legacy code is
 generally void of RAII concepts and has not been built with the latest standards of safe programming
 practices.
@@ -654,17 +654,17 @@ complexity, consistency should be preferred.
 </p>
 
 
-<dl class="thebibliography"><dt class="thebibliography" id="X0-swatips">
+<dl class="thebibliography"><dt id="X0-swatips" class="thebibliography">
 [1]  
-</dt><dd class="thebibliography" id="bib-1">
-<!-- l. 49 --><p class="noindent"><a id="page.7"/><a id="X0-" href="article.html"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a class="url" href="https://www.SwATips.com/"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
+</dt><dd id="bib-1" class="thebibliography">
+<!-- l. 49 --><p class="noindent"><a id="cite.0@swatips"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a href="https://www.SwATips.com/" class="url"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20210412-stroustrup2001">
+<dt id="X0-20210412-stroustrup2001" class="thebibliography">
 [2]  
-</dt><dd class="thebibliography" id="bib-2">
-<!-- l. 49 --><p class="noindent">Bjarne    Stroustrup.    “Exception    Safety:    Concepts    and    Techniques”.    In:    (2001).    <span class="small-caps">url</span>:
-<a class="url" href="https://www.stroustrup.com/except.pdf"><span class="ec-lmtt-10">https://www.stroustrup.com/except.pdf</span></a>.</p></dd></dl>
+</dt><dd id="bib-2" class="thebibliography">
+<!-- l. 49 --><p class="noindent"><a id="cite.0@20210412-stroustrup2001"/>Bjarne    Stroustrup.    “Exception    Safety:    Concepts    and    Techniques”.    In:    (2001).    <span class="small-caps">url</span>:
+<a href="https://www.stroustrup.com/except.pdf" class="url"><span class="ec-lmtt-10">https://www.stroustrup.com/except.pdf</span></a>.</p></dd></dl>
 
  
 
@@ -687,7 +687,7 @@ complexity, consistency should be preferred.
 
 <h2 class="titleHead"> <strong>Software Assurance Tips</strong><br/>
 A product of the Software Assurance Tips Team[<a href="#cite.0@swatips">2</a>]<br/>
-Generated Monday 5<sup class="textsuperscript">th</sup> April, 2021</h2>
+Generated Wednesday 28<sup class="textsuperscript">th</sup> April, 2021</h2>
 <div class="author"><span class="rm-lmr-12">Jon Hood</span></div><br/>
 <div class="date"><span class="rm-lmr-12">Monday 5</span><sup class="textsuperscript"><span class="rm-lmr-9">th</span></sup><span class="rm-lmr-12"> April, 2021</span></div>
 </div>
@@ -897,28 +897,28 @@ POA&amp;M for tracking and obtain AO approval for the non-compliant software.
 <h3 class="sectionHead"><a id="x1-40001.2"/>References</h3>
 
 
-<!-- l. 40 -->
+<!-- l. 49 -->
 <p class="noindent">    
 </p>
 
 
-<dl class="thebibliography"><dt class="thebibliography" id="X0-20210405-far">
+<dl class="thebibliography"><dt id="X0-20210405-far" class="thebibliography">
 [1]  
-</dt><dd class="thebibliography" id="bib-1">
-<!-- l. 40 --><p class="noindent"><a id="cite.0@20210405-far"/>GSA.    <span class="rm-lmri-10">Federal   Acuisition   Regulation.   Definitions</span>.    Department    of    Defense.    2019.    <span class="small-caps">url</span>:
+</dt><dd id="bib-1" class="thebibliography">
+<!-- l. 49 --><p class="noindent"><a id="cite.0@20210405-far"/>GSA.    <span class="rm-lmri-10">Federal   Acuisition   Regulation.   Definitions</span>.    Department    of    Defense.    2019.    <span class="small-caps">url</span>:
 <a class="url" href="https://www.acquisition.gov/far/2.101"><span class="ec-lmtt-10">https://www.acquisition.gov/far/2.101</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-swatips">
+<dt id="X0-swatips" class="thebibliography">
 [2]  
-</dt><dd class="thebibliography" id="bib-2">
-<!-- l. 40 --><p class="noindent"><a id="cite.0@swatips"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a class="url" href="https://www.SwATips.com/"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
+</dt><dd id="bib-2" class="thebibliography">
+<!-- l. 49 --><p class="noindent"><a id="cite.0@swatips"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a class="url" href="https://www.SwATips.com/"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20210405-ar25-2">
+<dt id="X0-20210405-ar25-2" class="thebibliography">
 [3]  
-</dt><dd class="thebibliography" id="bib-3">
-<!-- l. 40 --><p class="noindent"><a id="cite.0@20210405-ar25-2"/>HQDA. <span class="rm-lmri-10">Army Regulation 25–2. Information Management: Information Assurance</span>. Department of the
+</dt><dd id="bib-3" class="thebibliography">
+<!-- l. 49 --><p class="noindent"><a id="cite.0@20210405-ar25-2"/>HQDA. <span class="rm-lmri-10">Army Regulation 25–2. Information Management: Information Assurance</span>. Department of the
 Army.                 Washington,                 DC,                 USA,                 2019.                 <span class="small-caps">url</span>:
 <a class="url" href="https://armypubs.army.mil/epubs/DR_pubs/DR_a/pdf/web/ARN17503_AR25_2_Admin_FINAL.pdf"><span class="ec-lmtt-10">https://armypubs.army.mil/epubs/DR_pubs/DR_a/pdf/web/ARN17503_AR25_2_Admin_FINAL.pdf</span></a>.</p></dd></dl>
 
