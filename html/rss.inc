@@ -1,5 +1,5 @@
 	<item>
-		<title>Polymorphic Catch Performance in C\#</title>
+		<title>Polymorphic Catch Performance in C#</title>
 		<link>https://www.SwATips.com/articles/20210426.html</link>
 		<pubDate>Mon, 26 Apr 2021 00:00:00 -0500</pubDate>
 <description><![CDATA[

@@ -156,7 +156,7 @@ if [ $PDF == true ]; then
 		cp templates/article.tex templates/sources.bib ${TMPDIR}/
 		cp templates/article.html ${TMPDIR}/article_template.html
 		cp tips/${NUM}.* ${TMPDIR}/
-		ARTICLENAME=$(grep ArticleName ${TMPDIR}/${NUM}.pre | sed -e 's:\\def \\ArticleName{::g' -e 's:}::g')
+		ARTICLENAME=$(grep ArticleName ${TMPDIR}/${NUM}.pre | sed -e 's:\\def \\ArticleName{::g' -e 's:}::g' -e 's:\\::g')
 		if [ ! -f "html/articles/${NUM}.pdf" ] || [ $REBUILD == true ]; then
 			pushd ${TMPDIR} > /dev/null
 			sed -i -e "s:NUM:${NUM}:g" article.tex
