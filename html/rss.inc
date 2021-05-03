@@ -1,4 +1,113 @@
 	<item>
+		<title>Downloading Package Dependencies for Offline Installs in Debian-based Distributions</title>
+		<link>https://www.SwATips.com/articles/20210503.html</link>
+		<pubDate>Mon, 03 May 2021 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p>Return to <a href="/">SwATips</a> | <a href="articles/20210503.pdf">pdf</a></p>
+
+
+<div class="maketitle">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips">1</a>]<br/>
+Generated Monday 3<sup class="textsuperscript">rd</sup> May, 2021</h2>
+<div class="author"><span class="rm-lmr-12">Kevin Keen</span></div><br/>
+<div class="date"><span class="rm-lmr-12">Monday 3</span><sup class="textsuperscript"><span class="rm-lmr-9">rd</span></sup><span class="rm-lmr-12"> May, 2021</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001"/>Downloading Package Dependencies for Offline Installs in Debian-based Distributions</h3>
+
+
+<!-- l. 1 -->
+<p class="noindent">Sometimes in Software Assurance there exists the need to keep a machine from ever again connecting to a network.
+Perhaps a customer doesn’t wish even the most remote risk that their code could be visible on a network. Or
+perhaps the analyst is examining malware. Or perhaps the results of a vulnerability scan need to be protected at a
+level higher than the network that is available. Reasons abound for keeping a machine offline, but when we need to
+install new software on these machines, it can be a harrowing experience. Those that have tried to install new
+packages offline in Debian-based environments are familiar with the “dependency hell” that quickly ensues. It is easy
+to overlook how much work a simple command like <span class="ec-lmtt-10">apt-get </span>does until one tries to reproduce that effort
+manually.
+</p>
+<!-- l. 3 -->
+<p class="indent">   One solution is to find one of various repository websites that list the package’s dependencies and one by one
+visit each page to manually download them. While this can work, it is time-consuming and error-prone. A better
+solution is to let a utility like <span class="ec-lmtt-10">apt </span>do the heavy lifting of identifying and downloading the dependencies in an
+automated manner.
+</p>
+<!-- l. 5 -->
+<p class="indent">   Recently we had a similar situation. Although we had tried to find solutions in the past, most required scripts or
+third-party software. This time, however, we were able to find the command in Listing <a href="#x1-1001r1">1<!-- tex4ht:ref: lst:20210503:so  --></a> on Stack
+Overflow.[<a href="#cite.0@20210503-stackoverflow">2</a>]
+</p>
+   
+
+<!-- l. 7 -->
+
+
+<p><a id="x1-1001r1"/></p>
+
+
+<p><a id="x1-1002"/></p>
+   
+
+<div class="lstlisting" id="listing-1"><span class="label"><a id="x1-1003r1"/></span><span class="ec-lmtt-9">apt-get download \\ </span><br/><span class="label"><a id="x1-1004r2"/></span><span class="ec-lmtt-9">        $(apt-cache depends \\ </span><br/><span class="label"><a id="x1-1005r3"/></span><span class="ec-lmtt-9">               --recurse --no-recommends --no-suggests \\ </span><br/><span class="label"><a id="x1-1006r4"/></span><span class="ec-lmtt-9">               --no-conflicts --no-breaks --no-replaces \\ </span><br/><span class="label"><a id="x1-1007r5"/></span><span class="ec-lmtt-9">               --no-enhances &lt;your-package-here&gt; \\ </span><br/><span class="label"><a id="x1-1008r6"/></span><span class="ec-lmtt-9">               | grep "^\w" | sort -u)</span>
+<figcaption class="caption"><span class="id">Listing 1:</span><span class="content">Deep Dependency Downloading</span></figcaption><!-- tex4ht:label?: x1-1001r1  -->
+   
+</div>
+
+
+<!-- l. 16 -->
+<p class="indent">   Breaking down the command, the portion inside the <span class="ec-lmtt-10">$() </span>is executed first which searches the apt cache for
+dependencies of the selected package. The –no…options are generally needed to prevent optional or breaking packages
+from being included. Note that in some cases, these may need to be tweaked. For example, if there were a need to
+upgrade a package that is already installed on the offline machine, one may wish to remove the <span class="ec-lmtt-10">–no-replaces </span>flag.
+Next, this output is passed to <span class="ec-lmtt-10">grep </span>to filter out some lines of output that are not needed. Then, the output gets
+piped to <span class="ec-lmtt-10">sort </span>with the <span class="ec-lmtt-10">-u </span>flag in order to remove duplicates. Finally, <span class="ec-lmtt-10">apt-get download </span>is called on each resulting
+line. <span class="footnote-mark"><a href="article2.html#fn1x0"><sup class="textsuperscript">1</sup></a></span><a id="x1-1009f1"/>
+    
+</p>
+<!-- l. 20 -->
+<p class="indent">   This can quickly and easily allow a package and its dependencies to be downloaded for transfer to the offline
+machine.
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead"><a id="x1-20001"/>References</h3>
+
+
+<!-- l. 45 -->
+<p class="noindent">    
+</p>
+
+
+<dl class="thebibliography"><dt class="thebibliography" id="X0-swatips">
+[1]  
+</dt><dd class="thebibliography" id="bib-1">
+<!-- l. 45 --><p class="noindent"><a id="cite.0@swatips"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a class="url" href="https://www.SwATips.com/"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20210503-stackoverflow">
+[2]  
+</dt><dd class="thebibliography" id="bib-2">
+<!-- l. 45 --><p class="noindent"><a id="cite.0@20210503-stackoverflow"/>Yann Vo. “How to list/download the recursive dependencies of a debian package?” In: (2019). <span class="small-caps">url</span>:
+<a class="url" href="https://stackoverflow.com/a/41428445"><span class="ec-lmtt-10">https://stackoverflow.com/a/41428445</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Polymorphic Catch Performance in C#</title>
 		<link>https://www.SwATips.com/articles/20210426.html</link>
 		<pubDate>Mon, 26 Apr 2021 00:00:00 -0500</pubDate>

@@ -1,0 +1,6 @@
+\def \AuthorName{Kevin Keen}
+\def \ArticleName{Downloading Package Dependencies for Offline Installs in Debian-based Distributions}
+\newcommand{\ArticleDate}{\formatdate{3}{5}{2021}}
+\addbibresource{20210503.bib}
+\lstset{language=bash}
+%\usepackage{awesomebox}

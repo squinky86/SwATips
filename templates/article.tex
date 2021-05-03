@@ -8,7 +8,6 @@
 \usepackage{datetime}
 \usepackage{fancyhdr}
 \usepackage[letterpaper, top=1in, bottom=1in, left=1in, right=1in]{geometry}
-\usepackage[breaklinks=true]{hyperref}
 \usepackage{listings}
 \usepackage{noto}
 \usepackage{textcomp}
@@ -16,14 +15,10 @@
 \addbibresource{sources.bib}
 \input{NUM.pre}
 
+\usepackage[unicode,pdfauthor={\AuthorName},pdftitle={\ArticleName},breaklinks=true]{hyperref}
+
 \author{\AuthorName}
 \date{\ArticleDate}
-
-\hypersetup
-{
-	pdfauthor= (\AuthorName),
-	pdftitle =  (\ArticleName)
-}
 
 \title{
 	\textmd{\textbf{Software Assurance Tips}}\\
@@ -32,6 +27,7 @@
 	Generated \today
 }
 
+\lstdefinestyle{BashStyle} {language=bash}
 \lstdefinestyle{CStyle} {language=C}
 \lstdefinestyle{CSharpStyle} {language=[Sharp]C}
 

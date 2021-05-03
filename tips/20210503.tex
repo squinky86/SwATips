@@ -1,0 +1,20 @@
+Sometimes in Software Assurance there exists the need to keep a machine from ever again connecting to a network. Perhaps a customer doesn't wish even the most remote risk that their code could be visible on a network. Or perhaps the analyst is examining malware. Or perhaps the results of a vulnerability scan need to be protected at a level higher than the network that is available. Reasons abound for keeping a machine offline, but when we need to install new software on these machines, it can be a harrowing experience. Those that have tried to install new packages offline in Debian-based environments are familiar with the ``dependency hell'' that quickly ensues. It is easy to overlook how much work a simple command like \texttt{apt-get} does until one tries to reproduce that effort manually.
+
+One solution is to find one of various repository websites that list the package's dependencies and one by one visit each page to manually download them. While this can work, it is time-consuming and error-prone. A better solution is to let a utility like \texttt{apt} do the heavy lifting of identifying and downloading the dependencies in an automated manner.
+
+Recently we had a similar situation. Although we had tried to find solutions in the past, most required scripts or third-party software. This time, however, we were able to find the command in Listing~\ref{lst:20210503:so} on Stack Overflow.\autocite{20210503-stackoverflow}
+
+\begin{lstlisting}[caption={Deep Dependency Downloading},captionpos=b,style=BashStyle,basicstyle=\small,label={lst:20210503:so},literate=*{-}{-}1]
+apt-get download \\
+	$(apt-cache depends \\
+		--recurse --no-recommends --no-suggests \\
+		--no-conflicts --no-breaks --no-replaces \\
+		--no-enhances <your-package-here> \\
+		| grep "^\w" | sort -u)
+\end{lstlisting}
+
+Breaking down the command, the portion inside the \texttt{\$()} is executed first which searches the apt cache for dependencies of the selected package. The -{}-no\ldots options are generally needed to prevent optional or breaking packages from being included. Note that in some cases, these may need to be tweaked. For example, if there were a need to upgrade a package that is already installed on the offline machine, one may wish to remove the \texttt{-{}-no-replaces} flag. Next, this output is passed to \texttt{grep} to filter out some lines of output that are not needed. Then, the output gets piped to \texttt{sort} with the \texttt{-u} flag in order to remove duplicates. Finally, \texttt{apt-get download} is called on each resulting line.
+%\notebox{Be sure that the online machine is the same OS version as the offline machine. Otherwise, the packages downloaded might not be compatible with the offline machine. Potentially with dire consequences!}
+\footnote{Be sure that the online machine is the same OS version as the offline machine. Otherwise, the packages downloaded might not be compatible with the offline machine. Potentially with dire consequences!}
+
+This can quickly and easily allow a package and its dependencies to be downloaded for transfer to the offline machine.

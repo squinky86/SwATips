@@ -63,9 +63,16 @@ function scanHeader() {
 
 function findPackages() {
 	#get dependencies
-	for x in `grep '^\\\\usepackage\|^\\\\RequirePackage' ${1}.tex | sed -e 's:^.*{\(.*\)}$:\1:g'`; do
-		scanHeader "${x}"
-	done
+	if [ -f "${1}.tex" ]; then
+		for x in `grep '^\\\\usepackage\|^\\\\RequirePackage' ${1}.tex | sed -e 's:^.*{\(.*\)}$:\1:g'`; do
+			scanHeader "${x}"
+		done
+	fi
+	if [ -f "${1}.pre" ]; then
+	for x in `grep '^\\\\usepackage\|^\\\\RequirePackage' ${1}.pre | sed -e 's:^.*{\(.*\)}$:\1:g'`; do
+			scanHeader "${x}"
+		done
+	fi
 }
 
 function lmk() {
