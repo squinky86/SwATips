@@ -38,16 +38,16 @@ There are several issues with updating the old code to the RAII-compliant code:
 
 Developers can introduce double free conditions where a pointer is managed by both a smart pointer and in the code itself. Also, conditions arise when a single pointer is handed over to multiple smart pointers for management.
 
-At the time of this writing, the latest versions of Fortify, Coverity, Checkmarx, Parasoft, clang-analyzer, and the GCC 10 \texttt{-fanalyzer} flag are all incapable of identifying the double free in the following snippets:
+At the time of this writing, the latest versions of Fortify, Coverity, Checkmarx, Parasoft, clang-analyzer, and the GCC 10 \texttt{-fanalyzer} flag are all incapable of identifying the double free in Listings \ref{lst:20210412:1} and \ref{lst:20210412:2}.
 
-\begin{lstlisting}[caption={Double Smart Pointer},captionpos=b,style=CStyle,basicstyle=\small]
+\begin{lstlisting}[caption={Double Smart Pointer},captionpos=b,style=CStyle,basicstyle=\small,label={lst:20210412:1}]
 bool *newBool = new bool();
 shared_ptr<bool> test1 (newBool);
 shared_ptr<bool> test2 (newBool);
 //...
 \end{lstlisting}
 
-\begin{lstlisting}[caption={Smart and Dumb Pointer},captionpos=b,style=CStyle,basicstyle=\small]
+\begin{lstlisting}[caption={Smart and Dumb Pointer},captionpos=b,style=CStyle,basicstyle=\small,label={lst:20210412:2}]
 bool *newBool = new bool();
 shared_ptr<bool> test1 (newBool);
 //...
@@ -56,16 +56,16 @@ delete newBool;
 
 \subsection{Initialization Errors}
 
-We've also seen a large number of initialization errors when updating to smart pointers. Using the above examples, it's tempting for a developer to use shortcuts and do something like the following:
+We've also seen a large number of initialization errors when updating to smart pointers. Using the above examples, it's tempting for a developer to use shortcuts and commit the error demonstrated in Listing~\ref{lst:20210412:3}.
 
-\begin{lstlisting}[caption={Uninitialized Boolean},captionpos=b,style=CStyle,basicstyle=\small]
+\begin{lstlisting}[caption={Uninitialized Boolean},captionpos=b,style=CStyle,basicstyle=\small,label={lst:20210412:3}]
 shared_ptr<bool> test1 (new bool);
 cout << "Test1 is: " << *test1 << endl;
 \end{lstlisting}
 
-The unpredictable nature of this issue can be demonstrated in the following example where the Boolean uses default initialization and obtains a random value from previously-freed memory.
+The unpredictable nature of this issue can be demonstrated in the example in Listing~\ref{lst:20210412:4} where the Boolean uses default initialization and obtains a random value from previously-freed memory.
 
-\begin{lstlisting}[caption={Uninitialized Boolean},captionpos=b,style=CStyle,basicstyle=\small]
+\begin{lstlisting}[caption={Uninitialized Boolean},captionpos=b,style=CStyle,basicstyle=\small,label={lst:20210412:4}]
 #include <climits>
 #include <iostream>
 #include <memory>
