@@ -4,7 +4,7 @@
 <meta charset='utf-8' /> 
 <meta content='TeX4ht (https://tug.org/tex4ht/)' name='generator' /> 
 <meta content='width=device-width,initial-scale=1' name='viewport' /> 
-<link type='text/css' href='article.css' rel='stylesheet' /> 
+<link href='article.css' rel='stylesheet' type='text/css' /> 
 <meta content='article.tex' name='src' /> 
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script></head><body>
 <p>Return to <a href="../">SwATips</a> | <a href="20210503.pdf">pdf</a></p>
@@ -53,8 +53,7 @@ from being included. Note that in some cases, these may need to be tweaked. For 
 upgrade a package that is already installed on the offline machine, one may wish to remove the <span class='ec-lmtt-10'>–no-replaces </span>flag.
 Next, this output is passed to <span class='ec-lmtt-10'>grep </span>to filter out some lines of output that are not needed. Then, the output gets
 piped to <span class='ec-lmtt-10'>sort </span>with the <span class='ec-lmtt-10'>-u </span>flag in order to remove duplicates. Finally, <span class='ec-lmtt-10'>apt-get download </span>is called on each resulting
-line. <span class='footnote-mark'><a href='article2.html#fn1x0'><sup class='textsuperscript'>1</sup></a></span><a id='x1-1009f1'></a>
-    
+line. <span class='footnote-mark'><a href='#fn1x0' id='fn1x0-bk'><sup class='textsuperscript'>1</sup></a></span><a id='x1-1009f1'></a>
 </p><!-- l. 20 --><p class='indent'>   This can quickly and easily allow a package and its dependencies to be downloaded for transfer to the offline
 machine.
                                                                                          
@@ -66,14 +65,16 @@ machine.
 <dl class='thebibliography'><dt class='thebibliography' id='X0-swatips'>
 [1]  
 </dt><dd class='thebibliography' id='bib-1'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+<!-- l. 45 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a href='https://www.SwATips.com/' class='url'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
 <dt class='thebibliography' id='X0-20210503-stackoverflow'>
 [2]  
 </dt><dd class='thebibliography' id='bib-2'>
 <!-- l. 45 --><p class='noindent'><a id='cite.0@20210503-stackoverflow'></a>Yann Vo. “How to list/download the recursive dependencies of a debian package?” In: (2019). <span class='small-caps'>url</span>:
-<a class='url' href='https://stackoverflow.com/a/41428445'><span class='ec-lmtt-10'>https://stackoverflow.com/a/41428445</span></a>.</p></dd></dl>
+<a href='https://stackoverflow.com/a/41428445' class='url'><span class='ec-lmtt-10'>https://stackoverflow.com/a/41428445</span></a>.</p></dd></dl>
+<div class='footnotes'><!-- l. 18 --><p class='indent'>   <span class='footnote-mark'><a href='#fn1x0-bk' id='fn1x0'><sup class='textsuperscript'>1</sup></a></span><span class='rm-lmr-8'>Be sure that the online machine is the same OS version as the offline machine. Otherwise, the packages downloaded might not be
+</span><span class='rm-lmr-8'>compatible with the offline machine. Potentially with dire consequences!</span></p>                                      </div>
  
 </body> 
 </html>

@@ -170,7 +170,7 @@ if [ $PDF == true ]; then
 			sed -i -e "s:NUM:${NUM}:g" article_template.html
 			lmk article >/dev/null 2>&1
 			if [ $HTML == true ]; then
-				make4ht -l article > /dev/null
+				make4ht -l article "fn-in" > /dev/null
 				head -n 11 article.html > ${NUM}.html
 				cat article_template.html >> ${NUM}.html
 				tail -n +12 article.html >> ${NUM}.html
