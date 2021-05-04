@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Software Assurance Tips</title>
 	<meta name="description" content="Software Assurance Tips" />
+	<link rel="feed" type="application/rss+xml" title="SwATips" href="rss.php">
 </head>
 <body>
 	<h1>Software Assurance Tips</h1>
