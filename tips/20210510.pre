@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Homoglyphs аnd Homogrаphic Attаcks}
+\newcommand{\ArticleDate}{\formatdate{10}{5}{2021}}
+\addbibresource{20210510.bib}
