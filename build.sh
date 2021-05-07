@@ -170,18 +170,62 @@ if [ $PDF == true ]; then
 			sed -i -e "s:NUM:${NUM}:g" article_template.html
 			lmk article >/dev/null 2>&1
 			if [ $HTML == true ]; then
-				make4ht -l article "fn-in" > /dev/null
-				head -n 11 article.html > ${NUM}.html
+				make4ht -l article "fn-in,svg" > /dev/null
+				echo "<!DOCTYPE html>" > ${NUM}.html
+				echo "<html xml:lang='en-US' lang='en-US'>" >> ${NUM}.html
+				echo "<head>" >> ${NUM}.html
+				xmllint --pretty --format --xpath "//head/node()" article.html >> ${NUM}.html
+				echo "<script async=\"async\" src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130\" crossorigin=\"anonymous\"></script>" >> ${NUM}.html
+				echo "<style>" >> ${NUM}.html
+				cat article.css >> ${NUM}.html
+				echo "</style>" >> ${NUM}.html
+				echo "</head>" >> ${NUM}.html
+				echo "<body>" >> ${NUM}.html
 				cat article_template.html >> ${NUM}.html
 				tail -n +12 article.html >> ${NUM}.html
 				sed -i -z "s|<title>.*</title>|<title>${ARTICLENAME}</title>|g" ${NUM}.html
-				sed -i -e 's|</head>|<script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script></head>|g' ${NUM}.html
+				sed -i -e '/article.css/d' ${NUM}.html
+				#copy images
+				mkdir images
+				i=0
+				if compgen -G "*.png" > /dev/null; then
+					for x in *.png; do
+						((i=i+1))
+						NEWNAME="images/${NUM}-${i}.png"
+						cp ${x} ${NEWNAME}
+						sed -i -e "s:${x}:${NEWNAME}:g" ${NUM}.html
+					done
+				fi
+				if compgen -G "*.svg" > /dev/null; then
+					for x in *.svg; do
+						((i=i+1))
+						NEWNAME="images/${NUM}-${i}.svg"
+						cp ${x} ${NEWNAME}
+						sed -i -e "s:${x}:${NEWNAME}:g" ${NUM}.html
+					done
+				fi
 			fi
 			popd >/dev/null
 			cp ${TMPDIR}/article.pdf html/articles/${NUM}.pdf
 			git ls-files --error-unmatch html/articles/${NUM}.pdf > /dev/null 2>&1 || git add html/articles/${NUM}.pdf > /dev/null
 			cp ${TMPDIR}/${NUM}.html html/articles/
+			if compgen -G "${TMPDIR}/images/*.svg" > /dev/null; then
+				cp ${TMPDIR}/images/*.svg html/articles/images/
+			fi
+			if compgen -G "${TMPDIR}/images/*.png" > /dev/null; then
+				cp ${TMPDIR}/images/*.png html/articles/images/
+			fi
 			git ls-files --error-unmatch html/articles/${NUM}.html >/dev/null 2>&1 || git add html/articles/${NUM}.html > /dev/null
+			if compgen -G "html/articles/images/${NUM}-*.svg" > /dev/null; then
+				for x in html/articles/images/${NUM}-*.svg; do
+					git ls-files --error-unmatch ${x} >/dev/null 2>&1 || git add ${x} > /dev/null
+				done
+			fi
+			if compgen -G "html/articles/images/${NUM}-*.png" > /dev/null; then
+				for x in html/articles/images/${NUM}-*.png; do
+					git ls-files --error-unmatch ${x} >/dev/null 2>&1 || git add ${x} > /dev/null
+				done
+			fi
 			echo "OK!"
 		else
 			echo "Already built!"
@@ -202,7 +246,7 @@ if [ $PDF == true ]; then
 		echo "		<link>https://www.SwATips.com/articles/${NUMS[$i]}.html</link>" >> html/rss.inc
 		echo "		<pubDate>$(date -R -d "${NUMS[$i]}")</pubDate>" >> html/rss.inc
 		echo -n "<description><![CDATA[" >> html/rss.inc
-		xmllint --xpath "//body/node()" html/articles/${NUMS[$i]}.html | sed -e "s:href=\"${NUMS[$i]}.pdf\":href=\"articles/${NUMS[$i]}.pdf\":g" -e "s:href=\"../\":href=\"/\":g" >> html/rss.inc
+		xmllint --pretty --format --xpath "//body/node()" html/articles/${NUMS[$i]}.html | sed -e "s:href=\"${NUMS[$i]}.pdf\":href=\"articles/${NUMS[$i]}.pdf\":g" -e "s:href=\"../\":href=\"/\":g" -e "s:images/:http\://www.swatips.com/articles/images/:g" >> html/rss.inc
 		echo "]]></description>" >> html/rss.inc
 		echo "	</item>" >> html/rss.inc
 	done

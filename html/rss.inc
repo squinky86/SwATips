@@ -1,10 +1,10 @@
 	<item>
-		<title>Downloading Package Dependencies for Offline Installs in Debian-based Distributions</title>
-		<link>https://www.SwATips.com/articles/20210503.html</link>
-		<pubDate>Mon, 03 May 2021 00:00:00 -0500</pubDate>
+		<title>Homoglyphs аnd Homogrаphic Аttаcks</title>
+		<link>https://www.SwATips.com/articles/20210510.html</link>
+		<pubDate>Mon, 10 May 2021 00:00:00 -0500</pubDate>
 <description><![CDATA[
 
-<p>Return to <a href="/">SwATips</a> | <a href="articles/20210503.pdf">pdf</a></p>
+<p>Return to <a href="/">SwATips</a> | <a href="articles/20210510.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="http://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY"/></a></p>
 
 
 <div class="maketitle">
@@ -15,8 +15,124 @@
 
 <h2 class="titleHead"> <strong>Software Assurance Tips</strong><br/>
 A product of the Software Assurance Tips Team[<a href="#cite.0@swatips">1</a>]<br/>
-Generated Monday 3<sup class="textsuperscript">rd</sup> May, 2021</h2>
-<div class="author"><span class="rm-lmr-12">Kevin Keen</span></div><br/>
+Generated Friday 7<sup class="textsuperscript">th</sup> May, 2021</h2>
+<div class="author"><span class="rm-lmr-12">Jon Hood</span></div><br/>
+<div class="date"><span class="rm-lmr-12">Monday 10</span><sup class="textsuperscript"><span class="rm-lmr-9">th</span></sup><span class="rm-lmr-12"> May, 2021</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001"/>Homoglyphs аnd Homogrаphic Аttаcks</h3>
+
+
+<!-- l. 1 -->
+<p class="noindent">Do you hаve аn OS X system аnd would like to get our totаlly trustworthy, Аpple-certified softwаre on your
+mаchine? Then be sure to run the commаnd in Listing <a href="#x1-1001r1">1<!-- tex4ht:ref: lst:20210510:1  --></a>!
+</p>
+   
+
+<!-- l. 3 -->
+
+
+<p><a id="x1-1001r1"/></p>
+
+
+<p><a id="x1-1002"/></p>
+   
+
+<div class="lstlisting" id="listing-1"><span class="label"><a id="x1-1003r1"/></span><span class="ec-lmtt-9">sh-3.2</span><span class="ec-lmtti-10x-x-90"># softwareupdate --set-catalog http://</span><span class="ec-lmtt-9">оѕх</span><span class="ec-lmtti-10x-x-90">.com</span>
+<figcaption class="caption"><span class="id">Listing 1:</span><span class="content">Totаlly Legit-Looking OSX Updаte Site</span></figcaption><!-- tex4ht:label?: x1-1001r1  -->
+   
+</div>
+
+
+<!-- l. 14 -->
+<p class="indent">   If you were to copy+pаste thаt аddress in your browser, you’d be tаken bаck to our Softwаre Аssurаnce Tips
+pаge. It’s not the reаl OSX.com! Аttаckers often use <i>homoglyphs</i>–chаrаcters thаt look identicаl to the end user but
+аre аctuаlly а different chаrаcter set. Our eyes mаy think thаt “оѕх.com” аnd “osx.com” look identicаl (аnd
+pixel-for-pixel, they аre identicаl). However, the first one uses Cyrillic chаrаcters, meаning thаt they аre two
+different аddresses!
+</p>
+<!-- l. 16 -->
+<p class="noindent">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1"/>Аttаcks</h4>
+
+
+<!-- l. 18 -->
+<p class="noindent">In the pаst, аttаckers used а technique known аs “soundsquаtting” to reserve homophonous domаins to trick
+unsuspecting users. Аn аttаcker would register а homophone (eg: “whether” vs. “weаther”) аnd set up а mirrored
+аttаck site to gleen credentiаls from their victims.[<a href="#cite.0@20210510:nikiforakis2014soundsquatting">2</a>]
+</p>
+<!-- l. 20 -->
+<p class="indent">   Suppose thаt а system mаkes sure thаt only trusted friends cаn request а “Call for Fire” to аn enemy locаtion.
+Whаt would hаppen if аn enemy were аble to send the unfiltered “Cаll for Fire” where the “a” chаrаcter hаs been
+replаced with the Cyrillic chаrаcter “а”?
+</p>
+<!-- l. 22 -->
+<p class="noindent">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a id="x1-30001.2"/>Conclusion</h4>
+
+
+<!-- l. 24 -->
+<p class="noindent">Mаybe you think you’re too good аnd wouldn’t hаve been fooled by the fаke OSX аddress аt the beginning of this
+аrticle. But I bet you were fooled with the fаct thаt neаrly every letter “a” hаs been replаced with the Cyrillic
+chаrаcter “а” throughout this аrticle. Аnd you didn’t even notice!
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead"><a id="x1-40001.2"/>References</h3>
+
+
+<!-- l. 45 -->
+<p class="noindent">    
+</p>
+
+
+<dl class="thebibliography"><dt class="thebibliography" id="X0-swatips">
+[1]  
+</dt><dd class="thebibliography" id="bib-1">
+<!-- l. 45 --><p class="noindent"><a id="cite.0@swatips"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a href="https://www.SwATips.com/" class="url"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20210510:nikiforakis2014soundsquatting">
+[2]  
+</dt><dd class="thebibliography" id="bib-2">
+<!-- l. 45 --><p class="noindent"><a id="cite.0@20210510:nikiforakis2014soundsquatting"/>Nick Nikiforakis et al. “Soundsquatting: Uncovering the use of homophones in domain squatting”. In:
+<span class="rm-lmri-10">International Conference on Information Security</span>. Springer. 2014, pp. 291–308.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
+		<title>Downloading Package Dependencies for Offline Installs in Debian-based Distributions</title>
+		<link>https://www.SwATips.com/articles/20210503.html</link>
+		<pubDate>Mon, 03 May 2021 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p>Return to <a href="/">SwATips</a> | <a href="articles/20210503.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="http://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY"/></a></p>
+
+
+<div class="maketitle">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips">1</a>]<br/>
+Generated Friday 7<sup class="textsuperscript">th</sup> May, 2021</h2>
+ <div class="author"><span class="rm-lmr-12">Kevin Keen</span></div><br/>
 <div class="date"><span class="rm-lmr-12">Monday 3</span><sup class="textsuperscript"><span class="rm-lmr-9">rd</span></sup><span class="rm-lmr-12"> May, 2021</span></div>
 </div>
 
@@ -67,14 +183,19 @@ Overflow.[<a href="#cite.0@20210503-stackoverflow">2</a>]
 
 <!-- l. 16 -->
 <p class="indent">   Breaking down the command, the portion inside the <span class="ec-lmtt-10">$() </span>is executed first which searches the apt cache for
-dependencies of the selected package. The –no…options are generally needed to prevent optional or breaking packages
-from being included. Note that in some cases, these may need to be tweaked. For example, if there were a need to
-upgrade a package that is already installed on the offline machine, one may wish to remove the <span class="ec-lmtt-10">–no-replaces </span>flag.
-Next, this output is passed to <span class="ec-lmtt-10">grep </span>to filter out some lines of output that are not needed. Then, the output gets
-piped to <span class="ec-lmtt-10">sort </span>with the <span class="ec-lmtt-10">-u </span>flag in order to remove duplicates. Finally, <span class="ec-lmtt-10">apt-get download </span>is called on each resulting
-line. <span class="footnote-mark"><a href="#fn1x0" id="fn1x0-bk"><sup class="textsuperscript">1</sup></a></span><a id="x1-1009f1"/>
-</p>
-<!-- l. 20 -->
+dependencies of the selected package. The --no…options are generally needed to prevent optional or breaking
+packages from being included. Note that in some cases, these may need to be tweaked. For example, if there were a
+need to upgrade a package that is already installed on the offline machine, one may wish to remove the
+<span class="ec-lmtt-10">--no-replaces </span>flag. Next, this output is passed to <span class="ec-lmtt-10">grep </span>to filter out some lines of output that are not needed.
+Then, the output gets piped to <span class="ec-lmtt-10">sort </span>with the <span class="ec-lmtt-10">-u </span>flag in order to remove duplicates. Finally, <span class="ec-lmtt-10">apt-get download </span>is
+called on each resulting line.  </p>
+<div class="awesomebox" id="awesomebox-1"><div class="icon"><img alt=" " src="http://www.swatips.com/articles/images/20210503-1.svg"/></div><div class="boxcontent">
+<!-- l. 17 --><p class="indent">   Be sure that the online machine is the same OS version as the offline machine. Otherwise, the packages
+downloaded might not be compatible with the offline machine. Potentially with dire consequences!
+</p></div></div>
+
+
+<!-- l. 19 -->
 <p class="indent">   This can quickly and easily allow a package and its dependencies to be downloaded for transfer to the offline
 machine.
                                                                                          
@@ -102,10 +223,6 @@ machine.
 <!-- l. 45 --><p class="noindent"><a id="cite.0@20210503-stackoverflow"/>Yann Vo. “How to list/download the recursive dependencies of a debian package?” In: (2019). <span class="small-caps">url</span>:
 <a href="https://stackoverflow.com/a/41428445" class="url"><span class="ec-lmtt-10">https://stackoverflow.com/a/41428445</span></a>.</p></dd></dl>
 
-
-<div class="footnotes"><!-- l. 18 --><p class="indent">   <span class="footnote-mark"><a href="#fn1x0-bk" id="fn1x0"><sup class="textsuperscript">1</sup></a></span><span class="rm-lmr-8">Be sure that the online machine is the same OS version as the offline machine. Otherwise, the packages downloaded might not be
-</span><span class="rm-lmr-8">compatible with the offline machine. Potentially with dire consequences!</span></p>                                      </div>
-
  
 
 ]]></description>
@@ -116,7 +233,7 @@ machine.
 		<pubDate>Mon, 26 Apr 2021 00:00:00 -0500</pubDate>
 <description><![CDATA[
 
-<p>Return to <a href="/">SwATips</a> | <a href="articles/20210426.pdf">pdf</a></p>
+<p>Return to <a href="/">SwATips</a> | <a href="articles/20210426.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="http://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY"/></a></p>
 
 
 <div class="maketitle">
@@ -127,7 +244,7 @@ machine.
 
 <h2 class="titleHead"> <strong>Software Assurance Tips</strong><br/>
 A product of the Software Assurance Tips Team[<a href="#cite.0@swatips">1</a>]<br/>
-Generated Wednesday 28<sup class="textsuperscript">th</sup> April, 2021</h2>
+Generated Friday 7<sup class="textsuperscript">th</sup> May, 2021</h2>
 <div class="author"><span class="rm-lmr-12">Jon Hood</span></div><br/>
 <div class="date"><span class="rm-lmr-12">Monday 26</span><sup class="textsuperscript"><span class="rm-lmr-9">th</span></sup><span class="rm-lmr-12"> April, 2021</span></div>
 </div>
@@ -142,144 +259,134 @@ Generated Wednesday 28<sup class="textsuperscript">th</sup> April, 2021</h2>
 <!-- l. 1 -->
 <p class="noindent">In a recent code review, one of our customers were marked for being sloppy with catch-all exceptions (CWE-396),
 which is sometimes an indicator of poorly designed program flow. To fix this, the developers changed the catch
-blocks to something like the one in Figure <a href="#x1-10051">1<!-- tex4ht:ref: fig:20170518:exception  --></a>.
+blocks to something like the one in Listing <a href="#x1-1001r1">1<!-- tex4ht:ref: lst:20210426:exception  --></a>.
 </p>
    
 
-<figure class="figure"> 
+<!-- l. 3 -->
 
-                                                                                         
-                                                                                         
-<a id="x1-10051"/>
-                                                                                         
-                                                                                         
-<!-- l. 4 -->
-<div class="lstlisting" id="listing-1"><span class="label"><a id="x1-1001r1"/>1</span><span class="ec-lmtk-10">try</span><span class="ec-lmtt-10"> </span><br/><span class="label"><a id="x1-1002r2"/>2</span><span class="ec-lmtt-10">{ DoSomethingWith("C:\\File.txt"); } </span><br/><span class="label"><a id="x1-1003r3"/>3</span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> (Exception e) when (e </span><span class="ec-lmtk-10">is</span><span class="ec-lmtt-10"> FileNotFoundException) </span><br/><span class="label"><a id="x1-1004r4"/>4</span><span class="ec-lmtt-10">{ DoSomethingElse(e); }</span>
-</div>
-<figcaption class="caption"><span class="id">Figure 1:</span><span class="content">When-Conditioned Exception</span></figcaption><!-- tex4ht:label?: x1-10051  -->
-                                                                                         
-                                                                                         
+
+<p><a id="x1-1001r1"/></p>
+
+
+<p><a id="x1-1002"/></p>
    
-</figure>
+
+<div class="lstlisting" id="listing-1"><span class="label"><a id="x1-1003r1"/>1</span><span class="ec-lmtk-10">try</span><span class="ec-lmtt-10"> </span><br/><span class="label"><a id="x1-1004r2"/>2</span><span class="ec-lmtt-10">{ DoSomethingWith("C:\\File.txt"); } </span><br/><span class="label"><a id="x1-1005r3"/>3</span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> (Exception e) when (e </span><span class="ec-lmtk-10">is</span><span class="ec-lmtt-10"> FileNotFoundException) </span><br/><span class="label"><a id="x1-1006r4"/>4</span><span class="ec-lmtt-10">{ DoSomethingElse(e); }</span>
+<figcaption class="caption"><span class="id">Listing 1:</span><span class="content">When-Conditioned Exception</span></figcaption><!-- tex4ht:label?: x1-1001r1  -->
+   
+</div>
 
 
-<!-- l. 14 -->
+<!-- l. 10 -->
 <p class="indent">   The intent of a “when” clause in an exception is for situations where the exception may have an error
 code. For example, a SqlException may return different codes that can be used to differentiate their
-catch blocks and clean up a failed state. So how does the code in Figure <a href="#x1-10051">1<!-- tex4ht:ref: fig:20170518:exception  --></a> differ from the code in
-Figure <a href="#x1-10102">2<!-- tex4ht:ref: fig:20170518:exception2  --></a>?
+catch blocks and clean up a failed state. So how does the code in Listing <a href="#x1-1001r1">1<!-- tex4ht:ref: lst:20210426:exception  --></a> differ from the code in
+Listing <a href="#x1-1007r2">2<!-- tex4ht:ref: lst:20210426:exception2  --></a>?
 </p>
    
 
-<figure class="figure"> 
+<!-- l. 12 -->
 
-                                                                                         
-                                                                                         
-<a id="x1-10102"/>
-                                                                                         
-                                                                                         
-<!-- l. 17 -->
-<div class="lstlisting" id="listing-2"><span class="label"><a id="x1-1006r1"/>1</span><span class="ec-lmtk-10">try</span><span class="ec-lmtt-10"> </span><br/><span class="label"><a id="x1-1007r2"/>2</span><span class="ec-lmtt-10">{ DoSomethingWith("C:\\File.txt"); } </span><br/><span class="label"><a id="x1-1008r3"/>3</span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> (FileNotFoundException e) </span><br/><span class="label"><a id="x1-1009r4"/>4</span><span class="ec-lmtt-10">{ DoSomethingElse(e); }</span>
-</div>
-<figcaption class="caption"><span class="id">Figure 2:</span><span class="content">Classically-Conditioned Exception</span></figcaption><!-- tex4ht:label?: x1-10102  -->
-                                                                                         
-                                                                                         
+
+<p><a id="x1-1007r2"/></p>
+
+
+<p><a id="x1-1008"/></p>
    
-</figure>
+
+<div class="lstlisting" id="listing-2"><span class="label"><a id="x1-1009r1"/>1</span><span class="ec-lmtk-10">try</span><span class="ec-lmtt-10"> </span><br/><span class="label"><a id="x1-1010r2"/>2</span><span class="ec-lmtt-10">{ DoSomethingWith("C:\\File.txt"); } </span><br/><span class="label"><a id="x1-1011r3"/>3</span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> (FileNotFoundException e) </span><br/><span class="label"><a id="x1-1012r4"/>4</span><span class="ec-lmtt-10">{ DoSomethingElse(e); }</span>
+<figcaption class="caption"><span class="id">Listing 2:</span><span class="content">Classically-Conditioned Exception</span></figcaption><!-- tex4ht:label?: x1-1007r1  -->
+   
+</div>
 
 
-<!-- l. 27 -->
-<p class="indent">   While both blocks of code achieve the same result, the generated code to catch the exception in Figure <a href="#x1-10051">1<!-- tex4ht:ref: fig:20170518:exception  --></a> has
+<!-- l. 19 -->
+<p class="indent">   While both blocks of code achieve the same result, the generated code to catch the exception in Listing <a href="#x1-1001r1">1<!-- tex4ht:ref: lst:20210426:exception  --></a> has
 twelve times as many instructions to execute. The .NET Intermediate Language (IL) is very different between the
 two implementations. The “when” clause creates what the IL defines as a filter block and instantiates a structure
 similar to a truth stack. This additional structure and the extra operations on it reduce performance and add
-unnecessary bloat to the software. The generated IL can be compared in Figures <a href="#x1-10253">3<!-- tex4ht:ref: fig:20170518:exceptionil  --></a> and <a href="#x1-10274">4<!-- tex4ht:ref: fig:20170518:exception2il  --></a>. The IL was created in
+unnecessary bloat to the software. The generated IL can be compared in Listings <a href="#x1-1013r3">3<!-- tex4ht:ref: lst:20210426:exceptionil  --></a> and <a href="#x1-1029r4">4<!-- tex4ht:ref: lst:20210426:exception2il  --></a>. The IL was created in
 optimized Release mode.
 </p>
    
 
-<figure class="figure"> 
+<!-- l. 21 -->
 
-                                                                                         
-                                                                                         
-<a id="x1-10253"/>
-                                                                                         
-                                                                                         
-<!-- l. 30 -->
-<div class="lstlisting" id="listing-3"><span class="label"><a id="x1-1011r1"/>1</span><span class="ec-lmtt-10">filter { </span><br/><span class="label"><a id="x1-1012r2"/>2</span><span class="ec-lmtt-10">IL_000d:  isinst [System.Runtime]System.Exception </span><br/><span class="label"><a id="x1-1013r3"/>3</span><span class="ec-lmtt-10">IL_0012:  dup </span><br/><span class="label"><a id="x1-1014r4"/>4</span><span class="ec-lmtt-10">IL_0013:  brtrue.s IL_0019 </span><br/><span class="label"><a id="x1-1015r5"/>5</span><span class="ec-lmtt-10">IL_0015:  pop </span><br/><span class="label"><a id="x1-1016r6"/>6</span><span class="ec-lmtt-10">IL_0016:  ldc.i4.0 </span><br/><span class="label"><a id="x1-1017r7"/>7</span><span class="ec-lmtt-10">IL_0017:  br.s IL_0024 </span><br/><span class="label"><a id="x1-1018r8"/>8</span><span class="ec-lmtt-10">IL_0019:  isinst [System.Runtime]System.IO.FileNotFoundException </span><br/><span class="label"><a id="x1-1019r9"/>9</span><span class="ec-lmtt-10">IL_001e:  ldnull </span><br/><span class="label"><a id="x1-1020r10"/>10</span><span class="ec-lmtt-10">IL_001f:  cgt.un </span><br/><span class="label"><a id="x1-1021r11"/>11</span><span class="ec-lmtt-10">IL_0021:  ldc.i4.0 </span><br/><span class="label"><a id="x1-1022r12"/>12</span><span class="ec-lmtt-10">IL_0022:  cgt.un </span><br/><span class="label"><a id="x1-1023r13"/>13</span><span class="ec-lmtt-10">IL_0024:  endfilter </span><br/><span class="label"><a id="x1-1024r14"/>14</span><span class="ec-lmtt-10">}</span>
-</div>
-<figcaption class="caption"><span class="id">Figure 3:</span><span class="content">When-Conditioned Exception IL</span></figcaption><!-- tex4ht:label?: x1-10253  -->
-                                                                                         
-                                                                                         
+
+<p><a id="x1-1013r3"/></p>
+
+
+<p><a id="x1-1014"/></p>
    
-</figure>
 
-
-<figure class="figure"> 
-
-                                                                                         
-                                                                                         
-<a id="x1-10274"/>
-                                                                                         
-                                                                                         
-<!-- l. 51 -->
-<div class="lstlisting" id="listing-4"><span class="label"><a id="x1-1026r1"/></span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> </span><span class="ec-lmtk-10">class</span><span class="ec-lmtt-10"> [mscorlib]System.IO.FileNotFoundException</span>
-</div>
-<figcaption class="caption"><span class="id">Figure 4:</span><span class="content">Classically-Conditioned Exception IL</span></figcaption><!-- tex4ht:label?: x1-10274  -->
-                                                                                         
-                                                                                         
+<div class="lstlisting" id="listing-3"><span class="label"><a id="x1-1015r1"/>1</span><span class="ec-lmtt-10">filter { </span><br/><span class="label"><a id="x1-1016r2"/>2</span><span class="ec-lmtt-10">IL_000d:  isinst [System.Runtime]System.Exception </span><br/><span class="label"><a id="x1-1017r3"/>3</span><span class="ec-lmtt-10">IL_0012:  dup </span><br/><span class="label"><a id="x1-1018r4"/>4</span><span class="ec-lmtt-10">IL_0013:  brtrue.s IL_0019 </span><br/><span class="label"><a id="x1-1019r5"/>5</span><span class="ec-lmtt-10">IL_0015:  pop </span><br/><span class="label"><a id="x1-1020r6"/>6</span><span class="ec-lmtt-10">IL_0016:  ldc.i4.0 </span><br/><span class="label"><a id="x1-1021r7"/>7</span><span class="ec-lmtt-10">IL_0017:  br.s IL_0024 </span><br/><span class="label"><a id="x1-1022r8"/>8</span><span class="ec-lmtt-10">IL_0019:  isinst [System.Runtime]System.IO.FileNotFoundException </span><br/><span class="label"><a id="x1-1023r9"/>9</span><span class="ec-lmtt-10">IL_001e:  ldnull </span><br/><span class="label"><a id="x1-1024r10"/>10</span><span class="ec-lmtt-10">IL_001f:  cgt.un </span><br/><span class="label"><a id="x1-1025r11"/>11</span><span class="ec-lmtt-10">IL_0021:  ldc.i4.0 </span><br/><span class="label"><a id="x1-1026r12"/>12</span><span class="ec-lmtt-10">IL_0022:  cgt.un </span><br/><span class="label"><a id="x1-1027r13"/>13</span><span class="ec-lmtt-10">IL_0024:  endfilter </span><br/><span class="label"><a id="x1-1028r14"/>14</span><span class="ec-lmtt-10">}</span>
+<figcaption class="caption"><span class="id">Listing 3:</span><span class="content">When-Conditioned Exception IL</span></figcaption><!-- tex4ht:label?: x1-1013r1  -->
    
-</figure>
+</div>
 
 
-<!-- l. 58 -->
+<!-- l. 38 -->
+
+
+<p><a id="x1-1029r4"/></p>
+
+
+<p><a id="x1-1030"/></p>
+   
+
+<div class="lstlisting" id="listing-4"><span class="label"><a id="x1-1031r1"/>1</span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> </span><span class="ec-lmtk-10">class</span><span class="ec-lmtt-10"> [mscorlib]System.IO.FileNotFoundException</span>
+<figcaption class="caption"><span class="id">Listing 4:</span><span class="content">Classically-Conditioned Exception IL</span></figcaption><!-- tex4ht:label?: x1-1029r1  -->
+   
+</div>
+
+
+<!-- l. 42 -->
 <p class="indent">   This leads to another question: what’s the most optimal way to catch several types of exceptions? The most
-optimal way is to catch the general exception, then use polymorphism to operate on it (code in Figure <a href="#x1-10375">5<!-- tex4ht:ref: fig:20170518:exceptionif  --></a>). The IL
+optimal way is to catch the general exception, then use polymorphism to operate on it (code in Listing <a href="#x1-1032r5">5<!-- tex4ht:ref: lst:20210426:exceptionif  --></a>). The IL
 code adds a single comparison for each conditional in an if statement and avoids the overhead incurred by the when
-clause’s filter block. Note that most scanning tools and style checkers will identify Figure <a href="#x1-10375">5<!-- tex4ht:ref: fig:20170518:exceptionif  --></a> as a catch
+clause’s filter block. Note that most scanning tools and style checkers will identify Listing <a href="#x1-1032r5">5<!-- tex4ht:ref: lst:20210426:exceptionif  --></a> as a catch
+                                                                                         
+                                                                                         
 for the generic exception, but this should be marked as a false positive if the handler appropriately
-determines the failure scenarios for the appropriate exception types. The IL code for Figure <a href="#x1-10375">5<!-- tex4ht:ref: fig:20170518:exceptionif  --></a> up to the
-first exception type is shown in Figure <a href="#x1-10406">6<!-- tex4ht:ref: fig:20170518:exceptionifil  --></a>. Please also realize that such minimal performance gains
+determines the failure scenarios for the appropriate exception types. The IL code for Listing <a href="#x1-1032r5">5<!-- tex4ht:ref: lst:20210426:exceptionif  --></a> up to the
+first exception type is shown in Listing <a href="#x1-1043r6">6<!-- tex4ht:ref: lst:20210426:exceptionifil  --></a>. Please also realize that such minimal performance gains
 should not be interpreted as a reason to violate a consistent standard already established in a code
 base.
 </p>
    
 
-<figure class="figure"> 
+<!-- l. 44 -->
 
-                                                                                         
-                                                                                         
-<a id="x1-10375"/>
-                                                                                         
-                                                                                         
+
+<p><a id="x1-1032r5"/></p>
+
+
+<p><a id="x1-1033"/></p>
+   
+
+<div class="lstlisting" id="listing-5"><span class="label"><a id="x1-1034r1"/>1</span><span class="ec-lmtk-10">try</span><span class="ec-lmtt-10"> </span><br/><span class="label"><a id="x1-1035r2"/>2</span><span class="ec-lmtt-10">{ DoSomethingWith("C:\\File.txt"); } </span><br/><span class="label"><a id="x1-1036r3"/>3</span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> (Exception e) </span><br/><span class="label"><a id="x1-1037r4"/>4</span><span class="ec-lmtt-10">{ </span><br/><span class="label"><a id="x1-1038r5"/>5</span><span class="ec-lmtt-10">       </span><span class="ec-lmtk-10">if</span><span class="ec-lmtt-10"> ((e </span><span class="ec-lmtk-10">is</span><span class="ec-lmtt-10"> FileNotFoundException) || (e </span><span class="ec-lmtk-10">is</span><span class="ec-lmtt-10"> SecurityException)) </span><br/><span class="label"><a id="x1-1039r6"/>6</span><span class="ec-lmtt-10">               DoSomethingElse(e); </span><br/><span class="label"><a id="x1-1040r7"/>7</span><span class="ec-lmtt-10">       </span><span class="ec-lmtk-10">else</span><span class="ec-lmtt-10"> </span><br/><span class="label"><a id="x1-1041r8"/>8</span><span class="ec-lmtt-10">               Log(e); </span><br/><span class="label"><a id="x1-1042r9"/>9</span><span class="ec-lmtt-10">}</span>
+<figcaption class="caption"><span class="id">Listing 5:</span><span class="content">If-Formatted Exception Chain</span></figcaption><!-- tex4ht:label?: x1-1032r1  -->
+   
+</div>
+
+
+<!-- l. 56 -->
+
+
+<p><a id="x1-1043r6"/></p>
+
+
+<p><a id="x1-1044"/></p>
+   
+
+<div class="lstlisting" id="listing-6"><span class="label"><a id="x1-1045r1"/>1</span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> </span><span class="ec-lmtk-10">class</span><span class="ec-lmtt-10"> [mscorlib]System.Exception { </span><br/><span class="label"><a id="x1-1046r2"/>2</span><span class="ec-lmtt-10">       IL_000d:  isinst [System.Runtime]System.IO.FileNotFoundException</span>
+<figcaption class="caption"><span class="id">Listing 6:</span><span class="content">If-Formatted Exception Chain IL</span></figcaption><!-- tex4ht:label?: x1-1043r1  -->
+   
+</div>
+
+
 <!-- l. 61 -->
-<div class="lstlisting" id="listing-5"><span class="label"><a id="x1-1028r1"/>1</span><span class="ec-lmtk-10">try</span><span class="ec-lmtt-10"> </span><br/><span class="label"><a id="x1-1029r2"/>2</span><span class="ec-lmtt-10">{ DoSomethingWith("C:\\File.txt"); } </span><br/><span class="label"><a id="x1-1030r3"/>3</span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> (Exception e) </span><br/><span class="label"><a id="x1-1031r4"/>4</span><span class="ec-lmtt-10">{ </span><br/><span class="label"><a id="x1-1032r5"/>5</span><span class="ec-lmtt-10">       </span><span class="ec-lmtk-10">if</span><span class="ec-lmtt-10"> ((e </span><span class="ec-lmtk-10">is</span><span class="ec-lmtt-10"> FileNotFoundException) || (e </span><span class="ec-lmtk-10">is</span><span class="ec-lmtt-10"> SecurityException)) </span><br/><span class="label"><a id="x1-1033r6"/>6</span><span class="ec-lmtt-10">               DoSomethingElse(e); </span><br/><span class="label"><a id="x1-1034r7"/>7</span><span class="ec-lmtt-10">       </span><span class="ec-lmtk-10">else</span><span class="ec-lmtt-10"> </span><br/><span class="label"><a id="x1-1035r8"/>8</span><span class="ec-lmtt-10">               Log(e); </span><br/><span class="label"><a id="x1-1036r9"/>9</span><span class="ec-lmtt-10">}</span>
-</div>
-<figcaption class="caption"><span class="id">Figure 5:</span><span class="content">If-Formatted Exception Chain</span></figcaption><!-- tex4ht:label?: x1-10375  -->
-                                                                                         
-                                                                                         
-   
-</figure>
-
-
-<figure class="figure"> 
-
-                                                                                         
-                                                                                         
-<a id="x1-10406"/>
-                                                                                         
-                                                                                         
-<!-- l. 77 -->
-<div class="lstlisting" id="listing-6"><span class="label"><a id="x1-1038r1"/></span><span class="ec-lmtk-10">catch</span><span class="ec-lmtt-10"> </span><span class="ec-lmtk-10">class</span><span class="ec-lmtt-10"> [mscorlib]System.Exception { </span><br/><span class="label"><a id="x1-1039r2"/></span><span class="ec-lmtt-10">       IL_000d:  isinst [System.Runtime]System.IO.FileNotFoundException</span>
-</div>
-<figcaption class="caption"><span class="id">Figure 6:</span><span class="content">If-Formatted Exception Chain IL</span></figcaption><!-- tex4ht:label?: x1-10406  -->
-                                                                                         
-                                                                                         
-   
-</figure>
-
-
-<!-- l. 85 -->
 <p class="indent">   When performance is a primary concern, developers should include comments that indicate their consideration of
 exceptional cases in generic catch blocks. Validators should watch for these comments to help them mark the generic
 exception catches as false positives.
@@ -291,7 +398,7 @@ exception catches as false positives.
 <h3 class="sectionHead"><a id="x1-20001"/>References</h3>
 
 
-<!-- l. 49 -->
+<!-- l. 45 -->
 <p class="noindent">    
 </p>
 
@@ -299,7 +406,7 @@ exception catches as false positives.
 <dl class="thebibliography"><dt id="X0-swatips" class="thebibliography">
 [1]  
 </dt><dd id="bib-1" class="thebibliography">
-<!-- l. 49 --><p class="noindent"><a id="cite.0@swatips"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a href="https://www.SwATips.com/" class="url"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.</p></dd></dl>
+<!-- l. 45 --><p class="noindent"><a id="cite.0@swatips"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a class="url" href="https://www.SwATips.com/"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.</p></dd></dl>
 
  
 
@@ -311,7 +418,7 @@ exception catches as false positives.
 		<pubDate>Mon, 19 Apr 2021 00:00:00 -0500</pubDate>
 <description><![CDATA[
 
-<p>Return to <a href="/">SwATips</a> | <a href="articles/20210419.pdf">pdf</a></p>
+<p>Return to <a href="/">SwATips</a> | <a href="articles/20210419.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="http://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY"/></a></p>
 
 
 <div class="maketitle">
@@ -322,7 +429,7 @@ exception catches as false positives.
 
 <h2 class="titleHead"> <strong>Software Assurance Tips</strong><br/>
 A product of the Software Assurance Tips Team[<a href="#cite.0@swatips">2</a>]<br/>
-Generated Wednesday 28<sup class="textsuperscript">th</sup> April, 2021</h2>
+Generated Friday 7<sup class="textsuperscript">th</sup> May, 2021</h2>
 <div class="author"><span class="rm-lmr-12">Andrew Perry</span></div><br/>
 <div class="date"><span class="rm-lmr-12">Monday 19</span><sup class="textsuperscript"><span class="rm-lmr-9">th</span></sup><span class="rm-lmr-12"> April, 2021</span></div>
 </div>
@@ -401,7 +508,7 @@ inspection and to protect sensitive data is by using a <span class="ec-lmtt-10">
 <p><a id="x1-4002"/></p>
    
 
-<div class="lstlisting" id="listing-1"><span class="label"><a id="x1-4003r1"/></span><span class="ec-lmtt-9">SecureString securePwd = </span><span class="ec-lmtk-10x-x-90">new</span><span class="ec-lmtt-9"> SecureString(); </span><br/><span class="label"><a id="x1-4004r2"/></span><span class="ec-lmtt-9">ConsoleKeyInfo key; </span><br/><span class="label"><a id="x1-4005r3"/></span><span class="ec-lmtt-9">Console.Write("Enter password: "); </span><br/><span class="label"><a id="x1-4006r4"/></span><span class="ec-lmtk-10x-x-90">do</span><span class="ec-lmtt-9"> { </span><br/><span class="label"><a id="x1-4007r5"/></span><span class="ec-lmtt-9">        key = Console.ReadKey(</span><span class="ec-lmtk-10x-x-90">true</span><span class="ec-lmtt-9">);…</span>
+<div id="listing-1" class="lstlisting"><span class="label"><a id="x1-4003r1"/></span><span class="ec-lmtt-9">SecureString securePwd = </span><span class="ec-lmtk-10x-x-90">new</span><span class="ec-lmtt-9"> SecureString(); </span><br/><span class="label"><a id="x1-4004r2"/></span><span class="ec-lmtt-9">ConsoleKeyInfo key; </span><br/><span class="label"><a id="x1-4005r3"/></span><span class="ec-lmtt-9">Console.Write("Enter password: "); </span><br/><span class="label"><a id="x1-4006r4"/></span><span class="ec-lmtk-10x-x-90">do</span><span class="ec-lmtt-9"> { </span><br/><span class="label"><a id="x1-4007r5"/></span><span class="ec-lmtt-9">        key = Console.ReadKey(</span><span class="ec-lmtk-10x-x-90">true</span><span class="ec-lmtt-9">);…</span>
 <figcaption class="caption"><span class="id">Listing 1:</span><span class="content">SecureString Example</span></figcaption><!-- tex4ht:label?: x1-4001r1  -->
    
 </div>
@@ -431,48 +538,48 @@ adversary.
 <h3 class="sectionHead"><a id="x1-60001.4"/>References</h3>
 
 
-<!-- l. 49 -->
+<!-- l. 45 -->
 <p class="noindent">    
 </p>
 
 
-<dl class="thebibliography"><dt class="thebibliography" id="X0-20210419-cwe-244">
+<dl class="thebibliography"><dt id="X0-20210419-cwe-244" class="thebibliography">
 [1]  
-</dt><dd class="thebibliography" id="bib-1">
-<!-- l. 49 --><p class="noindent"><a id="cite.0@20210419-cwe-244"/>CWE  Content  Team.  “CWE-244:  Improper  Clearing  of  Heap  Memory  Before  Release  (’Heap
+</dt><dd id="bib-1" class="thebibliography">
+<!-- l. 45 --><p class="noindent"><a id="cite.0@20210419-cwe-244"/>CWE  Content  Team.  “CWE-244:  Improper  Clearing  of  Heap  Memory  Before  Release  (’Heap
 Inspection’)”. In: (2020). <span class="small-caps">url</span>: <a class="url" href="https://cwe.mitre.org/data/definitions/244.html"><span class="ec-lmtt-10">https://cwe.mitre.org/data/definitions/244.html</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-swatips">
+<dt id="X0-swatips" class="thebibliography">
 [2]  
-</dt><dd class="thebibliography" id="bib-2">
-<!-- l. 49 --><p class="noindent"><a id="cite.0@swatips"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a class="url" href="https://www.SwATips.com/"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
+</dt><dd id="bib-2" class="thebibliography">
+<!-- l. 45 --><p class="noindent"><a id="cite.0@swatips"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a class="url" href="https://www.SwATips.com/"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20210419-indika">
+<dt id="X0-20210419-indika" class="thebibliography">
 [3]  
-</dt><dd class="thebibliography" id="bib-3">
-<!-- l. 49 --><p class="noindent"><a id="cite.0@20210419-indika"/>Indika.        “Difference        Between        Stack        and        Heap”.        In:        (2011).        <span class="small-caps">url</span>:
+</dt><dd id="bib-3" class="thebibliography">
+<!-- l. 45 --><p class="noindent"><a id="cite.0@20210419-indika"/>Indika.        “Difference        Between        Stack        and        Heap”.        In:        (2011).        <span class="small-caps">url</span>:
 <a class="url" href="https://www.differencebetween.com/difference-between-stack-and-vs-heap/"><span class="ec-lmtt-10">https://www.differencebetween.com/difference-between-stack-and-vs-heap/</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20210419-swain">
+<dt id="X0-20210419-swain" class="thebibliography">
 [4]  
-</dt><dd class="thebibliography" id="bib-4">
-<!-- l. 49 --><p class="noindent"><a id="cite.0@20210419-swain"/>Chittaranjan Swain. “How to fix heap inspection vulnerability in c#”. In: (2019). <span class="small-caps">url</span>: <a class="url" href="https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp"><span class="ec-lmtt-10">https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp</span></a>.
+</dt><dd id="bib-4" class="thebibliography">
+<!-- l. 45 --><p class="noindent"><a id="cite.0@20210419-swain"/>Chittaranjan Swain. “How to fix heap inspection vulnerability in c#”. In: (2019). <span class="small-caps">url</span>: <a class="url" href="https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp"><span class="ec-lmtt-10">https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20210419-guru99">
+<dt id="X0-20210419-guru99" class="thebibliography">
 [5]  
-</dt><dd class="thebibliography" id="bib-5">
-<!-- l. 49 --><p class="noindent"><a id="cite.0@20210419-guru99"/>Unknown.       “Stack       vs       Heap:       Know       the       Difference”.       In:       ().       <span class="small-caps">url</span>:
+</dt><dd id="bib-5" class="thebibliography">
+<!-- l. 45 --><p class="noindent"><a id="cite.0@20210419-guru99"/>Unknown.       “Stack       vs       Heap:       Know       the       Difference”.       In:       ().       <span class="small-caps">url</span>:
 <a class="url" href="https://www.guru99.com/stack-vs-heap.html"><span class="ec-lmtt-10">https://www.guru99.com/stack-vs-heap.html</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20210419-codeproject">
+<dt id="X0-20210419-codeproject" class="thebibliography">
 [6]  
-</dt><dd class="thebibliography" id="bib-6">
-<!-- l. 49 --><p class="noindent"><a id="cite.0@20210419-codeproject"/>Unknown. “To Avoid Heap Inspection”. In: (2015). <span class="small-caps">url</span>: <a class="url" href="https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste"><span class="ec-lmtt-10">https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste</span></a>.</p></dd></dl>
+</dt><dd id="bib-6" class="thebibliography">
+<!-- l. 45 --><p class="noindent"><a id="cite.0@20210419-codeproject"/>Unknown. “To Avoid Heap Inspection”. In: (2015). <span class="small-caps">url</span>: <a class="url" href="https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste"><span class="ec-lmtt-10">https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste</span></a>.</p></dd></dl>
 
  
 
@@ -484,7 +591,7 @@ Inspection’)”. In: (2020). <span class="small-caps">url</span>: <a class="ur
 		<pubDate>Mon, 12 Apr 2021 00:00:00 -0500</pubDate>
 <description><![CDATA[
 
-<p>Return to <a href="/">SwATips</a> | <a href="articles/20210412.pdf">pdf</a></p>
+<p>Return to <a href="/">SwATips</a> | <a href="articles/20210412.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="http://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY"/></a></p>
 
 
 <div class="maketitle">
@@ -495,7 +602,7 @@ Inspection’)”. In: (2020). <span class="small-caps">url</span>: <a class="ur
 
 <h2 class="titleHead"> <strong>Software Assurance Tips</strong><br/>
 A product of the Software Assurance Tips Team[<a href="#cite.0@swatips">1</a>]<br/>
-Generated Wednesday 28<sup class="textsuperscript">th</sup> April, 2021</h2>
+Generated Friday 7<sup class="textsuperscript">th</sup> May, 2021</h2>
 <div class="author"><span class="rm-lmr-12">Jon Hood</span></div><br/>
 <div class="date"><span class="rm-lmr-12">Monday 12</span><sup class="textsuperscript"><span class="rm-lmr-9">th</span></sup><span class="rm-lmr-12"> April, 2021</span></div>
 </div>
@@ -604,8 +711,9 @@ code itself. Also, conditions arise when a single pointer is handed over to mult
 management.
 </p>
 <!-- l. 41 -->
-<p class="indent">   At the time of this writing, the latest versions of Fortify, Coverity, Checkmarx, Parasoft, clang-analyzer, and the
-GCC 10 <span class="ec-lmtt-10">-fanalyzer </span>flag are all incapable of identifying the double free in the following snippets:
+<p class="indent">   At the time of this writing, the latest versions of Fortify, Coverity, Checkmarx, Parasoft, clang-analyzer,
+and the GCC 10 <span class="ec-lmtt-10">-fanalyzer </span>flag are all incapable of identifying the double free in Listings <a href="#x1-3001r3">3<!-- tex4ht:ref: lst:20210412:1  --></a> and
+<a href="#x1-3007r4">4<!-- tex4ht:ref: lst:20210412:2  --></a>.
 </p>
    
 
@@ -648,8 +756,9 @@ GCC 10 <span class="ec-lmtt-10">-fanalyzer </span>flag are all incapable of iden
 
 
 <!-- l. 59 -->
-<p class="noindent">We’ve also seen a large number of initialization errors when updating to smart pointers. Using the above examples,
-it’s tempting for a developer to use shortcuts and do something like the following:
+<p class="noindent">We’ve also seen a large number of initialization errors when updating to smart pointers. Using the
+above examples, it’s tempting for a developer to use shortcuts and commit the error demonstrated in
+Listing <a href="#x1-4001r5">5<!-- tex4ht:ref: lst:20210412:3  --></a>.
 </p>
    
 
@@ -669,7 +778,7 @@ it’s tempting for a developer to use shortcuts and do something like the follo
 
 
 <!-- l. 66 -->
-<p class="indent">   The unpredictable nature of this issue can be demonstrated in the following example where the Boolean uses
+<p class="indent">   The unpredictable nature of this issue can be demonstrated in the example in Listing <a href="#x1-4005r6">6<!-- tex4ht:ref: lst:20210412:4  --></a> where the Boolean uses
 default initialization and obtains a random value from previously-freed memory.
 </p>
    
@@ -761,7 +870,7 @@ complexity, consistency should be preferred.
 <h3 class="sectionHead"><a id="x1-80001.6"/>References</h3>
 
 
-<!-- l. 49 -->
+<!-- l. 45 -->
 <p class="noindent">    
 </p>
 
@@ -769,14 +878,14 @@ complexity, consistency should be preferred.
 <dl class="thebibliography"><dt id="X0-swatips" class="thebibliography">
 [1]  
 </dt><dd id="bib-1" class="thebibliography">
-<!-- l. 49 --><p class="noindent"><a id="cite.0@swatips"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a href="https://www.SwATips.com/" class="url"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
+<!-- l. 45 --><p class="noindent"><a id="cite.0@swatips"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a class="url" href="https://www.SwATips.com/"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
 <dt id="X0-20210412-stroustrup2001" class="thebibliography">
 [2]  
 </dt><dd id="bib-2" class="thebibliography">
-<!-- l. 49 --><p class="noindent"><a id="cite.0@20210412-stroustrup2001"/>Bjarne    Stroustrup.    “Exception    Safety:    Concepts    and    Techniques”.    In:    (2001).    <span class="small-caps">url</span>:
-<a href="https://www.stroustrup.com/except.pdf" class="url"><span class="ec-lmtt-10">https://www.stroustrup.com/except.pdf</span></a>.</p></dd></dl>
+<!-- l. 45 --><p class="noindent"><a id="cite.0@20210412-stroustrup2001"/>Bjarne    Stroustrup.    “Exception    Safety:    Concepts    and    Techniques”.    In:    (2001).    <span class="small-caps">url</span>:
+<a class="url" href="https://www.stroustrup.com/except.pdf"><span class="ec-lmtt-10">https://www.stroustrup.com/except.pdf</span></a>.</p></dd></dl>
 
  
 
@@ -788,7 +897,7 @@ complexity, consistency should be preferred.
 		<pubDate>Mon, 05 Apr 2021 00:00:00 -0500</pubDate>
 <description><![CDATA[
 
-<p>Return to <a href="/">SwATips</a> | <a href="articles/20210405.pdf">pdf</a></p>
+<p>Return to <a href="/">SwATips</a> | <a href="articles/20210405.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="http://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY"/></a></p>
 
 
 <div class="maketitle">
@@ -799,7 +908,7 @@ complexity, consistency should be preferred.
 
 <h2 class="titleHead"> <strong>Software Assurance Tips</strong><br/>
 A product of the Software Assurance Tips Team[<a href="#cite.0@swatips">2</a>]<br/>
-Generated Wednesday 28<sup class="textsuperscript">th</sup> April, 2021</h2>
+Generated Friday 7<sup class="textsuperscript">th</sup> May, 2021</h2>
 <div class="author"><span class="rm-lmr-12">Jon Hood</span></div><br/>
 <div class="date"><span class="rm-lmr-12">Monday 5</span><sup class="textsuperscript"><span class="rm-lmr-9">th</span></sup><span class="rm-lmr-12"> April, 2021</span></div>
 </div>
@@ -1009,28 +1118,28 @@ POA&amp;M for tracking and obtain AO approval for the non-compliant software.
 <h3 class="sectionHead"><a id="x1-40001.2"/>References</h3>
 
 
-<!-- l. 49 -->
+<!-- l. 45 -->
 <p class="noindent">    
 </p>
 
 
-<dl class="thebibliography"><dt id="X0-20210405-far" class="thebibliography">
+<dl class="thebibliography"><dt class="thebibliography" id="X0-20210405-far">
 [1]  
-</dt><dd id="bib-1" class="thebibliography">
-<!-- l. 49 --><p class="noindent"><a id="cite.0@20210405-far"/>GSA.    <span class="rm-lmri-10">Federal   Acuisition   Regulation.   Definitions</span>.    Department    of    Defense.    2019.    <span class="small-caps">url</span>:
+</dt><dd class="thebibliography" id="bib-1">
+<!-- l. 45 --><p class="noindent"><a id="cite.0@20210405-far"/>GSA.    <span class="rm-lmri-10">Federal   Acuisition   Regulation.   Definitions</span>.    Department    of    Defense.    2019.    <span class="small-caps">url</span>:
 <a class="url" href="https://www.acquisition.gov/far/2.101"><span class="ec-lmtt-10">https://www.acquisition.gov/far/2.101</span></a>.
 </p>    
 </dd>
-<dt id="X0-swatips" class="thebibliography">
+<dt class="thebibliography" id="X0-swatips">
 [2]  
-</dt><dd id="bib-2" class="thebibliography">
-<!-- l. 49 --><p class="noindent"><a id="cite.0@swatips"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a class="url" href="https://www.SwATips.com/"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
+</dt><dd class="thebibliography" id="bib-2">
+<!-- l. 45 --><p class="noindent"><a id="cite.0@swatips"/>Jon Hood, ed. <span class="rm-lmri-10">SwATips</span>. <a class="url" href="https://www.SwATips.com/"><span class="ec-lmtt-10">https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt id="X0-20210405-ar25-2" class="thebibliography">
+<dt class="thebibliography" id="X0-20210405-ar25-2">
 [3]  
-</dt><dd id="bib-3" class="thebibliography">
-<!-- l. 49 --><p class="noindent"><a id="cite.0@20210405-ar25-2"/>HQDA. <span class="rm-lmri-10">Army Regulation 25–2. Information Management: Information Assurance</span>. Department of the
+</dt><dd class="thebibliography" id="bib-3">
+<!-- l. 45 --><p class="noindent"><a id="cite.0@20210405-ar25-2"/>HQDA. <span class="rm-lmri-10">Army Regulation 25–2. Information Management: Information Assurance</span>. Department of the
 Army.                 Washington,                 DC,                 USA,                 2019.                 <span class="small-caps">url</span>:
 <a class="url" href="https://armypubs.army.mil/epubs/DR_pubs/DR_a/pdf/web/ARN17503_AR25_2_Admin_FINAL.pdf"><span class="ec-lmtt-10">https://armypubs.army.mil/epubs/DR_pubs/DR_a/pdf/web/ARN17503_AR25_2_Admin_FINAL.pdf</span></a>.</p></dd></dl>
 
