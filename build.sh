@@ -188,18 +188,22 @@ if [ $PDF == true ]; then
 				#copy images
 				mkdir images
 				i=0
-				if compgen -G "*.png" > /dev/null; then
-					for x in *.png; do
+				if compgen -G "*.svg" > /dev/null; then
+					for x in *.svg; do
+						#remove extraneous png file if we use the SVG instead
+						if [ -f "${x/.svg/.png}" ]; then
+							rm ${x/.svg/.png}
+						fi
 						((i=i+1))
-						NEWNAME="images/${NUM}-${i}.png"
+						NEWNAME="images/${NUM}-${i}.svg"
 						cp ${x} ${NEWNAME}
 						sed -i -e "s:${x}:${NEWNAME}:g" ${NUM}.html
 					done
 				fi
-				if compgen -G "*.svg" > /dev/null; then
-					for x in *.svg; do
+				if compgen -G "*.png" > /dev/null; then
+					for x in *.png; do
 						((i=i+1))
-						NEWNAME="images/${NUM}-${i}.svg"
+						NEWNAME="images/${NUM}-${i}.png"
 						cp ${x} ${NEWNAME}
 						sed -i -e "s:${x}:${NEWNAME}:g" ${NUM}.html
 					done
