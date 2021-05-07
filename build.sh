@@ -14,6 +14,7 @@ KPSEWHICH=1
 LATEXMK=1
 LUALATEX=1
 LUAOTFLOAD=1
+JUICE=1
 
 # Latex Package Dependencies
 SCANNEDPACKAGES=()
@@ -143,6 +144,8 @@ if [ $PDF == true ]; then
 	LATEXMK=$?
 	check "$LUAOTFLOAD" "luaotfload-tool" "LUAOTFLOAD"
 	LUAOTFLOAD=$?
+	check "$JUICE" "juice" "JUICE"
+	JUICE=$?
 	check "$GIT" "git" "GIT"
 	GIT=$?
 
@@ -250,7 +253,13 @@ if [ $PDF == true ]; then
 		echo "		<link>https://www.SwATips.com/articles/${NUMS[$i]}.html</link>" >> html/rss.inc
 		echo "		<pubDate>$(date -R -d "${NUMS[$i]}")</pubDate>" >> html/rss.inc
 		echo -n "<description><![CDATA[" >> html/rss.inc
-		xmllint --pretty --format --xpath "//body/node()" html/articles/${NUMS[$i]}.html | sed -e "s:href=\"${NUMS[$i]}.pdf\":href=\"articles/${NUMS[$i]}.pdf\":g" -e "s:href=\"../\":href=\"/\":g" -e "s:images/:http\://www.swatips.com/articles/images/:g" >> html/rss.inc
+		TMPFILE=html/articles/${NUMS[$i]}.html.tmp
+		TMPFILE2=html/articles/${NUMS[$i]}.html.tmp2
+		cp html/articles/${NUMS[$i]}.html ${TMPFILE2}
+		sed -i -e '/<script/d' ${TMPFILE2}
+		juice --remove-style-tags true --xml-mode true ${TMPFILE2} ${TMPFILE}
+		xmllint --pretty --format --xpath "//body/node()" ${TMPFILE} | sed -e "s:href=\"${NUMS[$i]}.pdf\":href=\"articles/${NUMS[$i]}.pdf\":g" -e "s:href=\"../\":href=\"/\":g" -e "s:images/:http\://www.swatips.com/articles/images/:g" >> html/rss.inc
+		rm ${TMPFILE} ${TMPFILE2}
 		echo "]]></description>" >> html/rss.inc
 		echo "	</item>" >> html/rss.inc
 	done
