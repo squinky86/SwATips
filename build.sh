@@ -258,7 +258,7 @@ if [ $PDF == true ]; then
 		cp html/articles/${NUMS[$i]}.html ${TMPFILE2}
 		sed -i -e '/<script/d' ${TMPFILE2}
 		juice --remove-style-tags true --xml-mode true ${TMPFILE2} ${TMPFILE}
-		xmllint --pretty --format --xpath "//body/node()" ${TMPFILE} | sed -e "s:href=\"${NUMS[$i]}.pdf\":href=\"articles/${NUMS[$i]}.pdf\":g" -e "s:href=\"../\":href=\"/\":g" -e "s:images/:http\://www.swatips.com/articles/images/:g" >> html/rss.inc
+		xmllint --pretty --format --xpath "//body/node()" ${TMPFILE} | sed -e "s:href=\"${NUMS[$i]}.pdf\":href=\"articles/${NUMS[$i]}.pdf\":g" -e "s:href=\"../\":href=\"/\":g" -e "s:images/:https\://www.swatips.com/articles/images/:g" >> html/rss.inc
 		rm ${TMPFILE} ${TMPFILE2}
 		echo "]]></description>" >> html/rss.inc
 		echo "	</item>" >> html/rss.inc
