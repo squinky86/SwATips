@@ -1,0 +1,4 @@
+\def \AuthorName{James Shelton}
+\def \ArticleName{Secure Pseudo-Random Number Generation}
+\newcommand{\ArticleDate}{\formatdate{17}{5}{2021}}
+\addbibresource{20210517.bib}
