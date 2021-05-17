@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 	<loc>https://www.SwATips.com/</loc>
-	<lastmod>2021-05-07T11:59:31-05:00</lastmod>
+	<lastmod>2021-05-17T10:13:19-05:00</lastmod>
 </url>
 <url>
 	<loc>https://www.SwATips.com/articles/20210405.html</loc>
@@ -27,5 +27,9 @@
 <url>
 	<loc>https://www.SwATips.com/articles/20210510.html</loc>
 	<lastmod>2021-05-07T10:39:21-05:00</lastmod>
+</url>
+<url>
+	<loc>https://www.SwATips.com/articles/20210517.html</loc>
+	<lastmod>2021-05-17T10:13:15-05:00</lastmod>
 </url>
 </urlset>

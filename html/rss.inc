@@ -1,4 +1,218 @@
 	<item>
+		<title>Secure Pseudo-Random Number Generation</title>
+		<link>https://www.SwATips.com/articles/20210517.html</link>
+		<pubDate>Mon, 17 May 2021 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;">Return to <a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">SwATips</a> | <a href="articles/20210517.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>]<br/>
+Generated Monday 17<sup class="textsuperscript">th</sup> May, 2021</h2>
+<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">James Shelton</span></div><br/>
+<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 17</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> May, 2021</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Secure Pseudo-Random Number Generation</h3>
+
+
+<!-- l. 1 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Definition</h4>
+
+
+<!-- l. 2 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">As the name implies, pseudo-random number generation (PRNG) does not produce a truly random, indeterminate
+value. The exact nature of this pseudo-randomness varies between languages and implementations, but essentially,
+PRNG is accomplished via an algorithm that uses mathematical formulae or precalculated tables to produce
+numerical values that appear random.[<a href="#cite.0@20210517:haahr" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]
+</p>
+<!-- l. 4 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   However, a common characteristic of all methods of PRNG is that they are deterministic, meaning that
+they require an initial seed in the form of another numerical value, and that, if the seed is known and
+replicated exactly, the PRNG will produce the exact same results multiple times. These seeds can
+take the form of literal values or variable representation of other, unrelated values, such as system
+time.
+</p>
+<!-- l. 6 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Another property of PRNG is that the values it generates are periodic, meaning that, due to the finite amount
+of pseudo-random values a given implementation can generate, the output will eventually begin to
+repeat.
+</p>
+<!-- l. 8 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Examples</h4>
+
+
+<!-- l. 9 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Most common programming languages have built-in PRNG implementations. The method <span class="ec-lmtt-10" style="font-family: monospace,monospace;">rand(</span>),
+defined in the C Standard General Utilities Library, is perhaps the most basic PRNG function in the
+C family, using a seed, provided by the developer as an argument to an earlier call to the method
+<span class="ec-lmtt-10" style="font-family: monospace,monospace;">srand()</span>, to return an integer value between zero and the language-defined constant <span class="ec-lmtt-10" style="font-family: monospace,monospace;">RAND_MAX</span>.[<a href="#cite.0@20210517:cpp-rand" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">8</a>] C++11
+expands upon these PRNG capabilities in its <span class="ec-lmtt-10" style="font-family: monospace,monospace;">&lt;random&gt; </span>header, which introduces numerous PRNG
+implementations, from uniform distributors to algorithmic implementations of various mathematical
+distributions.[<a href="#cite.0@20210517:cpp-random" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">6</a>]
+</p>
+<!-- l. 11 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Likewise, Java implements a <i>random</i> series of methods, found in the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Random </span>class of the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">java.util.Random</span>
+object, which function similarly to the C <span class="ec-lmtt-10" style="font-family: monospace,monospace;">rand() </span>function but can be specified to accept as a seeds and output
+values of other numeric data types.[<a href="#cite.0@20210517:java" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">7</a>]
+</p>
+<!-- l. 13 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a id="x1-40001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Issues</h4>
+
+
+<!-- l. 14 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Because of the deterministic and periodic factors, the use of PRNG in a security context is typically discouraged, as
+the requirement of a defined seed and the finite amount of possible outcomes means that, even if an
+attacker is not aware of the initial condition, a supposedly random value can be realistically guessed by
+the use of brute force alone. Still, PRNG has its place in such contexts, as it is generally considered
+significantly more efficient and practical to implement than true random number generation (TRNG), as
+TRNG extracts randomness from captured aspects of physical phenomena, such as radioactive decay or
+atmospheric noise, which most commercially available computer hardware is simply not equipped to
+do.
+</p>
+<!-- l. 16 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   An example of a use of PRNG in an identification and authentication scenario is the creation of a temporary
+session ID for a user. The viability of this implementation is entirely dependent on the source of the seed value used
+in the PRNG algorithm. One hypothetical source is a given user’s authentication ID, but this value is the same each
+time the user logs in. Another option is that of the system time in Unix Time format, which, on one hand, is
+guaranteed to change each second. On the other hand, an attacker could replicate a Unix Time string corresponding
+with a date and time at which any given user is likely to be authenticating (say, a weekday at around 9:00<span class="small-caps" style="font-variant: small-caps;">AM</span>), and,
+                                                                                         
+                                                                                         
+with enough luck, could potentially spoof the session ID of an active, verified user simply by correctly
+guessing what time they logged on, a tactic that only increases in viability the more users a system
+supports.
+</p>
+<!-- l. 18 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   From a software assurance perspective, in the event of scenario similar in scope to the previous example,
+reported issues will usually adhere to a vulnerability description enumerated as CWE-337 or CWE-338,[<a href="#cite.0@20210517:cwe-337" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, <a href="#cite.0@20210517:cwe-338" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] the
+former with respect to the use of the seeded value and the latter with respect to the PRNG function itself.
+Occasionally, both will occur concurrently for the same instance.
+</p>
+<!-- l. 21 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.4   </span> <a id="x1-50001.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Mitigations</h4>
+
+
+<!-- l. 22 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">In general, the larger and more arbitrary the seed, the less likely the likely the PRNG implementation
+can be exploited by an attacker. Or, at least, it would result in exploitation attempts taking longer
+to accomplish, thus increasing the chance of the attack being noticed before the attacker succeeds.
+Regardless, the very presence of a PRNG implementation is overwhelmingly likely to be documented as an
+issue by a scan tool, but the security of such of an implementation can still be ensured through a
+multilayered approach tailored to fit the specific context in which the pseudo-random value is being
+used.
+</p>
+<!-- l. 24 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   In an authentication context, imposing a limit to the number of times a user can unsuccessfully
+supply valid credentials and/or placing a restriction on subsequent attempts can mitigate attacks based
+around exploiting PRNG to replicate a valid set of credentials or the privileges attached to a valid set of
+credentials.
+</p>
+<!-- l. 26 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   In a cryptographic context, the use of algorithms whose PRNG has been sufficiently tested and independently
+verified is the best way to mitigate potential issues. A list of random number generators approved for use in
+cryptographic modules can be found in Annex C of the FIPS 140-2 publication from the Information Technology
+Laboratory of the National Institute of Standards and Technology.[<a href="#cite.0@20210517:annexc" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>]
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead"><a id="x1-60001.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 45 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt id="X0-20210517:cwe-337" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210517:cwe-337" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>CWE Content Team. “CWE-337: Predictable Seed in Pseudo-Random Number Generator (PRNG)”.
+In: (2020). <span class="small-caps" style="font-variant: small-caps;">url</span>: <a href="https://cwe.mitre.org/data/definitions/337.html" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://cwe.mitre.org/data/definitions/337.html</span></a>.
+</p>    
+</dd>
+<dt id="X0-20210517:cwe-338" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[2]  
+</dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210517:cwe-338" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>CWE Content Team. “CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator
+(PRNG)”. In: (2021). <span class="small-caps" style="font-variant: small-caps;">url</span>: <a href="https://cwe.mitre.org/data/definitions/338.html" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://cwe.mitre.org/data/definitions/338.html</span></a>.
+</p>    
+</dd>
+<dt id="X0-20210517:haahr" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[3]  
+</dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210517:haahr" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Mads Haahr. “Introduction to Randomness and Random Numbers”. In: <span class="rm-lmri-10" style="font-style: italic;">RANDOM.ORG </span>(2021). <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a href="https://www.random.org/randomness/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.random.org/randomness/</span></a>.
+</p>    
+</dd>
+<dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[4]  
+</dt><dd id="bib-4" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt id="X0-20210517:annexc" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[5]  
+</dt><dd id="bib-5" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210517:annexc" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>National Institute of Standards and Technology. <span class="rm-lmri-10" style="font-style: italic;">Annex C: Approved Random Number Generators for
+</span><span class="rm-lmri-10" style="font-style: italic;">FIPS PUB 140-2. Security Requirements for Cryptographic Modules</span>. Department of Commerce. 2019.
+<span class="small-caps" style="font-variant: small-caps;">url</span>: <a href="https://csrc.nist.gov/CSRC/media/Publications/fips/140/2/final/documents/fips1402annexc.pdf" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://csrc.nist.gov/CSRC/media/Publications/fips/140/2/final/documents/fips1402annexc.pdf</span></a>.
+</p>    
+</dd>
+<dt id="X0-20210517:cpp-random" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[6]  
+</dt><dd id="bib-6" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210517:cpp-random" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Various.              “¡random¿”.              In:              <span class="rm-lmri-10" style="font-style: italic;">cplusplus.com             </span>(2021).              <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a href="https://www.cplusplus.com/reference/random/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.cplusplus.com/reference/random/</span></a>.
+</p>    
+</dd>
+<dt id="X0-20210517:java" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[7]  
+</dt><dd id="bib-7" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210517:java" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Various.       “Class       Random”.       In:       <span class="rm-lmri-10" style="font-style: italic;">Java      8      Documentation       </span>(2021).       <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://docs.oracle.com/javase/8/docs/api/java/util/Random.html</span></a>.
+</p>    
+</dd>
+<dt id="X0-20210517:cpp-rand" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[8]  
+</dt><dd id="bib-8" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210517:cpp-rand" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Various.                “rand”.                In:                <span class="rm-lmri-10" style="font-style: italic;">cplusplus.com               </span>(2021).                <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a href="https://www.cplusplus.com/reference/cstdlib/rand/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.cplusplus.com/reference/cstdlib/rand/</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Homoglyphs аnd Homogrаphic Аttаcks</title>
 		<link>https://www.SwATips.com/articles/20210510.html</link>
 		<pubDate>Mon, 10 May 2021 00:00:00 -0500</pubDate>

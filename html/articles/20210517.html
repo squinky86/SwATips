@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html xml:lang='en-US' lang='en-US'>
+<head>
+<title>Secure Pseudo-Random Number Generation</title>
+ 
+
+<meta charset="utf-8"/>
+ 
+
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"/>
+ 
+
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+ 
+
+ 
+
+<meta name="src" content="article.tex"/>
+ 
+
+<script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
+<style>
+ 
+/* start css.sty */
+.rm-lmr-7{font-size:70%;}
+.rm-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
+.rm-lmr-9{font-size:90%;}
+.rm-lmr-12{font-size:120%;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.rm-lmri-10{ font-style:italic;}
+.rm-lmcsc-10{font-variant: small-caps;}
+p{margin-top:0;margin-bottom:0}
+p.indent{text-indent:0;}
+p + p{margin-top:1em;}
+p + div, p + pre {margin-top:1em;}
+div + p, pre + p {margin-top:1em;}
+a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+img.math{vertical-align:middle;}
+div.par-math-display, div.math-display{text-align:center;}
+li p.indent { text-indent: 0em }
+li p:first-child{ margin-top:0em; }
+li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.footnotes{border-top:solid 1px black; border-bottom:solid 1px black; padding-bottom:1ex; padding-top:0.5ex; margin-right:15%; margin-top:2ex; font-style:italic; font-size:85%;}
+div.footnotes p{margin-top:0; margin-bottom:0; text-indent:0;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.tabbing-right {text-align:right;}
+div.float, div.figure {margin-left: auto; margin-right: auto;}
+div.float img {text-align:center;}
+div.figure img {text-align:center;}
+.marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.reversemarginpar{float:left;}
+table.equation {width:100%;}
+.equation td{text-align:center; }
+td.equation { margin-top:1em; margin-bottom:1em; } 
+td.equation-label { width:5%; text-align:center; }
+td.eqnarray4 { width:5%; white-space: normal; }
+td.eqnarray2 { width:5%; }
+table.eqnarray-star, table.eqnarray {width:100%;}
+div.eqnarray{text-align:center;}
+div.array {text-align:center;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.pmatrix img{vertical-align:middle;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.bar-css {text-decoration:overline;}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
+img.cdots{vertical-align:middle;}
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption span.id{font-weight: bold; white-space: nowrap; }
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.abstract p {margin-left:5%; margin-right:5%;}
+div.abstract {width:100%;}
+.abstracttitle{text-align:center;margin-bottom:1em;}
+figure.float, div.figure {margin-left: auto; margin-right: auto;}
+figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}
+figure.figure {text-align:center;}
+figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
+figcaption.caption span.id{font-weight: bold; white-space: nowrap; }
+.abstract{margin:1em;}
+dt.printshorthands{float:left; clear:left; margin-right:1em;}
+dd.thebibliography {margin-left: 2.5em;}
+dt.thebibliography {float:left; clear:left; margin-right:1em;}
+.lstlisting .label{margin-right:0.5em; }
+div.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
+div.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
+.lstinputlisting .label{margin-right:0.5em;}
+.small-caps{font-variant: small-caps;}
+/* end css.sty */
+
+</style>
+</head>
+<body>
+<p>Return to <a href="../">SwATips</a> | <a href="20210517.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="images/by.svg" width="60" height="21" alt="CC-BY" /></a></p>
+<div class='maketitle'>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
+A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>4</a>]<br />
+Generated Monday 17<sup class='textsuperscript'>th</sup> May, 2021</h2>
+<div class='author'><span class='rm-lmr-12'>James Shelton</span></div><br />
+<div class='date'><span class='rm-lmr-12'>Monday 17</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> May, 2021</span></div>
+</div>
+                                                                                         
+                                                                                         
+   
+<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Secure Pseudo-Random Number Generation</h3>
+<!-- l. 1 --><p class='noindent'>
+</p>   
+<h4 class='subsectionHead'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Definition</h4>
+<!-- l. 2 --><p class='noindent'>As the name implies, pseudo-random number generation (PRNG) does not produce a truly random, indeterminate
+value. The exact nature of this pseudo-randomness varies between languages and implementations, but essentially,
+PRNG is accomplished via an algorithm that uses mathematical formulae or precalculated tables to produce
+numerical values that appear random.[<a href='#cite.0@20210517:haahr'>3</a>]
+</p><!-- l. 4 --><p class='indent'>   However, a common characteristic of all methods of PRNG is that they are deterministic, meaning that
+they require an initial seed in the form of another numerical value, and that, if the seed is known and
+replicated exactly, the PRNG will produce the exact same results multiple times. These seeds can
+take the form of literal values or variable representation of other, unrelated values, such as system
+time.
+</p><!-- l. 6 --><p class='indent'>   Another property of PRNG is that the values it generates are periodic, meaning that, due to the finite amount
+of pseudo-random values a given implementation can generate, the output will eventually begin to
+repeat.
+</p><!-- l. 8 --><p class='noindent'>
+</p>   
+<h4 class='subsectionHead'><span class='titlemark'>1.2   </span> <a id='x1-30001.2'></a>Examples</h4>
+<!-- l. 9 --><p class='noindent'>Most common programming languages have built-in PRNG implementations. The method <span class='ec-lmtt-10'>rand(</span>),
+defined in the C Standard General Utilities Library, is perhaps the most basic PRNG function in the
+C family, using a seed, provided by the developer as an argument to an earlier call to the method
+<span class='ec-lmtt-10'>srand()</span>, to return an integer value between zero and the language-defined constant <span class='ec-lmtt-10'>RAND_MAX</span>.[<a href='#cite.0@20210517:cpp-rand'>8</a>] C++11
+expands upon these PRNG capabilities in its <span class='ec-lmtt-10'>&lt;random&gt; </span>header, which introduces numerous PRNG
+implementations, from uniform distributors to algorithmic implementations of various mathematical
+distributions.[<a href='#cite.0@20210517:cpp-random'>6</a>]
+</p><!-- l. 11 --><p class='indent'>   Likewise, Java implements a <i>random</i> series of methods, found in the <span class='ec-lmtt-10'>Random </span>class of the <span class='ec-lmtt-10'>java.util.Random</span>
+object, which function similarly to the C <span class='ec-lmtt-10'>rand() </span>function but can be specified to accept as a seeds and output
+values of other numeric data types.[<a href='#cite.0@20210517:java'>7</a>]
+</p><!-- l. 13 --><p class='noindent'>
+</p>   
+<h4 class='subsectionHead'><span class='titlemark'>1.3   </span> <a id='x1-40001.3'></a>Issues</h4>
+<!-- l. 14 --><p class='noindent'>Because of the deterministic and periodic factors, the use of PRNG in a security context is typically discouraged, as
+the requirement of a defined seed and the finite amount of possible outcomes means that, even if an
+attacker is not aware of the initial condition, a supposedly random value can be realistically guessed by
+the use of brute force alone. Still, PRNG has its place in such contexts, as it is generally considered
+significantly more efficient and practical to implement than true random number generation (TRNG), as
+TRNG extracts randomness from captured aspects of physical phenomena, such as radioactive decay or
+atmospheric noise, which most commercially available computer hardware is simply not equipped to
+do.
+</p><!-- l. 16 --><p class='indent'>   An example of a use of PRNG in an identification and authentication scenario is the creation of a temporary
+session ID for a user. The viability of this implementation is entirely dependent on the source of the seed value used
+in the PRNG algorithm. One hypothetical source is a given user’s authentication ID, but this value is the same each
+time the user logs in. Another option is that of the system time in Unix Time format, which, on one hand, is
+guaranteed to change each second. On the other hand, an attacker could replicate a Unix Time string corresponding
+with a date and time at which any given user is likely to be authenticating (say, a weekday at around 9:00<span class='small-caps'>AM</span>), and,
+                                                                                         
+                                                                                         
+with enough luck, could potentially spoof the session ID of an active, verified user simply by correctly
+guessing what time they logged on, a tactic that only increases in viability the more users a system
+supports.
+</p><!-- l. 18 --><p class='indent'>   From a software assurance perspective, in the event of scenario similar in scope to the previous example,
+reported issues will usually adhere to a vulnerability description enumerated as CWE-337 or CWE-338,[<a href='#cite.0@20210517:cwe-337'>1</a>, <a href='#cite.0@20210517:cwe-338'>2</a>] the
+former with respect to the use of the seeded value and the latter with respect to the PRNG function itself.
+Occasionally, both will occur concurrently for the same instance.
+</p><!-- l. 21 --><p class='noindent'>
+</p>   
+<h4 class='subsectionHead'><span class='titlemark'>1.4   </span> <a id='x1-50001.4'></a>Mitigations</h4>
+<!-- l. 22 --><p class='noindent'>In general, the larger and more arbitrary the seed, the less likely the likely the PRNG implementation
+can be exploited by an attacker. Or, at least, it would result in exploitation attempts taking longer
+to accomplish, thus increasing the chance of the attack being noticed before the attacker succeeds.
+Regardless, the very presence of a PRNG implementation is overwhelmingly likely to be documented as an
+issue by a scan tool, but the security of such of an implementation can still be ensured through a
+multilayered approach tailored to fit the specific context in which the pseudo-random value is being
+used.
+</p><!-- l. 24 --><p class='indent'>   In an authentication context, imposing a limit to the number of times a user can unsuccessfully
+supply valid credentials and/or placing a restriction on subsequent attempts can mitigate attacks based
+around exploiting PRNG to replicate a valid set of credentials or the privileges attached to a valid set of
+credentials.
+</p><!-- l. 26 --><p class='indent'>   In a cryptographic context, the use of algorithms whose PRNG has been sufficiently tested and independently
+verified is the best way to mitigate potential issues. A list of random number generators approved for use in
+cryptographic modules can be found in Annex C of the FIPS 140-2 publication from the Information Technology
+Laboratory of the National Institute of Standards and Technology.[<a href='#cite.0@20210517:annexc'>5</a>]
+                                                                                         
+                                                                                         
+</p>   
+<h3 class='sectionHead'><a id='x1-60001.4'></a>References</h3>
+<!-- l. 45 --><p class='noindent'>    
+</p>
+<dl class='thebibliography'><dt id='X0-20210517:cwe-337' class='thebibliography'>
+[1]  
+</dt><dd id='bib-1' class='thebibliography'>
+<!-- l. 45 --><p class='noindent'><a id='cite.0@20210517:cwe-337'></a>CWE Content Team. “CWE-337: Predictable Seed in Pseudo-Random Number Generator (PRNG)”.
+In: (2020). <span class='small-caps'>url</span>: <a href='https://cwe.mitre.org/data/definitions/337.html' class='url'><span class='ec-lmtt-10'>https://cwe.mitre.org/data/definitions/337.html</span></a>.
+</p>    
+</dd>
+<dt id='X0-20210517:cwe-338' class='thebibliography'>
+[2]  
+</dt><dd id='bib-2' class='thebibliography'>
+<!-- l. 45 --><p class='noindent'><a id='cite.0@20210517:cwe-338'></a>CWE Content Team. “CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator
+(PRNG)”. In: (2021). <span class='small-caps'>url</span>: <a href='https://cwe.mitre.org/data/definitions/338.html' class='url'><span class='ec-lmtt-10'>https://cwe.mitre.org/data/definitions/338.html</span></a>.
+</p>    
+</dd>
+<dt id='X0-20210517:haahr' class='thebibliography'>
+[3]  
+</dt><dd id='bib-3' class='thebibliography'>
+<!-- l. 45 --><p class='noindent'><a id='cite.0@20210517:haahr'></a>Mads Haahr. “Introduction to Randomness and Random Numbers”. In: <span class='rm-lmri-10'>RANDOM.ORG </span>(2021). <span class='small-caps'>url</span>:
+<a href='https://www.random.org/randomness/' class='url'><span class='ec-lmtt-10'>https://www.random.org/randomness/</span></a>.
+</p>    
+</dd>
+<dt id='X0-swatips' class='thebibliography'>
+[4]  
+</dt><dd id='bib-4' class='thebibliography'>
+<!-- l. 45 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a href='https://www.SwATips.com/' class='url'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt id='X0-20210517:annexc' class='thebibliography'>
+[5]  
+</dt><dd id='bib-5' class='thebibliography'>
+<!-- l. 45 --><p class='noindent'><a id='cite.0@20210517:annexc'></a>National Institute of Standards and Technology. <span class='rm-lmri-10'>Annex C: Approved Random Number Generators for
+</span><span class='rm-lmri-10'>FIPS PUB 140-2. Security Requirements for Cryptographic Modules</span>. Department of Commerce. 2019.
+<span class='small-caps'>url</span>: <a href='https://csrc.nist.gov/CSRC/media/Publications/fips/140/2/final/documents/fips1402annexc.pdf' class='url'><span class='ec-lmtt-10'>https://csrc.nist.gov/CSRC/media/Publications/fips/140/2/final/documents/fips1402annexc.pdf</span></a>.
+</p>    
+</dd>
+<dt id='X0-20210517:cpp-random' class='thebibliography'>
+[6]  
+</dt><dd id='bib-6' class='thebibliography'>
+<!-- l. 45 --><p class='noindent'><a id='cite.0@20210517:cpp-random'></a>Various.              “¡random¿”.              In:              <span class='rm-lmri-10'>cplusplus.com             </span>(2021).              <span class='small-caps'>url</span>:
+<a href='https://www.cplusplus.com/reference/random/' class='url'><span class='ec-lmtt-10'>https://www.cplusplus.com/reference/random/</span></a>.
+</p>    
+</dd>
+<dt id='X0-20210517:java' class='thebibliography'>
+[7]  
+</dt><dd id='bib-7' class='thebibliography'>
+<!-- l. 45 --><p class='noindent'><a id='cite.0@20210517:java'></a>Various.       “Class       Random”.       In:       <span class='rm-lmri-10'>Java      8      Documentation       </span>(2021).       <span class='small-caps'>url</span>:
+<a href='https://docs.oracle.com/javase/8/docs/api/java/util/Random.html' class='url'><span class='ec-lmtt-10'>https://docs.oracle.com/javase/8/docs/api/java/util/Random.html</span></a>.
+</p>    
+</dd>
+<dt id='X0-20210517:cpp-rand' class='thebibliography'>
+[8]  
+</dt><dd id='bib-8' class='thebibliography'>
+<!-- l. 45 --><p class='noindent'><a id='cite.0@20210517:cpp-rand'></a>Various.                “rand”.                In:                <span class='rm-lmri-10'>cplusplus.com               </span>(2021).                <span class='small-caps'>url</span>:
+<a href='https://www.cplusplus.com/reference/cstdlib/rand/' class='url'><span class='ec-lmtt-10'>https://www.cplusplus.com/reference/cstdlib/rand/</span></a>.</p></dd></dl>
+ 
+</body> 
+</html>
