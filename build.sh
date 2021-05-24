@@ -212,6 +212,9 @@ if [ $PDF == true ]; then
 					done
 				fi
 			fi
+			if [ -f "${NUM}.post" ]; then
+				. ${NUM}.post
+			fi
 			popd >/dev/null
 			cp ${TMPDIR}/article.pdf html/articles/${NUM}.pdf
 			git ls-files --error-unmatch html/articles/${NUM}.pdf > /dev/null 2>&1 || git add html/articles/${NUM}.pdf > /dev/null

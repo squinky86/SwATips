@@ -1,4 +1,147 @@
 	<item>
+		<title>Side-Channel Attacks</title>
+		<link>https://www.SwATips.com/articles/20210524.html</link>
+		<pubDate>Mon, 24 May 2021 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;">Return to <a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">SwATips</a> | <a href="articles/20210524.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
+Generated Monday 24<sup class="textsuperscript">th</sup> May, 2021</h2>
+<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
+<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 24</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> May, 2021</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Side-Channel Attacks</h3>
+
+
+<!-- l. 4 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">The insider threat is one of the most difficult to find. I thought I’d lay out some ways in which we’ve found
+side-channel attacks (CWE-514) in actual systems that we have evaluated. They include: </p>
+
+
+<ul class="itemize1">     
+<li class="itemize">Inadvertent data through a backdoor
+</li>     
+<li class="itemize">Purposeful use of hard drive architectures to hide files
+</li>     
+<li class="itemize">Using seemingly benign documents to deliver an evil payload</li></ul>
+
+
+<!-- l. 11 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Development Backdoors</h4>
+
+
+<!-- l. 12 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="paragraphHead" style="margin-top: 2em; font-weight: bold;"><a id="x1-30001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmbx-10" style="font-weight: bold;">Developers often leave backdoors into a system.</span></span>
+This is sometimes left-over debug access meant to speed up development (CWE-489). When these backdoors are
+deployed in the wild, they become attack vectors wielded to access and sneak data out of a system without any
+visibility in logs and access control mechanisms. But this article primarily deals with the intentional side
+channels:
+</p>
+<!-- l. 14 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a id="x1-40001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Malicious Hardware</h4>
+
+
+<!-- l. 15 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="paragraphHead" style="margin-top: 2em; font-weight: bold;"><a id="x1-50001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmbx-10" style="font-weight: bold;">Hard drive architectures and other removable media can be exploited to provide a side
+</span><span class="rm-lmbx-10" style="font-weight: bold;">channel.</span></span>
+Suppose that you want to send a sensitive file to a malicious entity, but you don’t want that file to
+show up in any filesystem scans or perfunctory data scans of the media. The data may be hidden
+outside of filesystem control. In *nix systems, the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">dd </span>command can be used to hide data outside of the
+filesystem. Assuming the removable device is /dev/sdb (it doesn’t even have to be partitioned) and
+it has 1465149168 sectors, an attacker can run “<span class="ec-lmtt-10" style="font-family: monospace,monospace;">dd of=/dev/sdb bs=512 skip=1465140001 &lt; </span><span class="ts1-lmtt10-">'</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">I
+</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">am a sneaky little string!</span><span class="ts1-lmtt10-">'</span>” to sneak their message onto the hard drive. To retrieve the string,
+the recipient can simply “<span class="ec-lmtt-10" style="font-family: monospace,monospace;">dd if=/dev/sdb bs=512 skip=1465140001 count=30</span>” and retrieve the
+text.
+</p>
+<!-- l. 17 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   This becomes especially hidden when:
+</p>
+     
+
+<ol class="enumerate1" style="list-style-type: decimal;">
+<li id="x1-5002x1" class="enumerate">     
+The filesystem does not have anything else stored at the sectors starting at 1465140001
+</li>     
+<li id="x1-5004x2" class="enumerate">
+There is no filesystem provisioned that includes the sectors starting at 1465140001
+</li>     
+<li id="x1-5006x3" class="enumerate">
+A Host Protected Area (HPA) is set so that the operating system can’t see anything past sector
+1465140000 (“<span class="ec-lmtt-10" style="font-family: monospace,monospace;">hdparm -N p1465140000 /dev/sdb &amp;&amp; reboot</span>”)</li></ol>
+
+                                                                                         
+                                                                                         
+
+<!-- l. 24 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a id="x1-60001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Malicious Software</h4>
+
+
+<!-- l. 25 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="paragraphHead" style="margin-top: 2em; font-weight: bold;"><a id="x1-70001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmbx-10" style="font-weight: bold;">Seemingly benign files can hide an attacker’s payload.</span></span>
+Don’t believe me? Then take the PDF or HTML version of this tip and run the command in Listing <a href="#x1-7001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20210524:binary  --></a> against it
+in cygwin! </p>
+<!-- l. 26 -->
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-7001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-7002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+   
+
+<div id="listing-1" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-7003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">$ </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">cat</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> -v 20210524.pdf | grep "^%PAY:" | tail -c +6 | base64 -d &gt; sneaky.exe </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-7004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">$ chmod +x sneaky.exe </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-7005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">$ ./sneaky.exe</span>
+<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1:</span><span class="content">Hidden Binary in This File</span></figcaption><!-- tex4ht:label?: x1-7001r1  -->
+   
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><a id="x1-80001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 45 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Secure Pseudo-Random Number Generation</title>
 		<link>https://www.SwATips.com/articles/20210517.html</link>
 		<pubDate>Mon, 17 May 2021 00:00:00 -0500</pubDate>

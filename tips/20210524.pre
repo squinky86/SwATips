@@ -1,0 +1,3 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Side-Channel Attacks}
+\newcommand{\ArticleDate}{\formatdate{24}{5}{2021}}
