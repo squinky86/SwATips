@@ -81,13 +81,13 @@ text.
      
 
 <ol class="enumerate1" style="list-style-type: decimal;">
-<li id="x1-5002x1" class="enumerate">     
+<li class="enumerate" id="x1-5002x1">     
 The filesystem does not have anything else stored at the sectors starting at 1465140001
 </li>     
-<li id="x1-5004x2" class="enumerate">
+<li class="enumerate" id="x1-5004x2">
 There is no filesystem provisioned that includes the sectors starting at 1465140001
 </li>     
-<li id="x1-5006x3" class="enumerate">
+<li class="enumerate" id="x1-5006x3">
 A Host Protected Area (HPA) is set so that the operating system can’t see anything past sector
 1465140000 (“<span class="ec-lmtt-10" style="font-family: monospace,monospace;">hdparm -N p1465140000 /dev/sdb &amp;&amp; reboot</span>”)</li></ol>
 
@@ -104,7 +104,7 @@ A Host Protected Area (HPA) is set so that the operating system can’t see anyt
 
 <!-- l. 25 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="paragraphHead" style="margin-top: 2em; font-weight: bold;"><a id="x1-70001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmbx-10" style="font-weight: bold;">Seemingly benign files can hide an attacker’s payload.</span></span>
-Don’t believe me? Then take the PDF or HTML version of this tip and run the command in Listing <a href="#x1-7001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20210524:binary  --></a> against it
+Don’t believe me? Then take the PDF or HTML version of this tip and run the commands in Listing <a href="#x1-7001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20210524:binary  --></a> against it
 in cygwin! </p>
 <!-- l. 26 -->
 
@@ -115,7 +115,7 @@ in cygwin! </p>
 <p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-7002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
    
 
-<div id="listing-1" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-7003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">$ </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">cat</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> -v 20210524.pdf | grep "^%PAY:" | tail -c +6 | base64 -d &gt; sneaky.exe </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-7004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">$ chmod +x sneaky.exe </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-7005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">$ ./sneaky.exe</span>
+<div class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-7003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">$ </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">cat</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> -v 20210524.pdf | grep "^%PAY:" | tail -c +6 | base64 -d &gt; sneaky.exe </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-7004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">$ chmod +x sneaky.exe </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-7005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">$ ./sneaky.exe</span>
 <figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1:</span><span class="content">Hidden Binary in This File</span></figcaption><!-- tex4ht:label?: x1-7001r1  -->
    
 </div>
@@ -135,7 +135,7 @@ in cygwin! </p>
 <dl class="thebibliography"><dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [1]  
 </dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
 
  
 

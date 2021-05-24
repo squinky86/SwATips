@@ -22,7 +22,7 @@ This becomes especially hidden when:
 \end{enumerate}
 
 \subsection{Malicious Software}
-\paragraph{Seemingly benign files can hide an attacker's payload.} Don't believe me? Then take the PDF or HTML version of this tip and run the command in Listing~\ref{lst:20210524:binary} against it in cygwin!
+\paragraph{Seemingly benign files can hide an attacker's payload.} Don't believe me? Then take the PDF or HTML version of this tip and run the commands in Listing~\ref{lst:20210524:binary} against it in cygwin!
 \begin{lstlisting}[caption={Hidden Binary in This File},captionpos=b,style=BashStyle,basicstyle=\small,label={lst:20210524:binary},literate=*{-}{-}1
 {"}{"}1]
 $ cat -v 20210524.pdf | grep "^%PAY:" | tail -c +6 | base64 -d > sneaky.exe

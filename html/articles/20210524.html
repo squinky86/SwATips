@@ -7,15 +7,15 @@
 <meta charset="utf-8"/>
  
 
-<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
  
 
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
  
 
  
 
-<meta name="src" content="article.tex"/>
+<meta content="article.tex" name="src"/>
  
 
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
@@ -215,13 +215,13 @@ text.
 </p><!-- l. 17 --><p class='indent'>   This becomes especially hidden when:
 </p>     
 <ol class='enumerate1'>
-<li id='x1-5002x1' class='enumerate'>     
+<li class='enumerate' id='x1-5002x1'>     
 The filesystem does not have anything else stored at the sectors starting at 1465140001
 </li>     
-<li id='x1-5004x2' class='enumerate'>
+<li class='enumerate' id='x1-5004x2'>
 There is no filesystem provisioned that includes the sectors starting at 1465140001
 </li>     
-<li id='x1-5006x3' class='enumerate'>
+<li class='enumerate' id='x1-5006x3'>
 A Host Protected Area (HPA) is set so that the operating system can’t see anything past sector
 1465140000 (“<span class='ec-lmtt-10'>hdparm -N p1465140000 /dev/sdb &amp;&amp; reboot</span>”)</li></ol>
                                                                                          
@@ -230,11 +230,11 @@ A Host Protected Area (HPA) is set so that the operating system can’t see anyt
 </p>   
 <h4 class='subsectionHead'><span class='titlemark'>1.3   </span> <a id='x1-60001.3'></a>Malicious Software</h4>
 <!-- l. 25 --><p class='noindent'><span class='paragraphHead'><a id='x1-70001.3'></a><span class='rm-lmbx-10'>Seemingly benign files can hide an attacker’s payload.</span></span>
-Don’t believe me? Then take the PDF or HTML version of this tip and run the command in Listing <a href='#x1-7001r1'>1<!-- tex4ht:ref: lst:20210524:binary  --></a> against it
+Don’t believe me? Then take the PDF or HTML version of this tip and run the commands in Listing <a href='#x1-7001r1'>1<!-- tex4ht:ref: lst:20210524:binary  --></a> against it
 in cygwin! </p><!-- l. 26 -->
 <p><a id='x1-7001r1'></a></p>
 <p><a id='x1-7002'></a></p>   
-<div id='listing-1' class='lstlisting'><span class='label'><a id='x1-7003r1'></a></span><span class='ec-lmtt-9'>$ </span><span class='ec-lmtk-10x-x-90'>cat</span><span class='ec-lmtt-9'> -v 20210524.pdf | grep "^%PAY:" | tail -c +6 | base64 -d &gt; sneaky.exe </span><br /><span class='label'><a id='x1-7004r2'></a></span><span class='ec-lmtt-9'>$ chmod +x sneaky.exe </span><br /><span class='label'><a id='x1-7005r3'></a></span><span class='ec-lmtt-9'>$ ./sneaky.exe</span>
+<div class='lstlisting' id='listing-1'><span class='label'><a id='x1-7003r1'></a></span><span class='ec-lmtt-9'>$ </span><span class='ec-lmtk-10x-x-90'>cat</span><span class='ec-lmtt-9'> -v 20210524.pdf | grep "^%PAY:" | tail -c +6 | base64 -d &gt; sneaky.exe </span><br /><span class='label'><a id='x1-7004r2'></a></span><span class='ec-lmtt-9'>$ chmod +x sneaky.exe </span><br /><span class='label'><a id='x1-7005r3'></a></span><span class='ec-lmtt-9'>$ ./sneaky.exe</span>
 <figcaption class='caption'><span class='id'>Listing 1:</span><span class='content'>Hidden Binary in This File</span></figcaption><!-- tex4ht:label?: x1-7001r1  -->
    
 </div>
@@ -247,7 +247,7 @@ in cygwin! </p><!-- l. 26 -->
 <dl class='thebibliography'><dt id='X0-swatips' class='thebibliography'>
 [1]  
 </dt><dd id='bib-1' class='thebibliography'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a href='https://www.SwATips.com/' class='url'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.</p></dd></dl>
+<!-- l. 45 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.</p></dd></dl>
  
 </body> 
 </html><!--
