@@ -1,0 +1,4 @@
+\def \AuthorName{Richard Ford}
+\def \ArticleName{Secure Compilation}
+\newcommand{\ArticleDate}{\formatdate{14}{6}{2021}}
+\addbibresource{20210614.bib}
