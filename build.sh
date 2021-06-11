@@ -150,11 +150,16 @@ if [ $PDF == true ]; then
 	GIT=$?
 
 	echo -n "" > html/articles.inc
+	echo -n "" > html/articles-full.inc
 	echo -n "" > html/rss.inc
 	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" > html/sitemap.xml
 	echo "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">" >> html/sitemap.xml
 	echo "<url>" >> html/sitemap.xml
 	echo -e "\t<loc>https://www.SwATips.com/</loc>" >> html/sitemap.xml
+	echo -e "\t<lastmod>$(date -Iseconds)</lastmod>" >> html/sitemap.xml
+	echo "</url>" >> html/sitemap.xml
+	echo "<url>" >> html/sitemap.xml
+	echo -e "\t<loc>https://www.SwATips.com/articles.php</loc>" >> html/sitemap.xml
 	echo -e "\t<lastmod>$(date -Iseconds)</lastmod>" >> html/sitemap.xml
 	echo "</url>" >> html/sitemap.xml
 	for x in tips/*.tex; do
@@ -242,7 +247,7 @@ if [ $PDF == true ]; then
 		fi
 		ARTICLES+=( "${ARTICLENAME}" )
 		NUMS+=( "${NUM}" )
-		echo "<li>${NUM} - <a href=\"articles/${NUM}.html\">${ARTICLENAME}</a></li>" >> html/articles.inc
+		echo "<li>${NUM} - <a href=\"articles/${NUM}.html\">${ARTICLENAME}</a></li>" >> html/articles-full.inc
 		echo "<url>" >> html/sitemap.xml
 		echo -e "\t<loc>https://www.SwATips.com/articles/${NUM}.html</loc>" >> html/sitemap.xml
 		echo -e "\t<lastmod>$(date -Iseconds -r tips/${NUM}.tex)</lastmod>" >> html/sitemap.xml
@@ -251,6 +256,7 @@ if [ $PDF == true ]; then
 	done
 	echo "</urlset>" >> html/sitemap.xml
 	for ((i=${#ARTICLES[@]} - 1; i >= 0; i--)); do
+		echo "<li>${NUMS[$i]} - <a href=\"articles/${NUMS[$i]}.html\">${ARTICLES[$i]}</a></li>" >> html/articles.inc
 		echo "	<item>" >> html/rss.inc
 		echo "		<title>${ARTICLES[$i]}</title>" >> html/rss.inc
 		echo "		<link>https://www.SwATips.com/articles/${NUMS[$i]}.html</link>" >> html/rss.inc
