@@ -1,4 +1,210 @@
 	<item>
+		<title>Secure Compilation</title>
+		<link>https://www.SwATips.com/articles/20210614.html</link>
+		<pubDate>Mon, 14 Jun 2021 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;">Return to <a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">SwATips</a> | <a href="articles/20210614.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>]<br/>
+Generated Thursday 10<sup class="textsuperscript">th</sup> June, 2021</h2>
+<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Richard Ford</span></div><br/>
+<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 14</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> June, 2021</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Secure Compilation</h3>
+
+
+<!-- l. 1 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Ordinary compilers aim to provide correct compilation based on the rules of the source language. Most language
+standards allow the compiler to perform optimizations provided they follow the “as if” rule: that the external
+interactions of the program are the same as if the compiler had not optimized but rigidly followed the language
+abstract model of execution. In addition, refinement is allowed. The source language may allow several different
+ways that the program may be executed. The compiler is considered correct if the target code behaves in one of
+those ways.
+</p>
+<!-- l. 3 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Security problems arise because attackers do not play by the source language rules.[<a href="#cite.0@20210614:sidhpurwala" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">7</a>, <a href="#cite.0@20210614:dsilva" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>] </p>
+
+
+<ul class="itemize1">     
+<li class="itemize">A compromised operating system can inspect the memory of a running program. So, memory locations
+formerly occupied by out-of-scope function variables can be inspected to see the possibly sensitive data
+they held.
+</li>     
+<li class="itemize">The timing behavior of the computation can be used to leak sensitive information.</li></ul>
+
+
+<!-- l. 9 -->
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   The emerging field of secure compilation seeks to define what it means for compilation to be secure.[<a href="#cite.0@20210614:busi" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>, <a href="#cite.0@20210614:patrignani" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">6</a>] There
+is much ongoing research on secure compilation.
+</p>
+<!-- l. 11 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Whereas most compiler correctness research has been on whole-program compilation, the secure compilation
+studies use program fragments (called components) which are linked with a context. The context is used to model
+attackers. The behavior of a component is characterized by the set of traces (sequences of events) it may produce.
+Two components are considered contextually equivalent if, when combined with the same arbitrary context, they
+produced the same trace.
+</p>
+<!-- l. 13 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A key concept mentioned in many of the papers is that of fully-abstract compilation. A compilation is fully
+abstract if it has two properties:
+</p>
+     
+
+<ol class="enumerate1" style="list-style-type: decimal;">
+<li class="enumerate" id="x1-1002x1">     
+<i>Contextually equivalence preservation:</i> if two components are contextually equivalent at the source
+level, then their compiled forms are also contextually equivalent.
+</li>     
+<li class="enumerate" id="x1-1004x2">
+<i>Contextually equivalent reflection:</i> if the compiled form of two components are contextually equivalent,
+then they are also contextually equivalent at the source.</li></ol>
+
+
+<!-- l. 19 -->
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   Because fully abstract compilation involves quantification over contexts, it is difficult to prove. An alternate
+approach is to focus on properties and hyperproperties.[<a href="#cite.0@20210614:clarkson" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]
+</p>
+<!-- l. 21 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A program property can be represented by the set of traces that satisfy that property. The language semantics
+specify the set of allowable traces. A program will satisfy a property if its set of traces (as defined by the language)
+is a subset of the property’s traces.
+</p>
+<!-- l. 23 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A correct compiler, because of refinement or optimization, is allowed to produce a target program which will
+only produce a subset of those traces. But if the source program satisfied the property, the target program will also
+(assuming no attacks).
+</p>
+<!-- l. 25 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Whereas a property is characterized by a set of traces, a hyperproperty is a set of sets of traces. Hyperproperties
+can express requirements that cannot be expressed using only properties. For example, non-interference can be
+expressed by saying that for every trace involving a mix of low and high inputs and outputs there is another trace
+with the high inputs and outputs deleted, that has the same low inputs and outputs (thus the low inputs and
+outputs are not influenced by the high inputs or outputs).
+</p>
+<!-- l. 27 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The goal of secure compilation is not to remove security vulnerabilities from source programs, but to ensure that
+no vulnerabilities are introduced. Secure compilation, whether to achieve full abstraction or to preserve
+some specified properties in the face of attacks is not possible unless the target language has some
+means of protection. In particular, protecting data-in-use requires hardware protection mechanism.
+Some example hardware mechanisms that have been studied in regard to secure compilation are:[<a href="#cite.0@20210614:busi" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>, <a href="#cite.0@20210614:patrignani" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">6</a>]
+</p>
+
+                                                                                         
+                                                                                         
+     
+
+<ul class="itemize1">
+<li class="itemize">Typed-assembly language
+</li>     
+<li class="itemize">Capability Machines (CHERI)
+</li>     
+<li class="itemize">Protected Module Architectures (PMA): e.g., SGX
+</li>     
+<li class="itemize">Micro-policies (CRASH/SAFE, or Dover CoreGuard)</li></ul>
+
+
+<!-- l. 35 -->
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   Most of the secure compilation theories have been based on trace events that are the same for source and target
+language. But recent work has generalized this theory to use relations to relate source and target event
+traces.[<a href="#cite.0@20210614:abate" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]
+</p>
+<!-- l. 37 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Current software development practice targets platforms that do not have the required hardware protection
+mechanisms and uses compilers that strive to be correct but that are unaware of the additional security
+requirements. Here are some possible recommendations to avoid vulnerabilities: </p>
+
+
+<ul class="itemize1">     
+<li class="itemize">Promote use of hardware protections that are currently available (e.g., SGX and CoreGuard) but not
+currently being used.
+</li>     
+<li class="itemize">Formulate and propose security contracts for programming languages and implement them in some
+open-source compilers. For example, an annotation could be added to the declaration of sensitive data.
+The compiler could then erase the data as soon as it goes out of scope.
+</li>     
+<li class="itemize">Use software scanners to detect vulnerabilities and try to use existing compiler features to minimize
+exposure.</li></ul>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 45 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt id="X0-20210614:abate" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210614:abate" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Carmine Abate et al. <span class="rm-lmri-10" style="font-style: italic;">Trace-Relating Compiler Correctness and Secure Compilation</span>. 2020. arXiv: <a href="https://arxiv.org/abs/1907.05320" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">1907.
+</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">05320 [cs.PL]</span></a>.
+</p>    
+</dd>
+<dt id="X0-20210614:busi" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[2]  
+</dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210614:busi" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Matteo  Busi  and  Letterio  Galletta.  “A  brief  tour  of  formally  secure  compilation”.  In:  <span class="rm-lmri-10" style="font-style: italic;">3rd  Italian
+</span><span class="rm-lmri-10" style="font-style: italic;">Conference on Cyber Security, ITASEC 2019</span>. Vol. 2315. CEUR-WS. 2019.
+</p>    
+</dd>
+<dt id="X0-20210614:clarkson" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[3]  
+</dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210614:clarkson" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Michael  R.  Clarkson  and  Fred  B.  Schneider.  “Hyperproperties”.  In:  <span class="rm-lmri-10" style="font-style: italic;">21st IEEE Computer Security
+</span><span class="rm-lmri-10" style="font-style: italic;">Foundations Symposium</span>. June 2008, pp. 51–65.
+</p>    
+</dd>
+<dt id="X0-20210614:dsilva" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[4]  
+</dt><dd id="bib-4" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210614:dsilva" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Vijay  D’Silva,  Mathias  Payer,  and  Dawn  Song.  “The  Correctness-Security  Gap  in  Compiler
+Optimization”. In: <span class="rm-lmri-10" style="font-style: italic;">2015 IEEE Security and Privacy Workshops</span>. 2015, pp. 73–87. <span class="small-caps" style="font-variant: small-caps;">doi</span>: <a href="https://doi.org/10.1109/SPW.2015.33" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10.1109/SPW.
+</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">2015.33</span></a>.
+</p>    
+</dd>
+<dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[5]  
+</dt><dd id="bib-5" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt id="X0-20210614:patrignani" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[6]  
+</dt><dd id="bib-6" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210614:patrignani" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Marco Patrignani, Amal Ahmed, and Dave Clarke. “Formal Approaches to Secure Compilation: A
+Survey of Fully Abstract Compilation and Related Work”. In: <span class="rm-lmri-10" style="font-style: italic;">ACM Comput. Surv. </span>51.6 (Feb. 2019).
+<span class="small-caps" style="font-variant: small-caps;">issn</span>: 0360-0300. <span class="small-caps" style="font-variant: small-caps;">doi</span>: <a href="https://doi.org/10.1145/3280984" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10.1145/3280984</span></a>. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a href="https://doi.org/10.1145/3280984" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://doi.org/10.1145/3280984</span></a>.
+</p>    
+</dd>
+<dt id="X0-20210614:sidhpurwala" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[7]  
+</dt><dd id="bib-7" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210614:sidhpurwala" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Huzaifa Sidhpurwala. “Security flaws caused by compiler optimizations”. In: <span class="rm-lmri-10" style="font-style: italic;">Red Hat Blog </span>(2019). <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a href="https://www.redhat.com/en/blog/security-flaws-caused-compiler-optimizations" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.redhat.com/en/blog/security-flaws-caused-compiler-optimizations</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Side-Channel Attacks</title>
 		<link>https://www.SwATips.com/articles/20210524.html</link>
 		<pubDate>Mon, 24 May 2021 00:00:00 -0500</pubDate>

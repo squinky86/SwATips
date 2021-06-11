@@ -1,4 +1,4 @@
-Ordinary compilers aim to provide correct compilation based on the rules of the source language. Most language standards allow the compiler to perform optimizations provided they follow the ``as if'' rule, that the external interactions of the program are the same as if the compiler had not optimized but rigidly followed the language abstract model of execution. In addition, refinement is allowed. The source language may allow several different ways that the program may be executed. The compiler is considered correct if the target code behaves in one of those ways.
+Ordinary compilers aim to provide correct compilation based on the rules of the source language. Most language standards allow the compiler to perform optimizations provided they follow the ``as if'' rule: that the external interactions of the program are the same as if the compiler had not optimized but rigidly followed the language abstract model of execution. In addition, refinement is allowed. The source language may allow several different ways that the program may be executed. The compiler is considered correct if the target code behaves in one of those ways.
 
 Security problems arise because attackers do not play by the source language rules.\autocites{20210614:sidhpurwala}{20210614:dsilva}
 \begin{itemize}
@@ -6,7 +6,7 @@ Security problems arise because attackers do not play by the source language rul
 	\item The timing behavior of the computation can be used to leak sensitive information.
 \end{itemize}
 
-The emerging field of secure compilation seeks to define what it means for compilation to be secure.\autocites{20210614:busi}{20210614:patrignani} There is much ongoing research on secure compilation. 
+The emerging field of secure compilation seeks to define what it means for compilation to be secure.\autocites{20210614:busi}{20210614:patrignani} There is much ongoing research on secure compilation.
 
 Whereas most compiler correctness research has been on whole-program compilation, the secure compilation studies use program fragments (called components) which are linked with a context. The context is used to model attackers. The behavior of a component is characterized by the set of traces (sequences of events) it may produce. Two components are considered contextually equivalent if, when combined with the same arbitrary context, they produced the same trace. 
 
@@ -16,9 +16,9 @@ A key concept mentioned in many of the papers is that of fully-abstract compilat
 	\item \textit{Contextually equivalent reflection:} if the compiled form of two components are contextually equivalent, then they are also contextually equivalent at the source.
 \end{enumerate}
 
-Because fully abstract compilation involves quantification over contexts it is difficult to prove. An alternate approach is to focus on properties and hyperproperties.\autocite{20210614:clarkson}
+Because fully abstract compilation involves quantification over contexts, it is difficult to prove. An alternate approach is to focus on properties and hyperproperties.\autocite{20210614:clarkson}
 
-A program property can be represented by the set of traces that satisfy that property. The language semantics specify the set of allowable traces. A program will satisfy a property if its set of traces (as defined by the language) is a subset of the property’s traces.
+A program property can be represented by the set of traces that satisfy that property. The language semantics specify the set of allowable traces. A program will satisfy a property if its set of traces (as defined by the language) is a subset of the property's traces.
 
 A correct compiler, because of refinement or optimization, is allowed to produce a target program which will only produce a subset of those traces. But if the source program satisfied the property, the target program will also (assuming no attacks).
 
@@ -36,7 +36,7 @@ Most of the secure compilation theories have been based on trace events that are
 
 Current software development practice targets platforms that do not have the required hardware protection mechanisms and uses compilers that strive to be correct but that are unaware of the additional security requirements. Here are some possible recommendations to avoid vulnerabilities:
 \begin{itemize}
-	\item Promote use of hardware protections that are currently available (e.g., SGX and CoreGuard), but not currently being used.
+	\item Promote use of hardware protections that are currently available (e.g., SGX and CoreGuard) but not currently being used.
 	\item Formulate and propose security contracts for programming languages and implement them in some open-source compilers. For example, an annotation could be added to the declaration of sensitive data. The compiler could then erase the data as soon as it goes out of scope.
 	\item Use software scanners to detect vulnerabilities and try to use existing compiler features to minimize exposure.
 \end{itemize}
