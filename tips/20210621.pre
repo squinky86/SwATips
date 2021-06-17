@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Living Off the Land}
+\newcommand{\ArticleDate}{\formatdate{21}{6}{2021}}
+\addbibresource{20210621.bib}

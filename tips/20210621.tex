@@ -1,0 +1,23 @@
+Living off the land (LotL) refers to using the tools, scripts, libraries, and binaries that are native and pre-installed with the environment.\autocite[\pno~299]{20210621:rains2020cybersecurity} Attackers use the existing tools of an environment to decrease their footprint and avoid detection, often blending in by using legitimate tools and administrative functions in a malicious way.\autocite[\pno~45]{20210621:calder2020cyber} Nevertheless, developers can use LotL concepts to decrease the attackable footprint of their software as a mitigation strategy against attacks as well!
+
+\subsection{LotL: An Attacker's Perspective}
+
+When attacking an environment, penetration testing teams often attempt to take an inventory of what is available to see what can be utilized to establish persistence and pivot in the environment without detection. If the attacker has to install specialized tools and packages, intrusion detection and prevention systems can be configured to look for those packages as part of a defense-in-depth mitigation strategy.
+
+\subsection{LotL: A Defender's Perspective}
+
+Defensive (blue) teams should be familiar with the attacks and threats posed by penetration testing (red) teams. In 2013, the DoD used the following definition of Software Assurance: ``the level of confidence that software functions as intended and is free of vulnerabilities, either intentionally or unintentionally designed or inserted as part of the software, throughout the life cycle.''\autocite[\pno~255 §933.e.2]{20210621:ndaa2013} In 2017, the Office for the Secretary of Defense clarified the definition of ``functions as intended'' to mean ``\textit{only} functions as intended'' by showing confidently that the software meets functionality and test coverage requirements and also ``does not perform unrequired functions.''\autocite[\pno~7]{20210617:marien2017} Since 2017, the caveat ``and only as intended'' has been codified as part of the DoD's definition of Software Assurance.\autocite[\pno~2]{20210617:hurt2017}
+
+Developers are often tempted by heavyweight frameworks that provide sundry capabilities. For low-assurance tasks, these frameworks permit rapid development and deployment of solutions. In tactical environments, these bloated dependencies are much more difficult to maintain. Large frameworks must be maintained and reviewed for CVEs and security updates in their deployed environments, even when security findings affect areas of the framework that are not utilized by the solution.
+
+\subsection{LotL In Practice}
+
+Recently, one particular application provided a framework that used libzip, zlib, 7-Zip, and the System.IO.Compression ZipArchive routines for reading in compressed files at different parts of the application. During the Software Assurance scans, we were able to create a payload using the Zip Slip vulnerability to upload and execute any payload we needed. During post-mortem analysis, the developers cleaned up the vulnerability that was used, but forgot to verify that another location of the code used a vulnerable version of 7-Zip that could stage the same payload!
+
+\subsection{Mitigations}
+
+A defender should follow the least-privilege and minimum functionality practices when developing software. By refusing to give an attacker much land to live on, developers reduce their exposure space and discourage malicious activities. As a byproduct of using minimal frameworks and dependencies, maintenance becomes easier, particularly on disconnected and tactical systems.
+
+Containers that provide only the needed functionality should be preferred over monolithic containers that provide entire operating systems and environments. By sandboxing user execution, an attacker that successfully gets a foothold into an application is rewarded with their very own tiny sandbox to play in, while non-containerized, multi-user execution often provides attackers with the keys to the entire kingdom. Compromise is not a fun topic to consider, but risk prevention is not a binary, pwned-or-not decision. I'd rather that my software were not compromised, but if it should become impaired, I'd rather the malicious attacker only be able to steal the sandbox rather than the entire kingdom!
+
+If you give a crook your sandbox, they'll defecate in your sand. But if you give a crook your kingdom, they'll usurp your entire domain.
