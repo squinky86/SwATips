@@ -1,4 +1,174 @@
 	<item>
+		<title>Living Off the Land</title>
+		<link>https://www.SwATips.com/articles/20210621.html</link>
+		<pubDate>Mon, 21 Jun 2021 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;">Return to <a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">SwATips</a> | <a href="articles/20210621.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>]<br/>
+Generated Sunday 20<sup class="textsuperscript">th</sup> June, 2021</h2>
+<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
+<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 21</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">st</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> June, 2021</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Living Off the Land</h3>
+
+
+<!-- l. 1 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Living off the Land (LotL) refers to using the tools, scripts, libraries, and binaries that are native
+and pre-installed with an environment.[<a href="#cite.0@20210621:rains2020cybersecurity" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>, p. 299] Attackers use the existing tools of their exploited
+environment to decrease their footprint and avoid detection, often blending in by using legitimate
+tools and administrative functions in a malicious way.[<a href="#cite.0@20210621:calder2020cyber" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, p. 45] Nevertheless, developers can use LotL
+concepts to decrease the attackable footprint of their software as a mitigation strategy against attacks as
+well!
+</p>
+<!-- l. 3 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>LotL: An Attacker’s Perspective</h4>
+
+
+<!-- l. 5 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">When attacking an environment, penetration testing teams often attempt to take an inventory of
+what is available to see what can be utilized to establish persistence and pivot in the environment
+without detection. If the attacker has to install specialized tools and packages, intrusion detection and
+prevention systems can be configured to look for those packages as part of a defense-in-depth mitigation
+strategy.
+</p>
+<!-- l. 7 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>LotL: A Defender’s Perspective</h4>
+
+
+<!-- l. 9 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Defensive (blue) teams should be familiar with the attacks and threats posed by penetration testing (red) teams. In
+2013, the DoD used the following definition of Software Assurance: “the level of confidence that software functions
+as intended and is free of vulnerabilities, either intentionally or unintentionally designed or inserted as part of the
+software, throughout the life cycle.”[<a href="#cite.0@20210621:ndaa2013" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>, p. 255 §933.e.2] In 2017, the Office for the Secretary of Defense clarified the
+definition of “functions as intended” to mean “<i>only</i> functions as intended” by showing confidently that the
+software meets functionality and test coverage requirements and also “does not perform unrequired
+functions.”[<span class="rm-lmbx-10" style="font-weight: bold;">20210617:marien2017</span>] Since 2017, the caveat “and only as intended” has been codified as part of the
+DoD’s definition of Software Assurance.[<span class="rm-lmbx-10" style="font-weight: bold;">20210617:hurt2017</span>]
+</p>
+<!-- l. 11 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Developers are often tempted by heavyweight frameworks that provide sundry capabilities. For low-assurance
+tasks, these frameworks permit rapid development and deployment of solutions. In tactical environments, these
+bloated dependencies are much more difficult to maintain. Large frameworks must be maintained and reviewed for
+CVEs and security updates in their deployed environments, even when security findings affect areas of the
+framework that are not utilized by the solution.
+</p>
+<!-- l. 13 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a id="x1-40001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>LotL In Practice</h4>
+
+
+<!-- l. 15 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Recently, one particular application provided a framework that used libzip, zlib, 7-Zip, and the System.IO.Compression
+ZipArchive routines for reading in compressed files at different parts of the application. During the Software
+Assurance scans, we were able to create a payload using the Zip Slip vulnerability to upload and execute any
+payload we needed. During postmortem analysis, the developers cleaned up the vulnerability that was used, but
+forgot to verify that another location of the code used a vulnerable version of 7-Zip that could stage the same
+payload!
+</p>
+<!-- l. 17 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.4   </span> <a id="x1-50001.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Mitigations</h4>
+
+                                                                                         
+                                                                                         
+
+<!-- l. 19 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Mitigations to attackers that attempt LotL techniques involve making sure that the land an attacker would get is
+insufficient for staging more advanced attacks. When an attacker only gets access to a minimalist, sandboxed
+island, there isn’t enough land to live on. They must either be noisy, terraforming the land into a new
+environment and risking detection, or silently move on to another, more vulnerable environment to avoid
+detection.
+</p>
+<!-- l. 21 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A defender should follow the least-privilege and minimum functionality practices when developing software. By
+refusing to give an attacker much land to live on, developers reduce their exposure space and discourage malicious
+activities. As a byproduct of using minimal frameworks and dependencies, maintenance becomes easier, particularly
+on disconnected and tactical systems.
+</p>
+<!-- l. 23 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Containers that provide only the needed functionality should be preferred over monolithic containers that
+provide entire operating systems and environments. By sandboxing user execution, an attacker that successfully gets
+a foothold into an application is rewarded with their very own tiny sandbox to play in, while non-containerized,
+multi-user execution often provides attackers with the keys to the entire kingdom. Compromise is not a fun topic to
+consider, but risk prevention is not a binary, pwned-or-not decision. I’d prefer that my software not be compromised,
+but if it should become impaired, I’d rather the malicious attacker only be able to steal the sandbox rather than the
+entire kingdom!
+</p>
+<!-- l. 25 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   If you give a crook your sandbox, they’ll defecate in your sand. But if you give a crook your kingdom, they’ll
+usurp your entire domain.
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead"><a id="x1-60001.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 45 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt class="thebibliography" id="X0-20210621:calder2020cyber" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210621:calder2020cyber" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Alan Calder. <span class="rm-lmri-10" style="font-style: italic;">The Cyber Security Handbook. Prepare for, respond to and recover from cyber attacks</span>. IT
+Governance Publishing Ltd, 2020. <span class="small-caps" style="font-variant: small-caps;">isbn</span>: 978-1-78778-261-7.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
+[2]  
+</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20210621:ndaa2013" style="float: left; clear: left; margin-right: 1em;">
+[3]  
+</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210621:ndaa2013" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>NATIONAL DEFENSE AUTHORIZATION ACT FOR FISCAL YEAR 2013. Jan. 2013.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20210621:rains2020cybersecurity" style="float: left; clear: left; margin-right: 1em;">
+[4]  
+</dt><dd class="thebibliography" id="bib-4" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210621:rains2020cybersecurity" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Tim Rains. <span class="rm-lmri-10" style="font-style: italic;">Cybersecurity Threats, Malware Trends, and Strategies. Learn to mitigate exploits, malware,
+</span><span class="rm-lmri-10" style="font-style: italic;">phishing, and other social engineering attacks</span>. Packt Publishing, 2020. <span class="small-caps" style="font-variant: small-caps;">isbn</span>: 978-1-80020-589-5.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Secure Compilation</title>
 		<link>https://www.SwATips.com/articles/20210614.html</link>
 		<pubDate>Mon, 14 Jun 2021 00:00:00 -0500</pubDate>
