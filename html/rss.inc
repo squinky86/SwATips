@@ -109,12 +109,27 @@ environment and risking detection, or silently move on to another, more vulnerab
 detection.
 </p>
 <!-- l. 21 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A defender should follow the least-privilege and minimum functionality practices when developing software. By
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Some additional information to consider: </p>
+
+
+<ul class="itemize1">     
+<li class="itemize">If installing a webserver, determine the languages web applications are written in. If there are no perl,
+PHP, Ruby, or .NET applications, then why install those frameworks to begin with?
+</li>     
+<li class="itemize">Watch for additional tools being installed. Why should the sandboxed web account have access to
+netcat, telnet, or the entire suite of tools? Why is there a compiler installed on the server?
+</li>     
+<li class="itemize">If a service does not need to be touched by a user, does it make sense to give that service its own
+sandbox and account with access only to the application that needs it to run?</li></ul>
+
+
+<!-- l. 28 -->
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   A defender should follow the least-privilege and minimum functionality practices when developing software. By
 refusing to give an attacker much land to live on, developers reduce their exposure space and discourage malicious
 activities. As a byproduct of using minimal frameworks and dependencies, maintenance becomes easier, particularly
 on disconnected and tactical systems.
 </p>
-<!-- l. 23 -->
+<!-- l. 30 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Containers that provide only the needed functionality should be preferred over monolithic containers that
 provide entire operating systems and environments. By sandboxing user execution, an attacker that successfully gets
 a foothold into an application is rewarded with their very own tiny sandbox to play in, while non-containerized,
@@ -123,7 +138,7 @@ consider, but risk prevention is not a binary, pwned-or-not decision. I’d pref
 but if it should become impaired, I’d rather the malicious attacker only be able to steal the sandbox rather than the
 entire kingdom!
 </p>
-<!-- l. 25 -->
+<!-- l. 32 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   If you give a crook your sandbox, they’ll defecate in your sand. But if you give a crook your kingdom, they’ll
 usurp your entire domain.
                                                                                          
@@ -149,14 +164,14 @@ Governance Publishing Ltd, 2020. <span class="small-caps" style="font-variant: s
 <dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [2]  
 </dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
 <dt id="X0-20210621:hurt2017" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [3]  
 </dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210621:hurt2017" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmri-10" style="font-style: italic;">Achieving DoD Software Assurance (SwA)</span>. NDIA Systems Engineering Conference 20. Joint Federated
-Assurance Center (JFAC). Springfield, VA, Oct. 2017. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://ndiastorage.blob.core.usgovcloudapi.net/ndia/2017/systems/Thursday/Track1/19911_Hurt.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://ndiastorage.blob.core.usgovcloudapi.net/ndia/2017/systems/Thursday/Track1/19911_Hurt.pdf</span></a>.
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210621:hurt2017" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Thomas Hurt. <span class="rm-lmri-10" style="font-style: italic;">Achieving DoD Software Assurance (SwA)</span>. Tech. rep. Springfield, VA: 20<span class="cmmi-7" style="font-size: 70%; font-style: italic;">th</span> Annual NDIA
+Systems Engineering Conference, Oct. 2017. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a href="https://ndiastorage.blob.core.usgovcloudapi.net/ndia/2017/systems/Thursday/Track1/19911_Hurt.pdf" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://ndiastorage.blob.core.usgovcloudapi.net/ndia/2017/systems/Thursday/Track1/19911_Hurt.pdf</span></a>.
 </p>    
 </dd>
 <dt id="X0-20210621:marien2017" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
@@ -164,13 +179,14 @@ Assurance Center (JFAC). Springfield, VA, Oct. 2017. <span class="small-caps" st
 </dt><dd id="bib-4" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210621:marien2017" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>John R. Marien and Robert A. Martin. <span class="rm-lmri-10" style="font-style: italic;">Incorporating Software Assurance into Department of Defense
 </span><span class="rm-lmri-10" style="font-style: italic;">Acquisition Contracts</span>. Tech. rep. Department of Defense (DoD) Software Assurance (SwA) Community
-of Practice (CoP) Contract Language Working Group, 2017. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf</span></a>.
+of Practice (CoP) Contract Language Working Group, 2017. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a href="https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf</span></a>.
 </p>    
 </dd>
 <dt id="X0-20210621:ndaa2013" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [5]  
 </dt><dd id="bib-5" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210621:ndaa2013" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>NATIONAL DEFENSE AUTHORIZATION ACT FOR FISCAL YEAR 2013. Jan. 2013.
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210621:ndaa2013" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>NATIONAL DEFENSE AUTHORIZATION ACT FOR FISCAL YEAR 2013. <span class="rm-lmri-10" style="font-style: italic;">Public Law 112–239</span>.
+Jan. 2013. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a href="https://www.congress.gov/112/plaws/publ239/PLAW-112publ239.pdf" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.congress.gov/112/plaws/publ239/PLAW-112publ239.pdf</span></a>.
 </p>    
 </dd>
 <dt id="X0-20210621:rains2020cybersecurity" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">

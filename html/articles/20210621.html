@@ -7,21 +7,22 @@
 <meta charset="utf-8"/>
  
 
-<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
  
 
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
  
 
  
 
-<meta name="src" content="article.tex"/>
+<meta content="article.tex" name="src"/>
  
 
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
 <style>
  
 /* start css.sty */
+.cmmi-7{font-size:70%;font-style: italic;}
 .rm-lmr-7{font-size:70%;}
 .rm-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
 .rm-lmr-9{font-size:90%;}
@@ -224,18 +225,28 @@ insufficient for staging more advanced attacks. When an attacker only gets acces
 island, there isn’t enough land to live on. They must either be noisy, terraforming the land into a new
 environment and risking detection, or silently move on to another, more vulnerable environment to avoid
 detection.
-</p><!-- l. 21 --><p class='indent'>   A defender should follow the least-privilege and minimum functionality practices when developing software. By
+</p><!-- l. 21 --><p class='indent'>   Some additional information to consider: </p>
+<ul class='itemize1'>     
+<li class='itemize'>If installing a webserver, determine the languages web applications are written in. If there are no perl,
+PHP, Ruby, or .NET applications, then why install those frameworks to begin with?
+</li>     
+<li class='itemize'>Watch for additional tools being installed. Why should the sandboxed web account have access to
+netcat, telnet, or the entire suite of tools? Why is there a compiler installed on the server?
+</li>     
+<li class='itemize'>If a service does not need to be touched by a user, does it make sense to give that service its own
+sandbox and account with access only to the application that needs it to run?</li></ul>
+<!-- l. 28 --><p class='indent'>   A defender should follow the least-privilege and minimum functionality practices when developing software. By
 refusing to give an attacker much land to live on, developers reduce their exposure space and discourage malicious
 activities. As a byproduct of using minimal frameworks and dependencies, maintenance becomes easier, particularly
 on disconnected and tactical systems.
-</p><!-- l. 23 --><p class='indent'>   Containers that provide only the needed functionality should be preferred over monolithic containers that
+</p><!-- l. 30 --><p class='indent'>   Containers that provide only the needed functionality should be preferred over monolithic containers that
 provide entire operating systems and environments. By sandboxing user execution, an attacker that successfully gets
 a foothold into an application is rewarded with their very own tiny sandbox to play in, while non-containerized,
 multi-user execution often provides attackers with the keys to the entire kingdom. Compromise is not a fun topic to
 consider, but risk prevention is not a binary, pwned-or-not decision. I’d prefer that my software not be compromised,
 but if it should become impaired, I’d rather the malicious attacker only be able to steal the sandbox rather than the
 entire kingdom!
-</p><!-- l. 25 --><p class='indent'>   If you give a crook your sandbox, they’ll defecate in your sand. But if you give a crook your kingdom, they’ll
+</p><!-- l. 32 --><p class='indent'>   If you give a crook your sandbox, they’ll defecate in your sand. But if you give a crook your kingdom, they’ll
 usurp your entire domain.
                                                                                          
                                                                                          
@@ -253,14 +264,14 @@ Governance Publishing Ltd, 2020. <span class='small-caps'>isbn</span>: 978-1-787
 <dt id='X0-swatips' class='thebibliography'>
 [2]  
 </dt><dd id='bib-2' class='thebibliography'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+<!-- l. 45 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a href='https://www.SwATips.com/' class='url'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
 <dt id='X0-20210621:hurt2017' class='thebibliography'>
 [3]  
 </dt><dd id='bib-3' class='thebibliography'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@20210621:hurt2017'></a><span class='rm-lmri-10'>Achieving DoD Software Assurance (SwA)</span>. NDIA Systems Engineering Conference 20. Joint Federated
-Assurance Center (JFAC). Springfield, VA, Oct. 2017. <span class='small-caps'>url</span>: <a class='url' href='https://ndiastorage.blob.core.usgovcloudapi.net/ndia/2017/systems/Thursday/Track1/19911_Hurt.pdf'><span class='ec-lmtt-10'>https://ndiastorage.blob.core.usgovcloudapi.net/ndia/2017/systems/Thursday/Track1/19911_Hurt.pdf</span></a>.
+<!-- l. 45 --><p class='noindent'><a id='cite.0@20210621:hurt2017'></a>Thomas Hurt. <span class='rm-lmri-10'>Achieving DoD Software Assurance (SwA)</span>. Tech. rep. Springfield, VA: 20<span class='cmmi-7'>th</span> Annual NDIA
+Systems Engineering Conference, Oct. 2017. <span class='small-caps'>url</span>: <a href='https://ndiastorage.blob.core.usgovcloudapi.net/ndia/2017/systems/Thursday/Track1/19911_Hurt.pdf' class='url'><span class='ec-lmtt-10'>https://ndiastorage.blob.core.usgovcloudapi.net/ndia/2017/systems/Thursday/Track1/19911_Hurt.pdf</span></a>.
 </p>    
 </dd>
 <dt id='X0-20210621:marien2017' class='thebibliography'>
@@ -268,13 +279,14 @@ Assurance Center (JFAC). Springfield, VA, Oct. 2017. <span class='small-caps'>ur
 </dt><dd id='bib-4' class='thebibliography'>
 <!-- l. 45 --><p class='noindent'><a id='cite.0@20210621:marien2017'></a>John R. Marien and Robert A. Martin. <span class='rm-lmri-10'>Incorporating Software Assurance into Department of Defense
 </span><span class='rm-lmri-10'>Acquisition Contracts</span>. Tech. rep. Department of Defense (DoD) Software Assurance (SwA) Community
-of Practice (CoP) Contract Language Working Group, 2017. <span class='small-caps'>url</span>: <a class='url' href='https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf'><span class='ec-lmtt-10'>https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf</span></a>.
+of Practice (CoP) Contract Language Working Group, 2017. <span class='small-caps'>url</span>: <a href='https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf' class='url'><span class='ec-lmtt-10'>https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf</span></a>.
 </p>    
 </dd>
 <dt id='X0-20210621:ndaa2013' class='thebibliography'>
 [5]  
 </dt><dd id='bib-5' class='thebibliography'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@20210621:ndaa2013'></a>NATIONAL DEFENSE AUTHORIZATION ACT FOR FISCAL YEAR 2013. Jan. 2013.
+<!-- l. 45 --><p class='noindent'><a id='cite.0@20210621:ndaa2013'></a>NATIONAL DEFENSE AUTHORIZATION ACT FOR FISCAL YEAR 2013. <span class='rm-lmri-10'>Public Law 112–239</span>.
+Jan. 2013. <span class='small-caps'>url</span>: <a href='https://www.congress.gov/112/plaws/publ239/PLAW-112publ239.pdf' class='url'><span class='ec-lmtt-10'>https://www.congress.gov/112/plaws/publ239/PLAW-112publ239.pdf</span></a>.
 </p>    
 </dd>
 <dt id='X0-20210621:rains2020cybersecurity' class='thebibliography'>
