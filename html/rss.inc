@@ -1,5 +1,5 @@
 	<item>
-		<title>Living Off the Land</title>
+		<title>Living off the Land</title>
 		<link>https://www.SwATips.com/articles/20210621.html</link>
 		<pubDate>Mon, 21 Jun 2021 00:00:00 -0500</pubDate>
 <description><![CDATA[
@@ -24,12 +24,12 @@ Generated Sunday 20<sup class="textsuperscript">th</sup> June, 2021</h2>
                                                                                          
    
 
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Living Off the Land</h3>
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Living off the Land</h3>
 
 
 <!-- l. 1 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Living off the Land (LotL) refers to using the tools, scripts, libraries, and binaries that are native
-and pre-installed with an environment.[<a href="#cite.0@20210621:rains2020cybersecurity" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>, p. 299] Attackers use the existing tools of their exploited
+and pre-installed with an environment.[<a href="#cite.0@20210621:rains2020cybersecurity" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">6</a>, p. 299] Attackers use the existing tools of their exploited
 environment to decrease their footprint and avoid detection, often blending in by using legitimate
 tools and administrative functions in a malicious way.[<a href="#cite.0@20210621:calder2020cyber" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, p. 45] Nevertheless, developers can use LotL
 concepts to decrease the attackable footprint of their software as a mitigation strategy against attacks as
@@ -62,11 +62,11 @@ strategy.
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Defensive (blue) teams should be familiar with the attacks and threats posed by penetration testing (red) teams. In
 2013, the DoD used the following definition of Software Assurance: “the level of confidence that software functions
 as intended and is free of vulnerabilities, either intentionally or unintentionally designed or inserted as part of the
-software, throughout the life cycle.”[<a href="#cite.0@20210621:ndaa2013" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>, p. 255 §933.e.2] In 2017, the Office for the Secretary of Defense clarified the
-definition of “functions as intended” to mean “<i>only</i> functions as intended” by showing confidently that the
-software meets functionality and test coverage requirements and also “does not perform unrequired
-functions.”[<span class="rm-lmbx-10" style="font-weight: bold;">20210617:marien2017</span>] Since 2017, the caveat “and only as intended” has been codified as part of the
-DoD’s definition of Software Assurance.[<span class="rm-lmbx-10" style="font-weight: bold;">20210617:hurt2017</span>]
+software, throughout the life cycle.”[<a href="#cite.0@20210621:ndaa2013" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>, p. 255 §933.e.2] In 2017, the Office for the Secretary of Defense clarified the
+definition of “functions as intended” to mean “<i>only</i> functions as intended” by showing confidently that the software
+meets functionality and test coverage requirements and also “does not perform unrequired functions.”[<a href="#cite.0@20210621:marien2017" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>, p. 7] Since
+2017, the caveat “and only as intended” has been codified as part of the DoD’s definition of Software Assurance.[<a href="#cite.0@20210621:hurt2017" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>,
+p. 2]
 </p>
 <!-- l. 11 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Developers are often tempted by heavyweight frameworks that provide sundry capabilities. For low-assurance
@@ -139,28 +139,43 @@ usurp your entire domain.
 </p>
 
 
-<dl class="thebibliography"><dt class="thebibliography" id="X0-20210621:calder2020cyber" style="float: left; clear: left; margin-right: 1em;">
+<dl class="thebibliography"><dt id="X0-20210621:calder2020cyber" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [1]  
-</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
+</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210621:calder2020cyber" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Alan Calder. <span class="rm-lmri-10" style="font-style: italic;">The Cyber Security Handbook. Prepare for, respond to and recover from cyber attacks</span>. IT
 Governance Publishing Ltd, 2020. <span class="small-caps" style="font-variant: small-caps;">isbn</span>: 978-1-78778-261-7.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
+<dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [2]  
-</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
+</dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20210621:ndaa2013" style="float: left; clear: left; margin-right: 1em;">
+<dt id="X0-20210621:hurt2017" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [3]  
-</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
+</dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210621:hurt2017" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmri-10" style="font-style: italic;">Achieving DoD Software Assurance (SwA)</span>. NDIA Systems Engineering Conference 20. Joint Federated
+Assurance Center (JFAC). Springfield, VA, Oct. 2017. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://ndiastorage.blob.core.usgovcloudapi.net/ndia/2017/systems/Thursday/Track1/19911_Hurt.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://ndiastorage.blob.core.usgovcloudapi.net/ndia/2017/systems/Thursday/Track1/19911_Hurt.pdf</span></a>.
+</p>    
+</dd>
+<dt id="X0-20210621:marien2017" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[4]  
+</dt><dd id="bib-4" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210621:marien2017" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>John R. Marien and Robert A. Martin. <span class="rm-lmri-10" style="font-style: italic;">Incorporating Software Assurance into Department of Defense
+</span><span class="rm-lmri-10" style="font-style: italic;">Acquisition Contracts</span>. Tech. rep. Department of Defense (DoD) Software Assurance (SwA) Community
+of Practice (CoP) Contract Language Working Group, 2017. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf</span></a>.
+</p>    
+</dd>
+<dt id="X0-20210621:ndaa2013" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[5]  
+</dt><dd id="bib-5" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210621:ndaa2013" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>NATIONAL DEFENSE AUTHORIZATION ACT FOR FISCAL YEAR 2013. Jan. 2013.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20210621:rains2020cybersecurity" style="float: left; clear: left; margin-right: 1em;">
-[4]  
-</dt><dd class="thebibliography" id="bib-4" style="margin-left: 2.5em;">
+<dt id="X0-20210621:rains2020cybersecurity" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[6]  
+</dt><dd id="bib-6" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210621:rains2020cybersecurity" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Tim Rains. <span class="rm-lmri-10" style="font-style: italic;">Cybersecurity Threats, Malware Trends, and Strategies. Learn to mitigate exploits, malware,
 </span><span class="rm-lmri-10" style="font-style: italic;">phishing, and other social engineering attacks</span>. Packt Publishing, 2020. <span class="small-caps" style="font-variant: small-caps;">isbn</span>: 978-1-80020-589-5.</p></dd></dl>
 
