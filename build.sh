@@ -6,6 +6,7 @@ EPUB=true
 PDF=true
 HTML=true
 REBUILD=false
+AUTOADD=false
 
 # Dependency Variables
 BIBER=1
@@ -100,6 +101,8 @@ fi
 
 while [ "$1" != "" ]; do
 	case $1 in
+		-a | --add )	AUTOADD=true
+			;;
 		-c | --clean )	CLEAN=true
 			;;
 		-e | --epub )	EPUB=true
@@ -113,6 +116,7 @@ while [ "$1" != "" ]; do
 			;;
 		-h | --help )
 			echo "Usage: $0 to build all options. Optional flags:"
+			echo -e "\t-a (--add) auto-add generated files to repo"
 			echo -e "\t-c (--clean) only clean extraneous files"
 			echo -e "\t-e (--epub)  only build .epub file"
 			echo -e "\t-p (--pdf)   only build .pdf articles"
@@ -222,7 +226,9 @@ if [ $PDF == true ]; then
 			fi
 			popd >/dev/null
 			cp ${TMPDIR}/article.pdf html/articles/${NUM}.pdf
-			git ls-files --error-unmatch html/articles/${NUM}.pdf > /dev/null 2>&1 || git add html/articles/${NUM}.pdf > /dev/null
+			if [ ${AUTOADD} == true ]; then
+				git ls-files --error-unmatch html/articles/${NUM}.pdf > /dev/null 2>&1 || git add html/articles/${NUM}.pdf > /dev/null
+			fi
 			cp ${TMPDIR}/${NUM}.html html/articles/
 			if compgen -G "${TMPDIR}/images/*.svg" > /dev/null; then
 				cp ${TMPDIR}/images/*.svg html/articles/images/
@@ -230,7 +236,9 @@ if [ $PDF == true ]; then
 			if compgen -G "${TMPDIR}/images/*.png" > /dev/null; then
 				cp ${TMPDIR}/images/*.png html/articles/images/
 			fi
-			git ls-files --error-unmatch html/articles/${NUM}.html >/dev/null 2>&1 || git add html/articles/${NUM}.html > /dev/null
+			if [ ${AUTOADD} == true ]; then
+				git ls-files --error-unmatch html/articles/${NUM}.html >/dev/null 2>&1 || git add html/articles/${NUM}.html > /dev/null
+			fi
 			if compgen -G "html/articles/images/${NUM}-*.svg" > /dev/null; then
 				for x in html/articles/images/${NUM}-*.svg; do
 					git ls-files --error-unmatch ${x} >/dev/null 2>&1 || git add ${x} > /dev/null

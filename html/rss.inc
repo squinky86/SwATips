@@ -1,4 +1,205 @@
 	<item>
+		<title>Coverity and Integer Overflows</title>
+		<link>https://www.SwATips.com/articles/20210628.html</link>
+		<pubDate>Mon, 28 Jun 2021 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;">Return to <a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">SwATips</a> | <a href="articles/20210628.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]<br/>
+Generated Monday 28<sup class="textsuperscript">th</sup> June, 2021</h2>
+<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Stacy Lukins</span></div><br/>
+<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 28</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> June, 2021</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Coverity and Integer Overflows</h3>
+
+
+<!-- l. 1 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Integer overflows have been at the root of a number of security vulnerabilities in software over the years (see [<a href="#cite.0@20210628:cwe-190" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] for
+examples), such as the recently identified issue in which the result of an unchecked integer operation is used for
+memory allocation in a number of real time operating systems.[<a href="#cite.0@20210628:ics21-119-04" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>] The ability of static analysis tools to detect
+these types of integer overflow problems vary. This article explores how Coverity identifies integer
+overflow.
+</p>
+<!-- l. 3 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   It would not be especially helpful for a tool to flag every integer operation as a potential overflow. Thus, tools
+need some way to differentiate potentially problematic integer operations from seemingly safe integer operations.
+Coverity does this by only reporting a defect on an integer operation when the following 3 conditions are met: (1)
+The operands are determined to be tainted sources, (2) the operation is addition or multiplication (by default), and
+(3) the operation’s result goes to a data sink.[<a href="#cite.0@20210628:coverity" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>] All of these conditions can be overridden by setting various checker
+options. For example, you can change which data sources are treated as tainted and which integer operations are
+examined.
+</p>
+<!-- l. 5 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   It’s important to understand how Coverity defines tainted sources and sinks. Data can come into a program
+from a variety of outside sources (command line, console, filesystem, database, environment variable, RPC request,
+HTTP request, HTTP header, etc.). When data from an outside source has not been scanned and validated, it is
+considered to be tainted, or unsafe. Coverity tracks tainted data through a program, and it will detect and report
+whether the tainted data is used in a sink. A sink is any source code element, such as a function, that must be
+protected from tainted data. Sinks can be things like memory allocators, certain system calls, array index
+operations, and so on.
+</p>
+<!-- l. 7 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The simple functions in the (very C-like) C++ code in Listing <a href="#x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20210628:sample  --></a> will be used to illustrate how Coverity identifies
+integer overflow. </p>
+<!-- l. 8 -->
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+   
+
+<div class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">1</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> fun_1() { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">2</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> i = 0; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">3</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        std::cin &gt;&gt; i; </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">   // tainted source</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">4</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> j = i + 5; </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">   // int overflow if i is too large</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1007r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">5</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">return</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> j; </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">        // data sink</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1008r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">6</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">} </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1009r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">7</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1010r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">8</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> fun_2(</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> val) { </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">     // val not considered tainted (w/ default options)</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1011r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">9</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> j = val + 5; </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;"> // no int overflow here (w/ default options)</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1012r10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">10</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">return</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> j; </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">        // data sink</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1013r11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">11</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">} </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1014r12" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">12</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1015r13" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">13</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> call_fun_2() { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1016r14" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">14</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> i = 0; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1017r15" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">15</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        std::cin &gt;&gt; i; </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">   // tainted source</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1018r16" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">16</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> j = fun_2(i); </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">// calling fun_2 with tainted data</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1019r17" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">17</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">return</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> j; </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">        // data sink</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1020r18" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">18</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">} </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1021r19" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">19</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1022r20" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">20</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> g = 0; </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">              // global</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1023r21" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">21</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">void</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> fun_3() { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1024r22" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">22</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> i = 0; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1025r23" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">23</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        std::cin &gt;&gt; i; </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">   // tainted source</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1026r24" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">24</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        g = i + 5; </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">       // no sink after this, so no int overflow flagged</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1027r25" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">25</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">} </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1028r26" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">26</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1029r27" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">27</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> fun_4(</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> val) { </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">     // can set option to consider param val to be tainted</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1030r28" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">28</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> j = 0; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1031r29" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">29</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">if</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> (val &lt; 100) { </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;"> // checking val, so no longer tainted</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1032r30" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">30</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               j = val + 5; </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">// will not overflow</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1033r31" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">31</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1034r32" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">32</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">return</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> j; </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">        // data sink</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1035r33" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">33</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">}</span>
+<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1:</span><span class="content">Integer Overflow Examples</span></figcaption><!-- tex4ht:label?: x1-1001r1  -->
+   
+</div>
+
+
+<!-- l. 44 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   By default, the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">INTEGER_OVERFLOW </span>checker in Coverity is not enabled and must be enabled by using the <strong>–enable</strong>
+option of the <strong>cov-analyze</strong> command. Be aware that the <strong>–all</strong> option does not enable the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">INTEGER_OVERFLOW</span>
+checker.[<a href="#cite.0@20210628:coverity" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>] The command in Listing <a href="#x1-1036r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2<!-- tex4ht:ref: lst:20210628:analyze  --></a> enables integer overflow checking with default options and was used to
+analyze the code in Listing <a href="#x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20210628:sample  --></a>. </p>
+<!-- l. 45 -->
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1036r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1037" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+
+
+<div class="lstlisting" id="listing-2" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1038r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">cov-analyze --dir &lt;path_to_code_idir&gt; --aggressiveness-level high --all --</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">enable</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> INTEGER_OVERFLOW</span>
+<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 2:</span><span class="content">Cov-analyze
+Parameters</span></figcaption><!-- tex4ht:label?: x1-1036r1  -->
+   
+</div>
+
+
+<!-- l. 49 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The first function, <strong>fun_1</strong>, is a simple overflow example that will be caught by Coverity when the
+<span class="ec-lmtt-10" style="font-family: monospace,monospace;">INTEGER_OVERFLOW </span>checker is enabled with default checker options. In <strong>fun_1</strong>, <span class="ec-lmtt-10" style="font-family: monospace,monospace;">i </span>comes from an outside source (the
+command line, line 3) and is not scanned or validated, which makes the data tainted. A potential overflow occurs on
+line 4 (i could be close to or at the max integer value), and the potentially overflowed value is sent to a data sink on
+line 5 (returns are treated as data sinks by default in Coverity). Note that the sink could have been something like a
+memory allocation instead of a return. Coverity will identify this as an integer overflow defect, since it meets the 3
+conditions discussed previously.
+</p>
+<!-- l. 51 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The integer overflow in <strong>fun_1</strong> is the only integer overflow defect in the source code above that Coverity will
+identify using the default options of the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">INTEGER_OVERFLOW </span>checker. Consider <strong>fun_2</strong>, which contains the same
+addition operation and sink as <strong>fun_1</strong>. Coverity will not flag this as a potential integer overflow, even when a tainted
+source is passed in from the <strong>call_fun_2</strong> function on line 16. By default, Coverity does not consider parameters to
+be tainted sources, so this example does not meet the tainted source condition and Coverity does not flag
+                                                                                         
+                                                                                         
+it.
+</p>
+<!-- l. 53 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Now consider <strong>fun_3</strong>, which does contain a tainted source (command line input that is not checked)
+and performs the same addition operation. However, there is no sink in this function, so it does not
+meet the third condition and Coverity does not flag this operation as a potential integer overflow
+problem.
+</p>
+<!-- l. 55 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Checker options can be used to change the way Coverity identifies tainted sources and sinks. For example,
+the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">enable_tainted_params </span>option can be set to <span class="ec-lmtt-10" style="font-family: monospace,monospace;">true </span>to cause Coverity to automatically treat all
+function parameters as tainted. Option values for checkers are set by passing <strong>–checker-option</strong> or <strong>-co</strong>
+to the cov-analyze command. We can re-analyze the source code using the command in Listing <a href="#x1-1039r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3<!-- tex4ht:ref: lst:20210628:taintedparams  --></a>
+which enables the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">INTEGER_OVERFLOW </span>checker and sets the <strong>enable_tainted_params</strong> option to true.
+</p>
+<!-- l. 56 -->
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1039r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1040" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+
+
+<div class="lstlisting" id="listing-3" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1041r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">cov-analyze --dir &lt;path_to_build_idir&gt; --aggressiveness-level high --all --</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">enable</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> INTEGER_OVERFLOW -co INTEGER_OVERFLOW:enable_tainted_params:</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">true</span>
+<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 3:</span><span class="content">Cov-analyze
+Parameters
+for
+Tainted
+Parameters</span></figcaption><!-- tex4ht:label?: x1-1039r1  -->
+   
+</div>
+
+
+<!-- l. 60 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Now Coverity will also flag the addition operation in <strong>fun_2</strong> as an integer overflow, since the parameter val is
+considered tainted (the first condition is now met).
+</p>
+<!-- l. 62 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The addition operation in the last function, <strong>fun_4</strong>, will not be flagged by Coverity as an integer overflow with
+either cov-analyze command used. In <strong>fun_4</strong> the function parameter <span class="ec-lmtt-10" style="font-family: monospace,monospace;">val </span>is considered a tainted source when passed
+in. However, the parameter is tested on line 29 before the addition occurs (so it is no longer tainted), and an integer
+overflow will not occur when the addition is performed. Coverity recognizes this and does not does not flag the
+operation.
+</p>
+<!-- l. 64 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   There are many options you can set that affect the way Coverity identifies tainted sources and sinks. In addition,
+the aggressiveness level affects some of the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">INTEGER_OVERFLOW </span>options as well. See the Coverity Checker
+Reference[<a href="#cite.0@20210628:coverity" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>] for more information.
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 45 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt id="X0-20210628:ics21-119-04" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210628:ics21-119-04" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>US-CERT. <span class="rm-lmri-10" style="font-style: italic;">ICS Advisory (ICSA-21-119-04): Multiple RTOS (Update B)</span>. CISA. May 20, 2021. <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a href="https://us-cert.cisa.gov/ics/advisories/icsa-21-119-04" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://us-cert.cisa.gov/ics/advisories/icsa-21-119-04</span></a> (visited on 06/28/2021).
+</p>    
+</dd>
+<dt id="X0-20210628:cwe-190" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[2]  
+</dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210628:cwe-190" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>CWE   Content   Team.   “CWE-190:   Integer   Overflow   or   Wraparound”.   In:   (2021).   <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a href="https://cwe.mitre.org/data/definitions/190.html" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://cwe.mitre.org/data/definitions/190.html</span></a>.
+</p>    
+</dd>
+<dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[3]  
+</dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt id="X0-20210628:coverity" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[4]  
+</dt><dd id="bib-4" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210628:coverity" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Synopsis, Inc. “Coverity 2020.09 Checker Reference”. In: (2020).</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Living off the Land</title>
 		<link>https://www.SwATips.com/articles/20210621.html</link>
 		<pubDate>Mon, 21 Jun 2021 00:00:00 -0500</pubDate>

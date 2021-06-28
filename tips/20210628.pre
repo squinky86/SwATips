@@ -1,0 +1,4 @@
+\def \AuthorName{Stacy Lukins}
+\def \ArticleName{Coverity and Integer Overflows}
+\newcommand{\ArticleDate}{\formatdate{28}{6}{2021}}
+\addbibresource{20210628.bib}
