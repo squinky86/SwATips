@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{A Pedigree of Dropping S-BOMs}
+\newcommand{\ArticleDate}{\formatdate{5}{7}{2021}}
+\addbibresource{20210705.bib}
