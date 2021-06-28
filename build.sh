@@ -263,7 +263,8 @@ if [ $PDF == true ]; then
 		rm -rf ${TMPDIR}
 	done
 	echo "</urlset>" >> html/sitemap.xml
-	for ((i=${#ARTICLES[@]} - 1; i >= 0; i--)); do
+	MAXNUMARTICLES=${#ARTICLES[@]}
+	for ((i=${MAXNUMARTICLES} - 1; i >= ($MAXNUMARTICLES >= 10 ? ${MAXNUMARTICLES} - 10 : 0); i--)); do
 		echo "<li>${NUMS[$i]} - <a href=\"articles/${NUMS[$i]}.html\">${ARTICLES[$i]}</a></li>" >> html/articles.inc
 		echo "	<item>" >> html/rss.inc
 		echo "		<title>${ARTICLES[$i]}</title>" >> html/rss.inc

@@ -41,7 +41,7 @@ int fun_4(int val) {      // can set option to consider param val to be tainted
 }
 \end{lstlisting}
 
-By default, the \texttt{INTEGER\_OVERFLOW} checker in Coverity is not enabled and must be enabled by using the \textbf{\texttt{-{}-enable}} option of the \textbf{\texttt{cov-analyze}} command. Be aware that the \textbf{\texttt{-{}-all}} option does not enable the \texttt{INTEGER\_OVERFLOW} checker.\autocite{20210628:coverity} The command in Listing~\ref{lst:20210628:analyze} enables integer overflow checking with default options and was used to analyze the code in Listing~\ref{lst:20210628:sample}.
+By default, the \texttt{INTEGER\_OVERFLOW} checker in Coverity is not enabled and must be enabled by using the \textbf{\texttt{-\phantom{}-enable}} option of the \textbf{\texttt{cov-analyze}} command. Be aware that the \textbf{\texttt{-\phantom{}-all}} option does not enable the \texttt{INTEGER\_OVERFLOW} checker.\autocite{20210628:coverity} The command in Listing~\ref{lst:20210628:analyze} enables integer overflow checking with default options and was used to analyze the code in Listing~\ref{lst:20210628:sample}.
 \begin{lstlisting}[caption={Cov-analyze Parameters},captionpos=b,style=BashStyle,basicstyle=\small,label={lst:20210628:analyze},literate=*{-}{-}1,breaklines=true]
 cov-analyze --dir <path_to_code_idir> --aggressiveness-level high --all --enable INTEGER_OVERFLOW
 \end{lstlisting}
@@ -52,7 +52,7 @@ The integer overflow in \textbf{\texttt{fun\_1}} is the only integer overflow de
 
 Now consider \textbf{\texttt{fun\_3}}, which does contain a tainted source (command line input that is not checked) and performs the same addition operation. However, there is no sink in this function, so it does not meet the third condition and Coverity does not flag this operation as a potential integer overflow problem.
 
-Checker options can be used to change the way Coverity identifies tainted sources and sinks. For example, the \texttt{enable\_tainted\_params} option can be set to \texttt{true} to cause Coverity to automatically treat all function parameters as tainted. Option values for checkers are set by passing \textbf{\texttt{-{}-checker-option}} or \textbf{\texttt{-co}} to the cov-analyze command. We can re-analyze the source code using the command in Listing~\ref{lst:20210628:taintedparams} which enables the \texttt{INTEGER\_OVERFLOW} checker and sets the \textbf{\texttt{enable\_tainted\_params}} option to true.
+Checker options can be used to change the way Coverity identifies tainted sources and sinks. For example, the \texttt{enable\_tainted\_params} option can be set to \texttt{true} to cause Coverity to automatically treat all function parameters as tainted. Option values for checkers are set by passing \textbf{\texttt{-\phantom{}-checker-option}} or \textbf{\texttt{-co}} to the cov-analyze command. We can re-analyze the source code using the command in Listing~\ref{lst:20210628:taintedparams} which enables the \texttt{INTEGER\_OVERFLOW} checker and sets the \textbf{\texttt{enable\_tainted\_params}} option to true.
 \begin{lstlisting}[caption={Cov-analyze Parameters for Tainted Parameters},captionpos=b,style=BashStyle,basicstyle=\small,label={lst:20210628:taintedparams},literate=*{-}{-}1,breaklines=true]
 cov-analyze --dir <path_to_build_idir> --aggressiveness-level high --all --enable INTEGER_OVERFLOW -co INTEGER_OVERFLOW:enable_tainted_params:true
 \end{lstlisting}
