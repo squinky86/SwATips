@@ -1,4 +1,168 @@
 	<item>
+		<title>A Pedigree of Dropping S-BOMs</title>
+		<link>https://www.SwATips.com/articles/20210705.html</link>
+		<pubDate>Mon, 05 Jul 2021 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;">Return to <a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">SwATips</a> | <a href="articles/20210705.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>]<br/>
+Generated Tuesday 29<sup class="textsuperscript">th</sup> June, 2021</h2>
+<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
+<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 5</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> July, 2021</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>A Pedigree of Dropping S-BOMs</h3>
+
+
+<!-- l. 1 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Recently, a large software project encountered a serious vulnerability. The project has been in existence since
+the early 1990s and consists of millions of lines of code. On May 20<sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup>, CISA issued an advisory that
+resulted in several CVEs being created for some of the older RTOSes.[<a href="#cite.0@20210705:ics21-119-04" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>] When we marked this as a
+critical finding against the legacy system, the response we received was, “I didn’t even know that was in
+there!”
+</p>
+<!-- l. 3 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Establishing a Pedigree</h4>
+
+
+<!-- l. 5 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">While the DoD is still proceeding with its RMF implementation of NIST 800-53 Revision 4, Revision 5 of the RMF
+controls creates a new family: SR - Supply Chain Risk Management. One of the new controls is SR-4, related to the
+provenance of the supply chain. To date, no categorization baseline requires the implementation of SR-4; however, it
+should be anticipated that this control will be tailored in for high-importance and tactical systems in the
+future.
+</p>
+<!-- l. 7 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Part of SR-4 is enhancement SR-4(4) which requires the establishment of provenance and pedigree by keeping up
+with the internal composition of software and hardware components. “For software this includes the composition of
+open-source and proprietary code, including the version of the component at a given point in time.”[<a href="#cite.0@20210705:nist80053rev5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>, p. 66] This is
+a step above the hardware and software lists currently implemented in RMF; the program must manage the
+composition at a more granular level. Claiming not to know that a component includes a dependency would be a
+failure against this control.
+</p>
+<!-- l. 9 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Compliance</h4>
+
+
+<!-- l. 11 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">For software, I recommend implementing Software Package Data Exchange (SPDX) and a Software Bill of Materials
+(S-BOM). A compliant policy would include a statement like the following:
+</p>
+<!-- l. 13 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">     
+</p>
+
+
+<blockquote class="quote">     
+<!-- l. 14 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;">Our  organization  requires  that  each  main  software  delivery  must  define  a  Software  Package
+Data Exchange (SPDX) file and Software Bill of Materials (S-BOM) detailing all first-order
+dependencies.[<a href="#cite.0@20210705:wheeler2019" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>]  The  SPDX  file,  at  a  minimum,  must  include  the  <span class="ec-lmtt-10" style="font-family: monospace,monospace;">PackageName  </span>and
+<span class="ec-lmtt-10" style="font-family: monospace,monospace;">PackageLicenseDeclared</span>.  If  they  are  available,  <span class="ec-lmtt-10" style="font-family: monospace,monospace;">PackageOriginator </span>and  <span class="ec-lmtt-10" style="font-family: monospace,monospace;">PackageHomePage</span>
+must also be provided. Each main delivery product will also provide an S-BOM consisting of an
+SPDX file for each first-order dependency when that first order dependency properly manages
+its own dependencies. For example, if Product A is the deliverable and it depends on Product
+B, Product B is a first-order dependency. If Product B depends on Product C, Product C is a
+second-order dependency and only requires documentation in the S-BOM if it is also a first-order
+dependency or if Product B requires Product A to manage its dependencies.
+</p>     
+<!-- l. 16 --><p class="noindent" style="margin-bottom: 0; margin-top: 1em;">For every major release of the deliverable or every three years (whichever occurs first), a Software
+Composition Analysis is performed, and the S-BOM’s SPDX files are compared to the results.
+The software composition analysis may be conducted automatically as part of the CI/CD pipeline
+or in our Software Assurance assessments. Undocumented dependencies are triaged as security
+concerns in our issue tracking system.</p></blockquote>
+
+
+<!-- l. 19 -->
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   Such a policy requires listings of dependencies with their version numbers, encourages developers to automate
+composition analysis, documents the POCs for each dependency, and records the license restrictions of each
+component.
+                                                                                         
+                                                                                         
+</p>
+<!-- l. 21 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a id="x1-40001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Recommendations</h4>
+
+
+<!-- l. 23 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">The Application Sescurity and Development Security Technical Implementation Guide (STIG) should be updated to
+check that dependencies are documented appropriately. There is not currently a STIG requirement to document and
+manage dependencies.
+</p>
+<!-- l. 25 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   When issuing Control Correlation Identifiers (CCI) against SR-4(4), the DoD should divide this into at least two
+checks: one for documenting the composition correctly, and the other for verifying the integrity and correctness of
+that composition.
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead"><a id="x1-50001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 45 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt class="thebibliography" id="X0-20210705:ics21-119-04" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210705:ics21-119-04" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>US-CERT. <span class="rm-lmri-10" style="font-style: italic;">ICS Advisory (ICSA-21-119-04): Multiple RTOS (Update B)</span>. CISA. May 20, 2021. <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a href="https://us-cert.cisa.gov/ics/advisories/icsa-21-119-04" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://us-cert.cisa.gov/ics/advisories/icsa-21-119-04</span></a> (visited on 06/23/2021).
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
+[2]  
+</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20210705:nist80053rev5" style="float: left; clear: left; margin-right: 1em;">
+[3]  
+</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210705:nist80053rev5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>National  Institute  of  Standards  and  Technology.  <span class="rm-lmri-10" style="font-style: italic;">Security  and  Privacy  Controls  for  Information
+</span><span class="rm-lmri-10" style="font-style: italic;">Systems  and  Organizations</span>.  Tech.  rep.  Special  Publication  (SP)  800-53  Revision  5.  Washington,
+D.C.:  U.S.  Department  of  Commerce,  2001.  <span class="small-caps" style="font-variant: small-caps;">doi</span>:  <a href="https://doi.org/10.6028/NIST.SP.800-53r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10 . 6028 / NIST . SP . 800 - 53r5</span></a>.  <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20210705:wheeler2019" style="float: left; clear: left; margin-right: 1em;">
+[4]  
+</dt><dd class="thebibliography" id="bib-4" style="margin-left: 2.5em;">
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210705:wheeler2019" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>David A. Wheeler. <span class="rm-lmri-10" style="font-style: italic;">SPDX Tutorial</span>. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a href="https://github.com/david-a-wheeler/spdx-tutorial/blob/cee3cbe7ae5f83ec478e2acf2c9282eafd42ff0f/README.md" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://github.com/david-a-wheeler/spdx-tutorial/blob/cee3cbe7ae5f83ec478e2acf2c9282eafd42ff0f/README.md</span></a>
+(visited on 06/23/2021).</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Coverity and Integer Overflows</title>
 		<link>https://www.SwATips.com/articles/20210628.html</link>
 		<pubDate>Mon, 28 Jun 2021 00:00:00 -0500</pubDate>
@@ -1545,312 +1709,6 @@ Inspection’)”. In: (2020). <span class="small-caps" style="font-variant: sma
 [6]  
 </dt><dd id="bib-6" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210419-codeproject" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Unknown. “To Avoid Heap Inspection”. In: (2015). <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste</span></a>.</p></dd></dl>
-
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>Sticking with a RAII Standard</title>
-		<link>https://www.SwATips.com/articles/20210412.html</link>
-		<pubDate>Mon, 12 Apr 2021 00:00:00 -0500</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;">Return to <a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">SwATips</a> | <a href="articles/20210412.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
-Generated Friday 7<sup class="textsuperscript">th</sup> May, 2021</h2>
-<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
-<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 12</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> April, 2021</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Sticking with a RAII Standard</h3>
-
-
-<!-- l. 1 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Resource Acquisition Is Initialization (RAII). When working with legacy code, often variables and memory
-management do not use RAII concepts. When memory is created in an uninitialized state, developers risk the use of
-uninitialized memory further down in the application data flow.
-</p>
-<!-- l. 3 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   To solve this, C++ implemented two ways of initializing new memory: <i>default</i> initialization and <i>value</i>
-initialization. While default initialization is typically faster, developers quickly realized that there was rarely a
-reason to keep memory uninitialized. Initializing memory as soon as it’s allocated keeps developers from shooting
-themselves in the foot.
-</p>
-<!-- l. 5 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   One of the best ways to prevent memory errors is to use RAII. Particularly in exception-based code, RAII
-concepts provide a memory-safe technique for resource management.[<a href="#cite.0@20210412-stroustrup2001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] Several issues face developers when
-maintaining legacy code with new programming concepts, particularly in the DoD. Legacy code is
-generally void of RAII concepts and has not been built with the latest standards of safe programming
-practices.
-</p>
-<!-- l. 7 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Updating the Code</h4>
-
-
-<!-- l. 9 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">The first option for maintaining legacy code in a memory-safe way is to update the code. Wrapping old pointers in
-smart pointers can help make the code more maintainable.
-</p>
-   
-
-<!-- l. 11 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-2001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-2002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div id="listing-1" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-2003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">bool *newBool = new bool(); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">if</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> (*newBool) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        cout &lt;&lt; "We</span><span class="ts1-lmtt9-" style="font-size: 90%;">'</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">re␣true!"␣&lt;&lt;␣endl; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">else </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2007r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">␣␣␣␣␣␣␣␣cout␣&lt;&lt;␣"We</span><span class="ts1-lmtt9-" style="font-size: 90%;">'</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">re false!" &lt;&lt; endl; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2008r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">delete newBool;</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1:</span><span class="content">Non-compliant listing</span></figcaption><!-- tex4ht:label?: x1-2001r1  -->
-   
-</div>
-
-
-<!-- l. 20 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-2009r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-2010" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div id="listing-2" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-2011r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">auto</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> newBool = make_shared&lt;bool&gt;(); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2012r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">//Another way: shared_ptr&lt;bool&gt; newBool(new bool());</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2013r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">if</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> (*newBool) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2014r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        cout &lt;&lt; "We</span><span class="ts1-lmtt9-" style="font-size: 90%;">'</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">re␣true!"␣&lt;&lt;␣endl; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2015r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">else </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2016r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">␣␣␣␣␣␣␣␣cout␣&lt;&lt;␣"We</span><span class="ts1-lmtt9-" style="font-size: 90%;">'</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">re false!" &lt;&lt; endl;</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 2:</span><span class="content">RAII-compliant listing</span></figcaption><!-- tex4ht:label?: x1-2009r1  -->
-   
-</div>
-
-
-<!-- l. 29 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   There are several issues with updating the old code to the RAII-compliant code:
-</p>
-     
-
-<ol class="enumerate1" style="list-style-type: decimal;">
-<li id="x1-2018x1" class="enumerate">     
-Forgetting to remove the manual memory management can cause double-free errors.
-</li>     
-<li id="x1-2020x2" class="enumerate">
-Updating the code can cause translation issues (eg: between default and value initialization)
-</li>     
-<li id="x1-2022x3" class="enumerate">
-Inconsistency can increase maintenance burdens for maintained code.
-</li>     
-<li id="x1-2024x4" class="enumerate">
-Deletion of arrays require special handling.</li></ol>
-
-                                                                                         
-                                                                                         
-
-<!-- l. 37 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Double Frees</h4>
-
-
-<!-- l. 39 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Developers can introduce double free conditions where a pointer is managed by both a smart pointer and in the
-code itself. Also, conditions arise when a single pointer is handed over to multiple smart pointers for
-management.
-</p>
-<!-- l. 41 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   At the time of this writing, the latest versions of Fortify, Coverity, Checkmarx, Parasoft, clang-analyzer,
-and the GCC 10 <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fanalyzer </span>flag are all incapable of identifying the double free in Listings <a href="#x1-3001r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3<!-- tex4ht:ref: lst:20210412:1  --></a> and
-<a href="#x1-3007r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4<!-- tex4ht:ref: lst:20210412:2  --></a>.
-</p>
-   
-
-<!-- l. 43 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-3001r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-3002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div id="listing-3" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-3003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">bool *newBool = new bool(); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-3004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">shared_ptr&lt;bool&gt; test1 (newBool); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-3005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">shared_ptr&lt;bool&gt; test2 (newBool); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-3006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">//...</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 3:</span><span class="content">Double Smart Pointer</span></figcaption><!-- tex4ht:label?: x1-3001r1  -->
-   
-</div>
-
-
-<!-- l. 50 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-3007r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-3008" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div id="listing-4" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-3009r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">bool *newBool = new bool(); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-3010r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">shared_ptr&lt;bool&gt; test1 (newBool); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-3011r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">//...</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-3012r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">delete newBool;</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 4:</span><span class="content">Smart and Dumb Pointer</span></figcaption><!-- tex4ht:label?: x1-3007r1  -->
-   
-</div>
-
-
-<!-- l. 57 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a id="x1-40001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Initialization Errors</h4>
-
-
-<!-- l. 59 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">We’ve also seen a large number of initialization errors when updating to smart pointers. Using the
-above examples, it’s tempting for a developer to use shortcuts and commit the error demonstrated in
-Listing <a href="#x1-4001r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5<!-- tex4ht:ref: lst:20210412:3  --></a>.
-</p>
-   
-
-<!-- l. 61 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-4001r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-4002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div id="listing-5" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-4003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">shared_ptr&lt;bool&gt; test1 (new bool); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">cout &lt;&lt; "Test1 is: " &lt;&lt; *test1 &lt;&lt; endl;</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 5:</span><span class="content">Uninitialized Boolean</span></figcaption><!-- tex4ht:label?: x1-4001r1  -->
-   
-</div>
-
-
-<!-- l. 66 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The unpredictable nature of this issue can be demonstrated in the example in Listing <a href="#x1-4005r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">6<!-- tex4ht:ref: lst:20210412:4  --></a> where the Boolean uses
-default initialization and obtains a random value from previously-freed memory.
-</p>
-   
-
-<!-- l. 68 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-4005r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-4006" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div id="listing-6" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-4007r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">#include</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> &lt;climits&gt; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4008r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">#include</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> &lt;iostream&gt; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4009r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">#include</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> &lt;memory&gt; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4010r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">#include</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> &lt;random&gt; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4011r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">using namespace std; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4012r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> main() </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4013r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">{ </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4014r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        random_device rd; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4015r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        mt19937 gen(rd()); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4016r10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        uniform_int_distribution&lt;&gt; distrib(INT_MIN, INT_MAX); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4017r11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        vector&lt;</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">*&gt; deleteLater; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4018r12" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">for</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> (</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> i = 0; i &lt; 100; i++) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4019r13" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4020r14" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> *deleteMe = new </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4021r15" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               *deleteMe = distrib(gen); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4022r16" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">               //delete some memory now</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4023r17" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">if</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> (*deleteMe &gt; 0) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4024r18" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">                       delete deleteMe; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4025r19" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">else</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4026r20" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">                       deleteLater.push_back(deleteMe); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4027r21" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4028r22" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        shared_ptr&lt;bool&gt; newBool(new bool); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4029r23" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        cout &lt;&lt; "Value: " &lt;&lt; *newBool &lt;&lt; endl; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4030r24" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">        //delete some memory later</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4031r25" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">for</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> (</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> *n : deleteLater) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4032r26" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               delete n; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4033r27" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">return</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> 0; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-4034r28" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">}</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 6:</span><span class="content">Uninitialized Boolean</span></figcaption><!-- tex4ht:label?: x1-4005r1  -->
-   
-</div>
-
-                                                                                         
-                                                                                         
-
-<!-- l. 99 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.4   </span> <a id="x1-50001.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Inconsistency Can Increase Maintenance Costs</h4>
-
-
-<!-- l. 101 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Consider updated code that uses a multitude of different memory handling methods. Some memory is managed
-manually using <span class="ec-lmtt-10" style="font-family: monospace,monospace;">malloc </span>and <span class="ec-lmtt-10" style="font-family: monospace,monospace;">free</span>. Some pass the previous pointer values to smart pointers for their management.
-Others have been updated to use the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">make_shared </span>construct. Still others have been updated to custom classes and
-structs.
-</p>
-<!-- l. 103 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Consistency is more important than updating. Introducing multiple memory handling patterns to a section of
-code increases its complexity. If old memory handling methods cannot be replaced or are not planned to be replaced,
-it may make more sense to stick with confusing (but consistent) code rather than adding additional
-complexity.
-</p>
-<!-- l. 105 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.5   </span> <a id="x1-60001.5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Smart Pointers and Arrays</h4>
-
-
-<!-- l. 107 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Finally, some special considerations are needed for allowing smart pointers to handle arrays. The <span class="ec-lmtt-10" style="font-family: monospace,monospace;">shared_ptr</span>
-construct permits the developer to define a custom deleter like the one for this array of 10 Booleans:
-</p>
-   
-
-<!-- l. 109 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-6001r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-6002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div id="listing-7" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-6003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">shared_ptr&lt;bool&gt; test1{ </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-6004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        new bool[10], [](</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">const</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> bool *ptr) { delete [] ptr; } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-6005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">};</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 7:</span><span class="content">Custom Deleter</span></figcaption><!-- tex4ht:label?: x1-6001r1  -->
-   
-</div>
-
-
-<!-- l. 115 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.6   </span> <a id="x1-70001.6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusion</h4>
-
-
-<!-- l. 117 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Smart pointers and RAII concepts help developers prevent memory errors that can plague software. Updating legacy
-code to RAII concepts can increase its maintainability, usefulness, and security. Nevertheless, updates to the code
-should not come at a price of inconsistency. When updates can only be applied partially or introduce additional
-complexity, consistency should be preferred.
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead"><a id="x1-80001.6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 45 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
-</p>    
-</dd>
-<dt id="X0-20210412-stroustrup2001" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[2]  
-</dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210412-stroustrup2001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Bjarne    Stroustrup.    “Exception    Safety:    Concepts    and    Techniques”.    In:    (2001).    <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a class="url" href="https://www.stroustrup.com/except.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.stroustrup.com/except.pdf</span></a>.</p></dd></dl>
 
  
 

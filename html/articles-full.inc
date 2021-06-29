@@ -9,3 +9,4 @@
 <li>20210614 - <a href="articles/20210614.html">Secure Compilation</a></li>
 <li>20210621 - <a href="articles/20210621.html">Living off the Land</a></li>
 <li>20210628 - <a href="articles/20210628.html">Coverity and Integer Overflows</a></li>
+<li>20210705 - <a href="articles/20210705.html">A Pedigree of Dropping S-BOMs</a></li>
