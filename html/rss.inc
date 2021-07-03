@@ -15,7 +15,7 @@
 
 <h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
 A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>]<br/>
-Generated Tuesday 29<sup class="textsuperscript">th</sup> June, 2021</h2>
+Generated Saturday 3<sup class="textsuperscript">rd</sup> July, 2021</h2>
 <div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
 <div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 5</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> July, 2021</span></div>
 </div>
@@ -134,13 +134,13 @@ that composition.
 [1]  
 </dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
 <!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210705:ics21-119-04" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>US-CERT. <span class="rm-lmri-10" style="font-style: italic;">ICS Advisory (ICSA-21-119-04): Multiple RTOS (Update B)</span>. CISA. May 20, 2021. <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a href="https://us-cert.cisa.gov/ics/advisories/icsa-21-119-04" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://us-cert.cisa.gov/ics/advisories/icsa-21-119-04</span></a> (visited on 06/23/2021).
+<a class="url" href="https://us-cert.cisa.gov/ics/advisories/icsa-21-119-04" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://us-cert.cisa.gov/ics/advisories/icsa-21-119-04</span></a> (visited on 06/23/2021).
 </p>    
 </dd>
 <dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
 [2]  
 </dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
-<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
 <dt class="thebibliography" id="X0-20210705:nist80053rev5" style="float: left; clear: left; margin-right: 1em;">
@@ -149,13 +149,13 @@ that composition.
 <!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210705:nist80053rev5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>National  Institute  of  Standards  and  Technology.  <span class="rm-lmri-10" style="font-style: italic;">Security  and  Privacy  Controls  for  Information
 </span><span class="rm-lmri-10" style="font-style: italic;">Systems  and  Organizations</span>.  Tech.  rep.  Special  Publication  (SP)  800-53  Revision  5.  Washington,
 D.C.:  U.S.  Department  of  Commerce,  2001.  <span class="small-caps" style="font-variant: small-caps;">doi</span>:  <a href="https://doi.org/10.6028/NIST.SP.800-53r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10 . 6028 / NIST . SP . 800 - 53r5</span></a>.  <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf</span></a>.
+<a class="url" href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf</span></a>.
 </p>    
 </dd>
 <dt class="thebibliography" id="X0-20210705:wheeler2019" style="float: left; clear: left; margin-right: 1em;">
 [4]  
 </dt><dd class="thebibliography" id="bib-4" style="margin-left: 2.5em;">
-<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210705:wheeler2019" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>David A. Wheeler. <span class="rm-lmri-10" style="font-style: italic;">SPDX Tutorial</span>. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a href="https://github.com/david-a-wheeler/spdx-tutorial/blob/cee3cbe7ae5f83ec478e2acf2c9282eafd42ff0f/README.md" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://github.com/david-a-wheeler/spdx-tutorial/blob/cee3cbe7ae5f83ec478e2acf2c9282eafd42ff0f/README.md</span></a>
+<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210705:wheeler2019" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>David A. Wheeler. <span class="rm-lmri-10" style="font-style: italic;">SPDX Tutorial</span>. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://github.com/david-a-wheeler/spdx-tutorial/blob/cee3cbe7ae5f83ec478e2acf2c9282eafd42ff0f/README.md" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://github.com/david-a-wheeler/spdx-tutorial/blob/cee3cbe7ae5f83ec478e2acf2c9282eafd42ff0f/README.md</span></a>
 (visited on 06/23/2021).</p></dd></dl>
 
  
