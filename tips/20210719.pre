@@ -1,0 +1,3 @@
+\def \AuthorName{Jonathan Hickerson}
+\def \ArticleName{File-by-File Scanning for Ada}
+\newcommand{\ArticleDate}{\formatdate{19}{7}{2021}}

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xml:lang='en-US' lang='en-US'>
+<head>
+<title>File-by-File Scanning for Ada</title>
+ 
+
+<meta charset="utf-8"/>
+ 
+
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"/>
+ 
+
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+ 
+
+ 
+
+<meta name="src" content="article.tex"/>
+ 
+
+<script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
+<style>
+ 
+/* start css.sty */
+.rm-lmr-7{font-size:70%;}
+.rm-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
+.rm-lmr-9{font-size:90%;}
+.rm-lmr-12{font-size:120%;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-9{font-size:90%; font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{font-size:90%; font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtti-10x-x-90{font-size:90%; font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.rm-lmri-10{ font-style:italic;}
+p{margin-top:0;margin-bottom:0}
+p.indent{text-indent:0;}
+p + p{margin-top:1em;}
+p + div, p + pre {margin-top:1em;}
+div + p, pre + p {margin-top:1em;}
+a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+img.math{vertical-align:middle;}
+div.par-math-display, div.math-display{text-align:center;}
+li p.indent { text-indent: 0em }
+li p:first-child{ margin-top:0em; }
+li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.footnotes{border-top:solid 1px black; border-bottom:solid 1px black; padding-bottom:1ex; padding-top:0.5ex; margin-right:15%; margin-top:2ex; font-style:italic; font-size:85%;}
+div.footnotes p{margin-top:0; margin-bottom:0; text-indent:0;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.tabbing-right {text-align:right;}
+div.float, div.figure {margin-left: auto; margin-right: auto;}
+div.float img {text-align:center;}
+div.figure img {text-align:center;}
+.marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.reversemarginpar{float:left;}
+table.equation {width:100%;}
+.equation td{text-align:center; }
+td.equation { margin-top:1em; margin-bottom:1em; } 
+td.equation-label { width:5%; text-align:center; }
+td.eqnarray4 { width:5%; white-space: normal; }
+td.eqnarray2 { width:5%; }
+table.eqnarray-star, table.eqnarray {width:100%;}
+div.eqnarray{text-align:center;}
+div.array {text-align:center;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.pmatrix img{vertical-align:middle;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.bar-css {text-decoration:overline;}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
+img.cdots{vertical-align:middle;}
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption span.id{font-weight: bold; white-space: nowrap; }
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.abstract p {margin-left:5%; margin-right:5%;}
+div.abstract {width:100%;}
+.abstracttitle{text-align:center;margin-bottom:1em;}
+figure.float, div.figure {margin-left: auto; margin-right: auto;}
+figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}
+figure.figure {text-align:center;}
+figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
+figcaption.caption span.id{font-weight: bold; white-space: nowrap; }
+.abstract{margin:1em;}
+dt.printshorthands{float:left; clear:left; margin-right:1em;}
+dd.thebibliography {margin-left: 2.5em;}
+dt.thebibliography {float:left; clear:left; margin-right:1em;}
+.lstlisting .label{margin-right:0.5em; }
+div.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
+div.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
+.lstinputlisting .label{margin-right:0.5em;}
+.small-caps{font-variant: small-caps;}
+/* end css.sty */
+
+</style>
+</head>
+<body>
+<p>Return to <a href="../">SwATips</a> | <a href="20210719.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="images/by.svg" width="60" height="21" alt="CC-BY" /></a></p>
+<div class='maketitle'>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
+A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>1</a>]<br />
+Generated Monday 19<sup class='textsuperscript'>th</sup> July, 2021</h2>
+<div class='author'><span class='rm-lmr-12'>Jonathan Hickerson</span></div><br />
+<div class='date'><span class='rm-lmr-12'>Monday 19</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> July, 2021</span></div>
+</div>
+                                                                                         
+                                                                                         
+   
+<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>File-by-File Scanning for Ada</h3>
+<!-- l. 1 --><p class='noindent'>Scanning code which will not fully build is often a thorn in the side of the software assurance analyst who has been
+delivered code from an external customer. This is doubly true in a language such as Ada with few viable scanning
+options.
+</p><!-- l. 3 --><p class='indent'>   AdaCore CodePeer has an operation called “Analyze File by File” which sounds like it would help if the entire
+Ada project will not build. After all, if a portion of the code will build, surely obtaining scan results for that portion
+of the code is better than no results at all. An enterprising software assurance analyst, full of hope and cheer, might
+try this tool, only to come to the crushing realization that even though it operates on individual files, it is
+only intended for use in the context of an already buildable project, sending them back to square
+one.
+</p><!-- l. 5 --><p class='indent'>   A workaround to this issue, and a way to have CodePeer successfully operate on individual files in an Ada
+project is a little more involved.
+</p><!-- l. 7 --><p class='indent'>   While a normal <span class='ec-lmtt-10'>codepeer-gprbuild </span>scan operates on a project and expects the full project to build, one can
+pass it a project and a specific file, and while the project will fail to build, if the individual file builds, it will
+generate a <span class='ec-lmtt-10'>.SCIL </span>file, which is the output of the building/linking process which CodePeer requires for analysis. The
+command line argument for this setup is shown in Listing <a href='#x1-1001r1'>1<!-- tex4ht:ref: lst:20210719:gprbuild  --></a>. </p><!-- l. 8 -->
+<p><a id='x1-1001r1'></a></p>
+<p><a id='x1-1002'></a></p>
+<div class='lstlisting' id='listing-1'><span class='label'><a id='x1-1003r1'></a></span><span class='ec-lmtt-9'>$ codepeer-gprbuild -ws -c -f -u -P[a project file] --subdirs=codepeer-file --codepeer -gnateC [a .ada, .adb, or .ads file]</span>
+<figcaption class='caption'><span class='id'>Listing 1:</span><span class='content'>CodePeer
+GPRBuild
+Setup</span></figcaption><!-- tex4ht:label?: x1-1001r1  -->
+   
+</div>
+<!-- l. 12 --><p class='indent'>   Once this file has been processed and its <span class='ec-lmtt-10'>.SCIL </span>file created, one can do a normal <span class='ec-lmtt-10'>codepeer-gprbuild </span>on the
+entire project from within GPS. While the build will fail, it will still check for existing <span class='ec-lmtt-10'>.SCIL </span>files and then perform
+an analysis on these files. By iteratively performing the above command on all <span class='ec-lmtt-10'>.ada</span>, <span class='ec-lmtt-10'>.ads</span>, and <span class='ec-lmtt-10'>.adb </span>files in the
+project, and following it with a normal analysis, an analyst can get some results out of CodePeer. The full process
+is:
+</p><!-- l. 14 --><p class='indent'>     
+</p>
+<ol class='enumerate1'>     
+<li class='enumerate' id='x1-1005x1'>
+Build a new Ada project file (a <span class='ec-lmtt-10'>.gpr </span>file) which does nothing but include all of the files within the Ada
+project. An example project is shown in Listing <a href='#x1-1006r2'>2<!-- tex4ht:ref: lst:20210719:samplegpr  --></a>. <!-- l. 16 -->
+<a id='x1-1006r2'></a>
+<a id='x1-1007'></a>     
+<div class='lstlisting' id='listing-2'><span class='label'><a id='x1-1008r1'></a></span><span class='ec-lmtt-9'>Project Test </span><span class='ec-lmtk-10x-x-90'>is</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-1009r2'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>For</span><span class='ec-lmtt-9'> languages </span><span class='ec-lmtk-10x-x-90'>use</span><span class='ec-lmtt-9'> ("Ada"); </span><br /><span class='label'><a id='x1-1010r3'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>For</span><span class='ec-lmtt-9'> Source_Dirs </span><span class='ec-lmtk-10x-x-90'>use</span><span class='ec-lmtt-9'> ("../**"); </span><br /><span class='label'><a id='x1-1011r4'></a></span><span class='ec-lmtk-10x-x-90'>End</span><span class='ec-lmtt-9'> Test;</span>
+<figcaption class='caption'><span class='id'>Listing 2:</span><span class='content'>All-Inclusive
+GPR
+Example</span></figcaption><!-- tex4ht:label?: x1-1006r1  -->
+     
+</div>
+</li>     
+<li class='enumerate' id='x1-1013x2'>
+Run the command in Listing <a href='#x1-1001r1'>1<!-- tex4ht:ref: lst:20210719:gprbuild  --></a> against each file that requires CodePeer analysis. This is probably best done
+with a script, such as one demonstrated in Listings <a href='#x1-1014r3'>3<!-- tex4ht:ref: lst:20210719:automationlin  --></a> and <a href='#x1-1020r4'>4<!-- tex4ht:ref: lst:20210719:automationwin  --></a> where <span class='ec-lmtt-10'>Project.gpr </span>is the project created from
+Listing <a href='#x1-1006r2'>2<!-- tex4ht:ref: lst:20210719:samplegpr  --></a>. <!-- l. 23 -->
+<a id='x1-1014r3'></a>
+<a id='x1-1015'></a>     
+<div class='lstlisting' id='listing-3'><span class='label'><a id='x1-1016r1'></a></span><span class='ec-lmtti-10x-x-90'>#!/bin/bash</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-1017r2'></a></span><span class='ec-lmtt-9'>find ./ -name "*.ad[abs]" | </span><span class='ec-lmtk-10x-x-90'>while</span><span class='ec-lmtt-9'> </span><span class='ec-lmtk-10x-x-90'>read</span><span class='ec-lmtt-9'> x; </span><span class='ec-lmtk-10x-x-90'>do</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-1018r3'></a></span><span class='ec-lmtt-9'>        codepeer-gprbuild -ws -c -f -u -PProject.gpr --subdirs=codepeer-file --codepeer -gnateC "${x}" </span><br /><span class='label'><a id='x1-1019r4'></a></span><span class='ec-lmtk-10x-x-90'>done</span>
+                                                                                         
+                                                                                         
+     
+<figcaption class='caption'><span class='id'>Listing 3:</span><span class='content'>Bash
+Script
+for
+Ada
+Single-Build
+Automation</span></figcaption><!-- tex4ht:label?: x1-1014r1  -->
+     
+</div>
+<!-- l. 30 -->
+<a id='x1-1020r4'></a>
+<a id='x1-1021'></a>     
+<div class='lstlisting' id='listing-4'><span class='label'><a id='x1-1022r1'></a></span><span class='ec-lmtt-9'>@ECHO OFF </span><br /><span class='label'><a id='x1-1023r2'></a></span><span class='ec-lmtk-10x-x-90'>for</span><span class='ec-lmtt-9'> /R %%f </span><span class='ec-lmtk-10x-x-90'>in</span><span class='ec-lmtt-9'> (.\*) </span><span class='ec-lmtk-10x-x-90'>do</span><span class='ec-lmtt-9'> ( </span><br /><span class='label'><a id='x1-1024r3'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>echo</span><span class='ec-lmtt-9'> %%~xf|findstr /r "ad[abs]$" &gt; nul 2&gt;&amp;1 </span><br /><span class='label'><a id='x1-1025r4'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> errorlevel 0 ( </span><br /><span class='label'><a id='x1-1026r5'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>echo</span><span class='ec-lmtt-9'> "%%~ff" </span><br /><span class='label'><a id='x1-1027r6'></a></span><span class='ec-lmtt-9'>               codepeer-gprbuild -ws -c -f -u -PProject.gpr --subdirs=codepeer-file --codepeer -gnateC %%~ff </span><br /><span class='label'><a id='x1-1028r7'></a></span><span class='ec-lmtt-9'>        ) </span><br /><span class='label'><a id='x1-1029r8'></a></span><span class='ec-lmtt-9'>)</span>
+<figcaption class='caption'><span class='id'>Listing 4:</span><span class='content'>Batch
+Script
+for
+Ada
+Single-Build
+Automation</span></figcaption><!-- tex4ht:label?: x1-1020r1  -->
+     
+</div>
+</li>     
+<li class='enumerate' id='x1-1031x3'>
+In the GPS studio, open the project file, and select <i>analyze</i>. Step one of the analysis process (building and
+linking) will fail, but when step two begins, it will detect the <span class='ec-lmtt-10'>.SCIL </span>files from above and proceed to analyze
+those files.
+</li>     
+<li class='enumerate' id='x1-1033x4'>
+In the GPS studio, export the analysis results.</li></ol>
+<!-- l. 45 --><p class='indent'>   I hope this makes the reader’s next adventure in the world of unbuildable Ada code a little less
+painful!
+                                                                                         
+                                                                                         
+</p>   
+<h3 class='sectionHead'><a id='x1-20001'></a>References</h3>
+<!-- l. 46 --><p class='noindent'>    
+</p>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-swatips'>
+[1]  
+</dt><dd class='thebibliography' id='bib-1'>
+<!-- l. 46 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.</p></dd></dl>
+ 
+</body> 
+</html>
