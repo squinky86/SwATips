@@ -35,7 +35,7 @@ for /R %%f in (.\*) do (
 	echo %%~xf|findstr /r "ad[abs]$" > nul 2>&1
 	if errorlevel 0 (
 		echo "%%~ff"
-		codepeer-gprbuild -ws -c -f -u -PProject.gpr --subdirs=codepeer-file --codepeer -gnateC %%~ff
+		codepeer-gprbuild -ws -c -f -u -PProject.gpr --subdirs=codepeer-file --codepeer -gnateC "%%~ff"
 	)
 )
 \end{lstlisting}

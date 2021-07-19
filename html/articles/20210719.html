@@ -7,15 +7,15 @@
 <meta charset="utf-8"/>
  
 
-<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"/>
  
 
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
  
 
  
 
-<meta content="article.tex" name="src"/>
+<meta name="src" content="article.tex"/>
  
 
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
@@ -206,7 +206,7 @@ generate a <span class='ec-lmtt-10'>.SCIL </span>file, which is the output of th
 command line argument for this setup is shown in Listing <a href='#x1-1001r1'>1<!-- tex4ht:ref: lst:20210719:gprbuild  --></a>. </p><!-- l. 8 -->
 <p><a id='x1-1001r1'></a></p>
 <p><a id='x1-1002'></a></p>
-<div id='listing-1' class='lstlisting'><span class='label'><a id='x1-1003r1'></a></span><span class='ec-lmtt-9'>$ codepeer-gprbuild -ws -c -f -u -P[a project file] --subdirs=codepeer-file --codepeer -gnateC [a .ada, .adb, or .ads file]</span>
+<div class='lstlisting' id='listing-1'><span class='label'><a id='x1-1003r1'></a></span><span class='ec-lmtt-9'>$ codepeer-gprbuild -ws -c -f -u -P[a project file] --subdirs=codepeer-file --codepeer -gnateC [a .ada, .adb, or .ads file]</span>
 <figcaption class='caption'><span class='id'>Listing 1:</span><span class='content'>CodePeer
 GPRBuild
 Setup</span></figcaption><!-- tex4ht:label?: x1-1001r1  -->
@@ -220,25 +220,25 @@ is:
 </p><!-- l. 14 --><p class='indent'>     
 </p>
 <ol class='enumerate1'>     
-<li id='x1-1005x1' class='enumerate'>
+<li class='enumerate' id='x1-1005x1'>
 Build a new Ada project file (a <span class='ec-lmtt-10'>.gpr </span>file) which does nothing but include all of the files within the Ada
 project. An example project is shown in Listing <a href='#x1-1006r2'>2<!-- tex4ht:ref: lst:20210719:samplegpr  --></a>. <!-- l. 16 -->
 <a id='x1-1006r2'></a>
 <a id='x1-1007'></a>     
-<div id='listing-2' class='lstlisting'><span class='label'><a id='x1-1008r1'></a></span><span class='ec-lmtt-9'>Project Test </span><span class='ec-lmtk-10x-x-90'>is</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-1009r2'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>For</span><span class='ec-lmtt-9'> languages </span><span class='ec-lmtk-10x-x-90'>use</span><span class='ec-lmtt-9'> ("Ada"); </span><br /><span class='label'><a id='x1-1010r3'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>For</span><span class='ec-lmtt-9'> Source_Dirs </span><span class='ec-lmtk-10x-x-90'>use</span><span class='ec-lmtt-9'> ("../**"); </span><br /><span class='label'><a id='x1-1011r4'></a></span><span class='ec-lmtk-10x-x-90'>End</span><span class='ec-lmtt-9'> Test;</span>
+<div class='lstlisting' id='listing-2'><span class='label'><a id='x1-1008r1'></a></span><span class='ec-lmtt-9'>Project Test </span><span class='ec-lmtk-10x-x-90'>is</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-1009r2'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>For</span><span class='ec-lmtt-9'> languages </span><span class='ec-lmtk-10x-x-90'>use</span><span class='ec-lmtt-9'> ("Ada"); </span><br /><span class='label'><a id='x1-1010r3'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>For</span><span class='ec-lmtt-9'> Source_Dirs </span><span class='ec-lmtk-10x-x-90'>use</span><span class='ec-lmtt-9'> ("../**"); </span><br /><span class='label'><a id='x1-1011r4'></a></span><span class='ec-lmtk-10x-x-90'>End</span><span class='ec-lmtt-9'> Test;</span>
 <figcaption class='caption'><span class='id'>Listing 2:</span><span class='content'>All-Inclusive
 GPR
 Example</span></figcaption><!-- tex4ht:label?: x1-1006r1  -->
      
 </div>
 </li>     
-<li id='x1-1013x2' class='enumerate'>
+<li class='enumerate' id='x1-1013x2'>
 Run the command in Listing <a href='#x1-1001r1'>1<!-- tex4ht:ref: lst:20210719:gprbuild  --></a> against each file that requires CodePeer analysis. This is probably best done
 with a script, such as one demonstrated in Listings <a href='#x1-1014r3'>3<!-- tex4ht:ref: lst:20210719:automationlin  --></a> and <a href='#x1-1021r4'>4<!-- tex4ht:ref: lst:20210719:automationwin  --></a> where <span class='ec-lmtt-10'>Project.gpr </span>is the project created from
 Listing <a href='#x1-1006r2'>2<!-- tex4ht:ref: lst:20210719:samplegpr  --></a>. <!-- l. 23 -->
 <a id='x1-1014r3'></a>
 <a id='x1-1015'></a>     
-<div id='listing-3' class='lstlisting'><span class='label'><a id='x1-1016r1'></a></span><span class='ec-lmtti-10x-x-90'>#!/bin/bash</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-1017r2'></a></span><span class='ec-lmtt-9'>find ./ -name "*.ad[abs]" | </span><span class='ec-lmtk-10x-x-90'>while</span><span class='ec-lmtt-9'> </span><span class='ec-lmtk-10x-x-90'>read</span><span class='ec-lmtt-9'> x; </span><span class='ec-lmtk-10x-x-90'>do</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-1018r3'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>echo</span><span class='ec-lmtt-9'> ${x} </span><br /><span class='label'><a id='x1-1019r4'></a></span><span class='ec-lmtt-9'>        codepeer-gprbuild -ws -c -f -u -PProject.gpr --subdirs=codepeer-file --codepeer -gnateC "${x}" </span><br /><span class='label'><a id='x1-1020r5'></a></span><span class='ec-lmtk-10x-x-90'>done</span>
+<div class='lstlisting' id='listing-3'><span class='label'><a id='x1-1016r1'></a></span><span class='ec-lmtti-10x-x-90'>#!/bin/bash</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-1017r2'></a></span><span class='ec-lmtt-9'>find ./ -name "*.ad[abs]" | </span><span class='ec-lmtk-10x-x-90'>while</span><span class='ec-lmtt-9'> </span><span class='ec-lmtk-10x-x-90'>read</span><span class='ec-lmtt-9'> x; </span><span class='ec-lmtk-10x-x-90'>do</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-1018r3'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>echo</span><span class='ec-lmtt-9'> ${x} </span><br /><span class='label'><a id='x1-1019r4'></a></span><span class='ec-lmtt-9'>        codepeer-gprbuild -ws -c -f -u -PProject.gpr --subdirs=codepeer-file --codepeer -gnateC "${x}" </span><br /><span class='label'><a id='x1-1020r5'></a></span><span class='ec-lmtk-10x-x-90'>done</span>
                                                                                          
                                                                                          
      
@@ -253,7 +253,7 @@ Automation</span></figcaption><!-- tex4ht:label?: x1-1014r1  -->
 <!-- l. 31 -->
 <a id='x1-1021r4'></a>
 <a id='x1-1022'></a>     
-<div id='listing-4' class='lstlisting'><span class='label'><a id='x1-1023r1'></a></span><span class='ec-lmtt-9'>@ECHO OFF </span><br /><span class='label'><a id='x1-1024r2'></a></span><span class='ec-lmtk-10x-x-90'>for</span><span class='ec-lmtt-9'> /R %%f </span><span class='ec-lmtk-10x-x-90'>in</span><span class='ec-lmtt-9'> (.\*) </span><span class='ec-lmtk-10x-x-90'>do</span><span class='ec-lmtt-9'> ( </span><br /><span class='label'><a id='x1-1025r3'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>echo</span><span class='ec-lmtt-9'> %%~xf|findstr /r "ad[abs]$" &gt; nul 2&gt;&amp;1 </span><br /><span class='label'><a id='x1-1026r4'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> errorlevel 0 ( </span><br /><span class='label'><a id='x1-1027r5'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>echo</span><span class='ec-lmtt-9'> "%%~ff" </span><br /><span class='label'><a id='x1-1028r6'></a></span><span class='ec-lmtt-9'>               codepeer-gprbuild -ws -c -f -u -PProject.gpr --subdirs=codepeer-file --codepeer -gnateC %%~ff </span><br /><span class='label'><a id='x1-1029r7'></a></span><span class='ec-lmtt-9'>        ) </span><br /><span class='label'><a id='x1-1030r8'></a></span><span class='ec-lmtt-9'>)</span>
+<div class='lstlisting' id='listing-4'><span class='label'><a id='x1-1023r1'></a></span><span class='ec-lmtt-9'>@ECHO OFF </span><br /><span class='label'><a id='x1-1024r2'></a></span><span class='ec-lmtk-10x-x-90'>for</span><span class='ec-lmtt-9'> /R %%f </span><span class='ec-lmtk-10x-x-90'>in</span><span class='ec-lmtt-9'> (.\*) </span><span class='ec-lmtk-10x-x-90'>do</span><span class='ec-lmtt-9'> ( </span><br /><span class='label'><a id='x1-1025r3'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>echo</span><span class='ec-lmtt-9'> %%~xf|findstr /r "ad[abs]$" &gt; nul 2&gt;&amp;1 </span><br /><span class='label'><a id='x1-1026r4'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> errorlevel 0 ( </span><br /><span class='label'><a id='x1-1027r5'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>echo</span><span class='ec-lmtt-9'> "%%~ff" </span><br /><span class='label'><a id='x1-1028r6'></a></span><span class='ec-lmtt-9'>               codepeer-gprbuild -ws -c -f -u -PProject.gpr --subdirs=codepeer-file --codepeer -gnateC "%%~ff" </span><br /><span class='label'><a id='x1-1029r7'></a></span><span class='ec-lmtt-9'>        ) </span><br /><span class='label'><a id='x1-1030r8'></a></span><span class='ec-lmtt-9'>)</span>
 <figcaption class='caption'><span class='id'>Listing 4:</span><span class='content'>Batch
 Script
 for
@@ -263,12 +263,12 @@ Automation</span></figcaption><!-- tex4ht:label?: x1-1021r1  -->
      
 </div>
 </li>     
-<li id='x1-1032x3' class='enumerate'>
+<li class='enumerate' id='x1-1032x3'>
 In the GPS studio, open the project file, and select <i>analyze</i>. Step one of the analysis process (building and
 linking) will fail, but when step two begins, it will detect the <span class='ec-lmtt-10'>.SCIL </span>files from above and proceed to analyze
 those files.
 </li>     
-<li id='x1-1034x4' class='enumerate'>
+<li class='enumerate' id='x1-1034x4'>
 In the GPS studio, export the analysis results.</li></ol>
 <!-- l. 46 --><p class='indent'>   I hope this makes the reader’s next adventure in the world of unbuildable Ada code a little less
 painful!
