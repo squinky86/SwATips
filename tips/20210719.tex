@@ -24,6 +24,7 @@ End Test;
 {"}{"}1,breaklines=true]
 #!/bin/bash
 find ./ -name "*.ad[abs]" | while read x; do
+	echo ${x}
 	codepeer-gprbuild -ws -c -f -u -PProject.gpr --subdirs=codepeer-file --codepeer -gnateC "${x}"
 done
 \end{lstlisting}
