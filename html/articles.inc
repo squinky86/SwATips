@@ -1,3 +1,4 @@
+<li>20210726 - <a href="articles/20210726.html">Compounding a Classic TOCTOU Mistake</a></li>
 <li>20210719 - <a href="articles/20210719.html">File-by-File Scanning for Ada</a></li>
 <li>20210705 - <a href="articles/20210705.html">A Pedigree of Dropping S-BOMs</a></li>
 <li>20210628 - <a href="articles/20210628.html">Coverity and Integer Overflows</a></li>
@@ -7,4 +8,3 @@
 <li>20210517 - <a href="articles/20210517.html">Secure Pseudo-Random Number Generation</a></li>
 <li>20210510 - <a href="articles/20210510.html">Homoglyphs аnd Homogrаphic Аttаcks</a></li>
 <li>20210503 - <a href="articles/20210503.html">Downloading Package Dependencies for Offline Installs in Debian-based Distributions</a></li>
-<li>20210426 - <a href="articles/20210426.html">Polymorphic Catch Performance in C#</a></li>

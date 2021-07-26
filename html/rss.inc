@@ -1,4 +1,99 @@
 	<item>
+		<title>Compounding a Classic TOCTOU Mistake</title>
+		<link>https://www.SwATips.com/articles/20210726.html</link>
+		<pubDate>Mon, 26 Jul 2021 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;">Return to <a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">SwATips</a> | <a href="articles/20210726.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
+Generated Monday 26<sup class="textsuperscript">th</sup> July, 2021</h2>
+<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
+<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 26</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> July, 2021</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Compounding a Classic TOCTOU Mistake</h3>
+
+
+<!-- l. 1 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">One project was marked for an operational buffer overflow (CWE-119) and poor coding practices when a buffer
+reading in a configuration file was set to a static size before reading in the file. The code sent for validation to fix the
+issue looked similar to that of Listing <a href="#x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20210726:toctou  --></a>.
+</p>
+   
+
+<!-- l. 3 -->
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+   
+
+<div class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">1</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">fseek(fp, 0, SEEK_END); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">2</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">long</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> size = ftell(fp); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">3</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">char</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> *buf = malloc(</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">sizeof</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">(</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">char</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">)*size); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">4</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">fseek(fp, 0, SEEK_SET); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1007r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">5</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> c; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1008r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">6</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">for</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> (</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> i = 0; (c = getc(fp)) != EOF; i++) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1009r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">7</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">{ </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1010r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">8</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">if</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> (c == </span><span class="ts1-lmtt9-" style="font-size: 90%;">'</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">%</span><span class="ts1-lmtt9-" style="font-size: 90%;">'</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1011r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">9</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">break</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1012r10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">10</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        buf[i] = c; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1013r11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">11</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">}</span>
+<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1:</span><span class="content">Overflows and TOCTOUs</span></figcaption><!-- tex4ht:label?: x1-1001r1  -->
+   
+</div>
+
+
+<!-- l. 17 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The developer’s intent is to read a file into a buffer up to an expected truncation character, but the attempted
+fixes to the original issues caused more problems than the original code.
+</p>
+<!-- l. 19 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   First, the code is subject to a Time-Of-Check Time-Of-Use (TOCTOU) issue. By setting up a file
+system watcher event, an attacker could append a pernicious payload to the end of the file so that
+the file is larger than <span class="ec-lmtt-10" style="font-family: monospace,monospace;">ftell() </span>originally reported. This causes a buffer overflow (CWE-120) on Line
+10.
+</p>
+<!-- l. 21 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Second, the developer created a possible wrap-around issue (CWE-190) when the file’s character count is larger
+than <span class="ec-lmtt-10" style="font-family: monospace,monospace;">INT_MAX</span>. The software would then operate outside of the intended buffer boundary on Line 10
+(CWE-119).
+</p>
+<!-- l. 23 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Finally, while inspecting the operational environment, it was discovered that the configuration file had world
+write privileges (CWE-276) which could be used to exploit the TOCTOU issue. Coincidentally, the file also had
+cleartext passwords (CWE-256) for a connected device.
+</p>
+<!-- l. 25 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   What a mess a single TOCTOU issue can uncover!
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 46 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 46 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>File-by-File Scanning for Ada</title>
 		<link>https://www.SwATips.com/articles/20210719.html</link>
 		<pubDate>Mon, 19 Jul 2021 00:00:00 -0500</pubDate>
@@ -1509,191 +1604,6 @@ machine.
 </dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
 <!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210503-stackoverflow" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Yann Vo. “How to list/download the recursive dependencies of a debian package?” In: (2019). <span class="small-caps" style="font-variant: small-caps;">url</span>:
 <a href="https://stackoverflow.com/a/41428445" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://stackoverflow.com/a/41428445</span></a>.</p></dd></dl>
-
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>Polymorphic Catch Performance in C#</title>
-		<link>https://www.SwATips.com/articles/20210426.html</link>
-		<pubDate>Mon, 26 Apr 2021 00:00:00 -0500</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;">Return to <a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">SwATips</a> | <a href="articles/20210426.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
-Generated Friday 7<sup class="textsuperscript">th</sup> May, 2021</h2>
-<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
-<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 26</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> April, 2021</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Polymorphic Catch Performance in C#</h3>
-
-
-<!-- l. 1 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">In a recent code review, one of our customers were marked for being sloppy with catch-all exceptions (CWE-396),
-which is sometimes an indicator of poorly designed program flow. To fix this, the developers changed the catch
-blocks to something like the one in Listing <a href="#x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20210426:exception  --></a>.
-</p>
-   
-
-<!-- l. 3 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>1</span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">try</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>2</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">{ DoSomethingWith("C:\\File.txt"); } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>3</span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">catch</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> (Exception e) when (e </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">is</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> FileNotFoundException) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>4</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">{ DoSomethingElse(e); }</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1:</span><span class="content">When-Conditioned Exception</span></figcaption><!-- tex4ht:label?: x1-1001r1  -->
-   
-</div>
-
-
-<!-- l. 10 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The intent of a “when” clause in an exception is for situations where the exception may have an error
-code. For example, a SqlException may return different codes that can be used to differentiate their
-catch blocks and clean up a failed state. So how does the code in Listing <a href="#x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20210426:exception  --></a> differ from the code in
-Listing <a href="#x1-1007r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2<!-- tex4ht:ref: lst:20210426:exception2  --></a>?
-</p>
-   
-
-<!-- l. 12 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1007r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1008" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div class="lstlisting" id="listing-2" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1009r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>1</span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">try</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1010r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>2</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">{ DoSomethingWith("C:\\File.txt"); } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1011r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>3</span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">catch</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> (FileNotFoundException e) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1012r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>4</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">{ DoSomethingElse(e); }</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 2:</span><span class="content">Classically-Conditioned Exception</span></figcaption><!-- tex4ht:label?: x1-1007r1  -->
-   
-</div>
-
-
-<!-- l. 19 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   While both blocks of code achieve the same result, the generated code to catch the exception in Listing <a href="#x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20210426:exception  --></a> has
-twelve times as many instructions to execute. The .NET Intermediate Language (IL) is very different between the
-two implementations. The “when” clause creates what the IL defines as a filter block and instantiates a structure
-similar to a truth stack. This additional structure and the extra operations on it reduce performance and add
-unnecessary bloat to the software. The generated IL can be compared in Listings <a href="#x1-1013r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3<!-- tex4ht:ref: lst:20210426:exceptionil  --></a> and <a href="#x1-1029r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4<!-- tex4ht:ref: lst:20210426:exception2il  --></a>. The IL was created in
-optimized Release mode.
-</p>
-   
-
-<!-- l. 21 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1013r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1014" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div class="lstlisting" id="listing-3" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1015r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>1</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">filter { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1016r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>2</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">IL_000d:  isinst [System.Runtime]System.Exception </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1017r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>3</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">IL_0012:  dup </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1018r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>4</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">IL_0013:  brtrue.s IL_0019 </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1019r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>5</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">IL_0015:  pop </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1020r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>6</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">IL_0016:  ldc.i4.0 </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1021r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>7</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">IL_0017:  br.s IL_0024 </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1022r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>8</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">IL_0019:  isinst [System.Runtime]System.IO.FileNotFoundException </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1023r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>9</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">IL_001e:  ldnull </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1024r10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>10</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">IL_001f:  cgt.un </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1025r11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>11</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">IL_0021:  ldc.i4.0 </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1026r12" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>12</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">IL_0022:  cgt.un </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1027r13" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>13</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">IL_0024:  endfilter </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1028r14" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>14</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">}</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 3:</span><span class="content">When-Conditioned Exception IL</span></figcaption><!-- tex4ht:label?: x1-1013r1  -->
-   
-</div>
-
-
-<!-- l. 38 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1029r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1030" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div class="lstlisting" id="listing-4" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1031r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>1</span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">catch</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">class</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> [mscorlib]System.IO.FileNotFoundException</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 4:</span><span class="content">Classically-Conditioned Exception IL</span></figcaption><!-- tex4ht:label?: x1-1029r1  -->
-   
-</div>
-
-
-<!-- l. 42 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   This leads to another question: what’s the most optimal way to catch several types of exceptions? The most
-optimal way is to catch the general exception, then use polymorphism to operate on it (code in Listing <a href="#x1-1032r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5<!-- tex4ht:ref: lst:20210426:exceptionif  --></a>). The IL
-code adds a single comparison for each conditional in an if statement and avoids the overhead incurred by the when
-clause’s filter block. Note that most scanning tools and style checkers will identify Listing <a href="#x1-1032r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5<!-- tex4ht:ref: lst:20210426:exceptionif  --></a> as a catch
-                                                                                         
-                                                                                         
-for the generic exception, but this should be marked as a false positive if the handler appropriately
-determines the failure scenarios for the appropriate exception types. The IL code for Listing <a href="#x1-1032r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5<!-- tex4ht:ref: lst:20210426:exceptionif  --></a> up to the
-first exception type is shown in Listing <a href="#x1-1043r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">6<!-- tex4ht:ref: lst:20210426:exceptionifil  --></a>. Please also realize that such minimal performance gains
-should not be interpreted as a reason to violate a consistent standard already established in a code
-base.
-</p>
-   
-
-<!-- l. 44 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1032r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1033" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div class="lstlisting" id="listing-5" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1034r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>1</span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">try</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1035r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>2</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">{ DoSomethingWith("C:\\File.txt"); } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1036r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>3</span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">catch</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> (Exception e) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1037r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>4</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">{ </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1038r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>5</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">if</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> ((e </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">is</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> FileNotFoundException) || (e </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">is</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> SecurityException)) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1039r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>6</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">               DoSomethingElse(e); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1040r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>7</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">else</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1041r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>8</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">               Log(e); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1042r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>9</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">}</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 5:</span><span class="content">If-Formatted Exception Chain</span></figcaption><!-- tex4ht:label?: x1-1032r1  -->
-   
-</div>
-
-
-<!-- l. 56 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1043r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1044" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div class="lstlisting" id="listing-6" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1045r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>1</span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">catch</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">class</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> [mscorlib]System.Exception { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1046r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>2</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       IL_000d:  isinst [System.Runtime]System.IO.FileNotFoundException</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 6:</span><span class="content">If-Formatted Exception Chain IL</span></figcaption><!-- tex4ht:label?: x1-1043r1  -->
-   
-</div>
-
-
-<!-- l. 61 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   When performance is a primary concern, developers should include comments that indicate their consideration of
-exceptional cases in generic catch blocks. Validators should watch for these comments to help them mark the generic
-exception catches as false positives.
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 45 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
 
  
 
