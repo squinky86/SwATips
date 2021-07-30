@@ -6,7 +6,7 @@ Let's put this claim to the test! For the sake of creating a fully unclassified 
 \begin{lstlisting}[caption={Unsafe Factorial Function},captionpos=b,style=CStyle,basicstyle=\small,label={lst:20210802:factorial},literate={"}{"}1,upquote=true]
 #include <stdio.h>
 #include <stdlib.h>
-void main(int argc, char *argv[])
+void factorial(int argc, char *argv[])
 { //SUPER SEKRIT FACTORIALS
 	unsigned long long ret = 1;
 	int maxVal = atoi(argv[1]); //0<=maxVal<=20
@@ -91,7 +91,7 @@ As can be seen by the stripped vs. unstripped comparison, there is very little (
 
 \begin{minipage}{.45\textwidth}
 \begin{lstlisting}[caption={Unstripped Decompilation with Binary Ninja},captionpos=b,style=CStyle,basicstyle=\scriptsize,label={lst:20210802:ninja}]
-int64_t main(int32_t arg1, void* arg2)
+int64_t factorial(int32_t arg1, void* arg2)
 {
 	int32_t var_c = 1;
 	int32_t rax_3 = atoi(*(arg2 + 8));
