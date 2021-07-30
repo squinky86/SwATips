@@ -1,0 +1,3 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Stripping for Fun and Profit}
+\newcommand{\ArticleDate}{\formatdate{2}{8}{2021}}

@@ -12,3 +12,4 @@
 <li>20210705 - <a href="articles/20210705.html">A Pedigree of Dropping S-BOMs</a></li>
 <li>20210719 - <a href="articles/20210719.html">File-by-File Scanning for Ada</a></li>
 <li>20210726 - <a href="articles/20210726.html">Compounding a Classic TOCTOU Mistake</a></li>
+<li>20210802 - <a href="articles/20210802.html">Stripping for Fun and Profit</a></li>
