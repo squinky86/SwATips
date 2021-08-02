@@ -2,7 +2,7 @@ Recently, we were given a piece of software with special handling instructions. 
 
 While reviewing the security of the software, we discovered that the developer compiled the binary and released it on their website. When asked how they were able to release such a private routine publicly, the customer claimed that it was fine to release in binary form. Supposedly, the compilation method they used removed the ``context of the Human-Readable Source Code used to generate the Machine-Readable Object Code from propagating into the Machine-Readable Object Code.''
 
-Let's put this claim to the test! For the sake of creating a fully unclassified example, suppose that no one has ever created a function for caluclating factorials, and a new intern fresh out of college submits the code in Listing~\ref{lst:20210802:factorial} to solve this highly-secretive, important function.
+Let's put this claim to the test! For the sake of creating a fully unclassified example, suppose that no one has ever created a function for calculating factorials, and a new intern fresh out of college submits the code in Listing~\ref{lst:20210802:factorial} to solve this highly-secretive, important function.
 \begin{lstlisting}[caption={Unsafe Factorial Function},captionpos=b,style=CStyle,basicstyle=\small,label={lst:20210802:factorial},literate={"}{"}1,upquote=true]
 #include <stdio.h>
 #include <stdlib.h>
@@ -116,4 +116,4 @@ int64_t sub_100401080(int32_t arg1, void* arg2)
 \end{lstlisting}
 \end{minipage}
 
-While compilation and obfuscation definitely make it more difficult to gleen the original meaning of software, it's not impossible to trace through the decompilation and figure out the original intent of the developer. If source code is protected because of what it does, the binary generated from that source code should probably be handled with the same protections.
+While compilation and obfuscation definitely make it more difficult to glean the original meaning of software, it's not impossible to trace through the decompilation and figure out the original intent of the developer. If source code is protected because of what it does, the binary generated from that source code should probably be handled with the same protections.
