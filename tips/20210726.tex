@@ -1,0 +1,25 @@
+One project was marked for an operational buffer overflow (CWE-119) and poor coding practices when a buffer reading in a configuration file was set to a static size before reading in the file. The code sent for validation to fix the issue looked similar to that of Listing~\ref{lst:20210726:toctou}.
+
+\begin{lstlisting}[caption={Overflows and TOCTOUs},captionpos=b,style=CStyle,basicstyle=\small,label={lst:20210726:toctou},numbers=left,stepnumber=1]
+fseek(fp, 0, SEEK_END);
+long size = ftell(fp);
+char *buf = malloc(sizeof(char)*size);
+fseek(fp, 0, SEEK_SET);
+int c;
+for (int i = 0; (c = getc(fp)) != EOF; i++)
+{
+	if (c == '%')
+		break;
+	buf[i] = c;
+}
+\end{lstlisting}
+
+The developer's intent is to read a file into a buffer up to an expected truncation character, but the attempted fixes to the original issues caused more problems than the original code.
+
+First, the code is subject to a Time-Of-Check Time-Of-Use (TOCTOU) issue. By setting up a file system watcher event, an attacker could append a pernicious payload to the end of the file so that the file is larger than \texttt{ftell()} originally reported. This causes a buffer overflow (CWE-120) on Line 10.
+
+Second, the developer created a possible wrap-around issue (CWE-190) when the file's character count is larger than \texttt{INT\_MAX}. The software would then operate outside of the intended buffer boundary on Line 10 (CWE-119).
+
+Finally, while inspecting the operational environment, it was discovered that the configuration file had world write privileges (CWE-276) which could be used to exploit the TOCTOU issue. Coincidentally, the file also had cleartext passwords (CWE-256) for a connected device.
+
+What a mess a single TOCTOU issue can uncover!
