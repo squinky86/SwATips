@@ -136,6 +136,101 @@ the same protections.
 ]]></description>
 	</item>
 	<item>
+		<title>Compounding a Classic TOCTOU Mistake</title>
+		<link>https://www.SwATips.com/articles/20210726.html</link>
+		<pubDate>Mon, 26 Jul 2021 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;">Return to <a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">SwATips</a> | <a href="articles/20210726.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
+Generated Monday 26<sup class="textsuperscript">th</sup> July, 2021</h2>
+<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
+<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 26</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> July, 2021</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Compounding a Classic TOCTOU Mistake</h3>
+
+
+<!-- l. 1 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">One project was marked for an operational buffer overflow (CWE-119) and poor coding practices when a buffer
+reading in a configuration file was set to a static size before reading in the file. The code sent for validation to fix the
+issue looked similar to that of Listing <a href="#x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20210726:toctou  --></a>.
+</p>
+   
+
+<!-- l. 3 -->
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+   
+
+<div class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">1</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">fseek(fp, 0, SEEK_END); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">2</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">long</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> size = ftell(fp); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">3</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">char</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> *buf = malloc(</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">sizeof</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">(</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">char</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">)*size); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">4</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">fseek(fp, 0, SEEK_SET); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1007r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">5</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> c; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1008r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">6</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">for</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> (</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> i = 0; (c = getc(fp)) != EOF; i++) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1009r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">7</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">{ </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1010r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">8</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">if</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> (c == </span><span class="ts1-lmtt9-" style="font-size: 90%;">'</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">%</span><span class="ts1-lmtt9-" style="font-size: 90%;">'</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1011r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">9</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">break</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1012r10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">10</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        buf[i] = c; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1013r11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">11</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">}</span>
+<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1:</span><span class="content">Overflows and TOCTOUs</span></figcaption><!-- tex4ht:label?: x1-1001r1  -->
+   
+</div>
+
+
+<!-- l. 17 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The developer’s intent is to read a file into a buffer up to an expected truncation character, but the attempted
+fixes to the original issues caused more problems than the original code.
+</p>
+<!-- l. 19 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   First, the code is subject to a Time-Of-Check Time-Of-Use (TOCTOU) issue. By setting up a file
+system watcher event, an attacker could append a pernicious payload to the end of the file so that
+the file is larger than <span class="ec-lmtt-10" style="font-family: monospace,monospace;">ftell() </span>originally reported. This causes a buffer overflow (CWE-120) on Line
+10.
+</p>
+<!-- l. 21 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Second, the developer created a possible wrap-around issue (CWE-190) when the file’s character count is larger
+than <span class="ec-lmtt-10" style="font-family: monospace,monospace;">INT_MAX</span>. The software would then operate outside of the intended buffer boundary on Line 10
+(CWE-119).
+</p>
+<!-- l. 23 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Finally, while inspecting the operational environment, it was discovered that the configuration file had world
+write privileges (CWE-276) which could be used to exploit the TOCTOU issue. Coincidentally, the file also had
+cleartext passwords (CWE-256) for a connected device.
+</p>
+<!-- l. 25 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   What a mess a single TOCTOU issue can uncover!
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 46 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 46 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>File-by-File Scanning for Ada</title>
 		<link>https://www.SwATips.com/articles/20210719.html</link>
 		<pubDate>Mon, 19 Jul 2021 00:00:00 -0500</pubDate>
@@ -1533,119 +1628,6 @@ chаrаcter “а” throughout this аrticle. Аnd you didn’t even notice!
 </dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
 <!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210510:nikiforakis2014soundsquatting" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Nick Nikiforakis et al. “Soundsquatting: Uncovering the use of homophones in domain squatting”. In:
 <span class="rm-lmri-10" style="font-style: italic;">International Conference on Information Security</span>. Springer. 2014, pp. 291–308.</p></dd></dl>
-
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>Downloading Package Dependencies for Offline Installs in Debian-based Distributions</title>
-		<link>https://www.SwATips.com/articles/20210503.html</link>
-		<pubDate>Mon, 03 May 2021 00:00:00 -0500</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;">Return to <a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">SwATips</a> | <a href="articles/20210503.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
-Generated Friday 7<sup class="textsuperscript">th</sup> May, 2021</h2>
- <div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Kevin Keen</span></div><br/>
-<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 3</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">rd</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> May, 2021</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Downloading Package Dependencies for Offline Installs in Debian-based Distributions</h3>
-
-
-<!-- l. 1 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Sometimes in Software Assurance there exists the need to keep a machine from ever again connecting to a network.
-Perhaps a customer doesn’t wish even the most remote risk that their code could be visible on a network. Or
-perhaps the analyst is examining malware. Or perhaps the results of a vulnerability scan need to be protected at a
-level higher than the network that is available. Reasons abound for keeping a machine offline, but when we need to
-install new software on these machines, it can be a harrowing experience. Those that have tried to install new
-packages offline in Debian-based environments are familiar with the “dependency hell” that quickly ensues. It is easy
-to overlook how much work a simple command like <span class="ec-lmtt-10" style="font-family: monospace,monospace;">apt-get </span>does until one tries to reproduce that effort
-manually.
-</p>
-<!-- l. 3 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   One solution is to find one of various repository websites that list the package’s dependencies and one by one
-visit each page to manually download them. While this can work, it is time-consuming and error-prone. A better
-solution is to let a utility like <span class="ec-lmtt-10" style="font-family: monospace,monospace;">apt </span>do the heavy lifting of identifying and downloading the dependencies in an
-automated manner.
-</p>
-<!-- l. 5 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Recently we had a similar situation. Although we had tried to find solutions in the past, most required scripts or
-third-party software. This time, however, we were able to find the command in Listing <a href="#x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20210503:so  --></a> on Stack
-Overflow.[<a href="#cite.0@20210503-stackoverflow" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>]
-</p>
-   
-
-<!-- l. 7 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">apt-get download \\ </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        $(apt-cache depends \\ </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               --recurse --no-recommends --no-suggests \\ </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               --no-conflicts --no-breaks --no-replaces \\ </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1007r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               --no-enhances &lt;your-package-here&gt; \\ </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1008r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               | grep "^\w" | sort -u)</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1:</span><span class="content">Deep Dependency Downloading</span></figcaption><!-- tex4ht:label?: x1-1001r1  -->
-   
-</div>
-
-
-<!-- l. 16 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Breaking down the command, the portion inside the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">$() </span>is executed first which searches the apt cache for
-dependencies of the selected package. The --no…options are generally needed to prevent optional or breaking
-packages from being included. Note that in some cases, these may need to be tweaked. For example, if there were a
-need to upgrade a package that is already installed on the offline machine, one may wish to remove the
-<span class="ec-lmtt-10" style="font-family: monospace,monospace;">--no-replaces </span>flag. Next, this output is passed to <span class="ec-lmtt-10" style="font-family: monospace,monospace;">grep </span>to filter out some lines of output that are not needed.
-Then, the output gets piped to <span class="ec-lmtt-10" style="font-family: monospace,monospace;">sort </span>with the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-u </span>flag in order to remove duplicates. Finally, <span class="ec-lmtt-10" style="font-family: monospace,monospace;">apt-get download </span>is
-called on each resulting line.  </p>
-<div class="awesomebox" id="awesomebox-1" style="display: grid; grid-template-columns: 90px auto; margin-top: 1rem; margin-bottom: 1rem;"><div class="icon" style="padding-right: 0.5rem; margin-right: 0.5rem; text-align: center; border-right: 4px solid #19407A;"><img alt=" " src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPCEtLSBUaGlzIGZpbGUgd2FzIGdlbmVyYXRlZCBieSBkdmlzdmdtIDIuMTEuMSAtLT4KPHN2ZyB2ZXJzaW9uPScxLjEnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycgeG1sbnM6eGxpbms9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsnIHdpZHRoPSczNC4xNDY2NDVwdCcgaGVpZ2h0PSczMy41OTE0MTVwdCcgdmlld0JveD0nMzYuODA2MzUyIDUzMy4xMTE5NDIgMzQuMTQ2NjQ1IDMzLjU5MTQxNSc+CjxkZWZzPgo8cGF0aCBpZD0nZzItMjQwJyBkPSdNMTIuMzkzNTI3LTIxLjI5MjA3OUM1Ljc3NTM4My0yMS4yOTIwNzkgLjM5NjU5My0xNS45MTMyODggLjM5NjU5My05LjI5NTE0NUMuMzk2NTkzLTIuNjUyMjE1IDUuNzc1MzgzIDIuNzAxNzg5IDEyLjM5MzUyNyAyLjcwMTc4OVMyNC4zOTA0NjEtMi42NTIyMTUgMjQuMzkwNDYxLTkuMjk1MTQ1QzI0LjM5MDQ2MS0xNS45MTMyODggMTkuMDExNjctMjEuMjkyMDc5IDEyLjM5MzUyNy0yMS4yOTIwNzlaTTEyLjM5MzUyNy0xNS45ODc2NDlDMTMuNTA4OTQ0LTE1Ljk4NzY0OSAxNC40MjYwNjUtMTUuMDQ1NzQxIDE0LjQyNjA2NS0xMy45MzAzMjRTMTMuNTA4OTQ0LTExLjg5Nzc4NiAxMi4zOTM1MjctMTEuODk3Nzg2UzEwLjM2MDk4OC0xMi44MTQ5MDcgMTAuMzYwOTg4LTEzLjkzMDMyNFMxMS4yNzgxMDktMTUuOTg3NjQ5IDEyLjM5MzUyNy0xNS45ODc2NDlaTTE1LjA5NTMxNi0zLjY2ODQ4NEMxNS4wOTUzMTYtMy4zNDYyNTIgMTQuODQ3NDQ1LTMuMDk4MzgyIDE0LjUyNTIxMy0zLjA5ODM4MkgxMC4yNjE4NEM5LjkzOTYwOC0zLjA5ODM4MiA5LjY5MTczOC0zLjM0NjI1MiA5LjY5MTczOC0zLjY2ODQ4NFYtNC44MzM0NzVDOS42OTE3MzgtNS4xNTU3MDcgOS45Mzk2MDgtNS40MjgzNjUgMTAuMjYxODQtNS40MjgzNjVIMTAuODU2NzI5Vi04LjUyNjc0NkgxMC4yNjE4NEM5LjkzOTYwOC04LjUyNjc0NiA5LjY5MTczOC04Ljc3NDYxNyA5LjY5MTczOC05LjA5Njg0OVYtMTAuMjYxODRDOS42OTE3MzgtMTAuNTg0MDcyIDkuOTM5NjA4LTEwLjg1NjcyOSAxMC4yNjE4NC0xMC44NTY3MjlIMTMuMzYwMjIyQzEzLjY4MjQ1My0xMC44NTY3MjkgMTMuOTMwMzI0LTEwLjU4NDA3MiAxMy45MzAzMjQtMTAuMjYxODRWLTUuNDI4MzY1SDE0LjUyNTIxM0MxNC44NDc0NDUtNS40MjgzNjUgMTUuMDk1MzE2LTUuMTU1NzA3IDE1LjA5NTMxNi00LjgzMzQ3NVYtMy42Njg0ODRaJy8+CjwvZGVmcz4KPGcgaWQ9J3BhZ2UxJyB0cmFuc2Zvcm09J21hdHJpeCgxLjQgMCAwIDEuNCAwIDApJz4KPGcgZmlsbD0nIzE5NDA3YSc+Cjx1c2UgeD0nMjYuMjkwMjUxJyB5PSc0MDIuMDg2MzIzJyB4bGluazpocmVmPScjZzItMjQwJy8+CjwvZz4KPC9nPgo8L3N2Zz4="/></div><div class="boxcontent" style="vertical-align: top;">
-<!-- l. 17 --><p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   Be sure that the online machine is the same OS version as the offline machine. Otherwise, the packages
-downloaded might not be compatible with the offline machine. Potentially with dire consequences!
-</p></div></div>
-
-
-<!-- l. 19 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   This can quickly and easily allow a package and its dependencies to be downloaded for transfer to the offline
-machine.
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 45 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
-<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="rm-lmri-10" style="font-style: italic;">SwATips</span>. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
-</p>    
-</dd>
-<dt class="thebibliography" id="X0-20210503-stackoverflow" style="float: left; clear: left; margin-right: 1em;">
-[2]  
-</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
-<!-- l. 45 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210503-stackoverflow" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Yann Vo. “How to list/download the recursive dependencies of a debian package?” In: (2019). <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a href="https://stackoverflow.com/a/41428445" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://stackoverflow.com/a/41428445</span></a>.</p></dd></dl>
 
  
 
