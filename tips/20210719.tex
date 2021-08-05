@@ -16,7 +16,7 @@ Once this file has been processed and its \texttt{.SCIL} file created, one can d
 \begin{lstlisting}[caption={All-Inclusive GPR Example},captionpos=b,style=AdaStyle,basicstyle=\small,label={lst:20210719:samplegpr},literate=*{-}{-}1,breaklines=true,upquote=true]
 Project Test is
 	For languages use ("Ada");
-	For Source_Dirs use ("../**");
+	For Source_Dirs use ("./**");
 End Test;
 \end{lstlisting}
 	\item Run the command in Listing~\ref{lst:20210719:gprbuild} against each file that requires CodePeer analysis. This is probably best done with a script, such as one demonstrated in Listings~\ref{lst:20210719:automationlin}\ and \ref{lst:20210719:automationwin}\ where \texttt{Project.gpr} is the project created from Listing~\ref{lst:20210719:samplegpr}.
