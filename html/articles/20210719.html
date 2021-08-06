@@ -7,29 +7,29 @@
 <meta charset="utf-8"/>
  
 
-<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
  
 
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
  
 
  
 
-<meta name="src" content="article.tex"/>
+<meta content="article.tex" name="src"/>
  
 
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
 <style>
  
 /* start css.sty */
-.rm-lmr-7{font-size:70%;}
 .rm-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
-.rm-lmr-9{font-size:90%;}
 .rm-lmr-12{font-size:120%;}
+.rm-lmr-9{font-size:90%;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
+.rm-lmr-8{font-size:80%;}
 .ec-lmtt-9{font-size:90%; font-family: monospace,monospace;}
 .ec-lmtt-9{ font-family: monospace,monospace;}
 .ec-lmtt-9{ font-family: monospace,monospace;}
@@ -167,6 +167,11 @@ div.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top
 div.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
 .lstinputlisting .label{margin-right:0.5em;}
 .small-caps{font-variant: small-caps;}
+.uline{ text-decoration:underline; }
+.uuline{ text-decoration:underline; }
+span.sout {text-decoration: line-through }
+span.xout {text-decoration: line-through }
+span.uwave {text-decoration:underline }
 /* end css.sty */
 
 </style>
@@ -181,7 +186,7 @@ div.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
 
 <h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
 A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>1</a>]<br />
-Generated Monday 19<sup class='textsuperscript'>th</sup> July, 2021</h2>
+</h2>
 <div class='author'><span class='rm-lmr-12'>Jonathan Hickerson</span></div><br />
 <div class='date'><span class='rm-lmr-12'>Monday 19</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> July, 2021</span></div>
 </div>
@@ -189,9 +194,10 @@ Generated Monday 19<sup class='textsuperscript'>th</sup> July, 2021</h2>
                                                                                          
    
 <h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>File-by-File Scanning for Ada</h3>
-<!-- l. 1 --><p class='noindent'>Scanning code which will not fully build is often a thorn in the side of the software assurance analyst who has been
-delivered code from an external customer. This is doubly true in a language such as Ada with few viable scanning
-options.
+<!-- l. 42 --><p class='noindent'><span class='rm-lmr-8'>Updated Friday 6</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-8'> August, 2021</span>
+</p><!-- l. 1 --><p class='indent'>   Scanning code which will not fully build is often a thorn in the side of the software assurance analyst who has
+been delivered code from an external customer. This is doubly true in a language such as Ada with few viable
+scanning options.
 </p><!-- l. 3 --><p class='indent'>   AdaCore CodePeer has an operation called “Analyze File by File” which sounds like it would help if the entire
 Ada project will not build. After all, if a portion of the code will build, surely obtaining scan results for that portion
 of the code is better than no results at all. An enterprising software assurance analyst, full of hope and cheer, might
@@ -225,7 +231,7 @@ Build a new Ada project file (a <span class='ec-lmtt-10'>.gpr </span>file) which
 project. An example project is shown in Listing <a href='#x1-1006r2'>2<!-- tex4ht:ref: lst:20210719:samplegpr  --></a>. <!-- l. 16 -->
 <a id='x1-1006r2'></a>
 <a id='x1-1007'></a>     
-<div class='lstlisting' id='listing-2'><span class='label'><a id='x1-1008r1'></a></span><span class='ec-lmtt-9'>Project Test </span><span class='ec-lmtk-10x-x-90'>is</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-1009r2'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>For</span><span class='ec-lmtt-9'> languages </span><span class='ec-lmtk-10x-x-90'>use</span><span class='ec-lmtt-9'> ("Ada"); </span><br /><span class='label'><a id='x1-1010r3'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>For</span><span class='ec-lmtt-9'> Source_Dirs </span><span class='ec-lmtk-10x-x-90'>use</span><span class='ec-lmtt-9'> ("../**"); </span><br /><span class='label'><a id='x1-1011r4'></a></span><span class='ec-lmtk-10x-x-90'>End</span><span class='ec-lmtt-9'> Test;</span>
+<div class='lstlisting' id='listing-2'><span class='label'><a id='x1-1008r1'></a></span><span class='ec-lmtt-9'>Project Test </span><span class='ec-lmtk-10x-x-90'>is</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-1009r2'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>For</span><span class='ec-lmtt-9'> languages </span><span class='ec-lmtk-10x-x-90'>use</span><span class='ec-lmtt-9'> ("Ada"); </span><br /><span class='label'><a id='x1-1010r3'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>For</span><span class='ec-lmtt-9'> Source_Dirs </span><span class='ec-lmtk-10x-x-90'>use</span><span class='ec-lmtt-9'> ("./**"); </span><br /><span class='label'><a id='x1-1011r4'></a></span><span class='ec-lmtk-10x-x-90'>End</span><span class='ec-lmtt-9'> Test;</span>
 <figcaption class='caption'><span class='id'>Listing 2:</span><span class='content'>All-Inclusive
 GPR
 Example</span></figcaption><!-- tex4ht:label?: x1-1006r1  -->
@@ -237,11 +243,11 @@ Run the command in Listing <a href='#x1-1001r1'>1<!-- tex4ht:ref: lst:20210719:
 with a script, such as one demonstrated in Listings <a href='#x1-1014r3'>3<!-- tex4ht:ref: lst:20210719:automationlin  --></a> and <a href='#x1-1021r4'>4<!-- tex4ht:ref: lst:20210719:automationwin  --></a> where <span class='ec-lmtt-10'>Project.gpr </span>is the project created from
 Listing <a href='#x1-1006r2'>2<!-- tex4ht:ref: lst:20210719:samplegpr  --></a>. <!-- l. 23 -->
 <a id='x1-1014r3'></a>
-<a id='x1-1015'></a>     
-<div class='lstlisting' id='listing-3'><span class='label'><a id='x1-1016r1'></a></span><span class='ec-lmtti-10x-x-90'>#!/bin/bash</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-1017r2'></a></span><span class='ec-lmtt-9'>find ./ -name "*.ad[abs]" | </span><span class='ec-lmtk-10x-x-90'>while</span><span class='ec-lmtt-9'> </span><span class='ec-lmtk-10x-x-90'>read</span><span class='ec-lmtt-9'> x; </span><span class='ec-lmtk-10x-x-90'>do</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-1018r3'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>echo</span><span class='ec-lmtt-9'> ${x} </span><br /><span class='label'><a id='x1-1019r4'></a></span><span class='ec-lmtt-9'>        codepeer-gprbuild -ws -c -f -u -PProject.gpr --subdirs=codepeer-file --codepeer -gnateC "${x}" </span><br /><span class='label'><a id='x1-1020r5'></a></span><span class='ec-lmtk-10x-x-90'>done</span>
+<a id='x1-1015'></a>
                                                                                          
                                                                                          
      
+<div class='lstlisting' id='listing-3'><span class='label'><a id='x1-1016r1'></a></span><span class='ec-lmtti-10x-x-90'>#!/bin/bash</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-1017r2'></a></span><span class='ec-lmtt-9'>find ./ -name "*.ad[abs]" | </span><span class='ec-lmtk-10x-x-90'>while</span><span class='ec-lmtt-9'> </span><span class='ec-lmtk-10x-x-90'>read</span><span class='ec-lmtt-9'> x; </span><span class='ec-lmtk-10x-x-90'>do</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-1018r3'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>echo</span><span class='ec-lmtt-9'> ${x} </span><br /><span class='label'><a id='x1-1019r4'></a></span><span class='ec-lmtt-9'>        codepeer-gprbuild -ws -c -f -u -PProject.gpr --subdirs=codepeer-file --codepeer -gnateC "${x}" </span><br /><span class='label'><a id='x1-1020r5'></a></span><span class='ec-lmtk-10x-x-90'>done</span>
 <figcaption class='caption'><span class='id'>Listing 3:</span><span class='content'>Bash
 Script
 for
@@ -276,12 +282,12 @@ painful!
                                                                                          
 </p>   
 <h3 class='sectionHead'><a id='x1-20001'></a>References</h3>
-<!-- l. 46 --><p class='noindent'>    
+<!-- l. 47 --><p class='noindent'>    
 </p>
-<dl class='thebibliography'><dt id='X0-swatips' class='thebibliography'>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-swatips'>
 [1]  
-</dt><dd id='bib-1' class='thebibliography'>
-<!-- l. 46 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.</p></dd></dl>
+</dt><dd class='thebibliography' id='bib-1'>
+<!-- l. 47 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.</p></dd></dl>
  
 </body> 
 </html>

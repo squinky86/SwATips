@@ -1,0 +1,4 @@
+\def \AuthorName{Kevin Keen}
+\def \ArticleName{Ada \sout{Low}High Integrity Profiles}
+\newcommand{\ArticleDate}{\formatdate{9}{8}{2021}}
+\addbibresource{20210809.bib}

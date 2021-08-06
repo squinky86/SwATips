@@ -11,6 +11,7 @@
 \usepackage{listings}
 \usepackage{noto}
 \usepackage{textcomp}
+\usepackage{ulem}
 
 \addbibresource{sources.bib}
 \input{NUM.pre}
@@ -23,8 +24,6 @@
 \title{
 	\textmd{\textbf{Software Assurance Tips}}\\
 	\normalsize{A product of the Software Assurance Tips Team\autocite{swatips}}\\
-	\vspace{.5em}
-	Generated \today
 }
 
 \lstdefinestyle{AdaStyle} {language=Ada}
@@ -40,6 +39,8 @@
 \maketitle
 \clearpage
 \section{\ArticleName}
+\footnotesize{Updated \today}\normalsize{}
+
 \input{NUM.tex}
 \clearpage
 \printbibliography

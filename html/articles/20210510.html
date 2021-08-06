@@ -22,13 +22,13 @@
 <style>
  
 /* start css.sty */
-.rm-lmr-7{font-size:70%;}
 .rm-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
-.rm-lmr-9{font-size:90%;}
 .rm-lmr-12{font-size:120%;}
+.rm-lmr-9{font-size:90%;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
+.rm-lmr-8{font-size:80%;}
 .ec-lmtt-9{font-size:90%; font-family: monospace,monospace;}
 .ec-lmtt-9{ font-family: monospace,monospace;}
 .ec-lmtt-9{ font-family: monospace,monospace;}
@@ -160,6 +160,11 @@ div.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top
 div.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
 .lstinputlisting .label{margin-right:0.5em;}
 .small-caps{font-variant: small-caps;}
+.uline{ text-decoration:underline; }
+.uuline{ text-decoration:underline; }
+span.sout {text-decoration: line-through }
+span.xout {text-decoration: line-through }
+span.uwave {text-decoration:underline }
 /* end css.sty */
 
 </style>
@@ -174,7 +179,7 @@ div.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
 
 <h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
 A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>1</a>]<br />
-Generated Friday 7<sup class='textsuperscript'>th</sup> May, 2021</h2>
+</h2>
 <div class='author'><span class='rm-lmr-12'>Jon Hood</span></div><br />
 <div class='date'><span class='rm-lmr-12'>Monday 10</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> May, 2021</span></div>
 </div>
@@ -182,13 +187,14 @@ Generated Friday 7<sup class='textsuperscript'>th</sup> May, 2021</h2>
                                                                                          
    
 <h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Homoglyphs аnd Homogrаphic Аttаcks</h3>
-<!-- l. 1 --><p class='noindent'>Do you hаve аn OS X system аnd would like to get our totаlly trustworthy, Аpple-certified softwаre on your
+<!-- l. 42 --><p class='noindent'><span class='rm-lmr-8'>Updated Friday 6</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-8'> August, 2021</span>
+</p><!-- l. 1 --><p class='indent'>   Do you hаve аn OS X system аnd would like to get our totаlly trustworthy, Аpple-certified softwаre on your
 mаchine? Then be sure to run the commаnd in Listing <a href='#x1-1001r1'>1<!-- tex4ht:ref: lst:20210510:1  --></a>!
 </p>   
 <!-- l. 3 -->
 <p><a id='x1-1001r1'></a></p>
 <p><a id='x1-1002'></a></p>   
-<div class='lstlisting' id='listing-1'><span class='label'><a id='x1-1003r1'></a></span><span class='ec-lmtt-9'>sh-3.2</span><span class='ec-lmtti-10x-x-90'># softwareupdate --set-catalog http://</span><span class='ec-lmtt-9'>оѕх</span><span class='ec-lmtti-10x-x-90'>.com</span>
+<div id='listing-1' class='lstlisting'><span class='label'><a id='x1-1003r1'></a></span><span class='ec-lmtt-9'>sh-3.2</span><span class='ec-lmtti-10x-x-90'># softwareupdate --set-catalog http://</span><span class='ec-lmtt-9'>оѕх</span><span class='ec-lmtti-10x-x-90'>.com</span>
 <figcaption class='caption'><span class='id'>Listing 1:</span><span class='content'>Totаlly Legit-Looking OSX Updаte Site</span></figcaption><!-- tex4ht:label?: x1-1001r1  -->
    
 </div>
@@ -216,19 +222,20 @@ chаrаcter “а” throughout this аrticle. Аnd you didn’t even notice!
                                                                                          
 </p>   
 <h3 class='sectionHead'><a id='x1-40001.2'></a>References</h3>
-<!-- l. 45 --><p class='noindent'>    
+<!-- l. 47 --><p class='noindent'>    
 </p>
-<dl class='thebibliography'><dt class='thebibliography' id='X0-swatips'>
+<dl class='thebibliography'><dt id='X0-swatips' class='thebibliography'>
 [1]  
-</dt><dd class='thebibliography' id='bib-1'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a href='https://www.SwATips.com/' class='url'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+</dt><dd id='bib-1' class='thebibliography'>
+<!-- l. 47 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20210510:nikiforakis2014soundsquatting'>
+<dt id='X0-20210510:nikiforakis2014soundsquatting' class='thebibliography'>
 [2]  
-</dt><dd class='thebibliography' id='bib-2'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@20210510:nikiforakis2014soundsquatting'></a>Nick Nikiforakis et al. “Soundsquatting: Uncovering the use of homophones in domain squatting”. In:
-<span class='rm-lmri-10'>International Conference on Information Security</span>. Springer. 2014, pp. 291–308.</p></dd></dl>
+</dt><dd id='bib-2' class='thebibliography'>
+<!-- l. 47 --><p class='noindent'><a id='cite.0@20210510:nikiforakis2014soundsquatting'></a>Nick Nikiforakis et al. “Soundsquatting: Uncovering the use of homophones in domain squatting”. In:
+International Conference on Information Security
+. Springer. 2014, pp. 291–308.</p></dd></dl>
  
 </body> 
 </html>

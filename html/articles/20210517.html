@@ -22,11 +22,11 @@
 <style>
  
 /* start css.sty */
-.rm-lmr-7{font-size:70%;}
 .rm-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
-.rm-lmr-9{font-size:90%;}
 .rm-lmr-12{font-size:120%;}
+.rm-lmr-9{font-size:90%;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
+.rm-lmr-8{font-size:80%;}
 .rm-lmri-10{ font-style:italic;}
 .rm-lmcsc-10{font-variant: small-caps;}
 p{margin-top:0;margin-bottom:0}
@@ -153,6 +153,11 @@ div.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top
 div.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
 .lstinputlisting .label{margin-right:0.5em;}
 .small-caps{font-variant: small-caps;}
+.uline{ text-decoration:underline; }
+.uuline{ text-decoration:underline; }
+span.sout {text-decoration: line-through }
+span.xout {text-decoration: line-through }
+span.uwave {text-decoration:underline }
 /* end css.sty */
 
 </style>
@@ -167,7 +172,7 @@ div.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
 
 <h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
 A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>4</a>]<br />
-Generated Monday 17<sup class='textsuperscript'>th</sup> May, 2021</h2>
+</h2>
 <div class='author'><span class='rm-lmr-12'>James Shelton</span></div><br />
 <div class='date'><span class='rm-lmr-12'>Monday 17</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> May, 2021</span></div>
 </div>
@@ -175,7 +180,8 @@ Generated Monday 17<sup class='textsuperscript'>th</sup> May, 2021</h2>
                                                                                          
    
 <h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Secure Pseudo-Random Number Generation</h3>
-<!-- l. 1 --><p class='noindent'>
+<!-- l. 42 --><p class='noindent'><span class='rm-lmr-8'>Updated Friday 6</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-8'> August, 2021</span>
+</p><!-- l. 1 --><p class='noindent'>
 </p>   
 <h4 class='subsectionHead'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Definition</h4>
 <!-- l. 2 --><p class='noindent'>As the name implies, pseudo-random number generation (PRNG) does not produce a truly random, indeterminate
@@ -219,9 +225,9 @@ session ID for a user. The viability of this implementation is entirely dependen
 in the PRNG algorithm. One hypothetical source is a given user’s authentication ID, but this value is the same each
 time the user logs in. Another option is that of the system time in Unix Time format, which, on one hand, is
 guaranteed to change each second. On the other hand, an attacker could replicate a Unix Time string corresponding
+                                                                                         
+                                                                                         
 with a date and time at which any given user is likely to be authenticating (say, a weekday at around 9:00<span class='small-caps'>AM</span>), and,
-                                                                                         
-                                                                                         
 with enough luck, could potentially spoof the session ID of an active, verified user simply by correctly
 guessing what time they logged on, a tactic that only increases in viability the more users a system
 supports.
@@ -251,62 +257,61 @@ Laboratory of the National Institute of Standards and Technology.[<a href='#cite
                                                                                          
 </p>   
 <h3 class='sectionHead'><a id='x1-60001.4'></a>References</h3>
-<!-- l. 45 --><p class='noindent'>    
+<!-- l. 47 --><p class='noindent'>    
 </p>
-<dl class='thebibliography'><dt id='X0-20210517:cwe-337' class='thebibliography'>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-20210517:cwe-337'>
 [1]  
-</dt><dd id='bib-1' class='thebibliography'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@20210517:cwe-337'></a>CWE Content Team. “CWE-337: Predictable Seed in Pseudo-Random Number Generator (PRNG)”.
-In: (2020). <span class='small-caps'>url</span>: <a href='https://cwe.mitre.org/data/definitions/337.html' class='url'><span class='ec-lmtt-10'>https://cwe.mitre.org/data/definitions/337.html</span></a>.
+</dt><dd class='thebibliography' id='bib-1'>
+<!-- l. 47 --><p class='noindent'><a id='cite.0@20210517:cwe-337'></a>CWE Content Team. “CWE-337: Predictable Seed in Pseudo-Random Number Generator (PRNG)”.
+In: (2020). <span class='small-caps'>url</span>: <a class='url' href='https://cwe.mitre.org/data/definitions/337.html'><span class='ec-lmtt-10'>https://cwe.mitre.org/data/definitions/337.html</span></a>.
 </p>    
 </dd>
-<dt id='X0-20210517:cwe-338' class='thebibliography'>
+<dt class='thebibliography' id='X0-20210517:cwe-338'>
 [2]  
-</dt><dd id='bib-2' class='thebibliography'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@20210517:cwe-338'></a>CWE Content Team. “CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator
-(PRNG)”. In: (2021). <span class='small-caps'>url</span>: <a href='https://cwe.mitre.org/data/definitions/338.html' class='url'><span class='ec-lmtt-10'>https://cwe.mitre.org/data/definitions/338.html</span></a>.
+</dt><dd class='thebibliography' id='bib-2'>
+<!-- l. 47 --><p class='noindent'><a id='cite.0@20210517:cwe-338'></a>CWE Content Team. “CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator
+(PRNG)”. In: (2021). <span class='small-caps'>url</span>: <a class='url' href='https://cwe.mitre.org/data/definitions/338.html'><span class='ec-lmtt-10'>https://cwe.mitre.org/data/definitions/338.html</span></a>.
 </p>    
 </dd>
-<dt id='X0-20210517:haahr' class='thebibliography'>
+<dt class='thebibliography' id='X0-20210517:haahr'>
 [3]  
-</dt><dd id='bib-3' class='thebibliography'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@20210517:haahr'></a>Mads Haahr. “Introduction to Randomness and Random Numbers”. In: <span class='rm-lmri-10'>RANDOM.ORG </span>(2021). <span class='small-caps'>url</span>:
-<a href='https://www.random.org/randomness/' class='url'><span class='ec-lmtt-10'>https://www.random.org/randomness/</span></a>.
+</dt><dd class='thebibliography' id='bib-3'>
+<!-- l. 47 --><p class='noindent'><a id='cite.0@20210517:haahr'></a>Mads Haahr. “Introduction to Randomness and Random Numbers”. In: RANDOM.ORG (2021). <span class='small-caps'>url</span>:
+<a class='url' href='https://www.random.org/randomness/'><span class='ec-lmtt-10'>https://www.random.org/randomness/</span></a>.
 </p>    
 </dd>
-<dt id='X0-swatips' class='thebibliography'>
+<dt class='thebibliography' id='X0-swatips'>
 [4]  
-</dt><dd id='bib-4' class='thebibliography'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a href='https://www.SwATips.com/' class='url'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+</dt><dd class='thebibliography' id='bib-4'>
+<!-- l. 47 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt id='X0-20210517:annexc' class='thebibliography'>
+<dt class='thebibliography' id='X0-20210517:annexc'>
 [5]  
-</dt><dd id='bib-5' class='thebibliography'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@20210517:annexc'></a>National Institute of Standards and Technology. <span class='rm-lmri-10'>Annex C: Approved Random Number Generators for
-</span><span class='rm-lmri-10'>FIPS PUB 140-2. Security Requirements for Cryptographic Modules</span>. Department of Commerce. 2019.
-<span class='small-caps'>url</span>: <a href='https://csrc.nist.gov/CSRC/media/Publications/fips/140/2/final/documents/fips1402annexc.pdf' class='url'><span class='ec-lmtt-10'>https://csrc.nist.gov/CSRC/media/Publications/fips/140/2/final/documents/fips1402annexc.pdf</span></a>.
+</dt><dd class='thebibliography' id='bib-5'>
+<!-- l. 47 --><p class='noindent'><a id='cite.0@20210517:annexc'></a>National Institute of Standards and Technology. Annex C: Approved Random Number Generators for FIPS PUB 140-2. Security Requirements for Cryptographic Modules.
+Department of Commerce. 2019. <span class='small-caps'>url</span>: <a class='url' href='https://csrc.nist.gov/CSRC/media/Publications/fips/140/2/final/documents/fips1402annexc.pdf'><span class='ec-lmtt-10'>https://csrc.nist.gov/CSRC/media/Publications/fips/140/2/final/documents/fips1402annexc.pdf</span></a>.
 </p>    
 </dd>
-<dt id='X0-20210517:cpp-random' class='thebibliography'>
+<dt class='thebibliography' id='X0-20210517:cpp-random'>
 [6]  
-</dt><dd id='bib-6' class='thebibliography'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@20210517:cpp-random'></a>Various.              “¡random¿”.              In:              <span class='rm-lmri-10'>cplusplus.com             </span>(2021).              <span class='small-caps'>url</span>:
-<a href='https://www.cplusplus.com/reference/random/' class='url'><span class='ec-lmtt-10'>https://www.cplusplus.com/reference/random/</span></a>.
+</dt><dd class='thebibliography' id='bib-6'>
+<!-- l. 47 --><p class='noindent'><a id='cite.0@20210517:cpp-random'></a>Various.              “¡random¿”.              In:              cplusplus.com              (2021).              <span class='small-caps'>url</span>:
+<a class='url' href='https://www.cplusplus.com/reference/random/'><span class='ec-lmtt-10'>https://www.cplusplus.com/reference/random/</span></a>.
 </p>    
 </dd>
-<dt id='X0-20210517:java' class='thebibliography'>
+<dt class='thebibliography' id='X0-20210517:java'>
 [7]  
-</dt><dd id='bib-7' class='thebibliography'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@20210517:java'></a>Various.       “Class       Random”.       In:       <span class='rm-lmri-10'>Java      8      Documentation       </span>(2021).       <span class='small-caps'>url</span>:
-<a href='https://docs.oracle.com/javase/8/docs/api/java/util/Random.html' class='url'><span class='ec-lmtt-10'>https://docs.oracle.com/javase/8/docs/api/java/util/Random.html</span></a>.
+</dt><dd class='thebibliography' id='bib-7'>
+<!-- l. 47 --><p class='noindent'><a id='cite.0@20210517:java'></a>Various.         “Class         Random”.         In:         Java 8 Documentation         (2021).         <span class='small-caps'>url</span>:
+<a class='url' href='https://docs.oracle.com/javase/8/docs/api/java/util/Random.html'><span class='ec-lmtt-10'>https://docs.oracle.com/javase/8/docs/api/java/util/Random.html</span></a>.
 </p>    
 </dd>
-<dt id='X0-20210517:cpp-rand' class='thebibliography'>
+<dt class='thebibliography' id='X0-20210517:cpp-rand'>
 [8]  
-</dt><dd id='bib-8' class='thebibliography'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@20210517:cpp-rand'></a>Various.                “rand”.                In:                <span class='rm-lmri-10'>cplusplus.com               </span>(2021).                <span class='small-caps'>url</span>:
-<a href='https://www.cplusplus.com/reference/cstdlib/rand/' class='url'><span class='ec-lmtt-10'>https://www.cplusplus.com/reference/cstdlib/rand/</span></a>.</p></dd></dl>
+</dt><dd class='thebibliography' id='bib-8'>
+<!-- l. 47 --><p class='noindent'><a id='cite.0@20210517:cpp-rand'></a>Various.                “rand”.                In:                cplusplus.com                (2021).                <span class='small-caps'>url</span>:
+<a class='url' href='https://www.cplusplus.com/reference/cstdlib/rand/'><span class='ec-lmtt-10'>https://www.cplusplus.com/reference/cstdlib/rand/</span></a>.</p></dd></dl>
  
 </body> 
 </html>

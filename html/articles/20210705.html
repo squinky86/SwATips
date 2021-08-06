@@ -7,27 +7,26 @@
 <meta charset="utf-8"/>
  
 
-<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"/>
  
 
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
  
 
  
 
-<meta content="article.tex" name="src"/>
+<meta name="src" content="article.tex"/>
  
 
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
 <style>
  
 /* start css.sty */
-.rm-lmr-7{font-size:70%;}
 .rm-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
-.rm-lmr-9{font-size:90%;}
 .rm-lmr-12{font-size:120%;}
+.rm-lmr-9{font-size:90%;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
-.rm-lmri-10{ font-style:italic;}
+.rm-lmr-8{font-size:80%;}
 .rm-lmcsc-10{font-variant: small-caps;}
 p{margin-top:0;margin-bottom:0}
 p.indent{text-indent:0;}
@@ -153,6 +152,11 @@ div.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top
 div.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
 .lstinputlisting .label{margin-right:0.5em;}
 .small-caps{font-variant: small-caps;}
+.uline{ text-decoration:underline; }
+.uuline{ text-decoration:underline; }
+span.sout {text-decoration: line-through }
+span.xout {text-decoration: line-through }
+span.uwave {text-decoration:underline }
 /* end css.sty */
 
 </style>
@@ -167,7 +171,7 @@ div.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
 
 <h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
 A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>2</a>]<br />
-Generated Saturday 3<sup class='textsuperscript'>rd</sup> July, 2021</h2>
+</h2>
 <div class='author'><span class='rm-lmr-12'>Jon Hood</span></div><br />
 <div class='date'><span class='rm-lmr-12'>Monday 5</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> July, 2021</span></div>
 </div>
@@ -175,7 +179,8 @@ Generated Saturday 3<sup class='textsuperscript'>rd</sup> July, 2021</h2>
                                                                                          
    
 <h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>A Pedigree of Dropping S-BOMs</h3>
-<!-- l. 1 --><p class='noindent'>Recently, a large software project encountered a serious vulnerability. The project has been in existence since
+<!-- l. 42 --><p class='noindent'><span class='rm-lmr-8'>Updated Friday 6</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-8'> August, 2021</span>
+</p><!-- l. 1 --><p class='indent'>   Recently, a large software project encountered a serious vulnerability. The project has been in existence since
 the early 1990s and consists of millions of lines of code. On May 20<sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup>, CISA issued an advisory that
 resulted in several CVEs being created for some of the older RTOSes.[<a href='#cite.0@20210705:ics21-119-04'>1</a>] When we marked this as a
 critical finding against the legacy system, the response we received was, “I didn’t even know that was in
@@ -229,41 +234,42 @@ component.
 <!-- l. 23 --><p class='noindent'>The Application Sescurity and Development Security Technical Implementation Guide (STIG) should be updated to
 check that dependencies are documented appropriately. There is not currently a STIG requirement to document and
 manage dependencies.
-</p><!-- l. 25 --><p class='indent'>   When issuing Control Correlation Identifiers (CCI) against SR-4(4), the DoD should divide this into at least two
+</p><!-- l. 25 --><p class='indent'>   When issuing Control Correlation Identifiers (CCI) against SR-4(4), DISA should divide this into at least two
 checks: one for documenting the composition correctly, and the other for verifying the integrity and correctness of
 that composition.
                                                                                          
                                                                                          
 </p>   
 <h3 class='sectionHead'><a id='x1-50001.3'></a>References</h3>
-<!-- l. 45 --><p class='noindent'>    
+<!-- l. 47 --><p class='noindent'>    
 </p>
-<dl class='thebibliography'><dt class='thebibliography' id='X0-20210705:ics21-119-04'>
+<dl class='thebibliography'><dt id='X0-20210705:ics21-119-04' class='thebibliography'>
 [1]  
-</dt><dd class='thebibliography' id='bib-1'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@20210705:ics21-119-04'></a>US-CERT. <span class='rm-lmri-10'>ICS Advisory (ICSA-21-119-04): Multiple RTOS (Update B)</span>. CISA. May 20, 2021. <span class='small-caps'>url</span>:
+</dt><dd id='bib-1' class='thebibliography'>
+<!-- l. 47 --><p class='noindent'><a id='cite.0@20210705:ics21-119-04'></a>US-CERT.  ICS Advisory (ICSA-21-119-04): Multiple RTOS (Update B).  CISA.  May 20,  2021.  <span class='small-caps'>url</span>:
 <a class='url' href='https://us-cert.cisa.gov/ics/advisories/icsa-21-119-04'><span class='ec-lmtt-10'>https://us-cert.cisa.gov/ics/advisories/icsa-21-119-04</span></a> (visited on 06/23/2021).
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-swatips'>
+<dt id='X0-swatips' class='thebibliography'>
 [2]  
-</dt><dd class='thebibliography' id='bib-2'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='rm-lmri-10'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+</dt><dd id='bib-2' class='thebibliography'>
+<!-- l. 47 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20210705:nist80053rev5'>
+<dt id='X0-20210705:nist80053rev5' class='thebibliography'>
 [3]  
-</dt><dd class='thebibliography' id='bib-3'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@20210705:nist80053rev5'></a>National  Institute  of  Standards  and  Technology.  <span class='rm-lmri-10'>Security  and  Privacy  Controls  for  Information
-</span><span class='rm-lmri-10'>Systems  and  Organizations</span>.  Tech.  rep.  Special  Publication  (SP)  800-53  Revision  5.  Washington,
-D.C.:  U.S.  Department  of  Commerce,  2001.  <span class='small-caps'>doi</span>:  <a href='https://doi.org/10.6028/NIST.SP.800-53r5'><span class='ec-lmtt-10'>10 . 6028 / NIST . SP . 800 - 53r5</span></a>.  <span class='small-caps'>url</span>:
+</dt><dd id='bib-3' class='thebibliography'>
+<!-- l. 47 --><p class='noindent'><a id='cite.0@20210705:nist80053rev5'></a>National                                Institute                                of                                Standards
+and Technology. Security and Privacy Controls for Information Systems and Organizations. Tech. rep.
+Special Publication (SP) 800-53 Revision 5. Washington, D.C.: U.S. Department of Commerce, 2001.
+<span class='small-caps'>doi</span>:        <a href='https://doi.org/10.6028/NIST.SP.800-53r5'><span class='ec-lmtt-10'>10    .    6028    /    NIST    .    SP    .    800    -    53r5</span></a>.        <span class='small-caps'>url</span>:
 <a class='url' href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf'><span class='ec-lmtt-10'>https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf</span></a>.
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20210705:wheeler2019'>
+<dt id='X0-20210705:wheeler2019' class='thebibliography'>
 [4]  
-</dt><dd class='thebibliography' id='bib-4'>
-<!-- l. 45 --><p class='noindent'><a id='cite.0@20210705:wheeler2019'></a>David A. Wheeler. <span class='rm-lmri-10'>SPDX Tutorial</span>. <span class='small-caps'>url</span>: <a class='url' href='https://github.com/david-a-wheeler/spdx-tutorial/blob/cee3cbe7ae5f83ec478e2acf2c9282eafd42ff0f/README.md'><span class='ec-lmtt-10'>https://github.com/david-a-wheeler/spdx-tutorial/blob/cee3cbe7ae5f83ec478e2acf2c9282eafd42ff0f/README.md</span></a>
+</dt><dd id='bib-4' class='thebibliography'>
+<!-- l. 47 --><p class='noindent'><a id='cite.0@20210705:wheeler2019'></a>David A. Wheeler. SPDX Tutorial. <span class='small-caps'>url</span>: <a class='url' href='https://github.com/david-a-wheeler/spdx-tutorial/blob/cee3cbe7ae5f83ec478e2acf2c9282eafd42ff0f/README.md'><span class='ec-lmtt-10'>https://github.com/david-a-wheeler/spdx-tutorial/blob/cee3cbe7ae5f83ec478e2acf2c9282eafd42ff0f/README.md</span></a>
 (visited on 06/23/2021).</p></dd></dl>
  
 </body> 
