@@ -27,7 +27,6 @@
 .rm-lmr-9{font-size:90%;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
 .rm-lmr-8{font-size:80%;}
-.rm-lmbx-10{ font-weight: bold;}
 .rm-lmcsc-10{font-variant: small-caps;}
 p{margin-top:0;margin-bottom:0}
 p.indent{text-indent:0;}
@@ -171,7 +170,7 @@ span.uwave {text-decoration:underline }
                                                                                          
 
 <h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
-A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>3</a>]<br />
+A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>4</a>]<br />
 </h2>
 <div class='author'><span class='rm-lmr-12'>Kevin Keen</span></div><br />
 <div class='date'><span class='rm-lmr-12'>Monday 9</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> August, 2021</span></div>
@@ -190,9 +189,9 @@ they must be good. And if Ada itself is already the best programming language, t
 best of the best, right? Not so fast! As we will see, you may want to avoid these profiles unless you absolutely need
 them!
 </p><!-- l. 5 --><p class='indent'>   Profiles in Ada came out of the 1997 International Real-Time Ada Workshop. The <span class='ec-lmtt-10'>Ravenscar </span>Profile was
-intended to produce a more lightweight (and provably correct) executable with task scheduling that
-was more suited to real time applications. It was revised, and eventually included as part of the Ada
-standard in 2005.[<span class='rm-lmbx-10'>20210806:grm</span>] There are several versions of <span class='ec-lmtt-10'>Ravenscar </span>including <span class='ec-lmtt-10'>ravenscar-cert</span>,
+intended to produce a more lightweight (and provably correct) executable with task scheduling that was more
+suited to real time applications. It was revised, and eventually included as part of the Ada standard
+in 2005.[<a href='#cite.0@20210809:grm'>1</a>, § 2.140, p. 71–74] There are several versions of <span class='ec-lmtt-10'>Ravenscar </span>including <span class='ec-lmtt-10'>ravenscar-cert</span>,
 <span class='ec-lmtt-10'>ravenscar-zfp</span>, and more. Each variant of a profile has different restrictions on what is and is not allowed using
 that runtime system. The most restrictive are the Zero Footprint Profiles (ZFP). These profiles go
 to great lengths to make sure that the resulting executable does not link against the Ada runtime
@@ -203,12 +202,12 @@ certification.
 memory footprint, the handling of exceptions is also reduced. The ZFPs in particular have the least exception
 handling. Exceptions still happen (including user defined), but they must be handled locally. No traditional
 exception propagation happens in ZFP. There is a “last chance handler” that will be called if an exception is not
-handled locally.[<a href='#cite.0@20210809:gnathie'>2</a>, § 4.2.6] In ZFP, this handler must be implemented by the programmer, and the compiler will
+handled locally.[<a href='#cite.0@20210809:gnathie'>3</a>, § 4.2.6] In ZFP, this handler must be implemented by the programmer, and the compiler will
 enforce its existence.
-</p><!-- l. 9 --><p class='indent'>   Beyond exceptions, there is an entire gamut of Ada features that are excluded in these profiles.[<a href='#cite.0@20210809:gnathie'>2</a>, § 4.2.2] One
+</p><!-- l. 9 --><p class='indent'>   Beyond exceptions, there is an entire gamut of Ada features that are excluded in these profiles.[<a href='#cite.0@20210809:gnathie'>3</a>, § 4.2.2] One
 that was particularly interesting is the restriction on non-library level tagged types. Tagged or managed types are of
 particular importance to us for code review. Tagged types will automatically have their <span class='ec-lmtt-10'>Initialize </span>procedure
-called when an object of that type is constructed without an initial value (think constructor but not quite).[<a href='#cite.0@20210809:adap'>5</a>]
+called when an object of that type is constructed without an initial value (think constructor but not quite).[<a href='#cite.0@20210809:adap'>6</a>]
 Without that guaranteed initialization, more complex projects that have to be segmented in order to be
 analyzed by adacore wind up with tons of false positives about possibly un-initalized variables. We had
 heard of a company whose Ada programming standard deliberately avoided the use of tagged types. It
@@ -217,19 +216,19 @@ restrictions.
 </p><!-- l. 11 --><p class='indent'>   When Ada is written against embedded systems, it is not uncommon for us to see the use of VxWorks. There are
 a set of runtime systems and associated profiles for various versions of VxWorks. For this tip, the salient points of
 profiles in general still apply. It is worth noting that the “cert” version of the VxWorks profiles do come with a
-default last chance handler that by default will print the stack, raise an <span class='ec-lmtt-10'>APEX </span>exception and exit.[<a href='#cite.0@20210809:gnatugx'>1</a>, § A,
+default last chance handler that by default will print the stack, raise an <span class='ec-lmtt-10'>APEX </span>exception and exit.[<a href='#cite.0@20210809:gnatugx'>2</a>, § A,
 Replacement of the Default Last Chance Handler]
 </p><!-- l. 13 --><p class='indent'>   While none of these restrictions are a security concern in and of themselves, it does beg for care to be taken.
 When combined with the “continue running at any cost” mentality that we see quite often one could see a scenario
 where exceptions effectively go unhandled. Code using <span class='ec-lmtt-10'>cert </span>or <span class='ec-lmtt-10'>zfp </span>profiles, combined with a last chance handler
 that swallows exceptions, could render an application unstable and vulnerable. Documentation states that all last
-chance handlers must effectively terminate the application,[<a href='#cite.0@20210809:gnathie'>2</a>, § 3.1] but makes no statement that this is
-enforced. We often see the sin of catching top level exceptions[<a href='#cite.0@20210809:viega200924'>4</a>, p. 159] with the mindset of “continue
+chance handlers must effectively terminate the application,[<a href='#cite.0@20210809:gnathie'>3</a>, § 3.1] but makes no statement that this is
+enforced. We often see the sin of catching top level exceptions[<a href='#cite.0@20210809:viega200924'>5</a>, p. 159] with the mindset of “continue
 running at any cost.” It is just as much of a concern under these conditions as it would be in C++
 code.
 </p><!-- l. 15 --><p class='indent'>   As a bonus tip, note that even MORE risky code can be obtained with the pragmas <span class='ec-lmtt-10'>No_Exception_Handlers</span>
 and <span class='ec-lmtt-10'>No_Exceptions</span>. The <span class='ec-lmtt-10'>No_Exception_Handlers </span>pragma disallows all exception handlers except
-for the last chance handler. The <span class='ec-lmtt-10'>No_Exceptions </span>pragma disables runtime exceptions entirely![<a href='#cite.0@20210809:gnathie'>2</a>, §
+for the last chance handler. The <span class='ec-lmtt-10'>No_Exceptions </span>pragma disables runtime exceptions entirely![<a href='#cite.0@20210809:gnathie'>3</a>, §
 3.1]
                                                                                          
                                                                                          
@@ -237,44 +236,51 @@ for the last chance handler. The <span class='ec-lmtt-10'>No_Exceptions </span>p
 <h3 class='sectionHead'><a id='x1-20001'></a>References</h3>
 <!-- l. 47 --><p class='noindent'>    
 </p>
-<dl class='thebibliography'><dt class='thebibliography' id='X0-20210809:gnatugx'>
+<dl class='thebibliography'><dt id='X0-20210809:grm' class='thebibliography'>
 [1]  
-</dt><dd class='thebibliography' id='bib-1'>
+</dt><dd id='bib-1' class='thebibliography'>
+<!-- l. 47 --><p class='noindent'><a id='cite.0@20210809:grm'></a>AdaCore.    GNAT Reference Manual.    Tech.    rep.    Free    Software    Foundation,    2020.    <span class='small-caps'>url</span>:
+<a href='https://gcc.gnu.org/onlinedocs/gcc-11.2.0/gnat_rm.pdf' class='url'><span class='ec-lmtt-10'>https://gcc.gnu.org/onlinedocs/gcc-11.2.0/gnat_rm.pdf</span></a>.
+</p>    
+</dd>
+<dt id='X0-20210809:gnatugx' class='thebibliography'>
+[2]  
+</dt><dd id='bib-2' class='thebibliography'>
 <!-- l. 47 --><p class='noindent'><a id='cite.0@20210809:gnatugx'></a>AdaCore.                     GNAT User’s Guide Supplement for Cross Platforms.                     Aug. 5,
-2021. <span class='small-caps'>url</span>: <a class='url' href='https://docs.adacore.com/gnat_ugx-docs/html/gnat_ugx/gnat_ugx.html'><span class='ec-lmtt-10'>https://docs.adacore.com/gnat_ugx-docs/html/gnat_ugx/gnat_ugx.html</span></a> (visited on
+2021. <span class='small-caps'>url</span>: <a href='https://docs.adacore.com/gnat_ugx-docs/html/gnat_ugx/gnat_ugx.html' class='url'><span class='ec-lmtt-10'>https://docs.adacore.com/gnat_ugx-docs/html/gnat_ugx/gnat_ugx.html</span></a> (visited on
 08/06/2021).
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20210809:gnathie'>
-[2]  
-</dt><dd class='thebibliography' id='bib-2'>
+<dt id='X0-20210809:gnathie' class='thebibliography'>
+[3]  
+</dt><dd id='bib-3' class='thebibliography'>
 <!-- l. 47 --><p class='noindent'><a id='cite.0@20210809:gnathie'></a>AdaCore.
 GNAT User’s Guide Supplement for GNAT Pro Safety-Critical and GNAT Pro High-Security
 .
 Oct. 17,                                                                                                                     2018.
-<span class='small-caps'>url</span>: <a class='url' href='https://docs.adacore.com/gnathie_ug-docs/html/gnathie_ug/gnathie_ug.html'><span class='ec-lmtt-10'>https://docs.adacore.com/gnathie_ug-docs/html/gnathie_ug/gnathie_ug.html</span></a> (visited on
+<span class='small-caps'>url</span>: <a href='https://docs.adacore.com/gnathie_ug-docs/html/gnathie_ug/gnathie_ug.html' class='url'><span class='ec-lmtt-10'>https://docs.adacore.com/gnathie_ug-docs/html/gnathie_ug/gnathie_ug.html</span></a> (visited on
 08/06/2021).
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-swatips'>
-[3]  
-</dt><dd class='thebibliography' id='bib-3'>
-<!-- l. 47 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+<dt id='X0-swatips' class='thebibliography'>
+[4]  
+</dt><dd id='bib-4' class='thebibliography'>
+<!-- l. 47 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips. <a href='https://www.SwATips.com/' class='url'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20210809:viega200924'>
-[4]  
-</dt><dd class='thebibliography' id='bib-4'>
+<dt id='X0-20210809:viega200924' class='thebibliography'>
+[5]  
+</dt><dd id='bib-5' class='thebibliography'>
 <!-- l. 47 --><p class='noindent'><a id='cite.0@20210809:viega200924'></a>John                                 Viega,                                 Michael                                 Howard,
 and David LeBlanc. 24 Deadly Sins of Software Security. Programming Flaws and How to Fix Them.
 McGraw-Hill Education, 2009. <span class='small-caps'>isbn</span>: 978-0-07-162675-0.
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20210809:adap'>
-[5]  
-</dt><dd class='thebibliography' id='bib-5'>
+<dt id='X0-20210809:adap' class='thebibliography'>
+[6]  
+</dt><dd id='bib-6' class='thebibliography'>
 <!-- l. 47 --><p class='noindent'><a id='cite.0@20210809:adap'></a>Wikibooks. Ada Programming/Object Orientation — Wikibooks, The Free Textbook Project. 2021. <span class='small-caps'>url</span>:
-<a class='url' href='https://en.wikibooks.org/w/index.php?title=Ada_Programming/Object_Orientation&amp;oldid=3956556#Constructors'><span class='ec-lmtt-10'>https://en.wikibooks.org/w/index.php?title=Ada_Programming/Object_Orientation&amp;oldid=3956556#Constructors</span></a>
+<a href='https://en.wikibooks.org/w/index.php?title=Ada_Programming/Object_Orientation&amp;oldid=3956556#Constructors' class='url'><span class='ec-lmtt-10'>https://en.wikibooks.org/w/index.php?title=Ada_Programming/Object_Orientation&amp;oldid=3956556#Constructors</span></a>
 (visited on 08/06/2021).</p></dd></dl>
  
 </body> 

@@ -14,7 +14,7 @@
                                                                                          
 
 <h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]<br/>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>]<br/>
 </h2>
 <div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Kevin Keen</span></div><br/>
 <div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 9</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> August, 2021</span></div>
@@ -44,9 +44,9 @@ them!
 </p>
 <!-- l. 5 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Profiles in Ada came out of the 1997 International Real-Time Ada Workshop. The <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Ravenscar </span>Profile was
-intended to produce a more lightweight (and provably correct) executable with task scheduling that
-was more suited to real time applications. It was revised, and eventually included as part of the Ada
-standard in 2005.[<span class="rm-lmbx-10" style="font-weight: bold;">20210806:grm</span>] There are several versions of <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Ravenscar </span>including <span class="ec-lmtt-10" style="font-family: monospace,monospace;">ravenscar-cert</span>,
+intended to produce a more lightweight (and provably correct) executable with task scheduling that was more
+suited to real time applications. It was revised, and eventually included as part of the Ada standard
+in 2005.[<a href="#cite.0@20210809:grm" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, § 2.140, p. 71–74] There are several versions of <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Ravenscar </span>including <span class="ec-lmtt-10" style="font-family: monospace,monospace;">ravenscar-cert</span>,
 <span class="ec-lmtt-10" style="font-family: monospace,monospace;">ravenscar-zfp</span>, and more. Each variant of a profile has different restrictions on what is and is not allowed using
 that runtime system. The most restrictive are the Zero Footprint Profiles (ZFP). These profiles go
 to great lengths to make sure that the resulting executable does not link against the Ada runtime
@@ -59,14 +59,14 @@ certification.
 memory footprint, the handling of exceptions is also reduced. The ZFPs in particular have the least exception
 handling. Exceptions still happen (including user defined), but they must be handled locally. No traditional
 exception propagation happens in ZFP. There is a “last chance handler” that will be called if an exception is not
-handled locally.[<a href="#cite.0@20210809:gnathie" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>, § 4.2.6] In ZFP, this handler must be implemented by the programmer, and the compiler will
+handled locally.[<a href="#cite.0@20210809:gnathie" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>, § 4.2.6] In ZFP, this handler must be implemented by the programmer, and the compiler will
 enforce its existence.
 </p>
 <!-- l. 9 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Beyond exceptions, there is an entire gamut of Ada features that are excluded in these profiles.[<a href="#cite.0@20210809:gnathie" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>, § 4.2.2] One
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Beyond exceptions, there is an entire gamut of Ada features that are excluded in these profiles.[<a href="#cite.0@20210809:gnathie" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>, § 4.2.2] One
 that was particularly interesting is the restriction on non-library level tagged types. Tagged or managed types are of
 particular importance to us for code review. Tagged types will automatically have their <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Initialize </span>procedure
-called when an object of that type is constructed without an initial value (think constructor but not quite).[<a href="#cite.0@20210809:adap" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>]
+called when an object of that type is constructed without an initial value (think constructor but not quite).[<a href="#cite.0@20210809:adap" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">6</a>]
 Without that guaranteed initialization, more complex projects that have to be segmented in order to be
 analyzed by adacore wind up with tons of false positives about possibly un-initalized variables. We had
 heard of a company whose Ada programming standard deliberately avoided the use of tagged types. It
@@ -77,7 +77,7 @@ restrictions.
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   When Ada is written against embedded systems, it is not uncommon for us to see the use of VxWorks. There are
 a set of runtime systems and associated profiles for various versions of VxWorks. For this tip, the salient points of
 profiles in general still apply. It is worth noting that the “cert” version of the VxWorks profiles do come with a
-default last chance handler that by default will print the stack, raise an <span class="ec-lmtt-10" style="font-family: monospace,monospace;">APEX </span>exception and exit.[<a href="#cite.0@20210809:gnatugx" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, § A,
+default last chance handler that by default will print the stack, raise an <span class="ec-lmtt-10" style="font-family: monospace,monospace;">APEX </span>exception and exit.[<a href="#cite.0@20210809:gnatugx" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>, § A,
 Replacement of the Default Last Chance Handler]
 </p>
 <!-- l. 13 -->
@@ -85,15 +85,15 @@ Replacement of the Default Last Chance Handler]
 When combined with the “continue running at any cost” mentality that we see quite often one could see a scenario
 where exceptions effectively go unhandled. Code using <span class="ec-lmtt-10" style="font-family: monospace,monospace;">cert </span>or <span class="ec-lmtt-10" style="font-family: monospace,monospace;">zfp </span>profiles, combined with a last chance handler
 that swallows exceptions, could render an application unstable and vulnerable. Documentation states that all last
-chance handlers must effectively terminate the application,[<a href="#cite.0@20210809:gnathie" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>, § 3.1] but makes no statement that this is
-enforced. We often see the sin of catching top level exceptions[<a href="#cite.0@20210809:viega200924" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>, p. 159] with the mindset of “continue
+chance handlers must effectively terminate the application,[<a href="#cite.0@20210809:gnathie" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>, § 3.1] but makes no statement that this is
+enforced. We often see the sin of catching top level exceptions[<a href="#cite.0@20210809:viega200924" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>, p. 159] with the mindset of “continue
 running at any cost.” It is just as much of a concern under these conditions as it would be in C++
 code.
 </p>
 <!-- l. 15 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   As a bonus tip, note that even MORE risky code can be obtained with the pragmas <span class="ec-lmtt-10" style="font-family: monospace,monospace;">No_Exception_Handlers</span>
 and <span class="ec-lmtt-10" style="font-family: monospace,monospace;">No_Exceptions</span>. The <span class="ec-lmtt-10" style="font-family: monospace,monospace;">No_Exception_Handlers </span>pragma disallows all exception handlers except
-for the last chance handler. The <span class="ec-lmtt-10" style="font-family: monospace,monospace;">No_Exceptions </span>pragma disables runtime exceptions entirely![<a href="#cite.0@20210809:gnathie" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>, §
+for the last chance handler. The <span class="ec-lmtt-10" style="font-family: monospace,monospace;">No_Exceptions </span>pragma disables runtime exceptions entirely![<a href="#cite.0@20210809:gnathie" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>, §
 3.1]
                                                                                          
                                                                                          
@@ -108,44 +108,51 @@ for the last chance handler. The <span class="ec-lmtt-10" style="font-family: mo
 </p>
 
 
-<dl class="thebibliography"><dt class="thebibliography" id="X0-20210809:gnatugx" style="float: left; clear: left; margin-right: 1em;">
+<dl class="thebibliography"><dt id="X0-20210809:grm" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [1]  
-</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
+</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210809:grm" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>AdaCore.    GNAT Reference Manual.    Tech.    rep.    Free    Software    Foundation,    2020.    <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a href="https://gcc.gnu.org/onlinedocs/gcc-11.2.0/gnat_rm.pdf" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://gcc.gnu.org/onlinedocs/gcc-11.2.0/gnat_rm.pdf</span></a>.
+</p>    
+</dd>
+<dt id="X0-20210809:gnatugx" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[2]  
+</dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210809:gnatugx" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>AdaCore.                     GNAT User’s Guide Supplement for Cross Platforms.                     Aug. 5,
-2021. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://docs.adacore.com/gnat_ugx-docs/html/gnat_ugx/gnat_ugx.html" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://docs.adacore.com/gnat_ugx-docs/html/gnat_ugx/gnat_ugx.html</span></a> (visited on
+2021. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a href="https://docs.adacore.com/gnat_ugx-docs/html/gnat_ugx/gnat_ugx.html" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://docs.adacore.com/gnat_ugx-docs/html/gnat_ugx/gnat_ugx.html</span></a> (visited on
 08/06/2021).
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20210809:gnathie" style="float: left; clear: left; margin-right: 1em;">
-[2]  
-</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
+<dt id="X0-20210809:gnathie" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[3]  
+</dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210809:gnathie" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>AdaCore.
 GNAT User’s Guide Supplement for GNAT Pro Safety-Critical and GNAT Pro High-Security
 .
 Oct. 17,                                                                                                                     2018.
-<span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://docs.adacore.com/gnathie_ug-docs/html/gnathie_ug/gnathie_ug.html" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://docs.adacore.com/gnathie_ug-docs/html/gnathie_ug/gnathie_ug.html</span></a> (visited on
+<span class="small-caps" style="font-variant: small-caps;">url</span>: <a href="https://docs.adacore.com/gnathie_ug-docs/html/gnathie_ug/gnathie_ug.html" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://docs.adacore.com/gnathie_ug-docs/html/gnathie_ug/gnathie_ug.html</span></a> (visited on
 08/06/2021).
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
-[3]  
-</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
-<!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+<dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[4]  
+</dt><dd id="bib-4" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20210809:viega200924" style="float: left; clear: left; margin-right: 1em;">
-[4]  
-</dt><dd class="thebibliography" id="bib-4" style="margin-left: 2.5em;">
+<dt id="X0-20210809:viega200924" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[5]  
+</dt><dd id="bib-5" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210809:viega200924" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>John                                 Viega,                                 Michael                                 Howard,
 and David LeBlanc. 24 Deadly Sins of Software Security. Programming Flaws and How to Fix Them.
 McGraw-Hill Education, 2009. <span class="small-caps" style="font-variant: small-caps;">isbn</span>: 978-0-07-162675-0.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20210809:adap" style="float: left; clear: left; margin-right: 1em;">
-[5]  
-</dt><dd class="thebibliography" id="bib-5" style="margin-left: 2.5em;">
+<dt id="X0-20210809:adap" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[6]  
+</dt><dd id="bib-6" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210809:adap" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Wikibooks. Ada Programming/Object Orientation — Wikibooks, The Free Textbook Project. 2021. <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a class="url" href="https://en.wikibooks.org/w/index.php?title=Ada_Programming/Object_Orientation&amp;oldid=3956556#Constructors" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://en.wikibooks.org/w/index.php?title=Ada_Programming/Object_Orientation&amp;oldid=3956556#Constructors</span></a>
+<a href="https://en.wikibooks.org/w/index.php?title=Ada_Programming/Object_Orientation&amp;oldid=3956556#Constructors" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://en.wikibooks.org/w/index.php?title=Ada_Programming/Object_Orientation&amp;oldid=3956556#Constructors</span></a>
 (visited on 08/06/2021).</p></dd></dl>
 
  
