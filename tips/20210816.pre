@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{The Password that Cannot Be Spoken}
+\newcommand{\ArticleDate}{\formatdate{16}{8}{2021}}
+\addbibresource{20210816.bib}
