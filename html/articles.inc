@@ -1,3 +1,4 @@
+<li>20210816 - <a href="articles/20210816.html">The Password that Cannot Be Spoken</a></li>
 <li>20210809 - <a href="articles/20210809.html">Ada <del>Low</del>High Integrity Profiles</a></li>
 <li>20210802 - <a href="articles/20210802.html">Stripping for Fun and Profit</a></li>
 <li>20210726 - <a href="articles/20210726.html">Compounding a Classic TOCTOU Mistake</a></li>
@@ -7,4 +8,3 @@
 <li>20210621 - <a href="articles/20210621.html">Living off the Land</a></li>
 <li>20210614 - <a href="articles/20210614.html">Secure Compilation</a></li>
 <li>20210524 - <a href="articles/20210524.html">Side-Channel Attacks</a></li>
-<li>20210517 - <a href="articles/20210517.html">Secure Pseudo-Random Number Generation</a></li>
