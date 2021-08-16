@@ -28,7 +28,7 @@ A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="o
 
 
 <!-- l. 42 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Tuesday 10</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> August, 2021</span>
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Monday 16</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> August, 2021</span>
 </p>
 <!-- l. 1 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   To combat password reuse, several tools have been devised such as KeePass, 1Password, and Bitwarden. Even
@@ -49,7 +49,7 @@ brute-force attack.[<a href="#cite.0@20210816:pwgen" style="overflow-wrap: break
 
 <!-- l. 6 -->
 <p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   The goal of these password generation utilities is to generate passwords that can be written down, stored,
-and refernced. But are all passwords ones that fall into this category of pronouncability? Certainly
+and referenced. But are all passwords ones that fall into this category of pronounceability? Certainly
 not!
 </p>
 <!-- l. 8 -->
@@ -73,7 +73,7 @@ then send an encrypted e-mail with a temporary password that they must obtain vi
 </p>
 <!-- l. 14 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   There are few (if any) good reasons for these types of passwords (such as service accounts and temporary
-passwords) to be easily pronouncable, communicable, or typed in by a standard keyboard. To limit these passwords
+passwords) to be easily pronounceable, communicable, or typed in by a standard keyboard. To limit these passwords
 to such keyspaces decreases their security and increases the likelihood of shoulder surfers to obtain
 them.
 </p>
@@ -88,7 +88,7 @@ them.
 <!-- l. 18 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Existing password utilities are inadequate for generating non-shoulder-surfable passwords. Therefore, I took the
 liberty of creating a new password generation utility: the Unspeakable PassWord GENerator (upwgen,
-<a class="url" href="https://www.github.com/squinky86/upwgen/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.github.com/squinky86/upwgen/</span></a>). Upwgen works by generating at least a 15-character
+<a href="https://www.github.com/squinky86/upwgen/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.github.com/squinky86/upwgen/</span></a>). Upwgen works by generating at least a 15-character
 password[<a href="#cite.0@20210816:ASDStig" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, SV-222536r508029_rule] that includes characters in the following glyph blocks (using UTF-32):
 </p>
      
@@ -146,24 +146,24 @@ generated passwords.
 </p>
 
 
-<dl class="thebibliography"><dt class="thebibliography" id="X0-20210816:ASDStig" style="float: left; clear: left; margin-right: 1em;">
+<dl class="thebibliography"><dt id="X0-20210816:ASDStig" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [1]  
-</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
+</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210816:ASDStig" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Application Security and Development STIG V5R1.       Tech.       rep.       Oct.       2020.       <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a class="url" href="https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_ASD_V5R1_STIG.zip" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_ASD_V5R1_STIG.zip</span></a>.
+<a href="https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_ASD_V5R1_STIG.zip" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_ASD_V5R1_STIG.zip</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
+<dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [2]  
-</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
-<!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+</dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20210816:pwgen" style="float: left; clear: left; margin-right: 1em;">
+<dt id="X0-20210816:pwgen" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [3]  
-</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
+</dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210816:pwgen" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Philipp       Klaus.       pwgen - generate pronouncable passwords.       June 21,       2011.       <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a class="url" href="https://raw.githubusercontent.com/jbernard/pwgen/master/pwgen.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://raw.githubusercontent.com/jbernard/pwgen/master/pwgen.1</span></a> (visited on 08/09/2021).</p></dd></dl>
+<a href="https://raw.githubusercontent.com/jbernard/pwgen/master/pwgen.1" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://raw.githubusercontent.com/jbernard/pwgen/master/pwgen.1</span></a> (visited on 08/09/2021).</p></dd></dl>
 
  
 
