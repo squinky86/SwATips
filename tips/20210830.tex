@@ -1,0 +1,186 @@
+Recently, we detected a potential CWE-499 on some of the source being scanned in the lab. It raised some questions and debate among us, and left me scratching my head. Being a curious fellow, I took it upon myself to play around with it to try to figure it out. I'm not a Java developer by any stretch of the imagination, but I am a certified security professional with a background in software development. So, with a fresh install of Eclipse, I went to work.
+
+\subsection{The CWE}
+Below, you can see the summary and description of this CWE:
+\begin{quote}
+	\textbf{CWE-499: Serializable Class Containing Sensitive Data}
+
+	\paragraph{Description}~\\
+	The code contains a class with sensitive data, but the class does not explicitly deny serialization. The data can be accessed by serializing the class through another class.
+
+	\paragraph{Extended Description}~\\
+	Serializable classes are effectively open classes since data cannot be hidden in them. Classes that do not explicitly deny serialization can be serialized by any other class, which can then in turn use the data stored inside it.
+
+	\paragraph{Applicable Languages}~\\
+	Java (Undetermined Prevalence)
+
+	\paragraph{Demonstrative Example}~\\
+	\begin{lstlisting}[caption={Example 1},captionpos=b,style=JavaStyle,label={lst:20210830:ex1}]
+class PatientRecord {
+	private String name;
+	private String socialSecurityNum;
+	public Patient(String name,String ssn) {
+		this.SetName(name);
+		this.SetSocialSecurityNumber(ssn);
+	}
+}
+	\end{lstlisting}\autocite{20210830:cwe-499}
+\end{quote}
+
+Did I read that right? Sensitive data contained within a class that doesn't explicitly deny serialization can be accessed by serializing the class through another class‽ This, I've got to see.
+
+\subsection{ClassA---Sensitive Data Container}
+So, let's start with a simple class that contains some sensitive data. Duplicating the example from the CWE should suffice.
+\begin{lstlisting}[caption={ClassA},captionpos=b,style=JavaStyle,label={lst:20210830:classa}]
+package swa;
+public class ClassA {
+	private String name;
+	private String socialSecurityNum;
+	public ClassA(String name,String ssn) {
+		this.SetName(name);
+		this.SetSocialSecurityNumber(ssn);
+	}
+}
+\end{lstlisting}
+
+Given this is meant to be a container of sensitive data, I didn't make the class in Figure~\ref{lst:20210830:classa} serializable. Let's create a serializable wrapper around it and see if we can get at the data.
+
+\subsection{ClassB---Serializable Wrapper}
+
+\begin{lstlisting}[caption={ClassB},captionpos=b,style=JavaStyle,label={lst:20210830:classb}]
+package swa;
+import java.io.Serializable;
+public class ClassB implements Serializable {
+	private static final long serialVersionUID = 1L;
+	ClassA obj;
+	public ClassB(ClassA objVal) {
+		this.obj = objVal;
+	}
+}
+\end{lstlisting}
+
+Figure~\ref{lst:20210830:classb} demonstrates a serializable wrapper class around the class with sensitive information.
+
+\subsection{The Driver}
+With our two classes written, it's time for the show. Let's create a program that creates an instance of the sensitive data container, set it on our wrapper, and then serialize the wrapper to file.
+
+\begin{lstlisting}[caption={Driver},captionpos=b,style=JavaStyle,basicstyle=\scriptsize,label={lst:20210830:driver},literate={"}{"}1
+{-}{-}1]
+package swa;
+import java.io.*;
+public class SerializeExample {
+	public static void main(String[] args) {
+		ClassA objA = new ClassA("swa","123-45-6789");
+		ClassB objB = new ClassB(objA);
+		try {
+			FileOutputStream fos = new FileOutputStream("/home/swa/data.ser");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(objB);
+			oos.close();
+			fos.close();
+		} catch (IOException i) {
+			i.printStackTrace();
+		}
+	}
+}
+\end{lstlisting}
+
+Time for the main event! What happens when I run this?
+\begin{lstlisting}[caption={Driver},captionpos=b,style=BashStyle,basicstyle=\scriptsize,label={lst:20210830:output},literate={"}{"}1
+{-}{-}1]
+java.io.NotSerializableException: swa.ClassA
+            at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1192)
+            at java.base/java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1577)
+            at java.base/java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1534)
+            at java.base/java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1443)
+            at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1186)
+            at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:352)
+            at swa/swa.SerializeExample.main(SerializeExample.java:14)
+\end{lstlisting}
+
+Alas, no joy. Even though \texttt{ClassA} contains sensitive data and does not explicitly deny serialization, I couldn't get at the sensitive data by serializing a wrapper. That's a bit of a bummer--I was looking forward to being able to trumpet this one from the rooftops.
+
+\subsection{What Gives?}
+So I took my disappointment and went to Google, trying to make sense of this mysterious CWE. The first thing I found was this tidbit:
+\begin{quote}
+	Notice that for a class to be serialized successfully, two conditions must be met:
+	\begin{itemize}
+		\item The class must implement the java.io.Serializable interface.
+		\item All of the fields in the class must be serializable. If a field is not serializable, it must be marked transient.
+	\end{itemize}\autocite{20210830:javaserialization}
+\end{quote}
+
+What a refreshingly reasonable approach to have! For me to access \texttt{ClassA}'s sensitive data, it would have to be made serializable.
+
+\subsection{Caveats}
+Not all serialization libraries are created equally. For example the Kryo library will work with the above example and serialize the private data by changing the driver to the one described in Figure~\ref{lst:20210830:kryo}.\autocite{20210830:kryo}
+
+\begin{lstlisting}[caption={Kryo Driver},captionpos=b,style=JavaStyle,basicstyle=\scriptsize,label={lst:20210830:kryo}]
+package swa;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.esotericsoftware.kryo.Kryo;
+import com.esotericsoftware.kryo.io.Output;
+public class SerializeExample {
+	public static void main(String[] args) {
+		Kryo kryo = new Kryo();
+		kryo.register(ClassA.class);
+		kryo.register(ClassB.class);
+		ClassA objA = new ClassA("swa", "123-45-6789");
+		ClassB objB = new ClassB(objA);
+		try {
+			Output fos = new Output(new FileOutputStream("/home/swa/data.ser"));
+			kryo.writeObject(fos, objB);
+			fos.close();
+		} catch (IOException i) {
+			i.printStackTrace();
+		}
+	}
+}
+\end{lstlisting}
+
+To prevent Kryo from serializing the private data, the fields storing the data must be marked \texttt{transient}.
+
+But is that really enough to protect a private class in Java? No! Kryo works by using reflection, and Java reflection permits the developer to change the security context of even private variables. Suppose that \texttt{ssn} is marked as \texttt{transient}. This variable may still be accessed and serialized with reflection using the driver in Figure~\ref{lst:20210830:reflection}.
+
+\begin{lstlisting}[caption={Reflection Driver},captionpos=b,style=JavaStyle,basicstyle=\scriptsize,label={lst:20210830:reflection}]
+package swa;
+import java.lang.reflect.Field;
+public class SerializeExample {
+	public static void main(String[] args) {
+		ClassA objA = new ClassA("swa","123-45-6789");
+		try {
+			Field f = objA.getClass().getDeclaredField("ssn");
+			f.setAccessible(true);
+			System.out.println(f.get(objA));
+		} catch (NoSuchFieldException e) {
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+	}
+}
+\end{lstlisting}
+
+\subsection{Conclusions}
+So the next time I see a CWE-499, I know to check the following factors:
+\begin{enumerate}
+	\item Does the class contain sensitive data?
+	\item Is the class (or its parent) serializable?
+	\item Is the field that contains the sensitive data marked transient?
+	\item Does the project disable reflection?
+\end{enumerate}
+
+If the class doesn't truly contain sensitive data, then it would be a False Positive. If it does, then the other two factors help guide us to an appropriate conclusion. The CWE would most likely be confirmed if the class is serializable and the field is not marked transient. But, if either of those conditions are false, then it may be a merely informational finding. An issue could, at least theoretically, arise over the next development cycle as folks make changes.
+
+And, that's not all. I'll go ahead and add one last thing to check to our list:
+\begin{enumerate}
+	\setcounter{enumi}{4}
+	\item Is the sensitive data stored unencrypted?
+\end{enumerate}
+
+While this one falls under the umbrella of a different CWE (311), it's worth checking while you're evaluating a instance of 499.

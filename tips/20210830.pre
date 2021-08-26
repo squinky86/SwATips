@@ -1,0 +1,4 @@
+\def \AuthorName{Chris Ramsey}
+\def \ArticleName{A CWE-499 Breakdown}
+\newcommand{\ArticleDate}{\formatdate{30}{8}{2021}}
+\addbibresource{20210830.bib}
