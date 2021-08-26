@@ -43,7 +43,7 @@ public class ClassA {
 }
 \end{lstlisting}
 
-Given this is meant to be a container of sensitive data, I didn't make the class in Figure~\ref{lst:20210830:classa} serializable. Let's create a serializable wrapper around it and see if we can get at the data.
+Given this is meant to be a container of sensitive data, I didn't make the class in Listing~\ref{lst:20210830:classa} serializable. Let's create a serializable wrapper around it and see if we can get at the data.
 
 \subsection{ClassB---Serializable Wrapper}
 
@@ -59,7 +59,7 @@ public class ClassB implements Serializable {
 }
 \end{lstlisting}
 
-Figure~\ref{lst:20210830:classb} demonstrates a serializable wrapper class around the class with sensitive information.
+Listing~\ref{lst:20210830:classb} demonstrates a serializable wrapper class around the class with sensitive information.
 
 \subsection{The Driver}
 With our two classes written, it's time for the show. Let's create a program that creates an instance of the sensitive data container, set it on our wrapper, and then serialize the wrapper to file.
@@ -70,7 +70,7 @@ package swa;
 import java.io.*;
 public class SerializeExample {
 	public static void main(String[] args) {
-		ClassA objA = new ClassA("swa","123-45-6789");
+		ClassA objA = new ClassA("swa","123456789");
 		ClassB objB = new ClassB(objA);
 		try {
 			FileOutputStream fos = new FileOutputStream("/home/swa/data.ser");
@@ -113,7 +113,7 @@ So I took my disappointment and went to Google, trying to make sense of this mys
 What a refreshingly reasonable approach to have! For me to access \texttt{ClassA}'s sensitive data, it would have to be made serializable.
 
 \subsection{Caveats}
-Not all serialization libraries are created equally. For example the Kryo library will work with the above example and serialize the private data by changing the driver to the one described in Figure~\ref{lst:20210830:kryo}.\autocite{20210830:kryo}
+Not all serialization libraries are created equally. For example the Kryo library will work with the above example and serialize the private data by changing the driver to the one described in Listing~\ref{lst:20210830:kryo}.\autocite{20210830:kryo}
 
 \begin{lstlisting}[caption={Kryo Driver},captionpos=b,style=JavaStyle,basicstyle=\scriptsize,label={lst:20210830:kryo}]
 package swa;
@@ -126,7 +126,7 @@ public class SerializeExample {
 		Kryo kryo = new Kryo();
 		kryo.register(ClassA.class);
 		kryo.register(ClassB.class);
-		ClassA objA = new ClassA("swa", "123-45-6789");
+		ClassA objA = new ClassA("swa", "123456789");
 		ClassB objB = new ClassB(objA);
 		try {
 			Output fos = new Output(new FileOutputStream("/home/swa/data.ser"));
@@ -141,14 +141,14 @@ public class SerializeExample {
 
 To prevent Kryo from serializing the private data, the fields storing the data must be marked \texttt{transient}.
 
-But is that really enough to protect a private class in Java? No! Kryo works by using reflection, and Java reflection permits the developer to change the security context of even private variables. Suppose that \texttt{ssn} is marked as \texttt{transient}. This variable may still be accessed and serialized with reflection using the driver in Figure~\ref{lst:20210830:reflection}.
+But is that really enough to protect a private class in Java? No! Kryo works by using reflection, and Java reflection permits the developer to change the security context of even private variables. Suppose that \texttt{ssn} is marked as \texttt{transient}. This variable may still be accessed and serialized with reflection using the driver in Listing~\ref{lst:20210830:reflection}.
 
 \begin{lstlisting}[caption={Reflection Driver},captionpos=b,style=JavaStyle,basicstyle=\scriptsize,label={lst:20210830:reflection}]
 package swa;
 import java.lang.reflect.Field;
 public class SerializeExample {
 	public static void main(String[] args) {
-		ClassA objA = new ClassA("swa","123-45-6789");
+		ClassA objA = new ClassA("swa","123456789");
 		try {
 			Field f = objA.getClass().getDeclaredField("ssn");
 			f.setAccessible(true);
