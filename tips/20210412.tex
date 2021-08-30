@@ -1,8 +1,8 @@
-Resource Acquisition Is Initialization (RAII). When working with legacy code, often variables and memory management do not use RAII concepts. When memory is created in an uninitialized state, developers risk the use of uninitialized memory further down in the application data flow.
+Resource Acquisition Is Initialization (RAII). When working with legacy code, variables and memory management often do not use RAII concepts. When memory is created in an uninitialized state, developers risk the use of uninitialized memory further down in the application data flow.
 
-To solve this, C++ implemented two ways of initializing new memory: \textit{default} initialization and \textit{value} initialization. While default initialization is typically faster, developers quickly realized that there was rarely a reason to keep memory uninitialized. Initializing memory as soon as it's allocated keeps developers from shooting themselves in the foot.
+To solve this, C++ implemented two ways of initializing new memory: \textit{default} initialization and \textit{value} initialization. While default initialization is typically faster, developers quickly realized that there were rarely reasons to keep memory uninitialized. Initializing memory as soon as it's allocated keeps developers from shooting themselves in the foot.
 
-One of the best ways to prevent memory errors is to use RAII. Particularly in exception-based code, RAII concepts provide a memory-safe technique for resource management.\autocite{20210412-stroustrup2001} Several issues face developers when maintaining legacy code with new programming concepts, particularly in the DoD. Legacy code is generally void of RAII concepts and has not been built with the latest standards of safe programming practices.
+One of the best ways to prevent memory errors is to use RAII. Particularly in exception-based code, RAII concepts provide a memory-safe technique for resource management.\autocite{20210412:stroustrup2001} Several issues face developers when maintaining legacy code with new programming concepts, particularly in the DoD. Legacy code is generally void of RAII concepts and has not been built with the latest standards of safe programming practices.
 
 \subsection{Updating the Code}
 
