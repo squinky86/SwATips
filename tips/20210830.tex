@@ -175,7 +175,7 @@ So the next time I see a CWE-499, I know to check the following factors:
 	\item Does the project disable reflection?
 \end{enumerate}
 
-If the class doesn't truly contain sensitive data, then it would be a False Positive. If it does, then the other two factors help guide us to an appropriate conclusion. The CWE would most likely be confirmed if the class is serializable and the field is not marked transient. But, if either of those conditions are false, then it may be a merely informational finding. An issue could, at least theoretically, arise over the next development cycle as folks make changes.
+If the class doesn't truly contain sensitive data, then it would be a False Positive. If it does, then the other three factors help guide us to an appropriate conclusion. The CWE would most likely be confirmed if the class is serializable and the field is not marked transient. But, if either of those conditions are false, then it may be a merely informational finding. An issue could, at least theoretically, arise over the next development cycle as folks make changes.
 
 And, that's not all. I'll go ahead and add one last thing to check to our list:
 \begin{enumerate}
