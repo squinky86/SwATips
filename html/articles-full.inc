@@ -15,4 +15,4 @@
 <li>20210802 - <a href="articles/20210802.html">Stripping for Fun and Profit</a></li>
 <li>20210809 - <a href="articles/20210809.html">Ada <del>Low</del>High Integrity Profiles</a></li>
 <li>20210816 - <a href="articles/20210816.html">The Password that Cannot Be Spoken</a></li>
-<li>20210830 - <a href="articles/20210830.html">A CWE-499 Breakdown</a></li>
+<li>20210830 - <a href="articles/20210830.html">A CWE-499 Breakdown: Serializing Sensitive Data</a></li>

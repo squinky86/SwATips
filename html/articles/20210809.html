@@ -179,7 +179,7 @@ A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>4</a>]<b
                                                                                          
    
 <h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Ada <span class='sout'>Low</span>High Integrity Profiles</h3>
-<!-- l. 42 --><p class='noindent'><span class='rm-lmr-8'>Updated Friday 6</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-8'> August, 2021</span>
+<!-- l. 43 --><p class='noindent'><span class='rm-lmr-8'>Updated Monday 30</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-8'> August, 2021</span>
 </p><!-- l. 1 --><p class='indent'>   Ada is often touted by its supporters as the best programming language ever devised by man. And at least on a
 conceptual level there are some good arguments in its favor. But as with any complex programming language there
 are corner cases that should be understood and dealt with carefully to avoid those advantages turning into
@@ -191,7 +191,7 @@ them!
 </p><!-- l. 5 --><p class='indent'>   Profiles in Ada came out of the 1997 International Real-Time Ada Workshop. The <span class='ec-lmtt-10'>Ravenscar </span>Profile was
 intended to produce a more lightweight (and provably correct) executable with task scheduling that was more
 suited to real time applications. It was revised, and eventually included as part of the Ada standard
-in 2005.[<a href='#cite.0@20210809:grm'>1</a>, § 2.140, p. 71–74] There are several versions of <span class='ec-lmtt-10'>Ravenscar </span>including <span class='ec-lmtt-10'>ravenscar-cert</span>,
+in 2005.[<a href='#cite.0@20210809:grm'>1</a>, § 2.140, pp. 71–74] There are several versions of <span class='ec-lmtt-10'>Ravenscar </span>including <span class='ec-lmtt-10'>ravenscar-cert</span>,
 <span class='ec-lmtt-10'>ravenscar-zfp</span>, and more. Each variant of a profile has different restrictions on what is and is not allowed using
 that runtime system. The most restrictive are the Zero Footprint Profiles (ZFP). These profiles go
 to great lengths to make sure that the resulting executable does not link against the Ada runtime
@@ -209,7 +209,7 @@ that was particularly interesting is the restriction on non-library level tagged
 particular importance to us for code review. Tagged types will automatically have their <span class='ec-lmtt-10'>Initialize </span>procedure
 called when an object of that type is constructed without an initial value (think constructor but not quite).[<a href='#cite.0@20210809:adap'>6</a>]
 Without that guaranteed initialization, more complex projects that have to be segmented in order to be
-analyzed by adacore wind up with tons of false positives about possibly un-initalized variables. We had
+analyzed by AdaCore wind up with tons of false positives about possibly uninitialized variables. We had
 heard of a company whose Ada programming standard deliberately avoided the use of tagged types. It
 made little sense to us for them to avoid tagged types until we learned about these profiles and their
 restrictions.
@@ -234,19 +234,19 @@ for the last chance handler. The <span class='ec-lmtt-10'>No_Exceptions </span>p
                                                                                          
 </p>   
 <h3 class='sectionHead'><a id='x1-20001'></a>References</h3>
-<!-- l. 47 --><p class='noindent'>    
+<!-- l. 48 --><p class='noindent'>    
 </p>
 <dl class='thebibliography'><dt id='X0-20210809:grm' class='thebibliography'>
 [1]  
 </dt><dd id='bib-1' class='thebibliography'>
-<!-- l. 47 --><p class='noindent'><a id='cite.0@20210809:grm'></a>AdaCore.    GNAT Reference Manual.    Tech.    rep.    Free    Software    Foundation,    2020.    <span class='small-caps'>url</span>:
+<!-- l. 48 --><p class='noindent'><a id='cite.0@20210809:grm'></a>AdaCore.    GNAT Reference Manual.    Tech.    rep.    Free    Software    Foundation,    2020.    <span class='small-caps'>url</span>:
 <a href='https://gcc.gnu.org/onlinedocs/gcc-11.2.0/gnat_rm.pdf' class='url'><span class='ec-lmtt-10'>https://gcc.gnu.org/onlinedocs/gcc-11.2.0/gnat_rm.pdf</span></a>.
 </p>    
 </dd>
 <dt id='X0-20210809:gnatugx' class='thebibliography'>
 [2]  
 </dt><dd id='bib-2' class='thebibliography'>
-<!-- l. 47 --><p class='noindent'><a id='cite.0@20210809:gnatugx'></a>AdaCore.                     GNAT User’s Guide Supplement for Cross Platforms.                     Aug. 5,
+<!-- l. 48 --><p class='noindent'><a id='cite.0@20210809:gnatugx'></a>AdaCore.                     GNAT User’s Guide Supplement for Cross Platforms.                     Aug. 5,
 2021. <span class='small-caps'>url</span>: <a href='https://docs.adacore.com/gnat_ugx-docs/html/gnat_ugx/gnat_ugx.html' class='url'><span class='ec-lmtt-10'>https://docs.adacore.com/gnat_ugx-docs/html/gnat_ugx/gnat_ugx.html</span></a> (visited on
 08/06/2021).
 </p>    
@@ -254,7 +254,7 @@ for the last chance handler. The <span class='ec-lmtt-10'>No_Exceptions </span>p
 <dt id='X0-20210809:gnathie' class='thebibliography'>
 [3]  
 </dt><dd id='bib-3' class='thebibliography'>
-<!-- l. 47 --><p class='noindent'><a id='cite.0@20210809:gnathie'></a>AdaCore.
+<!-- l. 48 --><p class='noindent'><a id='cite.0@20210809:gnathie'></a>AdaCore.
 GNAT User’s Guide Supplement for GNAT Pro Safety-Critical and GNAT Pro High-Security
 .
 Oct. 17,                                                                                                                     2018.
@@ -265,13 +265,13 @@ Oct. 17,                                                                       
 <dt id='X0-swatips' class='thebibliography'>
 [4]  
 </dt><dd id='bib-4' class='thebibliography'>
-<!-- l. 47 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips. <a href='https://www.SwATips.com/' class='url'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+<!-- l. 48 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips. <a href='https://www.SwATips.com/' class='url'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
 <dt id='X0-20210809:viega200924' class='thebibliography'>
 [5]  
 </dt><dd id='bib-5' class='thebibliography'>
-<!-- l. 47 --><p class='noindent'><a id='cite.0@20210809:viega200924'></a>John                                 Viega,                                 Michael                                 Howard,
+<!-- l. 48 --><p class='noindent'><a id='cite.0@20210809:viega200924'></a>John                                 Viega,                                 Michael                                 Howard,
 and David LeBlanc. 24 Deadly Sins of Software Security. Programming Flaws and How to Fix Them.
 McGraw-Hill Education, 2009. <span class='small-caps'>isbn</span>: 978-0-07-162675-0.
 </p>    
@@ -279,7 +279,7 @@ McGraw-Hill Education, 2009. <span class='small-caps'>isbn</span>: 978-0-07-1626
 <dt id='X0-20210809:adap' class='thebibliography'>
 [6]  
 </dt><dd id='bib-6' class='thebibliography'>
-<!-- l. 47 --><p class='noindent'><a id='cite.0@20210809:adap'></a>Wikibooks. Ada Programming/Object Orientation — Wikibooks, The Free Textbook Project. 2021. <span class='small-caps'>url</span>:
+<!-- l. 48 --><p class='noindent'><a id='cite.0@20210809:adap'></a>Wikibooks. Ada Programming/Object Orientation — Wikibooks, The Free Textbook Project. 2021. <span class='small-caps'>url</span>:
 <a href='https://en.wikibooks.org/w/index.php?title=Ada_Programming/Object_Orientation&amp;oldid=3956556#Constructors' class='url'><span class='ec-lmtt-10'>https://en.wikibooks.org/w/index.php?title=Ada_Programming/Object_Orientation&amp;oldid=3956556#Constructors</span></a>
 (visited on 08/06/2021).</p></dd></dl>
  

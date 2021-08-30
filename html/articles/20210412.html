@@ -7,15 +7,15 @@
 <meta charset="utf-8"/>
  
 
-<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
  
 
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
  
 
  
 
-<meta name="src" content="article.tex"/>
+<meta content="article.tex" name="src"/>
  
 
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
@@ -196,16 +196,16 @@ A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>1</a>]<b
                                                                                          
    
 <h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Sticking with a RAII Standard</h3>
-<!-- l. 42 --><p class='noindent'><span class='rm-lmr-8'>Updated Friday 6</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-8'> August, 2021</span>
-</p><!-- l. 1 --><p class='indent'>   Resource Acquisition Is Initialization (RAII). When working with legacy code, often variables and memory
-management do not use RAII concepts. When memory is created in an uninitialized state, developers risk the use of
-uninitialized memory further down in the application data flow.
+<!-- l. 43 --><p class='noindent'><span class='rm-lmr-8'>Updated Monday 30</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-8'> August, 2021</span>
+</p><!-- l. 1 --><p class='indent'>   Resource Acquisition Is Initialization (RAII). When working with legacy code, variables and memory
+management often do not use RAII concepts. When memory is created in an uninitialized state, developers risk the
+use of uninitialized memory further down in the application data flow.
 </p><!-- l. 3 --><p class='indent'>   To solve this, C++ implemented two ways of initializing new memory: <i>default</i> initialization and <i>value</i>
-initialization. While default initialization is typically faster, developers quickly realized that there was rarely a
-reason to keep memory uninitialized. Initializing memory as soon as it’s allocated keeps developers from shooting
+initialization. While default initialization is typically faster, developers quickly realized that there were rarely
+reasons to keep memory uninitialized. Initializing memory as soon as it’s allocated keeps developers from shooting
 themselves in the foot.
 </p><!-- l. 5 --><p class='indent'>   One of the best ways to prevent memory errors is to use RAII. Particularly in exception-based code, RAII
-concepts provide a memory-safe technique for resource management.[<a href='#cite.0@20210412-stroustrup2001'>2</a>] Several issues face developers when
+concepts provide a memory-safe technique for resource management.[<a href='#cite.0@20210412:stroustrup2001'>2</a>] Several issues face developers when
 maintaining legacy code with new programming concepts, particularly in the DoD. Legacy code is
 generally void of RAII concepts and has not been built with the latest standards of safe programming
 practices.
@@ -218,30 +218,30 @@ smart pointers can help make the code more maintainable.
 <!-- l. 11 -->
 <p><a id='x1-2001r1'></a></p>
 <p><a id='x1-2002'></a></p>   
-<div class='lstlisting' id='listing-1'><span class='label'><a id='x1-2003r1'></a></span><span class='ec-lmtt-9'>bool *newBool = new bool(); </span><br /><span class='label'><a id='x1-2004r2'></a></span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*newBool) </span><br /><span class='label'><a id='x1-2005r3'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re␣true!"␣&lt;&lt;␣endl; </span><br /><span class='label'><a id='x1-2006r4'></a></span><span class='ec-lmtt-9'>else </span><br /><span class='label'><a id='x1-2007r5'></a></span><span class='ec-lmtt-9'>␣␣␣␣␣␣␣␣cout␣&lt;&lt;␣"We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re false!" &lt;&lt; endl; </span><br /><span class='label'><a id='x1-2008r6'></a></span><span class='ec-lmtt-9'>delete newBool;</span>
+<div id='listing-1' class='lstlisting'><span class='label'><a id='x1-2003r1'></a></span><span class='ec-lmtt-9'>bool *newBool = new bool(); </span><br /><span class='label'><a id='x1-2004r2'></a></span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*newBool) </span><br /><span class='label'><a id='x1-2005r3'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re␣true!"␣&lt;&lt;␣endl; </span><br /><span class='label'><a id='x1-2006r4'></a></span><span class='ec-lmtt-9'>else </span><br /><span class='label'><a id='x1-2007r5'></a></span><span class='ec-lmtt-9'>␣␣␣␣␣␣␣␣cout␣&lt;&lt;␣"We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re false!" &lt;&lt; endl; </span><br /><span class='label'><a id='x1-2008r6'></a></span><span class='ec-lmtt-9'>delete newBool;</span>
 <figcaption class='caption'><span class='id'>Listing 1:</span><span class='content'>Non-compliant listing</span></figcaption><!-- tex4ht:label?: x1-2001r1  -->
    
 </div>
 <!-- l. 20 -->
 <p><a id='x1-2009r2'></a></p>
 <p><a id='x1-2010'></a></p>   
-<div class='lstlisting' id='listing-2'><span class='label'><a id='x1-2011r1'></a></span><span class='ec-lmtk-10x-x-90'>auto</span><span class='ec-lmtt-9'> newBool = make_shared&lt;bool&gt;(); </span><br /><span class='label'><a id='x1-2012r2'></a></span><span class='ec-lmtti-10x-x-90'>//Another way: shared_ptr&lt;bool&gt; newBool(new bool());</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-2013r3'></a></span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*newBool) </span><br /><span class='label'><a id='x1-2014r4'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re␣true!"␣&lt;&lt;␣endl; </span><br /><span class='label'><a id='x1-2015r5'></a></span><span class='ec-lmtt-9'>else </span><br /><span class='label'><a id='x1-2016r6'></a></span><span class='ec-lmtt-9'>␣␣␣␣␣␣␣␣cout␣&lt;&lt;␣"We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re false!" &lt;&lt; endl;</span>
+<div id='listing-2' class='lstlisting'><span class='label'><a id='x1-2011r1'></a></span><span class='ec-lmtk-10x-x-90'>auto</span><span class='ec-lmtt-9'> newBool = make_shared&lt;bool&gt;(); </span><br /><span class='label'><a id='x1-2012r2'></a></span><span class='ec-lmtti-10x-x-90'>//Another way: shared_ptr&lt;bool&gt; newBool(new bool());</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-2013r3'></a></span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*newBool) </span><br /><span class='label'><a id='x1-2014r4'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re␣true!"␣&lt;&lt;␣endl; </span><br /><span class='label'><a id='x1-2015r5'></a></span><span class='ec-lmtt-9'>else </span><br /><span class='label'><a id='x1-2016r6'></a></span><span class='ec-lmtt-9'>␣␣␣␣␣␣␣␣cout␣&lt;&lt;␣"We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re false!" &lt;&lt; endl;</span>
 <figcaption class='caption'><span class='id'>Listing 2:</span><span class='content'>RAII-compliant listing</span></figcaption><!-- tex4ht:label?: x1-2009r1  -->
    
 </div>
 <!-- l. 29 --><p class='indent'>   There are several issues with updating the old code to the RAII-compliant code:
 </p>     
 <ol class='enumerate1'>
-<li class='enumerate' id='x1-2018x1'>     
+<li id='x1-2018x1' class='enumerate'>     
 Forgetting to remove the manual memory management can cause double-free errors.
 </li>     
-<li class='enumerate' id='x1-2020x2'>
+<li id='x1-2020x2' class='enumerate'>
 Updating the code can cause translation issues (eg: between default and value initialization)
 </li>     
-<li class='enumerate' id='x1-2022x3'>
+<li id='x1-2022x3' class='enumerate'>
 Inconsistency can increase maintenance burdens for maintained code.
 </li>     
-<li class='enumerate' id='x1-2024x4'>
+<li id='x1-2024x4' class='enumerate'>
 Deletion of arrays require special handling.</li></ol>
                                                                                          
                                                                                          
@@ -258,14 +258,14 @@ and the GCC 10 <span class='ec-lmtt-10'>-fanalyzer </span>flag are all incapable
 <!-- l. 43 -->
 <p><a id='x1-3001r3'></a></p>
 <p><a id='x1-3002'></a></p>   
-<div class='lstlisting' id='listing-3'><span class='label'><a id='x1-3003r1'></a></span><span class='ec-lmtt-9'>bool *newBool = new bool(); </span><br /><span class='label'><a id='x1-3004r2'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1 (newBool); </span><br /><span class='label'><a id='x1-3005r3'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test2 (newBool); </span><br /><span class='label'><a id='x1-3006r4'></a></span><span class='ec-lmtti-10x-x-90'>//...</span>
+<div id='listing-3' class='lstlisting'><span class='label'><a id='x1-3003r1'></a></span><span class='ec-lmtt-9'>bool *newBool = new bool(); </span><br /><span class='label'><a id='x1-3004r2'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1 (newBool); </span><br /><span class='label'><a id='x1-3005r3'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test2 (newBool); </span><br /><span class='label'><a id='x1-3006r4'></a></span><span class='ec-lmtti-10x-x-90'>//...</span>
 <figcaption class='caption'><span class='id'>Listing 3:</span><span class='content'>Double Smart Pointer</span></figcaption><!-- tex4ht:label?: x1-3001r1  -->
    
 </div>
 <!-- l. 50 -->
 <p><a id='x1-3007r4'></a></p>
 <p><a id='x1-3008'></a></p>   
-<div class='lstlisting' id='listing-4'><span class='label'><a id='x1-3009r1'></a></span><span class='ec-lmtt-9'>bool *newBool = new bool(); </span><br /><span class='label'><a id='x1-3010r2'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1 (newBool); </span><br /><span class='label'><a id='x1-3011r3'></a></span><span class='ec-lmtti-10x-x-90'>//...</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-3012r4'></a></span><span class='ec-lmtt-9'>delete newBool;</span>
+<div id='listing-4' class='lstlisting'><span class='label'><a id='x1-3009r1'></a></span><span class='ec-lmtt-9'>bool *newBool = new bool(); </span><br /><span class='label'><a id='x1-3010r2'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1 (newBool); </span><br /><span class='label'><a id='x1-3011r3'></a></span><span class='ec-lmtti-10x-x-90'>//...</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-3012r4'></a></span><span class='ec-lmtt-9'>delete newBool;</span>
 <figcaption class='caption'><span class='id'>Listing 4:</span><span class='content'>Smart and Dumb Pointer</span></figcaption><!-- tex4ht:label?: x1-3007r1  -->
    
 </div>
@@ -279,7 +279,7 @@ Listing <a href='#x1-4001r5'>5<!-- tex4ht:ref: lst:20210412:3  --></a>.
 <!-- l. 61 -->
 <p><a id='x1-4001r5'></a></p>
 <p><a id='x1-4002'></a></p>   
-<div class='lstlisting' id='listing-5'><span class='label'><a id='x1-4003r1'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1 (new bool); </span><br /><span class='label'><a id='x1-4004r2'></a></span><span class='ec-lmtt-9'>cout &lt;&lt; "Test1 is: " &lt;&lt; *test1 &lt;&lt; endl;</span>
+<div id='listing-5' class='lstlisting'><span class='label'><a id='x1-4003r1'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1 (new bool); </span><br /><span class='label'><a id='x1-4004r2'></a></span><span class='ec-lmtt-9'>cout &lt;&lt; "Test1 is: " &lt;&lt; *test1 &lt;&lt; endl;</span>
 <figcaption class='caption'><span class='id'>Listing 5:</span><span class='content'>Uninitialized Boolean</span></figcaption><!-- tex4ht:label?: x1-4001r1  -->
    
 </div>
@@ -289,7 +289,7 @@ default initialization and obtains a random value from previously-freed memory.
 <!-- l. 68 -->
 <p><a id='x1-4005r6'></a></p>
 <p><a id='x1-4006'></a></p>   
-<div class='lstlisting' id='listing-6'><span class='label'><a id='x1-4007r1'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;climits&gt; </span><br /><span class='label'><a id='x1-4008r2'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;iostream&gt; </span><br /><span class='label'><a id='x1-4009r3'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;memory&gt; </span><br /><span class='label'><a id='x1-4010r4'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;random&gt; </span><br /><span class='label'><a id='x1-4011r5'></a></span><span class='ec-lmtt-9'>using namespace std; </span><br /><span class='label'><a id='x1-4012r6'></a></span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> main() </span><br /><span class='label'><a id='x1-4013r7'></a></span><span class='ec-lmtt-9'>{ </span><br /><span class='label'><a id='x1-4014r8'></a></span><span class='ec-lmtt-9'>        random_device rd; </span><br /><span class='label'><a id='x1-4015r9'></a></span><span class='ec-lmtt-9'>        mt19937 gen(rd()); </span><br /><span class='label'><a id='x1-4016r10'></a></span><span class='ec-lmtt-9'>        uniform_int_distribution&lt;&gt; distrib(INT_MIN, INT_MAX); </span><br /><span class='label'><a id='x1-4017r11'></a></span><span class='ec-lmtt-9'>        vector&lt;</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'>*&gt; deleteLater; </span><br /><span class='label'><a id='x1-4018r12'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>for</span><span class='ec-lmtt-9'> (</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> i = 0; i &lt; 100; i++) </span><br /><span class='label'><a id='x1-4019r13'></a></span><span class='ec-lmtt-9'>        { </span><br /><span class='label'><a id='x1-4020r14'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> *deleteMe = new </span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'>; </span><br /><span class='label'><a id='x1-4021r15'></a></span><span class='ec-lmtt-9'>               *deleteMe = distrib(gen); </span><br /><span class='label'><a id='x1-4022r16'></a></span><span class='ec-lmtti-10x-x-90'>               //delete some memory now</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4023r17'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*deleteMe &gt; 0) </span><br /><span class='label'><a id='x1-4024r18'></a></span><span class='ec-lmtt-9'>                       delete deleteMe; </span><br /><span class='label'><a id='x1-4025r19'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>else</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4026r20'></a></span><span class='ec-lmtt-9'>                       deleteLater.push_back(deleteMe); </span><br /><span class='label'><a id='x1-4027r21'></a></span><span class='ec-lmtt-9'>        } </span><br /><span class='label'><a id='x1-4028r22'></a></span><span class='ec-lmtt-9'>        shared_ptr&lt;bool&gt; newBool(new bool); </span><br /><span class='label'><a id='x1-4029r23'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "Value: " &lt;&lt; *newBool &lt;&lt; endl; </span><br /><span class='label'><a id='x1-4030r24'></a></span><span class='ec-lmtti-10x-x-90'>        //delete some memory later</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4031r25'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>for</span><span class='ec-lmtt-9'> (</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> *n : deleteLater) </span><br /><span class='label'><a id='x1-4032r26'></a></span><span class='ec-lmtt-9'>               delete n; </span><br /><span class='label'><a id='x1-4033r27'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>return</span><span class='ec-lmtt-9'> 0; </span><br /><span class='label'><a id='x1-4034r28'></a></span><span class='ec-lmtt-9'>}</span>
+<div id='listing-6' class='lstlisting'><span class='label'><a id='x1-4007r1'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;climits&gt; </span><br /><span class='label'><a id='x1-4008r2'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;iostream&gt; </span><br /><span class='label'><a id='x1-4009r3'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;memory&gt; </span><br /><span class='label'><a id='x1-4010r4'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;random&gt; </span><br /><span class='label'><a id='x1-4011r5'></a></span><span class='ec-lmtt-9'>using namespace std; </span><br /><span class='label'><a id='x1-4012r6'></a></span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> main() </span><br /><span class='label'><a id='x1-4013r7'></a></span><span class='ec-lmtt-9'>{ </span><br /><span class='label'><a id='x1-4014r8'></a></span><span class='ec-lmtt-9'>        random_device rd; </span><br /><span class='label'><a id='x1-4015r9'></a></span><span class='ec-lmtt-9'>        mt19937 gen(rd()); </span><br /><span class='label'><a id='x1-4016r10'></a></span><span class='ec-lmtt-9'>        uniform_int_distribution&lt;&gt; distrib(INT_MIN, INT_MAX); </span><br /><span class='label'><a id='x1-4017r11'></a></span><span class='ec-lmtt-9'>        vector&lt;</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'>*&gt; deleteLater; </span><br /><span class='label'><a id='x1-4018r12'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>for</span><span class='ec-lmtt-9'> (</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> i = 0; i &lt; 100; i++) </span><br /><span class='label'><a id='x1-4019r13'></a></span><span class='ec-lmtt-9'>        { </span><br /><span class='label'><a id='x1-4020r14'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> *deleteMe = new </span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'>; </span><br /><span class='label'><a id='x1-4021r15'></a></span><span class='ec-lmtt-9'>               *deleteMe = distrib(gen); </span><br /><span class='label'><a id='x1-4022r16'></a></span><span class='ec-lmtti-10x-x-90'>               //delete some memory now</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4023r17'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*deleteMe &gt; 0) </span><br /><span class='label'><a id='x1-4024r18'></a></span><span class='ec-lmtt-9'>                       delete deleteMe; </span><br /><span class='label'><a id='x1-4025r19'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>else</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4026r20'></a></span><span class='ec-lmtt-9'>                       deleteLater.push_back(deleteMe); </span><br /><span class='label'><a id='x1-4027r21'></a></span><span class='ec-lmtt-9'>        } </span><br /><span class='label'><a id='x1-4028r22'></a></span><span class='ec-lmtt-9'>        shared_ptr&lt;bool&gt; newBool(new bool); </span><br /><span class='label'><a id='x1-4029r23'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "Value: " &lt;&lt; *newBool &lt;&lt; endl; </span><br /><span class='label'><a id='x1-4030r24'></a></span><span class='ec-lmtti-10x-x-90'>        //delete some memory later</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4031r25'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>for</span><span class='ec-lmtt-9'> (</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> *n : deleteLater) </span><br /><span class='label'><a id='x1-4032r26'></a></span><span class='ec-lmtt-9'>               delete n; </span><br /><span class='label'><a id='x1-4033r27'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>return</span><span class='ec-lmtt-9'> 0; </span><br /><span class='label'><a id='x1-4034r28'></a></span><span class='ec-lmtt-9'>}</span>
 <figcaption class='caption'><span class='id'>Listing 6:</span><span class='content'>Uninitialized Boolean</span></figcaption><!-- tex4ht:label?: x1-4005r1  -->
    
 </div>
@@ -315,7 +315,7 @@ construct permits the developer to define a custom deleter like the one for this
 <!-- l. 109 -->
 <p><a id='x1-6001r7'></a></p>
 <p><a id='x1-6002'></a></p>   
-<div class='lstlisting' id='listing-7'><span class='label'><a id='x1-6003r1'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1{ </span><br /><span class='label'><a id='x1-6004r2'></a></span><span class='ec-lmtt-9'>        new bool[10], [](</span><span class='ec-lmtk-10x-x-90'>const</span><span class='ec-lmtt-9'> bool *ptr) { delete [] ptr; } </span><br /><span class='label'><a id='x1-6005r3'></a></span><span class='ec-lmtt-9'>};</span>
+<div id='listing-7' class='lstlisting'><span class='label'><a id='x1-6003r1'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1{ </span><br /><span class='label'><a id='x1-6004r2'></a></span><span class='ec-lmtt-9'>        new bool[10], [](</span><span class='ec-lmtk-10x-x-90'>const</span><span class='ec-lmtt-9'> bool *ptr) { delete [] ptr; } </span><br /><span class='label'><a id='x1-6005r3'></a></span><span class='ec-lmtt-9'>};</span>
 <figcaption class='caption'><span class='id'>Listing 7:</span><span class='content'>Custom Deleter</span></figcaption><!-- tex4ht:label?: x1-6001r1  -->
    
 </div>
@@ -330,18 +330,18 @@ complexity, consistency should be preferred.
                                                                                          
 </p>   
 <h3 class='sectionHead'><a id='x1-80001.6'></a>References</h3>
-<!-- l. 47 --><p class='noindent'>    
+<!-- l. 48 --><p class='noindent'>    
 </p>
 <dl class='thebibliography'><dt id='X0-swatips' class='thebibliography'>
 [1]  
 </dt><dd id='bib-1' class='thebibliography'>
-<!-- l. 47 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips. <a href='https://www.SwATips.com/' class='url'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+<!-- l. 48 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips. <a href='https://www.SwATips.com/' class='url'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt id='X0-20210412-stroustrup2001' class='thebibliography'>
+<dt id='X0-20210412:stroustrup2001' class='thebibliography'>
 [2]  
 </dt><dd id='bib-2' class='thebibliography'>
-<!-- l. 47 --><p class='noindent'><a id='cite.0@20210412-stroustrup2001'></a>Bjarne    Stroustrup.    “Exception    Safety:    Concepts    and    Techniques”.    In:    (2001).    <span class='small-caps'>url</span>:
+<!-- l. 48 --><p class='noindent'><a id='cite.0@20210412:stroustrup2001'></a>Bjarne    Stroustrup.    “Exception    Safety:    Concepts    and    Techniques”.    In:    (2001).    <span class='small-caps'>url</span>:
 <a href='https://www.stroustrup.com/except.pdf' class='url'><span class='ec-lmtt-10'>https://www.stroustrup.com/except.pdf</span></a>.</p></dd></dl>
  
 </body> 
