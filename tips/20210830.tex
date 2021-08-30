@@ -64,7 +64,7 @@ Listing~\ref{lst:20210830:classb} demonstrates a serializable wrapper class arou
 \subsection{The Driver}
 With our two classes written, it's time for the show. Let's create a program that creates an instance of the sensitive data container, set it on our wrapper, and then serialize the wrapper to file.
 
-\begin{lstlisting}[caption={Driver},captionpos=b,style=JavaStyle,basicstyle=\scriptsize,label={lst:20210830:driver},literate={"}{"}1
+\begin{lstlisting}[caption={Serialization Driver},captionpos=b,style=JavaStyle,basicstyle=\scriptsize,label={lst:20210830:driver},literate={"}{"}1
 {-}{-}1]
 package swa;
 import java.io.*;
@@ -86,7 +86,7 @@ public class SerializeExample {
 \end{lstlisting}
 
 Time for the main event! What happens when I run this?
-\begin{lstlisting}[caption={Driver},captionpos=b,style=BashStyle,basicstyle=\scriptsize,label={lst:20210830:output},literate={"}{"}1
+\begin{lstlisting}[caption={Driver Output},captionpos=b,style=BashStyle,basicstyle=\scriptsize,label={lst:20210830:output},literate={"}{"}1
 {-}{-}1]
 java.io.NotSerializableException: swa.ClassA
             at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1192)
