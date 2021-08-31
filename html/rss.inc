@@ -699,7 +699,7 @@ McGraw-Hill Education, 2009. <span class="small-caps" style="font-variant: small
 ]]></description>
 	</item>
 	<item>
-		<title>Stripping for Fun and Profit</title>
+		<title>Stripping: An Inefficient Obfuscation Technique</title>
 		<link>https://www.SwATips.com/articles/20210802.html</link>
 		<pubDate>Mon, 02 Aug 2021 00:00:00 -0500</pubDate>
 <description><![CDATA[
@@ -724,11 +724,11 @@ A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="o
                                                                                          
    
 
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Stripping for Fun and Profit</h3>
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Stripping: An Inefficient Obfuscation Technique</h3>
 
 
-<!-- l. 42 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Friday 6</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> August, 2021</span>
+<!-- l. 43 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Monday 30</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> August, 2021</span>
 </p>
 <!-- l. 1 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Recently, we were given a piece of software with special handling instructions. The software contained a function
@@ -824,15 +824,15 @@ the same protections.
 <h3 class="sectionHead"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
 
 
-<!-- l. 47 -->
+<!-- l. 48 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
 </p>
 
 
-<dl class="thebibliography"><dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
+<dl class="thebibliography"><dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [1]  
-</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
-<!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
+</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
 
  
 
@@ -1098,7 +1098,7 @@ painful!
 ]]></description>
 	</item>
 	<item>
-		<title>A Pedigree of Dropping S-BOMs</title>
+		<title>A Pedigree of S-BOMs</title>
 		<link>https://www.SwATips.com/articles/20210705.html</link>
 		<pubDate>Mon, 05 Jul 2021 00:00:00 -0500</pubDate>
 <description><![CDATA[
@@ -1123,11 +1123,11 @@ A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="o
                                                                                          
    
 
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>A Pedigree of Dropping S-BOMs</h3>
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>A Pedigree of S-BOMs</h3>
 
 
-<!-- l. 42 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Friday 6</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> August, 2021</span>
+<!-- l. 43 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Monday 30</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> August, 2021</span>
 </p>
 <!-- l. 1 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Recently, a large software project encountered a serious vulnerability. The project has been in existence since
@@ -1227,7 +1227,7 @@ that composition.
 <h3 class="sectionHead"><a id="x1-50001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
 
 
-<!-- l. 47 -->
+<!-- l. 48 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
 </p>
 
@@ -1235,20 +1235,20 @@ that composition.
 <dl class="thebibliography"><dt id="X0-20210705:ics21-119-04" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [1]  
 </dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210705:ics21-119-04" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>US-CERT.  ICS Advisory (ICSA-21-119-04): Multiple RTOS (Update B).  CISA.  May 20,  2021.  <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210705:ics21-119-04" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>US-CERT.  ICS Advisory (ICSA-21-119-04): Multiple RTOS (Update B).  CISA.  May 20,  2021.  <span class="small-caps" style="font-variant: small-caps;">url</span>:
 <a class="url" href="https://us-cert.cisa.gov/ics/advisories/icsa-21-119-04" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://us-cert.cisa.gov/ics/advisories/icsa-21-119-04</span></a> (visited on 06/23/2021).
 </p>    
 </dd>
 <dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [2]  
 </dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
 <dt id="X0-20210705:nist80053rev5" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [3]  
 </dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210705:nist80053rev5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>National                                Institute                                of                                Standards
+<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210705:nist80053rev5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>National                                Institute                                of                                Standards
 and Technology. Security and Privacy Controls for Information Systems and Organizations. Tech. rep.
 Special Publication (SP) 800-53 Revision 5. Washington, D.C.: U.S. Department of Commerce, 2001.
 <span class="small-caps" style="font-variant: small-caps;">doi</span>:        <a href="https://doi.org/10.6028/NIST.SP.800-53r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10    .    6028    /    NIST    .    SP    .    800    -    53r5</span></a>.        <span class="small-caps" style="font-variant: small-caps;">url</span>:
@@ -1258,7 +1258,7 @@ Special Publication (SP) 800-53 Revision 5. Washington, D.C.: U.S. Department of
 <dt id="X0-20210705:wheeler2019" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [4]  
 </dt><dd id="bib-4" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210705:wheeler2019" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>David A. Wheeler. SPDX Tutorial. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://github.com/david-a-wheeler/spdx-tutorial/blob/cee3cbe7ae5f83ec478e2acf2c9282eafd42ff0f/README.md" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://github.com/david-a-wheeler/spdx-tutorial/blob/cee3cbe7ae5f83ec478e2acf2c9282eafd42ff0f/README.md</span></a>
+<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210705:wheeler2019" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>David A. Wheeler. SPDX Tutorial. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://github.com/david-a-wheeler/spdx-tutorial/blob/cee3cbe7ae5f83ec478e2acf2c9282eafd42ff0f/README.md" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://github.com/david-a-wheeler/spdx-tutorial/blob/cee3cbe7ae5f83ec478e2acf2c9282eafd42ff0f/README.md</span></a>
 (visited on 06/23/2021).</p></dd></dl>
 
  
