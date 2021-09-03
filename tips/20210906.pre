@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{When Code Analysis Fails}
+\newcommand{\ArticleDate}{\formatdate{6}{9}{2021}}
+\addbibresource{20210906.bib}
