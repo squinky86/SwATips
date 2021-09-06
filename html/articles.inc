@@ -1,3 +1,4 @@
+<li>20210906 - <a href="articles/20210906.html">When Code Analysis Fails</a></li>
 <li>20210830 - <a href="articles/20210830.html">A CWE-499 Breakdown: Serializing Sensitive Data</a></li>
 <li>20210816 - <a href="articles/20210816.html">The Password that Cannot Be Spoken</a></li>
 <li>20210809 - <a href="articles/20210809.html">Ada <del>Low</del>High Integrity Profiles</a></li>
@@ -7,4 +8,3 @@
 <li>20210705 - <a href="articles/20210705.html">A Pedigree of S-BOMs</a></li>
 <li>20210628 - <a href="articles/20210628.html">Coverity and Integer Overflows</a></li>
 <li>20210621 - <a href="articles/20210621.html">Living off the Land</a></li>
-<li>20210614 - <a href="articles/20210614.html">Secure Compilation</a></li>
