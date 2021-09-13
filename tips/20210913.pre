@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Static Header Paths}
+\newcommand{\ArticleDate}{\formatdate{13}{9}{2021}}
+\addbibresource{20210913.bib}
