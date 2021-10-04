@@ -1,0 +1,4 @@
+\def \AuthorName{Kevin Keen}
+\def \ArticleName{Perls of Wisdom}
+\newcommand{\ArticleDate}{\formatdate{4}{10}{2021}}
+\addbibresource{20211004.bib}

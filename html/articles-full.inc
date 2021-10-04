@@ -18,3 +18,4 @@
 <li>20210830 - <a href="articles/20210830.html">A CWE-499 Breakdown: Serializing Sensitive Data</a></li>
 <li>20210906 - <a href="articles/20210906.html">When Code Analysis Fails</a></li>
 <li>20210913 - <a href="articles/20210913.html">Static Header Paths</a></li>
+<li>20211004 - <a href="articles/20211004.html">Perls of Wisdom</a></li>
