@@ -1,4 +1,131 @@
 	<item>
+		<title>Additional Risks to DevSecOps Pipelines</title>
+		<link>https://www.SwATips.com/articles/20211101.html</link>
+		<pubDate>Mon, 01 Nov 2021 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20211101.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
+</h2>
+<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
+<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 1</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">st</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> November, 2021</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Additional Risks to DevSecOps Pipelines</h3>
+
+
+<!-- l. 44 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Monday 1</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">st</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> November, 2021</span>
+</p>
+<!-- l. 1 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   I remain a huge fan of DevSecOps pipelines. The benefit to including automated security scans and checks into
+the development lifecycle fosters a culture of security. Alerting developers to bad habits and patterns early in the
+development process is one of the best ways to avoid costly reprogramming efforts in the future. Nevertheless, the
+upsides of DevSecOps pipelines should not cause someone to overlook the additional risks and attack vectors
+introduced by implementing such processes.
+</p>
+<!-- l. 3 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Increased Attack Area</h4>
+
+
+<!-- l. 4 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Additional software, management hooks, and authenticated entities are needed to set up an automated DevSecOps
+pipeline. The goal is to secure this pipeline so that a level of confidence and assurance in the products that
+come out of it can be achieved. Yet the authentication to build servers, scan servers, fuzzing engines,
+code coverage algorithms, and whatever else is being used to help secure the code each come with a
+new attack vector. Automation scripts can be harvested to glean credentials. Rules can be added and
+modified to evade detection. And each additional tool added to the networked automation must be
+maintained.
+</p>
+<!-- l. 6 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Our current SOP for non-DevSecOps environments is to perform scans entirely offline. This prevents the
+scanning tools themselves, binaries being dynamically analyzed, and scripts being interpreted from phoning home.
+This is not always a possible step to take in a fully connected DevSecOps environment. Furthermore, it’s rare for
+each development shop to set up individual authenticators for each program in their pipeline. Suppose that one of
+the projects in an organization give access to an outside entity to change third-party code in a section of their
+repository. Assuming that this third-party repository is also configured for scanning, any vulnerabilities or
+misconfigurations of the scan tools can expose code that is not part of that external organization’s
+repository.
+</p>
+<!-- l. 8 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The biggest risk of combining each program into a single DevSecOps process is giving the keys of the
+kingdom—the entirety of every project’s code and build process—to the administrators that maintain the
+DevSecOps environment. Handing off this responsibility instead of keeping it disparate means that a
+single compromise to your DevSecOps management credentials gives an attacker access to your entire
+kingdom.
+</p>
+<!-- l. 10 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Accepting the Risk</h4>
+
+
+<!-- l. 11 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Are you working on projects that have a high level of secrecy? Is the additional cost of setting up your own pipeline
+for this particular project worth it so that exposures on a centralized DevSecOps environment do not impact your
+program’s security? Do you trust the tools being used in your agile supply chain? If you’re considering a
+centralized DevSecOps environment for your organization, these are serious questions that must be
+answered.
+</p>
+<!-- l. 13 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Praising the benefits of a centralized DevSecOps pipeline should not be interpreted as overlooking the additional
+security concerns it can introduce. Consider the code coverage tool, Codecov. Earlier this year, one of their
+uploading mechanisms was compromised in a discreet way that exposed hundreds of credentials (including this
+author’s).[<a href="#cite.0@20211101:sharma2021" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] For more than two months, attackers passively intercepted the credentials of Codecov users, including
+tokens that authenticated to more repositories than just the ones using Codecov. When developers work to
+build test cases, code coverage statistics, and automated scanning in a DevSecOps environment, it
+stings a little bit more when the tools that are used to secure the pipeline are the ones that become
+compromised.
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead"><a id="x1-40001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 49 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt id="X0-20211101:sharma2021" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[2]  
+</dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20211101:sharma2021" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Ax Sharma. Codecov hack aftermath. hundreds breached, many more to follow. Security Report. Apr. 27,
+2011. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a href="https://securityreport.com/codecov-hack-aftermath-hundreds-breached-many-more-to-follow/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://securityreport.com/codecov-hack-aftermath-hundreds-breached-many-more-to-follow/</span></a>
+(visited on 11/01/2021).</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Perls of Wisdom</title>
 		<link>https://www.SwATips.com/articles/20211004.html</link>
 		<pubDate>Mon, 04 Oct 2021 00:00:00 -0500</pubDate>
@@ -1522,174 +1649,6 @@ painful!
 [1]  
 </dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
 <!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
-
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>A Pedigree of S-BOMs</title>
-		<link>https://www.SwATips.com/articles/20210705.html</link>
-		<pubDate>Mon, 05 Jul 2021 00:00:00 -0500</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a> | <a href="articles/20210705.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>]<br/>
-</h2>
-<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
-<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 5</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> July, 2021</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>A Pedigree of S-BOMs</h3>
-
-
-<!-- l. 43 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Monday 30</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> August, 2021</span>
-</p>
-<!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Recently, a large software project encountered a serious vulnerability. The project has been in existence since
-the early 1990s and consists of millions of lines of code. On May 20<sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup>, CISA issued an advisory that
-resulted in several CVEs being created for some of the older RTOSes.[<a href="#cite.0@20210705:ics21-119-04" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>] When we marked this as a
-critical finding against the legacy system, the response we received was, “I didn’t even know that was in
-there!”
-</p>
-<!-- l. 3 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Establishing a Pedigree</h4>
-
-
-<!-- l. 5 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">While the DoD is still proceeding with its RMF implementation of NIST 800-53 Revision 4, Revision 5 of the RMF
-controls creates a new family: SR - Supply Chain Risk Management. One of the new controls is SR-4, related to the
-provenance of the supply chain. To date, no categorization baseline requires the implementation of SR-4; however, it
-should be anticipated that this control will be tailored in for high-importance and tactical systems in the
-future.
-</p>
-<!-- l. 7 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Part of SR-4 is enhancement SR-4(4) which requires the establishment of provenance and pedigree by keeping up
-with the internal composition of software and hardware components. “For software this includes the composition of
-open-source and proprietary code, including the version of the component at a given point in time.”[<a href="#cite.0@20210705:nist80053rev5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>, p. 66] This is
-a step above the hardware and software lists currently implemented in RMF; the program must manage the
-composition at a more granular level. Claiming not to know that a component includes a dependency would be a
-failure against this control.
-</p>
-<!-- l. 9 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Compliance</h4>
-
-
-<!-- l. 11 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">For software, I recommend implementing Software Package Data Exchange (SPDX) and a Software Bill of Materials
-(S-BOM). A compliant policy would include a statement like the following:
-</p>
-<!-- l. 13 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">     
-</p>
-
-
-<blockquote class="quote">     
-<!-- l. 14 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;">Our  organization  requires  that  each  main  software  delivery  must  define  a  Software  Package
-Data Exchange (SPDX) file and Software Bill of Materials (S-BOM) detailing all first-order
-dependencies.[<a href="#cite.0@20210705:wheeler2019" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>]  The  SPDX  file,  at  a  minimum,  must  include  the  <span class="ec-lmtt-10" style="font-family: monospace,monospace;">PackageName  </span>and
-<span class="ec-lmtt-10" style="font-family: monospace,monospace;">PackageLicenseDeclared</span>.  If  they  are  available,  <span class="ec-lmtt-10" style="font-family: monospace,monospace;">PackageOriginator </span>and  <span class="ec-lmtt-10" style="font-family: monospace,monospace;">PackageHomePage</span>
-must also be provided. Each main delivery product will also provide an S-BOM consisting of an
-SPDX file for each first-order dependency when that first order dependency properly manages
-its own dependencies. For example, if Product A is the deliverable and it depends on Product
-B, Product B is a first-order dependency. If Product B depends on Product C, Product C is a
-second-order dependency and only requires documentation in the S-BOM if it is also a first-order
-dependency or if Product B requires Product A to manage its dependencies.
-</p>     
-<!-- l. 16 --><p class="noindent" style="margin-bottom: 0; margin-top: 1em;">For every major release of the deliverable or every three years (whichever occurs first), a Software
-Composition Analysis is performed, and the S-BOM’s SPDX files are compared to the results.
-The software composition analysis may be conducted automatically as part of the CI/CD pipeline
-or in our Software Assurance assessments. Undocumented dependencies are triaged as security
-concerns in our issue tracking system.</p></blockquote>
-
-
-<!-- l. 19 -->
-<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   Such a policy requires listings of dependencies with their version numbers, encourages developers to automate
-composition analysis, documents the POCs for each dependency, and records the license restrictions of each
-component.
-                                                                                         
-                                                                                         
-</p>
-<!-- l. 21 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a id="x1-40001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Recommendations</h4>
-
-
-<!-- l. 23 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">The Application Sescurity and Development Security Technical Implementation Guide (STIG) should be updated to
-check that dependencies are documented appropriately. There is not currently a STIG requirement to document and
-manage dependencies.
-</p>
-<!-- l. 25 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   When issuing Control Correlation Identifiers (CCI) against SR-4(4), DISA should divide this into at least two
-checks: one for documenting the composition correctly, and the other for verifying the integrity and correctness of
-that composition.
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead"><a id="x1-50001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 48 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt id="X0-20210705:ics21-119-04" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210705:ics21-119-04" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>US-CERT.  ICS Advisory (ICSA-21-119-04): Multiple RTOS (Update B).  CISA.  May 20,  2021.  <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a class="url" href="https://us-cert.cisa.gov/ics/advisories/icsa-21-119-04" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://us-cert.cisa.gov/ics/advisories/icsa-21-119-04</span></a> (visited on 06/23/2021).
-</p>    
-</dd>
-<dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[2]  
-</dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
-</p>    
-</dd>
-<dt id="X0-20210705:nist80053rev5" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[3]  
-</dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210705:nist80053rev5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>National                                Institute                                of                                Standards
-and Technology. Security and Privacy Controls for Information Systems and Organizations. Tech. rep.
-Special Publication (SP) 800-53 Revision 5. Washington, D.C.: U.S. Department of Commerce, 2001.
-<span class="small-caps" style="font-variant: small-caps;">doi</span>:        <a href="https://doi.org/10.6028/NIST.SP.800-53r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10    .    6028    /    NIST    .    SP    .    800    -    53r5</span></a>.        <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a class="url" href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf</span></a>.
-</p>    
-</dd>
-<dt id="X0-20210705:wheeler2019" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[4]  
-</dt><dd id="bib-4" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210705:wheeler2019" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>David A. Wheeler. SPDX Tutorial. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://github.com/david-a-wheeler/spdx-tutorial/blob/cee3cbe7ae5f83ec478e2acf2c9282eafd42ff0f/README.md" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://github.com/david-a-wheeler/spdx-tutorial/blob/cee3cbe7ae5f83ec478e2acf2c9282eafd42ff0f/README.md</span></a>
-(visited on 06/23/2021).</p></dd></dl>
 
  
 

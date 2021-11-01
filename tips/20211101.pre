@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Additional Risks to DevSecOps Pipelines}
+\newcommand{\ArticleDate}{\formatdate{1}{11}{2021}}
+\addbibresource{20211101.bib}
