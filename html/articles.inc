@@ -1,3 +1,4 @@
+<li>20211129 - <a href="articles/20211129.html">Malicious Injection of Source Code</a></li>
 <li>20211101 - <a href="articles/20211101.html">Additional Risks to DevSecOps Pipelines</a></li>
 <li>20211004 - <a href="articles/20211004.html">Perls of Wisdom</a></li>
 <li>20210913 - <a href="articles/20210913.html">Static Header Paths</a></li>
@@ -7,4 +8,3 @@
 <li>20210809 - <a href="articles/20210809.html">Ada <del>Low</del>High Integrity Profiles</a></li>
 <li>20210802 - <a href="articles/20210802.html">Stripping: An Inefficient Obfuscation Technique</a></li>
 <li>20210726 - <a href="articles/20210726.html">Compounding a Classic TOCTOU Mistake</a></li>
-<li>20210719 - <a href="articles/20210719.html">File-by-File Scanning for Ada</a></li>

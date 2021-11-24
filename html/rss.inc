@@ -1,4 +1,103 @@
 	<item>
+		<title>Malicious Injection of Source Code</title>
+		<link>https://www.SwATips.com/articles/20211129.html</link>
+		<pubDate>Mon, 29 Nov 2021 00:00:00 -0600</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20211129.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[swatips]<br/>
+</h2>
+<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
+<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 29</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> November, 2021</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Malicious Injection of Source Code</h3>
+
+
+<!-- l. 44 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Wednesday 24</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> November, 2021</span>
+</p>
+<!-- l. 1 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Suppose that you are a spy, tasked with embedding a malicious backdoor into enemy source code. After being
+hired onto the team, you find that every line of code is subject to manual code reviews. One of the best ways to hide
+a Trojan is in plain sight: directly in the source code that’s being reviewed.
+</p>
+<!-- l. 3 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Unicode Injections</h4>
+
+
+<!-- l. 4 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">One of my favorite types of attacks is the homoglyph attack.[<span class="rm-lmbx-10" style="font-weight: bold;">20211129:hood</span>] Developers can embed a function so
+deeply into code with the apparent same name as a benign-looking version of the function. Consider the homoglyphs
+used in Boucher and Anderson’s example in Figure <a href="#x1-2001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20211129:homoglyph  --></a>.[<span class="rm-lmbx-10" style="font-weight: bold;">20211129:boucher</span>] By using a Cyrillic <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Н </span>and hiding the
+malicious <span class="ec-lmtt-10" style="font-family: monospace,monospace;">sayНello() </span>deep into the code, the developers could be tricked into thinking that a different function is
+being called.
+</p>
+   
+
+<!-- l. 6 -->
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-2001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-2002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+   
+
+<div id="listing-1" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-2003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">#include</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> &lt;iostream&gt; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">void</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> sayHello() { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        std::cout &lt;&lt; "Hello, World!\n"; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">} </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2007r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">void</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> Нsayello() { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2008r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        std::cout &lt;&lt; "Goodbye, World!\n"; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2009r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">} </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2010r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> main() {Н </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2011r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        sayello(); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2012r10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">return</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> 0; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2013r11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">}</span>
+<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1:</span><span class="content">Homoglyphic Function</span></figcaption><!-- tex4ht:label?: x1-2001r1  -->
+   
+</div>
+
+
+<!-- l. 22 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   But my favorite type of injection involves the use of bidirectional (BIDI) unicode symbols. Using these symbols,
+the order of <i>display</i> can be changed from the order of <i>compiler evaluation</i>. Consider the function in Figure <a href="#x1-2014r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2<!-- tex4ht:ref: lst:20211129:comment  --></a>. While
+functions or a return value may appear to be commented out on a web browser or development IDE, they are
+actually part of the code and become a sneaky way to inject logic that appears commented out to a
+reviewer.
+</p>
+   
+
+<!-- l. 24 -->
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-2014r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-2015" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+   
+
+<div id="listing-2" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-2016r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">#include</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> &lt;iostream&gt; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2017r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2018r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">bool isAdmin() </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2019r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">{ </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2020r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">        /* If we are an admin, </span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">⁧</span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;"> /*/</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">return</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> true ; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2021r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        std::cerr &lt;&lt; "You are not an admin." &lt;&lt; std::endl; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2022r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">return</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> false; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2023r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">} </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2024r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2025r10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> main() </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2026r11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">{ </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2027r12" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">if</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> (isAdmin()) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2028r13" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2029r14" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               std::cout &lt;&lt; "You are an admin." &lt;&lt; std::endl; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2030r15" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2031r16" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">else</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2032r17" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2033r18" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               std::cout &lt;&lt; "You are NOT an admin." &lt;&lt; std::endl; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2034r19" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2035r20" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">return</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> 0; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-2036r21" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">}</span>
+<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 2:</span><span class="content">Comment Reordering</span></figcaption><!-- tex4ht:label?: x1-2014r1  -->
+   
+</div>
+
+                                                                                         
+                                                                                         
+   
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Additional Risks to DevSecOps Pipelines</title>
 		<link>https://www.SwATips.com/articles/20211101.html</link>
 		<pubDate>Mon, 01 Nov 2021 00:00:00 -0500</pubDate>
@@ -1488,167 +1587,6 @@ cleartext passwords (CWE-256) for a connected device.
 [1]  
 </dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
-
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>File-by-File Scanning for Ada</title>
-		<link>https://www.SwATips.com/articles/20210719.html</link>
-		<pubDate>Mon, 19 Jul 2021 00:00:00 -0500</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a> | <a href="articles/20210719.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
-</h2>
-<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jonathan Hickerson</span></div><br/>
-<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 19</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> July, 2021</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>File-by-File Scanning for Ada</h3>
-
-
-<!-- l. 42 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Friday 6</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> August, 2021</span>
-</p>
-<!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Scanning code which will not fully build is often a thorn in the side of the software assurance analyst who has
-been delivered code from an external customer. This is doubly true in a language such as Ada with few viable
-scanning options.
-</p>
-<!-- l. 3 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   AdaCore CodePeer has an operation called “Analyze File by File” which sounds like it would help if the entire
-Ada project will not build. After all, if a portion of the code will build, surely obtaining scan results for that portion
-of the code is better than no results at all. An enterprising software assurance analyst, full of hope and cheer, might
-try this tool, only to come to the crushing realization that even though it operates on individual files, it is
-only intended for use in the context of an already buildable project, sending them back to square
-one.
-</p>
-<!-- l. 5 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A workaround to this issue, and a way to have CodePeer successfully operate on individual files in an Ada
-project is a little more involved.
-</p>
-<!-- l. 7 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   While a normal <span class="ec-lmtt-10" style="font-family: monospace,monospace;">codepeer-gprbuild </span>scan operates on a project and expects the full project to build, one can
-pass it a project and a specific file, and while the project will fail to build, if the individual file builds, it will
-generate a <span class="ec-lmtt-10" style="font-family: monospace,monospace;">.SCIL </span>file, which is the output of the building/linking process which CodePeer requires for analysis. The
-command line argument for this setup is shown in Listing <a href="#x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20210719:gprbuild  --></a>. </p>
-<!-- l. 8 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<div class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">$ codepeer-gprbuild -ws -c -f -u -P[a project file] --subdirs=codepeer-file --codepeer -gnateC [a .ada, .adb, or .ads file]</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1:</span><span class="content">CodePeer
-GPRBuild
-Setup</span></figcaption><!-- tex4ht:label?: x1-1001r1  -->
-   
-</div>
-
-
-<!-- l. 12 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Once this file has been processed and its <span class="ec-lmtt-10" style="font-family: monospace,monospace;">.SCIL </span>file created, one can do a normal <span class="ec-lmtt-10" style="font-family: monospace,monospace;">codepeer-gprbuild </span>on the
-entire project from within GPS. While the build will fail, it will still check for existing <span class="ec-lmtt-10" style="font-family: monospace,monospace;">.SCIL </span>files and then perform
-an analysis on these files. By iteratively performing the above command on all <span class="ec-lmtt-10" style="font-family: monospace,monospace;">.ada</span>, <span class="ec-lmtt-10" style="font-family: monospace,monospace;">.ads</span>, and <span class="ec-lmtt-10" style="font-family: monospace,monospace;">.adb </span>files in the
-project, and following it with a normal analysis, an analyst can get some results out of CodePeer. The full process
-is:
-</p>
-<!-- l. 14 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">     
-</p>
-
-
-<ol class="enumerate1" style="list-style-type: decimal;">     
-<li class="enumerate" id="x1-1005x1">
-Build a new Ada project file (a <span class="ec-lmtt-10" style="font-family: monospace,monospace;">.gpr </span>file) which does nothing but include all of the files within the Ada
-project. An example project is shown in Listing <a href="#x1-1006r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2<!-- tex4ht:ref: lst:20210719:samplegpr  --></a>. <!-- l. 16 -->
-<a id="x1-1006r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-<a id="x1-1007" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>     
-<div class="lstlisting" id="listing-2" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1008r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">Project Test </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">is</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1009r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">For</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> languages </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">use</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> ("Ada"); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1010r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">For</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> Source_Dirs </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">use</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> ("./**"); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1011r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">End</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> Test;</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 2:</span><span class="content">All-Inclusive
-GPR
-Example</span></figcaption><!-- tex4ht:label?: x1-1006r1  -->
-     
-</div>
-</li>     
-<li class="enumerate" id="x1-1013x2">
-Run the command in Listing <a href="#x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20210719:gprbuild  --></a> against each file that requires CodePeer analysis. This is probably best done
-with a script, such as one demonstrated in Listings <a href="#x1-1014r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3<!-- tex4ht:ref: lst:20210719:automationlin  --></a> and <a href="#x1-1021r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4<!-- tex4ht:ref: lst:20210719:automationwin  --></a> where <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Project.gpr </span>is the project created from
-Listing <a href="#x1-1006r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2<!-- tex4ht:ref: lst:20210719:samplegpr  --></a>. <!-- l. 23 -->
-<a id="x1-1014r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-<a id="x1-1015" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-                                                                                         
-                                                                                         
-     
-<div class="lstlisting" id="listing-3" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1016r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">#!/bin/bash</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1017r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">find ./ -name "*.ad[abs]" | </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">while</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">read</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> x; </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">do</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1018r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">echo</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> ${x} </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1019r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        codepeer-gprbuild -ws -c -f -u -PProject.gpr --subdirs=codepeer-file --codepeer -gnateC "${x}" </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1020r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">done</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 3:</span><span class="content">Bash
-Script
-for
-Ada
-Single-Build
-Automation</span></figcaption><!-- tex4ht:label?: x1-1014r1  -->
-     
-</div>
-<!-- l. 31 -->
-<a id="x1-1021r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-<a id="x1-1022" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>     
-<div class="lstlisting" id="listing-4" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1023r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">@ECHO OFF </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1024r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">for</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> /R %%f </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">in</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> (.\*) </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">do</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> ( </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1025r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">echo</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> %%~xf|findstr /r "ad[abs]$" &gt; nul 2&gt;&amp;1 </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1026r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">if</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> errorlevel 0 ( </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1027r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">echo</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> "%%~ff" </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1028r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               codepeer-gprbuild -ws -c -f -u -PProject.gpr --subdirs=codepeer-file --codepeer -gnateC "%%~ff" </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1029r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        ) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1030r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">)</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 4:</span><span class="content">Batch
-Script
-for
-Ada
-Single-Build
-Automation</span></figcaption><!-- tex4ht:label?: x1-1021r1  -->
-     
-</div>
-</li>     
-<li class="enumerate" id="x1-1032x3">
-In the GPS studio, open the project file, and select <i>analyze</i>. Step one of the analysis process (building and
-linking) will fail, but when step two begins, it will detect the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">.SCIL </span>files from above and proceed to analyze
-those files.
-</li>     
-<li class="enumerate" id="x1-1034x4">
-In the GPS studio, export the analysis results.</li></ol>
-
-
-<!-- l. 46 -->
-<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   I hope this makes the reader’s next adventure in the world of unbuildable Ada code a little less
-painful!
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 47 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
-<!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
 
  
 

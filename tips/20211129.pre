@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Malicious Injection of Source Code}
+\newcommand{\ArticleDate}{\formatdate{29}{11}{2021}}
+\addbibresource{20211129.bib}
