@@ -3,25 +3,23 @@ Suppose that you are a spy, tasked with embedding a malicious backdoor into enem
 \subsection{Unicode Injections}
 One of my favorite types of attacks is the homoglyph attack.\autocite{20211129:hood} Developers can embed a function so deeply into code with the apparent same name as a benign-looking version of the function. Consider the homoglyphs used in Boucher and Anderson's example in Figure~\ref{lst:20211129:homoglyph}.\autocite{20211129:boucher} By using a Cyrillic \texttt{Н} and hiding the malicious \texttt{sayНello()} deep into the code, the developers could be tricked into thinking that a different function is being called.
 
-\begin{lstlisting}[caption={Homoglyphic Function},captionpos=b,style=CStyle,basicstyle=\small,label={lst:20211129:homoglyph},literate={"}{\textquotedouble}1
-{Н}{{{Н}}}1,upquote=true]
+\begin{lstlisting}[caption={Homoglyphic Function},captionpos=b,style=CStyle,basicstyle=\small,label={lst:20211129:homoglyph},upquote=true,escapeinside={(*@}{@*)}]
 #include <iostream>
 void sayHello() {
 	std::cout << "Hello, World!\n";
 }
-void sayНello() {
+void (*@\texttt{sayНello()}@*) {
 	std::cout << "Goodbye, World!\n";
 }
 int main() {
-	sayНello();
+	(*@\texttt{sayНello()}@*);
 	return 0;
 }
 \end{lstlisting}
 
 But my favorite type of injection involves the use of bidirectional (BIDI) unicode symbols. Using these symbols, the order of \textit{display} can be changed from the order of \textit{compiler evaluation}. Consider the function in Figure~\ref{lst:20211129:comment}. While functions or a return value may appear to be commented out on a web browser or development IDE, they are actually part of the code and become a sneaky way to inject logic that appears commented out to a reviewer.
 
-\begin{lstlisting}[caption={Comment Reordering},captionpos=b,style=CStyle,basicstyle=\small,label={lst:20211129:comment},literate={"}{"}1
-{⁧}{⁧}1,upquote=true]
+\begin{lstlisting}[caption={Comment Reordering},captionpos=b,style=CStyle,basicstyle=\small,label={lst:20211129:comment},upquote=true]
 #include <iostream>
 
 bool isAdmin()

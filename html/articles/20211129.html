@@ -7,15 +7,15 @@
 <meta charset="utf-8"/>
  
 
-<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"/>
  
 
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
  
 
  
 
-<meta content="article.tex" name="src"/>
+<meta name="src" content="article.tex"/>
  
 
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
@@ -23,7 +23,6 @@
  
 /* start css.sty */
 .rm-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
-.rm-lmbx-10{ font-weight: bold;}
 .rm-lmr-12{font-size:120%;}
 .rm-lmr-9{font-size:90%;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
@@ -39,11 +38,13 @@
 .ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
 .ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
 .ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.rm-lmbx-9{font-size:90%; font-weight: bold;}
 .rm-lmri-10{ font-style:italic;}
 .ec-lmtti-10x-x-90{font-size:90%; font-family: monospace,monospace; font-style:italic;}
 .ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
 .ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
 .ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.rm-lmcsc-10{font-variant: small-caps;}
 p{margin-top:0;margin-bottom:0}
 p.indent{text-indent:0;}
 p + p{margin-top:1em;}
@@ -186,7 +187,7 @@ span.uwave {text-decoration:underline }
                                                                                          
 
 <h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
-A product of the Software Assurance Tips Team[swatips]<br />
+A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>3</a>]<br />
 </h2>
 <div class='author'><span class='rm-lmr-12'>Jon Hood</span></div><br />
 <div class='date'><span class='rm-lmr-12'>Monday 29</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> November, 2021</span></div>
@@ -195,42 +196,63 @@ A product of the Software Assurance Tips Team[swatips]<br />
                                                                                          
    
 <h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Malicious Injection of Source Code</h3>
-<!-- l. 44 --><p class='noindent'><span class='rm-lmr-8'>Updated Wednesday 24</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-8'> November, 2021</span>
+<!-- l. 44 --><p class='noindent'><span class='rm-lmr-8'>Updated Monday 29</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-8'> November, 2021</span>
 </p><!-- l. 1 --><p class='indent'>   Suppose that you are a spy, tasked with embedding a malicious backdoor into enemy source code. After being
 hired onto the team, you find that every line of code is subject to manual code reviews. One of the best ways to hide
 a Trojan is in plain sight: directly in the source code that’s being reviewed.
 </p><!-- l. 3 --><p class='noindent'>
 </p>   
 <h4 class='subsectionHead'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Unicode Injections</h4>
-<!-- l. 4 --><p class='noindent'>One of my favorite types of attacks is the homoglyph attack.[<span class='rm-lmbx-10'>20211129:hood</span>] Developers can embed a function so
-deeply into code with the apparent same name as a benign-looking version of the function. Consider the homoglyphs
-used in Boucher and Anderson’s example in Figure <a href='#x1-2001r1'>1<!-- tex4ht:ref: lst:20211129:homoglyph  --></a>.[<span class='rm-lmbx-10'>20211129:boucher</span>] By using a Cyrillic <span class='ec-lmtt-10'>Н </span>and hiding the
-malicious <span class='ec-lmtt-10'>sayНello() </span>deep into the code, the developers could be tricked into thinking that a different function is
-being called.
+<!-- l. 4 --><p class='noindent'>One of my favorite types of attacks is the homoglyph attack.[<a href='#cite.0@20211129:hood'>2</a>] Developers can embed a function so deeply into code
+with the apparent same name as a benign-looking version of the function. Consider the homoglyphs used in Boucher
+and Anderson’s example in Figure <a href='#x1-2001r1'>1<!-- tex4ht:ref: lst:20211129:homoglyph  --></a>.[<a href='#cite.0@20211129:boucher'>1</a>] By using a Cyrillic <span class='ec-lmtt-10'>Н </span>and hiding the malicious <span class='ec-lmtt-10'>sayНello()</span>
+deep into the code, the developers could be tricked into thinking that a different function is being
+called.
 </p>   
 <!-- l. 6 -->
 <p><a id='x1-2001r1'></a></p>
 <p><a id='x1-2002'></a></p>   
-<div id='listing-1' class='lstlisting'><span class='label'><a id='x1-2003r1'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;iostream&gt; </span><br /><span class='label'><a id='x1-2004r2'></a></span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'> sayHello() { </span><br /><span class='label'><a id='x1-2005r3'></a></span><span class='ec-lmtt-9'>        std::cout &lt;&lt; "Hello, World!\n"; </span><br /><span class='label'><a id='x1-2006r4'></a></span><span class='ec-lmtt-9'>} </span><br /><span class='label'><a id='x1-2007r5'></a></span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'> Нsayello() { </span><br /><span class='label'><a id='x1-2008r6'></a></span><span class='ec-lmtt-9'>        std::cout &lt;&lt; "Goodbye, World!\n"; </span><br /><span class='label'><a id='x1-2009r7'></a></span><span class='ec-lmtt-9'>} </span><br /><span class='label'><a id='x1-2010r8'></a></span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> main() {Н </span><br /><span class='label'><a id='x1-2011r9'></a></span><span class='ec-lmtt-9'>        sayello(); </span><br /><span class='label'><a id='x1-2012r10'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>return</span><span class='ec-lmtt-9'> 0; </span><br /><span class='label'><a id='x1-2013r11'></a></span><span class='ec-lmtt-9'>}</span>
+<div class='lstlisting' id='listing-1'><span class='label'><a id='x1-2003r1'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;iostream&gt; </span><br /><span class='label'><a id='x1-2004r2'></a></span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'> sayHello() { </span><br /><span class='label'><a id='x1-2005r3'></a></span><span class='ec-lmtt-9'>        std::cout &lt;&lt; "Hello, World!\n"; </span><br /><span class='label'><a id='x1-2006r4'></a></span><span class='ec-lmtt-9'>} </span><br /><span class='label'><a id='x1-2007r5'></a></span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'> sayНello()</span><span class='rm-lmr-9'> { </span><br /><span class='label'><a id='x1-2008r6'></a></span><span class='rm-lmr-9'>        std::cout &lt;&lt; Goodbye, World!\n; </span><br /><span class='label'><a id='x1-2009r7'></a></span><span class='rm-lmr-9'>} </span><br /><span class='label'><a id='x1-2010r8'></a></span><span class='rm-lmbx-9'>int</span><span class='rm-lmr-9'> main() { </span><br /><span class='label'><a id='x1-2011r9'></a></span><span class='rm-lmr-9'>        </span><span class='ec-lmtt-9'>sayНello()</span><span class='rm-lmr-9'>; </span><br /><span class='label'><a id='x1-2012r10'></a></span><span class='rm-lmr-9'>        </span><span class='rm-lmbx-9'>return</span><span class='rm-lmr-9'> 0; </span><br /><span class='label'><a id='x1-2013r11'></a></span><span class='rm-lmr-9'>}</span>
 <figcaption class='caption'><span class='id'>Listing 1:</span><span class='content'>Homoglyphic Function</span></figcaption><!-- tex4ht:label?: x1-2001r1  -->
    
 </div>
-<!-- l. 22 --><p class='indent'>   But my favorite type of injection involves the use of bidirectional (BIDI) unicode symbols. Using these symbols,
+<!-- l. 20 --><p class='indent'>   But my favorite type of injection involves the use of bidirectional (BIDI) unicode symbols. Using these symbols,
 the order of <i>display</i> can be changed from the order of <i>compiler evaluation</i>. Consider the function in Figure <a href='#x1-2014r2'>2<!-- tex4ht:ref: lst:20211129:comment  --></a>. While
 functions or a return value may appear to be commented out on a web browser or development IDE, they are
 actually part of the code and become a sneaky way to inject logic that appears commented out to a
 reviewer.
 </p>   
-<!-- l. 24 -->
+<!-- l. 22 -->
 <p><a id='x1-2014r2'></a></p>
 <p><a id='x1-2015'></a></p>   
-<div id='listing-2' class='lstlisting'><span class='label'><a id='x1-2016r1'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;iostream&gt; </span><br /><span class='label'><a id='x1-2017r2'></a></span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-2018r3'></a></span><span class='ec-lmtt-9'>bool isAdmin() </span><br /><span class='label'><a id='x1-2019r4'></a></span><span class='ec-lmtt-9'>{ </span><br /><span class='label'><a id='x1-2020r5'></a></span><span class='ec-lmtti-10x-x-90'>        /* If we are an admin, </span><span class='ec-lmtt-9'>⁧</span><span class='ec-lmtti-10x-x-90'> /*/</span><span class='ec-lmtt-9'> </span><span class='ec-lmtk-10x-x-90'>return</span><span class='ec-lmtt-9'> true ; </span><br /><span class='label'><a id='x1-2021r6'></a></span><span class='ec-lmtt-9'>        std::cerr &lt;&lt; "You are not an admin." &lt;&lt; std::endl; </span><br /><span class='label'><a id='x1-2022r7'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>return</span><span class='ec-lmtt-9'> false; </span><br /><span class='label'><a id='x1-2023r8'></a></span><span class='ec-lmtt-9'>} </span><br /><span class='label'><a id='x1-2024r9'></a></span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-2025r10'></a></span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> main() </span><br /><span class='label'><a id='x1-2026r11'></a></span><span class='ec-lmtt-9'>{ </span><br /><span class='label'><a id='x1-2027r12'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (isAdmin()) </span><br /><span class='label'><a id='x1-2028r13'></a></span><span class='ec-lmtt-9'>        { </span><br /><span class='label'><a id='x1-2029r14'></a></span><span class='ec-lmtt-9'>               std::cout &lt;&lt; "You are an admin." &lt;&lt; std::endl; </span><br /><span class='label'><a id='x1-2030r15'></a></span><span class='ec-lmtt-9'>        } </span><br /><span class='label'><a id='x1-2031r16'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>else</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-2032r17'></a></span><span class='ec-lmtt-9'>        { </span><br /><span class='label'><a id='x1-2033r18'></a></span><span class='ec-lmtt-9'>               std::cout &lt;&lt; "You are NOT an admin." &lt;&lt; std::endl; </span><br /><span class='label'><a id='x1-2034r19'></a></span><span class='ec-lmtt-9'>        } </span><br /><span class='label'><a id='x1-2035r20'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>return</span><span class='ec-lmtt-9'> 0; </span><br /><span class='label'><a id='x1-2036r21'></a></span><span class='ec-lmtt-9'>}</span>
+<div class='lstlisting' id='listing-2'><span class='label'><a id='x1-2016r1'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;iostream&gt; </span><br /><span class='label'><a id='x1-2017r2'></a></span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-2018r3'></a></span><span class='ec-lmtt-9'>bool isAdmin() </span><br /><span class='label'><a id='x1-2019r4'></a></span><span class='ec-lmtt-9'>{ </span><br /><span class='label'><a id='x1-2020r5'></a></span><span class='ec-lmtti-10x-x-90'>        /* If we are an admin, </span><span class='ec-lmtt-9'>⁧</span><span class='ec-lmtti-10x-x-90'> /*/</span><span class='ec-lmtt-9'> </span><span class='ec-lmtk-10x-x-90'>return</span><span class='ec-lmtt-9'> true ; </span><br /><span class='label'><a id='x1-2021r6'></a></span><span class='ec-lmtt-9'>        std::cerr &lt;&lt; "You are not an admin." &lt;&lt; std::endl; </span><br /><span class='label'><a id='x1-2022r7'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>return</span><span class='ec-lmtt-9'> false; </span><br /><span class='label'><a id='x1-2023r8'></a></span><span class='ec-lmtt-9'>} </span><br /><span class='label'><a id='x1-2024r9'></a></span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-2025r10'></a></span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> main() </span><br /><span class='label'><a id='x1-2026r11'></a></span><span class='ec-lmtt-9'>{ </span><br /><span class='label'><a id='x1-2027r12'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (isAdmin()) </span><br /><span class='label'><a id='x1-2028r13'></a></span><span class='ec-lmtt-9'>        { </span><br /><span class='label'><a id='x1-2029r14'></a></span><span class='ec-lmtt-9'>               std::cout &lt;&lt; "You are an admin." &lt;&lt; std::endl; </span><br /><span class='label'><a id='x1-2030r15'></a></span><span class='ec-lmtt-9'>        } </span><br /><span class='label'><a id='x1-2031r16'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>else</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-2032r17'></a></span><span class='ec-lmtt-9'>        { </span><br /><span class='label'><a id='x1-2033r18'></a></span><span class='ec-lmtt-9'>               std::cout &lt;&lt; "You are NOT an admin." &lt;&lt; std::endl; </span><br /><span class='label'><a id='x1-2034r19'></a></span><span class='ec-lmtt-9'>        } </span><br /><span class='label'><a id='x1-2035r20'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>return</span><span class='ec-lmtt-9'> 0; </span><br /><span class='label'><a id='x1-2036r21'></a></span><span class='ec-lmtt-9'>}</span>
 <figcaption class='caption'><span class='id'>Listing 2:</span><span class='content'>Comment Reordering</span></figcaption><!-- tex4ht:label?: x1-2014r1  -->
    
 </div>
                                                                                          
                                                                                          
    
+<h3 class='sectionHead'><a id='x1-30001.1'></a>References</h3>
+<!-- l. 49 --><p class='noindent'>    
+</p>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-20211129:boucher'>
+[1]  
+</dt><dd class='thebibliography' id='bib-1'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20211129:boucher'></a>Nicholas Boucher and Ross Anderson. “Trojan Source: Invisible Vulnerabilities”. In: Preprint (2021).
+arXiv: <a href='https://arxiv.org/abs/2111.00169'><span class='ec-lmtt-10'>2111.00169 [cs.CR]</span></a>. <span class='small-caps'>url</span>: <a href='https://arxiv.org/abs/2111.00169' class='url'><span class='ec-lmtt-10'>https://arxiv.org/abs/2111.00169</span></a>.
+</p>    
+</dd>
+<dt class='thebibliography' id='X0-20211129:hood'>
+[2]  
+</dt><dd class='thebibliography' id='bib-2'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20211129:hood'></a>Jon    Hood.    “Homoglyphs    and    Homographic    Attacks”.    In:    SwATips.com    (2021).    <span class='small-caps'>url</span>:
+<a href='https://www.swatips.com/articles/20210510.html' class='url'><span class='ec-lmtt-10'>https://www.swatips.com/articles/20210510.html</span></a>.
+</p>    
+</dd>
+<dt class='thebibliography' id='X0-swatips'>
+[3]  
+</dt><dd class='thebibliography' id='bib-3'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips. <a href='https://www.SwATips.com/' class='url'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.</p></dd></dl>
  
 </body> 
 </html>
