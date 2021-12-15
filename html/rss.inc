@@ -1,4 +1,247 @@
 	<item>
+		<title>GCC as a Static Analysis Tool</title>
+		<link>https://www.SwATips.com/articles/20211220.html</link>
+		<pubDate>Mon, 20 Dec 2021 00:00:00 -0600</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20211220.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
+</h2>
+<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Andrea Barnes</span></div><br/>
+<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 20</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> December, 2021</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>GCC as a Static Analysis Tool</h3>
+
+
+<!-- l. 44 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Wednesday 15</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> December, 2021</span>
+</p>
+<!-- l. 1 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A new static analysis feature has been released with GCC-10 and GCC-11. David Malcom is a Redhat Developer
+on the GCC project who has implemented <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fanalyzer</span>: “A static analysis pass to identify various problems at
+compile-time, rather than at runtime.”[<a href="#cite.0@20211220:gcc10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] This analyzer writes security issues to the console using the
+<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer </span>tag (not to be confused with the GCC -W warning flags). The output includes Common
+Weakness Enumeration (CWE) identifiers as well the ability to print a path of events that trigger the
+flag.
+</p>
+<!-- l. 3 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>History of GCC-10 and GCC-11 Static Analyzers</h4>
+
+
+<!-- l. 5 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">GCC-10 includes 15 <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fanalyzer </span>checkers: </p>
+
+
+<ul class="itemize1">     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-double-free</span>
+</li>     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-use-after-free</span>
+</li>     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-free-of-non-heap</span>
+</li>     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-malloc-leak</span>
+</li>     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-possible-null-argument</span>
+</li>     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-possible-null-dereference</span>
+</li>     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-null-argument</span>
+</li>     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-null-dereference</span>
+</li>     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-double-fclose</span>
+</li>     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-file-leak</span>
+</li>     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-stale-setjmp-buffer</span>
+</li>     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-use-of-pointer-in-stale-stack-frame</span>
+</li>     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-unsafe-call-within-signal-handler</span>
+</li>     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-tainted-array-index</span>
+                                                                                         
+                                                                                         
+     
+</li>
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-exposure-through-output-file</span></li></ul>
+
+
+<!-- l. 24 -->
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   The checker works well on small to medium sized, C examples. An issue that Malcom noted includes bugs in the
+analyzer’s state-tracking component regarding symbolic values and canonicalization to compare different states. As
+these bugs were fixed, more bugs would be found. This prompted Malcom to rewrite the entire component for the
+release of GCC-11.
+</p>
+<!-- l. 26 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   In the release of GCC-11, Malcom fixed the state-tracking component bugs by implementing the symbolic values
+as singletons, using pointers and reducing large amounts of canonicalization code. Other features that Malcom
+updated in this release include partial C++ support for <span class="ec-lmtt-10" style="font-family: monospace,monospace;">new </span>and <span class="ec-lmtt-10" style="font-family: monospace,monospace;">delete</span>, rewriting the memory leak detection to
+generate fewer false positives, and fixing non-determinism logic to ensure that the analyzer’s behavior would not
+vary from run to run.[<a href="#cite.0@20211220:gcc11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]
+</p>
+<!-- l. 28 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Additionally, GCC-11 adds 4 new <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fanalyzer </span>checkers: </p>
+
+
+<ul class="itemize1">     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-write-to-const</span>
+</li>     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-write-to-string-literal</span>
+</li>     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-shift-count-negative</span>
+</li>     
+<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-shift-count-overflow</span></li></ul>
+
+
+<!-- l. 36 -->
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   The <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fanalyzer </span>flag can be directly added to the GCC command in terminal or to the CFLAGS variable for
+Makefiles. Ensure that GCC warnings (-W warnings) are not disabled. Disabling warnings will also cause the
+fanalyzer warnings to be suppressed. Malcolm is still developing the tool and we can look forward to new updates
+and a large rewrite when GCC-12 is released.
+</p>
+<!-- l. 38 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Installing GCC-11 on Ubuntu-based Distributions</h4>
+
+
+<!-- l. 40 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">This install is performed on a fresh install of Linux Mint 20.1 Cinnamon with some extra checks.
+</p>
+<!-- l. 42 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h5 class="subsubsectionHead"><span class="titlemark">1.2.1   </span> <a id="x1-40001.2.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Update Apt Repository</h5>
+
+
+<!-- l. 44 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ sudo apt update &amp;&amp; sudo apt upgrade</span>
+</p>
+<!-- l. 46 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   <span class="ec-lmtt-10" style="font-family: monospace,monospace;">update </span>will update the list of available packages and their versions while <span class="ec-lmtt-10" style="font-family: monospace,monospace;">upgrade </span>will install newer versions of
+the packages you already have.
+</p>
+<!-- l. 48 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h5 class="subsubsectionHead"><span class="titlemark">1.2.2   </span> <a id="x1-50001.2.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Check if GCC-11 is Already Installable</h5>
+
+
+<!-- l. 50 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ apt-cache search gcc-11</span>
+</p>
+<!-- l. 52 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   <span class="ec-lmtt-10" style="font-family: monospace,monospace;">apt-cache </span>will display the gcc-11 packages if they are already installable from your current repositories. If you
+see them, you can skip down to Section <a href="#x1-70001.2.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1.2.4<!-- tex4ht:ref: sec:20211220:install  --></a> to install and configure.
+                                                                                         
+                                                                                         
+</p>
+<!-- l. 54 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h5 class="subsubsectionHead"><span class="titlemark">1.2.3   </span> <a id="x1-60001.2.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Add Ubuntu Toolchain Repository</h5>
+
+
+<!-- l. 56 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ add-apt-repository -y ppa:ubuntu-toolchain-r/test</span>
+</p>
+<!-- l. 58 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Newer versions of GCC and other development packages can be found in Ubuntu’s Toolchain test branch
+PPA.
+</p>
+<!-- l. 60 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   If you receive the error <span class="ec-lmtt-10" style="font-family: monospace,monospace;">gpg: keyserver receive failed: general error</span>, you can manually pull down the
+key from the error code with the following command:<br class="newline"/><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ sudo apt-key adv –keyserver keyserver.ubuntu.com –recv-key KEY_FROM_ERROR</span>
+</p>
+<!-- l. 63 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Don’t forget to run update again to update the list of available packages:<br class="newline"/><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ sudo apt update</span>
+</p>
+<!-- l. 66 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h5 class="subsubsectionHead"><span class="titlemark">1.2.4   </span> <a id="x1-70001.2.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Installing and Configuring GCC</h5>
+
+
+<!-- l. 69 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ sudo apt install gcc-11 &amp;&amp; sudo apt install g++-11</span>
+</p>
+<!-- l. 71 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   This is the general install command for GCC (with G++ support). To run, you can use gcc-11 when compiling,
+or you can configure gcc to default to gcc-11 with the following command:<br class="newline"/><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ sudo update-alternatives –config gcc</span>
+</p>
+<!-- l. 74 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   This will allow you to make a selection based on the versions of gcc install. If you receive an error that there are
+no alternatives, you can use the following few commands to add them manually:<br class="newline"/><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ sudo update-alternatives –remove-all gcc #To clean out</span><br class="newline"/><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ ls /usr/bin/gcc* #To see what versions you have installed</span><br class="newline"/><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ sudo update-alternatives –install /usr/bin/gcc gcc /usr/bin/gcc-11 10</span>
+</p>
+<!-- l. 79 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The setup for the last command is <span class="ec-lmtt-10" style="font-family: monospace,monospace;">–install &lt;link&gt; &lt;name&gt; &lt;path&gt; &lt;priority&gt;</span>. Repeat the last command
+for all versions of gcc listed.
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead"><a id="x1-80001.2.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 49 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt id="X0-20211220:gcc10" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[2]  
+</dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20211220:gcc10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>David    Malcolm.    Static Analysis in GCC 10.    RedHat    Developer.    Mar. 26,    2020.    <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a href="https://developers.redhat.com/blog/2020/03/26/static-analysis-in-gcc-10" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://developers.redhat.com/blog/2020/03/26/static-analysis-in-gcc-10</span></a>.
+</p>    
+</dd>
+<dt id="X0-20211220:gcc11" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[3]  
+</dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20211220:gcc11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>David   Malcolm.   Static Analysis Updates in GCC 11.   RedHat   Developer.   Jan. 28,   2021.   <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a href="https://developers.redhat.com/blog/2021/01/28/static-analysis-updates-in-gcc-11" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://developers.redhat.com/blog/2021/01/28/static-analysis-updates-in-gcc-11</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Malicious Injection of Source Code</title>
 		<link>https://www.SwATips.com/articles/20211129.html</link>
 		<pubDate>Mon, 29 Nov 2021 00:00:00 -0600</pubDate>
@@ -1517,104 +1760,6 @@ the same protections.
 [1]  
 </dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
-
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>Compounding a Classic TOCTOU Mistake</title>
-		<link>https://www.SwATips.com/articles/20210726.html</link>
-		<pubDate>Mon, 26 Jul 2021 00:00:00 -0500</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a> | <a href="articles/20210726.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
-</h2>
-<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
-<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 26</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> July, 2021</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Compounding a Classic TOCTOU Mistake</h3>
-
-
-<!-- l. 42 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Friday 6</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> August, 2021</span>
-</p>
-<!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   One project was marked for an operational buffer overflow (CWE-119) and poor coding practices when a buffer
-reading in a configuration file was set to a static size before reading in the file. The code sent for validation to fix the
-issue looked similar to that of Listing <a href="#x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20210726:toctou  --></a>.
-</p>
-   
-
-<!-- l. 3 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div id="listing-1" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">1</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">fseek(fp, 0, SEEK_END); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">2</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">long</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> size = ftell(fp); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">3</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">char</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> *buf = malloc(</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">sizeof</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">(</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">char</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">)*size); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">4</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">fseek(fp, 0, SEEK_SET); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1007r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">5</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> c; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1008r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">6</span></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">for</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> (</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> i = 0; (c = getc(fp)) != EOF; i++) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1009r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">7</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">{ </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1010r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">8</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">if</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> (c == </span><span class="ts1-lmtt9-" style="font-size: 90%;">'</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">%</span><span class="ts1-lmtt9-" style="font-size: 90%;">'</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1011r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">9</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">break</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1012r10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">10</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        buf[i] = c; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1013r11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmr-9" style="font-size: 90%;">11</span></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">}</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1:</span><span class="content">Overflows and TOCTOUs</span></figcaption><!-- tex4ht:label?: x1-1001r1  -->
-   
-</div>
-
-
-<!-- l. 17 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The developer’s intent is to read a file into a buffer up to an expected truncation character, but the attempted
-fixes to the original issues caused more problems than the original code.
-</p>
-<!-- l. 19 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   First, the code is subject to a Time-Of-Check Time-Of-Use (TOCTOU) issue. By setting up a file
-system watcher event, an attacker could append a pernicious payload to the end of the file so that
-the file is larger than <span class="ec-lmtt-10" style="font-family: monospace,monospace;">ftell() </span>originally reported. This causes a buffer overflow (CWE-120) on Line
-10.
-</p>
-<!-- l. 21 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Second, the developer created a possible wrap-around issue (CWE-190) when the file’s character count is larger
-than <span class="ec-lmtt-10" style="font-family: monospace,monospace;">INT_MAX</span>. The software would then operate outside of the intended buffer boundary on Line 10
-(CWE-119).
-</p>
-<!-- l. 23 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Finally, while inspecting the operational environment, it was discovered that the configuration file had world
-write privileges (CWE-276) which could be used to exploit the TOCTOU issue. Coincidentally, the file also had
-cleartext passwords (CWE-256) for a connected device.
-</p>
-<!-- l. 25 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   What a mess a single TOCTOU issue can uncover!
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 47 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
 
  
 

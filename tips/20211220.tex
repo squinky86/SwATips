@@ -1,0 +1,80 @@
+A new static analysis feature has been released with GCC-10 and GCC-11. David Malcom is a Redhat Developer on the GCC project who has implemented \texttt{-fanalyzer}: ``A static analysis pass to identify various problems at compile-time, rather than at runtime.''\autocite{20211220:gcc10} This analyzer writes security issues to the console using the \texttt{-Wanalyzer} tag (not to be confused with the GCC -W warning flags). The output includes Common Weakness Enumeration (CWE) identifiers as well the ability to print a path of events that trigger the flag.
+
+\subsection{History of GCC-10 and GCC-11 Static Analyzers}
+
+GCC-10 includes 15 \texttt{-fanalyzer} checkers:
+\begin{itemize}
+	\item \texttt{-Wanalyzer-double-free}
+	\item \texttt{-Wanalyzer-use-after-free}
+	\item \texttt{-Wanalyzer-free-of-non-heap}
+	\item \texttt{-Wanalyzer-malloc-leak}
+	\item \texttt{-Wanalyzer-possible-null-argument}
+	\item \texttt{-Wanalyzer-possible-null-dereference}
+	\item \texttt{-Wanalyzer-null-argument}
+	\item \texttt{-Wanalyzer-null-dereference}
+	\item \texttt{-Wanalyzer-double-fclose}
+	\item \texttt{-Wanalyzer-file-leak}
+	\item \texttt{-Wanalyzer-stale-setjmp-buffer}
+	\item \texttt{-Wanalyzer-use-of-pointer-in-stale-stack-frame}
+	\item \texttt{-Wanalyzer-unsafe-call-within-signal-handler}
+	\item \texttt{-Wanalyzer-tainted-array-index}
+	\item \texttt{-Wanalyzer-exposure-through-output-file}
+\end{itemize}
+
+The checker works well on small to medium sized, C examples. An issue that Malcom noted includes bugs in the analyzer's state-tracking component regarding symbolic values and canonicalization to compare different states. As these bugs were fixed, more bugs would be found. This prompted Malcom to rewrite the entire component for the release of GCC-11.
+
+In the release of GCC-11, Malcom fixed the state-tracking component bugs by implementing the symbolic values as singletons, using pointers and reducing large amounts of canonicalization code. Other features that Malcom updated in this release include partial C++ support for \texttt{new} and \texttt{delete}, rewriting the memory leak detection to generate fewer false positives, and fixing non-determinism logic to ensure that the analyzer's behavior would not vary from run to run.\autocite{20211220:gcc11}
+
+Additionally, GCC-11 adds 4 new \texttt{-fanalyzer} checkers: 
+\begin{itemize}
+	\item \texttt{-Wanalyzer-write-to-const}
+	\item \texttt{-Wanalyzer-write-to-string-literal}
+	\item \texttt{-Wanalyzer-shift-count-negative} 
+	\item \texttt{-Wanalyzer-shift-count-overflow}
+\end{itemize}
+
+The \texttt{-fanalyzer} flag can be directly added to the GCC command in terminal or to the CFLAGS variable for Makefiles. Ensure that GCC warnings (-W warnings) are not disabled. Disabling warnings will also cause the fanalyzer warnings to be suppressed. Malcolm is still developing the tool and we can look forward to new updates and a large rewrite when GCC-12 is released.
+
+\subsection{Installing GCC-11 on Ubuntu-based Distributions}
+
+This install is performed on a fresh install of Linux Mint 20.1 Cinnamon with some extra checks.
+
+\subsubsection{Update Apt Repository}
+
+\texttt{\$\ sudo apt update \&\&\ sudo apt upgrade}
+
+\texttt{update} will update the list of available packages and their versions while \texttt{upgrade} will install newer versions of the packages you already have.
+
+\subsubsection{Check if GCC-11 is Already Installable}
+
+\texttt{\$\ apt-cache search gcc-11}
+
+\texttt{apt-cache} will display the gcc-11 packages if they are already installable from your current repositories. If you see them, you can skip down to Section~\ref{sec:20211220:install}\ to install and configure.
+
+\subsubsection{Add Ubuntu Toolchain Repository}
+
+\texttt{\$\ add-apt-repository -y ppa:ubuntu-toolchain-r/test}
+
+Newer versions of GCC and other development packages can be found in Ubuntu's Toolchain test branch PPA.
+
+If you receive the error \texttt{gpg: keyserver receive failed: general error}, you can manually pull down the key from the error code with the following command:\\
+\texttt{\$\ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key KEY\_FROM\_ERROR}
+
+Don't forget to run update again to update the list of available packages:\\
+\texttt{\$\ sudo apt update}
+
+\subsubsection{Installing and Configuring GCC}
+\label{sec:20211220:install}
+
+\texttt{\$\ sudo apt install gcc-11 \&\& sudo apt install g++-11}
+
+This is the general install command for GCC (with G++ support). To run, you can use gcc-11 when compiling, or you can configure gcc to default to gcc-11 with the following command:\\
+\texttt{\$\ sudo update-alternatives --config gcc}
+
+This will allow you to make a selection based on the versions of gcc install. If you receive an error that there are no alternatives, you can use the following few commands to add them manually:\\
+\texttt{\$\ sudo update-alternatives --remove-all gcc \#To clean out}\\
+\texttt{\$\ ls /usr/bin/gcc* \#To see what versions you have installed}\\
+\texttt{\$\ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 10}
+
+The setup for the last command is \texttt{--install <link> <name> <path> <priority>}. Repeat the last command for all versions of gcc listed. 
+

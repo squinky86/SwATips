@@ -21,3 +21,4 @@
 <li>20211004 - <a href="articles/20211004.html">Perls of Wisdom</a></li>
 <li>20211101 - <a href="articles/20211101.html">Additional Risks to DevSecOps Pipelines</a></li>
 <li>20211129 - <a href="articles/20211129.html">Malicious Injection of Source Code</a></li>
+<li>20211220 - <a href="articles/20211220.html">GCC as a Static Analysis Tool</a></li>

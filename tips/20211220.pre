@@ -1,0 +1,4 @@
+\def \AuthorName{Andrea Barnes}
+\def \ArticleName{GCC as a Static Analysis Tool}
+\newcommand{\ArticleDate}{\formatdate{20}{12}{2021}}
+\addbibresource{20211220.bib}
