@@ -1,3 +1,4 @@
+<li>20220202 - <a href="articles/20220202.html">So you put an Unclassified CD in a Classified Machine</a></li>
 <li>20211220 - <a href="articles/20211220.html">GCC as a Static Analysis Tool</a></li>
 <li>20211129 - <a href="articles/20211129.html">Malicious Injection of Source Code</a></li>
 <li>20211101 - <a href="articles/20211101.html">Additional Risks to DevSecOps Pipelines</a></li>
@@ -7,4 +8,3 @@
 <li>20210830 - <a href="articles/20210830.html">A CWE-499 Breakdown: Serializing Sensitive Data</a></li>
 <li>20210816 - <a href="articles/20210816.html">The Password that Cannot Be Spoken</a></li>
 <li>20210809 - <a href="articles/20210809.html">Ada <del>Low</del>High Integrity Profiles</a></li>
-<li>20210802 - <a href="articles/20210802.html">Stripping: An Inefficient Obfuscation Technique</a></li>

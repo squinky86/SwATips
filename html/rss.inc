@@ -1,4 +1,188 @@
 	<item>
+		<title>So you put an Unclassified CD in a Classified Machine</title>
+		<link>https://www.SwATips.com/articles/20220202.html</link>
+		<pubDate>Wed, 02 Feb 2022 00:00:00 -0600</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20220202.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]<br/>
+</h2>
+<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
+<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Wednesday 2</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">nd</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> February, 2022</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>So you put an Unclassified CD in a Classified Machine</h3>
+
+
+<!-- l. 44 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Saturday 29</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> January, 2022</span>
+</p>
+<!-- l. 1 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   <i>NOTE:</i> When in doubt, it’s always appropriate to ask your security office for guidance. Hiding a potential
+mistake carries a greater penalty than admitting a mistake that turns out to be insignificant. The scenario in this
+article is contrived. If you got here from a search engine because you’re wondering if you should report a security
+incident, you should probably go ahead and call your security officer that you are investigating a possible
+incident. They have the authority to establish enhanced rules and should have the expertise to help
+you.
+</p>
+<!-- l. 3 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>A Nervous Newbie</h4>
+
+
+<!-- l. 5 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">It had already been a long, stressful day at work when the panicked, young professional sheepishly knocked on my
+door to report that they “did a dumb.” The terror in his voice made me think that he had either
+given classified information to a hostile government or that he was a spy admitting that he wanted to
+defect.
+</p>
+<!-- l. 7 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   But the truth was much more benign. This young employee had taken a finalized, unclassified,
+properly-marked CD-R with some unclassified software on it and loaded the software onto his shiny new classified
+analysis machine. After he finished the installation, he placed the CD beside the machine and continued
+working, only to notice his coworker installing the software on her new unclassified machine a little while
+later.
+</p>
+<!-- l. 9 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   These two young employees had been trained that a CD-R placed onto a classified computer makes the CD go to
+the classification of the information system it’s placed on. They then did the right thing–unplug the lower-classified
+machine and report a possible security violation.
+</p>
+<!-- l. 11 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Certainly, each information system can have its own requirements for how to handle such a scenario, but in
+general, the DoD and Army have published guidance and minimum security requirements for how to handle such
+things. There are two things that can go classified in the above scenario: the storage media and the data on
+it.
+</p>
+<!-- l. 13 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>The Data</h4>
+
+
+<!-- l. 14 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Security violations always receive priority handling of everyone involved. It’s an immediate “stop work and fix it”
+scenario. But the data involved was inconsequential: an installer for a common word processor that had nice text
+markup for the programming languages these employees were analyzing. The data was unimportant from a security
+and OPSEC standpoint; it was data that was already publicly released and freely available on the
+internet.
+</p>
+<!-- l. 16 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Had the employees loaded data of a higher classification onto a lower-classified machine, we’d have what’s known
+as a spillage event, and the data owners of the higher classified data would have the authority to dictate cleanup
+procedures that we would follow.
+</p>
+<!-- l. 18 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a id="x1-40001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>The Media</h4>
+
+
+<!-- l. 19 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">I recognized the media immediately. It was a CD I had burned with analysis tools the previous month. My practice
+is to burn a single-session UDF CD that can be written only once to help mitigate the risk of security
+violations for this specific scenario. I breathed a sigh of relief when they brought the finalized CD to
+me.
+                                                                                         
+                                                                                         
+</p>
+<!-- l. 21 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The metric for increasing the classification of removable media is “if the level of classification of the information
+on the medium changes.”[<a href="#cite.0@20220202:dodm520001mvol2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, § 4.b] The information system that the CD was being used on permits the use of data
+diodes (one-way data connections from low to high). I could verify that the classified machine could
+not and did not write data to the CD. You can see this metric for classified media documented in
+the examples of DA PAM 25-2-13. Section 4-7.a–b gives the requirements for when inserting a SIPR
+token into a NIPR computer is and is not a security violation. Section 4-7.c gives the scenarios for
+declaring a security incident when a NIPR token is inserted into a SIPR machine, pointing out that
+the metric for an incident is “if classified data were written to the token, or if malicious code was
+introduced.”[<a href="#cite.0@20220202:dapam25-2-13" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] Merely inserting a NIPR token into a properly-configured SIPR machine is not a security
+incident, just like inserting any other unclassified media into a classified machine may not be a security
+incident.
+</p>
+<!-- l. 23 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.4   </span> <a id="x1-50001.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusion</h4>
+
+
+<!-- l. 24 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Each information system’s security department is different and defines its own rules for when removable media can
+go classified. There is always the possible scenario where an important tactical mission is using a Sega Dreamcast
+that reads discs from the outside inward, making it possible to write classified data to the end of a finalized CD or
+DVD. That’s why security offices exist, and reporting a possible security violation is asking those officers to perform
+a role they’re already being paid to do.
+</p>
+<!-- l. 26 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   In the situation documented above, the optical drive was incapable of burning data to a properly finalized,
+non-rewritable disc. All of the possible filesystem records were checked for modification, and the security office was
+called to verify that there were no additional security policies documented governing the insertion of unclassified,
+write-protected media into a classified environment.
+</p>
+<!-- l. 28 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Nevertheless, you can help by using data diodes, properly marking media, finalizing non-rewritable CDs and
+DVDs, and verifying the state of finalized/write-protected media when it is inserted into higher-classification
+environments. Remember that optical media often has multiple filesystem tables that must be verified (often Joilet
+and UDF).
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead"><a id="x1-60001.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 49 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt id="X0-20220202:dodm520001mvol2" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220202:dodm520001mvol2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Department  of  Defense.  Department of Defense Manual 5200.01 Volume 2.  Tech.  rep.  Incorporating
+Change  4,  Effective  July  28,  2020.  Washington,  D.C.:  Department  of  Defense,  2020.  <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a href="https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodm/520001m_vol2.pdf" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodm/520001m_vol2.pdf</span></a>.
+</p>    
+</dd>
+<dt id="X0-20220202:dapam25-2-13" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[2]  
+</dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220202:dapam25-2-13" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Department of the Army. Department of the Army Pamphlet 25–2–13. Army Identity, Credential, and Access Management and Public Key Infrastructure Implementing Instructions.
+Tech. rep. Washington, D.C.: Department of the Army, 2019. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a href="https://armypubs.army.mil/epubs/DR_pubs/DR_a/pdf/web/ARN17425_P25_2_13_Admin_FINAL.pdf" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://armypubs.army.mil/epubs/DR_pubs/DR_a/pdf/web/ARN17425_P25_2_13_Admin_FINAL.pdf</span></a>.
+</p>    
+</dd>
+<dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+[3]  
+</dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>GCC as a Static Analysis Tool</title>
 		<link>https://www.SwATips.com/articles/20211220.html</link>
 		<pubDate>Mon, 20 Dec 2021 00:00:00 -0600</pubDate>
@@ -1620,146 +1804,6 @@ McGraw-Hill Education, 2009. <span class="small-caps" style="font-variant: small
 <!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210809:adap" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Wikibooks. Ada Programming/Object Orientation — Wikibooks, The Free Textbook Project. 2021. <span class="small-caps" style="font-variant: small-caps;">url</span>:
 <a href="https://en.wikibooks.org/w/index.php?title=Ada_Programming/Object_Orientation&amp;oldid=3956556#Constructors" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://en.wikibooks.org/w/index.php?title=Ada_Programming/Object_Orientation&amp;oldid=3956556#Constructors</span></a>
 (visited on 08/06/2021).</p></dd></dl>
-
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>Stripping: An Inefficient Obfuscation Technique</title>
-		<link>https://www.SwATips.com/articles/20210802.html</link>
-		<pubDate>Mon, 02 Aug 2021 00:00:00 -0500</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a> | <a href="articles/20210802.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
-</h2>
-<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
-<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 2</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">nd</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> August, 2021</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Stripping: An Inefficient Obfuscation Technique</h3>
-
-
-<!-- l. 43 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Monday 30</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> August, 2021</span>
-</p>
-<!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Recently, we were given a piece of software with special handling instructions. The software contained a function
-which was supposed to be protected: enemies, competitors, and no one without a need-to-know was to ever see how
-this function manipulated the parameters it was given.
-</p>
-<!-- l. 3 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   While reviewing the security of the software, we discovered that the developer compiled the binary and released
-it on their website. When asked how they were able to release such a private routine publicly, the customer claimed
-that it was fine to release in binary form. Supposedly, the compilation method they used removed the “context of
-the Human-Readable Source Code used to generate the Machine-Readable Object Code from propagating into the
-Machine-Readable Object Code.”
-</p>
-<!-- l. 5 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Let’s put this claim to the test! For the sake of creating a fully unclassified example, suppose that no one has
-ever created a function for calculating factorials, and a new intern fresh out of college submits the code in Listing <a href="#x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20210802:factorial  --></a>
-to solve this highly-secretive, important function. </p>
-<!-- l. 6 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">#include</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> &lt;stdio.h&gt; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">#include</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> &lt;stdlib.h&gt; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">void</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> factorial(</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> argc, </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">char</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> *argv[]) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">{ </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">//SUPER SEKRIT FACTORIALS</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1007r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">unsigned</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">long</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">long</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> ret = 1; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1008r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> maxVal = atoi(argv[1]); </span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">//0&lt;=maxVal&lt;=20</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1009r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">for</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> (</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> i = 1; i &lt;= maxVal; i++) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1010r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">               ret = ret * (</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">unsigned</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">long</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">long</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">)i; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1011r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        printf("%llu\n", ret); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1012r10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">}</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1:</span><span class="content">Unsafe Factorial Function</span></figcaption><!-- tex4ht:label?: x1-1001r1  -->
-   
-</div>
-
-
-<!-- l. 19 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   When compiled into machine code, the function isn’t nearly as easy to follow. Figures <a href="#x1-1013r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2<!-- tex4ht:ref: lst:20210802:machine  --></a> and <a href="#x1-1045r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3<!-- tex4ht:ref: lst:20210802:machine2  --></a> show the
-unstripped and stripped functional machine code respectively. Had the software been compiled in debug mode, the
-source code would have been included alongside the machine code.
-</p>
-   
-
-<div class="minipage" style="margin-top: 1em; width: 100%;"><!-- l. 22 -->
-<a id="x1-1013r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-<a id="x1-1014" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-<div class="lstlisting" id="listing-2" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1015r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">push   %rbp </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1016r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    %rsp,%rbp </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1017r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">sub    $0x30,%rsp </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1018r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    %ecx,0x10(%rbp) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1019r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    %rdx,0x18(%rbp) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1020r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">movl   $0x1,-0x4(%rbp) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1021r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    0x18(%rbp),%rax </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1022r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">add    $0x8,%rax </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1023r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    (%rax),%rax </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1024r10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    %rax,%rcx </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1025r11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">call   29 &lt;factorial+0x29&gt; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1026r12" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    %eax,-0xc(%rbp) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1027r13" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">movl   $0x1,-0x8(%rbp) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1028r14" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">jmp    45 &lt;factorial+0x45&gt; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1029r15" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    -0x8(%rbp),%eax </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1030r16" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    -0x4(%rbp),%edx </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1031r17" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">imul   %edx,%eax </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1032r18" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    %eax,-0x4(%rbp) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1033r19" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">addl   $0x1,-0x8(%rbp) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1034r20" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    -0x8(%rbp),%eax </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1035r21" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">cmp    -0xc(%rbp),%eax </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1036r22" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">jle    35 &lt;factorial+0x35&gt; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1037r23" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    -0x4(%rbp),%eax </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1038r24" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    %eax,%edx </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1039r25" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">lea    0x0(%rip),%rax # 59 &lt;factorial+0x59&gt; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1040r26" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    %rax,%rcx </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1041r27" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">call   61 &lt;factorial+0x61&gt; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1042r28" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">nop </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1043r29" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">add    $0x30,%rsp </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1044r30" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">pop    %rbp</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 2:</span><span class="content">Unstripped Machine Code</span></figcaption><!-- tex4ht:label?: x1-1013r1  -->
-</div>
-</div>
- 
-<div class="minipage" style="width: 100%;"><!-- l. 56 -->
-<a id="x1-1045r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-<a id="x1-1046" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-<div class="lstlisting" id="listing-3" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1047r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">push   %rbp </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1048r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    %rsp,%rbp </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1049r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">sub    $0x30,%rsp </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1050r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    %ecx,0x10(%rbp) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1051r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    %rdx,0x18(%rbp) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1052r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">movl   $0x1,-0x4(%rbp) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1053r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    0x18(%rbp),%rax </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1054r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">add    $0x8,%rax </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1055r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">(%rax),%rax </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1056r10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    %rax,%rcx </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1057r11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">call   0x29 </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1058r12" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    %eax,-0xc(%rbp) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1059r13" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">movl   $0x1,-0x8(%rbp) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1060r14" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">jmp    0x45 </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1061r15" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    -0x8(%rbp),%eax </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1062r16" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    -0x4(%rbp),%edx </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1063r17" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">imul   %edx,%eax </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1064r18" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    %eax,-0x4(%rbp) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1065r19" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">addl   $0x1,-0x8(%rbp) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1066r20" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    -0x8(%rbp),%eax </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1067r21" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">cmp    -0xc(%rbp),%eax </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1068r22" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">jle    0x35 </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1069r23" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    -0x4(%rbp),%eax </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1070r24" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    %eax,%edx </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1071r25" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">lea    0x0(%rip),%rax # 0x59 </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1072r26" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">mov    %rax,%rcx </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1073r27" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">call   0x61 </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1074r28" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">nop </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1075r29" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">add    $0x30,%rsp </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1076r30" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">pop    %rbp</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 3:</span><span class="content">Stripped Machine Code</span></figcaption><!-- tex4ht:label?: x1-1045r1  -->
-</div></div>
-
-
-<!-- l. 90 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   As can be seen by the stripped vs. unstripped comparison, there is very little (other than the function name)
-that is different. In fact, once this code is sent through a decompiler (using Binary Ninja), the decompiled code can
-be seen in figures <a href="#x1-1077r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4<!-- tex4ht:ref: lst:20210802:ninja  --></a> and <a href="#x1-1088r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5<!-- tex4ht:ref: lst:20210802:ninja2  --></a>.
-</p>
-   
-
-<div class="minipage" style="margin-top: 1em; width: 100%;"><!-- l. 93 -->
-<a id="x1-1077r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-<a id="x1-1078" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-<div class="lstlisting" id="listing-4" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1079r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">int64_t factorial(int32_t arg1, </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">void</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">* arg2) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1080r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">{ </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1081r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">        int32_t var_c = 1; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1082r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">        int32_t rax_3 = atoi(*(arg2 + 8)); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1083r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">for</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> (int32_t var_10 = 1; var_10 s </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1084r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">              &lt;= rax_3; var_10 = var_10 + 1) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1085r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 var_c = var_10 * var_c; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1086r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">return</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> printf(_.rdata, zx.q(var_c)); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1087r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">}</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 4:</span><span class="content">Unstripped Decompilation with Binary
-Ninja</span></figcaption><!-- tex4ht:label?: x1-1077r1  -->
-</div>
-                                                                                         
-                                                                                         
-</div>
- 
-<div class="minipage" style="width: 100%;"><!-- l. 106 -->
-<a id="x1-1088r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-<a id="x1-1089" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-<div class="lstlisting" id="listing-5" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1090r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">int64_t sub_100401080(int32_t arg1, </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">void</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">* arg2) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1091r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">{ </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1092r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">        int32_t var_c = 1; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1093r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">        int32_t rax_3 = atoi(*(arg2 + 8)); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1094r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">for</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> (int32_t var_10 = 1; var_10 s </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1095r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">              &lt;= rax_3; var_10 = var_10 + 1) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1096r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 var_c = var_10 * var_c; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1097r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">return</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> printf(data_100403000, zx.q(var_c)); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1098r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">}</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 5:</span><span class="content">Stripped  Decompilation  with  Binary
-Ninja</span></figcaption><!-- tex4ht:label?: x1-1088r1  -->
-</div></div>
-
-
-<!-- l. 119 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   While compilation and obfuscation definitely make it more difficult to glean the original meaning of software, it’s
-not impossible to trace through the decompilation and figure out the original intent of the developer. If source code
-is protected because of what it does, the binary generated from that source code should probably be handled with
-the same protections.
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 48 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
 
  
 
