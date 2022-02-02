@@ -1,4 +1,4 @@
 \def \AuthorName{Jon Hood}
 \def \ArticleName{So you put an Unclassified CD in a Classified Machine}
-\newcommand{\ArticleDate}{\formatdate{2}{2}{2022}}
-\addbibresource{20220202.bib}
+\newcommand{\ArticleDate}{\formatdate{31}{1}{2022}}
+\addbibresource{20220131.bib}
