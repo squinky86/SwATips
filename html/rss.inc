@@ -37,13 +37,13 @@ top three factors we often see are:
      
 
 <ol class="enumerate1" style="list-style-type: decimal;">
-<li class="enumerate" id="x1-1002x1">     
+<li id="x1-1002x1" class="enumerate">     
 Price
 </li>     
-<li class="enumerate" id="x1-1004x2">
+<li id="x1-1004x2" class="enumerate">
 DoD Compliance
 </li>     
-<li class="enumerate" id="x1-1006x3">
+<li id="x1-1006x3" class="enumerate">
 Ease of Setup</li></ol>
 
 
@@ -157,7 +157,7 @@ Listing <a href="#x1-6001r1" style="overflow-wrap: break-word; word-wrap: break
 <p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-6002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
 
 
-<div class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-6003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;"># sed -i -e </span><span class="ts1-lmtti10-x-x-90" style="font-size: 90%;">'</span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">s|redhat:enterprise_linux\(.*\)&lt;/pattern&gt;|rocky:rocky\1*&lt;/pattern&gt;|g</span><span class="ts1-lmtti10-x-x-90" style="font-size: 90%;">'</span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;"> \</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-6004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        /opt/scc/Resources/Content/SCAP12_Content/U_RHEL_8_*_STIG_SCAP_1-2_Benchmark.xml</span>
+<div id="listing-1" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-6003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;"># sed -i -e </span><span class="ts1-lmtti10-x-x-90" style="font-size: 90%;">'</span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">s|redhat:enterprise_linux\(.*\)&lt;/pattern&gt;|rocky:rocky\1*&lt;/pattern&gt;|g</span><span class="ts1-lmtti10-x-x-90" style="font-size: 90%;">'</span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;"> \</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-6004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        /opt/scc/Resources/Content/SCAP12_Content/U_RHEL_8_*_STIG_SCAP_1-2_Benchmark.xml</span>
 <figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1:</span><span class="content">Modify
 RHEL
 Benchmark
@@ -187,7 +187,7 @@ respectively.
 <!-- l. 45 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">I had no problem installing the RHEL version of Nessus 10.1.1 (though it should be noted that Rocky Linux is not
 listed as an officially supported distribution by Tenable). All RHEL packages installed and ran without issues, as
-they did with CentOS 8. FIPS compliance was enabled and tested with the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">fips-mode-setup –enable</span>
+they did with CentOS 8. FIPS compliance was enabled and tested with the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">fips-mode-setup --enable</span>
 command.
 </p>
 <!-- l. 47 -->
@@ -242,7 +242,7 @@ Listing <a href="#x1-10001r2" style="overflow-wrap: break-word; word-wrap: brea
 <p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-10002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
 
 
-<div class="lstlisting" id="listing-2" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-10003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;"># sed -i -e </span><span class="ts1-lmtti10-x-x-90" style="font-size: 90%;">'</span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">s|redhat:enterprise_linux\(.*\)&lt;/pattern&gt;|almalinux:almalinux\1*&lt;/pattern&gt;|g</span><span class="ts1-lmtti10-x-x-90" style="font-size: 90%;">'</span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;"> \</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-10004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        /opt/scc/Resources/Content/SCAP12_Content/U_RHEL_8_*_STIG_SCAP_1-2_Benchmark.xml</span>
+<div id="listing-2" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-10003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;"># sed -i -e </span><span class="ts1-lmtti10-x-x-90" style="font-size: 90%;">'</span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">s|redhat:enterprise_linux\(.*\)&lt;/pattern&gt;|almalinux:almalinux\1*&lt;/pattern&gt;|g</span><span class="ts1-lmtti10-x-x-90" style="font-size: 90%;">'</span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;"> \</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-10004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        /opt/scc/Resources/Content/SCAP12_Content/U_RHEL_8_*_STIG_SCAP_1-2_Benchmark.xml</span>
 <figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 2:</span><span class="content">Modify
 RHEL
 Benchmark
@@ -271,7 +271,7 @@ respectively.
 <!-- l. 64 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">I had no problem installing the RHEL version of Nessus 10.1.1 (though it should be noted that AlmaLinux is not
 listed as an officially supported distribution by Tenable). All RHEL packages installed and ran without issues, as
-they did with CentOS 8. FIPS compliance was enabled and tested with the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">fips-mode-setup –enable</span>
+they did with CentOS 8. FIPS compliance was enabled and tested with the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">fips-mode-setup --enable</span>
 command.
 </p>
 <!-- l. 66 -->
@@ -336,7 +336,7 @@ risk.
 </p>
 <!-- l. 80 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Finally, AlmaLinux supports the ELevate project which allows users to move to AlmaLinux, Rocky Linux, and
-Oracle Linux from CentOS 7 (<a href="https://wiki.almalinux.org/elevate/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://wiki.almalinux.org/elevate/</span></a>), and there are a few other tools available
+Oracle Linux from CentOS 7 (<a class="url" href="https://wiki.almalinux.org/elevate/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://wiki.almalinux.org/elevate/</span></a>), and there are a few other tools available
 for migrating from CentOS 8 to one of the supported RHEL variants.
                                                                                          
                                                                                          
@@ -351,24 +351,24 @@ for migrating from CentOS 8 to one of the supported RHEL variants.
 </p>
 
 
-<dl class="thebibliography"><dt class="thebibliography" id="X0-20220321:centos-eol" style="float: left; clear: left; margin-right: 1em;">
+<dl class="thebibliography"><dt id="X0-20220321:centos-eol" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [1]  
-</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
+</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220321:centos-eol" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>CentOS.            CentOS Linux EOL.            CentOS.            Dec. 31,            2021.            <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a href="https://www.centos.org/centos-linux-eol/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.centos.org/centos-linux-eol/</span></a>.
+<a class="url" href="https://www.centos.org/centos-linux-eol/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.centos.org/centos-linux-eol/</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20220321:almabug" style="float: left; clear: left; margin-right: 1em;">
+<dt id="X0-20220321:almabug" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [2]  
-</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
+</dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220321:almabug" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon        Hood.        AlmaLinux Bug Tracker.        AlmaLinux.        Mar. 21,        2022.        <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a href="https://bugs.almalinux.org/view.php?id=202" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://bugs.almalinux.org/view.php?id=202</span></a>.
+<a class="url" href="https://bugs.almalinux.org/view.php?id=202" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://bugs.almalinux.org/view.php?id=202</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
+<dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [3]  
-</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
+</dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
 
  
 
