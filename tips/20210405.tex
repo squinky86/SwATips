@@ -31,7 +31,7 @@ COTS products can be assessed in multiple ways:
 	\end{itemize}
 \end{itemize}
 
-When filling out the ASD STIG for COTS software, several of the checks deal with a development environment that is not geared towards developing the software for a government environment. Checks that pertain to development processes and requirements can be marked as Not Applicable because the COTS software has already been selected because it fulfills a requirements for a particular mission. If a mission dictates new requirements that require custom development, that development should consider falling under GOTS.
+When filling out the ASD STIG for COTS software, several of the checks deal with a development environment that assumes the product is being developed in a government, GOTS-centric environment. Checks that pertain to development processes and requirements can be marked as Not Applicable because the COTS software has already been selected for fulfilling a requirements for a particular mission. If a mission dictates new requirements that require custom development, that development should consider falling under GOTS.
 
 For GOTS software, the software is first assessed for compliance from a legal perspective:
 \begin{itemize}
@@ -56,4 +56,4 @@ Nevertheless, there is a non-trivial amount of NOTS software that is in use by t
 	\item Tailor in (if not already in the baseline) and mark as NON-COMPLIANT RMF control SA-4 (6), CCI-631 with the comment, ``The system employs software that is not COTS or GOTS.''
 \end{itemize}
 
-Note that RMF CCI-631 requires your software solutions to be either COTS or GOTS: ``The organization employs only government off-the-shelf (GOTS) or commercial off-the-shelf (COTS) information assurance (IA) and IA-enabled information technology products that compose an NSA-approved solution to protect classified information when the networks used to transmit the information are at a lower classification level than the information being transmitted.'' By attaching a finding to CCI-631, the program must include the finding in their POA\&M for tracking and obtain AO approval for the non-compliant software.
+Note that RMF CCI-631 requires your software solutions to be either COTS or GOTS: ``The organization employs only government off-the-shelf (GOTS) or commercial off-the-shelf (COTS) information assurance (IA) and IA-enabled information technology products that compose an NSA-approved solution to protect classified information when the networks used to transmit the information are at a lower classification level than the information being transmitted.'' By attaching a finding to CCI-631, the program must include the finding in their POA\&M for tracking, and they must obtain AO approval for the non-compliant software.

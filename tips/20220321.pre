@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{The Death of CentOS on DoD Networks}
+\newcommand{\ArticleDate}{\formatdate{21}{3}{2022}}
+\addbibresource{20220321.bib}

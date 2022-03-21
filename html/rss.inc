@@ -1,4 +1,380 @@
 	<item>
+		<title>The Death of CentOS on DoD Networks</title>
+		<link>https://www.SwATips.com/articles/20220321.html</link>
+		<pubDate>Mon, 21 Mar 2022 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20220321.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]<br/>
+</h2>
+<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
+<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 21</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">st</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> March, 2022</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>The Death of CentOS on DoD Networks</h3>
+
+
+<!-- l. 44 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Monday 21</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">st</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> March, 2022</span>
+</p>
+<!-- l. 1 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   When selecting an operating system for a new DoD product, there are several factors that are considered. The
+top three factors we often see are:
+</p>
+     
+
+<ol class="enumerate1" style="list-style-type: decimal;">
+<li class="enumerate" id="x1-1002x1">     
+Price
+</li>     
+<li class="enumerate" id="x1-1004x2">
+DoD Compliance
+</li>     
+<li class="enumerate" id="x1-1006x3">
+Ease of Setup</li></ol>
+
+
+<!-- l. 8 -->
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   When CentOS, recently acquired by RedHat, announced that they would no longer support CentOS 8 at the end
+of 2021,[<a href="#cite.0@20220321:centos-eol" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>] architects began looking for an alternative. The possible alternatives that will be explored are:
+</p>
+     
+
+<ul class="itemize1">
+<li class="itemize">RedHat Enterprise Linux 8
+</li>     
+<li class="itemize">Oracle Linux 8
+</li>     
+<li class="itemize">Rocky Linux 8
+</li>     
+<li class="itemize">AlmaLinux OS 8
+</li>     
+<li class="itemize">Ubuntu 20.04
+</li>     
+<li class="itemize">SUSE Linux Enterprise Server 15</li></ul>
+
+
+<!-- l. 18 -->
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   Each of these alternatives will be discussed here along with considerations DoD projects must make before they
+implement one of the alternatives. The minimal installation for each of the options is selected, and an install of
+Tenable Nessus 10.1.1 (AKA ACAS) will be used to evaluate compatibility.
+</p>
+<!-- l. 20 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>RedHat Enterprise Linux 8</h4>
+
+
+<!-- l. 22 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">The first competitor is the seasoned veteran of the group: RHEL. One of the benefits of CentOS 8 is that
+it has been binary compatible with RHEL. Everything works out of the box, including DISA STIG
+compliance, SCAP Compliance Checker, and Nessus scanning. The downside to this option is the recurring
+subscription cost. Some organizations have a difficult time funding material and license purchases (IE:
+labor-cost-only contracts), It’s often difficult to use a subscription-based service contractually, even if the cost is
+reasonable.
+                                                                                         
+                                                                                         
+</p>
+<!-- l. 24 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Oracle Linux 8</h4>
+
+
+<!-- l. 26 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Oracle Linux is now the oldest kid on the block when it comes to RHEL alternatives. A DISA STIG already exists
+for compliance, and a beta benchmark is available which knocks out the majority of automated checks in the STIG.
+For a streamlined experience in regards to compliance and compatibility, Oracle Linux 8 should be at the top of the
+list for consideration. The Nessus 10.1.1 ES8 RPM works with Oracle Linux 8, and the Oracle Linux 8 distribution
+is expressly supported by Tenable.
+</p>
+<!-- l. 28 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a id="x1-40001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Rocky Linux 8</h4>
+
+
+<!-- l. 29 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Rocky Linux is one of the newer RHEL-binary-compatible rebuilds that attempts to recreate the RHEL
+environment using the same standards that CentOS 8 used before it went EOL.
+</p>
+<!-- l. 31 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h5 class="subsubsectionHead"><span class="titlemark">1.3.1   </span> <a id="x1-50001.3.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Installation Issues</h5>
+
+
+<!-- l. 32 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">When applying the DISA STIG for Red Hat Enterprise Linux 8 security profile during installation, it does not
+appear that the majority of the checks (eg: partition information) are being performed or configured. Additionally,
+installing with this security profile will require the installation of openscap which will crash the installer with the
+minimal installation media.
+</p>
+<!-- l. 34 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h5 class="subsubsectionHead"><span class="titlemark">1.3.2   </span> <a id="x1-60001.3.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Compliance</h5>
+
+
+<!-- l. 35 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Rocky Linux does not currently have DISA risk acceptance or a standard STIG to apply. Instead, the RHEL 8
+benchmark can be applied, with a note that the checks against the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">CPE_NAME </span>checks in <span class="ec-lmtt-10" style="font-family: monospace,monospace;">/etc/os-release </span>should be
+modified to look for Rocky Linux rather than RHEL. The benchmark file (such as the one installed
+with SCAP Compliance Checker) can be modified to work with Rocky Linux using the command in
+Listing <a href="#x1-6001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20220321:rocky  --></a>.
+</p>
+   
+
+<!-- l. 37 -->
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-6001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-6002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+
+
+<div class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-6003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;"># sed -i -e </span><span class="ts1-lmtti10-x-x-90" style="font-size: 90%;">'</span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">s|redhat:enterprise_linux\(.*\)&lt;/pattern&gt;|rocky:rocky\1*&lt;/pattern&gt;|g</span><span class="ts1-lmtti10-x-x-90" style="font-size: 90%;">'</span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;"> \</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-6004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        /opt/scc/Resources/Content/SCAP12_Content/U_RHEL_8_*_STIG_SCAP_1-2_Benchmark.xml</span>
+<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1:</span><span class="content">Modify
+RHEL
+Benchmark
+for
+Rocky
+Linux</span></figcaption><!-- tex4ht:label?: x1-6001r1  -->
+   
+</div>
+
+
+<!-- l. 42 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   If using the RHEL for evaluating Rocky Linux, the SCAP content will flag for rules relating to using a supported
+release (it checks /etc/redhat-release for this) and RedHat certificate authorities. The check content for these two
+CAT I checks should be modified to reflect the Rocky Linux support lifecycle and certificate authorities
+respectively.
+                                                                                         
+                                                                                         
+</p>
+<!-- l. 44 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h5 class="subsubsectionHead"><span class="titlemark">1.3.3   </span> <a id="x1-70001.3.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Compatibility</h5>
+
+
+<!-- l. 45 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">I had no problem installing the RHEL version of Nessus 10.1.1 (though it should be noted that Rocky Linux is not
+listed as an officially supported distribution by Tenable). All RHEL packages installed and ran without issues, as
+they did with CentOS 8. FIPS compliance was enabled and tested with the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">fips-mode-setup –enable</span>
+command.
+</p>
+<!-- l. 47 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.4   </span> <a id="x1-80001.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>AlmaLinux OS 8</h4>
+
+
+<!-- l. 48 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">AlmaLinux OS 8, like Rocky Linux, is one of the newcomers that is attempting to court CentOS migrators.
+</p>
+<!-- l. 50 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h5 class="subsubsectionHead"><span class="titlemark">1.4.1   </span> <a id="x1-90001.4.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Installation Issues</h5>
+
+
+<!-- l. 51 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">The first thing that should be noted is the presence of a security profile for “DISA STIG for AlmaLinux 8.” It should
+be emphasized that DISA has not released such a STIG, and the implications of there being one is disconcerting
+from a DoD compliance point of view. A bug has been created with the AlmaLinux team to address this.[<a href="#cite.0@20220321:almabug" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>]
+Additionally, installing with this security profile selected against the minimal installation media will result in a crash
+due to an inability to install openscap.
+</p>
+<!-- l. 53 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h5 class="subsubsectionHead"><span class="titlemark">1.4.2   </span> <a id="x1-100001.4.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Compliance</h5>
+
+
+<!-- l. 54 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">AlmaLinux does not currently have DISA risk acceptance or a standard STIG to apply. Instead, the RHEL 8
+benchmark can be applied, with a note that the checks against the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">CPE_NAME </span>checks in <span class="ec-lmtt-10" style="font-family: monospace,monospace;">/etc/os-release </span>should be
+modified to look for AlmaLinux rather than RHEL. The benchmark file (such as the one installed
+with SCAP Compliance Checker) can be modified to work with AlmaLinux using the command in
+Listing <a href="#x1-10001r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2<!-- tex4ht:ref: lst:20220321:alma  --></a>.
+</p>
+   
+
+<!-- l. 56 -->
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-10001r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-10002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
+
+
+<div class="lstlisting" id="listing-2" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-10003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;"># sed -i -e </span><span class="ts1-lmtti10-x-x-90" style="font-size: 90%;">'</span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;">s|redhat:enterprise_linux\(.*\)&lt;/pattern&gt;|almalinux:almalinux\1*&lt;/pattern&gt;|g</span><span class="ts1-lmtti10-x-x-90" style="font-size: 90%;">'</span><span class="ec-lmtti-10x-x-90" style="font-size: 90%; font-family: monospace,monospace; font-style: italic;"> \</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-10004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">        /opt/scc/Resources/Content/SCAP12_Content/U_RHEL_8_*_STIG_SCAP_1-2_Benchmark.xml</span>
+<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 2:</span><span class="content">Modify
+RHEL
+Benchmark
+for
+AlmaLinux</span></figcaption><!-- tex4ht:label?: x1-10001r1  -->
+   
+</div>
+
+
+<!-- l. 61 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   If using the RHEL for evaluating AlmaLinux, the SCAP content will flag for rules relating to using a supported
+release (it checks /etc/redhat-release for this) and RedHat certificate authorities. The check content for these two
+CAT I checks should be modified to reflect the AlmaLinux support lifecycle and certificate authorities
+respectively.
+                                                                                         
+                                                                                         
+</p>
+<!-- l. 63 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h5 class="subsubsectionHead"><span class="titlemark">1.4.3   </span> <a id="x1-110001.4.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Compatibility</h5>
+
+
+<!-- l. 64 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">I had no problem installing the RHEL version of Nessus 10.1.1 (though it should be noted that AlmaLinux is not
+listed as an officially supported distribution by Tenable). All RHEL packages installed and ran without issues, as
+they did with CentOS 8. FIPS compliance was enabled and tested with the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">fips-mode-setup –enable</span>
+command.
+</p>
+<!-- l. 66 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.5   </span> <a id="x1-120001.5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Ubuntu 20.04</h4>
+
+
+<!-- l. 68 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">For workstation use, Ubuntu is one of my go-to distributions. Nevertheless, a switch from CentOS to Ubuntu
+involves an architectural change that must be designed in up front rather than providing a drop-in replacement for
+end-of-life CentOS software. Installation of Nessus on Ubuntu 20.04 resulted in some manual modifications before it
+was able to work, and it should be noted that upgrading from Ubuntu 20.04 to the development branch of 22.04
+(Jammy Jellyfish) resulted in a non-functioning Nessus installation. Nessus doesn’t support Debian 11 or Ubuntu
+22.04 at this time.
+</p>
+<!-- l. 70 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.6   </span> <a id="x1-130001.6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>SUSE Enterprise Linux 15</h4>
+
+
+<!-- l. 72 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">The final option is SLES 15. Like RHEL, it provides enterprise-level subscription-based support. SLES 15
+includes STIG content, SCAP benchmarks, and a seamless installation for products such as Nessus.
+SCAP content has lagged behind its RHEL counterparts; however, the support lifecycle for SLES 15
+allows DoD project planners to have the security of knowing that their underlying operating system
+will be supported through July 31, 2031. It should also be noted that the STIG and SCAP content
+are for the enterprise server product, while the RHEL and Oracle products include their workstation
+derivatives.
+</p>
+<!-- l. 74 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead"><span class="titlemark">1.7   </span> <a id="x1-140001.7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Concluding Remarks</h4>
+
+
+<!-- l. 76 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">If you are a DoD product designer and needing to switch from CentOS 8, you have a lot of options. The most
+painless (compliance-wise) is to switch to Oracle Linux or RHEL. With either of these options, you have a robust
+STIG compliance framework in place to justify the decisions and a support network that can be used if needed.
+Nevertheless, Oracle Linux isn’t the only free option to consider: strong contenders from AlmaLinux and Rocky
+Linux provide compatibility with very minor compliance caveats. Instead of the General Purpose OS STIG, the
+RHEL STIG can be modified to record compliance status of these operating systems; however, the AO should be
+informed of the risks involving using software managed by the Rocky and Alma organizations. These organizations
+are new and don’t have the prodigy of the RedHat, Oracle, SUSE, or Canonical in working with DoD
+projects.
+</p>
+<!-- l. 78 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Can the Authorizing Official (AO) accept the risk of allowing the AlmaLinux OS Foundation or The Rocky
+Enterprise Software Foundation having write/update permissions to their package repositories? Both organizations
+already have the backing of Amazon, Microsoft, and Google platforms; such big names are members of
+these foundations to help their governance and future direction. The current lack of DoD-level risk
+acceptance should be acknowledged by the AO, but such an acceptance should not be seen as a high
+risk.
+</p>
+<!-- l. 80 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Finally, AlmaLinux supports the ELevate project which allows users to move to AlmaLinux, Rocky Linux, and
+Oracle Linux from CentOS 7 (<a href="https://wiki.almalinux.org/elevate/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://wiki.almalinux.org/elevate/</span></a>), and there are a few other tools available
+for migrating from CentOS 8 to one of the supported RHEL variants.
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead"><a id="x1-150001.7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 49 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt class="thebibliography" id="X0-20220321:centos-eol" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220321:centos-eol" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>CentOS.            CentOS Linux EOL.            CentOS.            Dec. 31,            2021.            <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a href="https://www.centos.org/centos-linux-eol/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.centos.org/centos-linux-eol/</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20220321:almabug" style="float: left; clear: left; margin-right: 1em;">
+[2]  
+</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220321:almabug" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon        Hood.        AlmaLinux Bug Tracker.        AlmaLinux.        Mar. 21,        2022.        <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a href="https://bugs.almalinux.org/view.php?id=202" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://bugs.almalinux.org/view.php?id=202</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
+[3]  
+</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>So you put an Unclassified CD in a Classified Machine</title>
 		<link>https://www.SwATips.com/articles/20220131.html</link>
 		<pubDate>Mon, 31 Jan 2022 00:00:00 -0600</pubDate>
@@ -1643,167 +2019,6 @@ generated passwords.
 </dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210816:pwgen" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Philipp       Klaus.       pwgen - generate pronouncable passwords.       June 21,       2011.       <span class="small-caps" style="font-variant: small-caps;">url</span>:
 <a href="https://raw.githubusercontent.com/jbernard/pwgen/master/pwgen.1" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://raw.githubusercontent.com/jbernard/pwgen/master/pwgen.1</span></a> (visited on 08/09/2021).</p></dd></dl>
-
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>Ada <del>Low</del>High Integrity Profiles</title>
-		<link>https://www.SwATips.com/articles/20210809.html</link>
-		<pubDate>Mon, 09 Aug 2021 00:00:00 -0500</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a> | <a href="articles/20210809.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>]<br/>
-</h2>
-<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Kevin Keen</span></div><br/>
-<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 9</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> August, 2021</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Ada <span class="sout" style="text-decoration: line-through;">Low</span>High Integrity Profiles</h3>
-
-
-<!-- l. 43 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Monday 30</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> August, 2021</span>
-</p>
-<!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Ada is often touted by its supporters as the best programming language ever devised by man. And at least on a
-conceptual level there are some good arguments in its favor. But as with any complex programming language there
-are corner cases that should be understood and dealt with carefully to avoid those advantages turning into
-disadvantages.
-</p>
-<!-- l. 3 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Enter the Ada High Integrity Profiles. What are these mysterious profiles? With a name like “high integrity”
-they must be good. And if Ada itself is already the best programming language, then high integrity Ada must be the
-best of the best, right? Not so fast! As we will see, you may want to avoid these profiles unless you absolutely need
-them!
-</p>
-<!-- l. 5 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Profiles in Ada came out of the 1997 International Real-Time Ada Workshop. The <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Ravenscar </span>Profile was
-intended to produce a more lightweight (and provably correct) executable with task scheduling that was more
-suited to real time applications. It was revised, and eventually included as part of the Ada standard
-in 2005.[<a href="#cite.0@20210809:grm" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, § 2.140, pp. 71–74] There are several versions of <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Ravenscar </span>including <span class="ec-lmtt-10" style="font-family: monospace,monospace;">ravenscar-cert</span>,
-<span class="ec-lmtt-10" style="font-family: monospace,monospace;">ravenscar-zfp</span>, and more. Each variant of a profile has different restrictions on what is and is not allowed using
-that runtime system. The most restrictive are the Zero Footprint Profiles (ZFP). These profiles go
-to great lengths to make sure that the resulting executable does not link against the Ada runtime
-library. As such, they offer the least “bulk” in the binary image, but also the fewest features. One step
-above the ZFPs are the “cert” variants, which are intended for profiles that have undergone a separate
-certification.
-</p>
-<!-- l. 7 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Of particular note is the way in which exceptions are handled. Since all of these profiles are attempting to reduce
-memory footprint, the handling of exceptions is also reduced. The ZFPs in particular have the least exception
-handling. Exceptions still happen (including user defined), but they must be handled locally. No traditional
-exception propagation happens in ZFP. There is a “last chance handler” that will be called if an exception is not
-handled locally.[<a href="#cite.0@20210809:gnathie" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>, § 4.2.6] In ZFP, this handler must be implemented by the programmer, and the compiler will
-enforce its existence.
-</p>
-<!-- l. 9 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Beyond exceptions, there is an entire gamut of Ada features that are excluded in these profiles.[<a href="#cite.0@20210809:gnathie" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>, § 4.2.2] One
-that was particularly interesting is the restriction on non-library level tagged types. Tagged or managed types are of
-particular importance to us for code review. Tagged types will automatically have their <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Initialize </span>procedure
-called when an object of that type is constructed without an initial value (think constructor but not quite).[<a href="#cite.0@20210809:adap" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">6</a>]
-Without that guaranteed initialization, more complex projects that have to be segmented in order to be
-analyzed by AdaCore wind up with tons of false positives about possibly uninitialized variables. We had
-heard of a company whose Ada programming standard deliberately avoided the use of tagged types. It
-made little sense to us for them to avoid tagged types until we learned about these profiles and their
-restrictions.
-</p>
-<!-- l. 11 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   When Ada is written against embedded systems, it is not uncommon for us to see the use of VxWorks. There are
-a set of runtime systems and associated profiles for various versions of VxWorks. For this tip, the salient points of
-profiles in general still apply. It is worth noting that the “cert” version of the VxWorks profiles do come with a
-default last chance handler that by default will print the stack, raise an <span class="ec-lmtt-10" style="font-family: monospace,monospace;">APEX </span>exception and exit.[<a href="#cite.0@20210809:gnatugx" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>, § A,
-Replacement of the Default Last Chance Handler]
-</p>
-<!-- l. 13 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   While none of these restrictions are a security concern in and of themselves, it does beg for care to be taken.
-When combined with the “continue running at any cost” mentality that we see quite often one could see a scenario
-where exceptions effectively go unhandled. Code using <span class="ec-lmtt-10" style="font-family: monospace,monospace;">cert </span>or <span class="ec-lmtt-10" style="font-family: monospace,monospace;">zfp </span>profiles, combined with a last chance handler
-that swallows exceptions, could render an application unstable and vulnerable. Documentation states that all last
-chance handlers must effectively terminate the application,[<a href="#cite.0@20210809:gnathie" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>, § 3.1] but makes no statement that this is
-enforced. We often see the sin of catching top level exceptions[<a href="#cite.0@20210809:viega200924" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>, p. 159] with the mindset of “continue
-running at any cost.” It is just as much of a concern under these conditions as it would be in C++
-code.
-</p>
-<!-- l. 15 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   As a bonus tip, note that even MORE risky code can be obtained with the pragmas <span class="ec-lmtt-10" style="font-family: monospace,monospace;">No_Exception_Handlers</span>
-and <span class="ec-lmtt-10" style="font-family: monospace,monospace;">No_Exceptions</span>. The <span class="ec-lmtt-10" style="font-family: monospace,monospace;">No_Exception_Handlers </span>pragma disallows all exception handlers except
-for the last chance handler. The <span class="ec-lmtt-10" style="font-family: monospace,monospace;">No_Exceptions </span>pragma disables runtime exceptions entirely![<a href="#cite.0@20210809:gnathie" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>, §
-3.1]
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 48 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt id="X0-20210809:grm" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210809:grm" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>AdaCore.    GNAT Reference Manual.    Tech.    rep.    Free    Software    Foundation,    2020.    <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a href="https://gcc.gnu.org/onlinedocs/gcc-11.2.0/gnat_rm.pdf" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://gcc.gnu.org/onlinedocs/gcc-11.2.0/gnat_rm.pdf</span></a>.
-</p>    
-</dd>
-<dt id="X0-20210809:gnatugx" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[2]  
-</dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210809:gnatugx" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>AdaCore.                     GNAT User’s Guide Supplement for Cross Platforms.                     Aug. 5,
-2021. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a href="https://docs.adacore.com/gnat_ugx-docs/html/gnat_ugx/gnat_ugx.html" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://docs.adacore.com/gnat_ugx-docs/html/gnat_ugx/gnat_ugx.html</span></a> (visited on
-08/06/2021).
-</p>    
-</dd>
-<dt id="X0-20210809:gnathie" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[3]  
-</dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210809:gnathie" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>AdaCore.
-GNAT User’s Guide Supplement for GNAT Pro Safety-Critical and GNAT Pro High-Security
-.
-Oct. 17,                                                                                                                     2018.
-<span class="small-caps" style="font-variant: small-caps;">url</span>: <a href="https://docs.adacore.com/gnathie_ug-docs/html/gnathie_ug/gnathie_ug.html" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://docs.adacore.com/gnathie_ug-docs/html/gnathie_ug/gnathie_ug.html</span></a> (visited on
-08/06/2021).
-</p>    
-</dd>
-<dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[4]  
-</dt><dd id="bib-4" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
-</p>    
-</dd>
-<dt id="X0-20210809:viega200924" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[5]  
-</dt><dd id="bib-5" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210809:viega200924" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>John                                 Viega,                                 Michael                                 Howard,
-and David LeBlanc. 24 Deadly Sins of Software Security. Programming Flaws and How to Fix Them.
-McGraw-Hill Education, 2009. <span class="small-caps" style="font-variant: small-caps;">isbn</span>: 978-0-07-162675-0.
-</p>    
-</dd>
-<dt id="X0-20210809:adap" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[6]  
-</dt><dd id="bib-6" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210809:adap" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Wikibooks. Ada Programming/Object Orientation — Wikibooks, The Free Textbook Project. 2021. <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a href="https://en.wikibooks.org/w/index.php?title=Ada_Programming/Object_Orientation&amp;oldid=3956556#Constructors" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://en.wikibooks.org/w/index.php?title=Ada_Programming/Object_Orientation&amp;oldid=3956556#Constructors</span></a>
-(visited on 08/06/2021).</p></dd></dl>
 
  
 
