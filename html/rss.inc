@@ -28,7 +28,7 @@ A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="o
 
 
 <!-- l. 44 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Monday 21</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">st</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> March, 2022</span>
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Tuesday 22</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">nd</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> March, 2022</span>
 </p>
 <!-- l. 1 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   When selecting an operating system for a new DoD product, there are several factors that are considered. The
@@ -326,7 +326,7 @@ Nevertheless, Oracle Linux isn’t the only free option to consider: strong cont
 Linux provide compatibility with very minor compliance caveats. Instead of the General Purpose OS STIG, the
 RHEL STIG can be modified to record compliance status of these operating systems; however, the AO should be
 informed of the risks involving using software managed by the Rocky and Alma organizations. These organizations
-are new and don’t have the prodigy of the RedHat, Oracle, SUSE, or Canonical in working with DoD
+are new and don’t have the prodigy of RedHat, Oracle, SUSE, or Canonical in working with DoD
 projects.
 </p>
 <!-- l. 78 -->
@@ -356,23 +356,23 @@ for migrating from CentOS 8 to one of the supported RHEL variants.
 </p>
 
 
-<dl class="thebibliography"><dt id="X0-20220321:centos-eol" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+<dl class="thebibliography"><dt class="thebibliography" id="X0-20220321:centos-eol" style="float: left; clear: left; margin-right: 1em;">
 [1]  
-</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
+</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
 <!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220321:centos-eol" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>CentOS.            CentOS Linux EOL.            CentOS.            Dec. 31,            2021.            <span class="small-caps" style="font-variant: small-caps;">url</span>:
 <a href="https://www.centos.org/centos-linux-eol/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.centos.org/centos-linux-eol/</span></a>.
 </p>    
 </dd>
-<dt id="X0-20220321:almabug" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+<dt class="thebibliography" id="X0-20220321:almabug" style="float: left; clear: left; margin-right: 1em;">
 [2]  
-</dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
+</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
 <!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220321:almabug" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon        Hood.        AlmaLinux Bug Tracker.        AlmaLinux.        Mar. 21,        2022.        <span class="small-caps" style="font-variant: small-caps;">url</span>:
 <a href="https://bugs.almalinux.org/view.php?id=202" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://bugs.almalinux.org/view.php?id=202</span></a>.
 </p>    
 </dd>
-<dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
+<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
 [3]  
-</dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
+</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
 <!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
 
  
