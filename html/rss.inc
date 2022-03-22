@@ -69,8 +69,8 @@ of 2021,[<a href="#cite.0@20220321:centos-eol" style="overflow-wrap: break-word;
 
 <!-- l. 18 -->
 <p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   Each of these alternatives will be discussed here along with considerations DoD projects must make before they
-implement one of the alternatives. The minimal installation for each of the options is selected, and an install of
-Tenable Nessus 10.1.1 (AKA ACAS) will be used to evaluate compatibility.
+implement one of them. The minimal installation for each of the options is selected, and an install of Tenable Nessus
+10.1.1 (commercially known as ACAS) will be used to evaluate compatibility.
 </p>
 <!-- l. 20 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
@@ -84,9 +84,9 @@ Tenable Nessus 10.1.1 (AKA ACAS) will be used to evaluate compatibility.
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">The first competitor is the seasoned veteran of the group: RHEL. One of the benefits of CentOS 8 is that
 it has been binary compatible with RHEL. Everything works out of the box, including DISA STIG
 compliance, SCAP Compliance Checker, and Nessus scanning. The downside to this option is the recurring
-subscription cost. Some organizations have a difficult time funding material and license purchases (IE:
-labor-cost-only contracts), It’s often difficult to use a subscription-based service contractually, even if the cost is
-reasonable.
+subscription cost. Some organizations have a difficult time funding material and license purchases
+(i.e. labor-cost-only contracts), It’s often difficult to use a subscription-based service contractually, even if the cost
+is reasonable.
                                                                                          
                                                                                          
 </p>
@@ -99,11 +99,12 @@ reasonable.
 
 
 <!-- l. 26 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Oracle Linux is now the oldest kid on the block when it comes to RHEL alternatives. A DISA STIG already exists
-for compliance, and a beta benchmark is available which knocks out the majority of automated checks in the STIG.
-For a streamlined experience in regards to compliance and compatibility, Oracle Linux 8 should be at the top of the
-list for consideration. The Nessus 10.1.1 ES8 RPM works with Oracle Linux 8, and the Oracle Linux 8 distribution
-is expressly supported by Tenable.
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Oracle Linux is now the oldest kid on the block when it comes to RHEL-compatible alternatives. A
+DISA STIG already exists for compliance, and a beta benchmark is available which knocks out the
+majority of automated checks in the STIG. For a streamlined experience in regards to compliance and
+compatibility, Oracle Linux 8 should be at the top of the list for consideration. The Nessus 10.1.1
+ES8 RPM works with Oracle Linux 8, and the Oracle Linux 8 distribution is expressly supported by
+Tenable.
 </p>
 <!-- l. 28 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
@@ -127,9 +128,11 @@ environment using the same standards that CentOS 8 used before it went EOL.
 
 <!-- l. 32 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">When applying the DISA STIG for Red Hat Enterprise Linux 8 security profile during installation, it does not
-appear that the majority of the checks (eg: partition information) are being performed or configured. Additionally,
-installing with this security profile will require the installation of openscap which will crash the installer with the
-minimal installation media.
+appear that the majority of the checks and configuration options (eg: partition information) are being
+performed or configured. Additionally, installing with this security profile will require the installation of
+openscap which will crash the installer with the minimal installation media. Rocky’s inability to maintain
+compatibility with RHEL’s security baselines (when both AlmaLinux and Oracle Linux were able to do so) is
+concerning.
 </p>
 <!-- l. 34 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
@@ -141,7 +144,7 @@ minimal installation media.
 
 <!-- l. 35 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Rocky Linux does not currently have DISA risk acceptance or a standard STIG to apply. Instead, the RHEL 8
-benchmark can be applied, with a note that the checks against the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">CPE_NAME </span>checks in <span class="ec-lmtt-10" style="font-family: monospace,monospace;">/etc/os-release </span>should be
+benchmark can be utilized with a note that the checks against the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">CPE_NAME </span>in <span class="ec-lmtt-10" style="font-family: monospace,monospace;">/etc/os-release </span>should be
 modified to look for Rocky Linux rather than RHEL. The benchmark file (such as the one installed
 with SCAP Compliance Checker) can be modified to work with Rocky Linux using the command in
 Listing <a href="#x1-6001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20220321:rocky  --></a>.
@@ -169,12 +172,12 @@ Linux</span></figcaption><!-- tex4ht:label?: x1-6001r1  -->
 
 
 <!-- l. 42 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   If using the RHEL for evaluating Rocky Linux, the SCAP content will flag for rules relating to using a supported
-release (it checks /etc/redhat-release for this) and RedHat certificate authorities. The check content for these two
-CAT I checks should be modified to reflect the Rocky Linux support lifecycle and certificate authorities
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   If using the RHEL benchmark for evaluating Rocky Linux, the SCAP content will flag on rules relating to using
+a supported release (it checks /etc/redhat-release for this) and RedHat certificate authorities. The check content for
+                                                                                         
+                                                                                         
+these two CAT I checks should be modified to reflect the Rocky Linux support lifecycle and certificate authorities
 respectively.
-                                                                                         
-                                                                                         
 </p>
 <!-- l. 44 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
@@ -226,7 +229,7 @@ due to an inability to install openscap.
 
 <!-- l. 54 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">AlmaLinux does not currently have DISA risk acceptance or a standard STIG to apply. Instead, the RHEL 8
-benchmark can be applied, with a note that the checks against the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">CPE_NAME </span>checks in <span class="ec-lmtt-10" style="font-family: monospace,monospace;">/etc/os-release </span>should be
+benchmark can be utilized with a note that the checks against the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">CPE_NAME </span>in <span class="ec-lmtt-10" style="font-family: monospace,monospace;">/etc/os-release </span>should be
 modified to look for AlmaLinux rather than RHEL. The benchmark file (such as the one installed
 with SCAP Compliance Checker) can be modified to work with AlmaLinux using the command in
 Listing <a href="#x1-10001r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2<!-- tex4ht:ref: lst:20220321:alma  --></a>.
@@ -253,12 +256,12 @@ AlmaLinux</span></figcaption><!-- tex4ht:label?: x1-10001r1  -->
 
 
 <!-- l. 61 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   If using the RHEL for evaluating AlmaLinux, the SCAP content will flag for rules relating to using a supported
-release (it checks /etc/redhat-release for this) and RedHat certificate authorities. The check content for these two
-CAT I checks should be modified to reflect the AlmaLinux support lifecycle and certificate authorities
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   If using the RHEL baseline for evaluating AlmaLinux, the SCAP content will flag for rules relating to using a
+supported release (it checks /etc/redhat-release for this) and RedHat certificate authorities. The check content for
+these two CAT I checks should be modified to reflect the AlmaLinux support lifecycle and certificate authorities
+                                                                                         
+                                                                                         
 respectively.
-                                                                                         
-                                                                                         
 </p>
 <!-- l. 63 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
@@ -327,16 +330,18 @@ are new and don’t have the prodigy of the RedHat, Oracle, SUSE, or Canonical i
 projects.
 </p>
 <!-- l. 78 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Can the Authorizing Official (AO) accept the risk of allowing the AlmaLinux OS Foundation or The Rocky
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Can the Authorizing Official (AO) accept the risk of allowing the AlmaLinux OS Foundation or Rocky
 Enterprise Software Foundation having write/update permissions to their package repositories? Both organizations
 already have the backing of Amazon, Microsoft, and Google platforms; such big names are members of
 these foundations to help their governance and future direction. The current lack of DoD-level risk
 acceptance should be acknowledged by the AO, but such an acceptance should not be seen as a high
 risk.
+                                                                                         
+                                                                                         
 </p>
 <!-- l. 80 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Finally, AlmaLinux supports the ELevate project which allows users to move to AlmaLinux, Rocky Linux, and
-Oracle Linux from CentOS 7 (<a class="url" href="https://wiki.almalinux.org/elevate/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://wiki.almalinux.org/elevate/</span></a>), and there are a few other tools available
+Oracle Linux from CentOS 7 (<a href="https://wiki.almalinux.org/elevate/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://wiki.almalinux.org/elevate/</span></a>), and there are a few other tools available
 for migrating from CentOS 8 to one of the supported RHEL variants.
                                                                                          
                                                                                          
@@ -355,20 +360,20 @@ for migrating from CentOS 8 to one of the supported RHEL variants.
 [1]  
 </dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220321:centos-eol" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>CentOS.            CentOS Linux EOL.            CentOS.            Dec. 31,            2021.            <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a class="url" href="https://www.centos.org/centos-linux-eol/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.centos.org/centos-linux-eol/</span></a>.
+<a href="https://www.centos.org/centos-linux-eol/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.centos.org/centos-linux-eol/</span></a>.
 </p>    
 </dd>
 <dt id="X0-20220321:almabug" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [2]  
 </dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220321:almabug" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon        Hood.        AlmaLinux Bug Tracker.        AlmaLinux.        Mar. 21,        2022.        <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a class="url" href="https://bugs.almalinux.org/view.php?id=202" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://bugs.almalinux.org/view.php?id=202</span></a>.
+<a href="https://bugs.almalinux.org/view.php?id=202" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://bugs.almalinux.org/view.php?id=202</span></a>.
 </p>    
 </dd>
 <dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
 [3]  
 </dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
 
  
 
