@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Ever-Changing Encryption Standards}
+\newcommand{\ArticleDate}{\formatdate{28}{3}{2022}}
+\addbibresource{20220328.bib}

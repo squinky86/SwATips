@@ -1,4 +1,118 @@
 	<item>
+		<title>Ever-Changing Encryption Standards</title>
+		<link>https://www.SwATips.com/articles/20220328.html</link>
+		<pubDate>Mon, 28 Mar 2022 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20220328.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]<br/>
+</h2>
+<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
+<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 28</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> March, 2022</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Ever-Changing Encryption Standards</h3>
+
+
+<!-- l. 44 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Monday 28</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> March, 2022</span>
+</p>
+<!-- l. 1 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Since 2016, National Security Systems (NSS) have been required to implement the policies put forward by the
+Committee on National Security Systems (CNSS). CNSS Policy 15 details key sizes that are required to
+protect national security information.[<a href="#cite.0@20220328:cnssp15" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] To comply with CNSSP 15, system architects should use an
+algorithm approved in the Commercial National Security Algorithm (CNSA) suite at a key size defined by
+CNSSP 15. At the time of this writing, the following algorithms are permitted for encrypting data:
+</p>
+     
+
+<ul class="itemize1">
+<li class="itemize">AES with 256-bit keys
+</li>     
+<li class="itemize">RSA with at least 3072-bit modulus
+</li>     
+<li class="itemize">ECC with P-384</li></ul>
+
+
+<!-- l. 7 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Additional requirements for key exchange and digital signatures are also provided in the policy.
+</p>
+<!-- l. 9 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Not only must the CNSSP 15 standards be implemented, but also the recommendations of NIST SP 800-57.[<a href="#cite.0@20220328:nist80057p1r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]
+Currently, the following algorithms are allowed by SP 800-57 Part 1 Rev. 5: </p>
+
+
+<ul class="itemize1">     
+<li class="itemize">AES with 128, 192, or 256-bit key sizes
+</li>     
+<li class="itemize">RSA with at least 3072-bit modulus
+</li>     
+<li class="itemize">ECC with a range of at least 256 (i.e. P-256, P-384, and P-512)</li></ul>
+
+
+<!-- l. 15 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">NIST SP 800-57 further details that RSA with a 15360-bit modulus and an Elliptic Curve of at least 512 bits are
+required to reach the security afforded by AES-256 (the minimum AES key size allowed by CNSSP 15). While
+RSA15360 is permitted under CNSSP 15, P-512 is not.
+</p>
+<!-- l. 17 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   For the near future, AES-256, RSA3072, and P-384 are the permitted minimum standards for cryptography.
+Engineers implementing RSA3072 or P-384 for their encryption should be ready to move to RSA15360 and P-512
+respectively in anticipation of updated CNSS standards.
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 49 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt class="thebibliography" id="X0-20220328:nist80057p1r5" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220328:nist80057p1r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Elaine Barker. Recommendation for Key Management. Part 1 – General. Tech. rep. Special Publication
+(SP)              800-57              Part              1              Revision              5.              Washington,
+D.C.: National Institute of Standards and Technology, 2020. <span class="small-caps" style="font-variant: small-caps;">doi</span>: <a href="https://doi.org/10.6028/NIST.SP.800-57pt1r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10.6028/NIST.SP.800-57pt1r5</span></a>.
+<span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20220328:cnssp15" style="float: left; clear: left; margin-right: 1em;">
+[2]  
+</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220328:cnssp15" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Committee                     on                     National                     Security                     Systems.
+Use of Public Standards for Secure Information Sharing
+. Tech. rep. CNSSP 15. Ft. Meade, MD: NSA,
+2016. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://www.cnss.gov/CNSS/issuances/Policies.cfm" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.cnss.gov/CNSS/issuances/Policies.cfm</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
+[3]  
+</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>The Death of CentOS on DoD Networks</title>
 		<link>https://www.SwATips.com/articles/20220321.html</link>
 		<pubDate>Mon, 21 Mar 2022 00:00:00 -0500</pubDate>
@@ -1853,177 +1967,6 @@ instance of 499.
 </dt><dd class="thebibliography" id="bib-4" style="margin-left: 2.5em;">
 <!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210830:javaserialization" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Tutorials             Point.             Java - Serialization.             Mar. 26,             2018.             <span class="small-caps" style="font-variant: small-caps;">url</span>:
 <a href="https://www.tutorialspoint.com/java/java_serialization.htm" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.tutorialspoint.com/java/java_serialization.htm</span></a> (visited on 08/26/2021).</p></dd></dl>
-
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>The Password that Cannot Be Spoken</title>
-		<link>https://www.SwATips.com/articles/20210816.html</link>
-		<pubDate>Mon, 16 Aug 2021 00:00:00 -0500</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a> | <a href="articles/20210816.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>]<br/>
-</h2>
-<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
-<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 16</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> August, 2021</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>The Password that Cannot Be Spoken</h3>
-
-
-<!-- l. 42 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Monday 16</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> August, 2021</span>
-</p>
-<!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   To combat password reuse, several tools have been devised such as KeePass, 1Password, and Bitwarden. Even
-most web browsers now, like Google Chrome, can manage pseudorandom passwords that are reasonably strong and
-unique. Each of these tools provides a way to generate cryptographically secure random passwords, but there
-is an important limitation to these passwords that makes them a little less secure than they could
-be:  
-</p>
-
-
-<blockquote class="quote">     
-<!-- l. 3 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;">The <strong>pwgen</strong> program generates passwords which are designed to be easily memorized by humans,
-while being as secure as possible. Human-memorable passwords are never going to be as secure as
-completely completely random passwords. In particular, passwords generated by <strong>pwgen</strong> without
-the <strong>-s</strong> option should not be used in places where the password could be attacked via an off-line
-brute-force attack.[<a href="#cite.0@20210816:pwgen" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]</p></blockquote>
-
-
-<!-- l. 6 -->
-<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   The goal of these password generation utilities is to generate passwords that can be written down, stored,
-and referenced. But are all passwords ones that fall into this category of pronounceability? Certainly
-not!
-</p>
-<!-- l. 8 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Password Categories</h4>
-
-
-<!-- l. 10 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">The majority of passwords are ones that may need to be communicated to someone. Passwords that are used for
-shared accounts and passwords that must be easily typed on a keyboard fall into this category. But there is another
-password category that we must consider: the temporary password.
-</p>
-<!-- l. 12 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Suppose that you are working for a technical support company, and a user calls claiming to have forgotten their
-password. They answer the security questions proving the first factor in authentication (something they <i>know</i>). You
-then send an encrypted e-mail with a temporary password that they must obtain via their recorded e-mail address
-(something they <i>have</i> access to).
-</p>
-<!-- l. 14 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   There are few (if any) good reasons for these types of passwords (such as service accounts and temporary
-passwords) to be easily pronounceable, communicable, or typed in by a standard keyboard. To limit these passwords
-to such keyspaces decreases their security and increases the likelihood of shoulder surfers to obtain
-them.
-</p>
-<!-- l. 16 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>A Solution for Temporary Passwords</h4>
-
-
-<!-- l. 18 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Existing password utilities are inadequate for generating non-shoulder-surfable passwords. Therefore, I took the
-liberty of creating a new password generation utility: the Unspeakable PassWord GENerator (upwgen,
-<a href="https://www.github.com/squinky86/upwgen/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.github.com/squinky86/upwgen/</span></a>). Upwgen works by generating at least a 15-character
-password[<a href="#cite.0@20210816:ASDStig" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, SV-222536r508029_rule] that includes characters in the following glyph blocks (using UTF-32):
-</p>
-     
-
-<ul class="itemize1">
-<li class="itemize">An uppercase letter[<a href="#cite.0@20210816:ASDStig" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, SV-222537r508029_rule]
-</li>     
-<li class="itemize">A lowercase letter[<a href="#cite.0@20210816:ASDStig" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, SV-222538r508029_rule]
-</li>     
-<li class="itemize">A number[<a href="#cite.0@20210816:ASDStig" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, SV-222539r508029_rule]
-                                                                                         
-                                                                                         
-     
-</li>
-<li class="itemize">A recognizable special character[<a href="#cite.0@20210816:ASDStig" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, SV-222540r508029_rule]
-</li>     
-<li class="itemize">A non-printing character
-</li>     
-<li class="itemize">An emoji
-</li>     
-<li class="itemize">A character in an extinct language
-</li>     
-<li class="itemize">A gamepiece</li></ul>
-
-
-<!-- l. 30 -->
-<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   The emojis and gamepieces add to the keyspace of symbols for the password. The non-printing character makes
-it difficult to print out the password or write it on a sticky-note. And the extinct language means that characters
-from a language no one currently speaks will be included, making it difficult to communicate what the glyphs
-are.
-</p>
-<!-- l. 32 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a id="x1-40001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusion</h4>
-
-
-<!-- l. 34 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Including symbols that are not easily typed and unprintable glyphs decreases the chance of a password being
-shoulder-surfed and increases the likelihood of a password being changed quickly, as it is not easy to simply write on
-a sticky note. The enlarged keyspace makes it less likely for a bruteforce attack or rainbow table to contain the
-generated passwords.
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead"><a id="x1-50001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 47 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt id="X0-20210816:ASDStig" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210816:ASDStig" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Application Security and Development STIG V5R1.       Tech.       rep.       Oct.       2020.       <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a href="https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_ASD_V5R1_STIG.zip" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_ASD_V5R1_STIG.zip</span></a>.
-</p>    
-</dd>
-<dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[2]  
-</dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
-</p>    
-</dd>
-<dt id="X0-20210816:pwgen" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[3]  
-</dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 47 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210816:pwgen" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Philipp       Klaus.       pwgen - generate pronouncable passwords.       June 21,       2011.       <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a href="https://raw.githubusercontent.com/jbernard/pwgen/master/pwgen.1" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://raw.githubusercontent.com/jbernard/pwgen/master/pwgen.1</span></a> (visited on 08/09/2021).</p></dd></dl>
 
  
 

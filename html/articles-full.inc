@@ -24,3 +24,4 @@
 <li>20211220 - <a href="articles/20211220.html">GCC as a Static Analysis Tool</a></li>
 <li>20220131 - <a href="articles/20220131.html">So you put an Unclassified CD in a Classified Machine</a></li>
 <li>20220321 - <a href="articles/20220321.html">The Death of CentOS on DoD Networks</a></li>
+<li>20220328 - <a href="articles/20220328.html">Ever-Changing Encryption Standards</a></li>

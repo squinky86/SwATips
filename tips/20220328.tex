@@ -1,0 +1,17 @@
+Since 2016, National Security Systems (NSS) have been required to implement the policies put forward by the Committee on National Security Systems (CNSS). CNSS Policy 15 details key sizes that are required to protect national security information.\autocite{20220328:cnssp15} To comply with CNSSP 15, system architects should use an algorithm approved in the Commercial National Security Algorithm (CNSA) suite at a key size defined by CNSSP 15. At the time of this writing, the following algorithms are permitted for encrypting data:
+\begin{itemize}
+	\item AES with 256-bit keys
+	\item RSA with at least 3072-bit modulus
+	\item ECC with P-384
+\end{itemize}
+Additional requirements for key exchange and digital signatures are also provided in the policy.
+
+Not only must the CNSSP 15 standards be implemented, but also the recommendations of NIST SP 800-57.\autocite{20220328:nist80057p1r5} Currently, the following algorithms are allowed by SP 800-57 Part 1 Rev. 5:
+\begin{itemize}
+	\item AES with 128, 192, or 256-bit key sizes
+	\item RSA with at least 3072-bit modulus
+	\item ECC with a range of at least 256 (i.e. P-256, P-384, and P-512)
+\end{itemize}
+NIST SP 800-57 further details that RSA with a 15360-bit modulus and an Elliptic Curve of at least 512 bits are required to reach the security afforded by AES-256 (the minimum AES key size allowed by CNSSP 15). While RSA15360 is permitted under CNSSP 15, P-512 is not.
+
+For the near future, AES-256, RSA3072, and P-384 are the permitted minimum standards for cryptography. Engineers implementing RSA3072 or P-384 for their encryption should be ready to move to RSA15360 and P-512 respectively in anticipation of updated CNSS standards.
