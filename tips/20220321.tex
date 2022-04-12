@@ -91,6 +91,24 @@ For workstation use, Ubuntu is one of my go-to distributions. Nevertheless, a sw
 
 The final option is SLES 15. Like RHEL, it provides enterprise-level subscription-based support. SLES 15 includes STIG content, SCAP benchmarks, and a seamless installation for products such as Nessus. SCAP content has lagged behind its RHEL counterparts; however, the support lifecycle for SLES 15 allows DoD project planners to have the security of knowing that their underlying operating system will be supported through July 31, 2031. It should also be noted that the STIG and SCAP content are for the enterprise server product, while the RHEL and Oracle products include their workstation derivatives.
 
+\subsection{Other Unevaluated Options}
+
+We have also had success with the following distributions and have excluded them from consideration for the following reasons. They may be distributions to consider for your environment:
+\begin{enumerate}
+	\item Springdale Linux - There is currently no 8.5 installation media and updates appear to be slower for this distribution. STIG Benchmark modifications can be made using the command in Listing~\ref{lst:20220321:sle}.
+	\item EuroLinux - Succeeded on all tests, but very focused on commercial support. I probably should have included it as an option and ran into the same issues as with AlmaLinux involving the naming of the DISA STIG. STIG Benchmark modification can be made using the command in Listing~\ref{lst:20220321:el}.
+\end{enumerate}
+
+\begin{lstlisting}[caption={Modify RHEL Benchmark for Springdale Linux},captionpos=b,style=BashStyle,basicstyle=\small,label={lst:20220321:sle},literate=*{-}{-}1,breaklines=true]
+# sed -i -e 's|redhat:enterprise_linux\(.*\)</pattern>|springdale:enterprise_linux\1*</pattern>|g' \
+	/opt/scc/Resources/Content/SCAP12_Content/U_RHEL_8_*_STIG_SCAP_1-2_Benchmark.xml
+\end{listing}
+
+\begin{lstlisting}[caption={Modify RHEL Benchmark for EuroLinux},captionpos=b,style=BashStyle,basicstyle=\small,label={lst:20220321:el},literate=*{-}{-}1,breaklines=true]
+# sed -i -e 's|redhat:enterprise_linux\(.*\)</pattern>|eurolinux:eurolinux\1*</pattern>|g' \
+	/opt/scc/Resources/Content/SCAP12_Content/U_RHEL_8_*_STIG_SCAP_1-2_Benchmark.xml
+\end{listing}
+
 \subsection{Concluding Remarks}
 
 If you are a DoD product designer and needing to switch from CentOS 8, you have a lot of options. The most painless (compliance-wise) is to switch to Oracle Linux or RHEL. With either of these options, you have a robust STIG compliance framework in place to justify the decisions and a support network that can be used if needed. Nevertheless, Oracle Linux isn't the only free option to consider: strong contenders from AlmaLinux, Rocky Linux, and Navy Linux Enterprise provide compatibility with very minor compliance caveats. Instead of the General Purpose OS STIG, the RHEL STIG can be modified to record compliance status of these operating systems; however, the AO should be informed of the risks involving using software managed by the Rocky and Alma organizations. These organizations are new and don't have the prodigy of RedHat, Oracle, SUSE, or Canonical in working with DoD projects.
