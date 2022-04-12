@@ -11,6 +11,7 @@ When CentOS, recently acquired by RedHat, announced that they would no longer su
 	\item Oracle Linux 8
 	\item Rocky Linux 8
 	\item AlmaLinux OS 8
+	\item Navy Linux Enterprise 8
 	\item Ubuntu 20.04
 	\item SUSE Linux Enterprise Server 15
 \end{itemize}
@@ -61,7 +62,26 @@ AlmaLinux does not currently have DISA risk acceptance or a standard STIG to app
 If using the RHEL baseline for evaluating AlmaLinux, the SCAP content will flag for rules relating to using a supported release (it checks /etc/redhat-release for this) and RedHat certificate authorities. The check content for these two CAT I checks should be modified to reflect the AlmaLinux support lifecycle and certificate authorities respectively.
 
 \subsubsection{Compatibility}
-I had no problem installing the RHEL version of Nessus 10.1.1 (though it should be noted that AlmaLinux is not listed as an officially supported distribution by Tenable). All RHEL packages installed and ran without issues, as they did with CentOS 8. FIPS compliance was enabled and tested with the \texttt{fips-mode-setup -\phantom{}-enable} command.
+I had no problem installing the RHEL version of Nessus 10.1.1 (though it should be noted that Navy Linux Enterprise is not listed as an officially supported distribution by Tenable). All RHEL packages installed and ran without issues, as they did with CentOS 8. FIPS compliance was enabled and tested with the \texttt{fips-mode-setup -\phantom{}-enable} command.
+
+\subsection{Navy Linux Enterprise 8}
+Navy Linux Enterprise (NLE) has the same goals as Rocky Linux and AlmaLinux--being bug-for-bug compatible with RedHat Enterprise Linux. The project is currently one year old and has seen very little activity in the Linux community. Though not as popular as the alternatives, NLE has maintained its repositories against the latest RHEL updates. It was the last to release version 8.5, several months behind its other competitors. This distribution is not associated with any government's Navy when it was ceremoniously launched by UnixLab.
+
+\subsubsection{Installation Issues}
+Unlike its competitors, NLE's 8.5 installation media does not contain security profiles. This raises concerns for its compatibility with being able to create similar installations to those of its competitors. While the user can enter a URI to fetch security profiles from the internet, the software should be installable and configurable in an offline environment.
+
+\subsubsection{Compliance}
+NLE does not currently have DISA risk acceptance or a standard STIG to apply. Instead, the RHEL 8 benchmark can be utilized with a note that the checks against the \texttt{CPE\_NAME} in \texttt{/etc/os-release} should be modified to look for NLE rather than RHEL. The benchmark file (such as the one installed with SCAP Compliance Checker) can be modified to work with NLE using the command in Listing~\ref{lst:20220321:nle}.
+
+\begin{lstlisting}[caption={Modify RHEL Benchmark for Navy Linux Enterprise},captionpos=b,style=BashStyle,basicstyle=\small,label={lst:20220321:nle},literate=*{-}{-}1,breaklines=true]
+# sed -i -e 's|redhat:enterprise_linux\(.*\)</pattern>|navylinux:navylinux\1*</pattern>|g' \
+	/opt/scc/Resources/Content/SCAP12_Content/U_RHEL_8_*_STIG_SCAP_1-2_Benchmark.xml
+\end{lstlisting}
+
+If using the RHEL benchmark for evaluating NLE, the SCAP content will flag on rules relating to using a supported release (it checks /etc/redhat-release for this) and RedHat certificate authorities. The check content for these two CAT I checks should be modified to reflect the NLE support lifecycle and certificate authorities respectively.
+
+\subsubsection{Compatibility}
+I had no problem installing the RHEL version of Nessus 10.1.1 (though it should be noted that NLE is not listed as an officially supported distribution by Tenable). All RHEL packages installed and ran without issues, as they did with CentOS 8. FIPS compliance was enabled and tested with the \texttt{fips-mode-setup -\phantom{}-enable} command.
 
 \subsection{Ubuntu 20.04}
 
@@ -73,8 +93,8 @@ The final option is SLES 15. Like RHEL, it provides enterprise-level subscriptio
 
 \subsection{Concluding Remarks}
 
-If you are a DoD product designer and needing to switch from CentOS 8, you have a lot of options. The most painless (compliance-wise) is to switch to Oracle Linux or RHEL. With either of these options, you have a robust STIG compliance framework in place to justify the decisions and a support network that can be used if needed. Nevertheless, Oracle Linux isn't the only free option to consider: strong contenders from AlmaLinux and Rocky Linux provide compatibility with very minor compliance caveats. Instead of the General Purpose OS STIG, the RHEL STIG can be modified to record compliance status of these operating systems; however, the AO should be informed of the risks involving using software managed by the Rocky and Alma organizations. These organizations are new and don't have the prodigy of RedHat, Oracle, SUSE, or Canonical in working with DoD projects.
+If you are a DoD product designer and needing to switch from CentOS 8, you have a lot of options. The most painless (compliance-wise) is to switch to Oracle Linux or RHEL. With either of these options, you have a robust STIG compliance framework in place to justify the decisions and a support network that can be used if needed. Nevertheless, Oracle Linux isn't the only free option to consider: strong contenders from AlmaLinux, Rocky Linux, and Navy Linux Enterprise provide compatibility with very minor compliance caveats. Instead of the General Purpose OS STIG, the RHEL STIG can be modified to record compliance status of these operating systems; however, the AO should be informed of the risks involving using software managed by the Rocky and Alma organizations. These organizations are new and don't have the prodigy of RedHat, Oracle, SUSE, or Canonical in working with DoD projects.
 
-Can the Authorizing Official (AO) accept the risk of allowing the AlmaLinux OS Foundation or Rocky Enterprise Software Foundation having write/update permissions to their package repositories? Both organizations already have the backing of Amazon, Microsoft, and Google platforms; such big names are members of these foundations to help their governance and future direction. The current lack of DoD-level risk acceptance should be acknowledged by the AO, but such an acceptance should not be seen as a high risk.
+Can the Authorizing Official (AO) accept the risk of allowing the AlmaLinux OS Foundation or Rocky Enterprise Software Foundation having write/update permissions to their package repositories? Both organizations already have the backing of Amazon, Microsoft, and Google platforms; such big names are members of these foundations to help their governance and future direction. The Navy Foundation is a newcomer to the community without the backing of any big names. The current lack of DoD-level risk acceptance should be acknowledged by the AO, but such an acceptance may not be seen as a high risk.
 
 Finally, AlmaLinux supports the ELevate project which allows users to move to AlmaLinux, Rocky Linux, and Oracle Linux from CentOS 7 (\url{https://wiki.almalinux.org/elevate/}), and there are a few other tools available for migrating from CentOS 8 to one of the supported RHEL variants.
