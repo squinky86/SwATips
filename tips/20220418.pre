@@ -1,0 +1,3 @@
+\def \AuthorName{Kevin Keen}
+\def \ArticleName{Improper Resource Access Authorization}
+\newcommand{\ArticleDate}{\formatdate{18}{4}{2022}}
