@@ -25,3 +25,4 @@
 <li>20220131 - <a href="articles/20220131.html">So you put an Unclassified CD in a Classified Machine</a></li>
 <li>20220321 - <a href="articles/20220321.html">The Death of CentOS on DoD Networks</a></li>
 <li>20220328 - <a href="articles/20220328.html">Ever-Changing Encryption Standards</a></li>
+<li>20220418 - <a href="articles/20220418.html">Improper Resource Access Authorization</a></li>

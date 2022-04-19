@@ -1,3 +1,4 @@
+<li>20220418 - <a href="articles/20220418.html">Improper Resource Access Authorization</a></li>
 <li>20220328 - <a href="articles/20220328.html">Ever-Changing Encryption Standards</a></li>
 <li>20220321 - <a href="articles/20220321.html">The Death of CentOS on DoD Networks</a></li>
 <li>20220131 - <a href="articles/20220131.html">So you put an Unclassified CD in a Classified Machine</a></li>
@@ -7,4 +8,3 @@
 <li>20211004 - <a href="articles/20211004.html">Perls of Wisdom</a></li>
 <li>20210913 - <a href="articles/20210913.html">Static Header Paths</a></li>
 <li>20210906 - <a href="articles/20210906.html">When Code Analysis Fails</a></li>
-<li>20210830 - <a href="articles/20210830.html">A CWE-499 Breakdown: Serializing Sensitive Data</a></li>

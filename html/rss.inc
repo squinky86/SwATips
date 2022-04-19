@@ -1,4 +1,67 @@
 	<item>
+		<title>Improper Resource Access Authorization</title>
+		<link>https://www.SwATips.com/articles/20220418.html</link>
+		<pubDate>Mon, 18 Apr 2022 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20220418.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[swatips]<br/>
+</h2>
+<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Kevin Keen</span></div><br/>
+<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 18</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> April, 2022</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Improper Resource Access Authorization</h3>
+
+
+<!-- l. 44 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Monday 18</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> April, 2022</span>
+</p>
+<!-- l. 1 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Part of being a cyber security specialist is knowing the tools we use and what they are trying to communicate.
+Sometimes that is not as clear as we would wish. Take for example the finding of <i>Improper Resource Access
+Authorization</i> produced by Checkmarx. This is perhaps one of my least favorite findings as it tends to be very noisy,
+flagging on nearly any I/O that the application performs. What is it that the scanner is trying to tell us here? Let’s
+look at the corresponding CWE according to Checkmarx. The documentation from Checkmarx maps this finding to
+<i>CWE-285: Improper Authorization</i>. The short description reads: “The software does not perform or
+incorrectly performs an authorization check when an actor attempts to access a resource or perform an
+action.”
+</p>
+<!-- l. 3 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   That may be a bit too general, but the gist of it is that the scanner is attempting to ask “Does the user of the
+application have authorization to access the resource that is the target of this I/O operation?” In nearly
+every case we do not have enough information from the code alone to answer that question. In a few
+cases, the application may have the concept of users, and there might be a user check guarding the
+I/O. Only in those cases do we have a chance at marking these findings a <span class="ec-lmtt-10" style="font-family: monospace,monospace;">false positive</span>. But more
+often, the application has no notion of separate user roles. At that point there is no way to answer
+this question from the code alone. It becomes something that must be answered by policy or external
+documentation.
+</p>
+<!-- l. 5 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Note that a similar sounding finding from Checkmarx, Exposure of Resource to Wrong Sphere, is a completely
+different issue dealing with whether public variables are marked final.
+                                                                                         
+                                                                                         
+</p>
+   
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Ever-Changing Encryption Standards</title>
 		<link>https://www.SwATips.com/articles/20220328.html</link>
 		<pubDate>Mon, 28 Mar 2022 00:00:00 -0500</pubDate>
@@ -1692,374 +1755,6 @@ maintenance.
 </dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
 <!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210906:CVE-2017-13777" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>MITRE.                    CVE-2017-13777.                    Aug.                    2017.                    <span class="small-caps" style="font-variant: small-caps;">url</span>:
 <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13777" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13777</span></a>.</p></dd></dl>
-
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>A CWE-499 Breakdown: Serializing Sensitive Data</title>
-		<link>https://www.SwATips.com/articles/20210830.html</link>
-		<pubDate>Mon, 30 Aug 2021 00:00:00 -0500</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a> | <a href="articles/20210830.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]<br/>
-</h2>
-<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Chris Ramsey</span></div><br/>
-<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 30</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> August, 2021</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>A CWE-499 Breakdown: Serializing Sensitive Data</h3>
-
-
-<!-- l. 43 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Monday 30</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> August, 2021</span>
-</p>
-<!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Recently, we detected a potential CWE-499 on some of the source being scanned in the lab. It raised some
-questions and debate among us, and left me scratching my head. Being a curious fellow, I took it upon myself to
-play around with it to try to figure it out. I’m not a Java developer by any stretch of the imagination, but I am a
-certified security professional with a background in software development. So, with a fresh install of Eclipse, I went
-to work.
-</p>
-<!-- l. 3 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>The CWE</h4>
-
-
-<!-- l. 4 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Below, you can see the summary and description of this CWE:
-</p>
-     
-
-<blockquote class="quote">
-<!-- l. 6 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><strong>CWE-499: Serializable Class Containing Sensitive Data</strong>
-</p>     
-<!-- l. 8 --><p class="noindent" style="margin-bottom: 0; margin-top: 1em;"><span class="paragraphHead" style="margin-top: 2em; font-weight: bold;"><a id="x1-30001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmbx-10" style="font-weight: bold;">Description</span></span>
- <br class="newline"/>The code contains a class with sensitive data, but the class does not explicitly deny serialization. The
-data can be accessed by serializing the class through another class.
-</p>     
-<!-- l. 11 --><p class="noindent" style="margin-bottom: 0; margin-top: 1em;"><span class="paragraphHead" style="margin-top: 2em; font-weight: bold;"><a id="x1-40001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmbx-10" style="font-weight: bold;">Extended Description</span></span>
- <br class="newline"/>Serializable classes are effectively open classes since data cannot be hidden in them. Classes that do not
-explicitly deny serialization can be serialized by any other class, which can then in turn use the data
-stored inside it.
-</p>     
-<!-- l. 14 --><p class="noindent" style="margin-bottom: 0; margin-top: 1em;"><span class="paragraphHead" style="margin-top: 2em; font-weight: bold;"><a id="x1-50001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmbx-10" style="font-weight: bold;">Applicable Languages</span></span>
- <br class="newline"/>Java (Undetermined Prevalence)
-</p>     
-<!-- l. 17 --><p class="noindent" style="margin-bottom: 0; margin-top: 1em;"><span class="paragraphHead" style="margin-top: 2em; font-weight: bold;"><a id="x1-60001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="rm-lmbx-10" style="font-weight: bold;">Demonstrative Example</span></span>
- <br class="newline"/></p><!-- l. 18 -->
-<a id="x1-6001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-<a id="x1-6002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-<div id="listing-1" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-6003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">class</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> PatientRecord { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-6004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">private</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> String name; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-6005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">private</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> String socialSecurityNum; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-6006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">public</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> Patient(String name,String ssn) { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-6007r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">               </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">this</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">.SetName(name); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-6008r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">               </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">this</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">.SetSocialSecurityNumber(ssn); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-6009r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-6010r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">}</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1:</span><span class="content">Example 1</span></figcaption><!-- tex4ht:label?: x1-6001r1  -->
-                                                                                         
-                                                                                         
-     
-</div>
-<!-- l. 27 --><p class="noindent" style="margin-bottom: 0; margin-top: 1em;">[<a href="#cite.0@20210830:cwe-499" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>]</p></blockquote>
-
-
-<!-- l. 30 -->
-<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   Did I read that right? Sensitive data contained within a class that doesn’t explicitly deny serialization can be
-accessed by serializing the class through another class‽ This, I’ve got to see.
-</p>
-<!-- l. 32 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a id="x1-70001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>ClassA—Sensitive Data Container</h4>
-
-
-<!-- l. 33 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">So, let’s start with a simple class that contains some sensitive data. Duplicating the example from the CWE should
-suffice. </p>
-<!-- l. 34 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-7001r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-7002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div id="listing-2" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-7003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">package</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> swa; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-7004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">public</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">class</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> ClassA { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-7005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">private</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> String name; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-7006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">private</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> String socialSecurityNum; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-7007r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">public</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> ClassA(String name,String ssn) { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-7008r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">               </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">this</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">.SetName(name); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-7009r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">               </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">this</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">.SetSocialSecurityNumber(ssn); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-7010r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-7011r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">}</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 2:</span><span class="content">ClassA</span></figcaption><!-- tex4ht:label?: x1-7001r1  -->
-   
-</div>
-
-
-<!-- l. 46 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Given this is meant to be a container of sensitive data, I didn’t make the class in Listing <a href="#x1-7001r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2<!-- tex4ht:ref: lst:20210830:classa  --></a> serializable. Let’s
-create a serializable wrapper around it and see if we can get at the data.
-</p>
-<!-- l. 48 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a id="x1-80001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>ClassB—Serializable Wrapper</h4>
-
-
-<!-- l. 50 -->
-
-
-<p style="margin-top: 0; margin-bottom: 0;"><a id="x1-8001r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-8002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div id="listing-3" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-8003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">package</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> swa; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-8004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">import</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> java.io.Serializable; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-8005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">public</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">class</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> ClassB </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">implements</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> Serializable { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-8006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">private</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">static</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">final</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">long</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> serialVersionUID = 1L; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-8007r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       ClassA obj; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-8008r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">public</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> ClassB(ClassA objVal) { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-8009r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">               </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">this</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">.obj = objVal; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-8010r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-8011r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">}</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 3:</span><span class="content">ClassB</span></figcaption><!-- tex4ht:label?: x1-8001r1  -->
-   
-</div>
-
-
-<!-- l. 62 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Listing <a href="#x1-8001r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3<!-- tex4ht:ref: lst:20210830:classb  --></a> demonstrates a serializable wrapper class around the class with sensitive information.
-</p>
-<!-- l. 64 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.4   </span> <a id="x1-90001.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>The Driver</h4>
-
-
-<!-- l. 65 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">With our two classes written, it’s time for the show. Let’s create a program that creates an instance of the sensitive
-data container, set it on our wrapper, and then serialize the wrapper to file.
-</p>
-   
-
-<!-- l. 67 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-9001r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-9002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div id="listing-4" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-9003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">package</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> swa; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">import</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> java.io.*; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">public</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">class</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> SerializeExample { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">public</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">static</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">void</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> main(String[] args) { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9007r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 ClassA objA = </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">new</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> ClassA("swa","123456789"); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9008r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 ClassB objB = </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">new</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> ClassB(objA); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9009r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">try</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9010r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                         FileOutputStream fos = </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">new</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> FileOutputStream("/home/swa/data.ser"); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9011r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                         ObjectOutputStream oos = </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">new</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> ObjectOutputStream(fos); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9012r10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                         oos.writeObject(objB); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9013r11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                         oos.close(); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9014r12" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                         fos.close(); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9015r13" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 } </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">catch</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> (IOException i) { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9016r14" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                         i.printStackTrace(); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9017r15" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9018r16" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">        } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9019r17" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">}</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 4:</span><span class="content">Serialization Driver</span></figcaption><!-- tex4ht:label?: x1-9001r1  -->
-   
-</div>
-
-
-<!-- l. 88 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Time for the main event! What happens when I run this? </p>
-<!-- l. 89 -->
-
-                                                                                         
-                                                                                         
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-9020r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-9021" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div id="listing-5" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-9022r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">java.io.NotSerializableException: swa.ClassA </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9023r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">             at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1192) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9024r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">             at java.base/java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1577) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9025r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">             at java.base/java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1534) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9026r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">             at java.base/java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1443) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9027r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">             at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1186) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9028r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">             at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:352) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-9029r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">             at swa/swa.SerializeExample.main(SerializeExample.java:14)</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 5:</span><span class="content">Driver Output</span></figcaption><!-- tex4ht:label?: x1-9020r1  -->
-   
-</div>
-
-
-<!-- l. 101 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Alas, no joy. Even though <span class="ec-lmtt-10" style="font-family: monospace,monospace;">ClassA </span>contains sensitive data and does not explicitly deny serialization, I couldn’t get
-at the sensitive data by serializing a wrapper. That’s a bit of a bummer–I was looking forward to being able to
-trumpet this one from the rooftops.
-</p>
-<!-- l. 103 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.5   </span> <a id="x1-100001.5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>What Gives?</h4>
-
-
-<!-- l. 104 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">So I took my disappointment and went to Google, trying to make sense of this mysterious CWE. The first thing I
-found was this tidbit:
-</p>
-     
-
-<blockquote class="quote">
-<!-- l. 106 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;">Notice that for a class to be serialized successfully, two conditions must be met: </p>
-<ul class="itemize1">    
-<li class="itemize">The class must implement the java.io.Serializable interface.
-</li>    
-<li class="itemize">All of the fields in the class must be serializable. If a field is not serializable, it must be
-marked transient.</li></ul>
-<!-- l. 110 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;">[<a href="#cite.0@20210830:javaserialization" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>]</p></blockquote>
-
-
-<!-- l. 113 -->
-<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   What a refreshingly reasonable approach to have! For me to access <span class="ec-lmtt-10" style="font-family: monospace,monospace;">ClassA</span>’s sensitive data, it would have to be
-made serializable.
-</p>
-<!-- l. 115 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.6   </span> <a id="x1-110001.6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Caveats</h4>
-
-
-<!-- l. 116 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Not all serialization libraries are created equally. For example the Kryo library will work with the above example
-and serialize the private data by changing the driver to the one described in Listing <a href="#x1-11001r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">6<!-- tex4ht:ref: lst:20210830:kryo  --></a>.[<a href="#cite.0@20210830:kryo" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]
-</p>
-   
-
-<!-- l. 118 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-11001r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-11002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div id="listing-6" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-11003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">package</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> swa; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">import</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> java.io.FileOutputStream; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">import</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> java.io.IOException; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">import</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> com.esotericsoftware.kryo.Kryo; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11007r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">import</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> com.esotericsoftware.kryo.io.Output; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11008r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">public</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">class</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> SerializeExample { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11009r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">public</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">static</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">void</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> main(String[] args) { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11010r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 Kryo kryo = </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">new</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> Kryo(); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11011r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 kryo.register(ClassA.</span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">class</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11012r10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 kryo.register(ClassB.</span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">class</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11013r11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 ClassA objA = </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">new</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> ClassA("swa", "123456789"); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11014r12" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 ClassB objB = </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">new</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> ClassB(objA); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11015r13" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">try</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11016r14" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                         Output fos = </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">new</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> Output(</span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">new</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> FileOutputStream("/home/swa/data.ser")); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11017r15" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                         kryo.writeObject(fos, objB); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11018r16" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                         fos.close(); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11019r17" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 } </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">catch</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> (IOException i) { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11020r18" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                         i.printStackTrace(); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11021r19" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11022r20" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">        } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11023r21" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">}</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 6:</span><span class="content">Kryo Driver</span></figcaption><!-- tex4ht:label?: x1-11001r1  -->
-   
-</div>
-
-
-<!-- l. 142 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   To prevent Kryo from serializing the private data, the fields storing the data must be marked <span class="ec-lmtt-10" style="font-family: monospace,monospace;">transient</span>.
-</p>
-<!-- l. 144 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   But is that really enough to protect a private class in Java? No! Kryo works by using reflection, and Java
-reflection permits the developer to change the security context of even private variables. Suppose that <span class="ec-lmtt-10" style="font-family: monospace,monospace;">ssn </span>is marked
-as <span class="ec-lmtt-10" style="font-family: monospace,monospace;">transient</span>. This variable may still be accessed and serialized with reflection using the driver in
-Listing <a href="#x1-11024r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">7<!-- tex4ht:ref: lst:20210830:reflection  --></a>.
-</p>
-   
-
-<!-- l. 146 -->
-
-                                                                                         
-                                                                                         
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-11024r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-11025" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div id="listing-7" class="lstlisting" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-11026r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">package</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> swa; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11027r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">import</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> java.lang.reflect.Field; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11028r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">public</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">class</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> SerializeExample { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11029r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">        </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">public</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">static</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">void</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> main(String[] args) { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11030r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 ClassA objA = </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">new</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> ClassA("swa","123456789"); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11031r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">try</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11032r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                         Field f = objA.getClass().getDeclaredField("ssn"); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11033r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                         f.setAccessible(</span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">true</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11034r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                         System.out.println(f.get(objA)); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11035r10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 } </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">catch</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> (NoSuchFieldException e) { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11036r11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                         e.printStackTrace(); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11037r12" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 } </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">catch</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> (SecurityException e) { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11038r13" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                         e.printStackTrace(); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11039r14" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 } </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">catch</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> (IllegalArgumentException e) { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11040r15" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                         e.printStackTrace(); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11041r16" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 } </span><span class="ec-lmtk-10x-x-70" style="font-size: 70%; font-family: monospace,monospace;">catch</span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;"> (IllegalAccessException e) { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11042r17" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                         e.printStackTrace(); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11043r18" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">                 } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11044r19" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">        } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-11045r20" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-8x-x-87" style="font-size: 69%; font-family: monospace,monospace;">}</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 7:</span><span class="content">Reflection Driver</span></figcaption><!-- tex4ht:label?: x1-11024r1  -->
-   
-</div>
-
-
-<!-- l. 169 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.7   </span> <a id="x1-120001.7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusions</h4>
-
-
-<!-- l. 170 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">So the next time I see a CWE-499, I know to check the following factors:
-</p>
-     
-
-<ol class="enumerate1" style="list-style-type: decimal;">
-<li id="x1-12002x1" class="enumerate">     
-Does the class contain sensitive data?
-</li>     
-<li id="x1-12004x2" class="enumerate">
-Is the class (or its parent) serializable?
-</li>     
-<li id="x1-12006x3" class="enumerate">
-Is the field that contains the sensitive data marked transient?
-</li>     
-<li id="x1-12008x4" class="enumerate">
-Does the project disable reflection?</li></ol>
-
-
-<!-- l. 178 -->
-<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   If the class doesn’t truly contain sensitive data, then it would be a False Positive. If it does, then the other three
-factors help guide us to an appropriate conclusion. The CWE would most likely be confirmed if the class is
-serializable and the field is not marked transient. But, if either of those conditions are false, then it may be a merely
-informational finding. An issue could, at least theoretically, arise over the next development cycle as folks make
-changes.
-</p>
-<!-- l. 180 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   And, that’s not all. I’ll go ahead and add one last thing to check to our list:
-</p>
-     
-
-<ol class="enumerate1" style="list-style-type: decimal;">
-<li id="x1-12010x5" class="enumerate">     
-Is the sensitive data stored unencrypted?</li></ol>
-
-
-<!-- l. 186 -->
-<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   While this one falls under the umbrella of a different CWE (311), it’s worth checking while you’re evaluating a
-instance of 499.
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead"><a id="x1-130001.7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 48 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt class="thebibliography" id="X0-20210830:kryo" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
-<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210830:kryo" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Kryo      Contributors.      Kryo. Java binary serialization and cloning.      Aug. 26,      2021.      <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a href="https://github.com/EsotericSoftware/kryo" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://github.com/EsotericSoftware/kryo</span></a> (visited on 08/26/2021).
-</p>    
-</dd>
-<dt class="thebibliography" id="X0-20210830:cwe-499" style="float: left; clear: left; margin-right: 1em;">
-[2]  
-</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
-<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210830:cwe-499" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>CWE  Content  Team.  “CWE-499:  Serializable  Class  Containing  Sensitive  Data”.  In:  (2021).  <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a href="https://cwe.mitre.org/data/definitions/499.html" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://cwe.mitre.org/data/definitions/499.html</span></a>.
-</p>    
-</dd>
-<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
-[3]  
-</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
-<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
-</p>    
-</dd>
-<dt class="thebibliography" id="X0-20210830:javaserialization" style="float: left; clear: left; margin-right: 1em;">
-[4]  
-</dt><dd class="thebibliography" id="bib-4" style="margin-left: 2.5em;">
-<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210830:javaserialization" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Tutorials             Point.             Java - Serialization.             Mar. 26,             2018.             <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a href="https://www.tutorialspoint.com/java/java_serialization.htm" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.tutorialspoint.com/java/java_serialization.htm</span></a> (visited on 08/26/2021).</p></dd></dl>
 
  
 
