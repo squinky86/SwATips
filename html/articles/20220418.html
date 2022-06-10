@@ -7,28 +7,45 @@
 <meta charset="utf-8"/>
  
 
-<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
  
 
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
  
 
  
 
-<meta name="src" content="article.tex"/>
+<meta content="article.tex" name="src"/>
  
 
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
 <style>
  
 /* start css.sty */
-.rm-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
-.rm-lmbx-10{ font-weight: bold;}
-.rm-lmr-12{font-size:120%;}
-.rm-lmr-9{font-size:90%;}
+.ec-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmr-12{font-size:120%;}
+.ec-lmr-9{font-size:90%;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
-.rm-lmr-8{font-size:80%;}
-.rm-lmri-10{ font-style:italic;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmr-8{font-size:80%;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
 p{margin-top:0;margin-bottom:0}
 p.indent{text-indent:0;}
 p + p{margin-top:1em;}
@@ -36,6 +53,7 @@ p + div, p + pre {margin-top:1em;}
 div + p, pre + p {margin-top:1em;}
 a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
 @media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
 a img { border-top: 0; border-left: 0; border-right: 0; }
 center { margin-top:1em; margin-bottom:1em; }
 td center { margin-top:0em; margin-bottom:0em; }
@@ -45,12 +63,14 @@ div.par-math-display, div.math-display{text-align:center;}
 li p.indent { text-indent: 0em }
 li p:first-child{ margin-top:0em; }
 li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
 li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
 .enumerate1 {list-style-type:decimal;}
 .enumerate2 {list-style-type:lower-alpha;}
 .enumerate3 {list-style-type:lower-roman;}
 .enumerate4 {list-style-type:upper-alpha;}
 div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
 .obeylines-h,.obeylines-v {white-space: nowrap; }
 div.obeylines-v p { margin-top:0; margin-bottom:0; }
 .overline{ text-decoration:overline; }
@@ -96,6 +116,7 @@ table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
 .hline hr, .cline hr{ height : 0px; margin:0px; }
 .hline td, .cline td{ padding: 0; }
 .hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
 .tabbing-right {text-align:right;}
 div.float, div.figure {margin-left: auto; margin-right: auto;}
 div.float img {text-align:center;}
@@ -118,7 +139,6 @@ span.pmatrix img{vertical-align:middle;}
 div.pmatrix {text-align:center;}
 table.pmatrix {width:100%;}
 span.bar-css {text-decoration:overline;}
-table.tabular{border-collapse: collapse; border-spacing: 0;}
 img.cdots{vertical-align:middle;}
 .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
 .chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
@@ -140,17 +160,18 @@ div.abstract p {margin-left:5%; margin-right:5%;}
 div.abstract {width:100%;}
 .abstracttitle{text-align:center;margin-bottom:1em;}
 figure.float, div.figure {margin-left: auto; margin-right: auto;}
-figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}
-figure.figure > p {text-align:center;}
+figure.figure {text-align:center;}
 figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
 figcaption.caption span.id{font-weight: bold; white-space: nowrap; }
+p + figcaption, img + figcaption{margin-top: 1em;}
 .abstract{margin:1em;}
 dt.printshorthands{float:left; clear:left; margin-right:1em;}
 dd.thebibliography {margin-left: 2.5em;}
 dt.thebibliography {float:left; clear:left; margin-right:1em;}
+code.lstinline{font-family:monospace,monospace;}
 .lstlisting .label{margin-right:0.5em; }
-div.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
-div.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
+pre.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
 .lstinputlisting .label{margin-right:0.5em;}
 .small-caps{font-variant: small-caps;}
 .uline{ text-decoration:underline; }
@@ -171,16 +192,16 @@ span.uwave {text-decoration:underline }
                                                                                          
 
 <h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
-A product of the Software Assurance Tips Team[swatips]<br />
+A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0@swatips'>1</a>]<br />
 </h2>
-<div class='author'><span class='rm-lmr-12'>Kevin Keen</span></div><br />
-<div class='date'><span class='rm-lmr-12'>Monday 18</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> April, 2022</span></div>
+<div class='author'><span class='ec-lmr-12'>Kevin Keen</span></div><br />
+<div class='date'><span class='ec-lmr-12'>Monday 18</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-12'> April, 2022</span></div>
 </div>
                                                                                          
                                                                                          
    
-<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Improper Resource Access Authorization</h3>
-<!-- l. 44 --><p class='noindent'><span class='rm-lmr-8'>Updated Monday 18</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-8'> April, 2022</span>
+<h3 class='sectionHead' id='improper-resource-access-authorization'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Improper Resource Access Authorization</h3>
+<!-- l. 44 --><p class='noindent'><span class='ec-lmr-8'>Updated Friday 10</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> June, 2022</span>
 </p><!-- l. 1 --><p class='indent'>   Part of being a cyber security specialist is knowing the tools we use and what they are trying to communicate.
 Sometimes that is not as clear as we would wish. Take for example the finding of <i>Improper Resource Access
 Authorization</i> produced by Checkmarx. This is perhaps one of my least favorite findings as it tends to be very noisy,
@@ -197,11 +218,18 @@ I/O. Only in those cases do we have a chance at marking these findings a <span c
 often, the application has no notion of separate user roles. At that point there is no way to answer
 this question from the code alone. It becomes something that must be answered by policy or external
 documentation.
-</p><!-- l. 5 --><p class='indent'>   Note that a similar sounding finding from Checkmarx, Exposure of Resource to Wrong Sphere, is a completely
+</p><!-- l. 5 --><p class='indent'>   Note that a similar sounding finding from Checkmarx, <i>Exposure of Resource to Wrong Sphere</i>, is a completely
 different issue dealing with whether public variables are marked final.
                                                                                          
                                                                                          
 </p>   
+<h3 class='sectionHead' id='references'><a id='x1-20001'></a>References</h3>
+<!-- l. 49 --><p class='noindent'>    
+</p>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-swatips'>
+[1]  
+</dt><dd class='thebibliography' id='bib-1'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips.     <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.</p></dd></dl>
  
 </body> 
 </html>

@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Don't Limit your CWEs}
+\newcommand{\ArticleDate}{\formatdate{13}{6}{2022}}
+\addbibresource{20220613.bib}

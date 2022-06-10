@@ -1,4 +1,225 @@
 	<item>
+		<title>Don't Limit your CWEs</title>
+		<link>https://www.SwATips.com/articles/20220613.html</link>
+		<pubDate>Mon, 13 Jun 2022 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20220613.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>]<br/>
+</h2>
+<div class="author" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
+<div class="date" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Monday 13</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-12" style="font-size: 120%;"> June, 2022</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead" id="dont-limit-your-cwes"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Don’t Limit your CWEs</h3>
+
+
+<!-- l. 44 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Friday 10</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> June, 2022</span>
+</p>
+<!-- l. 1 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   One of the trends becoming popular in recent DoD contracts is a requirement for prime contractors to scan for
+and fix a subset of Common Weakness Enumerations (CWEs) based on a list of what the government deems to be
+the most relevant to the system. Much of the language is derived from sample contract language provided by the
+DoD. Some sample language includes:
+</p>
+     
+
+<blockquote class="quote">
+<!-- l. 3 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;">The Government will provide to the Prime contractor a list of the Top-n most important CWEs.
+All software delivered by the Prime contractor shall be free of all of the CWEs in the Government’s
+Top-<i>n</i> CWE list. If a CWE in the Government’s Top-<i>n</i> CWE list is found to be present in the
+delivered software, the Prime contractor shall be liable only to repair the defect within XX-days
+at the contractor’s expense.[<a id="x1-1001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20220613:marien" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>]</p></blockquote>
+
+
+<!-- l. 6 -->
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   Including language such as this in contracts creates difficulties that the acquisition team should be aware of.
+Those difficulties include:
+</p>
+     
+
+<ol class="enumerate1" style="list-style-type: decimal;">
+<li class="enumerate" id="x1-1003x1">the possibility of a manipulative Prime developer or acquisition customer
+</li>
+<li class="enumerate" id="x1-1005x2">the lack of prioritizing potentially critical CWEs
+</li>
+<li class="enumerate" id="x1-1007x3">a moving-target metric that changes often</li></ol>
+
+
+<!-- l. 13 -->
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   Today’s Software Assurance Tip will attempt to draw attention to these pitfalls in an effort to help acquisition
+teams be aware of behaviors and metrics that may introduce unintended security errors for a program’s software
+assurance process.
+</p>
+<!-- l. 15 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead" id="manipulative-primes-and-customers"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Manipulative Primes and Customers</h4>
+
+
+<!-- l. 16 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Prime development teams involved in acquisition contracts often have the difficult task of balancing the desire to
+make their company profitable with the security of the customer they are supporting. No matter how
+much a company spends on security and safety, there is always something else they can be doing to
+improve their security stance. It’s why RMF controls and cybersecurity are built into the acquisition
+process: the customer must define “how much is enough” security to have confidence in the delivered
+system.
+</p>
+<!-- l. 18 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The Top-<i>n</i> language[<a href="#cite.0@20220613:marien" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>] is one such “how much is enough” limiter intended to give the customer reasonable levels
+of assurance while limiting the liability of the Prime contractor from having to do an overly burdensome number of
+security verifications.
+</p>
+<!-- l. 20 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   This creates a potential situation of abuse if relationships between the Prime and the Customer become strained.
+Since the CWEs are a hierarchy in addition to being a list, it becomes trivial to hide a buffer overflow from having
+to be addressed. Consider the Top 25 CWEs for 2021.[<a id="x1-2001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20220613:2021Dangerous" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>] While operating outside of the bounds of memory
+(CWE-119) is 17 on the list, many tools report the issue to CWE-120 which is absent from the list. Lest the
+                                                                                         
+                                                                                         
+acquisition team attempt to compensate for this and add CWE-120 to their top-<i>n</i> list, the Prime
+can just classify them at an even lower level as stack-based or heap-based overflows (CWE-121 and
+CWE-122 respectively). By the time an acquisition team traverses the CWEs to include everything that
+<i>could</i> be an issue, their top-<i>n</i> list becomes nothing less than the entirety of the already existing CWE
+hierarchy.
+</p>
+<!-- l. 22 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   If the contract language settles on a fixed number for <i>n</i>, the acquisition customer can create a
+dynamically changing list of CWEs that must be addressed. After all, as new CWEs and classes of
+weaknesses are released and included in the CWEs, shouldn’t a program’s software assurance process adapt
+to changing threats? In 2017, homoglyphs were introduced to the CWE list, and we have observed
+how they can absolutely cripple a weapons system.[<a id="x1-2002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20220613:hood" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>, <a id="x1-2003" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20220613:hood2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>] Nevertheless, I’ve never seen CWE-1007 on
+any top-<i>n</i> list! Suppose the threat landscape changes such that homographic representation issues
+become important. The program should absolutely have the power to include it in their list of important
+CWEs.
+</p>
+<!-- l. 24 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Overzealous acquisition Customers and manipulative Prime developers pose a serious and meaningful threat to
+this type of contract language.
+</p>
+<!-- l. 26 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead" id="forgotten-cwes"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Forgotten CWEs</h4>
+
+
+<!-- l. 27 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">In addition to the CWE-1007 example above, another important example that we have run into frequently is the
+presence of CWE-917, Expression Language Injection, which made its debut on the 2021 Top 25 list by being listed
+in the <i>Weaknesses on the Cusp</i> list as #30.[<a id="x1-3001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20220613:2021Dangerous" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>] Since 2016, our software assurance team has identified this as one of
+the most dangerous weaknesses we run into, and the National Vulnerability Database agrees with an average CVSS
+score of 9.05: higher than any other CWE on the list.
+</p>
+<!-- l. 29 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A contract which implements a CWE limit must balance the <strong>prevalence</strong> of an issue with the <strong>security impact</strong>
+of the risk it presents. What’s more dangerous for the program: fixing 1000 resource leaks that may exist in the
+software or fixing the 1 location where an attacker controls the input into a regular expression match? That answer
+may differ amongst varying systems.
+</p>
+<!-- l. 31 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead" id="a-moving-target"><span class="titlemark">1.3   </span> <a id="x1-40001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>A Moving Target</h4>
+
+
+<!-- l. 32 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Because of the changing system and threat landscapes, a top-<i>n</i> list is unreasonable to define statically in
+the contract language. And because of a Prime’s need to control costs, it is unreasonable to define it
+dynamically. This gets into the key recommendation of today’s tip: for a program that feels it necessary to
+define a top-<i>n</i> list contractually, there should also be language to keep it updated at least annually to
+address the changing security concerns of the program. My recommendation is to add language like the
+following:
+</p>
+     
+
+<blockquote class="quote">
+<ul class="itemize1">    
+<li class="itemize">The Top-<i>n</i> list may be changed at most yearly by the acquisition team.
+</li>
+<li class="itemize">Each reported CWE must also be reported as findings against its hierarchy of CWEs as
+defined by the Research Concepts view (CWE-1000).</li></ul>
+</blockquote>
+
+                                                                                         
+                                                                                         
+
+
+<!-- l. 39 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Placing a limit on how often the Top-<i>n</i> list can change prevents an abusive acquisition team that creates a constantly
+moving target that the Prime can never hit while still permitting reasonable updates to the security posture of the
+system. Requiring Prime teams to report the hierarchy of their findings prevents an issue with them hiding behind
+more esoteric CWEs.
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead" id="references"><a id="x1-50001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 49 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt class="thebibliography" id="X0-20220613:2021Dangerous" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220613:2021Dangerous" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>CWE Content Team. “2021 CWE Top 25 Most Dangerous Software Weaknesses”. In: (2021). <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a class="url" href="https://cwe.mitre.org/top25/archive/2021/2021_cwe_top25.html" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://cwe.mitre.org/top25/archive/2021/2021_cwe_top25.html</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20220613:hood" style="float: left; clear: left; margin-right: 1em;">
+[2]  
+</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220613:hood" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon    Hood.    “Homoglyphs    and    Homographic    Attacks”.    In:    SwATips.com    (2021).    <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a class="url" href="https://www.swatips.com/articles/20210510.html" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.swatips.com/articles/20210510.html</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20220613:hood2" style="float: left; clear: left; margin-right: 1em;">
+[3]  
+</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220613:hood2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon    Hood.    “Malicious    Injection    of    Source    Code”.    In:    SwATips.com    (2021).    <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a class="url" href="https://www.swatips.com/articles/20211129.html" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.swatips.com/articles/20211129.html</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
+[4]  
+</dt><dd class="thebibliography" id="bib-4" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips.     <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20220613:marien" style="float: left; clear: left; margin-right: 1em;">
+[5]  
+</dt><dd class="thebibliography" id="bib-5" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220613:marien" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>John R. Marien and Robert A. Martin. Incorporating Software Assurance into Department of Defense Acquisition Contracts.
+Washington, D.C., 2017. <span class="small-caps" style="font-variant: small-caps;">url</span>:   <a class="url" href="https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Improper Resource Access Authorization</title>
 		<link>https://www.SwATips.com/articles/20220418.html</link>
 		<pubDate>Mon, 18 Apr 2022 00:00:00 -0500</pubDate>
@@ -14,21 +235,21 @@
                                                                                          
 
 <h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[swatips]<br/>
+A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
 </h2>
-<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Kevin Keen</span></div><br/>
-<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 18</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> April, 2022</span></div>
+<div class="author" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Kevin Keen</span></div><br/>
+<div class="date" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Monday 18</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-12" style="font-size: 120%;"> April, 2022</span></div>
 </div>
 
                                                                                          
                                                                                          
    
 
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Improper Resource Access Authorization</h3>
+<h3 class="sectionHead" id="improper-resource-access-authorization"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Improper Resource Access Authorization</h3>
 
 
 <!-- l. 44 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Monday 18</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> April, 2022</span>
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Friday 10</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> June, 2022</span>
 </p>
 <!-- l. 1 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Part of being a cyber security specialist is knowing the tools we use and what they are trying to communicate.
@@ -51,12 +272,26 @@ this question from the code alone. It becomes something that must be answered by
 documentation.
 </p>
 <!-- l. 5 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Note that a similar sounding finding from Checkmarx, Exposure of Resource to Wrong Sphere, is a completely
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Note that a similar sounding finding from Checkmarx, <i>Exposure of Resource to Wrong Sphere</i>, is a completely
 different issue dealing with whether public variables are marked final.
                                                                                          
                                                                                          
 </p>
    
+
+<h3 class="sectionHead" id="references"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 49 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips.     <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
+
  
 
 ]]></description>
@@ -1650,111 +1885,6 @@ of their solution.
 [2]  
 </dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
-
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>When Code Analysis Fails</title>
-		<link>https://www.SwATips.com/articles/20210906.html</link>
-		<pubDate>Mon, 06 Sep 2021 00:00:00 -0500</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20210906.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
-</h2>
-<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
-<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 6</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> September, 2021</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>When Code Analysis Fails</h3>
-
-
-<!-- l. 43 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Monday 6</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> September, 2021</span>
-</p>
-<!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   <i>This article contains content that originally appeared in the August 31, 2017 Software Assurance
-Tips</i>
-</p>
-<!-- l. 3 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   One of the first open source projects I ever made was a webpage visit counter. But this was no ordinary counter:
-a user could upload a picture, and the code would overlay the webpage “hits” on that picture. The project was
-hosted on an old Compaq 133MHz 4U rackmount server that a friend and I “purchased” (i.e., rescued from the
-dumpster), installed Linux+Apache+PHP on, and connected to his state-of-the-art Cable Alabama broadband
-connection. The code used ImageMagick to dynamically rebuild the image every time a request came in to show the
-picture and the number of hits.
-</p>
-<!-- l. 5 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Everything worked great…until we started getting several hundred hits per second! The server could not keep up
-with the request load, and during peak usage, it was practically inaccessible. I learned an important lesson in
-resource management!
-</p>
-<!-- l. 7 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Now that development projects are more security-aware, our SwA team would identify any unsanitized image
-coming from the user as a potential for code injection, resource management errors, or even a steganography attack.
-Nevertheless, software sometimes has the requirement of accepting images from users. Using an up-to-date image
-processing library and limiting the types of input that can be received are critical for managing a system’s
-resources.
-</p>
-<!-- l. 9 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Recently, we’ve evaluated some image and map manipulation software that draws pictures and graphs on the
-supplied images. The systems were marked for not using an up-to-date version of their graphics manipulation
-software. Suppose that developers decide to implement GraphicsMagick (<a href="http://www.graphicsmagick.org/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">http://www.graphicsmagick.org/</span></a>) as
-their graphics manipulation library. The software advertises a maintainable codebase (even mentioning the famous
-David A. Wheeler on their main page) and that their recent Coverity scans reveal 0 defects per 1000 lines of code.
-With credentials like that, it can’t be insecure! Nevertheless, CVE-2017-13777 is out detailing a resource
-consumption attack with XBM (bitmap) images.[<a href="#cite.0@20210906:CVE-2017-13777" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] A pernicious bitmap would have brought my old server to a
-halt!
-</p>
-<!-- l. 11 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Even if the security scans don’t find an issue, we continue to mark references to unmaintained versions of
-software as a potential security concern. It indicates that a development team is not staying up-to-date with the
-latest dependency developments and may miss important CVEs and security-relevant software updates.
-CVE-2017-13777 is a prime example of what happens when precautionary software assurance techniques don’t
-identify an underlying issue in the code. If someone were to take the Juliet SARD test suite and run it
-against an analysis tool, it is very likely that the tool would not identify the flaw in more than 50%
-of the examples. Therefore, a competent software assurance plan does not merely take a proactive,
-preventative approach to software security; it must also have a reactionary, continuing plan for software
-maintenance.
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 48 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
-<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
-</p>    
-</dd>
-<dt class="thebibliography" id="X0-20210906:CVE-2017-13777" style="float: left; clear: left; margin-right: 1em;">
-[2]  
-</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
-<!-- l. 48 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20210906:CVE-2017-13777" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>MITRE.                    CVE-2017-13777.                    Aug.                    2017.                    <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13777" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13777</span></a>.</p></dd></dl>
 
  
 
