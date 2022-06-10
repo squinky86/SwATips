@@ -31,7 +31,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap:
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Friday 10</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> June, 2022</span>
 </p>
 <!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   One of the trends becoming popular in recent DoD contracts is a requirement for prime contractors to scan for
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   One of the trends becoming popular in recent DoD contracts is a requirement for Prime contractors to scan for
 and fix a subset of Common Weakness Enumerations (CWEs) based on a list of what the government deems to be
 the most relevant to the system. Much of the language is derived from sample contract language provided by the
 DoD. Some sample language includes:
@@ -130,9 +130,9 @@ score of 9.05: higher than any other CWE on the list.
 </p>
 <!-- l. 29 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A contract which implements a CWE limit must balance the <strong>prevalence</strong> of an issue with the <strong>security impact</strong>
-of the risk it presents. What’s more dangerous for the program: fixing 1000 resource leaks that may exist in the
-software or fixing the 1 location where an attacker controls the input into a regular expression match? That answer
-may differ amongst varying systems.
+of the risk it presents. What’s more dangerous for the program: ignoring 1000 resource leaks that may exist in the
+software or the 1 location where an attacker controls the input into a regular expression match? That answer may
+differ amongst varying systems.
 </p>
 <!-- l. 31 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
