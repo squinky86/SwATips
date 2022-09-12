@@ -7,27 +7,48 @@
 <meta charset="utf-8"/>
  
 
-<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
  
 
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
  
 
  
 
-<meta name="src" content="article.tex"/>
+<meta content="article.tex" name="src"/>
  
 
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
 <style>
  
 /* start css.sty */
-.rm-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
-.rm-lmr-12{font-size:120%;}
-.rm-lmr-9{font-size:90%;}
+.ec-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmr-12{font-size:120%;}
+.ec-lmr-9{font-size:90%;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
-.rm-lmr-8{font-size:80%;}
-.rm-lmcsc-10{font-variant: small-caps;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmr-8{font-size:80%;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
 p{margin-top:0;margin-bottom:0}
 p.indent{text-indent:0;}
 p + p{margin-top:1em;}
@@ -35,6 +56,7 @@ p + div, p + pre {margin-top:1em;}
 div + p, pre + p {margin-top:1em;}
 a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
 @media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
 a img { border-top: 0; border-left: 0; border-right: 0; }
 center { margin-top:1em; margin-bottom:1em; }
 td center { margin-top:0em; margin-bottom:0em; }
@@ -44,12 +66,14 @@ div.par-math-display, div.math-display{text-align:center;}
 li p.indent { text-indent: 0em }
 li p:first-child{ margin-top:0em; }
 li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
 li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
 .enumerate1 {list-style-type:decimal;}
 .enumerate2 {list-style-type:lower-alpha;}
 .enumerate3 {list-style-type:lower-roman;}
 .enumerate4 {list-style-type:upper-alpha;}
 div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
 .obeylines-h,.obeylines-v {white-space: nowrap; }
 div.obeylines-v p { margin-top:0; margin-bottom:0; }
 .overline{ text-decoration:overline; }
@@ -95,6 +119,7 @@ table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
 .hline hr, .cline hr{ height : 0px; margin:0px; }
 .hline td, .cline td{ padding: 0; }
 .hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
 .tabbing-right {text-align:right;}
 div.float, div.figure {margin-left: auto; margin-right: auto;}
 div.float img {text-align:center;}
@@ -117,7 +142,6 @@ span.pmatrix img{vertical-align:middle;}
 div.pmatrix {text-align:center;}
 table.pmatrix {width:100%;}
 span.bar-css {text-decoration:overline;}
-table.tabular{border-collapse: collapse; border-spacing: 0;}
 img.cdots{vertical-align:middle;}
 .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
 .chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
@@ -139,17 +163,18 @@ div.abstract p {margin-left:5%; margin-right:5%;}
 div.abstract {width:100%;}
 .abstracttitle{text-align:center;margin-bottom:1em;}
 figure.float, div.figure {margin-left: auto; margin-right: auto;}
-figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}
 figure.figure {text-align:center;}
 figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
 figcaption.caption span.id{font-weight: bold; white-space: nowrap; }
+p + figcaption, img + figcaption{margin-top: 1em;}
 .abstract{margin:1em;}
 dt.printshorthands{float:left; clear:left; margin-right:1em;}
 dd.thebibliography {margin-left: 2.5em;}
 dt.thebibliography {float:left; clear:left; margin-right:1em;}
+code.lstinline{font-family:monospace,monospace;}
 .lstlisting .label{margin-right:0.5em; }
-div.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
-div.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
+pre.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
 .lstinputlisting .label{margin-right:0.5em;}
 .small-caps{font-variant: small-caps;}
 .uline{ text-decoration:underline; }
@@ -170,56 +195,58 @@ span.uwave {text-decoration:underline }
                                                                                          
 
 <h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
-A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>3</a>]<br />
+A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0@swatips'>3</a>]<br />
 </h2>
-<div class='author'><span class='rm-lmr-12'>Jon Hood</span></div><br />
-<div class='date'><span class='rm-lmr-12'>Monday 28</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> March, 2022</span></div>
+<div class='author'><span class='ec-lmr-12'>Jon Hood</span></div><br />
+<div class='date'><span class='ec-lmr-12'>Monday 28</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-12'> March, 2022</span></div>
 </div>
                                                                                          
                                                                                          
    
-<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Ever-Changing Encryption Standards</h3>
-<!-- l. 44 --><p class='noindent'><span class='rm-lmr-8'>Updated Monday 28</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-8'> March, 2022</span>
-</p><!-- l. 1 --><p class='indent'>   Since 2016, National Security Systems (NSS) have been required to implement the policies put forward by the
+<h3 class='sectionHead' id='everchanging-encryption-standards'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Ever-Changing Encryption Standards</h3>
+<!-- l. 44 --><p class='noindent'><span class='ec-lmr-8'>Updated Monday 12</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> September, 2022</span>
+</p><!-- l. 1 --><p class='indent'>   <strong>UPDATE:</strong> CNSA 2.0 information has been released, and     <a class='url' href='https://www.SwATips.com/articles/20220919.html'><span class='ec-lmtt-10'>https://www.SwATips.com/articles/20220919.html</span></a>
+has been updated with the latest recommendations.
+</p><!-- l. 3 --><p class='indent'>   Since 2016, National Security Systems (NSS) have been required to implement the policies put forward by the
 Committee on National Security Systems (CNSS). CNSS Policy 15 details key sizes that are required to
-protect national security information.[<a href='#cite.0@20220328:cnssp15'>2</a>] To comply with CNSSP 15, system architects should use an
+protect national security information.[<a id='x1-1001'></a><a href='#cite.0@20220328:cnssp15'>2</a>] To comply with CNSSP 15, system architects should use an
 algorithm approved in the Commercial National Security Algorithm (CNSA) suite at a key size defined by
 CNSSP 15. At the time of this writing, the following algorithms are permitted for encrypting data:
 </p>     
 <ul class='itemize1'>
 <li class='itemize'>AES with 256-bit keys
-</li>     
+</li>
 <li class='itemize'>RSA with at least 3072-bit modulus
-</li>     
+</li>
 <li class='itemize'>ECC with P-384</li></ul>
-<!-- l. 7 --><p class='noindent'>Additional requirements for key exchange and digital signatures are also provided in the policy.
-</p><!-- l. 9 --><p class='indent'>   Not only must the CNSSP 15 standards be implemented, but also the recommendations of NIST SP 800-57.[<a href='#cite.0@20220328:nist80057p1r5'>1</a>]
+<!-- l. 9 --><p class='noindent'>Additional requirements for key exchange and digital signatures are also provided in the policy.
+</p><!-- l. 11 --><p class='indent'>   Not only must the CNSSP 15 standards be implemented, but also the recommendations of NIST SP 800-57.[<a id='x1-1002'></a><a href='#cite.0@20220328:nist80057p1r5'>1</a>]
 Currently, the following algorithms are allowed by SP 800-57 Part 1 Rev. 5: </p>
 <ul class='itemize1'>     
 <li class='itemize'>AES with 128, 192, or 256-bit key sizes
-</li>     
+</li>
 <li class='itemize'>RSA with at least 3072-bit modulus
-</li>     
+</li>
 <li class='itemize'>ECC with a range of at least 256 (i.e. P-256, P-384, and P-512)</li></ul>
-<!-- l. 15 --><p class='noindent'>NIST SP 800-57 further details that RSA with a 15360-bit modulus and an Elliptic Curve of at least 512 bits are
+<!-- l. 17 --><p class='noindent'>NIST SP 800-57 further details that RSA with a 15360-bit modulus and an Elliptic Curve of at least 512 bits are
 required to reach the security afforded by AES-256 (the minimum AES key size allowed by CNSSP 15). While
 RSA15360 is permitted under CNSSP 15, P-512 is not.
-</p><!-- l. 17 --><p class='indent'>   For the near future, AES-256, RSA3072, and P-384 are the permitted minimum standards for cryptography.
+</p><!-- l. 19 --><p class='indent'>   For the near future, AES-256, RSA3072, and P-384 are the permitted minimum standards for cryptography.
 Engineers implementing RSA3072 or P-384 for their encryption should be ready to move to RSA15360 and P-512
 respectively in anticipation of updated CNSS standards.
                                                                                          
                                                                                          
 </p>   
-<h3 class='sectionHead'><a id='x1-20001'></a>References</h3>
+<h3 class='sectionHead' id='references'><a id='x1-20001'></a>References</h3>
 <!-- l. 49 --><p class='noindent'>    
 </p>
 <dl class='thebibliography'><dt class='thebibliography' id='X0-20220328:nist80057p1r5'>
 [1]  
 </dt><dd class='thebibliography' id='bib-1'>
 <!-- l. 49 --><p class='noindent'><a id='cite.0@20220328:nist80057p1r5'></a>Elaine Barker. Recommendation for Key Management. Part 1 – General. Tech. rep. Special Publication
-(SP)              800-57              Part              1              Revision              5.              Washington,
-D.C.: National Institute of Standards and Technology, 2020. <span class='small-caps'>doi</span>: <a href='https://doi.org/10.6028/NIST.SP.800-57pt1r5'><span class='ec-lmtt-10'>10.6028/NIST.SP.800-57pt1r5</span></a>.
-<span class='small-caps'>url</span>: <a class='url' href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf'><span class='ec-lmtt-10'>https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf</span></a>.
+(SP)           800-57           Part           1           Revision           5.           Washington,           D.C.:
+National Institute of Standards and Technology, 2020. <span class='small-caps'>doi</span>: <a href='https://doi.org/10.6028/NIST.SP.800-57pt1r5'><span class='ec-lmtt-10'>10.6028/NIST.SP.800-57pt1r5</span></a>. <span class='small-caps'>url</span>:
+<a class='url' href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf'><span class='ec-lmtt-10'>https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf</span></a>.
 </p>    
 </dd>
 <dt class='thebibliography' id='X0-20220328:cnssp15'>
@@ -228,13 +255,13 @@ D.C.: National Institute of Standards and Technology, 2020. <span class='small-c
 <!-- l. 49 --><p class='noindent'><a id='cite.0@20220328:cnssp15'></a>Committee                     on                     National                     Security                     Systems.
 Use of Public Standards for Secure Information Sharing
 . Tech. rep. CNSSP 15. Ft. Meade, MD: NSA,
-2016. <span class='small-caps'>url</span>: <a class='url' href='https://www.cnss.gov/CNSS/issuances/Policies.cfm'><span class='ec-lmtt-10'>https://www.cnss.gov/CNSS/issuances/Policies.cfm</span></a>.
+2016. <span class='small-caps'>url</span>:     <a class='url' href='https://www.cnss.gov/CNSS/issuances/Policies.cfm'><span class='ec-lmtt-10'>https://www.cnss.gov/CNSS/issuances/Policies.cfm</span></a>.
 </p>    
 </dd>
 <dt class='thebibliography' id='X0-swatips'>
 [3]  
 </dt><dd class='thebibliography' id='bib-3'>
-<!-- l. 49 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.</p></dd></dl>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips.     <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.</p></dd></dl>
  
 </body> 
 </html>

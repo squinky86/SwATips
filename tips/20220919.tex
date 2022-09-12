@@ -1,0 +1,101 @@
+As the government switches to quantum-resistant and post-quantum cryptographic algorithms, the CNSA suite (formerly Suite-B algorithms) is undergoing some changes with a new release: version 2.0. This release of the CNSA suite includes the following information:\autocite{20220919:cnsa}
+\begin{itemize}
+	\item a requirement to be compliant and support these algorithms by 2035
+	\item a requirement to use NIST 800-208 for application signing, with a recommendation to use at least LMS with the SHA-256/192 parameters or XMSS with any parameters and deprecation of all other algorithms by 2025 (2030 for current deployments)
+	\item a requirement to use FIPS PUB 197 for symmetric block cipher encryption, requiring 256-bit keys
+	\item a requirement to use FIPS PUB 180-4 for hashing, requiring either the SHA-384 or SHA-512 algorithms
+	\item a requirement to use CRYSTALS-Kyber for public-key encryption, requiring Level V parameters and a deprecation of RSA, DH, and ECC once implemented by 2035
+	\item a requirement to use CRYSTALS-Dilithium for digital signatures by 2035
+\end{itemize}
+
+Navigating these new requirements impose a technical hurdle, and acquisition managers should prepare for this move in their timelines. This article attempts to help understand the requirements at a technical level to help drive the transition. At the time of this writing, the algorithms in CNSA 2.0 are not included in any mainline cryptography libraries. For the examples, the Open Quantum Safe (OQS) Project OpenSSL 1.1.1-stable snapshot 2022-08 (\url{https://github.com/open-quantum-safe/openssl/releases/tag/OQS-OpenSSL-1_1_1-stable-snapshot-2022-08}) is used on a vanilla Ubuntu 22.04 installation.
+
+\subsection{Software and Firmware Signing}
+Software and firmware signing can begin transitioning to CNSA 2.0 immediately with plans to retire CNSA 1.0 support.
+
+\begin{table}
+\begin{tabular}{|p{\dimexpr 0.5\linewidth-2\tabcolsep}|p{\dimexpr 0.5\linewidth-2\tabcolsep}|}
+	\hline
+	\textbf{CNSA 1.0} & \textbf{CNSA 2.0} \\
+	\hline
+	Elliptic Curve Digital Signature Algorithm (ECDSA) using P-384\newline Rivest-Shamir-Adleman (RSA) using minimum 3072-bit modulus & Leighton-Micali Signature (LMS)\newline Xtended Merkle Signature Scheme (XMSS) \\
+	\hline
+\end{tabular}
+\caption{Software and Firmware Signing Algorithms: CNSA 1.0 vs 2.0}
+\end{table}
+
+Current PKI infrastructure in the DoD only supports using RSA for digital signatures. Nevertheless, the LMS reference implementation includes LMS key generation and signature verification for LMS with SHA-256, one of the permitted signature algorithms in NIST SP 800-208.\autocite[§ 4.1]{20220919:800-208} Using the demo application that is available with the reference from \url{https://github.com/cisco/hash-sigs}, an application/firmware hashing mechanism can be implemented:
+
+\begin{lstlisting}[caption={LMS Signature of my.exe},captionpos=b,style=BashStyle,label={lst:20220919:lms}]
+$ ./demo genkey mykey 10/8,5/1
+$ ./demo sign mykey myapp.exe
+$ ./demo verify mykey myapp.exe
+\end{lstlisting}
+
+Line 1 will generate a \texttt{mykey.prv} and a \texttt{mykey.pub} file using 2 levels of Merkle trees. The first level has a height of 10 and Winternitz parameter of 8, and the second level a height of 5 and Winternitz parameter of 1. The NIST 800-208 standard permits Merkle tree heights of 5, 10, 15, 20, or 25, and RFC 8554 specifies that the Winternitz parameter may be 1, 2, 4, or 8. There are limits to the number of signatures an LMS key can be used for, and higher Merkle tree heights can take a long time to generate a key (it took nearly 2 hours for me to generate a key with \textit{h} = 25). At \textit{h} = 5, the key is only good for a handful of signatures. Generally speaking, larger Merkle tree heights take longer to generate but can be safely used for more signatures. Higher Winternitz parameters minimize the signature size while increasing the time. RFC 8554 documents that a single Merkle tree level generated with \texttt{15/8} will be good for about 30,000 signatures, while a 2-level Merkle tree generated with \texttt{25/8,15/8} would be good for more than 1 trillion signatures.
+
+Line 2 signs a file (in this case, an executable to be signed) using \texttt{mykey.prv}. This generates a \texttt{myapp.exe.sig} file with the signature.
+
+Line 3 only needs to have \texttt{mykey.pub} present to verify the signature on another machine.
+
+An additional note of caution should be made: each signature advances the private key. \texttt{mykey.prv} changes after every valid signature. If signatures are generated using the same key information more than once, the security of those hashes may leak information about the private key. Backing up the private key is not sufficient: a backup solution must back up the key \textit{with the number of signatures that have been made using it}, and a restoration process must advance the key bat that many signatures.
+
+\subsection{Symmetric Key Algorithms}
+
+No change is made between CNSA 1.0 and CNSA 2.0 for symmetric block ciphers. AES with 256-bit keys is the only algorithm permitted.
+
+\begin{table}
+\begin{tabular}{|p{\dimexpr 0.5\linewidth-2\tabcolsep}|p{\dimexpr 0.5\linewidth-2\tabcolsep}|}
+	\hline
+	\textbf{CNSA 1.0} & \textbf{CNSA 2.0} \\
+	\hline
+	Advanced Encryption Standard (AES) using 256-bit keys & Advanced Encryption Standard (AES) using 256-bit keys \\
+	\hline
+\end{tabular}
+\caption{Symmetric Block Ciphers: CNSA 1.0 vs 2.0}
+\end{table}
+
+\subsection{Hashing}
+
+CNSA 2.0 officially adds SHA-512 as an approved hash, but continues to permit SHA-384 as an approved hashing algorithm.
+\begin{table}
+\begin{tabular}{|p{\dimexpr 0.5\linewidth-2\tabcolsep}|p{\dimexpr 0.5\linewidth-2\tabcolsep}|}
+	\hline
+	\textbf{CNSA 1.0} & \textbf{CNSA 2.0} \\
+	\hline
+	Secure Hash Algorithm 2 (SHA-2) with 384-bit digests (SHA-384) & Secure Hash Algorithm 2 (SHA-2) with 384-bit or 512-bit digests (SHA-384 or SHA-512) \\
+	\hline
+\end{tabular}
+\caption{Hashing: CNSA 1.0 vs 2.0}
+\end{table}
+
+Some may notice that internal hashes in the software and firmware signing algorithms use smaller hash sizes or different hashing algorithms. For example, LMS permits the use of SHAKE-256, one of the unapproved SHA-3 algorithms from FIPS 202, internally. ``NSA has no concerns about this, but does not anticipate approving SHA-3 algorithms for general-purpose use at this time.''\autocite{20220919:cnsafaq}
+
+\subsection{Asymmetric Digital Signatures and Key Establishment}
+
+CNSA 2.0 deprecates all of the algorithms of CNSA 1.0, requiring the use of the CRYSTALS-Dilithium algorithm.
+\begin{table}
+\begin{tabular}{|p{\dimexpr 0.5\linewidth-2\tabcolsep}|p{\dimexpr 0.5\linewidth-2\tabcolsep}|}
+	\hline
+	\textbf{CNSA 1.0} & \textbf{CNSA 2.0} \\
+	\hline
+	Rivest-Shamir-Adleman (RSA) with minimum 3072-bit modulus\newline Elliptic Curve Digital Signature Algorithm (ECDSA) using curve P-384\newline Diffie-Hellman (DH) Key Exchange with minimum 3072-bit modulus\newline Elliptic Curve Diffie-Hellman (ECDH) Key Exchange using curve P-384 & CRYSTALS-Kyber at Level V\newline CRYSTALS-Dilithium at Level V \\
+	\hline
+\end{tabular}
+\caption{Asymmetric Digital Signature and Key Establishment: CNSA 1.0 vs 2.0}
+\end{table}
+
+To achieve NIST Level V functionality for the CRYSTALS-Kyber algorithm, the CRYSTALS-Kyber parameters must be set to use K\textsc{yber}1024 or K\textsc{yber}1024-90s. While both parameter sets are permitted by CNSA 2.0, K\textsc{yber}1024 uses SHAKE and SHA-3 internally, both of which, on their own, are unapproved algorithms. Instead, K\textsc{yber}1024-90s uses AES-256-CTR and SHA-2 internally, using SHAKE-256 only for the Extendable-Output Function (XOF).
+
+Amazon Web Services (AWS) and the Open Quantum Safe (OQS) project implement CRYSTALS. While production implementations are not recommended yet, configuring the OQS port of OpenSSL so that it uses CRYSTALS-Kyber can be done with the command in Listing~\ref{lst:20220919:kyber}. This will configure OpenSSL to use the CNSA 2.0 implementations of K\textsc{yber}1024.
+
+\begin{lstlisting}[caption={Configuring OpenSSL TLS 1.3 for using CRYSTALS-Kyber},captionpos=b,style=BashStyle,label={lst:20220919:kyber}]
+$ ./Configure -DOQS_DEFAULT_GROUPS="kyber1024,p521_kyber1024,kyber90s1024,p521_kyber90s1024"
+\end{lstlisting}
+
+You may notice that the implementation in OQS OpenSSL includes key exchange using ECDH with the P-521 curve, a curve not permitted under CNSA 1.0 and 2.0. There is not yet a reference implementation for OQS using CRYSTALS-Dilithium; however, we should see updates to the standard to implement this soon. Currently, only the Dilthium5 parameter sets achieve NIST Level V functionality. Currently, both Dilithium5 and Dilithium5-AES (where AES-256-CTR and SHA-2 are used instead of SHAKE-256) achieve the CNSA 2.0 parameter goals. This creates a public key of 2592-bytes and a secret key of 4864-bytes.
+
+During the CNSA 1.0 to 2.0 transition, there will likely be several years where both implementations continue to exist. During this time period, expect to see several hybrid implementations (such as K\textsc{yber}'s ``90s'' parameter sets and Dilthium's AES algorithm options. These will likely begin to fade out of use as the 1.0 suite continues its slow march to obsolescence.
+
+\subsection{Conclusion}
+We are likely more than a decade away from seeing CNSA-2.0-only implementations; however, for project acquisitions and contract writers, it may be necessary to plan for these architecture changes before the next contract awards. The CNSA 2.0 implementation timeline indicates that the hybrid approaches will start rolling out in the 2025 timeframe with preference given to the 2.0 algorithms over the 1.0 algorithms by 2030. Finally, we should see the obsolescence of 1.0 as it is replaced with 2.0-only implementations in the 2033-2035 timeframe. As with most government mandates, expect delays, but prepare for the best. We'll know if the timeline is on-track if the final CRYSTALS parameter sets are published by the end of 2024.
