@@ -1,9 +1,13 @@
 As the government switches to quantum-resistant and post-quantum cryptographic algorithms, the CNSA suite (formerly Suite-B algorithms) is undergoing some changes with a new release: version 2.0. This release of the CNSA suite includes the following information:\autocite{20220919:cnsa}
 \begin{itemize}
 	\item a requirement to be compliant and support these algorithms by 2035
-	\item a requirement to use NIST 800-208 for application signing, with a recommendation to use at least LMS with the SHA-256/192 parameters or XMSS with any parameters and deprecation of all other algorithms by 2025 (2030 for current deployments)
-	\item a requirement to use FIPS PUB 197 for symmetric block cipher encryption, requiring 256-bit keys
-	\item a requirement to use FIPS PUB 180-4 for hashing, requiring either the SHA-384 or SHA-512 algorithms
+	\item a requirement to use NIST 800-208 for application signing which includes:
+	\begin{itemize}
+		\item a recommendation to use at least LMS with the SHA-256/192 parameters or XMSS with any parameters
+		\item deprecation of all other algorithms by 2025 (2030 for current deployments)
+	\end{itemize}
+	\item a requirement to use FIPS PUB 197 for symmetric block cipher encryption, requiring 256-bit keys (systems should already be doing this)
+	\item a requirement to use FIPS PUB 180-4 for hashing, requiring either the SHA-384 or SHA-512 algorithms (systems should already be doing this)
 	\item a requirement to use CRYSTALS-Kyber for public-key encryption, requiring Level V parameters and a deprecation of RSA, DH, and ECC once implemented by 2035
 	\item a requirement to use CRYSTALS-Dilithium for digital signatures by 2035
 \end{itemize}
@@ -26,7 +30,7 @@ Software and firmware signing can begin transitioning to CNSA 2.0 immediately wi
 
 Current PKI infrastructure in the DoD only supports using RSA for digital signatures. Nevertheless, the LMS reference implementation includes LMS key generation and signature verification for LMS with SHA-256, one of the permitted signature algorithms in NIST SP 800-208.\autocite[§ 4.1]{20220919:800-208} Using the demo application that is available with the reference from \url{https://github.com/cisco/hash-sigs}, an application/firmware hashing mechanism can be implemented:
 
-\begin{lstlisting}[caption={LMS Signature of my.exe},captionpos=b,style=BashStyle,label={lst:20220919:lms}]
+\begin{lstlisting}[caption={LMS Signature of my.exe},captionpos=b,style=BashStyle,numbers=left,stepnumber=1,label={lst:20220919:lms}]
 $ ./demo genkey mykey 10/8,5/1
 $ ./demo sign mykey myapp.exe
 $ ./demo verify mykey myapp.exe
@@ -34,7 +38,7 @@ $ ./demo verify mykey myapp.exe
 
 Line 1 will generate a \texttt{mykey.prv} and a \texttt{mykey.pub} file using 2 levels of Merkle trees. The first level has a height of 10 and Winternitz parameter of 8, and the second level a height of 5 and Winternitz parameter of 1. The NIST 800-208 standard permits Merkle tree heights of 5, 10, 15, 20, or 25, and RFC 8554 specifies that the Winternitz parameter may be 1, 2, 4, or 8. There are limits to the number of signatures an LMS key can be used for, and higher Merkle tree heights can take a long time to generate a key (it took nearly 2 hours for me to generate a key with \textit{h} = 25). At \textit{h} = 5, the key is only good for a handful of signatures. Generally speaking, larger Merkle tree heights take longer to generate but can be safely used for more signatures. Higher Winternitz parameters minimize the signature size while increasing the time. RFC 8554 documents that a single Merkle tree level generated with \texttt{15/8} will be good for about 30,000 signatures, while a 2-level Merkle tree generated with \texttt{25/8,15/8} would be good for more than 1 trillion signatures.
 
-Line 2 signs a file (in this case, an executable to be signed) using \texttt{mykey.prv}. This generates a \texttt{myapp.exe.sig} file with the signature.
+Line 2 signs a file (in this case, an executable) using \texttt{mykey.prv}. This generates a \texttt{myapp.exe.sig} file with the signature.
 
 Line 3 only needs to have \texttt{mykey.pub} present to verify the signature on another machine.
 
