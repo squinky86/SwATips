@@ -12,7 +12,7 @@ As the government switches to quantum-resistant and post-quantum cryptographic a
 	\item a requirement to use CRYSTALS-Dilithium for digital signatures by 2035
 \end{itemize}
 
-Navigating these new requirements impose a technical hurdle, and acquisition managers should prepare for this move in their timelines. This article attempts to help understand the requirements at a technical level to help drive the transition. At the time of this writing, the algorithms in CNSA 2.0 are not included in any mainline cryptography libraries. For the examples, the Open Quantum Safe (OQS) Project OpenSSL 1.1.1-stable snapshot 2022-08 (\url{https://github.com/open-quantum-safe/openssl/releases/tag/OQS-OpenSSL-1_1_1-stable-snapshot-2022-08}) is used on a vanilla Ubuntu 22.04 installation.
+Navigating these new requirements imposes a technical hurdle, and acquisition managers should prepare for this move in their timelines. This article attempts to help understand the requirements at a technical level to help drive the transition. At the time of this writing, the algorithms in CNSA 2.0 are not included in any mainline cryptography libraries. For the examples, the Open Quantum Safe (OQS) Project OpenSSL 1.1.1-stable snapshot 2022-08 (\url{https://github.com/open-quantum-safe/openssl/releases/tag/OQS-OpenSSL-1_1_1-stable-snapshot-2022-08}) is used on a vanilla Ubuntu 22.04 installation, and the reference implementations for all algorithms are used for key implementation.
 
 \subsection{Software and Firmware Signing}
 Software and firmware signing can begin transitioning to CNSA 2.0 immediately with plans to retire CNSA 1.0 support.
@@ -38,11 +38,10 @@ $ ./demo verify mykey myapp.exe
 
 Line 1 will generate a \texttt{mykey.prv} and a \texttt{mykey.pub} file using 2 levels of Merkle trees. The first level has a height of 10 and Winternitz parameter of 8, and the second level a height of 5 and Winternitz parameter of 1. The NIST 800-208 standard permits Merkle tree heights of 5, 10, 15, 20, or 25, and RFC 8554 specifies that the Winternitz parameter may be 1, 2, 4, or 8. There are limits to the number of signatures an LMS key can be used for, and higher Merkle tree heights can take a long time to generate a key (it took nearly 2 hours for me to generate a key with \textit{h} = 25). At \textit{h} = 5, the key is only good for a handful of signatures. Generally speaking, larger Merkle tree heights take longer to generate but can be safely used for more signatures. Higher Winternitz parameters minimize the signature size while increasing the time. RFC 8554 documents that a single Merkle tree level generated with \texttt{15/8} will be good for about 30,000 signatures, while a 2-level Merkle tree generated with \texttt{25/8,15/8} would be good for more than 1 trillion signatures.
 
-Line 2 signs a file (in this case, an executable) using \texttt{mykey.prv}. This generates a \texttt{myapp.exe.sig} file with the signature.
+Line 2 signs a file (in this case, an executable) using \texttt{mykey.prv}. This generates a \texttt{myapp.exe.sig} file with the signature. An additional note of caution should be made: each signature advances the private key. \texttt{mykey.prv} changes after every valid signature. If signatures are generated using the same key information more than once, the security of those hashes may leak information about the private key. Backing up the private key is not sufficient: a backup solution must back up the key \textit{with the number of signatures that have been made using it}, and a restoration process must advance the key by that many signatures.
 
 Line 3 only needs to have \texttt{mykey.pub} present to verify the signature on another machine.
 
-An additional note of caution should be made: each signature advances the private key. \texttt{mykey.prv} changes after every valid signature. If signatures are generated using the same key information more than once, the security of those hashes may leak information about the private key. Backing up the private key is not sufficient: a backup solution must back up the key \textit{with the number of signatures that have been made using it}, and a restoration process must advance the key bat that many signatures.
 
 \subsection{Symmetric Key Algorithms}
 

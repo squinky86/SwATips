@@ -28,7 +28,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap:
 
 
 <!-- l. 44 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Monday 12</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> September, 2022</span>
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Monday 19</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> September, 2022</span>
 </p>
 <!-- l. 1 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   As the government switches to quantum-resistant and post-quantum cryptographic algorithms, the CNSA suite
@@ -39,29 +39,38 @@ suite includes the following information:[<a id="x1-1001" style="overflow-wrap: 
 <ul class="itemize1">     
 <li class="itemize">a requirement to be compliant and support these algorithms by 2035
 </li>
-<li class="itemize">a requirement to use NIST 800-208 for application signing, with a recommendation to use at least
-LMS with the SHA-256/192 parameters or XMSS with any parameters and deprecation of all other
-algorithms by 2025 (2030 for current deployments)
+<li class="itemize">     
+<!-- l. 4 --><p class="noindent" style="margin-top: 0em; margin-bottom: 0;">a requirement to use NIST 800-208 for application signing which includes: </p>
+<ul class="itemize2" style="margin-bottom: 0.5em;">         
+<li class="itemize">a recommendation to use at least LMS with the SHA-256/192 parameters or XMSS with any
+parameters
 </li>
-<li class="itemize">a requirement to use FIPS PUB 197 for symmetric block cipher encryption, requiring 256-bit keys
+<li class="itemize">deprecation of all other algorithms by 2025 (2030 for current deployments)</li></ul>
+</li>     
+<li class="itemize">a requirement to use FIPS PUB 197 for symmetric block cipher encryption, requiring 256-bit keys (systems
+should already be doing this)
 </li>
 <li class="itemize">a requirement to use FIPS PUB 180-4 for hashing, requiring either the SHA-384 or SHA-512 algorithms
+(systems should already be doing this)
 </li>
-<li class="itemize">a requirement to use CRYSTALS-Kyber for public-key encryption, requiring Level V parameters and
-a deprecation of RSA, DH, and ECC once implemented by 2035
+<li class="itemize">a requirement to use CRYSTALS-Kyber for public-key encryption, requiring Level V parameters and a
+deprecation of RSA, DH, and ECC once implemented by 2035
 </li>
 <li class="itemize">a requirement to use CRYSTALS-Dilithium for digital signatures by 2035</li></ul>
 
 
-<!-- l. 11 -->
-<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   Navigating these new requirements impose a technical hurdle, and acquisition managers should prepare for this move
-in their timelines. This article attempts to help understand the requirements at a technical level to help drive the
+<!-- l. 15 -->
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   Navigating these new requirements imposes a technical hurdle, and acquisition managers should prepare for this
+move in their timelines. This article attempts to help understand the requirements at a technical level to help drive the
 transition. At the time of this writing, the algorithms in CNSA 2.0 are not included in any mainline cryptography
 libraries. For the examples, the Open Quantum Safe (OQS) Project OpenSSL 1.1.1-stable snapshot 2022-08 (
 <a class="url" href="https://github.com/open-quantum-safe/openssl/releases/tag/OQS-OpenSSL-1_1_1-stable-snapshot-2022-08" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://github.com/open-quantum-safe/openssl/releases/tag/OQS-OpenSSL-1_1_1-stable-snapshot-2022-08</span></a>)
-is used on a vanilla Ubuntu 22.04 installation.
+is used on a vanilla Ubuntu 22.04 installation, and the reference implementations for all algorithms are used for key
+implementation.
+                                                                                         
+                                                                                         
 </p>
-<!-- l. 13 -->
+<!-- l. 17 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
 </p>
    
@@ -69,7 +78,7 @@ is used on a vanilla Ubuntu 22.04 installation.
 <h4 class="subsectionHead" id="software-and-firmware-signing"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Software and Firmware Signing</h4>
 
 
-<!-- l. 14 -->
+<!-- l. 18 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Software and firmware signing can begin transitioning to CNSA 2.0 immediately with plans to retire CNSA 1.0
 support.
 </p>
@@ -78,14 +87,14 @@ support.
 <div class="table" style="margin-top: 1em;">
                                                                                          
                                                                                          
-<!-- l. 17 --><p class="indent" id="-software-and-firmware-signing-algorithms-cnsa-vs-" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   <a id="x1-20011" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p><figure class="float" style="margin-left: auto; margin-right: auto;">
+<!-- l. 21 --><p class="indent" id="-software-and-firmware-signing-algorithms-cnsa-vs-" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   <a id="x1-20011" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p><figure class="float" style="margin-left: auto; margin-right: auto;">
                                                                                          
                                                                                          
-<div class="tabular" style="text-align: center; margin-top: 0.5em; margin-bottom: 0.5em;"> <table class="tabular" id="TBL-2" style="border-collapse: collapse; border-spacing: 0; margin-left: auto; margin-right: auto;"><colgroup id="TBL-2-1g"><col id="TBL-2-1" style="border-left: 1px solid black; border-right: 1px solid black;"/></colgroup><colgroup id="TBL-2-2g"><col id="TBL-2-2" style="border-right: 1px solid black;"/></colgroup><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-2-1-" style="vertical-align:baseline;"><td class="td11" id="TBL-2-1-1" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 19 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 1.0</strong>                                                </p></td>
-                                               <td class="td11" id="TBL-2-1-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 19 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 2.0</strong>                                                </p></td></tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-2-2-" style="vertical-align:baseline;"><td class="td 11" id="TBL-2-2-1" style="white-space:normal; text-align:left;"><!-- l. 21 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Elliptic Curve Digital Signature Algorithm (ECDSA)
+<div class="tabular" style="text-align: center; margin-top: 0.5em; margin-bottom: 0.5em;"> <table class="tabular" id="TBL-2" style="border-collapse: collapse; border-spacing: 0; margin-left: auto; margin-right: auto;"><colgroup id="TBL-2-1g"><col id="TBL-2-1" style="border-left: 1px solid black; border-right: 1px solid black;"/></colgroup><colgroup id="TBL-2-2g"><col id="TBL-2-2" style="border-right: 1px solid black;"/></colgroup><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-2-1-" style="vertical-align:baseline;"><td class="td11" id="TBL-2-1-1" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 23 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 1.0</strong>                                                </p></td>
+                                               <td class="td11" id="TBL-2-1-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 23 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 2.0</strong>                                                </p></td></tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-2-2-" style="vertical-align:baseline;"><td class="td 11" id="TBL-2-2-1" style="white-space:normal; text-align:left;"><!-- l. 25 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Elliptic Curve Digital Signature Algorithm (ECDSA)
 using P-384<br class="newline"/>Rivest-Shamir-Adleman    (RSA)    using    minimum
 3072-bit modulus                                                 </p></td>
-                                               <td class="td11" id="TBL-2-2-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 21 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Leighton-Micali Signature (LMS)<br class="newline"/>Xtended Merkle Signature Scheme (XMSS)             </p></td>
+                                               <td class="td11" id="TBL-2-2-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 25 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Leighton-Micali Signature (LMS)<br class="newline"/>Xtended Merkle Signature Scheme (XMSS)             </p></td>
 </tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr></table></div>
 <figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Table 1: </span><span class="content">Software and Firmware Signing Algorithms: CNSA 1.0 vs 2.0</span></figcaption><!-- tex4ht:label?: x1-20011  -->
                                                                                          
@@ -95,7 +104,7 @@ using P-384<br class="newline"/>Rivest-Shamir-Adleman    (RSA)    using    minim
 </div>
 
 
-<!-- l. 27 -->
+<!-- l. 31 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Current PKI infrastructure in the DoD only supports using RSA for digital signatures. Nevertheless, the LMS
 reference implementation includes LMS key generation and signature verification for LMS with SHA-256, one of the
 permitted signature algorithms in NIST SP 800-208.[<a id="x1-2002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20220919:800-208" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, § 4.1] Using the demo application that is available with the
@@ -104,22 +113,22 @@ implemented:
 </p>
    
 
-<!-- l. 29 -->
+<!-- l. 33 -->
 
 
 <p id="-lms-signature-of-myexe" style="margin-bottom: 0; margin-top: 1em;"><a id="x1-2003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
 <a id="x1-2004" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>   
 </p>
-<pre class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-2005r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">./demo </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">genkey </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10/8,5/1</span></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/> 
-<span class="label" style="margin-right: 0.5em;"><a id="x1-2006r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">./demo </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">sign </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">myapp.exe</span></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/> 
-<span class="label" style="margin-right: 0.5em;"><a id="x1-2007r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">./demo </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">verify </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">myapp.exe</span></span></pre>
+<pre class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-2005r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>1</span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">./demo </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">genkey </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10/8,5/1</span></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/> 
+<span class="label" style="margin-right: 0.5em;"><a id="x1-2006r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>2</span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">./demo </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">sign </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">myapp.exe</span></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/> 
+<span class="label" style="margin-right: 0.5em;"><a id="x1-2007r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>3</span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">./demo </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">verify </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">myapp.exe</span></span></pre>
 
 
 <figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1: </span><span class="content">LMS Signature of my.exe</span></figcaption>
 <!-- tex4ht:label?: x1-2007r1  -->
 
 
-<!-- l. 35 -->
+<!-- l. 39 -->
 <p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   Line 1 will generate a <span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey.prv </span>and a <span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey.pub </span>file using 2 levels of Merkle trees. The first level has a height
 of 10 and Winternitz parameter of 8, and the second level a height of 5 and Winternitz parameter of 1. The NIST
 800-208 standard permits Merkle tree heights of 5, 10, 15, 20, or 25, and RFC 8554 specifies that the Winternitz
@@ -132,26 +141,24 @@ signatures. Higher Winternitz parameters minimize the signature size while incre
 signatures, while a 2-level Merkle tree generated with <span class="ec-lmtt-10" style="font-family: monospace,monospace;">25/8,15/8 </span>would be good for more than 1 trillion
 signatures.
 </p>
-<!-- l. 37 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Line 2 signs a file (in this case, an executable to be signed) using <span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey.prv</span>. This generates a <span class="ec-lmtt-10" style="font-family: monospace,monospace;">myapp.exe.sig</span>
-file with the signature.
-</p>
-<!-- l. 39 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Line 3 only needs to have <span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey.pub </span>present to verify the signature on another machine.
-</p>
 <!-- l. 41 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   An additional note of caution should be made: each signature advances the private key. <span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey.prv </span>changes after
-every valid signature. If signatures are generated using the same key information more than once, the security of
-those hashes may leak information about the private key. Backing up the private key is not sufficient: a backup
-solution must back up the key <i>with the number of signatures that have been made using it</i>, and a restoration process
-must advance the key bat that many signatures.
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Line 2 signs a file (in this case, an executable) using <span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey.prv</span>. This generates a <span class="ec-lmtt-10" style="font-family: monospace,monospace;">myapp.exe.sig </span>file with
+the signature. An additional note of caution should be made: each signature advances the private
+key. <span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey.prv </span>changes after every valid signature. If signatures are generated using the same key
+information more than once, the security of those hashes may leak information about the private key.
+Backing up the private key is not sufficient: a backup solution must back up the key <i>with the number of
+signatures that have been made using it</i>, and a restoration process must advance the key by that many
+signatures.
+</p>
+<!-- l. 43 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Line 3 only needs to have <span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey.pub </span>present to verify the signature on another machine.
 </p>
    
 
 <h4 class="subsectionHead" id="symmetric-key-algorithms"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Symmetric Key Algorithms</h4>
 
 
-<!-- l. 45 -->
+<!-- l. 48 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">No change is made between CNSA 1.0 and CNSA 2.0 for symmetric block ciphers. AES with 256-bit keys is the only
 algorithm permitted.
 </p>
@@ -160,12 +167,12 @@ algorithm permitted.
 <div class="table" style="margin-top: 1em;">
                                                                                          
                                                                                          
-<!-- l. 48 --><p class="indent" id="-symmetric-block-ciphers-cnsa-vs-" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   <a id="x1-30012" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p><figure class="float" style="margin-left: auto; margin-right: auto;">
+<!-- l. 51 --><p class="indent" id="-symmetric-block-ciphers-cnsa-vs-" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   <a id="x1-30012" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p><figure class="float" style="margin-left: auto; margin-right: auto;">
                                                                                          
                                                                                          
-<div class="tabular" style="text-align: center; margin-top: 0.5em; margin-bottom: 0.5em;"> <table class="tabular" id="TBL-3" style="border-collapse: collapse; border-spacing: 0; margin-left: auto; margin-right: auto;"><colgroup id="TBL-3-1g"><col id="TBL-3-1" style="border-left: 1px solid black; border-right: 1px solid black;"/></colgroup><colgroup id="TBL-3-2g"><col id="TBL-3-2" style="border-right: 1px solid black;"/></colgroup><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-3-1-" style="vertical-align:baseline;"><td class="td11" id="TBL-3-1-1" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 50 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 1.0</strong>                                                </p></td>
-                                               <td class="td11" id="TBL-3-1-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 50 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 2.0</strong>                                                </p></td></tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-3-2-" style="vertical-align:baseline;"><td class="td 11" id="TBL-3-2-1" style="white-space:normal; text-align:left;"><!-- l. 52 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Advanced Encryption Standard (AES) using 256-bit
-keys                                                                  </p></td><td class="td11" id="TBL-3-2-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 52 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Advanced Encryption Standard (AES) using 256-bit
+<div class="tabular" style="text-align: center; margin-top: 0.5em; margin-bottom: 0.5em;"> <table class="tabular" id="TBL-3" style="border-collapse: collapse; border-spacing: 0; margin-left: auto; margin-right: auto;"><colgroup id="TBL-3-1g"><col id="TBL-3-1" style="border-left: 1px solid black; border-right: 1px solid black;"/></colgroup><colgroup id="TBL-3-2g"><col id="TBL-3-2" style="border-right: 1px solid black;"/></colgroup><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-3-1-" style="vertical-align:baseline;"><td class="td11" id="TBL-3-1-1" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 53 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 1.0</strong>                                                </p></td>
+                                               <td class="td11" id="TBL-3-1-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 53 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 2.0</strong>                                                </p></td></tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-3-2-" style="vertical-align:baseline;"><td class="td 11" id="TBL-3-2-1" style="white-space:normal; text-align:left;"><!-- l. 55 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Advanced Encryption Standard (AES) using 256-bit
+keys                                                                  </p></td><td class="td11" id="TBL-3-2-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 55 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Advanced Encryption Standard (AES) using 256-bit
 keys                                                                 </p></td>
 </tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr></table></div>
 <figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Table 2: </span><span class="content">Symmetric Block Ciphers: CNSA 1.0 vs 2.0</span></figcaption><!-- tex4ht:label?: x1-30012  -->
@@ -179,18 +186,18 @@ keys                                                                 </p></td>
 <h4 class="subsectionHead" id="hashing"><span class="titlemark">1.3   </span> <a id="x1-40001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Hashing</h4>
 
 
-<!-- l. 60 -->
+<!-- l. 63 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">CNSA 2.0 officially adds SHA-512 as an approved hash, but continues to permit SHA-384 as an approved hashing
 algorithm. </p>
 <div class="table" style="margin-top: 1em;">
                                                                                          
                                                                                          
-<!-- l. 62 --><p class="indent" id="-hashing-cnsa-vs-" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   <a id="x1-40013" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p><figure class="float" style="margin-left: auto; margin-right: auto;">
+<!-- l. 65 --><p class="indent" id="-hashing-cnsa-vs-" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   <a id="x1-40013" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p><figure class="float" style="margin-left: auto; margin-right: auto;">
                                                                                          
                                                                                          
-<div class="tabular" style="text-align: center; margin-top: 0.5em; margin-bottom: 0.5em;"> <table class="tabular" id="TBL-4" style="border-collapse: collapse; border-spacing: 0; margin-left: auto; margin-right: auto;"><colgroup id="TBL-4-1g"><col id="TBL-4-1" style="border-left: 1px solid black; border-right: 1px solid black;"/></colgroup><colgroup id="TBL-4-2g"><col id="TBL-4-2" style="border-right: 1px solid black;"/></colgroup><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-4-1-" style="vertical-align:baseline;"><td class="td11" id="TBL-4-1-1" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 64 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 1.0</strong>                                                </p></td>
-                                               <td class="td11" id="TBL-4-1-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 64 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 2.0</strong>                                                </p></td></tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-4-2-" style="vertical-align:baseline;"><td class="td 11" id="TBL-4-2-1" style="white-space:normal; text-align:left;"><!-- l. 66 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Secure Hash Algorithm 2 (SHA-2) with 384-bit digests
-(SHA-384)                                                         </p></td><td class="td11" id="TBL-4-2-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 66 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Secure  Hash  Algorithm  2  (SHA-2)  with  384-bit  or
+<div class="tabular" style="text-align: center; margin-top: 0.5em; margin-bottom: 0.5em;"> <table class="tabular" id="TBL-4" style="border-collapse: collapse; border-spacing: 0; margin-left: auto; margin-right: auto;"><colgroup id="TBL-4-1g"><col id="TBL-4-1" style="border-left: 1px solid black; border-right: 1px solid black;"/></colgroup><colgroup id="TBL-4-2g"><col id="TBL-4-2" style="border-right: 1px solid black;"/></colgroup><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-4-1-" style="vertical-align:baseline;"><td class="td11" id="TBL-4-1-1" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 67 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 1.0</strong>                                                </p></td>
+                                               <td class="td11" id="TBL-4-1-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 67 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 2.0</strong>                                                </p></td></tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-4-2-" style="vertical-align:baseline;"><td class="td 11" id="TBL-4-2-1" style="white-space:normal; text-align:left;"><!-- l. 69 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Secure Hash Algorithm 2 (SHA-2) with 384-bit digests
+(SHA-384)                                                         </p></td><td class="td11" id="TBL-4-2-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 69 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Secure  Hash  Algorithm  2  (SHA-2)  with  384-bit  or
 512-bit digests (SHA-384 or SHA-512)                    </p></td>
 </tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr></table></div>
 <figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Table 3: </span><span class="content">Hashing: CNSA 1.0 vs 2.0</span></figcaption><!-- tex4ht:label?: x1-40013  -->
@@ -201,7 +208,7 @@ algorithm. </p>
 </div>
 
 
-<!-- l. 72 -->
+<!-- l. 75 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Some may notice that internal hashes in the software and firmware signing algorithms use smaller hash sizes or
 different hashing algorithms. For example, LMS permits the use of SHAKE-256, one of the unapproved SHA-3
 algorithms from FIPS 202, internally. “NSA has no concerns about this, but does not anticipate approving SHA-3
@@ -212,22 +219,22 @@ algorithms for general-purpose use at this time.”[<a id="x1-4002" style="overf
 <h4 class="subsectionHead" id="asymmetric-digital-signatures-and-key-establishment"><span class="titlemark">1.4   </span> <a id="x1-50001.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Asymmetric Digital Signatures and Key Establishment</h4>
 
 
-<!-- l. 76 -->
+<!-- l. 79 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">CNSA 2.0 deprecates all of the algorithms of CNSA 1.0, requiring the use of the CRYSTALS-Dilithium algorithm.
 </p>
 <div class="table" style="margin-top: 1em;">
                                                                                          
                                                                                          
-<!-- l. 78 --><p class="indent" id="-asymmetric-digital-signature-and-key-establishment-cnsa-vs-" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   <a id="x1-50014" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p><figure class="float" style="margin-left: auto; margin-right: auto;">
+<!-- l. 81 --><p class="indent" id="-asymmetric-digital-signature-and-key-establishment-cnsa-vs-" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   <a id="x1-50014" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p><figure class="float" style="margin-left: auto; margin-right: auto;">
                                                                                          
                                                                                          
-<div class="tabular" style="text-align: center; margin-top: 0.5em; margin-bottom: 0.5em;"> <table class="tabular" id="TBL-5" style="border-collapse: collapse; border-spacing: 0; margin-left: auto; margin-right: auto;"><colgroup id="TBL-5-1g"><col id="TBL-5-1" style="border-left: 1px solid black; border-right: 1px solid black;"/></colgroup><colgroup id="TBL-5-2g"><col id="TBL-5-2" style="border-right: 1px solid black;"/></colgroup><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-5-1-" style="vertical-align:baseline;"><td class="td11" id="TBL-5-1-1" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 80 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 1.0</strong>                                                </p></td>
-                                               <td class="td11" id="TBL-5-1-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 80 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 2.0</strong>                                                </p></td></tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-5-2-" style="vertical-align:baseline;"><td class="td 11" id="TBL-5-2-1" style="white-space:normal; text-align:left;"><!-- l. 82 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Rivest-Shamir-Adleman    (RSA)    with    minimum
+<div class="tabular" style="text-align: center; margin-top: 0.5em; margin-bottom: 0.5em;"> <table class="tabular" id="TBL-5" style="border-collapse: collapse; border-spacing: 0; margin-left: auto; margin-right: auto;"><colgroup id="TBL-5-1g"><col id="TBL-5-1" style="border-left: 1px solid black; border-right: 1px solid black;"/></colgroup><colgroup id="TBL-5-2g"><col id="TBL-5-2" style="border-right: 1px solid black;"/></colgroup><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-5-1-" style="vertical-align:baseline;"><td class="td11" id="TBL-5-1-1" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 83 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 1.0</strong>                                                </p></td>
+                                               <td class="td11" id="TBL-5-1-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 83 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 2.0</strong>                                                </p></td></tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-5-2-" style="vertical-align:baseline;"><td class="td 11" id="TBL-5-2-1" style="white-space:normal; text-align:left;"><!-- l. 85 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Rivest-Shamir-Adleman    (RSA)    with    minimum
 3072-bit modulus<br class="newline"/>Elliptic Curve Digital Signature Algorithm (ECDSA)
 using curve P-384<br class="newline"/>Diffie-Hellman  (DH)  Key  Exchange  with  minimum
 3072-bit modulus<br class="newline"/>Elliptic Curve Diffie-Hellman (ECDH) Key Exchange
 using curve P-384                                                </p></td>
-                                               <td class="td11" id="TBL-5-2-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 82 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">CRYSTALS-Kyber at Level V<br class="newline"/>CRYSTALS-Dilithium at Level V                          </p></td>
+                                               <td class="td11" id="TBL-5-2-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 85 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">CRYSTALS-Kyber at Level V<br class="newline"/>CRYSTALS-Dilithium at Level V                          </p></td>
 </tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr></table></div>
 <figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Table 4: </span><span class="content">Asymmetric Digital Signature and Key Establishment: CNSA 1.0 vs 2.0</span></figcaption><!-- tex4ht:label?: x1-50014  -->
                                                                                          
@@ -237,14 +244,14 @@ using curve P-384                                                </p></td>
 </div>
 
 
-<!-- l. 88 -->
+<!-- l. 91 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   To achieve NIST Level V functionality for the CRYSTALS-Kyber algorithm, the CRYSTALS-Kyber parameters
 must be set to use K<span class="small-caps" style="font-variant: small-caps;">yber</span>1024 or K<span class="small-caps" style="font-variant: small-caps;">yber</span>1024-90s. While both parameter sets are permitted by CNSA 2.0,
 K<span class="small-caps" style="font-variant: small-caps;">yber</span>1024 uses SHAKE and SHA-3 internally, both of which, on their own, are unapproved algorithms. Instead,
 K<span class="small-caps" style="font-variant: small-caps;">yber</span>1024-90s uses AES-256-CTR and SHA-2 internally, using SHAKE-256 only for the Extendable-Output
 Function (XOF).
 </p>
-<!-- l. 90 -->
+<!-- l. 93 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Amazon Web Services (AWS) and the Open Quantum Safe (OQS) project implement CRYSTALS. While
 production implementations are not recommended yet, configuring the OQS port of OpenSSL so that it uses
 CRYSTALS-Kyber can be done with the command in Listing <a href="#x1-5002r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2<!-- tex4ht:ref: lst:20220919:kyber  --></a>. This will configure OpenSSL to use the CNSA 2.0
@@ -252,7 +259,7 @@ implementations of K<span class="small-caps" style="font-variant: small-caps;">y
 </p>
    
 
-<!-- l. 92 -->
+<!-- l. 95 -->
 
 
 <p id="-configuring-openssl-tls-for-using-crystalskyber" style="margin-bottom: 0; margin-top: 1em;"><a id="x1-5002r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
@@ -265,7 +272,7 @@ implementations of K<span class="small-caps" style="font-variant: small-caps;">y
 <!-- tex4ht:label?: x1-5004r1  -->
 
 
-<!-- l. 96 -->
+<!-- l. 99 -->
 <p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   You may notice that the implementation in OQS OpenSSL includes key exchange using ECDH with the P-521
 curve, a curve not permitted under CNSA 1.0 and 2.0. There is not yet a reference implementation for OQS
 using CRYSTALS-Dilithium; however, we should see updates to the standard to implement this soon.
@@ -274,7 +281,7 @@ Dilithium5 and Dilithium5-AES (where AES-256-CTR and SHA-2 are used instead of S
 achieve the CNSA 2.0 parameter goals. This creates a public key of 2592-bytes and a secret key of
 4864-bytes.
 </p>
-<!-- l. 98 -->
+<!-- l. 101 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   During the CNSA 1.0 to 2.0 transition, there will likely be several years where both implementations continue to
 exist. During this time period, expect to see several hybrid implementations (such as K<span class="small-caps" style="font-variant: small-caps;">yber</span>’s “90s” parameter sets
 and Dilthium’s AES algorithm options. These will likely begin to fade out of use as the 1.0 suite continues its slow
@@ -285,7 +292,7 @@ march to obsolescence.
 <h4 class="subsectionHead" id="conclusion"><span class="titlemark">1.5   </span> <a id="x1-60001.5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusion</h4>
 
 
-<!-- l. 101 -->
+<!-- l. 104 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">We are likely more than a decade away from seeing CNSA-2.0-only implementations; however, for project
 acquisitions and contract writers, it may be necessary to plan for these architecture changes before the next contract
 awards. The CNSA 2.0 implementation timeline indicates that the hybrid approaches will start rolling out
