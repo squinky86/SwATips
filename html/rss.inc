@@ -1,5 +1,5 @@
 	<item>
-		<title>CNSA 2.0</title>
+		<title>Commercial National Security Algorithm (CNSA) Suite 2.0</title>
 		<link>https://www.SwATips.com/articles/20220919.html</link>
 		<pubDate>Mon, 19 Sep 2022 00:00:00 -0500</pubDate>
 <description><![CDATA[
@@ -24,11 +24,11 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap:
                                                                                          
    
 
-<h3 class="sectionHead" id="cnsa-"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>CNSA 2.0</h3>
+<h3 class="sectionHead" id="commercial-national-security-algorithm-cnsa-suite-"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Commercial National Security Algorithm (CNSA) Suite 2.0</h3>
 
 
 <!-- l. 44 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Monday 19</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> September, 2022</span>
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Tuesday 20</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> September, 2022</span>
 </p>
 <!-- l. 1 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   As the government switches to quantum-resistant and post-quantum cryptographic algorithms, the CNSA suite

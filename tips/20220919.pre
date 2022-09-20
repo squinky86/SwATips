@@ -1,4 +1,4 @@
 \def \AuthorName{Jon Hood}
-\def \ArticleName{CNSA 2.0}
+\def \ArticleName{Commercial National Security Algorithm (CNSA) Suite 2.0}
 \newcommand{\ArticleDate}{\formatdate{19}{9}{2022}}
 \addbibresource{20220919.bib}
