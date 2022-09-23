@@ -228,7 +228,7 @@ A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0@
                                                                                          
    
 <h3 class='sectionHead' id='commercial-national-security-algorithm-cnsa-suite-'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Commercial National Security Algorithm (CNSA) Suite 2.0</h3>
-<!-- l. 44 --><p class='noindent'><span class='ec-lmr-8'>Updated Tuesday 20</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> September, 2022</span>
+<!-- l. 44 --><p class='noindent'><span class='ec-lmr-8'>Updated Friday 23</span><sup class='textsuperscript'><span class='ec-lmr-9'>rd</span></sup><span class='ec-lmr-8'> September, 2022</span>
 </p><!-- l. 1 --><p class='indent'>   As the government switches to quantum-resistant and post-quantum cryptographic algorithms, the CNSA suite
 (formerly Suite-B algorithms) is undergoing some changes with a new release: version 2.0. This release of the CNSA
 suite includes the following information:[<a id='x1-1001'></a><a href='#cite.0@20220919:cnsa'>3</a>] </p>
@@ -254,7 +254,7 @@ deprecation of RSA, DH, and ECC once implemented by 2035
 </li>
 <li class='itemize'>a requirement to use CRYSTALS-Dilithium for digital signatures by 2035</li></ul>
 <!-- l. 15 --><p class='indent'>   Navigating these new requirements imposes a technical hurdle, and acquisition managers should prepare for this
-move in their timelines. This article attempts to help understand the requirements at a technical level to help drive the
+move in their timelines. This article attempts to help explain the requirements at a technical level to help drive the
 transition. At the time of this writing, the algorithms in CNSA 2.0 are not included in any mainline cryptography
 libraries. For the examples, the Open Quantum Safe (OQS) Project OpenSSL 1.1.1-stable snapshot 2022-08 (
 <a class='url' href='https://github.com/open-quantum-safe/openssl/releases/tag/OQS-OpenSSL-1_1_1-stable-snapshot-2022-08'><span class='ec-lmtt-10'>https://github.com/open-quantum-safe/openssl/releases/tag/OQS-OpenSSL-1_1_1-stable-snapshot-2022-08</span></a>)
@@ -294,12 +294,12 @@ reference from     <a class='url' href='https://github.com/cisco/hash-sigs'><spa
 implemented:
 </p>   
 <!-- l. 33 -->
-<p id='-lms-signature-of-myexe'><a id='x1-2003r1'></a>
+<p id='-lms-signature-of-myappexe'><a id='x1-2003r1'></a>
 <a id='x1-2004'></a>   
 </p><pre class='lstlisting' id='listing-1'><span class='label'><a id='x1-2005r1'></a>1</span><span style='color:#000000'><span class='ec-lmtt-10'>$</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>./demo </span><span class='ec-lmtt-10'>genkey </span><span class='ec-lmtt-10'>mykey </span><span class='ec-lmtt-10'>10/8,5/1</span></span><span class='ec-lmtt-10'> </span><br /> 
 <span class='label'><a id='x1-2006r2'></a>2</span><span style='color:#000000'><span class='ec-lmtt-10'>$</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>./demo </span><span class='ec-lmtt-10'>sign </span><span class='ec-lmtt-10'>mykey </span><span class='ec-lmtt-10'>myapp.exe</span></span><span class='ec-lmtt-10'> </span><br /> 
 <span class='label'><a id='x1-2007r3'></a>3</span><span style='color:#000000'><span class='ec-lmtt-10'>$</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>./demo </span><span class='ec-lmtt-10'>verify </span><span class='ec-lmtt-10'>mykey </span><span class='ec-lmtt-10'>myapp.exe</span></span></pre>
-<figcaption class='caption'><span class='id'>Listing 1: </span><span class='content'>LMS Signature of my.exe</span></figcaption><!-- tex4ht:label?: x1-2007r1  -->
+<figcaption class='caption'><span class='id'>Listing 1: </span><span class='content'>LMS Signature of myapp.exe</span></figcaption><!-- tex4ht:label?: x1-2007r1  -->
 <!-- l. 39 --><p class='indent'>   Line 1 will generate a <span class='ec-lmtt-10'>mykey.prv </span>and a <span class='ec-lmtt-10'>mykey.pub </span>file using 2 levels of Merkle trees. The first level has a height
 of 10 and Winternitz parameter of 8, and the second level a height of 5 and Winternitz parameter of 1. The NIST
 800-208 standard permits Merkle tree heights of 5, 10, 15, 20, or 25, and RFC 8554 specifies that the Winternitz

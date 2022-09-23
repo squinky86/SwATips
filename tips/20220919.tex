@@ -12,7 +12,7 @@ As the government switches to quantum-resistant and post-quantum cryptographic a
 	\item a requirement to use CRYSTALS-Dilithium for digital signatures by 2035
 \end{itemize}
 
-Navigating these new requirements imposes a technical hurdle, and acquisition managers should prepare for this move in their timelines. This article attempts to help understand the requirements at a technical level to help drive the transition. At the time of this writing, the algorithms in CNSA 2.0 are not included in any mainline cryptography libraries. For the examples, the Open Quantum Safe (OQS) Project OpenSSL 1.1.1-stable snapshot 2022-08 (\url{https://github.com/open-quantum-safe/openssl/releases/tag/OQS-OpenSSL-1_1_1-stable-snapshot-2022-08}) is used on a vanilla Ubuntu 22.04 installation, and the reference implementations for all algorithms are used for key implementation.
+Navigating these new requirements imposes a technical hurdle, and acquisition managers should prepare for this move in their timelines. This article attempts to help explain the requirements at a technical level to help drive the transition. At the time of this writing, the algorithms in CNSA 2.0 are not included in any mainline cryptography libraries. For the examples, the Open Quantum Safe (OQS) Project OpenSSL 1.1.1-stable snapshot 2022-08 (\url{https://github.com/open-quantum-safe/openssl/releases/tag/OQS-OpenSSL-1_1_1-stable-snapshot-2022-08}) is used on a vanilla Ubuntu 22.04 installation, and the reference implementations for all algorithms are used for key implementation.
 
 \subsection{Software and Firmware Signing}
 Software and firmware signing can begin transitioning to CNSA 2.0 immediately with plans to retire CNSA 1.0 support.
@@ -30,7 +30,7 @@ Software and firmware signing can begin transitioning to CNSA 2.0 immediately wi
 
 Current PKI infrastructure in the DoD only supports using RSA for digital signatures. Nevertheless, the LMS reference implementation includes LMS key generation and signature verification for LMS with SHA-256, one of the permitted signature algorithms in NIST SP 800-208.\autocite[§ 4.1]{20220919:800-208} Using the demo application that is available with the reference from \url{https://github.com/cisco/hash-sigs}, an application/firmware hashing mechanism can be implemented:
 
-\begin{lstlisting}[caption={LMS Signature of my.exe},captionpos=b,style=BashStyle,numbers=left,stepnumber=1,label={lst:20220919:lms}]
+\begin{lstlisting}[caption={LMS Signature of myapp.exe},captionpos=b,style=BashStyle,numbers=left,stepnumber=1,label={lst:20220919:lms}]
 $ ./demo genkey mykey 10/8,5/1
 $ ./demo sign mykey myapp.exe
 $ ./demo verify mykey myapp.exe
