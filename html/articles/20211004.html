@@ -1,37 +1,66 @@
 <!DOCTYPE html>
 <html xml:lang='en-US' lang='en-US'>
 <head>
-<title>Perls of Wisdom</title>
+<title>Perls of Wisdom: Use of Two-Argument Form of open()</title>
  
 
 <meta charset="utf-8"/>
  
 
-<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"/>
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
  
 
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
  
 
  
 
-<meta name="src" content="article.tex"/>
+<meta content="article.tex" name="src"/>
  
 
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
 <style>
  
 /* start css.sty */
-.rm-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
-.rm-lmr-12{font-size:120%;}
-.rm-lmr-9{font-size:90%;}
+.ec-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmr-12{font-size:120%;}
+.ec-lmr-9{font-size:90%;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
-.rm-lmr-8{font-size:80%;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmr-8{font-size:80%;}
 .ec-lmtk-10{ font-family: monospace,monospace;}
 .ec-lmtk-10{ font-family: monospace,monospace;}
-.rm-lmbx-10{ font-weight: bold;}
-.rm-lmcsc-10{font-variant: small-caps;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
 p{margin-top:0;margin-bottom:0}
 p.indent{text-indent:0;}
 p + p{margin-top:1em;}
@@ -39,6 +68,7 @@ p + div, p + pre {margin-top:1em;}
 div + p, pre + p {margin-top:1em;}
 a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
 @media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
 a img { border-top: 0; border-left: 0; border-right: 0; }
 center { margin-top:1em; margin-bottom:1em; }
 td center { margin-top:0em; margin-bottom:0em; }
@@ -48,12 +78,14 @@ div.par-math-display, div.math-display{text-align:center;}
 li p.indent { text-indent: 0em }
 li p:first-child{ margin-top:0em; }
 li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
 li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
 .enumerate1 {list-style-type:decimal;}
 .enumerate2 {list-style-type:lower-alpha;}
 .enumerate3 {list-style-type:lower-roman;}
 .enumerate4 {list-style-type:upper-alpha;}
 div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
 .obeylines-h,.obeylines-v {white-space: nowrap; }
 div.obeylines-v p { margin-top:0; margin-bottom:0; }
 .overline{ text-decoration:overline; }
@@ -99,6 +131,7 @@ table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
 .hline hr, .cline hr{ height : 0px; margin:0px; }
 .hline td, .cline td{ padding: 0; }
 .hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
 .tabbing-right {text-align:right;}
 div.float, div.figure {margin-left: auto; margin-right: auto;}
 div.float img {text-align:center;}
@@ -121,7 +154,6 @@ span.pmatrix img{vertical-align:middle;}
 div.pmatrix {text-align:center;}
 table.pmatrix {width:100%;}
 span.bar-css {text-decoration:overline;}
-table.tabular{border-collapse: collapse; border-spacing: 0;}
 img.cdots{vertical-align:middle;}
 .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
 .chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
@@ -143,17 +175,18 @@ div.abstract p {margin-left:5%; margin-right:5%;}
 div.abstract {width:100%;}
 .abstracttitle{text-align:center;margin-bottom:1em;}
 figure.float, div.figure {margin-left: auto; margin-right: auto;}
-figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}
 figure.figure {text-align:center;}
 figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
 figcaption.caption span.id{font-weight: bold; white-space: nowrap; }
+p + figcaption, img + figcaption{margin-top: 1em;}
 .abstract{margin:1em;}
 dt.printshorthands{float:left; clear:left; margin-right:1em;}
 dd.thebibliography {margin-left: 2.5em;}
 dt.thebibliography {float:left; clear:left; margin-right:1em;}
+code.lstinline{font-family:monospace,monospace;}
 .lstlisting .label{margin-right:0.5em; }
-div.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
-div.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
+pre.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
 .lstinputlisting .label{margin-right:0.5em;}
 .small-caps{font-variant: small-caps;}
 .uline{ text-decoration:underline; }
@@ -174,27 +207,49 @@ span.uwave {text-decoration:underline }
                                                                                          
 
 <h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
-A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>2</a>]<br />
+A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0@swatips'>2</a>]<br />
 </h2>
-<div class='author'><span class='rm-lmr-12'>Kevin Keen</span></div><br />
-<div class='date'><span class='rm-lmr-12'>Monday 4</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> October, 2021</span></div>
+<div class='author'><span class='ec-lmr-12'>Kevin Keen</span></div><br />
+<div class='date'><span class='ec-lmr-12'>Monday 4</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-12'> October, 2021</span></div>
 </div>
                                                                                          
                                                                                          
    
-<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Perls of Wisdom</h3>
-<!-- l. 44 --><p class='noindent'><span class='rm-lmr-8'>Updated Monday 4</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-8'> October, 2021</span>
+<h3 class='sectionHead' id='perls-of-wisdom-use-of-twoargument-form-of-open'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Perls of Wisdom: Use of Two-Argument Form of open()</h3>
+<!-- l. 44 --><p class='noindent'><span class='ec-lmr-8'>Updated Friday 14</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> October, 2022</span>
 </p><!-- l. 1 --><p class='indent'>   We see far less Perl code than some other languages. Nevertheless, as with any language, there are security
 concerns that are particular to Perl.
 </p><!-- l. 3 --><p class='indent'>   Consider the following short Perl script in Listing <a href='#x1-1001r1'>1<!-- tex4ht:ref: lst:20211004:script  --></a>.
 </p>   
 <!-- l. 5 -->
-<p><a id='x1-1001r1'></a></p>
-<p><a id='x1-1002'></a></p>   
-<div class='lstlisting' id='listing-1'><span class='label'><a id='x1-1003r1'></a></span><span class='ec-lmtk-10'>my</span><span class='ec-lmtt-10'> $in_filename; </span><br /><span class='label'><a id='x1-1004r2'></a></span><span class='ec-lmtk-10'>my</span><span class='ec-lmtt-10'> $out_filename; </span><br /><span class='label'><a id='x1-1005r3'></a></span><span class='ec-lmtk-10'>if</span><span class='ec-lmtt-10'>(</span><span class='ec-lmtk-10'>scalar</span><span class='ec-lmtt-10'> @ARGV &lt; 1) { </span><br /><span class='label'><a id='x1-1006r4'></a></span><span class='ec-lmtt-10'>       </span><span class='ec-lmtk-10'>print</span><span class='ec-lmtt-10'> "Usage: $0 &lt;input_file&gt;"; </span><br /><span class='label'><a id='x1-1007r5'></a></span><span class='ec-lmtt-10'>       </span><span class='ec-lmtk-10'>exit</span><span class='ec-lmtt-10'>; </span><br /><span class='label'><a id='x1-1008r6'></a></span><span class='ec-lmtt-10'>} </span><br /><span class='label'><a id='x1-1009r7'></a></span><span class='ec-lmtk-10'>else</span><span class='ec-lmtt-10'> { </span><br /><span class='label'><a id='x1-1010r8'></a></span><span class='ec-lmtt-10'>       $in_filename = $ARGV[0]; </span><br /><span class='label'><a id='x1-1011r9'></a></span><span class='ec-lmtt-10'>       $out_filename = "that_$in_filename"; </span><br /><span class='label'><a id='x1-1012r10'></a></span><span class='ec-lmtt-10'>} </span><br /><span class='label'><a id='x1-1013r11'></a></span><span class='ec-lmtk-10'>open</span><span class='ec-lmtt-10'>($in_file, "$in_filename"); </span><br /><span class='label'><a id='x1-1014r12'></a></span><span class='ec-lmtk-10'>open</span><span class='ec-lmtt-10'>($out_file, "&gt;$out_filename"); </span><br /><span class='label'><a id='x1-1015r13'></a></span><span class='ec-lmtk-10'>while</span><span class='ec-lmtt-10'>(&lt;$in_file&gt;) { </span><br /><span class='label'><a id='x1-1016r14'></a></span><span class='ec-lmtt-10'>       $line = $_; </span><br /><span class='label'><a id='x1-1017r15'></a></span><span class='ec-lmtt-10'>       </span><span class='ec-lmtk-10'>print</span><span class='ec-lmtt-10'> "$line"; </span><br /><span class='label'><a id='x1-1018r16'></a></span><span class='ec-lmtt-10'>       </span><span class='ec-lmtk-10'>if</span><span class='ec-lmtt-10'> ($line =~ /This is a/) { </span><br /><span class='label'><a id='x1-1019r17'></a></span><span class='ec-lmtt-10'>               $line =~ </span><span class='ec-lmtk-10'>s</span><span class='ec-lmtt-10'>/This is a/That is a/; </span><br /><span class='label'><a id='x1-1020r18'></a></span><span class='ec-lmtt-10'>               </span><span class='ec-lmtk-10'>print</span><span class='ec-lmtt-10'> "First Match!\n"; </span><br /><span class='label'><a id='x1-1021r19'></a></span><span class='ec-lmtt-10'>       } </span><br /><span class='label'><a id='x1-1022r20'></a></span><span class='ec-lmtt-10'>       </span><span class='ec-lmtk-10'>elsif</span><span class='ec-lmtt-10'>($line =~ /This is only/) { </span><br /><span class='label'><a id='x1-1023r21'></a></span><span class='ec-lmtt-10'>               $line =~ </span><span class='ec-lmtk-10'>s</span><span class='ec-lmtt-10'>/This is only/That is only/; </span><br /><span class='label'><a id='x1-1024r22'></a></span><span class='ec-lmtt-10'>               </span><span class='ec-lmtk-10'>print</span><span class='ec-lmtt-10'> "Second Match!\n"; </span><br /><span class='label'><a id='x1-1025r23'></a></span><span class='ec-lmtt-10'>       } </span><br /><span class='label'><a id='x1-1026r24'></a></span><span class='ec-lmtt-10'>       </span><span class='ec-lmtk-10'>print</span><span class='ec-lmtt-10'> $out_file $line; </span><br /><span class='label'><a id='x1-1027r25'></a></span><span class='ec-lmtt-10'>}</span>
-<figcaption class='caption'><span class='id'>Listing 1:</span><span class='content'>Sample Perl Script</span></figcaption><!-- tex4ht:label?: x1-1001r1  -->
-   
-</div>
+<p id='-sample-perl-script'><a id='x1-1001r1'></a>
+<a id='x1-1002'></a>   
+</p><pre class='lstlisting' id='listing-1'><span class='label'><a id='x1-1003r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10'>my</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>$in_filename;</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1004r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10'>my</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>$out_filename;</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1005r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10'>if</span></span><span style='color:#000000'><span class='ec-lmtt-10'>(</span></span><span style='color:#000000'><span class='ec-lmtk-10'>scalar</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>@ARGV </span><span class='ec-lmtt-10'>&lt; </span><span class='ec-lmtt-10'>1) </span><span class='ec-lmtt-10'>{</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1006r4'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtk-10'>print</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>"Usage: </span><span class='ec-lmtt-10'>$0 </span><span class='ec-lmtt-10'>&lt;input_file&gt;";</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1007r5'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtk-10'>exit</span></span><span style='color:#000000'><span class='ec-lmtt-10'>;</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1008r6'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>}</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1009r7'></a></span><span style='color:#000000'><span class='ec-lmtk-10'>else</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>{</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1010r8'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtt-10'>$in_filename</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>= </span><span class='ec-lmtt-10'>$ARGV[0];</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1011r9'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtt-10'>$out_filename</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>= </span><span class='ec-lmtt-10'>"that_$in_filename";</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1012r10'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>}</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1013r11'></a></span><span style='color:#000000'><span class='ec-lmtk-10'>open</span></span><span style='color:#000000'><span class='ec-lmtt-10'>(</span></span><span style='color:#000000'><span class='ec-lmtt-10'>$in_file</span></span><span style='color:#000000'><span class='ec-lmtt-10'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>"$in_filename");</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1014r12'></a></span><span style='color:#000000'><span class='ec-lmtk-10'>open</span></span><span style='color:#000000'><span class='ec-lmtt-10'>(</span></span><span style='color:#000000'><span class='ec-lmtt-10'>$out_file</span></span><span style='color:#000000'><span class='ec-lmtt-10'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>"&gt;$out_filename");</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1015r13'></a></span><span style='color:#000000'><span class='ec-lmtk-10'>while</span></span><span style='color:#000000'><span class='ec-lmtt-10'>(&lt;</span></span><span style='color:#000000'><span class='ec-lmtt-10'>$in_file</span></span><span style='color:#000000'><span class='ec-lmtt-10'>&gt;)</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>{</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1016r14'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtt-10'>$line</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>= </span><span class='ec-lmtt-10'>$_;</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1017r15'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtk-10'>print</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>"$line";</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1018r16'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtk-10'>if</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>($line </span><span class='ec-lmtt-10'>=~ </span><span class='ec-lmtt-10'>/This </span><span class='ec-lmtt-10'>is </span><span class='ec-lmtt-10'>a/) </span><span class='ec-lmtt-10'>{</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1019r17'></a></span><span class='ec-lmtt-10'>               </span><span style='color:#000000'><span class='ec-lmtt-10'>$line</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>=~ </span><span class='ec-lmtk-10'>s</span><span class='ec-lmtt-10'>/This </span><span class='ec-lmtt-10'>is </span><span class='ec-lmtt-10'>a/That </span><span class='ec-lmtt-10'>is </span><span class='ec-lmtt-10'>a/;</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1020r18'></a></span><span class='ec-lmtt-10'>               </span><span style='color:#000000'><span class='ec-lmtk-10'>print</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>"First </span><span class='ec-lmtt-10'>Match!\n";</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1021r19'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtt-10'>}</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1022r20'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtk-10'>elsif</span></span><span style='color:#000000'><span class='ec-lmtt-10'>(</span></span><span style='color:#000000'><span class='ec-lmtt-10'>$line</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>=~ </span><span class='ec-lmtt-10'>/This </span><span class='ec-lmtt-10'>is </span><span class='ec-lmtt-10'>only/) </span><span class='ec-lmtt-10'>{</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1023r21'></a></span><span class='ec-lmtt-10'>               </span><span style='color:#000000'><span class='ec-lmtt-10'>$line</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>=~ </span><span class='ec-lmtk-10'>s</span><span class='ec-lmtt-10'>/This </span><span class='ec-lmtt-10'>is </span><span class='ec-lmtt-10'>only/That </span><span class='ec-lmtt-10'>is </span><span class='ec-lmtt-10'>only/;</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1024r22'></a></span><span class='ec-lmtt-10'>               </span><span style='color:#000000'><span class='ec-lmtk-10'>print</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>"Second </span><span class='ec-lmtt-10'>Match!\n";</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1025r23'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtt-10'>}</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1026r24'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtk-10'>print</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>$out_file </span><span class='ec-lmtt-10'>$line;</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1027r25'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 1: </span><span class='content'>Sample Perl Script</span></figcaption><!-- tex4ht:label?: x1-1027r1  -->
 <!-- l. 33 --><p class='indent'>   This script will read in the input file, perform some substitutions (changing “This” to “That”)
 and write out the results to another file. With Perl’s deeply ingrained regex facilities, such string and
 file processing is very typical of a Perl script. The input file name is passed in as a command line
@@ -204,23 +259,36 @@ contain the input displayed in Listing <a href='#x1-1028r2'>2<!-- tex4ht:ref: l
 Listing <a href='#x1-1032r3'>3<!-- tex4ht:ref: lst:20211004:goodoutput  --></a>.
 </p>   
 <!-- l. 35 -->
-<p><a id='x1-1028r2'></a></p>
-<p><a id='x1-1029'></a></p>   
-<div class='lstlisting' id='listing-2'><span class='label'><a id='x1-1030r1'></a></span><span class='ec-lmtt-10'>This is a </span><span class='ec-lmtk-10'>test</span><span class='ec-lmtt-10'> </span><br /><span class='label'><a id='x1-1031r2'></a></span><span class='ec-lmtt-10'>This is only a </span><span class='ec-lmtk-10'>test</span>
-<figcaption class='caption'><span class='id'>Listing 2:</span><span class='content'>Sample Input</span></figcaption><!-- tex4ht:label?: x1-1028r1  -->
+<p id='-sample-input'><a id='x1-1028r2'></a>
+<a id='x1-1029'></a>   
+</p><pre class='lstlisting' id='listing-2'><span class='label'><a id='x1-1030r1'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>This</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>is </span><span class='ec-lmtt-10'>a </span><span class='ec-lmtk-10'>test</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1031r2'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>This</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>is </span><span class='ec-lmtt-10'>only </span><span class='ec-lmtt-10'>a </span><span class='ec-lmtk-10'>test</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 2: </span><span class='content'>Sample Input</span></figcaption><!-- tex4ht:label?: x1-1031r1  -->
    
-</div>
 <!-- l. 40 -->
-<p><a id='x1-1032r3'></a></p>
-<p><a id='x1-1033'></a></p>   
-<div class='lstlisting' id='listing-3'><span class='label'><a id='x1-1034r1'></a></span><span class='ec-lmtt-10'>$ ls </span><br /><span class='label'><a id='x1-1035r2'></a></span><span class='ec-lmtt-10'>textfile  this_to_that.pl </span><br /><span class='label'><a id='x1-1036r3'></a></span><span class='ec-lmtt-10'> </span><br /><span class='label'><a id='x1-1037r4'></a></span><span class='ec-lmtt-10'>$ </span><span class='ec-lmtk-10'>cat</span><span class='ec-lmtt-10'> textfile </span><br /><span class='label'><a id='x1-1038r5'></a></span><span class='ec-lmtt-10'>This is a </span><span class='ec-lmtk-10'>test</span><span class='ec-lmtt-10'> </span><br /><span class='label'><a id='x1-1039r6'></a></span><span class='ec-lmtt-10'>This is only a </span><span class='ec-lmtk-10'>test</span><span class='ec-lmtt-10'> </span><br /><span class='label'><a id='x1-1040r7'></a></span><span class='ec-lmtt-10'> </span><br /><span class='label'><a id='x1-1041r8'></a></span><span class='ec-lmtt-10'>$ perl this_to_that.pl textfile </span><br /><span class='label'><a id='x1-1042r9'></a></span><span class='ec-lmtt-10'>This is a </span><span class='ec-lmtk-10'>test</span><span class='ec-lmtt-10'> </span><br /><span class='label'><a id='x1-1043r10'></a></span><span class='ec-lmtt-10'>First Match! </span><br /><span class='label'><a id='x1-1044r11'></a></span><span class='ec-lmtt-10'>This is only a </span><span class='ec-lmtk-10'>test</span><span class='ec-lmtt-10'> </span><br /><span class='label'><a id='x1-1045r12'></a></span><span class='ec-lmtt-10'>Second Match! </span><br /><span class='label'><a id='x1-1046r13'></a></span><span class='ec-lmtt-10'> </span><br /><span class='label'><a id='x1-1047r14'></a></span><span class='ec-lmtt-10'>$ </span><span class='ec-lmtk-10'>cat</span><span class='ec-lmtt-10'> that_textfile </span><br /><span class='label'><a id='x1-1048r15'></a></span><span class='ec-lmtt-10'>That is a </span><span class='ec-lmtk-10'>test</span><span class='ec-lmtt-10'> </span><br /><span class='label'><a id='x1-1049r16'></a></span><span class='ec-lmtt-10'>That is only a </span><span class='ec-lmtk-10'>test</span>
-<figcaption class='caption'><span class='id'>Listing 3:</span><span class='content'>Sample Execution</span></figcaption><!-- tex4ht:label?: x1-1032r1  -->
-   
-</div>
+<p id='-sample-execution'><a id='x1-1032r3'></a>
+<a id='x1-1033'></a>   
+</p><pre class='lstlisting' id='listing-3'><span class='label'><a id='x1-1034r1'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>$</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>ls</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1035r2'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>textfile</span></span><span style='color:#000000'> </span><span class='ec-lmtt-10'> </span><span style='color:#000000'><span class='ec-lmtt-10'>this_to_that</span></span><span style='color:#000000'><span class='ec-lmtt-10'>.</span></span><span style='color:#000000'><span class='ec-lmtt-10'>pl</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1036r3'></a></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1037r4'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>$</span></span><span style='color:#000000'> <span class='ec-lmtk-10'>cat </span><span class='ec-lmtt-10'>textfile</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1038r5'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>This</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>is </span><span class='ec-lmtt-10'>a </span><span class='ec-lmtk-10'>test</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1039r6'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>This</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>is </span><span class='ec-lmtt-10'>only </span><span class='ec-lmtt-10'>a </span><span class='ec-lmtk-10'>test</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1040r7'></a></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1041r8'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>$</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>perl </span><span class='ec-lmtt-10'>this_to_that.pl </span><span class='ec-lmtt-10'>textfile</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1042r9'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>This</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>is </span><span class='ec-lmtt-10'>a </span><span class='ec-lmtk-10'>test</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1043r10'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>First</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>Match!</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1044r11'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>This</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>is </span><span class='ec-lmtt-10'>only </span><span class='ec-lmtt-10'>a </span><span class='ec-lmtk-10'>test</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1045r12'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>Second</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>Match!</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1046r13'></a></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1047r14'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>$</span></span><span style='color:#000000'> <span class='ec-lmtk-10'>cat </span><span class='ec-lmtt-10'>that_textfile</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1048r15'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>That</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>is </span><span class='ec-lmtt-10'>a </span><span class='ec-lmtk-10'>test</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1049r16'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>That</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>is </span><span class='ec-lmtt-10'>only </span><span class='ec-lmtt-10'>a </span><span class='ec-lmtk-10'>test</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 3: </span><span class='content'>Sample Execution</span></figcaption><!-- tex4ht:label?: x1-1049r1  -->
 <!-- l. 59 --><p class='indent'>   The biggest security concern here comes from the use of the two argument form of open, which in some
 cases, can actually result in shell execution! Contained in the two open statements shown in the above
-source, you will notice that one filename is prefixed with “¿”, but the first open has no prefix. The
-“¿” character on the second open tells Perl to open the file for output. The first open is implicitly
+source, you will notice that one filename is prefixed with “&gt;”, but the first open has no prefix. The
+“&gt;” character on the second open tells Perl to open the file for output. The first open is implicitly
 open for input. This doesn’t look bad just looking at the source, but Perl has built-in magic that
 makes this a security disaster. In this kind of case, if the filename starts with, or ends with a pipe
 symbol (<span class='ec-lmtt-10'>|</span>), Perl interprets that as requesting execution of a shell command. Note that the location
@@ -230,71 +298,76 @@ should be read from. This means that abusing this form of open is as easy as pro
 filename.
 </p>   
 <!-- l. 61 -->
-<p><a id='x1-1050r4'></a></p>
-<p><a id='x1-1051'></a></p>
+<p id='-malicious-execution'><a id='x1-1050r4'></a>
+<a id='x1-1051'></a>   
+</p><pre class='lstlisting' id='listing-4'><span class='label'><a id='x1-1052r1'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>$</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>ls</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1053r2'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>textfile</span></span><span style='color:#000000'> </span><span class='ec-lmtt-10'> </span><span style='color:#000000'><span class='ec-lmtt-10'>this_to_that</span></span><span style='color:#000000'><span class='ec-lmtt-10'>.</span></span><span style='color:#000000'><span class='ec-lmtt-10'>pl</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1054r3'></a></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1055r4'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>$</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>perl </span><span class='ec-lmtt-10'>this_to_that.pl </span><span class='ec-lmtt-10'>"touch </span><span class='ec-lmtt-10'>in_a_shell_command|"</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1056r5'></a></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1057r6'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>$</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>ls</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1058r7'></a></span><span class='ec-lmtt-10'> </span><span style='color:#000000'><span class='ec-lmtt-10'>in_a_shell_command</span></span><span style='color:#000000'> </span><span class='ec-lmtt-10'> </span><span style='color:#000000'><span class='ts1-lmtt10-'>'</span></span><span style='color:#000000'><span class='ec-lmtt-10'>that_touch</span></span><span style='color:#000000'><span class='ec-lmtt-10'>␣</span></span><span style='color:#000000'><span class='ec-lmtt-10'>in_a_shell_command</span></span><span style='color:#000000'><span class='ec-lmtt-10'>|</span></span><span style='color:#000000'><span class='ts1-lmtt10-'>'</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1059r8'></a></span><span class='ec-lmtt-10'> </span><span style='color:#000000'><span class='ec-lmtt-10'>textfile</span></span><span style='color:#000000'> </span><span class='ec-lmtt-10'>           </span><span style='color:#000000'><span class='ec-lmtt-10'>this_to_that</span></span><span style='color:#000000'><span class='ec-lmtt-10'>.</span></span><span style='color:#000000'><span class='ec-lmtt-10'>pl</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 4: </span><span class='content'>Malicious Execution</span></figcaption><!-- tex4ht:label?: x1-1059r1  -->
                                                                                          
                                                                                          
-   
-<div class='lstlisting' id='listing-4'><span class='label'><a id='x1-1052r1'></a></span><span class='ec-lmtt-10'>$ ls </span><br /><span class='label'><a id='x1-1053r2'></a></span><span class='ec-lmtt-10'>textfile  this_to_that.pl </span><br /><span class='label'><a id='x1-1054r3'></a></span><span class='ec-lmtt-10'> </span><br /><span class='label'><a id='x1-1055r4'></a></span><span class='ec-lmtt-10'>$ perl this_to_that.pl "touch in_a_shell_command|" </span><br /><span class='label'><a id='x1-1056r5'></a></span><span class='ec-lmtt-10'> </span><br /><span class='label'><a id='x1-1057r6'></a></span><span class='ec-lmtt-10'>$ ls </span><br /><span class='label'><a id='x1-1058r7'></a></span><span class='ec-lmtt-10'> in_a_shell_command  </span><span class='ts1-lmtt10-'>'</span><span class='ec-lmtt-10'>that_touch␣in_a_shell_command|</span><span class='ts1-lmtt10-'>'</span><span class='ec-lmtt-10'> </span><br /><span class='label'><a id='x1-1059r8'></a></span><span class='ec-lmtt-10'> textfile            this_to_that.pl</span>
-<figcaption class='caption'><span class='id'>Listing 4:</span><span class='content'>Malicious Execution</span></figcaption><!-- tex4ht:label?: x1-1050r1  -->
-   
-</div>
 <!-- l. 72 --><p class='indent'>   Listing <a href='#x1-1050r4'>4<!-- tex4ht:ref: lst:20211004:badoutput  --></a> shows the result of running the script with a malicious filename resulting in the file “im_a_shell_cmd”
-being created. The other new file, “that_touch im_a_shell_cmd—”, is created by the script as part of its normal
+being created. The other new file, “that_touch im_a_shell_cmd|”, is created by the script as part of its normal
 output. Of course in this case we already had shell access, but consider the case where the filename is coming from
 an external attack such a socket or web interface.
 </p><!-- l. 74 --><p class='indent'>   This security disaster can be partially mitigated by explicitly specifying that the file should be open for input. If
-a leading “¡” is provided (similar to the second open statement), Perl will assume the filename is just a filename even
-if a pipe symbol appears. If all of that were not enough, this version of open can cause problems when we can’t
+a leading “&lt;” is provided (similar to the second open statement), Perl will assume the filename is just a filename
+even if a pipe symbol appears. If all of that were not enough, this version of open can cause problems when we can’t
 even see it because a number of other constructs use the two argument version of open behind the
-scenes. The examples in Listing <a href='#x1-1060r5'>5<!-- tex4ht:ref: lst:20211004:examples  --></a> are all implicitly using the two argument form of open.[<a href='#cite.0@20211004:svoboda'>3</a>] Such
+scenes. The examples in Listing <a href='#x1-1062r5'>5<!-- tex4ht:ref: lst:20211004:examples  --></a> are all implicitly using the two argument form of open.[<a id='x1-1060'></a><a href='#cite.0@20211004:svoboda'>3</a>] Such
 constructs should be avoided, and the 3 argument form of open used instead of the two argument
-version.[<a href='#cite.0@20211004:dimov'>1</a>]
+version.[<a id='x1-1061'></a><a href='#cite.0@20211004:dimov'>1</a>]
 </p>   
 <!-- l. 76 -->
-<p><a id='x1-1060r5'></a></p>
-<p><a id='x1-1061'></a></p>   
-<div class='lstlisting' id='listing-5'><span class='label'><a id='x1-1062r1'></a></span><span class='ec-lmtk-10'>while</span><span class='ec-lmtt-10'>(&lt;ARGV&gt;) </span><br /><span class='label'><a id='x1-1063r2'></a></span><span class='ec-lmtk-10'>while</span><span class='ec-lmtt-10'>(&lt;&gt;) </span><br /><span class='label'><a id='x1-1064r3'></a></span><span class='ec-lmtt-10'>perl -n </span><span class='ts1-lmtt10-'>'</span><span class='ec-lmtt-10'>print␣"::␣$_\n";</span><span class='ts1-lmtt10-'>'</span><span class='ec-lmtt-10'> * </span><br /><span class='label'><a id='x1-1065r4'></a></span><span class='ec-lmtt-10'>perl -p </span><span class='ts1-lmtt10-'>'</span><span class='ec-lmtt-10'>$_␣=␣"::␣$_\n";</span><span class='ts1-lmtt10-'>'</span><span class='ec-lmtt-10'> *</span>
-<figcaption class='caption'><span class='id'>Listing 5:</span><span class='content'>Examples</span></figcaption><!-- tex4ht:label?: x1-1060r1  -->
-   
-</div>
+<p id='-examples'><a id='x1-1062r5'></a>
+<a id='x1-1063'></a>   
+</p><pre class='lstlisting' id='listing-5'><span class='label'><a id='x1-1064r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10'>while</span></span><span style='color:#000000'><span class='ec-lmtt-10'>(&lt;</span></span><span style='color:#000000'><span class='ec-lmtt-10'>ARGV</span></span><span style='color:#000000'><span class='ec-lmtt-10'>&gt;)</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1065r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10'>while</span></span><span style='color:#000000'><span class='ec-lmtt-10'>(&lt;&gt;)</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1066r3'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>perl</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>-n </span><span class='ts1-lmtt10-'>'</span><span class='ec-lmtt-10'>print␣"::␣$_\n";</span><span class='ts1-lmtt10-'>' </span><span class='ec-lmtt-10'>*</span></span><span class='ec-lmtt-10'> </span><br /> 
+<span class='label'><a id='x1-1067r4'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>perl</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>-p </span><span class='ts1-lmtt10-'>'</span><span class='ec-lmtt-10'>$_␣=␣"::␣$_\n";</span><span class='ts1-lmtt10-'>' </span><span class='ec-lmtt-10'>*</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 5: </span><span class='content'>Examples</span></figcaption><!-- tex4ht:label?: x1-1067r1  -->
 <!-- l. 84 --><p class='noindent'>
 </p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Bonus Tip</h4>
-<!-- l. 85 --><p class='noindent'>Using “¡” or “¿” on the two argument form of open is not enough to solve the woes of using it because Perl has even
-more magic up its sleeve. A filename of dash is interpreted to mean STDIN. Although explicitly providing the input
-mode character “¡” avoids the command injection, we still have a very viable denial of service. Often, a string is
-concatenated before being passed to open. One question that arises is “when will dash be considered to be
-STDIN”. Both with and without the explicit “¡” symbol, both –, and “-“, as a command line argument
+<h4 class='subsectionHead' id='bonus-tip'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Bonus Tip</h4>
+<!-- l. 85 --><p class='noindent'>Using “&lt;” or “&gt;” on the two argument form of open is not enough to solve the woes of using it because Perl has
+even more magic up its sleeve. A filename of dash is interpreted to mean STDIN. Although explicitly providing the
+input mode character “&lt;” avoids the command injection, we still have a very viable denial of service. Often, a string
+is concatenated before being passed to open. One question that arises is “when will dash be considered to be
+STDIN”. Both with and without the explicit “&lt;” symbol, both –, and “-“, as a command line argument
 is interpreted by Perl to mean STDIN. But what of the case where dash is concatenated? It seems
-backwards, but when the explicit “¡” character is <strong>not</strong> provided, “- something” is not interpreted to
-mean STDIN. However, when “¡” <strong>IS</strong> provided the same input will result in an attempt to read from
+backwards, but when the explicit “&lt;” character is <strong>not</strong> provided, “- something” is not interpreted to
+mean STDIN. However, when “&lt;” <strong>IS</strong> provided the same input will result in an attempt to read from
 STDIN.
                                                                                          
                                                                                          
 </p>   
-<h3 class='sectionHead'><a id='x1-30001.1'></a>References</h3>
+<h3 class='sectionHead' id='references'><a id='x1-30001.1'></a>References</h3>
 <!-- l. 49 --><p class='noindent'>    
 </p>
 <dl class='thebibliography'><dt class='thebibliography' id='X0-20211004:dimov'>
 [1]  
 </dt><dd class='thebibliography' id='bib-1'>
-<!-- l. 49 --><p class='noindent'><a id='cite.0@20211004:dimov'></a>Jordan Dimov. Security Issues in Perl Scripts. <span class='small-caps'>url</span>: <a class='url' href='https://www.cgisecurity.com/lib/sips.html'><span class='ec-lmtt-10'>https://www.cgisecurity.com/lib/sips.html</span></a>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20211004:dimov'></a>Jordan Dimov. Security Issues in Perl Scripts. <span class='small-caps'>url</span>:    <a class='url' href='https://www.cgisecurity.com/lib/sips.html'><span class='ec-lmtt-10'>https://www.cgisecurity.com/lib/sips.html</span></a>
 (visited on 10/04/2021).
 </p>    
 </dd>
 <dt class='thebibliography' id='X0-swatips'>
 [2]  
 </dt><dd class='thebibliography' id='bib-2'>
-<!-- l. 49 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+<!-- l. 49 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips.     <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
 <dt class='thebibliography' id='X0-20211004:svoboda'>
 [3]  
 </dt><dd class='thebibliography' id='bib-3'>
-<!-- l. 49 --><p class='noindent'><a id='cite.0@20211004:svoboda'></a>David      Svoboda.      IDS31-PL. Do not use the two-argument form of open().      Nov. 16,      2017.
-<span class='small-caps'>url</span>:  <a class='url' href='https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=88890543'><span class='ec-lmtt-10'>https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=88890543</span></a> (visited
-on 10/04/2021).</p></dd></dl>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20211004:svoboda'></a>David          Svoboda.          IDS31-PL. Do not use the two-argument form of open().          Nov. 16,
+2017. <span class='small-caps'>url</span>:      <a class='url' href='https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=88890543'><span class='ec-lmtt-10'>https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=88890543</span></a>
+(visited on 10/04/2021).</p></dd></dl>
  
 </body> 
 </html>

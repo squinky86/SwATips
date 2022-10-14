@@ -1,4 +1,4 @@
 \def \AuthorName{Kevin Keen}
-\def \ArticleName{Perls of Wisdom}
+\def \ArticleName{Perls of Wisdom: Use of Two-Argument Form of open()}
 \newcommand{\ArticleDate}{\formatdate{4}{10}{2021}}
 \addbibresource{20211004.bib}

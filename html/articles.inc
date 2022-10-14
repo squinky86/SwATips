@@ -1,3 +1,4 @@
+<li>20221017 - <a href="articles/20221017.html">Java, Inner Classes, and Checkmarx Unused Variable Findings</a></li>
 <li>20220919 - <a href="articles/20220919.html">Commercial National Security Algorithm (CNSA) Suite 2.0</a></li>
 <li>20220613 - <a href="articles/20220613.html">Don't Limit your CWEs</a></li>
 <li>20220418 - <a href="articles/20220418.html">Improper Resource Access Authorization</a></li>
@@ -7,4 +8,3 @@
 <li>20211220 - <a href="articles/20211220.html">GCC as a Static Analysis Tool</a></li>
 <li>20211129 - <a href="articles/20211129.html">Malicious Injection of Source Code</a></li>
 <li>20211101 - <a href="articles/20211101.html">Additional Risks to DevSecOps Pipelines</a></li>
-<li>20211004 - <a href="articles/20211004.html">Perls of Wisdom</a></li>

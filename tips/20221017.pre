@@ -1,0 +1,3 @@
+\def \AuthorName{Kevin Keen}
+\def \ArticleName{Java, Inner Classes, and Checkmarx Unused Variable Findings}
+\newcommand{\ArticleDate}{\formatdate{17}{10}{2022}}

@@ -1,4 +1,103 @@
 	<item>
+		<title>Java, Inner Classes, and Checkmarx Unused Variable Findings</title>
+		<link>https://www.SwATips.com/articles/20221017.html</link>
+		<pubDate>Mon, 17 Oct 2022 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20221017.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
+</h2>
+<div class="author" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Kevin Keen</span></div><br/>
+<div class="date" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Monday 17</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-12" style="font-size: 120%;"> October, 2022</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead" id="java-inner-classes-and-checkmarx-unused-variable-findings"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Java, Inner Classes, and Checkmarx Unused Variable Findings</h3>
+
+
+<!-- l. 44 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Friday 14</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> October, 2022</span>
+</p>
+<!-- l. 1 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Java has some odd, non-intuitive rules when it comes to the visibility of inner classes. One of which is that an
+inner class not marked <span class="ec-lmtt-10" style="font-family: monospace,monospace;">private </span>will be accessible to other classes in the same package. This can lead to some odd
+code that Checkmarx doesn’t handle well, especially when the inner class is a POD (plain old data)
+class.
+</p>
+<!-- l. 3 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A good argument can be made that Java applications really shouldn’t have many, if any, POD classes. After all,
+data exists to be operated on, and if there is behavior defined somewhere to operate on this data, why not have it
+live in the same place? Nevertheless, POD classes do tend to creep their way into some Java applications,
+particularly if the programmer hails from a C background and is accustomed to working with structs. While
+avoiding POD classes might prevent the issue we are about to highlight, we will set the POD v. no-POD debate
+aside for the time being.
+</p>
+<!-- l. 5 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   When an inner class is not declared <span class="ec-lmtt-10" style="font-family: monospace,monospace;">private</span>, it is entirely possible for members of that class to be unused
+locally, in any of its sibling classes, or in the enclosing class. Instead, because of the package level visibility, the use
+may reside in a completely different class. Take, for example, a class <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Outer</span>, which contains a private (no
+public, protected, etc) class <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Inner</span>. A 3<sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">rd</span></sup> unrelated class could then contain code like that shown in
+Listing <a href="#x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20221017:unusedinner  --></a>.
+</p>
+   
+
+<!-- l. 7 -->
+
+
+<p id="-tertiary-class-with-unused-inner-variables" style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
+<a id="x1-1002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>   
+</p>
+<pre class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">(</span></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">In</span></span><span style="color:#000000"> <span class="ec-lmtk-10" style="font-family: monospace,monospace;">class </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">Unrelated)</span></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/> 
+<span class="label" style="margin-right: 0.5em;"><a id="x1-1004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">Outer</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">myOuter </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">= </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">new </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">Outer();</span></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/> 
+<span class="label" style="margin-right: 0.5em;"><a id="x1-1005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">Inner</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">myInner </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">= </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">myOuter.</span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">new </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">Inner();</span></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/> 
+<span class="label" style="margin-right: 0.5em;"><a id="x1-1006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtk-10" style="font-family: monospace,monospace;">if</span></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">(</span></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">myInner</span></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">.</span></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">thoughtItWasUnused</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">== </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">5) </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">{</span></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">… </span><br/> 
+<span class="label" style="margin-right: 0.5em;"><a id="x1-1007r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/> 
+<span class="label" style="margin-right: 0.5em;"><a id="x1-1008r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">}</span></span></pre>
+
+
+<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1: </span><span class="content">Tertiary Class with Unused Inner Variables</span></figcaption>
+<!-- tex4ht:label?: x1-1008r1  -->
+
+
+<!-- l. 16 -->
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   Unfortunately, in these cases, Checkmarx is likely to flag the members of <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Inner </span>as unused variables unless they
+are used by either the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Inner </span>class itself or perhaps by <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Outer</span>. In this example, the member <span class="ec-lmtt-10" style="font-family: monospace,monospace;">thoughtItWasUnused</span>
+may have been flagged in <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Outer.java </span>as an unused variable.
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead" id="references"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 49 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips.     <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Commercial National Security Algorithm (CNSA) Suite 2.0</title>
 		<link>https://www.SwATips.com/articles/20220919.html</link>
 		<pubDate>Mon, 19 Sep 2022 00:00:00 -0500</pubDate>
@@ -1914,223 +2013,6 @@ compromised.
 <!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20211101:sharma2021" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Ax Sharma. Codecov hack aftermath. hundreds breached, many more to follow. Security Report. Apr. 27,
 2011. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a href="https://securityreport.com/codecov-hack-aftermath-hundreds-breached-many-more-to-follow/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://securityreport.com/codecov-hack-aftermath-hundreds-breached-many-more-to-follow/</span></a>
 (visited on 11/01/2021).</p></dd></dl>
-
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>Perls of Wisdom</title>
-		<link>https://www.SwATips.com/articles/20211004.html</link>
-		<pubDate>Mon, 04 Oct 2021 00:00:00 -0500</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20211004.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>]<br/>
-</h2>
-<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Kevin Keen</span></div><br/>
-<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 4</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> October, 2021</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Perls of Wisdom</h3>
-
-
-<!-- l. 44 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Monday 4</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> October, 2021</span>
-</p>
-<!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   We see far less Perl code than some other languages. Nevertheless, as with any language, there are security
-concerns that are particular to Perl.
-</p>
-<!-- l. 3 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Consider the following short Perl script in Listing <a href="#x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20211004:script  --></a>.
-</p>
-   
-
-<!-- l. 5 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">my</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> $in_filename; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">my</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> $out_filename; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">if</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">(</span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">scalar</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> @ARGV &lt; 1) { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">print</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> "Usage: $0 &lt;input_file&gt;"; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1007r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">exit</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1008r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">} </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1009r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">else</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1010r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       $in_filename = $ARGV[0]; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1011r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       $out_filename = "that_$in_filename"; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1012r10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">} </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1013r11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">open</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">($in_file, "$in_filename"); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1014r12" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">open</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">($out_file, "&gt;$out_filename"); </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1015r13" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">while</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">(&lt;$in_file&gt;) { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1016r14" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       $line = $_; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1017r15" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">print</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> "$line"; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1018r16" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">if</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> ($line =~ /This is a/) { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1019r17" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">               $line =~ </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">s</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">/This is a/That is a/; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1020r18" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">               </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">print</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> "First Match!\n"; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1021r19" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1022r20" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">elsif</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">($line =~ /This is only/) { </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1023r21" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">               $line =~ </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">s</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">/This is only/That is only/; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1024r22" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">               </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">print</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> "Second Match!\n"; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1025r23" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       } </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1026r24" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">       </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">print</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> $out_file $line; </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1027r25" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">}</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1:</span><span class="content">Sample Perl Script</span></figcaption><!-- tex4ht:label?: x1-1001r1  -->
-   
-</div>
-
-
-<!-- l. 33 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   This script will read in the input file, perform some substitutions (changing “This” to “That”)
-and write out the results to another file. With Perl’s deeply ingrained regex facilities, such string and
-file processing is very typical of a Perl script. The input file name is passed in as a command line
-argument. The output filename is derived by prepending <span class="ec-lmtt-10" style="font-family: monospace,monospace;">that_</span>. As with a lot of Perl scripts, this one is
-written to be run against input files with very specific contents. In this case, it expects the input file to
-contain the input displayed in Listing <a href="#x1-1028r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2<!-- tex4ht:ref: lst:20211004:input  --></a>. The output of the intended use of this script is shown in
-Listing <a href="#x1-1032r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3<!-- tex4ht:ref: lst:20211004:goodoutput  --></a>.
-</p>
-   
-
-<!-- l. 35 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1028r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1029" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div class="lstlisting" id="listing-2" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1030r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">This is a </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1031r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">This is only a </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 2:</span><span class="content">Sample Input</span></figcaption><!-- tex4ht:label?: x1-1028r1  -->
-   
-</div>
-
-
-<!-- l. 40 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1032r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1033" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div class="lstlisting" id="listing-3" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1034r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ ls </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1035r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">textfile  this_to_that.pl </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1036r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1037r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">cat</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> textfile </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1038r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">This is a </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1039r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">This is only a </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1040r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1041r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ perl this_to_that.pl textfile </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1042r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">This is a </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1043r10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">First Match! </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1044r11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">This is only a </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1045r12" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">Second Match! </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1046r13" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1047r14" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">cat</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> that_textfile </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1048r15" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">That is a </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1049r16" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">That is only a </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 3:</span><span class="content">Sample Execution</span></figcaption><!-- tex4ht:label?: x1-1032r1  -->
-   
-</div>
-
-
-<!-- l. 59 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The biggest security concern here comes from the use of the two argument form of open, which in some
-cases, can actually result in shell execution! Contained in the two open statements shown in the above
-source, you will notice that one filename is prefixed with “¿”, but the first open has no prefix. The
-“¿” character on the second open tells Perl to open the file for output. The first open is implicitly
-open for input. This doesn’t look bad just looking at the source, but Perl has built-in magic that
-makes this a security disaster. In this kind of case, if the filename starts with, or ends with a pipe
-symbol (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">|</span>), Perl interprets that as requesting execution of a shell command. Note that the location
-of the pipe symbol also has meaning to Perl. A pipe symbol before the command indicates a shell
-command that should be written to. A pipe symbol after the command indicates a shell command that
-should be read from. This means that abusing this form of open is as easy as providing a malicious
-filename.
-</p>
-   
-
-<!-- l. 61 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1050r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1051" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-                                                                                         
-                                                                                         
-   
-
-<div class="lstlisting" id="listing-4" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1052r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ ls </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1053r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">textfile  this_to_that.pl </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1054r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1055r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ perl this_to_that.pl "touch in_a_shell_command|" </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1056r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1057r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ ls </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1058r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> in_a_shell_command  </span><span class="ts1-lmtt10-">'</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">that_touch␣in_a_shell_command|</span><span class="ts1-lmtt10-">'</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1059r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> textfile            this_to_that.pl</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 4:</span><span class="content">Malicious Execution</span></figcaption><!-- tex4ht:label?: x1-1050r1  -->
-   
-</div>
-
-
-<!-- l. 72 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Listing <a href="#x1-1050r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4<!-- tex4ht:ref: lst:20211004:badoutput  --></a> shows the result of running the script with a malicious filename resulting in the file “im_a_shell_cmd”
-being created. The other new file, “that_touch im_a_shell_cmd—”, is created by the script as part of its normal
-output. Of course in this case we already had shell access, but consider the case where the filename is coming from
-an external attack such a socket or web interface.
-</p>
-<!-- l. 74 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   This security disaster can be partially mitigated by explicitly specifying that the file should be open for input. If
-a leading “¡” is provided (similar to the second open statement), Perl will assume the filename is just a filename even
-if a pipe symbol appears. If all of that were not enough, this version of open can cause problems when we can’t
-even see it because a number of other constructs use the two argument version of open behind the
-scenes. The examples in Listing <a href="#x1-1060r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5<!-- tex4ht:ref: lst:20211004:examples  --></a> are all implicitly using the two argument form of open.[<a href="#cite.0@20211004:svoboda" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>] Such
-constructs should be avoided, and the 3 argument form of open used instead of the two argument
-version.[<a href="#cite.0@20211004:dimov" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]
-</p>
-   
-
-<!-- l. 76 -->
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1060r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-
-
-<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1061" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p>
-   
-
-<div class="lstlisting" id="listing-5" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1062r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">while</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">(&lt;ARGV&gt;) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1063r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">while</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">(&lt;&gt;) </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1064r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">perl -n </span><span class="ts1-lmtt10-">'</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">print␣"::␣$_\n";</span><span class="ts1-lmtt10-">'</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> * </span><br/><span class="label" style="margin-right: 0.5em;"><a id="x1-1065r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">perl -p </span><span class="ts1-lmtt10-">'</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$_␣=␣"::␣$_\n";</span><span class="ts1-lmtt10-">'</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> *</span>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 5:</span><span class="content">Examples</span></figcaption><!-- tex4ht:label?: x1-1060r1  -->
-   
-</div>
-
-
-<!-- l. 84 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Bonus Tip</h4>
-
-
-<!-- l. 85 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Using “¡” or “¿” on the two argument form of open is not enough to solve the woes of using it because Perl has even
-more magic up its sleeve. A filename of dash is interpreted to mean STDIN. Although explicitly providing the input
-mode character “¡” avoids the command injection, we still have a very viable denial of service. Often, a string is
-concatenated before being passed to open. One question that arises is “when will dash be considered to be
-STDIN”. Both with and without the explicit “¡” symbol, both –, and “-“, as a command line argument
-is interpreted by Perl to mean STDIN. But what of the case where dash is concatenated? It seems
-backwards, but when the explicit “¡” character is <strong>not</strong> provided, “- something” is not interpreted to
-mean STDIN. However, when “¡” <strong>IS</strong> provided the same input will result in an attempt to read from
-STDIN.
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead"><a id="x1-30001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 49 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt class="thebibliography" id="X0-20211004:dimov" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20211004:dimov" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jordan Dimov. Security Issues in Perl Scripts. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://www.cgisecurity.com/lib/sips.html" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.cgisecurity.com/lib/sips.html</span></a>
-(visited on 10/04/2021).
-</p>    
-</dd>
-<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
-[2]  
-</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
-</p>    
-</dd>
-<dt class="thebibliography" id="X0-20211004:svoboda" style="float: left; clear: left; margin-right: 1em;">
-[3]  
-</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20211004:svoboda" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>David      Svoboda.      IDS31-PL. Do not use the two-argument form of open().      Nov. 16,      2017.
-<span class="small-caps" style="font-variant: small-caps;">url</span>:  <a class="url" href="https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=88890543" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=88890543</span></a> (visited
-on 10/04/2021).</p></dd></dl>
 
  
 
