@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html xml:lang='en-US' lang='en-US'>
+<head>
+<title>Coverity BAD_CAST</title>
+ 
+
+<meta charset="utf-8"/>
+ 
+
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+ 
+
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+ 
+
+ 
+
+<meta content="article.tex" name="src"/>
+ 
+
+<script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
+<style>
+ 
+/* start css.sty */
+.ec-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmr-12{font-size:120%;}
+.ec-lmr-9{font-size:90%;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmr-8{font-size:80%;}
+.ec-lmtt-9{font-size:90%; font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{font-size:90%; font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+.ec-lmbxi-10{ font-style:italic; font-weight: bold;}
+p{margin-top:0;margin-bottom:0}
+p.indent{text-indent:0;}
+p + p{margin-top:1em;}
+p + div, p + pre {margin-top:1em;}
+div + p, pre + p {margin-top:1em;}
+a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+@media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+img.math{vertical-align:middle;}
+div.par-math-display, div.math-display{text-align:center;}
+li p.indent { text-indent: 0em }
+li p:first-child{ margin-top:0em; }
+li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
+li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.footnotes{border-top:solid 1px black; border-bottom:solid 1px black; padding-bottom:1ex; padding-top:0.5ex; margin-right:15%; margin-top:2ex; font-style:italic; font-size:85%;}
+div.footnotes p{margin-top:0; margin-bottom:0; text-indent:0;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.tabbing-right {text-align:right;}
+div.float, div.figure {margin-left: auto; margin-right: auto;}
+div.float img {text-align:center;}
+div.figure img {text-align:center;}
+.marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.reversemarginpar{float:left;}
+table.equation {width:100%;}
+.equation td{text-align:center; }
+td.equation { margin-top:1em; margin-bottom:1em; } 
+td.equation-label { width:5%; text-align:center; }
+td.eqnarray4 { width:5%; white-space: normal; }
+td.eqnarray2 { width:5%; }
+table.eqnarray-star, table.eqnarray {width:100%;}
+div.eqnarray{text-align:center;}
+div.array {text-align:center;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.pmatrix img{vertical-align:middle;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.bar-css {text-decoration:overline;}
+img.cdots{vertical-align:middle;}
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption span.id{font-weight: bold; white-space: nowrap; }
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.abstract p {margin-left:5%; margin-right:5%;}
+div.abstract {width:100%;}
+.abstracttitle{text-align:center;margin-bottom:1em;}
+figure.float, div.figure {margin-left: auto; margin-right: auto;}
+figure.figure {text-align:center;}
+figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
+figcaption.caption span.id{font-weight: bold; white-space: nowrap; }
+p + figcaption, img + figcaption{margin-top: 1em;}
+.abstract{margin:1em;}
+dt.printshorthands{float:left; clear:left; margin-right:1em;}
+dd.thebibliography {margin-left: 2.5em;}
+dt.thebibliography {float:left; clear:left; margin-right:1em;}
+code.lstinline{font-family:monospace,monospace;}
+.lstlisting .label{margin-right:0.5em; }
+pre.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
+.lstinputlisting .label{margin-right:0.5em;}
+.small-caps{font-variant: small-caps;}
+.uline{ text-decoration:underline; }
+.uuline{ text-decoration:underline; }
+span.sout {text-decoration: line-through }
+span.xout {text-decoration: line-through }
+span.uwave {text-decoration:underline }
+/* end css.sty */
+
+</style>
+</head>
+<body>
+<p><a href="../"><img src="images/swatips.svg" width="120" alt="SwATips" /></a>| <a href="20230403.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="images/by.svg" width="60" height="21" alt="CC-BY" /></a></p>
+<div class='maketitle'>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
+A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0@swatips'>1</a>]<br />
+</h2>
+<div class='author'><span class='ec-lmr-12'>Kevin Keen</span></div><br />
+<div class='date'><span class='ec-lmr-12'>Monday 3</span><sup class='textsuperscript'><span class='ec-lmr-9'>rd</span></sup><span class='ec-lmr-12'> April, 2023</span></div>
+</div>
+                                                                                         
+                                                                                         
+   
+<h3 class='sectionHead' id='coverity-badcast'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Coverity BAD_CAST</h3>
+<!-- l. 44 --><p class='noindent'><span class='ec-lmr-8'>Updated Tuesday 4</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> April, 2023</span>
+</p><!-- l. 1 --><p class='indent'>   Recently we came across a finding in a Coverity scan that was a bit puzzling at first. The finding was labeled
+<span class='ec-lmtt-10'>BAD_CAST</span>. The supporting details didn’t help much either. It simply indicated a conversion between incompatible
+types. There are probably several different reasons Coverity might flag this issue. The line of code in question this
+time was attempting to start a new thread by calling <span class='ec-lmtt-10'>pthread_create</span>. As is expected with <span class='ec-lmtt-10'>pthread_create</span>, they
+were attempting to pass a pointer to a function that would be called as the thread started. That much is normal
+when using pthreads. List <a href='#x1-1001r1'>1<!-- tex4ht:ref: lst:20230403:ptr1  --></a> illustrates a fairly normal use of <span class='ec-lmtt-10'>pthread_create </span>using a non member function pointer
+as the callback.
+</p>   
+<!-- l. 3 -->
+<p id='-typical-use-of-a-function-poiter'><a id='x1-1001r1'></a>
+<a id='x1-1002'></a>   
+</p><pre class='lstlisting' id='listing-1'><span class='label'><a id='x1-1003r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;pthread.h&gt;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1004r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;iostream&gt;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1005r3'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1006r4'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>using</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>namespace </span><span class='ec-lmtt-9'>std;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1007r5'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1008r6'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>void</span></span><span style='color:#000000'><span class='ec-lmtt-9'>*</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>non_member_function(</span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'>* </span><span class='ec-lmtt-9'>foo) </span><span class='ec-lmtt-9'>{</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1009r7'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>cout</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;&lt; </span><span class='ec-lmtt-9'>"In </span><span class='ec-lmtt-9'>non_member_function!" </span><span class='ec-lmtt-9'>&lt;&lt; </span><span class='ec-lmtt-9'>endl;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1010r8'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1011r9'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1012r10'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main(</span><span class='ec-lmtk-10x-x-90'>int </span><span class='ec-lmtt-9'>argc, </span><span class='ec-lmtk-10x-x-90'>char</span><span class='ec-lmtt-9'>** </span><span class='ec-lmtt-9'>argv) </span><span class='ec-lmtt-9'>{</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1013r11'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>pthread_t</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>thread;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1014r12'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1015r13'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>pthread_create</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(&amp;</span></span><span style='color:#000000'><span class='ec-lmtt-9'>thread</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>NULL, </span><span class='ec-lmtt-9'>&amp;non_member_function, </span><span class='ec-lmtt-9'>NULL);</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1016r14'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1017r15'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>pthread_join</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>thread</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>NULL);</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1018r16'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1019r17'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1020r18'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 1: </span><span class='content'>Typical Use of a Function Poiter</span></figcaption><!-- tex4ht:label?: x1-1020r1  -->
+<!-- l. 24 --><p class='indent'>   Where things went wrong was that the pointer being passed was a <span class='ec-lmtt-10'>reinterpret_cast </span>of the address of a
+member function. Listing <a href='#x1-1021r2'>2<!-- tex4ht:ref: lst:20230403:ptr2  --></a> shows an example of attempting to pass a member function pointer to <span class='ec-lmtt-10'>pthread_create</span>.
+Don’t do this!!!
+</p>   
+<!-- l. 26 -->
+<p id='-improper-use-of-a-pointer-to-a-member-function'><a id='x1-1021r2'></a>
+<a id='x1-1022'></a>   
+</p><pre class='lstlisting' id='listing-2'><span class='label'><a id='x1-1023r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;pthread.h&gt;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1024r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;iostream&gt;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1025r3'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1026r4'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>using</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>namespace </span><span class='ec-lmtt-9'>std;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1027r5'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1028r6'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>class</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>Example </span><span class='ec-lmtt-9'>{</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1029r7'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>public</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1030r8'></a></span><span class='ec-lmtt-9'>               </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>void</span></span><span style='color:#000000'><span class='ec-lmtt-9'>*</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>member_function(</span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'>* </span><span class='ec-lmtt-9'>foo);</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1031r9'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>};</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1032r10'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1033r11'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>void</span></span><span style='color:#000000'><span class='ec-lmtt-9'>*</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>Example::member_function(</span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'>* </span><span class='ec-lmtt-9'>foo) </span><span class='ec-lmtt-9'>{</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1034r12'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>cout</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;&lt; </span><span class='ec-lmtt-9'>"In </span><span class='ec-lmtt-9'>member_function!" </span><span class='ec-lmtt-9'>&lt;&lt; </span><span class='ec-lmtt-9'>endl;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1035r13'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1036r14'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1037r15'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main(</span><span class='ec-lmtk-10x-x-90'>int </span><span class='ec-lmtt-9'>argc, </span><span class='ec-lmtk-10x-x-90'>char</span><span class='ec-lmtt-9'>** </span><span class='ec-lmtt-9'>argv) </span><span class='ec-lmtt-9'>{</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1038r16'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>pthread_t</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>thread;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1039r17'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1040r18'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>pthread_create</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(&amp;</span></span><span style='color:#000000'><span class='ec-lmtt-9'>thread</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>NULL, </span><span class='ec-lmtt-9'>reinterpret_cast&lt;</span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'>*(*)(</span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'>*)&gt;(&amp;Example::member_function, </span><span class='ec-lmtt-9'>NULL);</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1041r19'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1042r20'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>pthread_join</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>thread</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>NULL);</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1043r21'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1044r22'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1045r23'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 2: </span><span class='content'>Improper Use of a Pointer to a Member Function</span></figcaption><!-- tex4ht:label?: x1-1045r1  -->
+<!-- l. 52 --><p class='indent'>   In C++, function pointers differ from pointers to member functions. A pointer to a member function might
+actually be represented by a data structure containing extra information, especially if it were pointing at a virtual
+function.[<a id='x1-1046'></a><a href='#cite.0@20230403:ptm'>2</a>] In fact, there is so much difference between normal function pointers and pointers to member functions
+that there is even special syntax for declaring a pointer to a member function. Listing <a href='#x1-1047r3'>3<!-- tex4ht:ref: lst:20230403:ptr3  --></a> shows an example of
+declaring and using a pointer to a member function. Listing <a href='#x1-1070r4'>4<!-- tex4ht:ref: lst:20230403:ptr4  --></a> shows another example, improved with the use of a
+<span class='ec-lmtt-10'>typedef</span>.
+</p>   
+<!-- l. 54 -->
+<p id='-example-of-declaring-and-using-a-pointer-to-a-member-function'><a id='x1-1047r3'></a>
+<a id='x1-1048'></a>   
+</p><pre class='lstlisting' id='listing-3'><span class='label'><a id='x1-1049r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;iostream&gt;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1050r2'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1051r3'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>using</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>namespace </span><span class='ec-lmtt-9'>std;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1052r4'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1053r5'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>class</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>Example </span><span class='ec-lmtt-9'>{</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1054r6'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>public</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1055r7'></a></span><span class='ec-lmtt-9'>               </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>void</span></span><span style='color:#000000'><span class='ec-lmtt-9'>*</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>member_function(</span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'>* </span><span class='ec-lmtt-9'>foo);</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1056r8'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>};</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1057r9'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1058r10'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>void</span></span><span style='color:#000000'><span class='ec-lmtt-9'>*</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>Example::member_function(</span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'>* </span><span class='ec-lmtt-9'>foo) </span><span class='ec-lmtt-9'>{</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1059r11'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>cout</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;&lt; </span><span class='ec-lmtt-9'>"In </span><span class='ec-lmtt-9'>member_function!" </span><span class='ec-lmtt-9'>&lt;&lt; </span><span class='ec-lmtt-9'>endl;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1060r12'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1061r13'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1062r14'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main(</span><span class='ec-lmtk-10x-x-90'>int </span><span class='ec-lmtt-9'>argc, </span><span class='ec-lmtk-10x-x-90'>char</span><span class='ec-lmtt-9'>** </span><span class='ec-lmtt-9'>argv) </span><span class='ec-lmtt-9'>{</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1063r15'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>Example</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>myExample;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1064r16'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1065r17'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>void</span></span><span style='color:#000000'><span class='ec-lmtt-9'>*</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>(Example::*memFuncPtr)(</span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'>*) </span><span class='ec-lmtt-9'>= </span><span class='ec-lmtt-9'>&amp;Example::member_function;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1066r18'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>myExample</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.*</span></span><span style='color:#000000'><span class='ec-lmtt-9'>memFuncPtr</span></span><span style='color:#000000'><span class='ec-lmtt-9'>)(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>NULL</span></span><span style='color:#000000'><span class='ec-lmtt-9'>);</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1067r19'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1068r20'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1069r21'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 3: </span><span class='content'>Example of Declaring and Using a Pointer to a Member Function</span></figcaption><!-- tex4ht:label?: x1-1069r1  -->
+   
+<!-- l. 77 -->
+<p id='-use-of-typedef-with-pointer-to-member-function-to-improve-readability'><a id='x1-1070r4'></a>
+<a id='x1-1071'></a>   
+</p><pre class='lstlisting' id='listing-4'><span class='label'><a id='x1-1072r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;iostream&gt;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1073r2'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1074r3'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>using</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>namespace </span><span class='ec-lmtt-9'>std;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1075r4'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1076r5'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>class</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>Example </span><span class='ec-lmtt-9'>{</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1077r6'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>public</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1078r7'></a></span><span class='ec-lmtt-9'>               </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>void</span></span><span style='color:#000000'><span class='ec-lmtt-9'>*</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>member_function(</span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'>* </span><span class='ec-lmtt-9'>foo);</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1079r8'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>};</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1080r9'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1081r10'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>void</span></span><span style='color:#000000'><span class='ec-lmtt-9'>*</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>Example::member_function(</span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'>* </span><span class='ec-lmtt-9'>foo) </span><span class='ec-lmtt-9'>{</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1082r11'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>cout</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;&lt; </span><span class='ec-lmtt-9'>"In </span><span class='ec-lmtt-9'>member_function!" </span><span class='ec-lmtt-9'>&lt;&lt; </span><span class='ec-lmtt-9'>endl;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1083r12'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1084r13'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1085r14'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main(</span><span class='ec-lmtk-10x-x-90'>int </span><span class='ec-lmtt-9'>argc, </span><span class='ec-lmtk-10x-x-90'>char</span><span class='ec-lmtt-9'>** </span><span class='ec-lmtt-9'>argv) </span><span class='ec-lmtt-9'>{</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1086r15'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>Example</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>myExample;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1087r16'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1088r17'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>typedef</span></span><span style='color:#000000'> <span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'>* </span><span class='ec-lmtt-9'>(Example::*memFuncPtr)(</span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'>*);</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1089r18'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>memFuncPtr</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>myPtr </span><span class='ec-lmtt-9'>= </span><span class='ec-lmtt-9'>&amp;Example::member_function;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1090r19'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>myExample</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.*</span></span><span style='color:#000000'><span class='ec-lmtt-9'>myPtr</span></span><span style='color:#000000'><span class='ec-lmtt-9'>)(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>NULL</span></span><span style='color:#000000'><span class='ec-lmtt-9'>);</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1091r20'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1092r21'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1093r22'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 4: </span><span class='content'>Use of Typedef with Pointer to Member Function to Improve Readability</span></figcaption><!-- tex4ht:label?: x1-1093r1  -->
+<!-- l. 102 --><p class='indent'>   A non-static member function can’t really exist on its own. It is part of a class and must exist as part of that
+class. Trying to invoke it apart from the class being instantiated doesn’t make much sense (unless the function is
+declared static[<a href='#cite.0@20230403:ptm'>2</a>]). Note that in the example code in Listings <a href='#x1-1047r3'>3<!-- tex4ht:ref: lst:20230403:ptr3  --></a> and <a href='#x1-1070r4'>4<!-- tex4ht:ref: lst:20230403:ptr4  --></a>, we had to use an object (<span class='ec-lmtt-10'>myExample</span>) in order
+to invoke the member function through the pointer.
+                                                                                         
+                                                                                         
+</p><!-- l. 104 --><p class='indent'>   Good compilers will give a warning if you try to cast a pointer to a member function into a regular function
+pointer, but will normally allow you to do so anyway. Even <strong><i>IF</i></strong> it happens to work as expected when tested, doing
+this is strictly in the land of undefined behavior. It is not guaranteed to work, not portable, and could break in the
+most spectacular fashion at any point in the future.
+</p><!-- l. 106 --><p class='indent'>   If you find yourself in this situation, take heart! There is a solution! Simply have a non-member function as an
+intermediate step. That intermediate function can take a pointer or reference to the desired object and call the
+member method. And because it is a non-member function itself, it is safe to create a function pointer that can be
+passed to functions like <span class='ec-lmtt-10'>pthread_create</span>. Problem solved!
+</p>   
+<!-- l. 108 -->
+<p id='-using-an-intermediate-function'><a id='x1-1094r5'></a>
+<a id='x1-1095'></a>   
+</p><pre class='lstlisting' id='listing-5'><span class='label'><a id='x1-1096r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;pthread.h&gt;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1097r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;iostream&gt;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1098r3'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1099r4'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>using</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>namespace </span><span class='ec-lmtt-9'>std;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1100r5'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1101r6'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>class</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>Example </span><span class='ec-lmtt-9'>{</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1102r7'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>public</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1103r8'></a></span><span class='ec-lmtt-9'>               </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>void</span></span><span style='color:#000000'><span class='ec-lmtt-9'>*</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>member_function(</span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'>* </span><span class='ec-lmtt-9'>foo);</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1104r9'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>};</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1105r10'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1106r11'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>void</span></span><span style='color:#000000'><span class='ec-lmtt-9'>*</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>Example::member_function(</span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'>* </span><span class='ec-lmtt-9'>foo) </span><span class='ec-lmtt-9'>{</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1107r12'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>cout</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;&lt; </span><span class='ec-lmtt-9'>"In </span><span class='ec-lmtt-9'>member_function!" </span><span class='ec-lmtt-9'>&lt;&lt; </span><span class='ec-lmtt-9'>endl;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1108r13'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1109r14'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1110r15'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>void</span></span><span style='color:#000000'><span class='ec-lmtt-9'>*</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>intermediate_func(</span><span class='ec-lmtk-10x-x-90'>void</span><span class='ec-lmtt-9'>* </span><span class='ec-lmtt-9'>objPtr) </span><span class='ec-lmtt-9'>{</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1111r16'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>Example</span></span><span style='color:#000000'><span class='ec-lmtt-9'>*</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>examplePtr </span><span class='ec-lmtt-9'>= </span><span class='ec-lmtt-9'>(Example*)objPtr;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1112r17'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>examplePtr</span></span><span style='color:#000000'><span class='ec-lmtt-9'>-&gt;</span></span><span style='color:#000000'><span class='ec-lmtt-9'>member_function</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>NULL</span></span><span style='color:#000000'><span class='ec-lmtt-9'>);</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1113r18'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1114r19'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1115r20'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main(</span><span class='ec-lmtk-10x-x-90'>int </span><span class='ec-lmtt-9'>argc, </span><span class='ec-lmtk-10x-x-90'>char</span><span class='ec-lmtt-9'>** </span><span class='ec-lmtt-9'>argv) </span><span class='ec-lmtt-9'>{</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1116r21'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>Example</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>myExample;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1117r22'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1118r23'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>pthread_t</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>thread;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1119r24'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1120r25'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>pthread_create</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(&amp;</span></span><span style='color:#000000'><span class='ec-lmtt-9'>thread</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>NULL, </span><span class='ec-lmtt-9'>&amp;intermediate_func, </span><span class='ec-lmtt-9'>myExample);</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1121r26'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1122r27'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>pthread_join</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>thread</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>NULL);</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1123r28'></a></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1124r29'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span></span><span class='ec-lmtt-9'> </span><br /> 
+<span class='label'><a id='x1-1125r30'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 5: </span><span class='content'>Using an Intermediate Function</span></figcaption><!-- tex4ht:label?: x1-1125r1  -->
+                                                                                         
+                                                                                         
+   
+<h3 class='sectionHead' id='references'><a id='x1-20001'></a>References</h3>
+<!-- l. 49 --><p class='noindent'>    
+</p>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-swatips'>
+[1]  
+</dt><dd class='thebibliography' id='bib-1'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips.     <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt class='thebibliography' id='X0-20230403:ptm'>
+[2]  
+</dt><dd class='thebibliography' id='bib-2'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20230403:ptm'></a>Standard       C++       Foundation.       “Pointers       to       Members”.       In:       ().       <span class='small-caps'>url</span>:
+<a class='url' href='https://isocpp.org/wiki/faq/pointers-to-members'><span class='ec-lmtt-10'>https://isocpp.org/wiki/faq/pointers-to-members</span></a>.</p></dd></dl>
+ 
+</body> 
+</html>

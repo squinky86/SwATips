@@ -1,0 +1,4 @@
+\def \AuthorName{Kevin Keen}
+\def \ArticleName{Coverity BAD\_CAST}
+\newcommand{\ArticleDate}{\formatdate{3}{4}{2023}}
+\addbibresource{20230403.bib}
