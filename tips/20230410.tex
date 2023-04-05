@@ -1,0 +1,37 @@
+The SwA team lives in a privileged area. If you throw a rock out of your window, chances are that you'll hit a C, C++, or C\#\ developer. But it takes a tactical nuke to pinpoint a good Ada developer here. Because of this, several companies have projects that are built partially in Ada and partially in C++. Interactions between these components often cause security issues, but the most misunderstood of them all is the \texttt{unchecked\_conversion}.
+
+When evaluating software, we often flag the use of \texttt{unchecked\_conversion} for multiple reasons:
+\begin{itemize}
+	\item Sending dynamic memory outside of the scope or locality of where it is instantiated is a violation of RAII programming.
+	\item You must be able to know the exact structure all endpoints that access the memory object are expecting.
+\end{itemize}
+
+\subsection{A Violation of RAII}
+The first issue has to do with RAII principles. When memory objects are created in one locality of the code and used in another, the area of code that created the memory object is no longer in charge of making sure that object is cleaned up. If it does clean up the memory before exiting, the unmanaged locality of code may still be trying to use it! This would cause issues with race conditions, accessing memory that has already been freed, or even accessing new memory objects that are now in that location of memory (and potentially should not be accessible by the other locality of code, ex: the Dirty Cow vulnerability for Linux).
+
+Failing to enforce memory cleanup at the unmanaged endpoint would also result in memory leaks. This could cause crashes and degraded performance over time.
+
+\subsection{A Violation of Portability}
+Code that does not behave the same across platforms violates the concept of portability. This is often the case when \texttt{unchecked} conversions and pointers are used. When performing an unchecked data access on memory, the developer must know:
+\begin{itemize}
+	\item the endianness of the unmanaged portions of the code
+	\item the compiler options used
+	\item that updates to the unmanaged portion of code will not violate the contract of how the memory should be stored
+\end{itemize}
+
+Consider an Ada program sending a simple data structure to a C program consisting of a character and an integer as defined in Listing~\ref{lst:20230410:struct}. The character takes up 1 byte and the integer takes up 4 bytes. So, in the Ada code, we convert the first byte to the character and the next 4 bytes as the integer (accessing both with the \texttt{unchecked\_conversion} capability. But is that how it really works?
+\begin{lstlisting}[caption={Simple Structure Example},captionpos=b,style=CStyle,basicstyle=\small,label={lst:20230410:struct},literate={"}{"}1,upquote=true]
+struct A
+{
+	char a;
+	int b;
+} tmpA = {'a', 1};
+\end{lstlisting}
+
+Of course not! By default, most compilers (like GCC) pad each data type to the next memory alignment. The character takes up 1 byte, then 3 bytes of padding are added before the 4 bytes that define the integer. If you were to run \texttt{sizeof(tmpA);} in any modern GCC compiler, the result would be 8 bytes. Or at least, that's the default case. If you were to add the \texttt{\_\_attribute\_\_((packed))} GCC directive to the struct, use \texttt{\#pragma pack}, or compile with \texttt{-fpack-struct}, the \texttt{sizeof(tmpA)} becomes 5 bytes, misaligning the integer value with memory so that it takes two memory operations to read the integer but taking up less memory.
+
+\subsection{Fixes}
+Solutions that do not use \texttt{unchecked} memory access are preferred. This often requires the code to be rearchitected to abide by RAII programming concepts. In lieu of fixing the code, a contract can be documented that guarantees that all parties involved will abide by a particular memory sharing structure.
+
+\subsection{Conclusion}
+When performing unchecked conversions, using external memory access, or violating RAII with two distinct functional objects, a contract should be established. Part of that contract is a guarantee about the memory structure of what is being shared. That contract should include architecture information, memory packing, and even the flags and versions of compilers used to build the memory structures. Creators of this documentation should ask themselves, "What prevents someone from compiling this code with options like \texttt{-fpack-struct}?" "How are memory structures updated in newer versions of the software?" and "What is the enforcement mechanism to ensure that the code is only built in the approved way?"

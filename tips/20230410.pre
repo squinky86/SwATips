@@ -1,0 +1,3 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Ada Unchecked Conversions}
+\newcommand{\ArticleDate}{\formatdate{10}{4}{2023}}

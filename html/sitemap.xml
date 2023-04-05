@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 	<loc>https://www.SwATips.com/</loc>
-	<lastmod>2023-04-04T13:10:22-05:00</lastmod>
+	<lastmod>2023-04-05T11:55:36-05:00</lastmod>
 </url>
 <url>
 	<loc>https://www.SwATips.com/articles.php</loc>
-	<lastmod>2023-04-04T13:10:22-05:00</lastmod>
+	<lastmod>2023-04-05T11:55:36-05:00</lastmod>
 </url>
 <url>
 	<loc>https://www.SwATips.com/articles/20210405.html</loc>
@@ -135,5 +135,9 @@
 <url>
 	<loc>https://www.SwATips.com/articles/20230403.html</loc>
 	<lastmod>2023-04-04T12:54:53-05:00</lastmod>
+</url>
+<url>
+	<loc>https://www.SwATips.com/articles/20230410.html</loc>
+	<lastmod>2023-04-05T11:50:54-05:00</lastmod>
 </url>
 </urlset>
