@@ -153,10 +153,10 @@ structure.
 functional objects, a contract should be established. Part of that contract is a guarantee about the
 memory structure of what is being shared. That contract should include architecture information,
 memory packing, and even the flags and versions of compilers used to build the memory structures.
-Creators of this documentation should ask themselves, "What prevents someone from compiling this code
-with options like <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fpack-struct</span>?" "How are memory structures updated in newer versions of the
-software?" and "What is the enforcement mechanism to ensure that the code is only built in the approved
-way?"
+Creators of this documentation should ask themselves, “What prevents someone from compiling this code
+with options like <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fpack-struct</span>?” “How are memory structures updated in newer versions of the
+software?” and “What is the enforcement mechanism to ensure that the code is only built in the approved
+way?”
                                                                                          
                                                                                          
 </p>
