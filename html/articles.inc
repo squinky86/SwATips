@@ -1,3 +1,4 @@
+<li>20230515 - <a href="articles/20230515.html">Checkmarx: Use of Obsolete Function</a></li>
 <li>20230410 - <a href="articles/20230410.html">Ada Unchecked Conversions</a></li>
 <li>20230403 - <a href="articles/20230403.html">Coverity BAD_CAST</a></li>
 <li>20221017 - <a href="articles/20221017.html">Java, Inner Classes, and Checkmarx Unused Variable Findings</a></li>
@@ -7,4 +8,3 @@
 <li>20220328 - <a href="articles/20220328.html">Ever-Changing Encryption Standards</a></li>
 <li>20220321 - <a href="articles/20220321.html">The Death of CentOS on DoD Networks</a></li>
 <li>20220131 - <a href="articles/20220131.html">So you put an Unclassified CD in a Classified Machine</a></li>
-<li>20211220 - <a href="articles/20211220.html">GCC as a Static Analysis Tool</a></li>

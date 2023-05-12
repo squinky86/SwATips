@@ -1,0 +1,3 @@
+\def \AuthorName{Kevin Keen}
+\def \ArticleName{Checkmarx: Use of Obsolete Function}
+\newcommand{\ArticleDate}{\formatdate{15}{5}{2023}}

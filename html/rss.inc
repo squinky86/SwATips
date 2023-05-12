@@ -1,4 +1,101 @@
 	<item>
+		<title>Checkmarx: Use of Obsolete Function</title>
+		<link>https://www.SwATips.com/articles/20230515.html</link>
+		<pubDate>Mon, 15 May 2023 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20230515.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
+</h2>
+<div class="author" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Kevin Keen</span></div><br/>
+<div class="date" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Monday 15</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-12" style="font-size: 120%;"> May, 2023</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead" id="checkmarx-use-of-obsolete-function"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Checkmarx: Use of Obsolete Function</h3>
+
+
+<!-- l. 44 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Friday 12</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> May, 2023</span>
+</p>
+<!-- l. 1 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   One of the things that Checkmarx can scan for is <i>Use of Obsolete Functions</i>. While scanning some Java code
+recently, we were pleasantly surprised to find that the scanner is smart enough to look at the definition of a method
+and, if the implementation is marked with the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">@Deprecated </span>annotation, it will mark the call site as a finding. This
+is desired behavior, and we applaud the scanner for considering that annotation. That having been said, there are
+several frequent false positives for which to watch. We speculate that much of the scanning for this particular finding
+is based on a purely text search.
+</p>
+<!-- l. 3 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Some of the false positives we saw were flagging <span class="ec-lmtt-10" style="font-family: monospace,monospace;">hashCode </span>as an obsolete function. This made no sense to us, as
+<span class="ec-lmtt-10" style="font-family: monospace,monospace;">hashCode </span>is an integral part of the language and has never been deprecated to our knowledge. Upon further
+inspection, it became apparent that the only uses of <span class="ec-lmtt-10" style="font-family: monospace,monospace;">hashCode </span>which were being flagged were on instances where the
+variable was named <span class="ec-lmtt-10" style="font-family: monospace,monospace;">identity</span>. There was an <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Identity </span>class (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">java.security.Identity</span>) which has long
+since been deprecated. As the whole class was deprecated, that included the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">hashCode </span>method of
+that class. We presume a text search is being performed that will flag any <span class="ec-lmtt-10" style="font-family: monospace,monospace;">identity.hashCode </span>as
+deprecated regardless of whether or not the variable <span class="ec-lmtt-10" style="font-family: monospace,monospace;">identity </span>is actually a <span class="ec-lmtt-10" style="font-family: monospace,monospace;">java.security.Identity</span>
+object.
+</p>
+<!-- l. 5 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Another group of false positives stem from the use of <span class="ec-lmtt-10" style="font-family: monospace,monospace;">component </span>and <span class="ec-lmtt-10" style="font-family: monospace,monospace;">size</span>. These findings flag the use of
+the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">size() </span>method as obsolete. It appears that methods or variables ending in <span class="ec-lmtt-10" style="font-family: monospace,monospace;">component</span>, which
+have a <span class="ec-lmtt-10" style="font-family: monospace,monospace;">size() </span>method called on it such as <span class="ec-lmtt-10" style="font-family: monospace,monospace;">component().size() </span>will trigger this finding. There is a
+deprecated <span class="ec-lmtt-10" style="font-family: monospace,monospace;">size </span>method which is a part of the awt <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Component </span>class. We speculate that this false positive is
+a result of text searches that assume any <span class="ec-lmtt-10" style="font-family: monospace,monospace;">component.size() </span>is an awt <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Component </span>whether it is or
+not.
+</p>
+<!-- l. 7 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Another class of false positives is particularly bothersome. It appears that if any version of a method carries the
+<span class="ec-lmtt-10" style="font-family: monospace,monospace;">@Deprecated </span>annotation, then all overloads of that method will be considered deprecated by this scanner. Ideally,
+we would like to see the scanner take into account the type / order of parameters and only flag the invocations of
+the method that were actually annotated as deprecated.
+</p>
+<!-- l. 9 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Lastly, we have seen uses of <span class="ec-lmtt-10" style="font-family: monospace,monospace;">toString </span>marked as obsolete. There did appear to be a bit more context awareness
+with these findings, as the variable names were allowed a wider degree of variation. The commonality in these
+<span class="ec-lmtt-10" style="font-family: monospace,monospace;">toString </span>findings was the class of the variable. In all cases they were of class <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Permission</span>. There is an interface in
+Java named <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Permission </span>which has been deprecated (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">java.security.acl.Permission</span>). We speculate that all
+objects declared to be of a class named <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Permission </span>which call <span class="ec-lmtt-10" style="font-family: monospace,monospace;">toString </span>will be flagged regardless of whether or not
+they implement the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">java.security.acl.Permission </span>interface.
+</p>
+<!-- l. 11 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   There are likely other false positives to be found. Although this scanner can provide some useful information, we
+hope to see it updated in the future to incorporate more type checking.
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead" id="references"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 49 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips.     <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Ada Unchecked Conversions</title>
 		<link>https://www.SwATips.com/articles/20230410.html</link>
 		<pubDate>Mon, 10 Apr 2023 00:00:00 -0500</pubDate>
@@ -28,7 +125,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap:
 
 
 <!-- l. 44 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Wednesday 5</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> April, 2023</span>
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Friday 12</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> May, 2023</span>
 </p>
 <!-- l. 1 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The SwA team lives in a privileged area. If you throw a rock out of your window, chances are that you’ll hit a C,
@@ -209,7 +306,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap:
 
 
 <!-- l. 44 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Tuesday 4</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> April, 2023</span>
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Friday 12</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> May, 2023</span>
 </p>
 <!-- l. 1 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Recently we came across a finding in a Coverity scan that was a bit puzzling at first. The finding was labeled
@@ -217,8 +314,8 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap:
 types. There are probably several different reasons Coverity might flag this issue. The line of code in question this
 time was attempting to start a new thread by calling <span class="ec-lmtt-10" style="font-family: monospace,monospace;">pthread_create</span>. As is expected with <span class="ec-lmtt-10" style="font-family: monospace,monospace;">pthread_create</span>, they
 were attempting to pass a pointer to a function that would be called as the thread started. That much is normal
-when using pthreads. List <a href="#x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20230403:ptr1  --></a> illustrates a fairly normal use of <span class="ec-lmtt-10" style="font-family: monospace,monospace;">pthread_create </span>using a non member function pointer
-as the callback.
+when using pthreads. Listing <a href="#x1-1001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20230403:ptr1  --></a> illustrates a fairly normal use of <span class="ec-lmtt-10" style="font-family: monospace,monospace;">pthread_create </span>using a non member function
+pointer as the callback.
 </p>
    
 
@@ -1981,249 +2078,6 @@ Tech. rep. Washington, D.C.: Department of the Army, 2019. <span class="small-ca
 [3]  
 </dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
-
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>GCC as a Static Analysis Tool</title>
-		<link>https://www.SwATips.com/articles/20211220.html</link>
-		<pubDate>Mon, 20 Dec 2021 00:00:00 -0600</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20211220.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
-</h2>
-<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Andrea Barnes</span></div><br/>
-<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 20</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> December, 2021</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>GCC as a Static Analysis Tool</h3>
-
-
-<!-- l. 44 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Wednesday 15</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">th</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> December, 2021</span>
-</p>
-<!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A new static analysis feature has been released with GCC-10 and GCC-11. David Malcom is a Redhat Developer
-on the GCC project who has implemented <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fanalyzer</span>: “A static analysis pass to identify various problems at
-compile-time, rather than at runtime.”[<a href="#cite.0@20211220:gcc10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] This analyzer writes security issues to the console using the
-<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer </span>tag (not to be confused with the GCC -W warning flags). The output includes Common
-Weakness Enumeration (CWE) identifiers as well the ability to print a path of events that trigger the
-flag.
-</p>
-<!-- l. 3 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>History of GCC-10 and GCC-11 Static Analyzers</h4>
-
-
-<!-- l. 5 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">GCC-10 includes 15 <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fanalyzer </span>checkers: </p>
-
-
-<ul class="itemize1">     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-double-free</span>
-</li>     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-use-after-free</span>
-</li>     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-free-of-non-heap</span>
-</li>     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-malloc-leak</span>
-</li>     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-possible-null-argument</span>
-</li>     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-possible-null-dereference</span>
-</li>     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-null-argument</span>
-</li>     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-null-dereference</span>
-</li>     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-double-fclose</span>
-</li>     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-file-leak</span>
-</li>     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-stale-setjmp-buffer</span>
-</li>     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-use-of-pointer-in-stale-stack-frame</span>
-</li>     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-unsafe-call-within-signal-handler</span>
-</li>     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-tainted-array-index</span>
-                                                                                         
-                                                                                         
-     
-</li>
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-exposure-through-output-file</span></li></ul>
-
-
-<!-- l. 24 -->
-<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   The checker works well on small to medium sized, C examples. An issue that Malcom noted includes bugs in the
-analyzer’s state-tracking component regarding symbolic values and canonicalization to compare different states. As
-these bugs were fixed, more bugs would be found. This prompted Malcom to rewrite the entire component for the
-release of GCC-11.
-</p>
-<!-- l. 26 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   In the release of GCC-11, Malcom fixed the state-tracking component bugs by implementing the symbolic values
-as singletons, using pointers and reducing large amounts of canonicalization code. Other features that Malcom
-updated in this release include partial C++ support for <span class="ec-lmtt-10" style="font-family: monospace,monospace;">new </span>and <span class="ec-lmtt-10" style="font-family: monospace,monospace;">delete</span>, rewriting the memory leak detection to
-generate fewer false positives, and fixing non-determinism logic to ensure that the analyzer’s behavior would not
-vary from run to run.[<a href="#cite.0@20211220:gcc11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]
-</p>
-<!-- l. 28 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Additionally, GCC-11 adds 4 new <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fanalyzer </span>checkers: </p>
-
-
-<ul class="itemize1">     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-write-to-const</span>
-</li>     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-write-to-string-literal</span>
-</li>     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-shift-count-negative</span>
-</li>     
-<li class="itemize"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wanalyzer-shift-count-overflow</span></li></ul>
-
-
-<!-- l. 36 -->
-<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   The <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fanalyzer </span>flag can be directly added to the GCC command in terminal or to the CFLAGS variable for
-Makefiles. Ensure that GCC warnings (-W warnings) are not disabled. Disabling warnings will also cause the
-fanalyzer warnings to be suppressed. Malcolm is still developing the tool and we can look forward to new updates
-and a large rewrite when GCC-12 is released.
-</p>
-<!-- l. 38 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Installing GCC-11 on Ubuntu-based Distributions</h4>
-
-
-<!-- l. 40 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">This install is performed on a fresh install of Linux Mint 20.1 Cinnamon with some extra checks.
-</p>
-<!-- l. 42 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h5 class="subsubsectionHead"><span class="titlemark">1.2.1   </span> <a id="x1-40001.2.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Update Apt Repository</h5>
-
-
-<!-- l. 44 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ sudo apt update &amp;&amp; sudo apt upgrade</span>
-</p>
-<!-- l. 46 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   <span class="ec-lmtt-10" style="font-family: monospace,monospace;">update </span>will update the list of available packages and their versions while <span class="ec-lmtt-10" style="font-family: monospace,monospace;">upgrade </span>will install newer versions of
-the packages you already have.
-</p>
-<!-- l. 48 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h5 class="subsubsectionHead"><span class="titlemark">1.2.2   </span> <a id="x1-50001.2.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Check if GCC-11 is Already Installable</h5>
-
-
-<!-- l. 50 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ apt-cache search gcc-11</span>
-</p>
-<!-- l. 52 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   <span class="ec-lmtt-10" style="font-family: monospace,monospace;">apt-cache </span>will display the gcc-11 packages if they are already installable from your current repositories. If you
-see them, you can skip down to Section <a href="#x1-70001.2.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1.2.4<!-- tex4ht:ref: sec:20211220:install  --></a> to install and configure.
-                                                                                         
-                                                                                         
-</p>
-<!-- l. 54 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h5 class="subsubsectionHead"><span class="titlemark">1.2.3   </span> <a id="x1-60001.2.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Add Ubuntu Toolchain Repository</h5>
-
-
-<!-- l. 56 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ add-apt-repository -y ppa:ubuntu-toolchain-r/test</span>
-</p>
-<!-- l. 58 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Newer versions of GCC and other development packages can be found in Ubuntu’s Toolchain test branch
-PPA.
-</p>
-<!-- l. 60 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   If you receive the error <span class="ec-lmtt-10" style="font-family: monospace,monospace;">gpg: keyserver receive failed: general error</span>, you can manually pull down the
-key from the error code with the following command:<br class="newline"/><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ sudo apt-key adv –keyserver keyserver.ubuntu.com –recv-key KEY_FROM_ERROR</span>
-</p>
-<!-- l. 63 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Don’t forget to run update again to update the list of available packages:<br class="newline"/><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ sudo apt update</span>
-</p>
-<!-- l. 66 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h5 class="subsubsectionHead"><span class="titlemark">1.2.4   </span> <a id="x1-70001.2.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Installing and Configuring GCC</h5>
-
-
-<!-- l. 69 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ sudo apt install gcc-11 &amp;&amp; sudo apt install g++-11</span>
-</p>
-<!-- l. 71 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   This is the general install command for GCC (with G++ support). To run, you can use gcc-11 when compiling,
-or you can configure gcc to default to gcc-11 with the following command:<br class="newline"/><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ sudo update-alternatives –config gcc</span>
-</p>
-<!-- l. 74 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   This will allow you to make a selection based on the versions of gcc install. If you receive an error that there are
-no alternatives, you can use the following few commands to add them manually:<br class="newline"/><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ sudo update-alternatives –remove-all gcc #To clean out</span><br class="newline"/><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ ls /usr/bin/gcc* #To see what versions you have installed</span><br class="newline"/><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$ sudo update-alternatives –install /usr/bin/gcc gcc /usr/bin/gcc-11 10</span>
-</p>
-<!-- l. 79 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The setup for the last command is <span class="ec-lmtt-10" style="font-family: monospace,monospace;">–install &lt;link&gt; &lt;name&gt; &lt;path&gt; &lt;priority&gt;</span>. Repeat the last command
-for all versions of gcc listed.
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead"><a id="x1-80001.2.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 49 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
-</p>    
-</dd>
-<dt id="X0-20211220:gcc10" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[2]  
-</dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20211220:gcc10" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>David    Malcolm.    Static Analysis in GCC 10.    RedHat    Developer.    Mar. 26,    2020.    <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a href="https://developers.redhat.com/blog/2020/03/26/static-analysis-in-gcc-10" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://developers.redhat.com/blog/2020/03/26/static-analysis-in-gcc-10</span></a>.
-</p>    
-</dd>
-<dt id="X0-20211220:gcc11" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[3]  
-</dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20211220:gcc11" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>David   Malcolm.   Static Analysis Updates in GCC 11.   RedHat   Developer.   Jan. 28,   2021.   <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a href="https://developers.redhat.com/blog/2021/01/28/static-analysis-updates-in-gcc-11" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://developers.redhat.com/blog/2021/01/28/static-analysis-updates-in-gcc-11</span></a>.</p></dd></dl>
 
  
 

@@ -230,14 +230,14 @@ A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0@
                                                                                          
    
 <h3 class='sectionHead' id='coverity-badcast'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Coverity BAD_CAST</h3>
-<!-- l. 44 --><p class='noindent'><span class='ec-lmr-8'>Updated Tuesday 4</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> April, 2023</span>
+<!-- l. 44 --><p class='noindent'><span class='ec-lmr-8'>Updated Friday 12</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> May, 2023</span>
 </p><!-- l. 1 --><p class='indent'>   Recently we came across a finding in a Coverity scan that was a bit puzzling at first. The finding was labeled
 <span class='ec-lmtt-10'>BAD_CAST</span>. The supporting details didn’t help much either. It simply indicated a conversion between incompatible
 types. There are probably several different reasons Coverity might flag this issue. The line of code in question this
 time was attempting to start a new thread by calling <span class='ec-lmtt-10'>pthread_create</span>. As is expected with <span class='ec-lmtt-10'>pthread_create</span>, they
 were attempting to pass a pointer to a function that would be called as the thread started. That much is normal
-when using pthreads. List <a href='#x1-1001r1'>1<!-- tex4ht:ref: lst:20230403:ptr1  --></a> illustrates a fairly normal use of <span class='ec-lmtt-10'>pthread_create </span>using a non member function pointer
-as the callback.
+when using pthreads. Listing <a href='#x1-1001r1'>1<!-- tex4ht:ref: lst:20230403:ptr1  --></a> illustrates a fairly normal use of <span class='ec-lmtt-10'>pthread_create </span>using a non member function
+pointer as the callback.
 </p>   
 <!-- l. 3 -->
 <p id='-typical-use-of-a-function-poiter'><a id='x1-1001r1'></a>
