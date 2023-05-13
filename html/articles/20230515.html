@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xml:lang='en-US' lang='en-US'>
+<head>
+<title>Checkmarx: Use of Obsolete Function</title>
+ 
+
+<meta charset="utf-8"/>
+ 
+
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+ 
+
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+ 
+
+ 
+
+<meta content="article.tex" name="src"/>
+ 
+
+<script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
+<style>
+ 
+/* start css.sty */
+.ec-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmr-12{font-size:120%;}
+.ec-lmr-9{font-size:90%;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmr-8{font-size:80%;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+p{margin-top:0;margin-bottom:0}
+p.indent{text-indent:0;}
+p + p{margin-top:1em;}
+p + div, p + pre {margin-top:1em;}
+div + p, pre + p {margin-top:1em;}
+a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+@media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+img.math{vertical-align:middle;}
+div.par-math-display, div.math-display{text-align:center;}
+body{ margin:1em auto; max-width:80ch; padding:0 .62em; }
+h1,h2,h3,h4,h5 { line-height:1.2; }
+@media print{ body{ max-width:none } }
+.partHead, likepartHead { font-size: 2em; }
+.chapterHead, likechapterHead { font-size: 1.7411em; }
+.sectionHead, likesectionHead { font-size: 1.5157em; }
+.subsectionHead, likesubsectionHead { font-size: 1.3195em; }
+.subsubsectionHead, likesubsubsectionHead { font-size: 1.1487em; }
+ @media (prefers-color-scheme: dark) { img[src^="article"]{filter: invert(1); } } 
+li p.indent { text-indent: 0em }
+li p:first-child{ margin-top:0em; }
+li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
+li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.footnotes{border-top:solid 1px black; border-bottom:solid 1px black; padding-bottom:1ex; padding-top:0.5ex; margin-right:15%; margin-top:2ex; font-style:italic; font-size:85%;}
+div.footnotes p{margin-top:0; margin-bottom:0; text-indent:0;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
+.hline:first-child{border-bottom:1px solid black;border-top:none;}
+.tabbing-right {text-align:right;}
+div.float, div.figure {margin-left: auto; margin-right: auto;}
+div.float img {text-align:center;}
+div.figure img {text-align:center;}
+.marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.reversemarginpar{float:left;}
+table.equation {width:100%;}
+.equation td{text-align:center; }
+td.equation { margin-top:1em; margin-bottom:1em; } 
+td.equation-label { width:5%; text-align:center; }
+td.eqnarray4 { width:5%; white-space: normal; }
+td.eqnarray2 { width:5%; }
+table.eqnarray-star, table.eqnarray {width:100%;}
+div.eqnarray{text-align:center;}
+div.array {text-align:center;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.pmatrix img{vertical-align:middle;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.bar-css {text-decoration:overline;}
+img.cdots{vertical-align:middle;}
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption span.id{font-weight: bold; white-space: nowrap; }
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.abstract p {margin-left:5%; margin-right:5%;}
+div.abstract {width:100%;}
+.abstracttitle{text-align:center;margin-bottom:1em;}
+figure.float, div.figure {margin-left: auto; margin-right: auto;}
+figure.figure {text-align:center;}
+figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
+figcaption.caption span.id{font-weight: bold; white-space: nowrap; }
+p + figcaption, img + figcaption{margin-top: 1em;}
+.abstract{margin:1em;}
+dt.printshorthands{float:left; clear:left; margin-right:1em;}
+dd.thebibliography {margin-left: 2.5em;}
+dt.thebibliography {float:left; clear:left; margin-right:1em;}
+code.lstinline{font-family:monospace,monospace;}
+pre.listings{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
+.lstlisting .label{margin-right:0.5em; }
+pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; }
+.lstinputlisting .label{margin-right:0.5em;}
+.small-caps{font-variant: small-caps;}
+.uline,.uline-math{ text-decoration:underline; }
+.uuline,.uuline-math{ text-decoration:underline double; }
+span.sout, .sout-math {text-decoration: line-through }
+span.xout, .xout-math {text-decoration: line-through underline }
+span.uwave, .uwave-math {text-decoration:underline wavy; }
+span.dashuline, .dashuline-math {text-decoration:underline dashed;}
+span.dotuline, .dotuline-math {text-decoration:underline dotted;}
+/* end css.sty */
+
+</style>
+</head>
+<body>
+<p><a href="../"><img src="images/swatips.svg" width="120" alt="SwATips" /></a>| <a href="20230515.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="images/by.svg" width="60" height="21" alt="CC-BY" /></a></p>
+<div class='maketitle'>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
+A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0@swatips'>1</a>]<br />
+</h2>
+<div class='author'><span class='ec-lmr-12'>Kevin Keen</span></div><br />
+<div class='date'><span class='ec-lmr-12'>Monday 15</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-12'> May, 2023</span></div>
+</div>
+                                                                                         
+                                                                                         
+   
+<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Checkmarx: Use of Obsolete Function</h3>
+<!-- l. 44 --><p class='noindent'><span class='ec-lmr-8'>Updated Saturday 13</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> May, 2023</span>
+</p><!-- l. 1 --><p class='indent'>   One of the things that Checkmarx can scan for is <i>Use of Obsolete Functions</i>. While scanning some Java code
+recently, we were pleasantly surprised to find that the scanner is smart enough to look at the definition of a method
+and, if the implementation is marked with the <span class='ec-lmtt-10'>@Deprecated </span>annotation, it will mark the call site as a finding. This
+is desired behavior, and we applaud the scanner for considering that annotation. That having been said, there are
+several frequent false positives for which to watch. We speculate that much of the scanning for this particular finding
+is based on a purely text search.
+</p><!-- l. 3 --><p class='indent'>   Some of the false positives we saw were flagging <span class='ec-lmtt-10'>hashCode </span>as an obsolete function. This made no sense to us, as
+<span class='ec-lmtt-10'>hashCode </span>is an integral part of the language and has never been deprecated to our knowledge. Upon further
+inspection, it became apparent that the only uses of <span class='ec-lmtt-10'>hashCode </span>which were being flagged were on instances where the
+variable was named <span class='ec-lmtt-10'>identity</span>. There was an <span class='ec-lmtt-10'>Identity </span>class (<span class='ec-lmtt-10'>java.security.Identity</span>) which has long
+since been deprecated. As the whole class was deprecated, that included the <span class='ec-lmtt-10'>hashCode </span>method of
+that class. We presume a text search is being performed that will flag any <span class='ec-lmtt-10'>identity.hashCode </span>as
+deprecated regardless of whether or not the variable <span class='ec-lmtt-10'>identity </span>is actually a <span class='ec-lmtt-10'>java.security.Identity</span>
+object.
+</p><!-- l. 5 --><p class='indent'>   Another group of false positives stem from the use of <span class='ec-lmtt-10'>component </span>and <span class='ec-lmtt-10'>size</span>. These findings flag the use of
+the <span class='ec-lmtt-10'>size() </span>method as obsolete. It appears that methods or variables ending in <span class='ec-lmtt-10'>component</span>, which
+have a <span class='ec-lmtt-10'>size() </span>method called on it such as <span class='ec-lmtt-10'>component().size() </span>will trigger this finding. There is a
+deprecated <span class='ec-lmtt-10'>size </span>method which is a part of the awt <span class='ec-lmtt-10'>Component </span>class. We speculate that this false positive is
+a result of text searches that assume any <span class='ec-lmtt-10'>component.size() </span>is an awt <span class='ec-lmtt-10'>Component </span>whether it is or
+not.
+</p><!-- l. 7 --><p class='indent'>   Another class of false positives is particularly bothersome. It appears that if any version of a method carries the
+<span class='ec-lmtt-10'>@Deprecated </span>annotation, then all overloads of that method will be considered deprecated by this scanner. Ideally,
+we would like to see the scanner take into account the type / order of parameters and only flag the invocations of
+the method that were actually annotated as deprecated.
+</p><!-- l. 9 --><p class='indent'>   Lastly, we have seen uses of <span class='ec-lmtt-10'>toString </span>marked as obsolete. There did appear to be a bit more context awareness
+with these findings, as the variable names were allowed a wider degree of variation. The commonality in these
+<span class='ec-lmtt-10'>toString </span>findings was the class of the variable. In all cases they were of class <span class='ec-lmtt-10'>Permission</span>. There is an interface in
+Java named <span class='ec-lmtt-10'>Permission </span>which has been deprecated (<span class='ec-lmtt-10'>java.security.acl.Permission</span>). We speculate that all
+objects declared to be of a class named <span class='ec-lmtt-10'>Permission </span>which call <span class='ec-lmtt-10'>toString </span>will be flagged regardless of whether or not
+they implement the <span class='ec-lmtt-10'>java.security.acl.Permission </span>interface.
+</p><!-- l. 11 --><p class='indent'>   There are likely other false positives to be found. Although this scanner can provide some useful information, we
+hope to see it updated in the future to incorporate more type checking.
+                                                                                         
+                                                                                         
+</p>   
+<h3 class='sectionHead'><a id='x1-2000'></a>References</h3>
+<!-- l. 49 --><p class='noindent'>    
+</p>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-swatips'>
+[1]  
+</dt><dd class='thebibliography' id='bib-1'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.</p></dd></dl>
+ 
+</body> 
+</html>
