@@ -1,4 +1,260 @@
 	<item>
+		<title>A History of Verification, Validation, and Code Scanning</title>
+		<link>https://www.SwATips.com/articles/20230918.html</link>
+		<pubDate>Mon, 18 Sep 2023 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20230918.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>]<br/>
+</h2>
+<div class="author" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
+<div class="date" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Monday 18</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-12" style="font-size: 120%;"> September, 2023</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead" id="a-history-of-verification-validation-and-code-scanning"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>A History of Verification, Validation, and Code Scanning</h3>
+
+
+<!-- l. 44 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Monday 18</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> September, 2023</span>
+</p>
+<!-- l. 1 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   One of the DoD and NASA trends we have seen lately is the confusion of functional VV&amp;A with
+cybersecurity tasks. The blurring of these two distinct efforts from organizations implementing an
+IV&amp;V program and a cybersecurity program can cause collisions with the definitions of what is being
+accomplished.
+</p>
+<!-- l. 3 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Static code analysis is one of those definitions. The meaning of static code analysis is very different from a
+Functional, VV&amp;A IV&amp;V program when compared to the static code analysis conducted by a cybersecurity
+program. The etymology of static analysis comes from completely diverging goals.
+</p>
+<!-- l. 5 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead" id="verification-and-validation"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Verification and Validation</h4>
+
+
+<!-- l. 6 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">“Haste makes waste.” In the 1960s and 1970s, a static code walkthrough was recommended before ever compiling the
+module. “The verification sessions should occur before the first compilation of the module.” Since “few if any
+compilers are capable of detecting every syntax error,” syntax errors were considered logic errors in
+the software.[<a id="x1-2001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20230918:myers1976" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">8</a>, pp. 144, 149, 292] The static analysis and formal walkthrough of code from a V&amp;V
+perspective has the goal of verifying the integrity of the logic that goes into the design of the software
+module.
+</p>
+<!-- l. 8 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   This ties into the current DoD VV&amp;A process for Verification, Validation, and Accreditation in DoD Instruction
+5000.61. These are defined as:[<a id="x1-2002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20230918:dodi500061" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] </p>
+
+
+<ul class="itemize1">     
+<li class="itemize"><i>Verification</i>—The process of determining that a model or simulation implementation and its associated
+data accurately represent the developer’s conceptual description and specifications.
+</li>
+<li class="itemize"><i>Validation</i>—The process of determining the degree to which a model or simulation and its associated
+data are an accurate representation of the real world from the perspective of the intended uses of the
+model.
+</li>
+<li class="itemize"><i>Accreditation</i>—The  official  certification  that  a  model  or  simulation  and  its  associated  data  are
+acceptable for use for a specific purpose.</li></ul>
+
+
+<!-- l. 15 -->
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   One way to accomplish these goals is by implementing IEEE 1012, the IEEE Standard for System, Software, and
+Hardware Verification and Validation. This lays out the purpose of V&amp;V: “to help the organization build quality
+into the system during the life cycle. V&amp;V processes provide an objective assessment of products and processes
+throughout the life cycle. This assessment demonstrates whether requirements are correct, complete, accurate,
+consistent, and testable.” This standard recommends a process for inspecting source code to “verify that
+the source code implementation is traceable to the design” and a static walkthrough of the code for
+the same types of logic issues Myers mentions in his book.[<a id="x1-2003" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20230918:ieee1012" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">6</a>, pp. 10, 213, 216] Cybersecurity static
+code analysis scans are circumstantial evidence used to demonstrate the testability of the codebase.[<a href="#cite.0@20230918:ieee1012" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">6</a>,
+p. 206]
+</p>
+<!-- l. 17 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   If you want to certify that a simulation or software model correctly reflects the real-world scenario and
+requirements that define the software module, VV&amp;A is the way to go. Static code walkthroughs are often employed
+as a tool to accomplish this task.
+</p>
+<!-- l. 19 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Static analysis tools for proving the logic of code include flow provability tools such as GNATprove, property
+checkers[<a id="x1-2004" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20230918:foster2015trends" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>] such as RapidCheck and QuickCheck[<a id="x1-2005" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20230918:jones2003" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">7</a>], SlithIR SSA, Prusti, and many more static analysis
+tools.
+                                                                                         
+                                                                                         
+</p>
+<!-- l. 21 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead" id="cybersecurity"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Cybersecurity</h4>
+
+
+<!-- l. 23 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Static analysis is defined in the cybersecurity realm by DoDI 8500.01 as part of the Risk Management
+Framework which implements NIST 800-53.[<a id="x1-3001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20230918:dodi850001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>] Static analysis and the tools which conduct it are defined in
+controls RA-5, SA-11, and SA-11(1). “Static code analysis provides a technology and methodology for
+security reviews and includes checking for weaknesses in the code as well as for the incorporation of
+libraries or other included code with known vulnerabilities or that are out-of-date and not supported.
+Static code analysis can be used to identify vulnerabilities and enforce secure coding practices.”[<a id="x1-3002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20230918:nist80053rev5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">10</a>,
+p. 277]
+</p>
+<!-- l. 25 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Cybersecurity static analysis usually maps issues against Common Weakness Enumerations (CWEs), Common
+Vulnerabilities and Exposures (CVEs), and software assurance defects. A good framework for defining these secure
+code security analysis tools is NIST 500-268 which defines functional requirements of cybersecurity static analysis
+tools. Buffer overflows (such as stack and heap overflows, CWEs 121 and 122), uninitialized variables (CWE-457),
+TOCTOU (CWE-367), and injections (such as command, SQL, and LDAP injections, CWEs 78, 89, and 90) are
+examples of cybersecurity concerns.[<a id="x1-3003" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20230918:nist500268" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">9</a>]
+</p>
+<!-- l. 27 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Tools that conduct these checks include Fortify, Checkmarx, and many more. The performance of these scans is
+implemented as part of the Application Security and Development STIG[<a id="x1-3004" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20230918:ASDStig" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>] which provides even more guidance on
+how to establish coding standards (SV-222653r879887_rule), independent testing (SV-222627r879887_rule), and
+even specifies some minimum requirements for static code analysis such as race conditions (SV-222567r879887_rule),
+storing sensitive information in hidden fields (SV-222601r879812_rule), cross-site scripting (XSS)
+(SV-222602r879652_rule), cross-site request forgeries (CSRF) (SV-222603r879652_rule), command injections
+(SV-222604r879652_rule), canonical representation vulnerabilities (SV-222605r879652_rule), input
+validation/handling (SV-222606r879652_rule/SV-222609r879818_rule), SQL injections (SV-222607r879652_rule),
+XML-based attacks (SV-222608r879652_rule), and overflows (including buffer overflow, heap overflows, stack
+overflows, and wrap-around issues) (SV-222612r879821_rule).
+</p>
+<!-- l. 29 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead" id="conclusion"><span class="titlemark">1.3   </span> <a id="x1-40001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusion</h4>
+
+
+<!-- l. 31 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">We have seen an increase in VV&amp;A organizations claiming that they’re conducting the static analysis defined by
+VV&amp;A processes yet instead conduct cybersecurity static analyses. A good program will incorporate the DoDI
+5000.61 requirements, and static analysis tools that speak the language of logic, proofs, and contracts is one small
+portion of the capabilities such organizations should implement. If your program needs accreditation or
+authorization from a cybersecurity perspective (such as an Assess and Authorize under RMF), a cybersecurity
+program will employ static analysis tools that speak the language of weaknesses, vulnerabilities, and coding
+standards.
+</p>
+<!-- l. 33 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Perform a litmus test on your own programs today. Is your VV&amp;A program using cybersecurity tools such as
+Cppcheck, Code Dx, Checkmarx, Fortify, or Coverity? Suppose your program has a requirement to draw a circle.
+These are the tools that allow you to say, “Yeah, verily, this is the most secure square that has ever been drawn on a
+screen.” But these tools do not allow you to say, “You drew a square when the requirements contract for the code is
+that you draw a circle.” That involves provability and qualification testing that your VV&amp;A program should be
+concentrating on.
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead" id="references"><a id="x1-50001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 49 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">     
+</p>
+
+
+<dl class="thebibliography"><dt class="thebibliography" id="X0-20230918:ASDStig" style="float: left; clear: left; margin-right: 1em;"> 
+[1]  
+</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20230918:ASDStig" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Application Security and Development STIG V5R3.       Tech.       rep.       July       2023.       <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a class="url" href="https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_ASD_V5R3_STIG.zip" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_ASD_V5R3_STIG.zip</span></a>.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-20230918:dodi500061" style="float: left; clear: left; margin-right: 1em;">
+[2]  
+</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20230918:dodi500061" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Department   of   Defense.   Department of Defense Instruction 5000.61.   Tech.   rep.   Incorporating
+Change   1,   October   15,   2018.   Washington,   D.C.:   Department   of   Defense,   2018.   <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a class="url" href="https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/500061p.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/500061p.pdf</span></a>.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-20230918:dodi850001" style="float: left; clear: left; margin-right: 1em;">
+[3]  
+</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20230918:dodi850001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Department of Defense. Department of Defense Instruction 8500.01. Tech. rep. Incorporating Change
+1,     October     7,     2019.     Washington,     D.C.:     Department     of     Defense,     2019.     <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a class="url" href="https://www.esd.whs.mil/portals/54/documents/dd/issuances/dodi/850001_2014.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.esd.whs.mil/portals/54/documents/dd/issuances/dodi/850001_2014.pdf</span></a>.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-20230918:foster2015trends" style="float: left; clear: left; margin-right: 1em;">
+[4]  
+</dt><dd class="thebibliography" id="bib-4" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20230918:foster2015trends" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Harry    D    Foster.    “Trends    in    functional    verification:    A    2014    industry    study”.    In:
+Proceedings of the 52nd Annual Design Automation Conference
+. 2015, pp. 1–6.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
+[5]  
+</dt><dd class="thebibliography" id="bib-5" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips.     <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-20230918:ieee1012" style="float: left; clear: left; margin-right: 1em;">
+[6]  
+</dt><dd class="thebibliography" id="bib-6" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20230918:ieee1012" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>IEEE Standards Association. “IEEE Standard for System, Software, and Hardware Verification and
+Validation”. In: IEEE Std 1012-2016 (Revision of IEEE Std 1012-2012/ Incorporates IEEE Std 1012-2016/Cor1-2017)
+(2017), pp. 1–260. <span class="small-caps" style="font-variant: small-caps;">doi</span>: <a href="https://doi.org/10.1109/IEEESTD.2017.8055462" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10.1109/IEEESTD.2017.8055462</span></a>.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-20230918:jones2003" style="float: left; clear: left; margin-right: 1em;">
+[7]  
+</dt><dd class="thebibliography" id="bib-7" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20230918:jones2003" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Andrew  Jones  and  Jeremy  Sonander.  “An  Introduction  To  Property  Checkers  For  Functional
+Verification”. In: (2003). <span class="small-caps" style="font-variant: small-caps;">url</span>:     <a class="url" href="https://averant.com:8443/assets/pdf/Intro_PropVer.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://averant.com:8443/assets/pdf/Intro_PropVer.pdf</span></a>.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-20230918:myers1976" style="float: left; clear: left; margin-right: 1em;">
+[8]  
+</dt><dd class="thebibliography" id="bib-8" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20230918:myers1976" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Glenford J Myers. Software Reliability. John Wiley &amp; Sons, Inc., 1976. <span class="small-caps" style="font-variant: small-caps;">isbn</span>: 978-0-471-62765-4.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-20230918:nist500268" style="float: left; clear: left; margin-right: 1em;">
+[9]  
+</dt><dd class="thebibliography" id="bib-9" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20230918:nist500268" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>National                                Institute                                of                                Standards
+and Technology. Security and Privacy Controls for Information Systems and Organizations. Tech. rep.
+Special Publication (SP) 500-268 v1.1. Washington, D.C.: U.S. Department of Commerce, 2011. <span class="small-caps" style="font-variant: small-caps;">doi</span>: <a href="https://doi.org/10.6028/NIST.SP.500-268v1.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10    .    6028    /    NIST    .    SP    .    500    -    268v1    .    1</span></a>.       <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a class="url" href="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-268v1.1.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-268v1.1.pdf</span></a>.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-20230918:nist80053rev5" style="float: left; clear: left; margin-right: 1em;">
+[10]  
+</dt><dd class="thebibliography" id="bib-10" style="margin-left: 2.5em;">
+<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20230918:nist80053rev5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>National                                Institute                                of                                Standards
+and Technology. Security and Privacy Controls for Information Systems and Organizations. Tech. rep.
+Special                Publication                (SP)                800-53                Revision                5.
+Washington, D.C.: U.S. Department of Commerce, 2020. <span class="small-caps" style="font-variant: small-caps;">doi</span>: <a href="https://doi.org/10.6028/NIST.SP.800-53r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10.6028/NIST.SP.800-53r5</span></a>. <span class="small-caps" style="font-variant: small-caps;">url</span>:
+<a class="url" href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf</span></a>.</p></dd></dl>
+
+                                                                                         
+                                                                                         
+   
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Checkmarx: Use of Obsolete Function</title>
 		<link>https://www.SwATips.com/articles/20230515.html</link>
 		<pubDate>Mon, 15 May 2023 00:00:00 -0500</pubDate>
@@ -1888,190 +2144,6 @@ for migrating from CentOS 8 to one of the supported RHEL variants.
 </dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
 <!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220321:almabug" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon        Hood.        AlmaLinux Bug Tracker.        AlmaLinux.        Mar. 21,        2022.        <span class="small-caps" style="font-variant: small-caps;">url</span>:
 <a href="https://bugs.almalinux.org/view.php?id=202" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://bugs.almalinux.org/view.php?id=202</span></a>.
-</p>    
-</dd>
-<dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[3]  
-</dt><dd id="bib-3" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips. <a href="https://www.SwATips.com/" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
-
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>So you put an Unclassified CD in a Classified Machine</title>
-		<link>https://www.SwATips.com/articles/20220131.html</link>
-		<pubDate>Mon, 31 Jan 2022 00:00:00 -0600</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20220131.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]<br/>
-</h2>
-<div class="author" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
-<div class="date" style="text-align: center;"><span class="rm-lmr-12" style="font-size: 120%;">Monday 31</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">st</span></sup><span class="rm-lmr-12" style="font-size: 120%;"> January, 2022</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>So you put an Unclassified CD in a Classified Machine</h3>
-
-
-<!-- l. 44 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="rm-lmr-8" style="font-size: 80%;">Updated Tuesday 1</span><sup class="textsuperscript"><span class="rm-lmr-9" style="font-size: 90%;">st</span></sup><span class="rm-lmr-8" style="font-size: 80%;"> February, 2022</span>
-</p>
-<!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   <i>NOTE:</i> When in doubt, it’s always appropriate to ask your security office for guidance. Hiding a potential
-mistake carries a greater penalty than admitting a mistake that turns out to be insignificant. The scenario in this
-article is contrived. If you got here from a search engine because you’re wondering if you should report a security
-incident, you should probably go ahead and call your security officer that you are investigating a possible
-incident. They have the authority to establish enhanced rules and should have the expertise to help
-you.
-</p>
-<!-- l. 3 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>A Nervous Newbie</h4>
-
-
-<!-- l. 5 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">It had already been a long, stressful day at work when the panicked, young professional sheepishly knocked on my
-door to report that they “did a dumb.” The terror in his voice made me think that he had either
-given classified information to a hostile government or that he was a spy admitting that he wanted to
-defect.
-</p>
-<!-- l. 7 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   But the truth was much more benign. This young employee had taken a finalized, unclassified,
-properly-marked CD-R with some unclassified software on it and loaded the software onto his shiny new classified
-analysis machine. After he finished the installation, he placed the CD beside the machine and continued
-working, only to notice his coworker installing the software on her new unclassified machine a little while
-later.
-</p>
-<!-- l. 9 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   These two young employees had been trained that a CD-R placed onto a classified computer makes the CD go to
-the classification of the information system it’s placed on. They then did the right thing–unplug the lower-classified
-machine and report a possible security violation.
-</p>
-<!-- l. 11 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Certainly, each information system can have its own requirements for how to handle such a scenario, but in
-general, the DoD and Army have published guidance and minimum security requirements for how to handle such
-things. There are two things that can go classified in the above scenario: the storage media and the data on
-it.
-</p>
-<!-- l. 13 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>The Data</h4>
-
-
-<!-- l. 14 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Security violations always receive priority handling of everyone involved. It’s an immediate “stop work and fix it”
-scenario. But the data involved was inconsequential: an installer for a common word processor that had nice text
-markup for the programming languages these employees were analyzing. The data was unimportant from a security
-and OPSEC standpoint; it was data that was already publicly released and freely available on the
-internet.
-</p>
-<!-- l. 16 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Had the employees loaded data of a higher classification onto a lower-classified machine, we’d have what’s known
-as a spillage event, and the data owners of the higher classified data would have the authority to dictate cleanup
-procedures that we would follow.
-</p>
-<!-- l. 18 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a id="x1-40001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>The Media</h4>
-
-
-<!-- l. 19 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">I recognized the media immediately. It was a CD I had burned with analysis tools the previous month. My practice
-is to burn a single-session UDF CD that can be written only once to help mitigate the risk of security
-violations for this specific scenario. I breathed a sigh of relief when they brought the finalized CD to
-me.
-                                                                                         
-                                                                                         
-</p>
-<!-- l. 21 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The metric for increasing the classification of removable media is “if the level of classification of the information
-on the medium changes.”[<a href="#cite.0@20220202:dodm520001mvol2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, § 4.b] The information system that the CD was being used on permits the use of data
-diodes (one-way data connections from low to high). I could verify that the classified machine could
-not and did not write data to the CD. You can see this metric for classified media documented in
-the examples of DA PAM 25-2-13. Section 4-7.a–b gives the requirements for when inserting a SIPR
-token into a NIPR computer is and is not a security violation. Section 4-7.c gives the scenarios for
-declaring a security incident when a NIPR token is inserted into a SIPR machine, pointing out that
-the metric for an incident is “if classified data were written to the token, or if malicious code was
-introduced.”[<a href="#cite.0@20220202:dapam25-2-13" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] Merely inserting a NIPR token into a properly-configured SIPR machine is not a security
-incident, just like inserting any other unclassified media into a classified machine may not be a security
-incident.
-</p>
-<!-- l. 23 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead"><span class="titlemark">1.4   </span> <a id="x1-50001.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusion</h4>
-
-
-<!-- l. 24 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Each information system’s security department is different and defines its own rules for when removable media can
-go classified. There is always the possible scenario where an important tactical mission is using a Sega Dreamcast
-that reads discs from the outside inward, making it possible to write classified data to the end of a finalized CD or
-DVD. That’s why security offices exist, and reporting a possible security violation is asking those officers to perform
-a role they’re already being paid to do.
-</p>
-<!-- l. 26 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   In the situation documented above, the optical drive was incapable of burning data to a properly finalized,
-non-rewritable disc. All of the possible filesystem records were checked for modification, and the security office was
-called to verify that there were no additional security policies documented governing the insertion of unclassified,
-write-protected media into a classified environment.
-</p>
-<!-- l. 28 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Nevertheless, you can help by using data diodes, properly marking media, finalizing non-rewritable CDs and
-DVDs, and verifying the state of finalized/write-protected media when it is inserted into higher-classification
-environments. Remember that optical media often has multiple filesystem tables that must be verified (often Joilet
-and UDF).
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead"><a id="x1-60001.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 49 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt id="X0-20220202:dodm520001mvol2" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd id="bib-1" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220202:dodm520001mvol2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Department  of  Defense.  Department of Defense Manual 5200.01 Volume 2.  Tech.  rep.  Incorporating
-Change  4,  Effective  July  28,  2020.  Washington,  D.C.:  Department  of  Defense,  2020.  <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a href="https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodm/520001m_vol2.pdf" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodm/520001m_vol2.pdf</span></a>.
-</p>    
-</dd>
-<dt id="X0-20220202:dapam25-2-13" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">
-[2]  
-</dt><dd id="bib-2" class="thebibliography" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220202:dapam25-2-13" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Department of the Army. Department of the Army Pamphlet 25–2–13. Army Identity, Credential, and Access Management and Public Key Infrastructure Implementing Instructions.
-Tech. rep. Washington, D.C.: Department of the Army, 2019. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a href="https://armypubs.army.mil/epubs/DR_pubs/DR_a/pdf/web/ARN17425_P25_2_13_Admin_FINAL.pdf" class="url" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://armypubs.army.mil/epubs/DR_pubs/DR_a/pdf/web/ARN17425_P25_2_13_Admin_FINAL.pdf</span></a>.
 </p>    
 </dd>
 <dt id="X0-swatips" class="thebibliography" style="float: left; clear: left; margin-right: 1em;">

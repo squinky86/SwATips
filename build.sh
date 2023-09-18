@@ -183,7 +183,7 @@ if [ $PDF == true ]; then
 			lmk article >/dev/null 2>&1
 			if [ $HTML == true ]; then
 				make4ht -l article "fn-in,svg" > /dev/null
-				echo "<!DOCTYPE html>" > ${NUM}.html
+				echo '<!DOCTYPE html>' > ${NUM}.html
 				echo "<html xml:lang='en-US' lang='en-US'>" >> ${NUM}.html
 				echo "<head>" >> ${NUM}.html
 				xmllint --pretty --format --xpath "//head/node()" article.html >> ${NUM}.html
@@ -229,25 +229,27 @@ if [ $PDF == true ]; then
 			if [ ${AUTOADD} == true ]; then
 				git ls-files --error-unmatch html/articles/${NUM}.pdf > /dev/null 2>&1 || git add html/articles/${NUM}.pdf > /dev/null
 			fi
-			cp ${TMPDIR}/${NUM}.html html/articles/
-			if compgen -G "${TMPDIR}/images/*.svg" > /dev/null; then
-				cp ${TMPDIR}/images/*.svg html/articles/images/
-			fi
-			if compgen -G "${TMPDIR}/images/*.png" > /dev/null; then
-				cp ${TMPDIR}/images/*.png html/articles/images/
-			fi
-			if [ ${AUTOADD} == true ]; then
-				git ls-files --error-unmatch html/articles/${NUM}.html >/dev/null 2>&1 || git add html/articles/${NUM}.html > /dev/null
-			fi
-			if compgen -G "html/articles/images/${NUM}-*.svg" > /dev/null; then
-				for x in html/articles/images/${NUM}-*.svg; do
-					git ls-files --error-unmatch ${x} >/dev/null 2>&1 || git add ${x} > /dev/null
-				done
-			fi
-			if compgen -G "html/articles/images/${NUM}-*.png" > /dev/null; then
-				for x in html/articles/images/${NUM}-*.png; do
-					git ls-files --error-unmatch ${x} >/dev/null 2>&1 || git add ${x} > /dev/null
-				done
+			if [ $HTML == true ]; then
+				cp ${TMPDIR}/${NUM}.html html/articles/
+				if compgen -G "${TMPDIR}/images/*.svg" > /dev/null; then
+					cp ${TMPDIR}/images/*.svg html/articles/images/
+				fi
+				if compgen -G "${TMPDIR}/images/*.png" > /dev/null; then
+					cp ${TMPDIR}/images/*.png html/articles/images/
+				fi
+				if [ ${AUTOADD} == true ]; then
+					git ls-files --error-unmatch html/articles/${NUM}.html >/dev/null 2>&1 || git add html/articles/${NUM}.html > /dev/null
+				fi
+				if compgen -G "html/articles/images/${NUM}-*.svg" > /dev/null; then
+					for x in html/articles/images/${NUM}-*.svg; do
+						git ls-files --error-unmatch ${x} >/dev/null 2>&1 || git add ${x} > /dev/null
+					done
+				fi
+				if compgen -G "html/articles/images/${NUM}-*.png" > /dev/null; then
+					for x in html/articles/images/${NUM}-*.png; do
+						git ls-files --error-unmatch ${x} >/dev/null 2>&1 || git add ${x} > /dev/null
+					done
+				fi
 			fi
 			echo "OK!"
 		else

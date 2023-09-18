@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html xml:lang='en-US' lang='en-US'>
+<head>
+<title>A History of Verification, Validation, and Code Scanning</title>
+ 
+
+<meta charset="utf-8"/>
+ 
+
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+ 
+
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+ 
+
+ 
+
+<meta content="article.tex" name="src"/>
+ 
+
+<script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
+<style>
+ 
+/* start css.sty */
+.ec-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmr-12{font-size:120%;}
+.ec-lmr-9{font-size:90%;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmr-8{font-size:80%;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+p{margin-top:0;margin-bottom:0}
+p.indent{text-indent:0;}
+p + p{margin-top:1em;}
+p + div, p + pre {margin-top:1em;}
+div + p, pre + p {margin-top:1em;}
+a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+@media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+img.math{vertical-align:middle;}
+div.par-math-display, div.math-display{text-align:center;}
+li p.indent { text-indent: 0em }
+li p:first-child{ margin-top:0em; }
+li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
+li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.footnotes{border-top:solid 1px black; border-bottom:solid 1px black; padding-bottom:1ex; padding-top:0.5ex; margin-right:15%; margin-top:2ex; font-style:italic; font-size:85%;}
+div.footnotes p{margin-top:0; margin-bottom:0; text-indent:0;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.tabbing-right {text-align:right;}
+div.float, div.figure {margin-left: auto; margin-right: auto;}
+div.float img {text-align:center;}
+div.figure img {text-align:center;}
+.marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.reversemarginpar{float:left;}
+table.equation {width:100%;}
+.equation td{text-align:center; }
+td.equation { margin-top:1em; margin-bottom:1em; } 
+td.equation-label { width:5%; text-align:center; }
+td.eqnarray4 { width:5%; white-space: normal; }
+td.eqnarray2 { width:5%; }
+table.eqnarray-star, table.eqnarray {width:100%;}
+div.eqnarray{text-align:center;}
+div.array {text-align:center;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.pmatrix img{vertical-align:middle;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.bar-css {text-decoration:overline;}
+img.cdots{vertical-align:middle;}
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption span.id{font-weight: bold; white-space: nowrap; }
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.abstract p {margin-left:5%; margin-right:5%;}
+div.abstract {width:100%;}
+.abstracttitle{text-align:center;margin-bottom:1em;}
+figure.float, div.figure {margin-left: auto; margin-right: auto;}
+figure.figure {text-align:center;}
+figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
+figcaption.caption span.id{font-weight: bold; white-space: nowrap; }
+p + figcaption, img + figcaption{margin-top: 1em;}
+.abstract{margin:1em;}
+dt.printshorthands{float:left; clear:left; margin-right:1em;}
+dd.thebibliography {margin-left: 2.5em;}
+dt.thebibliography {float:left; clear:left; margin-right:1em;}
+code.lstinline{font-family:monospace,monospace;}
+.lstlisting .label{margin-right:0.5em; }
+pre.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
+.lstinputlisting .label{margin-right:0.5em;}
+.small-caps{font-variant: small-caps;}
+.uline{ text-decoration:underline; }
+.uuline{ text-decoration:underline; }
+span.sout {text-decoration: line-through }
+span.xout {text-decoration: line-through }
+span.uwave {text-decoration:underline }
+/* end css.sty */
+
+</style>
+</head>
+<body>
+<p><a href="../"><img src="images/swatips.svg" width="120" alt="SwATips" /></a>| <a href="20230918.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="images/by.svg" width="60" height="21" alt="CC-BY" /></a></p>
+<div class='maketitle'>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
+A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0@swatips'>5</a>]<br />
+</h2>
+<div class='author'><span class='ec-lmr-12'>Jon Hood</span></div><br />
+<div class='date'><span class='ec-lmr-12'>Monday 18</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-12'> September, 2023</span></div>
+</div>
+                                                                                         
+                                                                                         
+   
+<h3 class='sectionHead' id='a-history-of-verification-validation-and-code-scanning'><span class='titlemark'>1   </span> <a id='x1-10001'></a>A History of Verification, Validation, and Code Scanning</h3>
+<!-- l. 44 --><p class='noindent'><span class='ec-lmr-8'>Updated Monday 18</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> September, 2023</span>
+</p><!-- l. 1 --><p class='indent'>   One of the DoD and NASA trends we have seen lately is the confusion of functional VV&amp;A with
+cybersecurity tasks. The blurring of these two distinct efforts from organizations implementing an
+IV&amp;V program and a cybersecurity program can cause collisions with the definitions of what is being
+accomplished.
+</p><!-- l. 3 --><p class='indent'>   Static code analysis is one of those definitions. The meaning of static code analysis is very different from a
+Functional, VV&amp;A IV&amp;V program when compared to the static code analysis conducted by a cybersecurity
+program. The etymology of static analysis comes from completely diverging goals.
+</p><!-- l. 5 --><p class='noindent'>
+</p>   
+<h4 class='subsectionHead' id='verification-and-validation'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Verification and Validation</h4>
+<!-- l. 6 --><p class='noindent'>“Haste makes waste.” In the 1960s and 1970s, a static code walkthrough was recommended before ever compiling the
+module. “The verification sessions should occur before the first compilation of the module.” Since “few if any
+compilers are capable of detecting every syntax error,” syntax errors were considered logic errors in
+the software.[<a id='x1-2001'></a><a href='#cite.0@20230918:myers1976'>8</a>, pp. 144, 149, 292] The static analysis and formal walkthrough of code from a V&amp;V
+perspective has the goal of verifying the integrity of the logic that goes into the design of the software
+module.
+</p><!-- l. 8 --><p class='indent'>   This ties into the current DoD VV&amp;A process for Verification, Validation, and Accreditation in DoD Instruction
+5000.61. These are defined as:[<a id='x1-2002'></a><a href='#cite.0@20230918:dodi500061'>2</a>] </p>
+<ul class='itemize1'>     
+<li class='itemize'><i>Verification</i>—The process of determining that a model or simulation implementation and its associated
+data accurately represent the developer’s conceptual description and specifications.
+</li>
+<li class='itemize'><i>Validation</i>—The process of determining the degree to which a model or simulation and its associated
+data are an accurate representation of the real world from the perspective of the intended uses of the
+model.
+</li>
+<li class='itemize'><i>Accreditation</i>—The  official  certification  that  a  model  or  simulation  and  its  associated  data  are
+acceptable for use for a specific purpose.</li></ul>
+<!-- l. 15 --><p class='indent'>   One way to accomplish these goals is by implementing IEEE 1012, the IEEE Standard for System, Software, and
+Hardware Verification and Validation. This lays out the purpose of V&amp;V: “to help the organization build quality
+into the system during the life cycle. V&amp;V processes provide an objective assessment of products and processes
+throughout the life cycle. This assessment demonstrates whether requirements are correct, complete, accurate,
+consistent, and testable.” This standard recommends a process for inspecting source code to “verify that
+the source code implementation is traceable to the design” and a static walkthrough of the code for
+the same types of logic issues Myers mentions in his book.[<a id='x1-2003'></a><a href='#cite.0@20230918:ieee1012'>6</a>, pp. 10, 213, 216] Cybersecurity static
+code analysis scans are circumstantial evidence used to demonstrate the testability of the codebase.[<a href='#cite.0@20230918:ieee1012'>6</a>,
+p. 206]
+</p><!-- l. 17 --><p class='indent'>   If you want to certify that a simulation or software model correctly reflects the real-world scenario and
+requirements that define the software module, VV&amp;A is the way to go. Static code walkthroughs are often employed
+as a tool to accomplish this task.
+</p><!-- l. 19 --><p class='indent'>   Static analysis tools for proving the logic of code include flow provability tools such as GNATprove, property
+checkers[<a id='x1-2004'></a><a href='#cite.0@20230918:foster2015trends'>4</a>] such as RapidCheck and QuickCheck[<a id='x1-2005'></a><a href='#cite.0@20230918:jones2003'>7</a>], SlithIR SSA, Prusti, and many more static analysis
+tools.
+                                                                                         
+                                                                                         
+</p><!-- l. 21 --><p class='noindent'>
+</p>   
+<h4 class='subsectionHead' id='cybersecurity'><span class='titlemark'>1.2   </span> <a id='x1-30001.2'></a>Cybersecurity</h4>
+<!-- l. 23 --><p class='noindent'>Static analysis is defined in the cybersecurity realm by DoDI 8500.01 as part of the Risk Management
+Framework which implements NIST 800-53.[<a id='x1-3001'></a><a href='#cite.0@20230918:dodi850001'>3</a>] Static analysis and the tools which conduct it are defined in
+controls RA-5, SA-11, and SA-11(1). “Static code analysis provides a technology and methodology for
+security reviews and includes checking for weaknesses in the code as well as for the incorporation of
+libraries or other included code with known vulnerabilities or that are out-of-date and not supported.
+Static code analysis can be used to identify vulnerabilities and enforce secure coding practices.”[<a id='x1-3002'></a><a href='#cite.0@20230918:nist80053rev5'>10</a>,
+p. 277]
+</p><!-- l. 25 --><p class='indent'>   Cybersecurity static analysis usually maps issues against Common Weakness Enumerations (CWEs), Common
+Vulnerabilities and Exposures (CVEs), and software assurance defects. A good framework for defining these secure
+code security analysis tools is NIST 500-268 which defines functional requirements of cybersecurity static analysis
+tools. Buffer overflows (such as stack and heap overflows, CWEs 121 and 122), uninitialized variables (CWE-457),
+TOCTOU (CWE-367), and injections (such as command, SQL, and LDAP injections, CWEs 78, 89, and 90) are
+examples of cybersecurity concerns.[<a id='x1-3003'></a><a href='#cite.0@20230918:nist500268'>9</a>]
+</p><!-- l. 27 --><p class='indent'>   Tools that conduct these checks include Fortify, Checkmarx, and many more. The performance of these scans is
+implemented as part of the Application Security and Development STIG[<a id='x1-3004'></a><a href='#cite.0@20230918:ASDStig'>1</a>] which provides even more guidance on
+how to establish coding standards (SV-222653r879887_rule), independent testing (SV-222627r879887_rule), and
+even specifies some minimum requirements for static code analysis such as race conditions (SV-222567r879887_rule),
+storing sensitive information in hidden fields (SV-222601r879812_rule), cross-site scripting (XSS)
+(SV-222602r879652_rule), cross-site request forgeries (CSRF) (SV-222603r879652_rule), command injections
+(SV-222604r879652_rule), canonical representation vulnerabilities (SV-222605r879652_rule), input
+validation/handling (SV-222606r879652_rule/SV-222609r879818_rule), SQL injections (SV-222607r879652_rule),
+XML-based attacks (SV-222608r879652_rule), and overflows (including buffer overflow, heap overflows, stack
+overflows, and wrap-around issues) (SV-222612r879821_rule).
+</p><!-- l. 29 --><p class='noindent'>
+</p>   
+<h4 class='subsectionHead' id='conclusion'><span class='titlemark'>1.3   </span> <a id='x1-40001.3'></a>Conclusion</h4>
+<!-- l. 31 --><p class='noindent'>We have seen an increase in VV&amp;A organizations claiming that they’re conducting the static analysis defined by
+VV&amp;A processes yet instead conduct cybersecurity static analyses. A good program will incorporate the DoDI
+5000.61 requirements, and static analysis tools that speak the language of logic, proofs, and contracts is one small
+portion of the capabilities such organizations should implement. If your program needs accreditation or
+authorization from a cybersecurity perspective (such as an Assess and Authorize under RMF), a cybersecurity
+program will employ static analysis tools that speak the language of weaknesses, vulnerabilities, and coding
+standards.
+</p><!-- l. 33 --><p class='indent'>   Perform a litmus test on your own programs today. Is your VV&amp;A program using cybersecurity tools such as
+Cppcheck, Code Dx, Checkmarx, Fortify, or Coverity? Suppose your program has a requirement to draw a circle.
+These are the tools that allow you to say, “Yeah, verily, this is the most secure square that has ever been drawn on a
+screen.” But these tools do not allow you to say, “You drew a square when the requirements contract for the code is
+that you draw a circle.” That involves provability and qualification testing that your VV&amp;A program should be
+concentrating on.
+                                                                                         
+                                                                                         
+</p>   
+<h3 class='sectionHead' id='references'><a id='x1-50001.3'></a>References</h3>
+<!-- l. 49 --><p class='noindent'>     
+</p>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-20230918:ASDStig'> 
+[1]  
+</dt><dd class='thebibliography' id='bib-1'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20230918:ASDStig'></a>Application Security and Development STIG V5R3.       Tech.       rep.       July       2023.       <span class='small-caps'>url</span>:
+<a class='url' href='https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_ASD_V5R3_STIG.zip'><span class='ec-lmtt-10'>https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_ASD_V5R3_STIG.zip</span></a>.
+</p>     
+</dd>
+<dt class='thebibliography' id='X0-20230918:dodi500061'>
+[2]  
+</dt><dd class='thebibliography' id='bib-2'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20230918:dodi500061'></a>Department   of   Defense.   Department of Defense Instruction 5000.61.   Tech.   rep.   Incorporating
+Change   1,   October   15,   2018.   Washington,   D.C.:   Department   of   Defense,   2018.   <span class='small-caps'>url</span>:
+<a class='url' href='https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/500061p.pdf'><span class='ec-lmtt-10'>https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/500061p.pdf</span></a>.
+</p>     
+</dd>
+<dt class='thebibliography' id='X0-20230918:dodi850001'>
+[3]  
+</dt><dd class='thebibliography' id='bib-3'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20230918:dodi850001'></a>Department of Defense. Department of Defense Instruction 8500.01. Tech. rep. Incorporating Change
+1,     October     7,     2019.     Washington,     D.C.:     Department     of     Defense,     2019.     <span class='small-caps'>url</span>:
+<a class='url' href='https://www.esd.whs.mil/portals/54/documents/dd/issuances/dodi/850001_2014.pdf'><span class='ec-lmtt-10'>https://www.esd.whs.mil/portals/54/documents/dd/issuances/dodi/850001_2014.pdf</span></a>.
+</p>     
+</dd>
+<dt class='thebibliography' id='X0-20230918:foster2015trends'>
+[4]  
+</dt><dd class='thebibliography' id='bib-4'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20230918:foster2015trends'></a>Harry    D    Foster.    “Trends    in    functional    verification:    A    2014    industry    study”.    In:
+Proceedings of the 52nd Annual Design Automation Conference
+. 2015, pp. 1–6.
+</p>     
+</dd>
+<dt class='thebibliography' id='X0-swatips'>
+[5]  
+</dt><dd class='thebibliography' id='bib-5'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips.     <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+</p>     
+</dd>
+<dt class='thebibliography' id='X0-20230918:ieee1012'>
+[6]  
+</dt><dd class='thebibliography' id='bib-6'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20230918:ieee1012'></a>IEEE Standards Association. “IEEE Standard for System, Software, and Hardware Verification and
+Validation”. In: IEEE Std 1012-2016 (Revision of IEEE Std 1012-2012/ Incorporates IEEE Std 1012-2016/Cor1-2017)
+(2017), pp. 1–260. <span class='small-caps'>doi</span>: <a href='https://doi.org/10.1109/IEEESTD.2017.8055462'><span class='ec-lmtt-10'>10.1109/IEEESTD.2017.8055462</span></a>.
+</p>     
+</dd>
+<dt class='thebibliography' id='X0-20230918:jones2003'>
+[7]  
+</dt><dd class='thebibliography' id='bib-7'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20230918:jones2003'></a>Andrew  Jones  and  Jeremy  Sonander.  “An  Introduction  To  Property  Checkers  For  Functional
+Verification”. In: (2003). <span class='small-caps'>url</span>:     <a class='url' href='https://averant.com:8443/assets/pdf/Intro_PropVer.pdf'><span class='ec-lmtt-10'>https://averant.com:8443/assets/pdf/Intro_PropVer.pdf</span></a>.
+</p>     
+</dd>
+<dt class='thebibliography' id='X0-20230918:myers1976'>
+[8]  
+</dt><dd class='thebibliography' id='bib-8'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20230918:myers1976'></a>Glenford J Myers. Software Reliability. John Wiley &amp; Sons, Inc., 1976. <span class='small-caps'>isbn</span>: 978-0-471-62765-4.
+</p>     
+</dd>
+<dt class='thebibliography' id='X0-20230918:nist500268'>
+[9]  
+</dt><dd class='thebibliography' id='bib-9'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20230918:nist500268'></a>National                                Institute                                of                                Standards
+and Technology. Security and Privacy Controls for Information Systems and Organizations. Tech. rep.
+Special Publication (SP) 500-268 v1.1. Washington, D.C.: U.S. Department of Commerce, 2011. <span class='small-caps'>doi</span>: <a href='https://doi.org/10.6028/NIST.SP.500-268v1.1'><span class='ec-lmtt-10'>10    .    6028    /    NIST    .    SP    .    500    -    268v1    .    1</span></a>.       <span class='small-caps'>url</span>:
+<a class='url' href='https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-268v1.1.pdf'><span class='ec-lmtt-10'>https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-268v1.1.pdf</span></a>.
+</p>     
+</dd>
+<dt class='thebibliography' id='X0-20230918:nist80053rev5'>
+[10]  
+</dt><dd class='thebibliography' id='bib-10'>
+<!-- l. 49 --><p class='noindent'><a id='cite.0@20230918:nist80053rev5'></a>National                                Institute                                of                                Standards
+and Technology. Security and Privacy Controls for Information Systems and Organizations. Tech. rep.
+Special                Publication                (SP)                800-53                Revision                5.
+Washington, D.C.: U.S. Department of Commerce, 2020. <span class='small-caps'>doi</span>: <a href='https://doi.org/10.6028/NIST.SP.800-53r5'><span class='ec-lmtt-10'>10.6028/NIST.SP.800-53r5</span></a>. <span class='small-caps'>url</span>:
+<a class='url' href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf'><span class='ec-lmtt-10'>https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf</span></a>.</p></dd></dl>
+                                                                                         
+                                                                                         
+   
+ 
+</body> 
+</html>

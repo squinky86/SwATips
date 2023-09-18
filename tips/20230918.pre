@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{A History of Verification, Validation, and Code Scanning}
+\newcommand{\ArticleDate}{\formatdate{18}{9}{2023}}
+\addbibresource{20230918.bib}
