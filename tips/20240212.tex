@@ -1,0 +1,25 @@
+A disturbing trend we have been seeing lately in the DoD is the misuse of the Assess Only framework. The Assess Only process has been created to provide a standard way of assessing technologies below the system level which do not require an authorization (ATO, ATC, IATT, etc.).\autocite[\pno~13]{20240212:dodi851001}
+
+Misusing the Assess Only process results in a security hole in your programs. This includes bypassing the Assess \& Authorize (A\&A) process protections, prodigal spending of taxpayer resources, and inefficient ``kingdom building.''
+
+The following items serve as a litmus test for determining if your organization is abusing DoD policy in a dangerous way:
+
+\subsection{Assess Only Systems}
+Does your organization refer to ``Assess Only Systems?'' Systms (including Major Applications, PIT Systems, and SIS/CRNs) must go through the Assess \& Authorize process. Organizations that create an ``Assess Only Systems'' channel demonstrate a fundamental misunderstanding of what an approved assessment is intended to accomplish.
+
+\subsection{What is Being Approved}
+There are two flavors of the Assess Only process. A program may use the \textit{Assess \& Approve} process to approve single-purpose, non-connecting IT-enabled devices and services, or they can use the \textit{Assess \& Incorporate} process to approve an assessment that can be associated with or incorporated into an already authorized boundary.\autocite[\pno~11]{20240212:vaglia2017} For software applications, notice that the assessment is what gets approved, and the system that wants to associate with that assessment must have a process for incorporating it into their boundary.
+
+Organizations that treat an Assessment Approval of software as if it were an approval of the product (rather than an approval of the assessment) are bypassing the authorization mechanism in RMF and the reciprocity controls of their organization.
+
+\subsection{Assess Only ATO}
+An ATO is an \textit{Authority} to Operate. There is no such thing as an Assess only ATO. An \textit{Authority} to Operate requires the Assess \textit{\& Authorize} process. By definition, Assess Only is not an authorization. If your organization tells leadership that the Assess Only process results in something like an ATO, they are likely treating the process as their Wish.com ATO.
+
+\subsection{Assess Only ATC}
+As with the ATO, an Authority to Connect is also an authorization and requires the Assess \& Authorize process. A network that already has an ATO can define connection requirements, and resources on the DODIN have defined that process under A\&A.\autocite{20240212:disncpg} If your organization tells leadership that the Assess Only process grants them an ATC, they are likely treating the process as their Alibaba ATC.
+
+\subsection{Assess Only ConMon}
+Since the only devices approved under the Assess Only process are ones that are not network connected, continuous monitoring (ConMon) is implemented at the system level which incorporates an approved assessment to athorize a network-enabled products below the system level. Continuous monitoring refers to the final step of the RMF process, \textit{Monitoring}, which takes place after a system is authorized.\autocite{20240212:nist80037rev2} A ConMon is an operational construct which is why it requires an Authority to \textit{Operate} (ATO). If your organization is conducting RMF out of order and insisting on a non-existent ConMon Assess Only, they are likely treating the process as their Temu ConMon.
+
+\subsection{Conclusion}
+Organizations which try to implement the RMF processes should be commended. Organizations that try to hide black-box processes around non-existent authorization pathways should be called out and exposed. If you provide the technical leadership for your organization, consider the litmus test above.

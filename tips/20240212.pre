@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Assess Only v. Assess and Authorize}
+\newcommand{\ArticleDate}{\formatdate{12}{2}{2024}}
+\addbibresource{20240212.bib}

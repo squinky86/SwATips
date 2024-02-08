@@ -33,3 +33,4 @@
 <li>20230410 - <a href="articles/20230410.html">Ada Unchecked Conversions</a></li>
 <li>20230515 - <a href="articles/20230515.html">Checkmarx: Use of Obsolete Function</a></li>
 <li>20230918 - <a href="articles/20230918.html">A History of Verification, Validation, and Code Scanning</a></li>
+<li>20240212 - <a href="articles/20240212.html">Assess Only v. Assess and Authorize</a></li>
