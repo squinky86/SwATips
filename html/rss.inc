@@ -37,7 +37,7 @@ which do not require an authorization (ATO, ATC, IATT, etc.).[<a id="x1-1001" st
 </p>
 <!-- l. 3 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Misusing the Assess Only process results in a security hole in your programs. This includes bypassing the Assess
-&amp; Authorize process protections, prodigal spending of taxpayer resources, and inefficient “kingdom
+&amp; Authorize (A&amp;A) process protections, prodigal spending of taxpayer resources, and inefficient “kingdom
 building.”
 </p>
 <!-- l. 5 -->
@@ -53,7 +53,7 @@ dangerous way:
 
 
 <!-- l. 8 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Does your organization refer to “Assess Only Systems?” Systms (including Major Applications, PIT Systems, and
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Does your organization refer to “Assess Only Systems?” Systems (including Major Applications, PIT Systems, and
 SIS/CRNs) must go through the Assess &amp; Authorize process. Organizations that create an “Assess Only Systems”
 channel demonstrate a fundamental misunderstanding of what an approved assessment is intended to
 accomplish.
@@ -121,9 +121,10 @@ they are likely treating the process as their Alibaba ATC.
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Since the only devices approved under the Assess Only process are ones that are not network connected, continuous
 monitoring (ConMon) is implemented at the system level which incorporates an approved assessment to athorize a
 network-enabled products below the system level. Continuous monitoring refers to the final step of the RMF
-process, <i>Monitoring</i>, which takes place after a system is authorized.[<a id="x1-6001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:nist80037rev2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>] If your organization is conducting RMF out
-of order and insisting on a non-existent ConMon Assess Only, they are likely treating the process as their
-TemuConMon.
+process, <i>Monitoring</i>, which takes place after a system is authorized.[<a id="x1-6001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:nist80037rev2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>] A ConMon is an operational construct which
+is why it requires an Authority to <i>Operate</i> (ATO). If your organization is conducting RMF out of order and
+insisting on a non-existent ConMon Assess Only, they are likely treating the process as their Temu
+ConMon.
 </p>
 <!-- l. 24 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
@@ -135,9 +136,8 @@ TemuConMon.
 
 <!-- l. 25 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Organizations which try to implement the RMF processes should be commended. Organizations that try to hide
-black-box processes around non-existent authorization pathways should be called out and exposed.
-If you provide the technical leadership for your organization, consider the litmus test documented
-here
+black-box processes around non-existent authorization pathways should be called out and exposed. If you provide
+the technical leadership for your organization, consider the litmus test above.
                                                                                          
                                                                                          
 </p>
