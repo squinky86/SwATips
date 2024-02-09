@@ -37,9 +37,10 @@ authorization like an Authority to Operate, Authority to Connect, Authority to T
 ATC, ATT, IATO, IATC, IATT).[<a id="x1-1001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:dodi851001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>, p. 13]
 </p>
 <!-- l. 3 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Misusing the Assess Only process results in a security hole. This includes bypassing the Assess &amp;
-Authorize (A&amp;A) process protections, prodigal spending of taxpayer resources, and inefficient kingdom
-building. To help organizations identify their holes in Assess Only processes, the following items provide
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Misusing the Assess Only process results in a security hole. The primary result of misuse includes bypassing the
+Assess &amp; Authorize (A&amp;A) process protections. This evasion of the A&amp;A process results in increased
+operational risk, inadequate risk management, a lack of accountability, and a misalignment with mission
+requirements. To help organizations identify their holes in Assess Only processes, the following items provide
 a litmus test for making sure that your organization does not abuse RMF policies in a dangerous
 way:
 </p>
@@ -93,12 +94,11 @@ that wants to associate with that assessment should have a process for incorpora
 boundary.
 </p>
 <!-- l. 20 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Reciprocity requires the incorporating organization to perform due dilligence when associating
-with an approved assessment, and that includes review of the assessment data. Organizations that
-treat an Assessment Approval of software as if it were a blanket, protean approval of the product
-(rather than an approval of the assessment) are bypassing the authorization mechanism in RMF and
-the reciprocity controls of their organization if the process does not include reviewing the assessment
-data.
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Reciprocity requires the incorporating organization to perform due diligence when associating with an approved
+assessment, and that includes review of the assessment data. Organizations that treat an Assessment Approval of
+software as if it were a blanket, protean approval of the product (rather than an approval of the assessment) are
+bypassing the authorization mechanism in RMF and the reciprocity controls of their organization if the process does
+not include reviewing the assessment data.
 </p>
 <!-- l. 22 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
@@ -115,7 +115,7 @@ the place of an operational authorization.
 </p>
 <!-- l. 25 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   An authorized boundary which does have an ATO, ATC, or ATT may define policies for associating with an
-approved assessment to become an authority for the operation of IT below the system level. Those policies can
+approved assessment to become an authority for the operation of IT below the system level. Those policies should
 include the review of Assess Only data; however, systems and networks, like the DODIN, may require a full ATO or
 ATC under the A&amp;A process.[<a id="x1-4001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:disncpg" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]
 </p>
@@ -138,9 +138,9 @@ ways. <i>Monitoring</i> in the RMF process refers to the surveillance of authori
 (Authorized) boundary.[<a id="x1-5001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:nist80037rev2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>]
 </p>
 <!-- l. 32 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Continuous monitoring (ConMon), a requirement for a continuous ATO (cATO) process, is an
-<i>operational</i> construct which is why it requires an Authority to <i>Operate</i> (ATO). Organizations can implement
-continuous assessment for products below the system level, but to redefine continous monitoring as meaning
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Continuous monitoring (ConMon), a requirement for a continuous ATO (cATO) process, is an <i>operational</i>
+construct which is why it requires an Authority to <i>Operate</i> (ATO). Organizations can implement continuous
+assessment for products below the system level, but to redefine continuous monitoring as meaning
 continuous assessment gives organizations a false sense of security and accomplishment of the final RMF
 step.
 </p>
@@ -153,7 +153,7 @@ step.
 
 
 <!-- l. 35 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Organizations trying to implement the RMF process should be commended. A program doing their due dilligence to
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Organizations trying to implement the RMF process should be commended. A program doing their due diligence to
 implement cybersecurity principles should consider the litmus test provided here to determine if their processes
 comply with existing DoD guidance.
                                                                                          
