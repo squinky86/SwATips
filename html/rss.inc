@@ -120,8 +120,8 @@ include the review of Assess Only data; however, systems and networks, like the 
 ATC under the A&amp;A process.[<a id="x1-4001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:disncpg" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]
 </p>
 <!-- l. 27 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Organizations which refer to an “Assess Only ATO” or “Assess Only ATC” are trying to mix Step 5 of the RMF
-process (Authorization) with an approval mechanism that ends at Step 4 (Assessment).
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Organizations which refer to an “Assess Only ATO” or “Assess Only ATC” are trying to mix Step 6 of the RMF
+process (Authorization) with an approval mechanism that ends at Step 5 (Assessment).
 </p>
 <!-- l. 29 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
@@ -133,8 +133,8 @@ process (Authorization) with an approval mechanism that ends at Step 4 (Assessme
 
 <!-- l. 30 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Taking the misuse of the Assess Only construct a step further are organizations which refer to an “Assess Only
-ConMon.” These organizations attempt to implement Step 6 of the RMF process (Monitoring) in non-standard
-ways. <i>Monitoring</i> in the RMF process refers to the surveillance of authorized assets identified in the Step 5
+ConMon.” These organizations attempt to implement Step 7 of the RMF process (Monitoring) in non-standard
+ways. <i>Monitoring</i> in the RMF process refers to the surveillance of authorized assets identified in the Step 6
 (Authorized) boundary.[<a id="x1-5001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:nist80037rev2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>]
 </p>
 <!-- l. 32 -->
