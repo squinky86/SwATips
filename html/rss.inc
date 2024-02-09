@@ -14,9 +14,9 @@
                                                                                          
 
 <h2 class="titleHead" style="line-height: 1.2; text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]<br/>
+A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>]<br/>
 </h2>
-<div class="author" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
+<div class="author" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Jon Hood and Kevin Keen</span></div><br/>
 <div class="date" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Monday 12</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-12" style="font-size: 120%;"> February, 2024</span></div>
 </div>
 
@@ -27,24 +27,23 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap:
 <h3 class="sectionHead" id="assess-only-v-assess-and-authorize" style="line-height: 1.2; font-size: 1.5157em;"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Assess Only v. Assess and Authorize</h3>
 
 
-<!-- l. 44 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Thursday 8</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> February, 2024</span>
+<!-- l. 45 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Friday 9</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> February, 2024</span>
 </p>
 <!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A disturbing trend we have been seeing lately in the DoD is the misuse of the Assess Only framework. The
-Assess Only process has been created to provide a standard way of assessing technologies below the system level
-which do not require an authorization (ATO, ATC, IATT, etc.).[<a id="x1-1001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:dodi851001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>, p. 13]
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A trend we have been seeing lately in the DoD is the misuse of the Assess Only framework. The Assess Only
+process was created to provide a way of assessing unique technologies below the system level which do not require an
+authorization like an Authority to Operate, Authority to Connect, Authority to Test, or their interim kin (ATO,
+ATC, ATT, IATO, IATC, IATT).[<a id="x1-1001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:dodi851001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>, p. 13]
 </p>
 <!-- l. 3 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Misusing the Assess Only process results in a security hole in your programs. This includes bypassing the Assess
-&amp; Authorize (A&amp;A) process protections, prodigal spending of taxpayer resources, and inefficient “kingdom
-building.”
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Misusing the Assess Only process results in a security hole. This includes bypassing the Assess &amp;
+Authorize (A&amp;A) process protections, prodigal spending of taxpayer resources, and inefficient kingdom
+building. To help organizations identify their holes in Assess Only processes, the following items provide
+a litmus test for making sure that your organization does not abuse RMF policies in a dangerous
+way:
 </p>
 <!-- l. 5 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The following items serve as a litmus test for determining if your organization is abusing DoD policy in a
-dangerous way:
-</p>
-<!-- l. 7 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
 </p>
    
@@ -52,101 +51,120 @@ dangerous way:
 <h4 class="subsectionHead" id="assess-only-systems" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Assess Only Systems</h4>
 
 
-<!-- l. 8 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Does your organization refer to “Assess Only Systems?” Systems (including Major Applications, PIT Systems, and
-SIS/CRNs) must go through the Assess &amp; Authorize process. Organizations that create an “Assess Only Systems”
-channel demonstrate a fundamental misunderstanding of what an approved assessment is intended to
-accomplish.
+<!-- l. 6 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Referring to “Assess Only Systems” indicates a lack of understanding of what may go through the Assess
+Only process. Systems (including Major Applications, PIT Systems, and SIS/CRNs) must go through
+the Assess &amp; Authorize process. Organizations that refer to “Assess Only Systems” demonstrate a
+misunderstanding of what an assessment approval is intended to accomplish. Words have meaning,
+and using the wrong words creates an inconsistency which introduces weaknesses in a cybersecurity
+program.
 </p>
-<!-- l. 10 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+<!-- l. 8 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The guidance in DoDI 8500.01 (Figure <a href="#-assess-only-and-assess-authorize-in-dod-policy" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: fig:20240212:dodit  --></a>) can help understand this distinction.[<a id="x1-2001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:dodi850001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] Systems do not qualify for the
+Assess Only process.
 </p>
    
+
+<figure class="figure" id="-assess-only-and-assess-authorize-in-dod-policy" style="text-align: center;"> 
+
+                                                                                         
+                                                                                         
+<a id="x1-20021" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
+                                                                                         
+                                                                                         
+<!-- l. 12 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><img alt="PIC" height="146" src="https://www.swatips.com/articles/images/20240212-1.png" width="398"/>
+</p>
+<figcaption class="caption" style="margin-top: 1em; text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Figure 1: </span><span class="content">Assess Only and Assess &amp; Authorize in DoD Policy</span></figcaption><!-- tex4ht:label?: x1-20021  -->
+                                                                                         
+                                                                                         
+   
+</figure>
+
 
 <h4 class="subsectionHead" id="what-is-being-approved" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>What is Being Approved</h4>
 
 
-<!-- l. 11 -->
+<!-- l. 18 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">There are two flavors of the Assess Only process. A program may use the <i>Assess &amp; Approve</i> process to approve
-single-purpose, non-connecting IT-enabled devices and services, or they can use the <i>Assess &amp; Incorporate</i>
-process to approve an assessment that can be associated with or incorporated into an already authorized
-boundary.[<a id="x1-3001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:vaglia2017" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>, p. 11] For software applications, notice that the assessment is what gets approved, and the
-system that wants to associate with that assessment must have a process for incorporating it into their
+single-purpose, non-connecting IT-enabled devices and services, or they can use the <i>Assess &amp; Incorporate</i> process to
+approve an assessment which can be associated with or incorporated into an already authorized boundary.[<a id="x1-3001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:vaglia2017" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">6</a>, p. 11]
+For software applications, notice that the assessment is the focal point of the approval, and the system
+that wants to associate with that assessment should have a process for incorporating it into their
 boundary.
 </p>
-<!-- l. 13 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Organizations that treat an Assessment Approval of software as if it were an approval of the product (rather
-than an approval of the assessment) are bypassing the authorization mechanism in RMF and the reciprocity controls
-of their organization.
+<!-- l. 20 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Reciprocity requires the incorporating organization to perform due dilligence when associating
+with an approved assessment, and that includes review of the assessment data. Organizations that
+treat an Assessment Approval of software as if it were a blanket, protean approval of the product
+(rather than an approval of the assessment) are bypassing the authorization mechanism in RMF and
+the reciprocity controls of their organization if the process does not include reviewing the assessment
+data.
 </p>
-<!-- l. 15 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead" id="assess-only-ato" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.3   </span> <a id="x1-40001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Assess Only ATO</h4>
-
-
-<!-- l. 16 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">An ATO is an <i>Authority</i> to Operate. There is no such thing as an Assess only ATO. An <i>Authority</i> to Operate
-requires the Assess <i>&amp; Authorize</i> process. By definition, Assess Only is not an authorization. If your organization tells
-leadership that the Assess Only process results in something like an ATO, they are likely treating the process as
-their Wish.com ATO.
-</p>
-<!-- l. 18 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead" id="assess-only-atc" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.4   </span> <a id="x1-50001.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Assess Only ATC</h4>
-
-
-<!-- l. 19 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">As with the ATO, an Authority to Connect is also an authorization and requires the Assess &amp; Authorize process. A
-network that already has an ATO can define connection requirements, and resources on the DODIN have defined
-that process under A&amp;A.[<a id="x1-5001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:disncpg" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>] If your organization tells leadership that the Assess Only process grants them an ATC,
-they are likely treating the process as their Alibaba ATC.
-                                                                                         
-                                                                                         
-</p>
-<!-- l. 21 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead" id="assess-only-conmon" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.5   </span> <a id="x1-60001.5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Assess Only ConMon</h4>
-
-
 <!-- l. 22 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Since the only devices approved under the Assess Only process are ones that are not network connected, continuous
-monitoring (ConMon) is implemented at the system level which incorporates an approved assessment to athorize a
-network-enabled products below the system level. Continuous monitoring refers to the final step of the RMF
-process, <i>Monitoring</i>, which takes place after a system is authorized.[<a id="x1-6001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:nist80037rev2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>] A ConMon is an operational construct which
-is why it requires an Authority to <i>Operate</i> (ATO). If your organization is conducting RMF out of order and
-insisting on a non-existent ConMon Assess Only, they are likely treating the process as their Temu
-ConMon.
-</p>
-<!-- l. 24 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
 </p>
    
 
-<h4 class="subsectionHead" id="conclusion" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.6   </span> <a id="x1-70001.6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusion</h4>
+<h4 class="subsectionHead" id="assess-only-ato-atc-and-att" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.3   </span> <a id="x1-40001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Assess Only ATO, ATC, and ATT</h4>
 
 
+<!-- l. 23 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">An ATO, ATC, and ATT (and by extension, their interim cousins, IATO, IATC, and IATT) begin with the word
+<i>Authority</i>. An <i>Authorization</i> requires the Assess <i>&amp; Authorize</i> process. By definition, an Assess Only is not used in
+the place of an operational authorization.
+</p>
 <!-- l. 25 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Organizations which try to implement the RMF processes should be commended. Organizations that try to hide
-black-box processes around non-existent authorization pathways should be called out and exposed. If you provide
-the technical leadership for your organization, consider the litmus test above.
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   An authorized boundary which does have an ATO, ATC, or ATT may define policies for associating with an
+approved assessment to become an authority for the operation of IT below the system level. Those policies can
+include the review of Assess Only data; however, systems and networks, like the DODIN, may require a full ATO or
+ATC under the A&amp;A process.[<a id="x1-4001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:disncpg" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]
+</p>
+<!-- l. 27 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Organizations which refer to an “Assess Only ATO” or “Assess Only ATC” are trying to mix Step 5 of the RMF
+process (Authorization) with an approval mechanism that ends at Step 4 (Assessment).
+</p>
+<!-- l. 29 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead" id="assess-only-conmon" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.4   </span> <a id="x1-50001.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Assess Only ConMon</h4>
+
+
+<!-- l. 30 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Taking the misuse of the Assess Only construct a step further are organizations which refer to an “Assess Only
+ConMon.” These organizations attempt to implement Step 6 of the RMF process (Monitoring) in non-standard
+ways. <i>Monitoring</i> in the RMF process refers to the surveillance of authorized assets identified in the Step 5
+(Authorized) boundary.[<a id="x1-5001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:nist80037rev2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>]
+</p>
+<!-- l. 32 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Continuous monitoring (ConMon), a requirement for a continuous ATO (cATO) process, is an
+<i>operational</i> construct which is why it requires an Authority to <i>Operate</i> (ATO). Organizations can implement
+continuous assessment for products below the system level, but to redefine continous monitoring as meaning
+continuous assessment gives organizations a false sense of security and accomplishment of the final RMF
+step.
+</p>
+<!-- l. 34 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="subsectionHead" id="conclusion" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.5   </span> <a id="x1-60001.5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusion</h4>
+
+
+<!-- l. 35 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Organizations trying to implement the RMF process should be commended. A program doing their due dilligence to
+implement cybersecurity principles should consider the litmus test provided here to determine if their processes
+comply with existing DoD guidance.
                                                                                          
                                                                                          
 </p>
    
 
-<h3 class="sectionHead" id="references" style="line-height: 1.2; font-size: 1.5157em;"><a id="x1-8000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+<h3 class="sectionHead" id="references" style="line-height: 1.2; font-size: 1.5157em;"><a id="x1-7000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
 
 
-<!-- l. 49 -->
+<!-- l. 50 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
 </p>
 
@@ -154,38 +172,46 @@ the technical leadership for your organization, consider the litmus test above.
 <dl class="thebibliography"><dt class="thebibliography" id="X0-20240212:disncpg" style="float: left; clear: left; margin-right: 1em;">
 [1]  
 </dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240212:disncpg" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Defense             Information             Systems             Agency.             <span class="uline" style="text-decoration: underline;">Defense             Informatoin
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240212:disncpg" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Defense             Information             Systems             Agency.             <span class="uline" style="text-decoration: underline;">Defense             Informatoin
 System Network (DISN) Connection Process Guide (CPG)</span>. Tech. rep. Fort Meade, Maryland, 2023.
 <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://dl.dod.cyber.mil/wp-content/uploads/connect/pdf/unclass-DISN_CPG.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://dl.dod.cyber.mil/wp-content/uploads/connect/pdf/unclass-DISN_CPG.pdf</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20240212:dodi851001" style="float: left; clear: left; margin-right: 1em;">
+<dt class="thebibliography" id="X0-20240212:dodi850001" style="float: left; clear: left; margin-right: 1em;">
 [2]  
 </dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240212:dodi851001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Department  of  Defense.  <span class="uline" style="text-decoration: underline;">Department  of  Defense  Instruction  8510.01.  Risk  Management  Framework
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240212:dodi850001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Department  of  Defense.  <span class="uline" style="text-decoration: underline;">Department  of  Defense  Instruction  8500.01</span>.  Tech.  rep.  Incorporating
+Change   1,   October   7,   2019.   Washington,   D.C.:   Department   of   Defense,   2019.   <span class="small-caps" style="font-variant: small-caps;">url</span>:   
+<a class="url" href="https://www.esd.whs.mil/portals/54/documents/dd/issuances/dodi/850001_2014.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.esd.whs.mil/portals/54/documents/dd/issuances/dodi/850001_2014.pdf</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20240212:dodi851001" style="float: left; clear: left; margin-right: 1em;">
+[3]  
+</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240212:dodi851001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Department  of  Defense.  <span class="uline" style="text-decoration: underline;">Department  of  Defense  Instruction  8510.01.  Risk  Management  Framework
 for   DoD   Systems</span>.   Tech.   rep.   Washington,   D.C.:   Department   of   Defense,   2022.   <span class="small-caps" style="font-variant: small-caps;">url</span>:   
 <a class="url" href="https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/851001p.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/851001p.pdf</span></a>.
 </p>    
 </dd>
 <dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
-[3]  
-</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="uline" style="text-decoration: underline;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+[4]  
+</dt><dd class="thebibliography" id="bib-4" style="margin-left: 2.5em;">
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="uline" style="text-decoration: underline;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
 <dt class="thebibliography" id="X0-20240212:nist80037rev2" style="float: left; clear: left; margin-right: 1em;">
-[4]  
-</dt><dd class="thebibliography" id="bib-4" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240212:nist80037rev2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>National  Institute  of  Standards  and  Technology.  <span class="uline" style="text-decoration: underline;">Risk  Management  Framework  for  Information
+[5]  
+</dt><dd class="thebibliography" id="bib-5" style="margin-left: 2.5em;">
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240212:nist80037rev2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>National  Institute  of  Standards  and  Technology.  <span class="uline" style="text-decoration: underline;">Risk  Management  Framework  for  Information
 Systems  and  Organizations</span>.  Tech.  rep.  Special  Publication  (SP)  800-37  Revision  2.  Washington,
 D.C.:  U.S.  Department  of  Commerce,  2018.  <span class="small-caps" style="font-variant: small-caps;">doi</span>:  <a href="https://doi.org/10.6028/NIST.SP.800-37r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10 . 6028 / NIST . SP . 800 - 37r2</span></a>.  <span class="small-caps" style="font-variant: small-caps;">url</span>:  
 <a class="url" href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf</span></a>.
 </p>    
 </dd>
 <dt class="thebibliography" id="X0-20240212:vaglia2017" style="float: left; clear: left; margin-right: 1em;">
-[5]  
-</dt><dd class="thebibliography" id="bib-5" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240212:vaglia2017" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Laura Vaglia and Jey Castleberry. <span class="uline" style="text-decoration: underline;">Facility Related Control System Inventory</span>. Tech. rep. 2017. <span class="small-caps" style="font-variant: small-caps;">url</span>: 
+[6]  
+</dt><dd class="thebibliography" id="bib-6" style="margin-left: 2.5em;">
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240212:vaglia2017" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Laura Vaglia and Jey Castleberry. <span class="uline" style="text-decoration: underline;">Facility Related Control System Inventory</span>. Tech. rep. 2017. <span class="small-caps" style="font-variant: small-caps;">url</span>: 
 <a class="url" href="https://usarsustainabilitydotcom.files.wordpress.com/2017/12/facility-related-control-system-inventory.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://usarsustainabilitydotcom.files.wordpress.com/2017/12/facility-related-control-system-inventory.pdf</span></a>.</p></dd></dl>
 
  
