@@ -134,8 +134,8 @@ process (Authorization) with an approval mechanism that ends at Step 5 (Assessme
 <!-- l. 30 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Taking the misuse of the Assess Only construct a step further are organizations which refer to an “Assess Only
 ConMon.” These organizations attempt to implement Step 7 of the RMF process (Monitoring) in non-standard
-ways. <i>Monitoring</i> in the RMF process refers to the surveillance of authorized assets identified in the Step 6
-(Authorized) boundary.[<a id="x1-5001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:nist80037rev2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>]
+ways. <i>Monitoring</i> in the RMF process refers to the surveillance of authorized assets and controls approved in the
+Step 6 (Authorized) boundary.[<a id="x1-5001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:nist80037rev2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>]
 </p>
 <!-- l. 32 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Continuous monitoring (ConMon), a requirement for a continuous ATO (cATO) process, is an <i>operational</i>
