@@ -24,11 +24,11 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap:
                                                                                          
    
 
-<h3 class="sectionHead" id="assess-only-v-assess-and-authorize" style="line-height: 1.2; font-size: 1.5157em;"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Assess Only v. Assess and Authorize</h3>
+<h3 class="sectionHead" style="line-height: 1.2; font-size: 1.5157em;"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Assess Only v. Assess and Authorize</h3>
 
 
 <!-- l. 45 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Friday 9</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> February, 2024</span>
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Saturday 10</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> February, 2024</span>
 </p>
 <!-- l. 1 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A trend we have been seeing lately in the DoD is the misuse of the Assess Only framework. The Assess Only
@@ -49,7 +49,7 @@ way:
 </p>
    
 
-<h4 class="subsectionHead" id="assess-only-systems" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Assess Only Systems</h4>
+<h4 class="subsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Assess Only Systems</h4>
 
 
 <!-- l. 6 -->
@@ -61,12 +61,12 @@ and using the wrong words creates an inconsistency which introduces weaknesses i
 program.
 </p>
 <!-- l. 8 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The guidance in DoDI 8500.01 (Figure <a href="#-assess-only-and-assess-authorize-in-dod-policy" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: fig:20240212:dodit  --></a>) can help understand this distinction.[<a id="x1-2001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:dodi850001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] Systems do not qualify for the
-Assess Only process.
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The guidance in DoDI 8500.01 (Figure <a href="#x1-20021" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: fig:20240212:dodit  --></a>) can help in understanding this distinction.[<a id="x1-2001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:dodi850001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] Systems do not qualify
+for the Assess Only process.
 </p>
    
 
-<figure class="figure" id="-assess-only-and-assess-authorize-in-dod-policy" style="text-align: center;"> 
+<figure class="figure" style="text-align: center;"> 
 
                                                                                          
                                                                                          
@@ -82,7 +82,7 @@ Assess Only process.
 </figure>
 
 
-<h4 class="subsectionHead" id="what-is-being-approved" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>What is Being Approved</h4>
+<h4 class="subsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>What is Being Approved</h4>
 
 
 <!-- l. 18 -->
@@ -105,7 +105,7 @@ not include reviewing the assessment data.
 </p>
    
 
-<h4 class="subsectionHead" id="assess-only-ato-atc-and-att" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.3   </span> <a id="x1-40001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Assess Only ATO, ATC, and ATT</h4>
+<h4 class="subsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.3   </span> <a id="x1-40001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Assess Only ATO, ATC, and ATT</h4>
 
 
 <!-- l. 23 -->
@@ -128,7 +128,7 @@ process (Authorization) with an approval mechanism that ends at Step 5 (Assessme
 </p>
    
 
-<h4 class="subsectionHead" id="assess-only-conmon" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.4   </span> <a id="x1-50001.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Assess Only ConMon</h4>
+<h4 class="subsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.4   </span> <a id="x1-50001.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Assess Only ConMon</h4>
 
 
 <!-- l. 30 -->
@@ -149,7 +149,7 @@ step.
 </p>
    
 
-<h4 class="subsectionHead" id="conclusion" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.5   </span> <a id="x1-60001.5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusion</h4>
+<h4 class="subsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.5   </span> <a id="x1-60001.5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusion</h4>
 
 
 <!-- l. 35 -->
@@ -161,7 +161,7 @@ comply with existing DoD guidance.
 </p>
    
 
-<h3 class="sectionHead" id="references" style="line-height: 1.2; font-size: 1.5157em;"><a id="x1-7000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+<h3 class="sectionHead" style="line-height: 1.2; font-size: 1.5157em;"><a id="x1-7000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
 
 
 <!-- l. 50 -->
@@ -202,10 +202,10 @@ for   DoD   Systems</span>.   Tech.   rep.   Washington,   D.C.:   Department   
 <dt class="thebibliography" id="X0-20240212:nist80037rev2" style="float: left; clear: left; margin-right: 1em;">
 [5]  
 </dt><dd class="thebibliography" id="bib-5" style="margin-left: 2.5em;">
-<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240212:nist80037rev2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>National  Institute  of  Standards  and  Technology.  <span class="uline" style="text-decoration: underline;">Risk  Management  Framework  for  Information
-Systems  and  Organizations</span>.  Tech.  rep.  Special  Publication  (SP)  800-37  Revision  2.  Washington,
-D.C.:  U.S.  Department  of  Commerce,  2018.  <span class="small-caps" style="font-variant: small-caps;">doi</span>:  <a href="https://doi.org/10.6028/NIST.SP.800-37r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10 . 6028 / NIST . SP . 800 - 37r2</span></a>.  <span class="small-caps" style="font-variant: small-caps;">url</span>:  
-<a class="url" href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf</span></a>.
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240212:nist80037rev2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>National Institute of Standards and Technology. <span class="uline" style="text-decoration: underline;">Risk Management Framework for Information Systems
+and         Organizations</span>.         Tech.         rep.         Special         Publication         (SP)         800-37
+Revision 2. Washington, D.C.: U.S. Department of Commerce, 2018. <span class="small-caps" style="font-variant: small-caps;">doi</span>: <a href="https://doi.org/10.6028/NIST.SP.800-37r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">10.6028/NIST.SP.800-37r2</a>.
+<span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf</span></a>.
 </p>    
 </dd>
 <dt class="thebibliography" id="X0-20240212:vaglia2017" style="float: left; clear: left; margin-right: 1em;">
