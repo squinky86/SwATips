@@ -27,9 +27,16 @@ An authorized boundary which does have an ATO, ATC, or ATT may define policies f
 Organizations which refer to an ``Assess Only ATO'' or ``Assess Only ATC'' are trying to mix Step 6 of the RMF process (Authorization) with an approval mechanism that ends at Step 5 (Assessment).
 
 \subsection{Assess Only ConMon}
-Taking the misuse of the Assess Only construct a step further are organizations which refer to an ``Assess Only ConMon.'' These organizations attempt to implement Step 7 of the RMF process (Monitoring) in non-standard ways. \textit{Monitoring} in the RMF process refers to the surveillance of authorized assets and controls approved in the Step 6 (Authorized) boundary.\autocite{20240212:nist80037rev2}
+Taking the misuse of the Assess Only construct a step further are organizations which refer to an ``Assess Only ConMon.'' These organizations attempt to implement Step 7 of the RMF process (Monitoring) in non-standard ways. \textit{Monitoring} in the RMF process refers to the surveillance of authorized assets and controls approved in the Step 6 (Authorized) boundary.\autocite{20240212:nist80037rev2} This is one of the reasons why DoD elements often refer to this as a ConMon Authorization or Continuous ATO (cATO). Consider the wheel in Figure~\ref{fig:20240212:rmfwheel} to help understand where authorization and monitoring fall in the RMF process.
 
-Continuous monitoring (ConMon), a requirement for a continuous ATO (cATO) process, is an \textit{operational} construct which is why it requires an Authority to \textit{Operate} (ATO). Organizations can implement continuous assessment for products below the system level, but to redefine continuous monitoring as meaning continuous assessment gives organizations a false sense of security and accomplishment of the final RMF step.
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm, height=9.73cm]{20240212.rmfwheel.png}
+\caption{RMF Process Wheel}
+\label{fig:20240212:rmfwheel}
+\end{figure}
+
+Continuous monitoring (ConMon) is a requirement for a robust continuous authorization process. It is an \textit{operational} construct which is why it requires an Authority to \textit{Operate} (ATO). Organizations can implement continuous assessment for products below the system level, but to redefine continuous monitoring as meaning continuous assessment gives organizations a false sense of security by bypassing Authorization and answering the final RMF step at the wrong level.
 
 \subsection{Conclusion}
 Organizations trying to implement the RMF process should be commended. A program doing their due diligence to implement cybersecurity principles should consider the litmus test provided here to determine if their processes comply with existing DoD guidance.
