@@ -1,3 +1,4 @@
+<li>20240527 - <a href="articles/20240527.html">Sorry Root, You're Not the Boss of Me!</a></li>
 <li>20240212 - <a href="articles/20240212.html">Assess Only v. Assess and Authorize</a></li>
 <li>20230918 - <a href="articles/20230918.html">A History of Verification, Validation, and Code Scanning</a></li>
 <li>20230515 - <a href="articles/20230515.html">Checkmarx: Use of Obsolete Function</a></li>
@@ -7,4 +8,3 @@
 <li>20220919 - <a href="articles/20220919.html">Commercial National Security Algorithm (CNSA) Suite 2.0</a></li>
 <li>20220613 - <a href="articles/20220613.html">Don't Limit your CWEs</a></li>
 <li>20220418 - <a href="articles/20220418.html">Improper Resource Access Authorization</a></li>
-<li>20220328 - <a href="articles/20220328.html">Ever-Changing Encryption Standards</a></li>

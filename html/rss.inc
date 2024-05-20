@@ -1,4 +1,108 @@
 	<item>
+		<title>Sorry Root, You're Not the Boss of Me!</title>
+		<link>https://www.SwATips.com/articles/20240527.html</link>
+		<pubDate>Mon, 27 May 2024 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20240527.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="line-height: 1.2; text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>]<br/>
+</h2>
+<div class="author" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Lane Crawford</span></div><br/>
+<div class="date" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Monday 27</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-12" style="font-size: 120%;"> May, 2024</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead" id="sorry-root-youre-not-the-boss-of-me" style="line-height: 1.2; font-size: 1.5157em;"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Sorry Root, You’re Not the Boss of Me!</h3>
+
+
+<!-- l. 45 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Monday 20</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> May, 2024</span>
+</p>
+<!-- l. 1 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   In most Unix-like systems like Linux, the root user can do anything it wants. Everyone knows this. If root wants
+to edit a file, that file will say whatever root wants it to. If root wants to delete everything inside a
+directory, that directory is toast. Sure, maybe there are some weird hardware things a super-smart
+hacker might be able to accomplish to hide something in it,[<a id="x1-1001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240527:hood" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, Malicious Hardware] but there’s no
+denying that if root can see the files in the directory, then those files don’t stand a chance. With one
+quick command, root can delete a directory and everything inside it, no questions asked. Well, about
+that…
+</p>
+<!-- l. 3 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   During one assurance event, I noticed that the process for updating the boot software for the system was to <span class="ec-lmtt-10" style="font-family: monospace,monospace;">rm
+-rf </span>the boot directory and then untar a <span class="ec-lmtt-10" style="font-family: monospace,monospace;">.tgz </span>file containing the new boot software into the now-empty directory.
+This reminded me of something I came across while completing a capture-the-flag (CTF) challenge several years
+earlier: file attributes. File attributes are meta-data that describe (and, importantly, in some cases modify) file and
+directory behavior. File attributes are filesystem dependent, and you’ll find different attributes depending on what
+version of OS you’re using. Windows has different attributes than Unix, and other Unix-like systems have distinct
+attributes among them. You’ll generally find file attributes for encryption, visibility, and compression (among
+others). But for our purposes, it’s enough to know that most flavors of Linux include an attribute for
+immutability.
+</p>
+<!-- l. 5 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Going back to the pentesting event in question, I realized that I could add my own file to the boot directory (or
+edit an existing file), make it immutable by issuing the bash command <span class="ec-lmtt-10" style="font-family: monospace,monospace;">chattr +i that_file</span>, and prevent
+that file from being modified or deleted without first removing the immutability attribute (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">chattr -i
+that_file</span>). This meant that when root called <span class="ec-lmtt-10" style="font-family: monospace,monospace;">rm -rf</span>, anything possessing the immutable attribute
+would not be deleted. And since both files and directories can be made immutable, this effectively
+meant that I could make whatever changes I wanted inside the boot directory and have those changes
+persist.
+</p>
+<!-- l. 7 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   And what about the untarring? Normally the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">tar </span>command would overwrite files with the same name; however,
+any files marked immutable would not be overwritten. In that case, <span class="ec-lmtt-10" style="font-family: monospace,monospace;">tar </span>would throw an error for each of those files,
+stating there was an error trying to overwrite them. But since everyone knows using root to <span class="ec-lmtt-10" style="font-family: monospace,monospace;">rm -rf </span>removes
+everything, the output from tar was not being checked to ensure it completed successfully. The result was
+that I could make whatever changes I wanted inside the boot directory, have those changes persist
+through the update process, and the update process would return a message that the update happened
+successfully.
+</p>
+<!-- l. 9 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Hopefully this will help you realize the importance of understanding little-known Linux attributes and not
+assuming that simple functions that appear to be straightforward are actually completing the way
+you want them to. Functions have return values for a reason; check them before assuming everything
+worked!
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead" id="references" style="line-height: 1.2; font-size: 1.5157em;"><a id="x1-2000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 50 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt class="thebibliography" id="X0-20240527:hood" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240527:hood" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon       Hood.       “Side-Channel       Attacks”.       In:       <span class="uline" style="text-decoration: underline;">SwATips.com</span>       (2021).       <span class="small-caps" style="font-variant: small-caps;">url</span>:       
+<a class="url" href="https://www.swatips.com/articles/20210524.html" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.swatips.com/articles/20210524.html</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
+[2]  
+</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="uline" style="text-decoration: underline;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Assess Only v. Assess and Authorize</title>
 		<link>https://www.SwATips.com/articles/20240212.html</link>
 		<pubDate>Mon, 12 Feb 2024 00:00:00 -0600</pubDate>
@@ -28,7 +132,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap:
 
 
 <!-- l. 45 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Thursday 15</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> February, 2024</span>
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Friday 22</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">nd</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> March, 2024</span>
 </p>
 <!-- l. 1 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A trend we have been seeing lately in the DoD is the misuse of the Assess Only framework. The Assess Only
@@ -88,10 +192,13 @@ for the Assess Only process.
 <!-- l. 18 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">There are two flavors of the Assess Only process. A program may use the <i>Assess &amp; Approve</i> process to approve
 single-purpose, non-connecting IT-enabled devices and services, or they can use the <i>Assess &amp; Incorporate</i> process to
-approve an assessment which can be associated with or incorporated into an already authorized boundary.[<a id="x1-3001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:vaglia2017" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">6</a>, p. 11]
-For software applications, notice that the assessment is the focal point of the approval, and the system
-that wants to associate with that assessment should have a process for incorporating it into their
-boundary.
+approve an assessment which can be associated with or incorporated into an already authorized boundary.[<a id="x1-3001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:vaglia2017" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">7</a>, p. 11]
+For software applications, notice that the assessment is the focal point of the approval, and the system that
+wants to associate with that assessment should have a process for incorporating it into their boundary.
+This article does not delve into the assessments of single-purpose PIT components are Assessed and
+Approved, such as single-purpose It-enabled devices that “do not become a part of an incorporating
+system’s authorization boundary.”[<a id="x1-3002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:legislation" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>, DoD CIO Risk Management Framework Assess Only Guidance
+2017]
 </p>
 <!-- l. 20 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Reciprocity requires the incorporating organization to perform due diligence when associating with an approved
@@ -135,7 +242,7 @@ process (Authorization) with an approval mechanism that ends at Step 5 (Assessme
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Taking the misuse of the Assess Only construct a step further are organizations which refer to an “Assess Only
 ConMon.” These organizations attempt to implement Step 7 of the RMF process (Monitoring) in non-standard
 ways. <i>Monitoring</i> in the RMF process refers to the surveillance of authorized assets and controls approved in the
-Step 6 (Authorized) boundary.[<a id="x1-5001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:nist80037rev2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>] This is one of the reasons why DoD elements often refer to this as a ConMon
+Step 6 (Authorized) boundary.[<a id="x1-5001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240212:nist80037rev2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">6</a>] This is one of the reasons why DoD elements often refer to this as a ConMon
 Authorization or Continuous ATO (cATO). Consider the wheel in Figure <a href="#-rmf-process-wheel" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2<!-- tex4ht:ref: fig:20240212:rmfwheel  --></a> to help understand where authorization
 and monitoring fall in the RMF process.
 </p>
@@ -216,9 +323,16 @@ for   DoD   Systems</span>.   Tech.   rep.   Washington,   D.C.:   Department   
 <!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="uline" style="text-decoration: underline;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20240212:nist80037rev2" style="float: left; clear: left; margin-right: 1em;">
+<dt class="thebibliography" id="X0-20240212:legislation" style="float: left; clear: left; margin-right: 1em;">
 [5]  
 </dt><dd class="thebibliography" id="bib-5" style="margin-left: 2.5em;">
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240212:legislation" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>SERDP-ESTCP.  <span class="uline" style="text-decoration: underline;">Legislation,  Instructions,  Manuals,  Policies,  Plans  and  Memos</span>.  Tech.  rep.  <span class="small-caps" style="font-variant: small-caps;">url</span>:  
+<a class="url" href="https://serdp-estcp.mil/page/f7ad7b6f-e8ef-11ec-9685-026db1cbe810" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://serdp-estcp.mil/page/f7ad7b6f-e8ef-11ec-9685-026db1cbe810</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20240212:nist80037rev2" style="float: left; clear: left; margin-right: 1em;">
+[6]  
+</dt><dd class="thebibliography" id="bib-6" style="margin-left: 2.5em;">
 <!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240212:nist80037rev2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>National  Institute  of  Standards  and  Technology.  <span class="uline" style="text-decoration: underline;">Risk  Management  Framework  for  Information
 Systems  and  Organizations</span>.  Tech.  rep.  Special  Publication  (SP)  800-37  Revision  2.  Washington,
 D.C.:  U.S.  Department  of  Commerce,  2018.  <span class="small-caps" style="font-variant: small-caps;">doi</span>:  <a href="https://doi.org/10.6028/NIST.SP.800-37r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10 . 6028 / NIST . SP . 800 - 37r2</span></a>.  <span class="small-caps" style="font-variant: small-caps;">url</span>:  
@@ -226,8 +340,8 @@ D.C.:  U.S.  Department  of  Commerce,  2018.  <span class="small-caps" style="f
 </p>    
 </dd>
 <dt class="thebibliography" id="X0-20240212:vaglia2017" style="float: left; clear: left; margin-right: 1em;">
-[6]  
-</dt><dd class="thebibliography" id="bib-6" style="margin-left: 2.5em;">
+[7]  
+</dt><dd class="thebibliography" id="bib-7" style="margin-left: 2.5em;">
 <!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240212:vaglia2017" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Laura Vaglia and Jey Castleberry. <span class="uline" style="text-decoration: underline;">Facility Related Control System Inventory</span>. Tech. rep. 2017. <span class="small-caps" style="font-variant: small-caps;">url</span>: 
 <a class="url" href="https://usarsustainabilitydotcom.files.wordpress.com/2017/12/facility-related-control-system-inventory.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://usarsustainabilitydotcom.files.wordpress.com/2017/12/facility-related-control-system-inventory.pdf</span></a>.</p></dd></dl>
 
@@ -1794,124 +1908,6 @@ different issue dealing with whether public variables are marked final.
 <dl class="thebibliography"><dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
 [1]  
 </dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips.     <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
-
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>Ever-Changing Encryption Standards</title>
-		<link>https://www.SwATips.com/articles/20220328.html</link>
-		<pubDate>Mon, 28 Mar 2022 00:00:00 -0500</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20220328.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]<br/>
-</h2>
-<div class="author" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
-<div class="date" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Monday 28</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-12" style="font-size: 120%;"> March, 2022</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead" id="everchanging-encryption-standards"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Ever-Changing Encryption Standards</h3>
-
-
-<!-- l. 44 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Monday 12</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> September, 2022</span>
-</p>
-<!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   <strong>UPDATE:</strong> CNSA 2.0 information has been released, and     <a class="url" href="https://www.SwATips.com/articles/20220919.html" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/articles/20220919.html</span></a>
-has been updated with the latest recommendations.
-</p>
-<!-- l. 3 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Since 2016, National Security Systems (NSS) have been required to implement the policies put forward by the
-Committee on National Security Systems (CNSS). CNSS Policy 15 details key sizes that are required to
-protect national security information.[<a id="x1-1001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20220328:cnssp15" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] To comply with CNSSP 15, system architects should use an
-algorithm approved in the Commercial National Security Algorithm (CNSA) suite at a key size defined by
-CNSSP 15. At the time of this writing, the following algorithms are permitted for encrypting data:
-</p>
-     
-
-<ul class="itemize1">
-<li class="itemize">AES with 256-bit keys
-</li>
-<li class="itemize">RSA with at least 3072-bit modulus
-</li>
-<li class="itemize">ECC with P-384</li></ul>
-
-
-<!-- l. 9 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Additional requirements for key exchange and digital signatures are also provided in the policy.
-</p>
-<!-- l. 11 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Not only must the CNSSP 15 standards be implemented, but also the recommendations of NIST SP 800-57.[<a id="x1-1002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20220328:nist80057p1r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]
-Currently, the following algorithms are allowed by SP 800-57 Part 1 Rev. 5: </p>
-
-
-<ul class="itemize1">     
-<li class="itemize">AES with 128, 192, or 256-bit key sizes
-</li>
-<li class="itemize">RSA with at least 3072-bit modulus
-</li>
-<li class="itemize">ECC with a range of at least 256 (i.e. P-256, P-384, and P-512)</li></ul>
-
-
-<!-- l. 17 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">NIST SP 800-57 further details that RSA with a 15360-bit modulus and an Elliptic Curve of at least 512 bits are
-required to reach the security afforded by AES-256 (the minimum AES key size allowed by CNSSP 15). While
-RSA15360 is permitted under CNSSP 15, P-512 is not.
-</p>
-<!-- l. 19 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   For the near future, AES-256, RSA3072, and P-384 are the permitted minimum standards for cryptography.
-Engineers implementing RSA3072 or P-384 for their encryption should be ready to move to RSA15360 and P-512
-respectively in anticipation of updated CNSS standards.
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead" id="references"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 49 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt class="thebibliography" id="X0-20220328:nist80057p1r5" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220328:nist80057p1r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Elaine Barker. Recommendation for Key Management. Part 1 – General. Tech. rep. Special Publication
-(SP)           800-57           Part           1           Revision           5.           Washington,           D.C.:
-National Institute of Standards and Technology, 2020. <span class="small-caps" style="font-variant: small-caps;">doi</span>: <a href="https://doi.org/10.6028/NIST.SP.800-57pt1r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10.6028/NIST.SP.800-57pt1r5</span></a>. <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a class="url" href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf</span></a>.
-</p>    
-</dd>
-<dt class="thebibliography" id="X0-20220328:cnssp15" style="float: left; clear: left; margin-right: 1em;">
-[2]  
-</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220328:cnssp15" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Committee                     on                     National                     Security                     Systems.
-Use of Public Standards for Secure Information Sharing
-. Tech. rep. CNSSP 15. Ft. Meade, MD: NSA,
-2016. <span class="small-caps" style="font-variant: small-caps;">url</span>:     <a class="url" href="https://www.cnss.gov/CNSS/issuances/Policies.cfm" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.cnss.gov/CNSS/issuances/Policies.cfm</span></a>.
-</p>    
-</dd>
-<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
-[3]  
-</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
 <!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips.     <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
 
  

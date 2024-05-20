@@ -1,0 +1,4 @@
+\def \AuthorName{Lane Crawford}
+\def \ArticleName{Sorry Root, You're Not the Boss of Me!}
+\newcommand{\ArticleDate}{\formatdate{27}{5}{2024}}
+\addbibresource{20240527.bib}
