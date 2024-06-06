@@ -35,3 +35,4 @@
 <li>20230918 - <a href="articles/20230918.html">A History of Verification, Validation, and Code Scanning</a></li>
 <li>20240212 - <a href="articles/20240212.html">Assess Only v. Assess and Authorize</a></li>
 <li>20240527 - <a href="articles/20240527.html">Sorry Root, You're Not the Boss of Me!</a></li>
+<li>20240610 - <a href="articles/20240610.html">The Zero Trust Paradox: Second Guessing the Good Guys</a></li>

@@ -1,0 +1,22 @@
+In February, the DoD CIO issued RMF security control guidance intending to be a starting point for programs ``required to implement zero trust within the DoD.’’\autocite[\pno~2]{20240610:cio} These security controls, when properly implemented, can help monitor for threats, conduct continuous assessments, automate the security posture evaluations of components, and support defense-in-depth practices within an organization's system boundary. In particular, the overlays expound on continuous ATO requirements for ongoing authorizations under the Application \&\ Workload Pillar. These controls not only form a solid foundation for which ones should be continuously assessed, but form a baseline set of rules for any application development to follow.
+
+But what happens when the assessment data itself is bad? Though these are not tied to individual systems, the following issues have been observed:
+
+\begin{itemize}
+	\item One organization scanned their software with a custom Fortify rulepack that suppressed or omitted most rules.
+	\item Another organization used SonarQube to scan Ada code.
+	\item A command created a process to do a scan with Coverity, then promptly deleted the results without ever looking at them.
+	\item Enterprise software received an Assess Only assessment approval with the assessment, ``The software was not available for review, so no issues are identified.''
+\end{itemize}
+
+This begs the question that is referred to here as the Zero Trust Paradox. If you trust your implementation of Zero Trust controls, you have failed to implement the key tenet of Zero Trust: its namesake, \textit{Zero Trust}.
+
+Zero Trust is not a product you can buy off the shelf nor a contract requirement you can give to a contractor to implement; it is a foundation principle for conducting security assessments at the right level of granularity to foster a modular, secure set of information technology.\autocite{20240610:jackson}
+
+There is no control in the Risk Management Framework for making sure your program leaders are thinking about their assessments from a Zero Trust perspective, and a Zero Trust overlay poses the danger of treating what should be a mindset for assessments as if it were a checklist of requirements to implement. This is demonstrated by the aforementioned examples. Consider each of these examples with a \textit{minimum compliance} mindset versus a \textit{Zero Trust} mindset to demonstrate why it's important that security control assessments employ a Zero Trust model for their initial evaluations.
+
+In the first example, a program used Fortify to fulfill some of the requirements of RMF control SA-11(1), one of the required controls in the CIO overlay. While the program implemented a good tool for conducting the assessment, there was no check on whether the tool was configured to properly ``employ static code analysis\ldots to identify common flaws.'' The program put trust that the right tool was selected for the right job to build the right assessment data, but no one documented the trust metrics for if the tools were configured correctly to build such evidence. A compliance mindset checks the box that SA-11(1) is implemented by statically scanning the software. A Zero Trust mindset asks, ``Why should I trust that data?'' and implements steps to make sure that a rigorous, comprehensive evaluation of the controls is correctly implemented.\autocite{20240610:nist800207}
+
+A ``minimal compliance'' mindset also plagues the remaining examples. If the mindset is to get an ATO with as little trouble as possible, then bringing transparency into the security findings of a product will slow down or even deny authorizations to operate. The Zero Trust architecture requires transparency, and employing efforts to hide data violates the first core capability of CISA's Zero Trust Maturity Model: \textit{Visibility and Analytics}.\autocite{20240610:cisa} 
+
+As ISSMs and Authorizing Officials continue to mature in zero trust training guidelines, the ``minimal compliance'' attitudes will continue to be weeded out. Evaluating your security controls from a Zero Trust perspective now can save your system from a disastrous security control assessment in the future. You won't regret it---trust me!

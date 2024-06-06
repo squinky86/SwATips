@@ -1,4 +1,160 @@
 	<item>
+		<title>The Zero Trust Paradox: Second Guessing the Good Guys</title>
+		<link>https://www.SwATips.com/articles/20240610.html</link>
+		<pubDate>Mon, 10 Jun 2024 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20240610.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="line-height: 1.2; text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>]<br/>
+</h2>
+<div class="author" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
+<div class="date" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Monday 10</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-12" style="font-size: 120%;"> June, 2024</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead" id="the-zero-trust-paradox-second-guessing-the-good-guys" style="line-height: 1.2; font-size: 1.5157em;"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>The Zero Trust Paradox: Second Guessing the Good Guys</h3>
+
+
+<!-- l. 45 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Thursday 6</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> June, 2024</span>
+</p>
+<!-- l. 1 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   In February, the DoD CIO issued RMF security control guidance intending to be a starting point for programs
+“required to implement zero trust within the DoD.’’[<a id="x1-1001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240610:cio" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>, p. 2] These security controls, when properly implemented,
+can help monitor for threats, conduct continuous assessments, automate the security posture evaluations of
+components, and support defense-in-depth practices within an organization’s system boundary. In
+particular, the overlays expound on continuous ATO requirements for ongoing authorizations under
+the Application &amp; Workload Pillar. These controls not only form a solid foundation for which ones
+should be continuously assessed, but form a baseline set of rules for any application development to
+follow.
+</p>
+<!-- l. 3 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   But what happens when the assessment data itself is bad? Though these are not tied to individual systems, the
+following issues have been observed:
+</p>
+     
+
+<ul class="itemize1">
+<li class="itemize">One organization scanned their software with a custom Fortify rulepack that suppressed or omitted
+most rules.
+</li>
+<li class="itemize">Another organization used SonarQube to scan Ada code.
+</li>
+<li class="itemize">A command created a process to do a scan with Coverity, then promptly deleted the results without
+ever looking at them.
+</li>
+<li class="itemize">Enterprise software received an Assess Only assessment approval with the assessment, “The software
+was not available for review, so no issues are identified.”</li></ul>
+
+
+<!-- l. 12 -->
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   This begs the question that is referred to here as the Zero Trust Paradox. If you trust your implementation of
+Zero Trust controls, you have failed to implement the key tenet of Zero Trust: its namesake, <i>Zero
+Trust</i>.
+</p>
+<!-- l. 14 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Zero Trust is not a product you can buy off the shelf nor a contract requirement you can give to a contractor to
+implement; it is a foundation principle for conducting security assessments at the right level of granularity to foster
+a modular, secure set of information technology.[<a id="x1-1002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240610:jackson" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]
+</p>
+<!-- l. 16 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   There is no control in the Risk Management Framework for making sure your program leaders are thinking
+about their assessments from a Zero Trust perspective, and a Zero Trust overlay poses the danger of treating what
+should be a mindset for assessments as if it were a checklist of requirements to implement. This is demonstrated by
+the aforementioned examples. Consider each of these examples with a <i>minimum compliance</i> mindset versus a <i>Zero
+Trust</i> mindset to demonstrate why it’s important that security control assessments employ a Zero Trust model for
+their initial evaluations.
+</p>
+<!-- l. 18 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   In the first example, a program used Fortify to fulfill some of the requirements of RMF control SA-11(1), one of
+the required controls in the CIO overlay. While the program implemented a good tool for conducting the assessment,
+there was no check on whether the tool was configured to properly “employ static code analysis…to
+identify common flaws.” The program put trust that the right tool was selected for the right job to build
+the right assessment data, but no one documented the trust metrics for if the tools were configured
+correctly to build such evidence. A compliance mindset checks the box that SA-11(1) is implemented by
+statically scanning the software. A Zero Trust mindset asks, “Why should I trust that data?” and
+implements steps to make sure that a rigorous, comprehensive evaluation of the controls is correctly
+                                                                                         
+                                                                                         
+implemented.[<a id="x1-1003" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240610:nist800207" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>]
+</p>
+<!-- l. 20 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A “minimal compliance” mindset also plagues the remaining examples. If the mindset is to get an ATO with as
+little trouble as possible, then bringing transparency into the security findings of a product will slow down or even
+deny authorizations to operate. The Zero Trust architecture requires transparency, and employing efforts
+to hide data violates the first core capability of CISA’s Zero Trust Maturity Model: <i>Visibility and
+Analytics</i>.[<a id="x1-1004" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240610:cisa" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]
+</p>
+<!-- l. 22 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   As ISSMs and Authorizing Officials continue to mature in zero trust training guidelines, the “minimal
+compliance” attitudes will continue to be weeded out. Evaluating your security controls from a Zero Trust
+perspective now can save your system from a disastrous security control assessment in the future. You won’t regret
+it—trust me!
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead" id="references" style="line-height: 1.2; font-size: 1.5157em;"><a id="x1-2000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 50 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt class="thebibliography" id="X0-20240610:cisa" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240610:cisa" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Cybersecurity and Infrastructure Security Agency. <span class="uline" style="text-decoration: underline;">Zero Trust Maturity Model</span>. Tech. rep. Version 2.0.
+2023.                                                             <span class="small-caps" style="font-variant: small-caps;">url</span>:                                                             
+<a class="url" href="https://www.cisa.gov/sites/default/files/2023-04/zero_trust_maturity_model_v2_508.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.cisa.gov/sites/default/files/2023-04/zero_trust_maturity_model_v2_508.pdf</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
+[2]  
+</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="uline" style="text-decoration: underline;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20240610:jackson" style="float: left; clear: left; margin-right: 1em;">
+[3]  
+</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240610:jackson" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Eric     Jackson.     “When     Zero     Trust     Makes     Zero     Sense”.     In:     (2024).     <span class="small-caps" style="font-variant: small-caps;">url</span>:     
+<a class="url" href="https://blog.aquia.us/blog/2024-05-31-zero_trust_zero_sense/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://blog.aquia.us/blog/2024-05-31-zero_trust_zero_sense/</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20240610:nist800207" style="float: left; clear: left; margin-right: 1em;">
+[4]  
+</dt><dd class="thebibliography" id="bib-4" style="margin-left: 2.5em;">
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240610:nist800207" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>National Institute of Standards and Technology. <span class="uline" style="text-decoration: underline;">Zero Trust Architecture</span>. Tech. rep. Special Publication
+(SP) 800-207. Washington, D.C.: U.S. Department of Commerce, 2020. <span class="small-caps" style="font-variant: small-caps;">doi</span>: <a href="https://doi.org/10.6028/NIST.SP.800-207" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10.6028/NIST.SP.800-
+207</span></a>. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-207.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-207.pdf</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20240610:cio" style="float: left; clear: left; margin-right: 1em;">
+[5]  
+</dt><dd class="thebibliography" id="bib-5" style="margin-left: 2.5em;">
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240610:cio" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Office of the Chief Information Officer. “Department of Defense Zero Trust Overlays”. In: (2024). <span class="small-caps" style="font-variant: small-caps;">url</span>: 
+<a class="url" href="https://dodcio.defense.gov/Portals/0/Documents/Library/ZeroTrustOverlays-2024Feb.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://dodcio.defense.gov/Portals/0/Documents/Library/ZeroTrustOverlays-2024Feb.pdf</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Sorry Root, You're Not the Boss of Me!</title>
 		<link>https://www.SwATips.com/articles/20240527.html</link>
 		<pubDate>Mon, 27 May 2024 00:00:00 -0500</pubDate>
@@ -1832,83 +1988,6 @@ more esoteric CWEs.
 </dt><dd class="thebibliography" id="bib-5" style="margin-left: 2.5em;">
 <!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220613:marien" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>John R. Marien and Robert A. Martin. Incorporating Software Assurance into Department of Defense Acquisition Contracts.
 Washington, D.C., 2017. <span class="small-caps" style="font-variant: small-caps;">url</span>:   <a class="url" href="https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf</span></a>.</p></dd></dl>
-
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>Improper Resource Access Authorization</title>
-		<link>https://www.SwATips.com/articles/20220418.html</link>
-		<pubDate>Mon, 18 Apr 2022 00:00:00 -0500</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20220418.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
-</h2>
-<div class="author" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Kevin Keen</span></div><br/>
-<div class="date" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Monday 18</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-12" style="font-size: 120%;"> April, 2022</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead" id="improper-resource-access-authorization"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Improper Resource Access Authorization</h3>
-
-
-<!-- l. 44 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Friday 10</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> June, 2022</span>
-</p>
-<!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Part of being a cyber security specialist is knowing the tools we use and what they are trying to communicate.
-Sometimes that is not as clear as we would wish. Take for example the finding of <i>Improper Resource Access
-Authorization</i> produced by Checkmarx. This is perhaps one of my least favorite findings as it tends to be very noisy,
-flagging on nearly any I/O that the application performs. What is it that the scanner is trying to tell us here? Let’s
-look at the corresponding CWE according to Checkmarx. The documentation from Checkmarx maps this finding to
-<i>CWE-285: Improper Authorization</i>. The short description reads: “The software does not perform or
-incorrectly performs an authorization check when an actor attempts to access a resource or perform an
-action.”
-</p>
-<!-- l. 3 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   That may be a bit too general, but the gist of it is that the scanner is attempting to ask “Does the user of the
-application have authorization to access the resource that is the target of this I/O operation?” In nearly
-every case we do not have enough information from the code alone to answer that question. In a few
-cases, the application may have the concept of users, and there might be a user check guarding the
-I/O. Only in those cases do we have a chance at marking these findings a <span class="ec-lmtt-10" style="font-family: monospace,monospace;">false positive</span>. But more
-often, the application has no notion of separate user roles. At that point there is no way to answer
-this question from the code alone. It becomes something that must be answered by policy or external
-documentation.
-</p>
-<!-- l. 5 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Note that a similar sounding finding from Checkmarx, <i>Exposure of Resource to Wrong Sphere</i>, is a completely
-different issue dealing with whether public variables are marked final.
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead" id="references"><a id="x1-20001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 49 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips.     <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
 
  
 

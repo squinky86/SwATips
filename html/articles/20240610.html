@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html xml:lang='en-US' lang='en-US'>
+<head>
+<title>The Zero Trust Paradox: Second Guessing the Good Guys</title>
+ 
+
+<meta charset="utf-8"/>
+ 
+
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+ 
+
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+ 
+
+ 
+
+<meta content="article.tex" name="src"/>
+ 
+
+<script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
+<style>
+ 
+/* start css.sty */
+.ec-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmr-12{font-size:120%;}
+.ec-lmr-9{font-size:90%;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmr-8{font-size:80%;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+p{margin-top:0;margin-bottom:0}
+p.indent{text-indent:0;}
+p + p{margin-top:1em;}
+p + div, p + pre {margin-top:1em;}
+div + p, pre + p {margin-top:1em;}
+a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+@media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+img.math{vertical-align:middle;}
+div.par-math-display, div.math-display{text-align:center;}
+body{ margin:1em auto; max-width:80ch; padding:0 .62em; }
+h1,h2,h3,h4,h5 { line-height:1.2; }
+@media print{ body{ max-width:none } }
+.partHead, likepartHead { font-size: 2em; }
+.chapterHead, likechapterHead { font-size: 1.7411em; }
+.sectionHead, likesectionHead { font-size: 1.5157em; }
+.subsectionHead, likesubsectionHead { font-size: 1.3195em; }
+.subsubsectionHead, likesubsubsectionHead { font-size: 1.1487em; }
+ @media (prefers-color-scheme: dark) { img[src^="article"]{filter: invert(1); } } 
+li p.indent { text-indent: 0em }
+li p:first-child{ margin-top:0em; }
+li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
+li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.footnotes{border-top:solid 1px black; border-bottom:solid 1px black; padding-bottom:1ex; padding-top:0.5ex; margin-right:15%; margin-top:2ex; font-style:italic; font-size:85%;}
+div.footnotes p{margin-top:0; margin-bottom:0; text-indent:0;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
+.hline:first-child{border-bottom:1px solid black;border-top:none;}
+.tabbing-right {text-align:right;}
+div.float, div.figure {margin-left: auto; margin-right: auto;}
+div.float img {text-align:center;}
+div.figure img {text-align:center;}
+.marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.reversemarginpar{float:left;}
+table.equation {width:100%;}
+.equation td{text-align:center; }
+td.equation { margin-top:1em; margin-bottom:1em; } 
+td.equation-label { width:5%; text-align:center; }
+td.eqnarray4 { width:5%; white-space: normal; }
+td.eqnarray2 { width:5%; }
+table.eqnarray-star, table.eqnarray {width:100%;}
+div.eqnarray{text-align:center;}
+div.array {text-align:center;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.pmatrix img{vertical-align:middle;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.bar-css {text-decoration:overline;}
+img.cdots{vertical-align:middle;}
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption span.id{font-weight: bold; white-space: nowrap; }
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.abstract p {margin-left:5%; margin-right:5%;}
+div.abstract {width:100%;}
+.abstracttitle{text-align:center;margin-bottom:1em;}
+figure.float, div.figure {margin-left: auto; margin-right: auto;}
+figure.figure {text-align:center;}
+figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
+figcaption.caption span.id{font-weight: bold; white-space: nowrap; }
+p + figcaption, img + figcaption{margin-top: 1em;}
+.abstract{margin:1em;}
+dt.printshorthands{float:left; clear:left; margin-right:1em;}
+dd.thebibliography {margin-left: 2.5em;}
+dt.thebibliography {float:left; clear:left; margin-right:1em;}
+code.lstinline{font-family:monospace,monospace;}
+pre.listings{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
+.lstlisting .label{margin-right:0.5em; }
+pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; }
+.lstinputlisting .label{margin-right:0.5em;}
+.small-caps{font-variant: small-caps;}
+.uline,.uline-math{ text-decoration:underline; }
+.uuline,.uuline-math{ text-decoration:underline double; }
+span.sout, .sout-math {text-decoration: line-through }
+span.xout, .xout-math {text-decoration: line-through underline }
+span.uwave, .uwave-math {text-decoration:underline wavy; }
+span.dashuline, .dashuline-math {text-decoration:underline dashed;}
+span.dotuline, .dotuline-math {text-decoration:underline dotted;}
+.rotatebox{display: inline-block;}
+/* end css.sty */
+
+</style>
+</head>
+<body>
+<p><a href="../"><img src="images/swatips.svg" width="120" alt="SwATips" /></a>| <a href="20240610.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="images/by.svg" width="60" height="21" alt="CC-BY" /></a></p>
+<div class='maketitle'>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
+A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0@swatips'>2</a>]<br />
+</h2>
+<div class='author'><span class='ec-lmr-12'>Jon Hood</span></div><br />
+<div class='date'><span class='ec-lmr-12'>Monday 10</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-12'> June, 2024</span></div>
+</div>
+                                                                                         
+                                                                                         
+   
+<h3 class='sectionHead' id='the-zero-trust-paradox-second-guessing-the-good-guys'><span class='titlemark'>1   </span> <a id='x1-10001'></a>The Zero Trust Paradox: Second Guessing the Good Guys</h3>
+<!-- l. 45 --><p class='noindent'><span class='ec-lmr-8'>Updated Thursday 6</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> June, 2024</span>
+</p><!-- l. 1 --><p class='indent'>   In February, the DoD CIO issued RMF security control guidance intending to be a starting point for programs
+“required to implement zero trust within the DoD.’’[<a id='x1-1001'></a><a href='#cite.0@20240610:cio'>5</a>, p. 2] These security controls, when properly implemented,
+can help monitor for threats, conduct continuous assessments, automate the security posture evaluations of
+components, and support defense-in-depth practices within an organization’s system boundary. In
+particular, the overlays expound on continuous ATO requirements for ongoing authorizations under
+the Application &amp; Workload Pillar. These controls not only form a solid foundation for which ones
+should be continuously assessed, but form a baseline set of rules for any application development to
+follow.
+</p><!-- l. 3 --><p class='indent'>   But what happens when the assessment data itself is bad? Though these are not tied to individual systems, the
+following issues have been observed:
+</p>     
+<ul class='itemize1'>
+<li class='itemize'>One organization scanned their software with a custom Fortify rulepack that suppressed or omitted
+most rules.
+</li>
+<li class='itemize'>Another organization used SonarQube to scan Ada code.
+</li>
+<li class='itemize'>A command created a process to do a scan with Coverity, then promptly deleted the results without
+ever looking at them.
+</li>
+<li class='itemize'>Enterprise software received an Assess Only assessment approval with the assessment, “The software
+was not available for review, so no issues are identified.”</li></ul>
+<!-- l. 12 --><p class='indent'>   This begs the question that is referred to here as the Zero Trust Paradox. If you trust your implementation of
+Zero Trust controls, you have failed to implement the key tenet of Zero Trust: its namesake, <i>Zero
+Trust</i>.
+</p><!-- l. 14 --><p class='indent'>   Zero Trust is not a product you can buy off the shelf nor a contract requirement you can give to a contractor to
+implement; it is a foundation principle for conducting security assessments at the right level of granularity to foster
+a modular, secure set of information technology.[<a id='x1-1002'></a><a href='#cite.0@20240610:jackson'>3</a>]
+</p><!-- l. 16 --><p class='indent'>   There is no control in the Risk Management Framework for making sure your program leaders are thinking
+about their assessments from a Zero Trust perspective, and a Zero Trust overlay poses the danger of treating what
+should be a mindset for assessments as if it were a checklist of requirements to implement. This is demonstrated by
+the aforementioned examples. Consider each of these examples with a <i>minimum compliance</i> mindset versus a <i>Zero
+Trust</i> mindset to demonstrate why it’s important that security control assessments employ a Zero Trust model for
+their initial evaluations.
+</p><!-- l. 18 --><p class='indent'>   In the first example, a program used Fortify to fulfill some of the requirements of RMF control SA-11(1), one of
+the required controls in the CIO overlay. While the program implemented a good tool for conducting the assessment,
+there was no check on whether the tool was configured to properly “employ static code analysis…to
+identify common flaws.” The program put trust that the right tool was selected for the right job to build
+the right assessment data, but no one documented the trust metrics for if the tools were configured
+correctly to build such evidence. A compliance mindset checks the box that SA-11(1) is implemented by
+statically scanning the software. A Zero Trust mindset asks, “Why should I trust that data?” and
+implements steps to make sure that a rigorous, comprehensive evaluation of the controls is correctly
+                                                                                         
+                                                                                         
+implemented.[<a id='x1-1003'></a><a href='#cite.0@20240610:nist800207'>4</a>]
+</p><!-- l. 20 --><p class='indent'>   A “minimal compliance” mindset also plagues the remaining examples. If the mindset is to get an ATO with as
+little trouble as possible, then bringing transparency into the security findings of a product will slow down or even
+deny authorizations to operate. The Zero Trust architecture requires transparency, and employing efforts
+to hide data violates the first core capability of CISA’s Zero Trust Maturity Model: <i>Visibility and
+Analytics</i>.[<a id='x1-1004'></a><a href='#cite.0@20240610:cisa'>1</a>]
+</p><!-- l. 22 --><p class='indent'>   As ISSMs and Authorizing Officials continue to mature in zero trust training guidelines, the “minimal
+compliance” attitudes will continue to be weeded out. Evaluating your security controls from a Zero Trust
+perspective now can save your system from a disastrous security control assessment in the future. You won’t regret
+it—trust me!
+                                                                                         
+                                                                                         
+</p>   
+<h3 class='sectionHead' id='references'><a id='x1-2000'></a>References</h3>
+<!-- l. 50 --><p class='noindent'>    
+</p>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-20240610:cisa'>
+[1]  
+</dt><dd class='thebibliography' id='bib-1'>
+<!-- l. 50 --><p class='noindent'><a id='cite.0@20240610:cisa'></a>Cybersecurity and Infrastructure Security Agency. <span class='uline'>Zero Trust Maturity Model</span>. Tech. rep. Version 2.0.
+2023.                                                             <span class='small-caps'>url</span>:                                                             
+<a class='url' href='https://www.cisa.gov/sites/default/files/2023-04/zero_trust_maturity_model_v2_508.pdf'><span class='ec-lmtt-10'>https://www.cisa.gov/sites/default/files/2023-04/zero_trust_maturity_model_v2_508.pdf</span></a>.
+</p>    
+</dd>
+<dt class='thebibliography' id='X0-swatips'>
+[2]  
+</dt><dd class='thebibliography' id='bib-2'>
+<!-- l. 50 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt class='thebibliography' id='X0-20240610:jackson'>
+[3]  
+</dt><dd class='thebibliography' id='bib-3'>
+<!-- l. 50 --><p class='noindent'><a id='cite.0@20240610:jackson'></a>Eric     Jackson.     “When     Zero     Trust     Makes     Zero     Sense”.     In:     (2024).     <span class='small-caps'>url</span>:     
+<a class='url' href='https://blog.aquia.us/blog/2024-05-31-zero_trust_zero_sense/'><span class='ec-lmtt-10'>https://blog.aquia.us/blog/2024-05-31-zero_trust_zero_sense/</span></a>.
+</p>    
+</dd>
+<dt class='thebibliography' id='X0-20240610:nist800207'>
+[4]  
+</dt><dd class='thebibliography' id='bib-4'>
+<!-- l. 50 --><p class='noindent'><a id='cite.0@20240610:nist800207'></a>National Institute of Standards and Technology. <span class='uline'>Zero Trust Architecture</span>. Tech. rep. Special Publication
+(SP) 800-207. Washington, D.C.: U.S. Department of Commerce, 2020. <span class='small-caps'>doi</span>: <a href='https://doi.org/10.6028/NIST.SP.800-207'><span class='ec-lmtt-10'>10.6028/NIST.SP.800-
+207</span></a>. <span class='small-caps'>url</span>: <a class='url' href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-207.pdf'><span class='ec-lmtt-10'>https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-207.pdf</span></a>.
+</p>    
+</dd>
+<dt class='thebibliography' id='X0-20240610:cio'>
+[5]  
+</dt><dd class='thebibliography' id='bib-5'>
+<!-- l. 50 --><p class='noindent'><a id='cite.0@20240610:cio'></a>Office of the Chief Information Officer. “Department of Defense Zero Trust Overlays”. In: (2024). <span class='small-caps'>url</span>: 
+<a class='url' href='https://dodcio.defense.gov/Portals/0/Documents/Library/ZeroTrustOverlays-2024Feb.pdf'><span class='ec-lmtt-10'>https://dodcio.defense.gov/Portals/0/Documents/Library/ZeroTrustOverlays-2024Feb.pdf</span></a>.</p></dd></dl>
+ 
+</body> 
+</html>

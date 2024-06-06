@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{The Zero Trust Paradox: Second Guessing the Good Guys}
+\newcommand{\ArticleDate}{\formatdate{10}{6}{2024}}
+\addbibresource{20240610.bib}
