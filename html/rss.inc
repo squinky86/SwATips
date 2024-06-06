@@ -132,7 +132,7 @@ it—trust me!
 <dt class="thebibliography" id="X0-20240610:jackson" style="float: left; clear: left; margin-right: 1em;">
 [3]  
 </dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
-<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240610:jackson" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Eric     Jackson.     “When     Zero     Trust     Makes     Zero     Sense”.     In:     (2024).     <span class="small-caps" style="font-variant: small-caps;">url</span>:     
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240610:jackson" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Eric     Jackson.     <span class="uline" style="text-decoration: underline;">When     Zero     Trust     Makes     Zero     Sense</span>.     Aquia.     2024.     <span class="small-caps" style="font-variant: small-caps;">url</span>:     
 <a class="url" href="https://blog.aquia.us/blog/2024-05-31-zero_trust_zero_sense/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://blog.aquia.us/blog/2024-05-31-zero_trust_zero_sense/</span></a>.
 </p>    
 </dd>
@@ -147,7 +147,7 @@ it—trust me!
 <dt class="thebibliography" id="X0-20240610:cio" style="float: left; clear: left; margin-right: 1em;">
 [5]  
 </dt><dd class="thebibliography" id="bib-5" style="margin-left: 2.5em;">
-<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240610:cio" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Office of the Chief Information Officer. “Department of Defense Zero Trust Overlays”. In: (2024). <span class="small-caps" style="font-variant: small-caps;">url</span>: 
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20240610:cio" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Office  of  the  Chief  Information  Officer.  <span class="uline" style="text-decoration: underline;">Department  of  Defense  Zero  Trust  Overlays</span>.  2024.  <span class="small-caps" style="font-variant: small-caps;">url</span>:  
 <a class="url" href="https://dodcio.defense.gov/Portals/0/Documents/Library/ZeroTrustOverlays-2024Feb.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://dodcio.defense.gov/Portals/0/Documents/Library/ZeroTrustOverlays-2024Feb.pdf</span></a>.</p></dd></dl>
 
  
