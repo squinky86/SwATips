@@ -28,7 +28,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap:
 
 
 <!-- l. 45 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Thursday 6</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> June, 2024</span>
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Friday 7</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> June, 2024</span>
 </p>
 <!-- l. 1 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   In February, the DoD CIO issued RMF security control guidance intending to be a starting point for programs
@@ -50,7 +50,7 @@ following issues have been observed:
 <li class="itemize">One organization scanned their software with a custom Fortify rulepack that suppressed or omitted
 most rules.
 </li>
-<li class="itemize">Another organization used SonarQube to scan Ada code.
+<li class="itemize">Another organization used SonarQube to scan Ada code, a language not supported by the tool.
 </li>
 <li class="itemize">A command created a process to do a scan with Coverity, then promptly deleted the results without
 ever looking at them.
