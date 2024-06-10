@@ -28,7 +28,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap:
 
 
 <!-- l. 45 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Friday 7</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> June, 2024</span>
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Monday 10</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> June, 2024</span>
 </p>
 <!-- l. 1 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   In February, the DoD CIO issued RMF security control guidance intending to be a starting point for programs
@@ -98,7 +98,7 @@ to hide data violates the first core capability of CISA’s Zero Trust Maturity 
 Analytics</i>.[<a id="x1-1004" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240610:cisa" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]
 </p>
 <!-- l. 22 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   As ISSMs and Authorizing Officials continue to mature in zero trust training guidelines, the “minimal
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   As ISSMs and Authorizing Officials continue to mature in Zero Trust training guidelines, the “minimal
 compliance” attitudes will continue to be weeded out. Evaluating your security controls from a Zero Trust
 perspective now can save your system from a disastrous security control assessment in the future. You won’t regret
 it—trust me!
