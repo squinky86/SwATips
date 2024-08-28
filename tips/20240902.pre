@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Back to the Building Blocks: Codifying Complacency}
+\newcommand{\ArticleDate}{\formatdate{2}{9}{2024}}
+\addbibresource{20240902.bib}
