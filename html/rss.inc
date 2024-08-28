@@ -31,10 +31,9 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap:
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Wednesday 28</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> August, 2024</span>
 </p>
 <!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   In February, the National Cyber Director, Harry Coker, presented the White House’s strategy for
-combating cyber threats. Included in this strategy, the White House instructed technical practitioners to
-heed technical reports such as <i>Back to the Building Blocks: A Path Toward Secure and Measurable
-Software</i>.[<a id="x1-1001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240902:coker" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   In February, the National Cyber Director, Harry Coker, presented the White House’s strategy for combating
+cyber threats. Included in this strategy, the White House instructed technical practitioners to heed reports such as
+<i>Back to the Building Blocks: A Path Toward Secure and Measurable Software</i>.[<a id="x1-1001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240902:coker" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]
 </p>
 <!-- l. 3 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A core piece of the White House’s strategy is to “eliminate entire categories of software vulnerabilities” by using
@@ -45,12 +44,13 @@ memory safe programming languages. Rust [is] one example of a memory safe progra
 p. 9]
 </p>
 <!-- l. 5 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   As a software assurance practitioner, I get to review a large amount of “memory-safe” Ada and Rust software. To
-date, only a single project that has been provide to me for review written in either of these languages use only the
-memory safe features of the language. Over 99% of the projects I have reviewed either use <span class="ec-lmtt-10" style="font-family: monospace,monospace;">unchecked_conversions</span>
-in Ada[<a id="x1-1003" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240902:hood" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] or raw pointers in Rust. Frequently, these projects also disable the additional memory safety checks
-explicitly while citing real-time and performance requirements. Contrast this to software written in C++ where it is
-rare but not uncommon to receive a project with enforced coding standards to use smart pointers,
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   As a software assurance practitioner, I get to review a large amount of “memory-safe” Ada software and some
+Rust applications. To date, only a single project that has been provide to me for review written in either of
+these languages use only the memory safe features of the language. Over 99% of the projects I have
+reviewed either use <span class="ec-lmtt-10" style="font-family: monospace,monospace;">unchecked_conversions </span>in Ada[<a id="x1-1003" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240902:hood" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] or raw pointers in Rust. Frequently, these projects
+also disable the additional memory safety checks explicitly while citing real-time and performance
+requirements. Contrast this to software written in C++ where it is not unusual to receive a project with
+enforced coding standards. Some of these coding standards can require developers to use smart pointers,
 RAII concepts, and memory-safe development practices. A C++ program written with such enforced
 coding standards will undoubtedly have fewer memory vulnerabilities than a Rust program using raw
 pointers.
@@ -67,18 +67,18 @@ engineered around the borrow checker.
 <!-- l. 9 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   In conclusion, the White House did a tremendous disservice to the development community by not
 recommending the enforcement of RAII concepts[<a id="x1-1004" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240902:hood2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>], smart pointers, and secure coding standards. Software
-assurance practitioners should be prepared to evaluate Rust and other “memory safe” software applications
-with an additional level of scrutiny in verifying that the memory safety protections have not been
-bypassed. Furthermore, DoD project offices have a history of ignoring memory safety issues when
-software is written in a language such as Ada or Rust, citing misguided directions like this one from the
-White House. When we deliver a report with identified memory overflows, the project office’s reflex is
-to ignore the issue. Project offices will become complacent, and the issues will be swept under the
+assurance practitioners should be prepared to evaluate Rust and other “memory safe” software applications with an
+additional level of scrutiny in verifying that the memory safety protections have not been bypassed.
+Furthermore, DoD project offices have a history of ignoring memory safety issues when software is written
+in a language such as Ada or Rust, citing misguided directions like this one from the White House.
+When we deliver a report with identified memory overflows, the project office’s reflex is frequently to
+ignore the issue. Project offices could become complacent, and the issues may be swept under the
 rug.
 </p>
 <!-- l. 11 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Thirty years from now, some software assurance team is going to get a critical, Rust-developed
-application riddled with assembly and raw pointer memory vulnerabilities and ask why the project office
-did not heed the software assurance scans conducted decades earlier. The project office will answer,
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   In a worst-case scenario, thirty years from now, some software assurance team is going to get a critical,
+Rust-developed application riddled with assembly and raw pointer memory vulnerabilities. They will ask why the
+project office did not heed the software assurance scans conducted decades earlier. The project office will answer,
 “We were told this was a safe language and that we weren’t vulnerable to those issues,”–the same
 excuse we receive from project offices with legacy Ada code today. Hopefully, these project offices
 implement the additional memory safe hardware and formal method recommendations from the White
