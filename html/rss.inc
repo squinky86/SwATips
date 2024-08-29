@@ -45,7 +45,7 @@ p. 9]
 </p>
 <!-- l. 5 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   As a software assurance practitioner, I get to review a large amount of “memory-safe” Ada software and some
-Rust applications. To date, only a single project that has been provide to me for review written in either of
+Rust applications. To date, only a single project that has been provided to me for review written in either of
 these languages use only the memory safe features of the language. Over 99% of the projects I have
 reviewed either use <span class="ec-lmtt-10" style="font-family: monospace,monospace;">unchecked_conversions </span>in Ada[<a id="x1-1003" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20240902:hood" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] or raw pointers in Rust. Frequently, these projects
 also disable the additional memory safety checks explicitly while citing real-time and performance
