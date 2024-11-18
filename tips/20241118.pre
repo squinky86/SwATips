@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Fuzzy Coverage}
+\newcommand{\ArticleDate}{\formatdate{18}{11}{2024}}
+\addbibresource{20241118.bib}

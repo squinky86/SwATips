@@ -1,0 +1,33 @@
+One of the questions we get asked frequently is, ``How much fuzzing is enough?'' This question is usually derived from a DoD mentality of checking the box on cybersecurity activities. With Security Technical Implementation Guides (STIGs), IAVMs, and RMF Control checklists, cybersecurity practitioners can become complacent switching from a compliance checkbox mindset to a true risk management mindset.
+
+Fuzzing is one of the dynamic code analysis tasks permitted in Risk Management Framework (RMF) control SA-11(8). ``Fuzz testing strategies are derived from the intended use of applications and the functional and design specifications for the applications.''\autocite[\pno~279]{20241118:nist80053rev5} While fuzzing is \textit{derived} from functional test cases (such as unit testing or formal qualification testing cases), fuzz testing enters into the security domain by executing varying inputs into functionality test cases. These generated, often mutating inputs are used to identify security-critical bugs and defects in the software. ``More generally, fuzzing is used to demonstrate the presence of bugs rather than their absence.''\autocite{20241118:wikifuzzing} Popular sanitizers for fuzzing include memory related issues (CWE-118 and its children such as buffer overflows {CWE-120}, out-of-bounds access {CWE-125 and CWE-787}, overflows {CWE-190}, and more), race conditions (CWE-362), undefined behavior (CWE-758), and control flow integrity (CWE-691). By providing a hook into an application with a fuzzing harness and given an expected input, a fuzzer can iterate over unexpected and untested inputs rapidly to find cybersecurity issues which may lead to compromise.
+
+Notice how fuzzing is intended to prove a negative: a failed test case indicates a high likelihood that the code has an error. This introduces the first misconception of fuzzing. The reverse is not necessitated: \textbf{the lack of findings from fuzzing does not indicate the absence of defects.} Using fuzz testing as evidence for the lack of cybersecurity defects in software is not one of the main goals for implementing a fuzzing program. When setting up a Software Assurance program, results from fuzz testing should be given very low assurance when it is used as the input to prove that an application is free from defects.
+
+The idea that fuzz testing is a checkbox to complete directly feeds into the second mistake of fuzzing: \textbf{declaring that any amount of fuzzing is enough}. This is most evident when someone asks, ``Did you fuzz the application?'' The correct question is, ``How much of the application are you fuzzing?'' Always be fuzzing. And if it has been a while since the test cases have found anything, consider updating the harnesses to execute tests differently.
+
+Finally, most metrics for fuzz testing in the DoD declare a code coverage percentage that is required for the test harnesses. But \textbf{code coverage is not a meaningful metric for fuzz test completion.} Consider the example in Listing~\ref{lst:20241118:overflow}. If this code were to be harnessed and passed an input of \texttt{Jon}, then 100\%\ of the code is executed but the buffer overflow condition is not detected. Stopping the fuzzing activity when a percentage of code branches are completed or when \texttt{lcov} or \texttt{gcov} return that a certain percentage of the code paths have been executed creates a false sense of security.
+
+\begin{lstlisting}[caption={Simple Buffer Overflow},captionpos=b,style=CStyle,basicstyle=\small,label={lst:20241118:overflow},literate={"}{"}1,upquote=true]
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char buffer[10];
+    printf("Enter your name: ");
+    fgets(buffer, sizeof(buffer), stdin);
+    printf("Hello, %s!\n", buffer);
+    return 0;
+}
+\end{lstlisting}
+
+Instead, experts should review the harnesses to make sure that the critical areas of code are properly being fuzzed continuously. One way to complete this is to do a criticality analysis and functional traceability report into the code, such as the design traceability analysis\autocite[\pno~114]{20241118:ieee1012} and source code traceability analysis\autocite[\pno~119]{20241118:ieee1012}. Leveraging these functionality reviews to define whether the critical parts of the code have been harnessed allows a DoD program office to say, ``Yeah, verily, the fuzzing being conducted by this effort satisfies our fuzzing requirements.''
+
+\subsection*{Summary}
+Remember the misconceptions of fuzzing:
+\begin{itemize}
+    \item The lack of findings from fuzzing does not indicate the absence of defects.
+    \item No amount of fuzzing is ``enough.''
+    \item Code coverage is not a meaningful metric for fuzz test completion.
+\end{itemize}
+
+The right fuzzing program is the one still running against critically important code.
