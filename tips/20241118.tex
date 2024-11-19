@@ -14,7 +14,7 @@ Finally, most metrics for fuzz testing in the DoD declare a code coverage percen
 int main() {
     char buffer[10];
     printf("Enter your name: ");
-    fgets(buffer, sizeof(buffer), stdin);
+    fgets(buffer, 100, stdin);
     printf("Hello, %s!\n", buffer);
     return 0;
 }
