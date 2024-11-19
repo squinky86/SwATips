@@ -1,3 +1,4 @@
+<li>20241118 - <a href="articles/20241118.html">Fuzzy Coverage</a></li>
 <li>20240902 - <a href="articles/20240902.html">Back to the Building Blocks: Codifying Complacency</a></li>
 <li>20240610 - <a href="articles/20240610.html">The Zero Trust Paradox: Second Guessing the Good Guys</a></li>
 <li>20240527 - <a href="articles/20240527.html">Sorry Root, You're Not the Boss of Me!</a></li>
@@ -7,4 +8,3 @@
 <li>20230410 - <a href="articles/20230410.html">Ada Unchecked Conversions</a></li>
 <li>20230403 - <a href="articles/20230403.html">Coverity BAD_CAST</a></li>
 <li>20221017 - <a href="articles/20221017.html">Java, Inner Classes, and Checkmarx Unused Variable Findings</a></li>
-<li>20220919 - <a href="articles/20220919.html">Commercial National Security Algorithm (CNSA) Suite 2.0</a></li>

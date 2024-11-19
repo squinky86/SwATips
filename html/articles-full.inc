@@ -37,3 +37,4 @@
 <li>20240527 - <a href="articles/20240527.html">Sorry Root, You're Not the Boss of Me!</a></li>
 <li>20240610 - <a href="articles/20240610.html">The Zero Trust Paradox: Second Guessing the Good Guys</a></li>
 <li>20240902 - <a href="articles/20240902.html">Back to the Building Blocks: Codifying Complacency</a></li>
+<li>20241118 - <a href="articles/20241118.html">Fuzzy Coverage</a></li>

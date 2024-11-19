@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html xml:lang='en-US' lang='en-US'>
+<head>
+<title>Fuzzy Coverage</title>
+ 
+
+<meta charset="utf-8"/>
+ 
+
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+ 
+
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+ 
+
+ 
+
+<meta content="article.tex" name="src"/>
+ 
+
+<script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
+<style>
+ 
+/* start css.sty */
+.ec-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmr-12{font-size:120%;}
+.ec-lmr-9{font-size:90%;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmr-8{font-size:80%;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmtt-9{font-size:90%; font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{font-size:90%; font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+p{margin-top:0;margin-bottom:0}
+p.indent{text-indent:0;}
+p + p{margin-top:1em;}
+p + div, p + pre {margin-top:1em;}
+div + p, pre + p {margin-top:1em;}
+a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+@media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+img.math{vertical-align:middle;}
+div.par-math-display, div.math-display{text-align:center;}
+body{ margin:1em auto; max-width:80ch; padding:0 .62em; }
+h1,h2,h3,h4,h5 { line-height:1.2; }
+@media print{ body{ max-width:none } }
+.partHead, .likepartHead { font-size: 2em; }
+.chapterHead, .likechapterHead { font-size: 1.7411em; }
+.sectionHead, .likesectionHead { font-size: 1.5157em; }
+.subsectionHead, .likesubsectionHead { font-size: 1.3195em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1.1487em; }
+ @media (prefers-color-scheme: dark) { img[src^="article"]{filter: invert(1); } } 
+ body { background-color: Canvas; color: CanvasText; color-scheme: light dark; } 
+li p.indent { text-indent: 0em }
+li p:first-child{ margin-top:0em; }
+li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
+li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.footnotes{border-top:solid 1px black; border-bottom:solid 1px black; padding-bottom:1ex; padding-top:0.5ex; margin-right:15%; margin-top:2ex; font-style:italic; font-size:85%;}
+div.footnotes p{margin-top:0; margin-bottom:0; text-indent:0;}
+code.verb{font-family:monospace,monospace;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
+.hline:first-child{border-bottom:1px solid black;border-top:none;}
+.tabbing-right {text-align:right;}
+div.float, div.figure {margin-left: auto; margin-right: auto;}
+div.float img {text-align:center;}
+div.figure img {text-align:center;}
+.marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.reversemarginpar{float:left;}
+table.equation {width:100%;}
+.equation td{text-align:center; }
+td.equation { margin-top:1em; margin-bottom:1em; } 
+td.equation-label { width:5%; text-align:center; }
+td.eqnarray4 { width:5%; white-space: normal; }
+td.eqnarray2 { width:5%; }
+table.eqnarray-star, table.eqnarray {width:100%;}
+div.eqnarray{text-align:center;}
+div.array {text-align:center;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.pmatrix img{vertical-align:middle;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.bar-css {text-decoration:overline;}
+img.cdots{vertical-align:middle;}
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption span.id{font-weight: bold; white-space: nowrap; }
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.abstract p {margin-left:5%; margin-right:5%;}
+div.abstract {width:100%;}
+.abstracttitle{text-align:center;margin-bottom:1em;}
+.subsectionToc, .likesubsectionToc {margin-left:1em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:2em;}
+.paragraphToc, .likeparagraphToc {margin-left:3em;}
+.subparagraphToc, .likesubparagraphToc {margin-left:4em;}
+figure.float, div.figure {margin-left: auto; margin-right: auto;}
+figure.figure {text-align:center;}
+figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
+figcaption.caption span.id{font-weight: bold; white-space: nowrap; }
+p + figcaption, img + figcaption{margin-top: 1em;}
+.abstract{margin:1em;}
+dt.printshorthands{float:left; clear:left; margin-right:1em;}
+dd.thebibliography {margin-left: 2.5em;}
+dt.thebibliography {float:left; clear:left; margin-right:1em;}
+code.lstinline{font-family:monospace,monospace;}
+pre.listings{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
+.lstlisting .label{margin-right:0.5em; }
+pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; }
+.lstinputlisting .label{margin-right:0.5em;}
+.small-caps{font-variant: small-caps;}
+.uline,.uline-math{ text-decoration:underline; }
+.uuline,.uuline-math{ text-decoration:underline double; }
+span.sout, .sout-math {text-decoration: line-through }
+span.xout, .xout-math {text-decoration: line-through underline }
+span.uwave, .uwave-math {text-decoration:underline wavy; }
+span.dashuline, .dashuline-math {text-decoration:underline dashed;}
+span.dotuline, .dotuline-math {text-decoration:underline dotted;}
+.rotatebox{display: inline-block;}
+/* end css.sty */
+
+</style>
+</head>
+<body>
+<p><a href="../"><img src="images/swatips.svg" width="120" alt="SwATips" /></a>| <a href="20241118.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="images/by.svg" width="60" height="21" alt="CC-BY" /></a></p>
+<div class='maketitle'>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
+A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0_swatips'>1</a>]<br />
+</h2>
+ <div class='author'><span class='ec-lmr-12'>Jon Hood</span></div><br />
+<div class='date'><span class='ec-lmr-12'>Monday 18</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-12'> November, 2024</span></div>
+</div>
+                                                                                         
+                                                                                         
+   
+<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Fuzzy Coverage</h3>
+<!-- l. 45 --><p class='noindent'><span class='ec-lmr-8'>Updated Monday 18</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> November, 2024</span>
+</p><!-- l. 1 --><p class='indent'>   One of the questions we get asked frequently is, “How much fuzzing is enough?” This question is usually
+derived from a DoD mentality of checking the box on cybersecurity activities. With Security Technical
+Implementation Guides (STIGs), IAVMs, and RMF Control checklists, cybersecurity practitioners
+can become complacent switching from a compliance checkbox mindset to a true risk management
+mindset.
+</p><!-- l. 3 --><p class='indent'>   Fuzzing is one of the dynamic code analysis tasks permitted in Risk Management Framework (RMF) control
+SA-11(8). “Fuzz testing strategies are derived from the intended use of applications and the functional and design
+specifications for the applications.”[<a id='x1-1001'></a><a href='#cite.0_20241118_nist80053rev5'>3</a>, p. 279] While fuzzing is <i>derived</i> from functional test cases (such as unit
+testing or formal qualification testing cases), fuzz testing enters into the security domain by executing varying inputs
+into functionality test cases. These generated, often mutating inputs are used to identify security-critical bugs and
+defects in the software. “More generally, fuzzing is used to demonstrate the presence of bugs rather than their
+absence.”[<a id='x1-1002'></a><a href='#cite.0_20241118_wikifuzzing'>4</a>] Popular sanitizers for fuzzing include memory related issues (CWE-118 and its children such as buffer
+overflows CWE-120, out-of-bounds access CWE-125 and CWE-787, overflows CWE-190, and more), race
+conditions (CWE-362), undefined behavior (CWE-758), and control flow integrity (CWE-691). By
+providing a hook into an application with a fuzzing harness and given an expected input, a fuzzer can
+iterate over unexpected and untested inputs rapidly to find cybersecurity issues which may lead to
+compromise.
+</p><!-- l. 5 --><p class='indent'>   Notice how fuzzing is intended to prove a negative: a failed test case indicates a high likelihood that the code
+has an error. This introduces the first misconception of fuzzing. The reverse is not necessitated: <strong>the
+lack of findings from fuzzing does not indicate the absence of defects.</strong> Using fuzz testing as
+evidence for the lack of cybersecurity defects in software is not one of the main goals for implementing a
+fuzzing program. When setting up a Software Assurance program, results from fuzz testing should
+be given very low assurance when it is used as the input to prove that an application is free from
+defects.
+</p><!-- l. 7 --><p class='indent'>   The idea that fuzz testing is a checkbox to complete directly feeds into the second mistake of fuzzing: <strong>declaring
+that any amount of fuzzing is enough</strong>. This is most evident when someone asks, “Did you fuzz the
+application?” The correct question is, “How much of the application are you fuzzing?” Always be fuzzing. And if it
+has been a while since the test cases have found anything, consider updating the harnesses to execute tests
+differently.
+</p><!-- l. 9 --><p class='indent'>   Finally, most metrics for fuzz testing in the DoD declare a code coverage percentage that is required for the test
+harnesses. But <strong>code coverage is not a meaningful metric for fuzz test completion.</strong> Consider the example in
+Listing <a href='#x1-1003r1'>1<!-- tex4ht:ref: lst:20241118:overflow  --></a>. If this code were to be harnessed and passed an input of <span class='ec-lmtt-10'>Jon</span>, then 100% of the code is executed but the
+buffer overflow condition is not detected. Stopping the fuzzing activity when a percentage of code branches are
+completed or when <span class='ec-lmtt-10'>lcov </span>or <span class='ec-lmtt-10'>gcov </span>return that a certain percentage of the code paths have been executed creates a
+false sense of security.
+</p>   
+<!-- l. 11 -->
+<p><a id='x1-1003r1'></a>
+<a id='x1-1004'></a>   
+</p><pre class='lstlisting' id='listing-1'><span class='label'><a id='x1-1005r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;stdio.h&gt;</span> 
+</span><span class='label'><a id='x1-1006r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;string.h&gt;</span> 
+</span><span class='label'><a id='x1-1007r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main() {</span> 
+</span><span class='label'><a id='x1-1008r4'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>char</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>buffer[10];</span> 
+</span><span class='label'><a id='x1-1009r5'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>printf</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>Enter</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>your name: ");</span> 
+</span><span class='label'><a id='x1-1010r6'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>fgets</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>buffer</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtk-10x-x-90'>sizeof</span><span class='ec-lmtt-9'>(buffer), stdin);</span> 
+</span><span class='label'><a id='x1-1011r7'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>printf</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>Hello</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>%s!\n", buffer);</span> 
+</span><span class='label'><a id='x1-1012r8'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span> 
+</span><span class='label'><a id='x1-1013r9'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 1: </span><span class='content'>Simple Buffer Overflow</span></figcaption><!-- tex4ht:label?: x1-1013r1  -->
+<!-- l. 23 --><p class='indent'>   Instead, experts should review the harnesses to make sure that the critical areas of code are properly being
+fuzzed continuously. One way to complete this is to do a criticality analysis and functional traceability report into
+the code, such as the design traceability analysis[<a id='x1-1014'></a><a href='#cite.0_20241118_ieee1012'>2</a>, p. 114] and source code traceability analysis[<a href='#cite.0_20241118_ieee1012'>2</a>, p. 119].
+Leveraging these functionality reviews to define whether the critical parts of the code have been harnessed allows a
+DoD program office to say, “Yeah, verily, the fuzzing being conducted by this effort satisfies our fuzzing
+requirements.”
+                                                                                         
+                                                                                         
+</p><!-- l. 25 --><p class='noindent'>
+</p>   
+<h4 class='likesubsectionHead'><a id='x1-2000'></a>Summary</h4>
+<!-- l. 26 --><p class='noindent'>Remember the misconceptions of fuzzing: </p>
+<ul class='itemize1'>     
+<li class='itemize'>The lack of findings from fuzzing does not indicate the absence of defects.
+</li>
+<li class='itemize'>No amount of fuzzing is “enough.”
+</li>
+<li class='itemize'>Code coverage is not a meaningful metric for fuzz test completion.</li></ul>
+<!-- l. 33 --><p class='indent'>   The right fuzzing program is the one still running against critically important code.
+                                                                                         
+                                                                                         
+</p>   
+<h3 class='sectionHead'><a id='x1-3000'></a>References</h3>
+<!-- l. 50 --><p class='noindent'>    
+</p>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-swatips'>
+[1]  
+</dt><dd class='thebibliography' id='bib-1'>
+<!-- l. 50 --><p class='noindent'><a id='cite.0_swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt class='thebibliography' id='X0-20241118_ieee1012'>
+[2]  
+</dt><dd class='thebibliography' id='bib-2'>
+<!-- l. 50 --><p class='noindent'><a id='cite.0_20241118_ieee1012'></a>IEEE Standards Association. “IEEE Standard for System, Software, and Hardware Verification and
+Validation”.  In:  <span class='uline'>IEEE  Std  1012-2016  (Revision  of  IEEE  Std  1012-2012/  Incorporates  IEEE  Std
+1012-2016/Cor1-2017)</span> (2017), pp. 1–260. <span class='small-caps'>doi</span>:  <a href='https://doi.org/10.1109/IEEESTD.2017.8055462'>10.1109/IEEESTD.2017.8055462</a>.
+</p>    
+</dd>
+<dt class='thebibliography' id='X0-20241118_nist80053rev5'>
+[3]  
+</dt><dd class='thebibliography' id='bib-3'>
+<!-- l. 50 --><p class='noindent'><a id='cite.0_20241118_nist80053rev5'></a>National Institute of Standards and Technology. <span class='uline'>Security and Privacy Controls for Information Systems
+and         Organizations</span>.         Tech.         rep.         Special         Publication         (SP)         800-53
+Revision 5. Washington, D.C.: U.S. Department of Commerce, 2020. <span class='small-caps'>doi</span>:  <a href='https://doi.org/10.6028/NIST.SP.800-53r5'>10.6028/NIST.SP.800-53r5</a>.
+<span class='small-caps'>url</span>: <a class='url' href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf'><span class='ec-lmtt-10'>https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf</span></a>.
+</p>    
+</dd>
+<dt class='thebibliography' id='X0-20241118_wikifuzzing'>
+[4]  
+</dt><dd class='thebibliography' id='bib-4'>
+<!-- l. 50 --><p class='noindent'><a id='cite.0_20241118_wikifuzzing'></a>Wikipedia
+contributors. <span class='uline'>Fuzzing — Wikipedia, The Free Encyclopedia</span>. [Online; accessed 18-November-2024]. 2024.
+<span class='small-caps'>url</span>: <a class='url' href='https://en.wikipedia.org/w/index.php?title=Fuzzing&amp;oldid=1249540069'><span class='ec-lmtt-10'>https://en.wikipedia.org/w/index.php?title=Fuzzing&amp;oldid=1249540069</span></a>.</p></dd></dl>
+ 
+</body> 
+</html>

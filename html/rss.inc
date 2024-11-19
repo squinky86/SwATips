@@ -1,4 +1,183 @@
 	<item>
+		<title>Fuzzy Coverage</title>
+		<link>https://www.SwATips.com/articles/20241118.html</link>
+		<pubDate>Mon, 18 Nov 2024 00:00:00 -0600</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20241118.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="line-height: 1.2; text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0_swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
+</h2>
+ <div class="author" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
+<div class="date" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Monday 18</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-12" style="font-size: 120%;"> November, 2024</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead" style="line-height: 1.2; font-size: 1.5157em;"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Fuzzy Coverage</h3>
+
+
+<!-- l. 45 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Monday 18</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> November, 2024</span>
+</p>
+<!-- l. 1 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   One of the questions we get asked frequently is, “How much fuzzing is enough?” This question is usually
+derived from a DoD mentality of checking the box on cybersecurity activities. With Security Technical
+Implementation Guides (STIGs), IAVMs, and RMF Control checklists, cybersecurity practitioners
+can become complacent switching from a compliance checkbox mindset to a true risk management
+mindset.
+</p>
+<!-- l. 3 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Fuzzing is one of the dynamic code analysis tasks permitted in Risk Management Framework (RMF) control
+SA-11(8). “Fuzz testing strategies are derived from the intended use of applications and the functional and design
+specifications for the applications.”[<a id="x1-1001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0_20241118_nist80053rev5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>, p. 279] While fuzzing is <i>derived</i> from functional test cases (such as unit
+testing or formal qualification testing cases), fuzz testing enters into the security domain by executing varying inputs
+into functionality test cases. These generated, often mutating inputs are used to identify security-critical bugs and
+defects in the software. “More generally, fuzzing is used to demonstrate the presence of bugs rather than their
+absence.”[<a id="x1-1002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0_20241118_wikifuzzing" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>] Popular sanitizers for fuzzing include memory related issues (CWE-118 and its children such as buffer
+overflows CWE-120, out-of-bounds access CWE-125 and CWE-787, overflows CWE-190, and more), race
+conditions (CWE-362), undefined behavior (CWE-758), and control flow integrity (CWE-691). By
+providing a hook into an application with a fuzzing harness and given an expected input, a fuzzer can
+iterate over unexpected and untested inputs rapidly to find cybersecurity issues which may lead to
+compromise.
+</p>
+<!-- l. 5 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Notice how fuzzing is intended to prove a negative: a failed test case indicates a high likelihood that the code
+has an error. This introduces the first misconception of fuzzing. The reverse is not necessitated: <strong>the
+lack of findings from fuzzing does not indicate the absence of defects.</strong> Using fuzz testing as
+evidence for the lack of cybersecurity defects in software is not one of the main goals for implementing a
+fuzzing program. When setting up a Software Assurance program, results from fuzz testing should
+be given very low assurance when it is used as the input to prove that an application is free from
+defects.
+</p>
+<!-- l. 7 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The idea that fuzz testing is a checkbox to complete directly feeds into the second mistake of fuzzing: <strong>declaring
+that any amount of fuzzing is enough</strong>. This is most evident when someone asks, “Did you fuzz the
+application?” The correct question is, “How much of the application are you fuzzing?” Always be fuzzing. And if it
+has been a while since the test cases have found anything, consider updating the harnesses to execute tests
+differently.
+</p>
+<!-- l. 9 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Finally, most metrics for fuzz testing in the DoD declare a code coverage percentage that is required for the test
+harnesses. But <strong>code coverage is not a meaningful metric for fuzz test completion.</strong> Consider the example in
+Listing <a href="#x1-1003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20241118:overflow  --></a>. If this code were to be harnessed and passed an input of <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Jon</span>, then 100% of the code is executed but the
+buffer overflow condition is not detected. Stopping the fuzzing activity when a percentage of code branches are
+completed or when <span class="ec-lmtt-10" style="font-family: monospace,monospace;">lcov </span>or <span class="ec-lmtt-10" style="font-family: monospace,monospace;">gcov </span>return that a certain percentage of the code paths have been executed creates a
+false sense of security.
+</p>
+   
+
+<!-- l. 11 -->
+
+
+<p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-1003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
+<a id="x1-1004" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>   
+</p>
+<pre class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: pre-wrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-1005r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">#</span></span><span style="color:#000000"><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">include</span></span><span style="color:#000000"> <span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">&lt;stdio.h&gt;</span> 
+</span><span class="label" style="margin-right: 0.5em;"><a id="x1-1006r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">#</span></span><span style="color:#000000"><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">include</span></span><span style="color:#000000"> <span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">&lt;string.h&gt;</span> 
+</span><span class="label" style="margin-right: 0.5em;"><a id="x1-1007r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">int</span></span><span style="color:#000000"> <span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">main() {</span> 
+</span><span class="label" style="margin-right: 0.5em;"><a id="x1-1008r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">    </span><span style="color:#000000"><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">char</span></span><span style="color:#000000"> <span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">buffer[10];</span> 
+</span><span class="label" style="margin-right: 0.5em;"><a id="x1-1009r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">    </span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">printf</span></span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">(</span></span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">"</span></span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">Enter</span></span><span style="color:#000000"> <span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">your name: ");</span> 
+</span><span class="label" style="margin-right: 0.5em;"><a id="x1-1010r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">    </span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">fgets</span></span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">(</span></span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">buffer</span></span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">,</span></span><span style="color:#000000"> <span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">sizeof</span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">(buffer), stdin);</span> 
+</span><span class="label" style="margin-right: 0.5em;"><a id="x1-1011r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">    </span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">printf</span></span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">(</span></span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">"</span></span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">Hello</span></span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">,</span></span><span style="color:#000000"> <span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">%s!\n", buffer);</span> 
+</span><span class="label" style="margin-right: 0.5em;"><a id="x1-1012r8" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">    </span><span style="color:#000000"><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">return</span></span><span style="color:#000000"> <span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">0;</span> 
+</span><span class="label" style="margin-right: 0.5em;"><a id="x1-1013r9" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">}</span></span></pre>
+
+
+<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1: </span><span class="content">Simple Buffer Overflow</span></figcaption>
+<!-- tex4ht:label?: x1-1013r1  -->
+
+
+<!-- l. 23 -->
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   Instead, experts should review the harnesses to make sure that the critical areas of code are properly being
+fuzzed continuously. One way to complete this is to do a criticality analysis and functional traceability report into
+the code, such as the design traceability analysis[<a id="x1-1014" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0_20241118_ieee1012" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>, p. 114] and source code traceability analysis[<a href="#cite.0_20241118_ieee1012" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>, p. 119].
+Leveraging these functionality reviews to define whether the critical parts of the code have been harnessed allows a
+DoD program office to say, “Yeah, verily, the fuzzing being conducted by this effort satisfies our fuzzing
+requirements.”
+                                                                                         
+                                                                                         
+</p>
+<!-- l. 25 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
+</p>
+   
+
+<h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-2000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Summary</h4>
+
+
+<!-- l. 26 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Remember the misconceptions of fuzzing: </p>
+
+
+<ul class="itemize1">     
+<li class="itemize">The lack of findings from fuzzing does not indicate the absence of defects.
+</li>
+<li class="itemize">No amount of fuzzing is “enough.”
+</li>
+<li class="itemize">Code coverage is not a meaningful metric for fuzz test completion.</li></ul>
+
+
+<!-- l. 33 -->
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   The right fuzzing program is the one still running against critically important code.
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h3 class="sectionHead" style="line-height: 1.2; font-size: 1.5157em;"><a id="x1-3000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 50 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0_swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="uline" style="text-decoration: underline;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20241118_ieee1012" style="float: left; clear: left; margin-right: 1em;">
+[2]  
+</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0_20241118_ieee1012" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>IEEE Standards Association. “IEEE Standard for System, Software, and Hardware Verification and
+Validation”.  In:  <span class="uline" style="text-decoration: underline;">IEEE  Std  1012-2016  (Revision  of  IEEE  Std  1012-2012/  Incorporates  IEEE  Std
+1012-2016/Cor1-2017)</span> (2017), pp. 1–260. <span class="small-caps" style="font-variant: small-caps;">doi</span>:  <a href="https://doi.org/10.1109/IEEESTD.2017.8055462" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">10.1109/IEEESTD.2017.8055462</a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20241118_nist80053rev5" style="float: left; clear: left; margin-right: 1em;">
+[3]  
+</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0_20241118_nist80053rev5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>National Institute of Standards and Technology. <span class="uline" style="text-decoration: underline;">Security and Privacy Controls for Information Systems
+and         Organizations</span>.         Tech.         rep.         Special         Publication         (SP)         800-53
+Revision 5. Washington, D.C.: U.S. Department of Commerce, 2020. <span class="small-caps" style="font-variant: small-caps;">doi</span>:  <a href="https://doi.org/10.6028/NIST.SP.800-53r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">10.6028/NIST.SP.800-53r5</a>.
+<span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20241118_wikifuzzing" style="float: left; clear: left; margin-right: 1em;">
+[4]  
+</dt><dd class="thebibliography" id="bib-4" style="margin-left: 2.5em;">
+<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0_20241118_wikifuzzing" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Wikipedia
+contributors. <span class="uline" style="text-decoration: underline;">Fuzzing — Wikipedia, The Free Encyclopedia</span>. [Online; accessed 18-November-2024]. 2024.
+<span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://en.wikipedia.org/w/index.php?title=Fuzzing&amp;oldid=1249540069" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://en.wikipedia.org/w/index.php?title=Fuzzing&amp;oldid=1249540069</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>Back to the Building Blocks: Codifying Complacency</title>
 		<link>https://www.SwATips.com/articles/20240902.html</link>
 		<pubDate>Mon, 02 Sep 2024 00:00:00 -0500</pubDate>
@@ -1553,356 +1732,6 @@ may have been flagged in <span class="ec-lmtt-10" style="font-family: monospace,
 [1]  
 </dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
 <!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips.     <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
-
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>Commercial National Security Algorithm (CNSA) Suite 2.0</title>
-		<link>https://www.SwATips.com/articles/20220919.html</link>
-		<pubDate>Mon, 19 Sep 2022 00:00:00 -0500</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20220919.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>]<br/>
-</h2>
-<div class="author" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
-<div class="date" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Monday 19</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-12" style="font-size: 120%;"> September, 2022</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead" id="commercial-national-security-algorithm-cnsa-suite-"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Commercial National Security Algorithm (CNSA) Suite 2.0</h3>
-
-
-<!-- l. 44 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Friday 23</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">rd</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> September, 2022</span>
-</p>
-<!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   As the government switches to quantum-resistant and post-quantum cryptographic algorithms, the CNSA suite
-(formerly Suite-B algorithms) is undergoing some changes with a new release: version 2.0. This release of the CNSA
-suite includes the following information:[<a id="x1-1001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20220919:cnsa" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>] </p>
-
-
-<ul class="itemize1">     
-<li class="itemize">a requirement to be compliant and support these algorithms by 2035
-</li>
-<li class="itemize">     
-<!-- l. 4 --><p class="noindent" style="margin-top: 0em; margin-bottom: 0;">a requirement to use NIST 800-208 for application signing which includes: </p>
-<ul class="itemize2" style="margin-bottom: 0.5em;">         
-<li class="itemize">a recommendation to use at least LMS with the SHA-256/192 parameters or XMSS with any
-parameters
-</li>
-<li class="itemize">deprecation of all other algorithms by 2025 (2030 for current deployments)</li></ul>
-</li>     
-<li class="itemize">a requirement to use FIPS PUB 197 for symmetric block cipher encryption, requiring 256-bit keys (systems
-should already be doing this)
-</li>
-<li class="itemize">a requirement to use FIPS PUB 180-4 for hashing, requiring either the SHA-384 or SHA-512 algorithms
-(systems should already be doing this)
-</li>
-<li class="itemize">a requirement to use CRYSTALS-Kyber for public-key encryption, requiring Level V parameters and a
-deprecation of RSA, DH, and ECC once implemented by 2035
-</li>
-<li class="itemize">a requirement to use CRYSTALS-Dilithium for digital signatures by 2035</li></ul>
-
-
-<!-- l. 15 -->
-<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   Navigating these new requirements imposes a technical hurdle, and acquisition managers should prepare for this
-move in their timelines. This article attempts to help explain the requirements at a technical level to help drive the
-transition. At the time of this writing, the algorithms in CNSA 2.0 are not included in any mainline cryptography
-libraries. For the examples, the Open Quantum Safe (OQS) Project OpenSSL 1.1.1-stable snapshot 2022-08 (
-<a class="url" href="https://github.com/open-quantum-safe/openssl/releases/tag/OQS-OpenSSL-1_1_1-stable-snapshot-2022-08" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://github.com/open-quantum-safe/openssl/releases/tag/OQS-OpenSSL-1_1_1-stable-snapshot-2022-08</span></a>)
-is used on a vanilla Ubuntu 22.04 installation, and the reference implementations for all algorithms are used for key
-implementation.
-                                                                                         
-                                                                                         
-</p>
-<!-- l. 17 -->
-<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
-</p>
-   
-
-<h4 class="subsectionHead" id="software-and-firmware-signing"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Software and Firmware Signing</h4>
-
-
-<!-- l. 18 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Software and firmware signing can begin transitioning to CNSA 2.0 immediately with plans to retire CNSA 1.0
-support.
-</p>
-   
-
-<div class="table" style="margin-top: 1em;">
-                                                                                         
-                                                                                         
-<!-- l. 21 --><p class="indent" id="-software-and-firmware-signing-algorithms-cnsa-vs-" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   <a id="x1-20011" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p><figure class="float" style="margin-left: auto; margin-right: auto;">
-                                                                                         
-                                                                                         
-<div class="tabular" style="text-align: center; margin-top: 0.5em; margin-bottom: 0.5em;"> <table class="tabular" id="TBL-2" style="border-collapse: collapse; border-spacing: 0; margin-left: auto; margin-right: auto;"><colgroup id="TBL-2-1g"><col id="TBL-2-1" style="border-left: 1px solid black; border-right: 1px solid black;"/></colgroup><colgroup id="TBL-2-2g"><col id="TBL-2-2" style="border-right: 1px solid black;"/></colgroup><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-2-1-" style="vertical-align:baseline;"><td class="td11" id="TBL-2-1-1" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 23 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 1.0</strong>                                                </p></td>
-                                               <td class="td11" id="TBL-2-1-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 23 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 2.0</strong>                                                </p></td></tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-2-2-" style="vertical-align:baseline;"><td class="td 11" id="TBL-2-2-1" style="white-space:normal; text-align:left;"><!-- l. 25 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Elliptic Curve Digital Signature Algorithm (ECDSA)
-using P-384<br class="newline"/>Rivest-Shamir-Adleman    (RSA)    using    minimum
-3072-bit modulus                                                 </p></td>
-                                               <td class="td11" id="TBL-2-2-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 25 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Leighton-Micali Signature (LMS)<br class="newline"/>Xtended Merkle Signature Scheme (XMSS)             </p></td>
-</tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr></table></div>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Table 1: </span><span class="content">Software and Firmware Signing Algorithms: CNSA 1.0 vs 2.0</span></figcaption><!-- tex4ht:label?: x1-20011  -->
-                                                                                         
-                                                                                         
-   
-</figure>
-</div>
-
-
-<!-- l. 31 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Current PKI infrastructure in the DoD only supports using RSA for digital signatures. Nevertheless, the LMS
-reference implementation includes LMS key generation and signature verification for LMS with SHA-256, one of the
-permitted signature algorithms in NIST SP 800-208.[<a id="x1-2002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20220919:800-208" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, § 4.1] Using the demo application that is available with the
-reference from     <a class="url" href="https://github.com/cisco/hash-sigs" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://github.com/cisco/hash-sigs</span></a>, an application/firmware hashing mechanism can be
-implemented:
-</p>
-   
-
-<!-- l. 33 -->
-
-
-<p id="-lms-signature-of-myappexe" style="margin-bottom: 0; margin-top: 1em;"><a id="x1-2003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-<a id="x1-2004" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>   
-</p>
-<pre class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-2005r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>1</span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">./demo </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">genkey </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10/8,5/1</span></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/> 
-<span class="label" style="margin-right: 0.5em;"><a id="x1-2006r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>2</span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">./demo </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">sign </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">myapp.exe</span></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><br/> 
-<span class="label" style="margin-right: 0.5em;"><a id="x1-2007r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>3</span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">./demo </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">verify </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">myapp.exe</span></span></pre>
-
-
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 1: </span><span class="content">LMS Signature of myapp.exe</span></figcaption>
-<!-- tex4ht:label?: x1-2007r1  -->
-
-
-<!-- l. 39 -->
-<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   Line 1 will generate a <span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey.prv </span>and a <span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey.pub </span>file using 2 levels of Merkle trees. The first level has a height
-of 10 and Winternitz parameter of 8, and the second level a height of 5 and Winternitz parameter of 1. The NIST
-800-208 standard permits Merkle tree heights of 5, 10, 15, 20, or 25, and RFC 8554 specifies that the Winternitz
-parameter may be 1, 2, 4, or 8. There are limits to the number of signatures an LMS key can be used
-for, and higher Merkle tree heights can take a long time to generate a key (it took nearly 2 hours
-for me to generate a key with <i>h</i> = 25). At <i>h</i> = 5, the key is only good for a handful of signatures.
-Generally speaking, larger Merkle tree heights take longer to generate but can be safely used for more
-signatures. Higher Winternitz parameters minimize the signature size while increasing the time. RFC
-8554 documents that a single Merkle tree level generated with <span class="ec-lmtt-10" style="font-family: monospace,monospace;">15/8 </span>will be good for about 30,000
-signatures, while a 2-level Merkle tree generated with <span class="ec-lmtt-10" style="font-family: monospace,monospace;">25/8,15/8 </span>would be good for more than 1 trillion
-signatures.
-</p>
-<!-- l. 41 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Line 2 signs a file (in this case, an executable) using <span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey.prv</span>. This generates a <span class="ec-lmtt-10" style="font-family: monospace,monospace;">myapp.exe.sig </span>file with
-the signature. An additional note of caution should be made: each signature advances the private
-key. <span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey.prv </span>changes after every valid signature. If signatures are generated using the same key
-information more than once, the security of those hashes may leak information about the private key.
-Backing up the private key is not sufficient: a backup solution must back up the key <i>with the number of
-signatures that have been made using it</i>, and a restoration process must advance the key by that many
-signatures.
-</p>
-<!-- l. 43 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Line 3 only needs to have <span class="ec-lmtt-10" style="font-family: monospace,monospace;">mykey.pub </span>present to verify the signature on another machine.
-</p>
-   
-
-<h4 class="subsectionHead" id="symmetric-key-algorithms"><span class="titlemark">1.2   </span> <a id="x1-30001.2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Symmetric Key Algorithms</h4>
-
-
-<!-- l. 48 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">No change is made between CNSA 1.0 and CNSA 2.0 for symmetric block ciphers. AES with 256-bit keys is the only
-algorithm permitted.
-</p>
-   
-
-<div class="table" style="margin-top: 1em;">
-                                                                                         
-                                                                                         
-<!-- l. 51 --><p class="indent" id="-symmetric-block-ciphers-cnsa-vs-" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   <a id="x1-30012" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p><figure class="float" style="margin-left: auto; margin-right: auto;">
-                                                                                         
-                                                                                         
-<div class="tabular" style="text-align: center; margin-top: 0.5em; margin-bottom: 0.5em;"> <table class="tabular" id="TBL-3" style="border-collapse: collapse; border-spacing: 0; margin-left: auto; margin-right: auto;"><colgroup id="TBL-3-1g"><col id="TBL-3-1" style="border-left: 1px solid black; border-right: 1px solid black;"/></colgroup><colgroup id="TBL-3-2g"><col id="TBL-3-2" style="border-right: 1px solid black;"/></colgroup><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-3-1-" style="vertical-align:baseline;"><td class="td11" id="TBL-3-1-1" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 53 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 1.0</strong>                                                </p></td>
-                                               <td class="td11" id="TBL-3-1-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 53 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 2.0</strong>                                                </p></td></tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-3-2-" style="vertical-align:baseline;"><td class="td 11" id="TBL-3-2-1" style="white-space:normal; text-align:left;"><!-- l. 55 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Advanced Encryption Standard (AES) using 256-bit
-keys                                                                  </p></td><td class="td11" id="TBL-3-2-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 55 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Advanced Encryption Standard (AES) using 256-bit
-keys                                                                 </p></td>
-</tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr></table></div>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Table 2: </span><span class="content">Symmetric Block Ciphers: CNSA 1.0 vs 2.0</span></figcaption><!-- tex4ht:label?: x1-30012  -->
-                                                                                         
-                                                                                         
-   
-</figure>
-</div>
-   
-
-<h4 class="subsectionHead" id="hashing"><span class="titlemark">1.3   </span> <a id="x1-40001.3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Hashing</h4>
-
-
-<!-- l. 63 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">CNSA 2.0 officially adds SHA-512 as an approved hash, but continues to permit SHA-384 as an approved hashing
-algorithm. </p>
-<div class="table" style="margin-top: 1em;">
-                                                                                         
-                                                                                         
-<!-- l. 65 --><p class="indent" id="-hashing-cnsa-vs-" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   <a id="x1-40013" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p><figure class="float" style="margin-left: auto; margin-right: auto;">
-                                                                                         
-                                                                                         
-<div class="tabular" style="text-align: center; margin-top: 0.5em; margin-bottom: 0.5em;"> <table class="tabular" id="TBL-4" style="border-collapse: collapse; border-spacing: 0; margin-left: auto; margin-right: auto;"><colgroup id="TBL-4-1g"><col id="TBL-4-1" style="border-left: 1px solid black; border-right: 1px solid black;"/></colgroup><colgroup id="TBL-4-2g"><col id="TBL-4-2" style="border-right: 1px solid black;"/></colgroup><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-4-1-" style="vertical-align:baseline;"><td class="td11" id="TBL-4-1-1" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 67 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 1.0</strong>                                                </p></td>
-                                               <td class="td11" id="TBL-4-1-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 67 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 2.0</strong>                                                </p></td></tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-4-2-" style="vertical-align:baseline;"><td class="td 11" id="TBL-4-2-1" style="white-space:normal; text-align:left;"><!-- l. 69 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Secure Hash Algorithm 2 (SHA-2) with 384-bit digests
-(SHA-384)                                                         </p></td><td class="td11" id="TBL-4-2-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 69 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Secure  Hash  Algorithm  2  (SHA-2)  with  384-bit  or
-512-bit digests (SHA-384 or SHA-512)                    </p></td>
-</tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr></table></div>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Table 3: </span><span class="content">Hashing: CNSA 1.0 vs 2.0</span></figcaption><!-- tex4ht:label?: x1-40013  -->
-                                                                                         
-                                                                                         
-   
-</figure>
-</div>
-
-
-<!-- l. 75 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Some may notice that internal hashes in the software and firmware signing algorithms use smaller hash sizes or
-different hashing algorithms. For example, LMS permits the use of SHAKE-256, one of the unapproved SHA-3
-algorithms from FIPS 202, internally. “NSA has no concerns about this, but does not anticipate approving SHA-3
-algorithms for general-purpose use at this time.”[<a id="x1-4002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20220919:cnsafaq" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>]
-</p>
-   
-
-<h4 class="subsectionHead" id="asymmetric-digital-signatures-and-key-establishment"><span class="titlemark">1.4   </span> <a id="x1-50001.4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Asymmetric Digital Signatures and Key Establishment</h4>
-
-
-<!-- l. 79 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">CNSA 2.0 deprecates all of the algorithms of CNSA 1.0, requiring the use of the CRYSTALS-Dilithium algorithm.
-</p>
-<div class="table" style="margin-top: 1em;">
-                                                                                         
-                                                                                         
-<!-- l. 81 --><p class="indent" id="-asymmetric-digital-signature-and-key-establishment-cnsa-vs-" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   <a id="x1-50014" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></p><figure class="float" style="margin-left: auto; margin-right: auto;">
-                                                                                         
-                                                                                         
-<div class="tabular" style="text-align: center; margin-top: 0.5em; margin-bottom: 0.5em;"> <table class="tabular" id="TBL-5" style="border-collapse: collapse; border-spacing: 0; margin-left: auto; margin-right: auto;"><colgroup id="TBL-5-1g"><col id="TBL-5-1" style="border-left: 1px solid black; border-right: 1px solid black;"/></colgroup><colgroup id="TBL-5-2g"><col id="TBL-5-2" style="border-right: 1px solid black;"/></colgroup><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-5-1-" style="vertical-align:baseline;"><td class="td11" id="TBL-5-1-1" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 83 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 1.0</strong>                                                </p></td>
-                                               <td class="td11" id="TBL-5-1-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 83 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;"><strong>CNSA 2.0</strong>                                                </p></td></tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr><tr id="TBL-5-2-" style="vertical-align:baseline;"><td class="td 11" id="TBL-5-2-1" style="white-space:normal; text-align:left;"><!-- l. 85 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">Rivest-Shamir-Adleman    (RSA)    with    minimum
-3072-bit modulus<br class="newline"/>Elliptic Curve Digital Signature Algorithm (ECDSA)
-using curve P-384<br class="newline"/>Diffie-Hellman  (DH)  Key  Exchange  with  minimum
-3072-bit modulus<br class="newline"/>Elliptic Curve Diffie-Hellman (ECDH) Key Exchange
-using curve P-384                                                </p></td>
-                                               <td class="td11" id="TBL-5-2-2" style="padding-left: 5pt; padding-right: 5pt; white-space: normal; text-align: left;" align="left"><!-- l. 85 --><p class="noindent" style="margin-bottom: 0em; margin-top: 0em;">CRYSTALS-Kyber at Level V<br class="newline"/>CRYSTALS-Dilithium at Level V                          </p></td>
-</tr><tr class="hline" style="border-top: 1px solid black;"><td style="padding: 0;"/><td style="padding: 0;"/></tr></table></div>
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Table 4: </span><span class="content">Asymmetric Digital Signature and Key Establishment: CNSA 1.0 vs 2.0</span></figcaption><!-- tex4ht:label?: x1-50014  -->
-                                                                                         
-                                                                                         
-   
-</figure>
-</div>
-
-
-<!-- l. 91 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   To achieve NIST Level V functionality for the CRYSTALS-Kyber algorithm, the CRYSTALS-Kyber parameters
-must be set to use K<span class="small-caps" style="font-variant: small-caps;">yber</span>1024 or K<span class="small-caps" style="font-variant: small-caps;">yber</span>1024-90s. While both parameter sets are permitted by CNSA 2.0,
-K<span class="small-caps" style="font-variant: small-caps;">yber</span>1024 uses SHAKE and SHA-3 internally, both of which, on their own, are unapproved algorithms. Instead,
-K<span class="small-caps" style="font-variant: small-caps;">yber</span>1024-90s uses AES-256-CTR and SHA-2 internally, using SHAKE-256 only for the Extendable-Output
-Function (XOF).
-</p>
-<!-- l. 93 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Amazon Web Services (AWS) and the Open Quantum Safe (OQS) project implement CRYSTALS. While
-production implementations are not recommended yet, configuring the OQS port of OpenSSL so that it uses
-CRYSTALS-Kyber can be done with the command in Listing <a href="#x1-5002r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2<!-- tex4ht:ref: lst:20220919:kyber  --></a>. This will configure OpenSSL to use the CNSA 2.0
-implementations of K<span class="small-caps" style="font-variant: small-caps;">yber</span>1024.
-</p>
-   
-
-<!-- l. 95 -->
-
-
-<p id="-configuring-openssl-tls-for-using-crystalskyber" style="margin-bottom: 0; margin-top: 1em;"><a id="x1-5002r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-<a id="x1-5003" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>   
-</p>
-<pre class="lstlisting" id="listing-2" style="font-family: monospace,monospace; white-space: nowrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-5004r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">./Configure </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-DOQS_DEFAULT_GROUPS="kyber1024,p521_kyber1024,kyber90s1024,p521_kyber90s1024"</span></span></pre>
-
-
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 2: </span><span class="content">Configuring OpenSSL TLS 1.3 for using CRYSTALS-Kyber</span></figcaption>
-<!-- tex4ht:label?: x1-5004r1  -->
-
-
-<!-- l. 99 -->
-<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   You may notice that the implementation in OQS OpenSSL includes key exchange using ECDH with the P-521
-curve, a curve not permitted under CNSA 1.0 and 2.0. There is not yet a reference implementation for OQS
-using CRYSTALS-Dilithium; however, we should see updates to the standard to implement this soon.
-Currently, only the Dilthium5 parameter sets achieve NIST Level V functionality. Currently, both
-Dilithium5 and Dilithium5-AES (where AES-256-CTR and SHA-2 are used instead of SHAKE-256)
-achieve the CNSA 2.0 parameter goals. This creates a public key of 2592-bytes and a secret key of
-4864-bytes.
-</p>
-<!-- l. 101 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   During the CNSA 1.0 to 2.0 transition, there will likely be several years where both implementations continue to
-exist. During this time period, expect to see several hybrid implementations (such as K<span class="small-caps" style="font-variant: small-caps;">yber</span>’s “90s” parameter sets
-and Dilthium’s AES algorithm options. These will likely begin to fade out of use as the 1.0 suite continues its slow
-march to obsolescence.
-</p>
-   
-
-<h4 class="subsectionHead" id="conclusion"><span class="titlemark">1.5   </span> <a id="x1-60001.5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusion</h4>
-
-
-<!-- l. 104 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">We are likely more than a decade away from seeing CNSA-2.0-only implementations; however, for project
-acquisitions and contract writers, it may be necessary to plan for these architecture changes before the next contract
-awards. The CNSA 2.0 implementation timeline indicates that the hybrid approaches will start rolling out
-in the 2025 timeframe with preference given to the 2.0 algorithms over the 1.0 algorithms by 2030.
-Finally, we should see the obsolescence of 1.0 as it is replaced with 2.0-only implementations in the
-2033-2035 timeframe. As with most government mandates, expect delays, but prepare for the best. We’ll
-know if the timeline is on-track if the final CRYSTALS parameter sets are published by the end of
-2024.
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead" id="references"><a id="x1-70001.5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 49 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt class="thebibliography" id="X0-20220919:800-208" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220919:800-208" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>David Cooper et al. Recommendation for Stateful Hash-Based Signature Schemes. Tech. rep. Special
-Publication                             (SP)                             800-208.                             Washington,
-D.C.: National Institute of Standards and Technology, 2020. <span class="small-caps" style="font-variant: small-caps;">doi</span>: <a href="https://doi.org/10.6028/NIST.SP.800-208" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">10.6028/NIST.SP.800-208</span></a>. <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a class="url" href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-208.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-208.pdf</span></a>.
-</p>    
-</dd>
-<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
-[2]  
-</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. SwATips.     <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
-</p>    
-</dd>
-<dt class="thebibliography" id="X0-20220919:cnsa" style="float: left; clear: left; margin-right: 1em;">
-[3]  
-</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220919:cnsa" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>National
-Security Agency. “Announcing the Commercial National Security Algorithm Suite 2.0”. In: (2022). <span class="small-caps" style="font-variant: small-caps;">url</span>:
-<a class="url" href="https://media.defense.gov/2022/Sep/07/2003071834/-1/-1/0/CSA_CNSA_2.0_ALGORITHMS_.PDF" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://media.defense.gov/2022/Sep/07/2003071834/-1/-1/0/CSA_CNSA_2.0_ALGORITHMS_.PDF</span></a>.
-</p>    
-</dd>
-<dt class="thebibliography" id="X0-20220919:cnsafaq" style="float: left; clear: left; margin-right: 1em;">
-[4]  
-</dt><dd class="thebibliography" id="bib-4" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20220919:cnsafaq" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>National                                                   Security                                                   Agency.
-“The Commercial National Security Algorithm Suite 2.0 and Quantum Computing FAQ”. In: (2022).
-<span class="small-caps" style="font-variant: small-caps;">url</span>:     <a class="url" href="https://media.defense.gov/2022/Sep/07/2003071836/-1/-1/0/CSI_CNSA_2.0_FAQ_.PDF" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://media.defense.gov/2022/Sep/07/2003071836/-1/-1/0/CSI_CNSA_2.0_FAQ_.PDF</span></a>.</p></dd></dl>
 
  
 
