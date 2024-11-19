@@ -103,7 +103,7 @@ false sense of security.
 fuzzed continuously. One way to complete this is to do a criticality analysis and functional traceability report into
 the code, such as the design traceability analysis[<a id="x1-1014" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0_20241118_ieee1012" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>, p. 114] and source code traceability analysis[<a href="#cite.0_20241118_ieee1012" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>, p. 119].
 Leveraging these functionality reviews to define whether the critical parts of the code have been harnessed allows a
-DoD program office to say, “Yeah, verily, the fuzzing being conducted by this effort satisfies our fuzzing
+DoD program office to say, “Yea, verily, the fuzzing being conducted by this effort satisfies our fuzzing
 requirements.”
                                                                                          
                                                                                          
