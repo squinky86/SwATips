@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html xml:lang='en-US' lang='en-US'>
+<head>
+<title>Defensive Development Plans</title>
+ 
+
+<meta charset="utf-8"/>
+ 
+
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+ 
+
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+ 
+
+ 
+
+<meta content="article.tex" name="src"/>
+ 
+
+<script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
+<style>
+ 
+/* start css.sty */
+.ec-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmr-12{font-size:120%;}
+.ec-lmr-9{font-size:90%;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmr-8{font-size:80%;}
+.ec-lmtt-9{font-size:90%; font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{font-size:90%; font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+p{margin-top:0;margin-bottom:0}
+p.indent{text-indent:0;}
+p + p{margin-top:1em;}
+p + div, p + pre {margin-top:1em;}
+div + p, pre + p {margin-top:1em;}
+a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+@media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+img.math{vertical-align:middle;}
+div.par-math-display, div.math-display{text-align:center;}
+body{ margin:1em auto; max-width:80ch; padding:0 .62em; }
+h1,h2,h3,h4,h5 { line-height:1.2; }
+@media print{ body{ max-width:none } }
+.partHead, .likepartHead { font-size: 2em; }
+.chapterHead, .likechapterHead { font-size: 1.7411em; }
+.sectionHead, .likesectionHead { font-size: 1.5157em; }
+.subsectionHead, .likesubsectionHead { font-size: 1.3195em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1.1487em; }
+ @media (prefers-color-scheme: dark) { img[src^="article"]{filter: invert(1); } } 
+ body { background-color: Canvas; color: CanvasText; color-scheme: light dark; } 
+li p.indent { text-indent: 0em }
+li p:first-child{ margin-top:0em; }
+li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
+li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.footnotes{border-top:solid 1px black; border-bottom:solid 1px black; padding-bottom:1ex; padding-top:0.5ex; margin-right:15%; margin-top:2ex; font-style:italic; font-size:85%;}
+div.footnotes p{margin-top:0; margin-bottom:0; text-indent:0;}
+code.verb{font-family:monospace,monospace;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
+.hline:first-child{border-bottom:1px solid black;border-top:none;}
+.tabbing-right {text-align:right;}
+div.float, div.figure {margin-left: auto; margin-right: auto;}
+div.float img {text-align:center;}
+div.figure img {text-align:center;}
+.marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.reversemarginpar{float:left;}
+table.equation {width:100%;}
+.equation td{text-align:center; }
+td.equation { margin-top:1em; margin-bottom:1em; } 
+td.equation-label { width:5%; text-align:center; }
+td.eqnarray4 { width:5%; white-space: normal; }
+td.eqnarray2 { width:5%; }
+table.eqnarray-star, table.eqnarray {width:100%;}
+div.eqnarray{text-align:center;}
+div.array {text-align:center;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.pmatrix img{vertical-align:middle;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.bar-css {text-decoration:overline;}
+img.cdots{vertical-align:middle;}
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption span.id{font-weight: bold; white-space: nowrap; }
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.abstract p {margin-left:5%; margin-right:5%;}
+div.abstract {width:100%;}
+.abstracttitle{text-align:center;margin-bottom:1em;}
+.subsectionToc, .likesubsectionToc {margin-left:1em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:2em;}
+.paragraphToc, .likeparagraphToc {margin-left:3em;}
+.subparagraphToc, .likesubparagraphToc {margin-left:4em;}
+figure.float, div.figure {margin-left: auto; margin-right: auto;}
+figure.figure {text-align:center;}
+figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
+figcaption.caption span.id{font-weight: bold; white-space: nowrap; }
+p + figcaption, img + figcaption{margin-top: 1em;}
+.abstract{margin:1em;}
+dt.printshorthands{float:left; clear:left; margin-right:1em;}
+dd.thebibliography {margin-left: 2.5em;}
+dt.thebibliography {float:left; clear:left; margin-right:1em;}
+code.lstinline{font-family:monospace,monospace;}
+pre.listings{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
+.lstlisting .label{margin-right:0.5em; }
+pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; }
+.lstinputlisting .label{margin-right:0.5em;}
+.small-caps{font-variant: small-caps;}
+.uline,.uline-math{ text-decoration:underline; }
+.uuline,.uuline-math{ text-decoration:underline double; }
+span.sout, .sout-math {text-decoration: line-through }
+span.xout, .xout-math {text-decoration: line-through underline }
+span.uwave, .uwave-math {text-decoration:underline wavy; }
+span.dashuline, .dashuline-math {text-decoration:underline dashed;}
+span.dotuline, .dotuline-math {text-decoration:underline dotted;}
+.rotatebox{display: inline-block;}
+/* end css.sty */
+
+</style>
+</head>
+<body>
+<p><a href="../"><img src="images/swatips.svg" width="120" alt="SwATips" /></a>| <a href="20250127.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="images/by.svg" width="60" height="21" alt="CC-BY" /></a></p>
+<div class='maketitle'>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
+A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0_swatips'>1</a>]<br />
+</h2>
+ <div class='author'><span class='ec-lmr-12'>Jon Hood</span></div><br />
+<div class='date'><span class='ec-lmr-12'>Monday 27</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-12'> January, 2025</span></div>
+</div>
+                                                                                         
+                                                                                         
+   
+<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Defensive Development Plans</h3>
+<!-- l. 45 --><p class='noindent'><span class='ec-lmr-8'>Updated Thursday 23</span><sup class='textsuperscript'><span class='ec-lmr-9'>rd</span></sup><span class='ec-lmr-8'> January, 2025</span>
+</p><!-- l. 1 --><p class='indent'>   A Software Development Plan should be well-structured and implement secure principles for the lifecycle of a
+software product. The plan should be rigid in the areas of security while remaining flexible to changing threats and
+discoveries. One program found that out recently when an unsafe compiler flag made it into the production
+executable pipeline. Suppose that an overzealous developer, eager to eke out the greatest performance of their
+software, decides to include the compiler flag <span class='ec-lmtt-10'>-fno-stack-protector </span>while building the software. This article will
+walk through the examples of a sound, consistent Software Development Plan which protects against such issues
+using a defense-in-depth perspective.
+</p><!-- l. 3 --><p class='noindent'>
+</p>   
+<h4 class='likesubsectionHead'><a id='x1-2000'></a>An Example Issue</h4>
+<!-- l. 4 --><p class='noindent'>Suppose that we are given the example code in Listing <a href='#x1-2001r1'>1<!-- tex4ht:ref: lst:20250127:overflow  --></a>. This code will be used to show the breadth of areas where
+the issue can escalate in security impact.
+</p>   
+<!-- l. 6 -->
+<p><a id='x1-2001r1'></a>
+<a id='x1-2002'></a>   
+</p><pre class='lstlisting' id='listing-1'><span class='label'><a id='x1-2003r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;stdio.h&gt;</span> 
+</span><span class='label'><a id='x1-2004r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;stdlib.h&gt;</span> 
+</span><span class='label'><a id='x1-2005r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;string.h&gt;</span> 
+</span><span class='label'><a id='x1-2006r4'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>void</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>vulnF(</span><span class='ec-lmtk-10x-x-90'>char </span><span class='ec-lmtt-9'>*input) {</span> 
+</span><span class='label'><a id='x1-2007r5'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>char</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>buffer[32];</span> 
+</span><span class='label'><a id='x1-2008r6'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>strcpy</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>buffer</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>input);</span> 
+</span><span class='label'><a id='x1-2009r7'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>printf</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>Input</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>copied: %s\n", buffer);</span> 
+</span><span class='label'><a id='x1-2010r8'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span> 
+<span class='label'><a id='x1-2011r9'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main() {</span> 
+</span><span class='label'><a id='x1-2012r10'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>char</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>toCopy[100];</span> 
+</span><span class='label'><a id='x1-2013r11'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>printf</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>Enter</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>input: ");</span> 
+</span><span class='label'><a id='x1-2014r12'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>fgets</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>toCopy</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtk-10x-x-90'>sizeof</span><span class='ec-lmtt-9'>(toCopy), stdin);</span> 
+</span><span class='label'><a id='x1-2015r13'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>vulnF</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>toCopy</span></span><span style='color:#000000'><span class='ec-lmtt-9'>);</span></span> 
+<span class='label'><a id='x1-2016r14'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span> 
+</span><span class='label'><a id='x1-2017r15'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 1: </span><span class='content'>User Input Buffer Overflow</span></figcaption><!-- tex4ht:label?: x1-2017r  -->
+<!-- l. 24 --><p class='noindent'>
+</p>   
+<h4 class='likesubsectionHead'><a id='x1-3000'></a>SA-11(1): Static Code Analysis</h4>
+<!-- l. 25 --><p class='noindent'>Most static analysis tools would be able to identify the issue in the code. Making sure that Static Application
+Security Testing (SAST) is enabled and enforcing is a good, easy first-line of defense. Using the static code analysis
+tool <span class='ec-lmtt-10'>infer</span>, the issue is detected in Listing <a href='#x1-3001r2'>2<!-- tex4ht:ref: lst:20250127:sast  --></a>.
+</p>   
+<!-- l. 27 -->
+<p><a id='x1-3001r2'></a>
+<a id='x1-3002'></a>   
+</p><pre class='lstlisting' id='listing-2'><span class='label'><a id='x1-3003r1'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>$</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>infer -P --bufferoverrun analyze -- gcc -c </span><span class='ec-lmtk-10'>test</span><span class='ec-lmtt-10'>.c</span> 
+</span><span class='label'><a id='x1-3004r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10'>test</span></span><span style='color:#000000'><span class='ec-lmtt-10'>.</span></span><span style='color:#000000'><span class='ec-lmtt-10'>c</span></span><span style='color:#000000'><span class='ec-lmtt-10'>:13:</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>error: Buffer Overrun L2</span> 
+</span><span class='label'><a id='x1-3005r3'></a></span><span class='ec-lmtt-10'>  </span><span style='color:#000000'><span class='ec-lmtt-10'>Offset</span></span><span style='color:#000000'><span class='ec-lmtt-10'>:</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>[0, 99] Size: 32 by call to </span><span class='ts1-lmtt10-'>`</span><span class='ec-lmtt-10'>vulnF</span><span class='ts1-lmtt10-'>`</span><span class='ec-lmtt-10'>.</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 2: </span><span class='content'>SAST Detection of Buffer Overrun</span></figcaption><!-- tex4ht:label?: x1-3005r  -->
+<!-- l. 33 --><p class='noindent'>
+</p>   
+<h4 class='likesubsectionHead'><a id='x1-4000'></a>SA-11(4): Manual Code Reviews</h4>
+<!-- l. 34 --><p class='noindent'>Manual code reviews, peer reviews, peer programming, and acceptance reviews of code changes create a sense of
+accountability where developers learn from each other.
+                                                                                         
+                                                                                         
+</p><!-- l. 36 --><p class='noindent'>
+</p>   
+<h4 class='likesubsectionHead'><a id='x1-5000'></a>SA-11(5): Penetration Testing</h4>
+<!-- l. 37 --><p class='noindent'>Pentesting events should include the software below the system level. A robust pentest event will make sure that the
+binaries installed on the system under test have proper protections enabled. In the case of this binary, the stack
+smashing canaries (which get overridden for detecting an overflow) are missing, letting the pentest team know that
+defense-in-depth protection is missing from it. Listing <a href='#x1-5001r3'>3<!-- tex4ht:ref: lst:20250127:pentest  --></a> shows a snippet of one pentesting tool which identifies the
+missing stack protections.
+</p>   
+<!-- l. 39 -->
+<p><a id='x1-5001r3'></a>
+<a id='x1-5002'></a>   
+</p><pre class='lstlisting' id='listing-3'><span class='label'><a id='x1-5003r1'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>$</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>checksec --file=</span><span class='ec-lmtk-10'>test</span> 
+</span><span class='label'><a id='x1-5004r2'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>STACK</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>CANARY</span> </span><span class='ec-lmtt-10'>    </span><span style='color:#000000'><span class='ec-lmtt-10'>NX</span></span><span style='color:#000000'> </span><span class='ec-lmtt-10'>          </span><span style='color:#000000'><span class='ec-lmtt-10'>PIE</span></span> 
+<span class='label'><a id='x1-5005r3'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>No</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>canary found</span> </span><span class='ec-lmtt-10'>  </span><span style='color:#000000'><span class='ec-lmtt-10'>NX</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>enabled</span> </span><span class='ec-lmtt-10'>   </span><span style='color:#000000'><span class='ec-lmtt-10'>PIE</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>enabled</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 3: </span><span class='content'>Pentest Detection of Stack Protection</span></figcaption><!-- tex4ht:label?: x1-5005r  -->
+<!-- l. 45 --><p class='noindent'>
+</p>   
+<h4 class='likesubsectionHead'><a id='x1-6000'></a>SA-11(8): Dynamic Code Analysis</h4>
+<!-- l. 46 --><p class='noindent'>Several dynamic analysis techniques are able to identify the issue. Debugging and dynamic execution with
+sufficiently large input results in detection of the issue as shown in Listing <a href='#x1-6001r4'>4<!-- tex4ht:ref: lst:20250127:dynamic  --></a> using Memcheck with Valgrind.
+Instrumenting the binary and fuzzing the application is also a form of dynamic analysis, where a good and a bad
+seed input are run quickly by AFL in Listing <a href='#x1-6008r5'>5<!-- tex4ht:ref: lst:20250127:fuzz  --></a>.
+</p>   
+<!-- l. 48 -->
+<p><a id='x1-6001r4'></a>
+<a id='x1-6002'></a>   
+</p><pre class='lstlisting' id='listing-4'><span class='label'><a id='x1-6003r1'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>$</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>valgrind --leak-check=yes ./</span><span class='ec-lmtk-10'>test</span> 
+</span><span class='label'><a id='x1-6004r2'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>==43968==</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>Memcheck, a memory error detector</span> 
+</span><span class='label'><a id='x1-6005r3'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>Enter</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>input: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span> 
+</span><span class='label'><a id='x1-6006r4'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>Input</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>copied: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span> 
+</span><span class='label'><a id='x1-6007r5'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>==43968==</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>Jump to the invalid address stated on the next line</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 4: </span><span class='content'>Valgrind Detection of Memory Overlap</span></figcaption><!-- tex4ht:label?: x1-6007r  -->
+   
+<!-- l. 56 -->
+<p><a id='x1-6008r5'></a>
+<a id='x1-6009'></a>   
+</p><pre class='lstlisting' id='listing-5'><span class='label'><a id='x1-6010r1'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>$</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>AFL_USE_ASAN=1 afl-clang-fast </span><span class='ec-lmtk-10'>test</span><span class='ec-lmtt-10'>.c -o </span><span class='ec-lmtk-10'>test</span> 
+</span><span class='label'><a id='x1-6011r2'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>[+]</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>Instrumented 2 locations with no collisions (non-hardened, ASAN mode) of which are 0 handled and 0 unhandled selects.</span> 
+</span><span class='label'><a id='x1-6012r3'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>$</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>afl-fuzz -i </span><span class='ec-lmtk-10'>in </span><span class='ec-lmtt-10'>-o out -- ./</span><span class='ec-lmtk-10'>test</span> 
+</span><span class='label'><a id='x1-6013r4'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>cycles</span></span><span style='color:#000000'> <span class='ec-lmtk-10'>done </span><span class='ec-lmtt-10'>: 2</span> 
+</span><span class='label'><a id='x1-6014r5'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>corpus</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>count : 2</span> 
+</span><span class='label'><a id='x1-6015r6'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>saved</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>crashes : 1</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 5: </span><span class='content'>Fuzzing for Crashes</span></figcaption><!-- tex4ht:label?: x1-6015r  -->
+<!-- l. 65 --><p class='noindent'>
+</p>   
+<h4 class='likesubsectionHead'><a id='x1-7000'></a>SA-15: Development Process, Standards, and Tools</h4>
+<!-- l. 66 --><p class='noindent'>The tools, explicitly including the <strong>tool options and tool configurations</strong>, must be documented. This includes the
+compiler and pipeline options used to build production-like binaries. The documentation of permitted tool options
+allows oversight and visibility into how the products coming out of a pipeline are built. Requiring the documentation
+of which tools and options are used will help prevent deviations from safe and approved options. A good example for
+the software development plan, configuration option documentation, or supply chain risk management plan would
+be, “The production software is built with GCC version 14.2 using compiler flags <span class='ec-lmtt-10'>-Os -mtune=corei7 -pipe -Wall
+-Werror</span>.”
+                                                                                         
+                                                                                         
+</p><!-- l. 68 --><p class='indent'>   When someone adds in potentially unsafe flags like <span class='ec-lmtt-10'>-fno-stack-protector</span>, <span class='ec-lmtt-10'>-fpermissive</span>, <span class='ec-lmtt-10'>-gnatp</span>, <span class='ec-lmtt-10'>-fno-pie</span>,
+<span class='ec-lmtt-10'>-fno-pic</span>, <span class='ec-lmtt-10'>-fno-strict-aliasing</span>, or even compiling the production library with debug symbols (<span class='ec-lmtt-10'>-g</span>), this
+deviates from the whitelist of permitted flags. Even changing memory alignment (<span class='ec-lmtt-10'>-fpack-struct</span>) or
+changing the math calculation precision (<span class='ec-lmtt-10'>-ffast-math</span>) can cause serious and detrimental issues to a
+program.
+</p><!-- l. 70 --><p class='indent'>   There are new compiler flags coming out frequently, and sticking to a whitelist of permitted flags, allowing them
+to change only with proper change management processes, is the best way to prevent potentially dangerous ones
+from getting in and being extremely difficult to find.
+</p><!-- l. 72 --><p class='noindent'>
+</p>   
+<h4 class='likesubsectionHead'><a id='x1-8000'></a>SA-16: Developer-Provided Training</h4>
+<!-- l. 73 --><p class='noindent'>Having standards and practices is important, but making sure the developers are trained to abide by those
+standards brings a level of depth and ownership to issues as they are encountered.
+</p><!-- l. 75 --><p class='noindent'>
+</p>   
+<h4 class='likesubsectionHead'><a id='x1-9000'></a>SA-17(3) and SA-17(4): Correspondence</h4>
+<!-- l. 76 --><p class='noindent'>The Application Security and Development Security Technical Implementation Guide (STIG) maps the requirement
+to have a secure coding standard to CCI-3323 which falls under RMF control SA-17(4). Note that STIGs aren’t
+interested in functionality coding standards, such as the JTA-Army, ADA compliance, and Internationalization
+standards: the cybersecurity coding standards are the secure coding standards referenced here. The program should
+implement coding standards, like the CERT standards which specify many rules that are violated in our example
+(such as MEM35-C and STR31-C). Establishing a set of coding standards would forbid this type of code from being
+created.
+</p><!-- l. 78 --><p class='noindent'>
+</p>   
+<h4 class='likesubsectionHead'><a id='x1-10000'></a>SR-9: Tamper Resistance and Detection</h4>
+<!-- l. 79 --><p class='noindent'>Application whitelisting, binary signing, source fortification (<span class='ec-lmtt-10'>-D_FORTIFY_SOURCE</span>), control flow fortification
+(<span class='ec-lmtt-10'>-fcf-protection</span>), position-independent executables and libraries (<span class='ec-lmtt-10'>-fPIE </span>and <span class='ec-lmtt-10'>-fPIC</span>), non-executable stacks
+(<span class='ec-lmtt-10'>-z,noexecstack</span>), stronger stack protection canaries (<span class='ec-lmtt-10'>-fstack-protector-strong </span>and <span class='ec-lmtt-10'>-fstack-protector-all</span>),
+and many other techniques for preventing a secured, approved binary from being tampered with can be enacted.
+When a binary deviates from what is expected, it should be detected.
+</p><!-- l. 81 --><p class='indent'>   Though easy to tamper with, doing extra, unexpected, additional verification can be useful. Compiling a binary
+with <span class='ec-lmtt-10'>-frecord-gcc-switches </span>will store the compiler flags used by GCC in a comment inside the binary; including
+a manual check to make sure that this comment is consistent with the development plan’s permitted flags provides
+an extra level of defense-in-depth verification at the cost of exposing how the binary is built to potential attackers if
+it is not stripped out prior to delivery.
+</p><!-- l. 83 --><p class='noindent'>
+</p>   
+<h4 class='likesubsectionHead'><a id='x1-11000'></a>Conclusion</h4>
+<!-- l. 84 --><p class='noindent'>There are many areas where issues caused by an errant compiler flag, and even the errant flags themselves, can be
+detected. No single point of failure is to blame when supply chain compromises sneak their way into production.
+Testing the detection mechanisms that are in place with blue team events and cooperative vulnerability assessments
+can build confidence that more pernicious errors don’t manifest in the final product. Bringing the compiler versions,
+flags, configurations, and options under control of the change management board in RMF control SA-15 can be
+accomplished in many different ways, and a complete software development plan will document policies for its
+                                                                                         
+                                                                                         
+enforcement.
+                                                                                         
+                                                                                         
+</p>   
+<h3 class='sectionHead'><a id='x1-12000'></a>References</h3>
+<!-- l. 50 --><p class='noindent'>    
+</p>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-swatips'>
+[1]  
+</dt><dd class='thebibliography' id='bib-1'>
+<!-- l. 50 --><p class='noindent'><a id='cite.0_swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.</p></dd></dl>
+ 
+</body> 
+</html>

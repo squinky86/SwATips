@@ -38,3 +38,4 @@
 <li>20240610 - <a href="articles/20240610.html">The Zero Trust Paradox: Second Guessing the Good Guys</a></li>
 <li>20240902 - <a href="articles/20240902.html">Back to the Building Blocks: Codifying Complacency</a></li>
 <li>20241118 - <a href="articles/20241118.html">Fuzzy Coverage</a></li>
+<li>20250127 - <a href="articles/20250127.html">Defensive Development Plans</a></li>

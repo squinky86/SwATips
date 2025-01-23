@@ -1,0 +1,84 @@
+A Software Development Plan should be well-structured and implement secure principles for the lifecycle of a software product. The plan should be rigid in the areas of security while remaining flexible to changing threats and discoveries. One program found that out recently when an unsafe compiler flag made it into the production executable pipeline. Suppose that an overzealous developer, eager to eke out the greatest performance of their software, decides to include the compiler flag \texttt{-fno-stack-protector} while building the software. This article will walk through the examples of a sound, consistent Software Development Plan which protects against such issues using a defense-in-depth perspective.
+
+\subsection*{An Example Issue}
+Suppose that we are given the example code in Listing~\ref{lst:20250127:overflow}. This code will be used to show the breadth of areas where the issue can escalate in security impact.
+
+\begin{lstlisting}[caption={User Input Buffer Overflow},captionpos=b,style=CStyle,basicstyle=\small,label={lst:20250127:overflow},literate={"}{"}1,upquote=true]
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+void vulnF(char *input) {
+    char buffer[32];
+    strcpy(buffer, input); 
+    printf("Input copied: %s\n", buffer);
+}
+int main() {
+    char toCopy[100]; 
+    printf("Enter input: ");
+    fgets(toCopy, sizeof(toCopy), stdin);
+    vulnF(toCopy);
+    return 0;
+}
+\end{lstlisting}
+
+\subsection*{SA-11(1): Static Code Analysis}
+Most static analysis tools would be able to identify the issue in the code. Making sure that Static Application Security Testing (SAST) is enabled and enforcing is a good, easy first-line of defense. Using the static code analysis tool \texttt{infer}, the issue is detected in Listing~\ref{lst:20250127:sast}.
+
+\begin{lstlisting}[caption={SAST Detection of Buffer Overrun},captionpos=b,style=BashStyle,label={lst:20250127:sast}]
+$ infer -P --bufferoverrun analyze -- gcc -c test.c
+test.c:13: error: Buffer Overrun L2
+  Offset: [0, 99] Size: 32 by call to `vulnF`.
+\end{lstlisting}
+
+\subsection*{SA-11(4): Manual Code Reviews}
+Manual code reviews, peer reviews, peer programming, and acceptance reviews of code changes create a sense of accountability where developers learn from each other.
+
+\subsection*{SA-11(5): Penetration Testing}
+Pentesting events should include the software below the system level. A robust pentest event will make sure that the binaries installed on the system under test have proper protections enabled. In the case of this binary, the stack smashing canaries (which get overridden for detecting an overflow) are missing, letting the pentest team know that defense-in-depth protection is missing from it. Listing~\ref{lst:20250127:pentest} shows a snippet of one pentesting tool which identifies the missing stack protections.
+
+\begin{lstlisting}[caption={Pentest Detection of Stack Protection},captionpos=b,style=BashStyle,label={lst:20250127:pentest}]
+$ checksec --file=test
+STACK CANARY      NX            PIE
+No canary found   NX enabled    PIE enabled
+\end{lstlisting}
+
+\subsection*{SA-11(8): Dynamic Code Analysis}
+Several dynamic analysis techniques are able to identify the issue. Debugging and dynamic execution with sufficiently large input results in detection of the issue as shown in Listing~\ref{lst:20250127:dynamic} using Memcheck with Valgrind. Instrumenting the binary and fuzzing the application is also a form of dynamic analysis, where a good and a bad seed input are run quickly by AFL in Listing~\ref{lst:20250127:fuzz}.
+
+\begin{lstlisting}[caption={Valgrind Detection of Memory Overlap},captionpos=b,style=BashStyle,label={lst:20250127:dynamic}]
+$ valgrind --leak-check=yes ./test
+==43968== Memcheck, a memory error detector
+Enter input: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Input copied: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+==43968== Jump to the invalid address stated on the next line
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Fuzzing for Crashes},captionpos=b,style=BashStyle,label={lst:20250127:fuzz}]
+$ AFL_USE_ASAN=1 afl-clang-fast test.c -o test
+[+] Instrumented 2 locations with no collisions (non-hardened, ASAN mode) of which are 0 handled and 0 unhandled selects.
+$ afl-fuzz -i in -o out -- ./test
+cycles done : 2
+corpus count : 2
+saved crashes : 1
+\end{lstlisting}
+
+\subsection*{SA-15: Development Process, Standards, and Tools}
+The tools, explicitly including the \textbf{tool options and tool configurations}, must be documented. This includes the compiler and pipeline options used to build production-like binaries. The documentation of permitted tool options allows oversight and visibility into how the products coming out of a pipeline are built. Requiring the documentation of which tools and options are used will help prevent deviations from safe and approved options. A good example for the software development plan, configuration option documentation, or supply chain risk management plan would be, ``The production software is built with GCC version 14.2 using compiler flags \texttt{-Os -mtune=corei7 -pipe -Wall -Werror}.''
+
+When someone adds in potentially unsafe flags like \texttt{-fno-stack-protector}, \texttt{-fpermissive}, \texttt{-gnatp}, \texttt{-fno-pie}, \texttt{-fno-pic}, \texttt{-fno-strict-aliasing}, or even compiling the production library with debug symbols (\texttt{-g}), this deviates from the whitelist of permitted flags. Even changing memory alignment (\texttt{-fpack-struct}) or changing the math calculation precision (\texttt{-ffast-math}) can cause serious and detrimental issues to a program.
+
+There are new compiler flags coming out frequently, and sticking to a whitelist of permitted flags, allowing them to change only with proper change management processes, is the best way to prevent potentially dangerous ones from getting in and being extremely difficult to find.
+
+\subsection*{SA-16: Developer-Provided Training}
+Having standards and practices is important, but making sure the developers are trained to abide by those standards brings a level of depth and ownership to issues as they are encountered. 
+
+\subsection*{SA-17(3) and SA-17(4): Correspondence}
+The Application Security and Development Security Technical Implementation Guide (STIG) maps the requirement to have a secure coding standard to CCI-3323 which falls under RMF control SA-17(4). Note that STIGs aren't interested in functionality coding standards, such as the JTA-Army, ADA compliance, and Internationalization standards: the cybersecurity coding standards are the secure coding standards referenced here. The program should implement coding standards, like the CERT standards which specify many rules that are violated in our example (such as MEM35-C and STR31-C). Establishing a set of coding standards would forbid this type of code from being created.
+
+\subsection*{SR-9: Tamper Resistance and Detection}
+Application whitelisting, binary signing, source fortification (\texttt{-D\_FORTIFY\_SOURCE}), control flow fortification (\texttt{-fcf-protection}), position-independent executables and libraries (\texttt{-fPIE} and \texttt{-fPIC}), non-executable stacks (\texttt{-z,noexecstack}), stronger stack protection canaries (\texttt{-fstack-protector-strong} and \texttt{-fstack-protector-all}), and many other techniques for preventing a secured, approved binary from being tampered with can be enacted. When a binary deviates from what is expected, it should be detected.
+
+Though easy to tamper with, doing extra, unexpected, additional verification can be useful. Compiling a binary with \texttt{-frecord-gcc-switches} will store the compiler flags used by GCC in a comment inside the binary; including a manual check to make sure that this comment is consistent with the development plan's permitted flags provides an extra level of defense-in-depth verification at the cost of exposing how the binary is built to potential attackers if it is not stripped out prior to delivery.
+
+\subsection*{Conclusion}
+There are many areas where issues caused by an errant compiler flag, and even the errant flags themselves, can be detected. No single point of failure is to blame when supply chain compromises sneak their way into production. Testing the detection mechanisms that are in place with blue team events and cooperative vulnerability assessments can build confidence that more pernicious errors don't manifest in the final product. Bringing the compiler versions, flags, configurations, and options under control of the change management board in RMF control SA-15 can be accomplished in many different ways, and a complete software development plan will document policies for its enforcement.

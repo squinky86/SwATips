@@ -1,0 +1,3 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Defensive Development Plans}
+\newcommand{\ArticleDate}{\formatdate{27}{1}{2025}}
