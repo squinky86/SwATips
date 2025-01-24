@@ -28,16 +28,17 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap:
 
 
 <!-- l. 45 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Thursday 23</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">rd</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> January, 2025</span>
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Friday 24</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> January, 2025</span>
 </p>
 <!-- l. 1 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A Software Development Plan should be well-structured and implement secure principles for the lifecycle of a
-software product. The plan should be rigid in the areas of security while remaining flexible to changing threats and
-discoveries. One program found that out recently when an unsafe compiler flag made it into the production
-executable pipeline. Suppose that an overzealous developer, eager to eke out the greatest performance of their
-software, decides to include the compiler flag <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fno-stack-protector </span>while building the software. This article will
-walk through the examples of a sound, consistent Software Development Plan which protects against such issues
-using a defense-in-depth perspective.
+software product. The plan should be rigid in the areas of security while remaining flexible to changing
+threats and discoveries. When security needs change, a robust change management board can make sure
+that the changes do not impact the security of the overall architecture. Suppose that an overzealous
+developer, eager to eke out the greatest performance of their software, decides to include the compiler flag
+<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fno-stack-protector </span>while building the software. This article will walk through the examples of a sound,
+consistent Software Assurance implementation which protects against such issues using a defense-in-depth
+perspective.
 </p>
 <!-- l. 3 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
@@ -49,7 +50,8 @@ using a defense-in-depth perspective.
 
 <!-- l. 4 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Suppose that we are given the example code in Listing <a href="#x1-2001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20250127:overflow  --></a>. This code will be used to show the breadth of areas where
-the issue can escalate in security impact.
+the issue can escalate in security impact and examine how each layer of Software Assurance can identify
+it.
 </p>
    
 
@@ -81,27 +83,31 @@ the issue can escalate in security impact.
 
 
 <!-- l. 24 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">
+<p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   This example is compiled with the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fno-stack-protector </span>flag. It represents a basic string copy
+overflow.
+</p>
+<!-- l. 26 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
 </p>
    
 
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-3000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>SA-11(1): Static Code Analysis</h4>
 
 
-<!-- l. 25 -->
+<!-- l. 27 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Most static analysis tools would be able to identify the issue in the code. Making sure that Static Application
 Security Testing (SAST) is enabled and enforcing is a good, easy first-line of defense. Using the static code analysis
 tool <span class="ec-lmtt-10" style="font-family: monospace,monospace;">infer</span>, the issue is detected in Listing <a href="#x1-3001r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2<!-- tex4ht:ref: lst:20250127:sast  --></a>.
 </p>
    
 
-<!-- l. 27 -->
+<!-- l. 29 -->
 
 
 <p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-3001r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
 <a id="x1-3002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>   
 </p>
-<pre class="lstlisting" id="listing-2" style="font-family: monospace,monospace; white-space: pre-wrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-3003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">infer -P --bufferoverrun analyze -- gcc -c </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">.c</span> 
+<pre class="lstlisting" id="listing-2" style="font-family: monospace,monospace; white-space: pre-wrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-3003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">infer -P --bufferoverrun analyze --</span></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">gcc</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-c </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">.c</span> 
 </span><span class="label" style="margin-right: 0.5em;"><a id="x1-3004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">.</span></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">c</span></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">:13:</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">error: Buffer Overrun L2</span> 
 </span><span class="label" style="margin-right: 0.5em;"><a id="x1-3005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">  </span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">Offset</span></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">:</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">[0, 99] Size: 32 by call to </span><span class="ts1-lmtt10-">`</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">vulnF</span><span class="ts1-lmtt10-">`</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">.</span></span></pre>
 
@@ -110,7 +116,7 @@ tool <span class="ec-lmtt-10" style="font-family: monospace,monospace;">infer</s
 <!-- tex4ht:label?: x1-3005r  -->
 
 
-<!-- l. 33 -->
+<!-- l. 35 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">
 </p>
    
@@ -118,13 +124,13 @@ tool <span class="ec-lmtt-10" style="font-family: monospace,monospace;">infer</s
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-4000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>SA-11(4): Manual Code Reviews</h4>
 
 
-<!-- l. 34 -->
+<!-- l. 36 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Manual code reviews, peer reviews, peer programming, and acceptance reviews of code changes create a sense of
 accountability where developers learn from each other.
                                                                                          
                                                                                          
 </p>
-<!-- l. 36 -->
+<!-- l. 38 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
 </p>
    
@@ -132,7 +138,7 @@ accountability where developers learn from each other.
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-5000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>SA-11(5): Penetration Testing</h4>
 
 
-<!-- l. 37 -->
+<!-- l. 39 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Pentesting events should include the software below the system level. A robust pentest event will make sure that the
 binaries installed on the system under test have proper protections enabled. In the case of this binary, the stack
 smashing canaries (which get overridden for detecting an overflow) are missing, letting the pentest team know that
@@ -141,7 +147,7 @@ missing stack protections.
 </p>
    
 
-<!-- l. 39 -->
+<!-- l. 41 -->
 
 
 <p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-5001r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
@@ -156,7 +162,7 @@ missing stack protections.
 <!-- tex4ht:label?: x1-5005r  -->
 
 
-<!-- l. 45 -->
+<!-- l. 47 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">
 </p>
    
@@ -164,7 +170,7 @@ missing stack protections.
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-6000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>SA-11(8): Dynamic Code Analysis</h4>
 
 
-<!-- l. 46 -->
+<!-- l. 48 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Several dynamic analysis techniques are able to identify the issue. Debugging and dynamic execution with
 sufficiently large input results in detection of the issue as shown in Listing <a href="#x1-6001r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4<!-- tex4ht:ref: lst:20250127:dynamic  --></a> using Memcheck with Valgrind.
 Instrumenting the binary and fuzzing the application is also a form of dynamic analysis, where a good and a bad
@@ -172,7 +178,7 @@ seed input are run quickly by AFL in Listing <a href="#x1-6008r5" style="overfl
 </p>
    
 
-<!-- l. 48 -->
+<!-- l. 50 -->
 
 
 <p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-6001r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
@@ -190,7 +196,7 @@ seed input are run quickly by AFL in Listing <a href="#x1-6008r5" style="overfl
 
    
 
-<!-- l. 56 -->
+<!-- l. 58 -->
 
 
 <p style="margin-top: 0; margin-bottom: 0;"><a id="x1-6008r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
@@ -198,8 +204,8 @@ seed input are run quickly by AFL in Listing <a href="#x1-6008r5" style="overfl
 </p>
 <pre class="lstlisting" id="listing-5" style="font-family: monospace,monospace; white-space: pre-wrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-6010r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">AFL_USE_ASAN=1 afl-clang-fast </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">.c -o </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span> 
 </span><span class="label" style="margin-right: 0.5em;"><a id="x1-6011r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">[+]</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Instrumented 2 locations with no collisions (non-hardened, ASAN mode) of which are 0 handled and 0 unhandled selects.</span> 
-</span><span class="label" style="margin-right: 0.5em;"><a id="x1-6012r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">afl-fuzz -i </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">in </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-o out -- ./</span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span> 
-</span><span class="label" style="margin-right: 0.5em;"><a id="x1-6013r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">cycles</span></span><span style="color:#000000"> <span class="ec-lmtk-10" style="font-family: monospace,monospace;">done </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">: 2</span> 
+</span><span class="label" style="margin-right: 0.5em;"><a id="x1-6012r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">afl-fuzz -i </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">in </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-o out --</span></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">./</span></span><span style="color:#000000"><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span></span> 
+<span class="label" style="margin-right: 0.5em;"><a id="x1-6013r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">cycles</span></span><span style="color:#000000"> <span class="ec-lmtk-10" style="font-family: monospace,monospace;">done </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">: 2</span> 
 </span><span class="label" style="margin-right: 0.5em;"><a id="x1-6014r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">corpus</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">count : 2</span> 
 </span><span class="label" style="margin-right: 0.5em;"><a id="x1-6015r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">saved</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">crashes : 1</span></span></pre>
 
@@ -208,7 +214,7 @@ seed input are run quickly by AFL in Listing <a href="#x1-6008r5" style="overfl
 <!-- tex4ht:label?: x1-6015r  -->
 
 
-<!-- l. 65 -->
+<!-- l. 67 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">
 </p>
    
@@ -216,30 +222,39 @@ seed input are run quickly by AFL in Listing <a href="#x1-6008r5" style="overfl
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-7000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>SA-15: Development Process, Standards, and Tools</h4>
 
 
-<!-- l. 66 -->
+<!-- l. 68 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">The tools, explicitly including the <strong>tool options and tool configurations</strong>, must be documented. This includes the
 compiler and pipeline options used to build production-like binaries. The documentation of permitted tool options
-allows oversight and visibility into how the products coming out of a pipeline are built. Requiring the documentation
-of which tools and options are used will help prevent deviations from safe and approved options. A good example for
-the software development plan, configuration option documentation, or supply chain risk management plan would
-be, “The production software is built with GCC version 14.2 using compiler flags <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Os -mtune=corei7 -pipe -Wall
--Werror</span>.”
+allows oversight and visibility into how the products coming out of a pipeline are built. Requiring the
+documentation of which tools and options are used will help prevent deviations from safe and approved options.
+A good example for the software development plan, configuration option documentation, or supply
+chain risk management plan would be, “The production software is built with GCC version 14.2 using
+compiler flags <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Os -march=corei7 -pipe -Wall -Werror </span>for the x86_64 architecture using Oracle Linux
+9.”
                                                                                          
                                                                                          
 </p>
-<!-- l. 68 -->
+<!-- l. 70 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   When someone adds in potentially unsafe flags like <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fno-stack-protector</span>, <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fpermissive</span>, <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-gnatp</span>, <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fno-pie</span>,
 <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fno-pic</span>, <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fno-strict-aliasing</span>, or even compiling the production library with debug symbols (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-g</span>), this
 deviates from the whitelist of permitted flags. Even changing memory alignment (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fpack-struct</span>) or
 changing the math calculation precision (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-ffast-math</span>) can cause serious and detrimental issues to a
 program.
 </p>
-<!-- l. 70 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   There are new compiler flags coming out frequently, and sticking to a whitelist of permitted flags, allowing them
-to change only with proper change management processes, is the best way to prevent potentially dangerous ones
-from getting in and being extremely difficult to find.
-</p>
 <!-- l. 72 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   There are new compiler flags coming out frequently, and sticking to a whitelist of permitted flags,
+allowing them to change only with proper change management processes, is the best way to prevent
+potentially dangerous ones from getting in and being extremely difficult to find. This leads to an important
+requirement in Software Assurance: having someone who understands security on the change control
+board. This person should be able to understand architectural issues as changes come in to support
+more than just the Intel Core i7 processor, as in the aforementioned example. Flags affecting integral
+endianness (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-mbig-endian</span>), structure packing (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fpack-struct</span>), floating point precision alignment
+(<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-malign-double</span>), and processor extensions (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-msse</span>) may not have immediate security concerns until they affect the
+portability of the code. Having a dedicated security specialist watching for these types of issues during the
+architecture and design of application changes helps prevent issues from making it into the supply
+chain.
+</p>
+<!-- l. 74 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
 </p>
    
@@ -247,11 +262,11 @@ from getting in and being extremely difficult to find.
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-8000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>SA-16: Developer-Provided Training</h4>
 
 
-<!-- l. 73 -->
+<!-- l. 75 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Having standards and practices is important, but making sure the developers are trained to abide by those
 standards brings a level of depth and ownership to issues as they are encountered.
 </p>
-<!-- l. 75 -->
+<!-- l. 77 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
 </p>
    
@@ -259,16 +274,17 @@ standards brings a level of depth and ownership to issues as they are encountere
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-9000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>SA-17(3) and SA-17(4): Correspondence</h4>
 
 
-<!-- l. 76 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">The Application Security and Development Security Technical Implementation Guide (STIG) maps the requirement
-to have a secure coding standard to CCI-3323 which falls under RMF control SA-17(4). Note that STIGs aren’t
-interested in functionality coding standards, such as the JTA-Army, ADA compliance, and Internationalization
-standards: the cybersecurity coding standards are the secure coding standards referenced here. The program should
-implement coding standards, like the CERT standards which specify many rules that are violated in our example
-(such as MEM35-C and STR31-C). Establishing a set of coding standards would forbid this type of code from being
-created.
-</p>
 <!-- l. 78 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">The Application Security and Development Security Technical Implementation Guide (STIG) maps the requirement
+to have a secure coding standard to CCI-3323 which falls under RMF control SA-17(4). Note that the primary
+concern for STIGs isn’t functionality coding standards, such as the JTA-Army, ADA compliance, and
+Internationalization standards: the cybersecurity coding standards are the secure coding standards referenced here.
+The program should implement secure coding standards, like the CERT standards which specify many rules that are
+violated in our example (such as MEM35-C and STR31-C). Establishing a set of coding standards would
+forbid this type of code from being created, particularly when combined with the developer training
+programs.
+</p>
+<!-- l. 80 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
 </p>
    
@@ -276,21 +292,23 @@ created.
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-10000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>SR-9: Tamper Resistance and Detection</h4>
 
 
-<!-- l. 79 -->
+<!-- l. 81 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Application whitelisting, binary signing, source fortification (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-D_FORTIFY_SOURCE</span>), control flow fortification
 (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fcf-protection</span>), position-independent executables and libraries (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fPIE </span>and <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fPIC</span>), non-executable stacks
 (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-z,noexecstack</span>), stronger stack protection canaries (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fstack-protector-strong </span>and <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fstack-protector-all</span>),
 and many other techniques for preventing a secured, approved binary from being tampered with can be enacted.
 When a binary deviates from what is expected, it should be detected.
 </p>
-<!-- l. 81 -->
+<!-- l. 83 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Though easy to tamper with, doing extra, unexpected, additional verification can be useful. Compiling a binary
 with <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-frecord-gcc-switches </span>will store the compiler flags used by GCC in a comment inside the binary; including
 a manual check to make sure that this comment is consistent with the development plan’s permitted flags provides
 an extra level of defense-in-depth verification at the cost of exposing how the binary is built to potential attackers if
 it is not stripped out prior to delivery.
+                                                                                         
+                                                                                         
 </p>
-<!-- l. 83 -->
+<!-- l. 85 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
 </p>
    
@@ -298,15 +316,13 @@ it is not stripped out prior to delivery.
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-11000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusion</h4>
 
 
-<!-- l. 84 -->
+<!-- l. 86 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">There are many areas where issues caused by an errant compiler flag, and even the errant flags themselves, can be
 detected. No single point of failure is to blame when supply chain compromises sneak their way into production.
 Testing the detection mechanisms that are in place with blue team events and cooperative vulnerability assessments
 can build confidence that more pernicious errors don’t manifest in the final product. Bringing the compiler versions,
 flags, configurations, and options under control of the change management board in RMF control SA-15 can be
 accomplished in many different ways, and a complete software development plan will document policies for its
-                                                                                         
-                                                                                         
 enforcement.
                                                                                          
                                                                                          
