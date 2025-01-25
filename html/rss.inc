@@ -14,7 +14,7 @@
                                                                                          
 
 <h2 class="titleHead" style="line-height: 1.2; text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0_swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
+A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
 </h2>
  <div class="author" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
 <div class="date" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Monday 27</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-12" style="font-size: 120%;"> January, 2025</span></div>
@@ -27,8 +27,8 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap:
 <h3 class="sectionHead" style="line-height: 1.2; font-size: 1.5157em;"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Defensive Development Plans</h3>
 
 
-<!-- l. 45 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Friday 24</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> January, 2025</span>
+<!-- l. 46 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Saturday 25</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> January, 2025</span>
 </p>
 <!-- l. 1 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   A Software Development Plan should be well-structured and implement secure principles for the lifecycle of a
@@ -61,7 +61,7 @@ it.
 <p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-2001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
 <a id="x1-2002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>   
 </p>
-<pre class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: pre-wrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-2003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">#</span></span><span style="color:#000000"><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">include</span></span><span style="color:#000000"> <span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">&lt;stdio.h&gt;</span> 
+<pre class="lstlisting" id="listing-1" style="font-family: monospace,monospace; white-space: pre-wrap; margin-top: 0.5em; margin-bottom: 0.5em; background-color: #BFBFBF;"><span class="label" style="margin-right: 0.5em;"><a id="x1-2003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">#</span></span><span style="color:#000000"><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">include</span></span><span style="color:#000000"> <span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">&lt;stdio.h&gt;</span> 
 </span><span class="label" style="margin-right: 0.5em;"><a id="x1-2004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">#</span></span><span style="color:#000000"><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">include</span></span><span style="color:#000000"> <span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">&lt;stdlib.h&gt;</span> 
 </span><span class="label" style="margin-right: 0.5em;"><a id="x1-2005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">#</span></span><span style="color:#000000"><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">include</span></span><span style="color:#000000"> <span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">&lt;string.h&gt;</span> 
 </span><span class="label" style="margin-right: 0.5em;"><a id="x1-2006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">void</span></span><span style="color:#000000"> <span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">vulnF(</span><span class="ec-lmtk-10x-x-90" style="font-size: 90%; font-family: monospace,monospace;">char </span><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">*input) {</span> 
@@ -107,7 +107,7 @@ tool <span class="ec-lmtt-10" style="font-family: monospace,monospace;">infer</s
 <p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-3001r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
 <a id="x1-3002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>   
 </p>
-<pre class="lstlisting" id="listing-2" style="font-family: monospace,monospace; white-space: pre-wrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-3003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">infer -P --bufferoverrun analyze --</span></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">gcc</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-c </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">.c</span> 
+<pre class="lstlisting" id="listing-2" style="font-family: monospace,monospace; white-space: pre-wrap; margin-top: 0.5em; margin-bottom: 0.5em; background-color: #BFBFBF;"><span class="label" style="margin-right: 0.5em;"><a id="x1-3003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">infer -P --bufferoverrun analyze --</span></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">gcc</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-c </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">.c</span> 
 </span><span class="label" style="margin-right: 0.5em;"><a id="x1-3004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">.</span></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">c</span></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">:13:</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">error: Buffer Overrun L2</span> 
 </span><span class="label" style="margin-right: 0.5em;"><a id="x1-3005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">  </span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">Offset</span></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">:</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">[0, 99] Size: 32 by call to </span><span class="ts1-lmtt10-">`</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">vulnF</span><span class="ts1-lmtt10-">`</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">.</span></span></pre>
 
@@ -153,7 +153,7 @@ missing stack protections.
 <p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-5001r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
 <a id="x1-5002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>   
 </p>
-<pre class="lstlisting" id="listing-3" style="font-family: monospace,monospace; white-space: pre-wrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-5003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">checksec --file=</span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span> 
+<pre class="lstlisting" id="listing-3" style="font-family: monospace,monospace; white-space: pre-wrap; margin-top: 0.5em; margin-bottom: 0.5em; background-color: #BFBFBF;"><span class="label" style="margin-right: 0.5em;"><a id="x1-5003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">checksec --file=</span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span> 
 </span><span class="label" style="margin-right: 0.5em;"><a id="x1-5004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">STACK</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">CANARY</span> </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">    </span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">NX</span></span><span style="color:#000000"> </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">          </span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">PIE</span></span> 
 <span class="label" style="margin-right: 0.5em;"><a id="x1-5005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">No</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">canary found</span> </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">  </span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">NX</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">enabled</span> </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">   </span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">PIE</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">enabled</span></span></pre>
 
@@ -184,7 +184,7 @@ seed input are run quickly by AFL in Listing <a href="#x1-6008r5" style="overfl
 <p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-6001r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
 <a id="x1-6002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>   
 </p>
-<pre class="lstlisting" id="listing-4" style="font-family: monospace,monospace; white-space: pre-wrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-6003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">valgrind --leak-check=yes ./</span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span> 
+<pre class="lstlisting" id="listing-4" style="font-family: monospace,monospace; white-space: pre-wrap; margin-top: 0.5em; margin-bottom: 0.5em; background-color: #BFBFBF;"><span class="label" style="margin-right: 0.5em;"><a id="x1-6003r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">valgrind --leak-check=yes ./</span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span> 
 </span><span class="label" style="margin-right: 0.5em;"><a id="x1-6004r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">==43968==</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Memcheck, a memory error detector</span> 
 </span><span class="label" style="margin-right: 0.5em;"><a id="x1-6005r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">Enter</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">input: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span> 
 </span><span class="label" style="margin-right: 0.5em;"><a id="x1-6006r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">Input</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">copied: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span> 
@@ -202,19 +202,20 @@ seed input are run quickly by AFL in Listing <a href="#x1-6008r5" style="overfl
 <p style="margin-top: 0; margin-bottom: 0;"><a id="x1-6008r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
 <a id="x1-6009" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>   
 </p>
-<pre class="lstlisting" id="listing-5" style="font-family: monospace,monospace; white-space: pre-wrap; margin-top: 0.5em; margin-bottom: 0.5em;"><span class="label" style="margin-right: 0.5em;"><a id="x1-6010r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">AFL_USE_ASAN=1 afl-clang-fast </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">.c -o </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span> 
-</span><span class="label" style="margin-right: 0.5em;"><a id="x1-6011r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">[+]</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Instrumented 2 locations with no collisions (non-hardened, ASAN mode) of which are 0 handled and 0 unhandled selects.</span> 
-</span><span class="label" style="margin-right: 0.5em;"><a id="x1-6012r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">afl-fuzz -i </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">in </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-o out --</span></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">./</span></span><span style="color:#000000"><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span></span> 
-<span class="label" style="margin-right: 0.5em;"><a id="x1-6013r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">cycles</span></span><span style="color:#000000"> <span class="ec-lmtk-10" style="font-family: monospace,monospace;">done </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">: 2</span> 
-</span><span class="label" style="margin-right: 0.5em;"><a id="x1-6014r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">corpus</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">count : 2</span> 
-</span><span class="label" style="margin-right: 0.5em;"><a id="x1-6015r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">saved</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">crashes : 1</span></span></pre>
+<pre class="lstlisting" id="listing-5" style="font-family: monospace,monospace; white-space: pre-wrap; margin-top: 0.5em; margin-bottom: 0.5em; background-color: #BFBFBF;"><span class="label" style="margin-right: 0.5em;"><a id="x1-6010r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">AFL_USE_ASAN=1 afl-clang-fast </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">.c -o </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span> 
+</span><span class="label" style="margin-right: 0.5em;"><a id="x1-6011r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">[+]</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Instrumented 2 locations with no collisions (non-hardened, ASAN mode)</span> 
+</span><span class="label" style="margin-right: 0.5em;"><a id="x1-6012r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">of</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">which are 0 handled and 0 unhandled selects.</span> 
+</span><span class="label" style="margin-right: 0.5em;"><a id="x1-6013r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">$</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">afl-fuzz -i </span><span class="ec-lmtk-10" style="font-family: monospace,monospace;">in </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">-o out --</span></span><span class="ec-lmtt-10" style="font-family: monospace,monospace;"> </span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">./</span></span><span style="color:#000000"><span class="ec-lmtk-10" style="font-family: monospace,monospace;">test</span></span> 
+<span class="label" style="margin-right: 0.5em;"><a id="x1-6014r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">cycles</span></span><span style="color:#000000"> <span class="ec-lmtk-10" style="font-family: monospace,monospace;">done </span><span class="ec-lmtt-10" style="font-family: monospace,monospace;">: 2</span> 
+</span><span class="label" style="margin-right: 0.5em;"><a id="x1-6015r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">corpus</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">count : 2</span> 
+</span><span class="label" style="margin-right: 0.5em;"><a id="x1-6016r7" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">saved</span></span><span style="color:#000000"> <span class="ec-lmtt-10" style="font-family: monospace,monospace;">crashes : 1</span></span></pre>
 
 
 <figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 5: </span><span class="content">Fuzzing for Crashes</span></figcaption>
-<!-- tex4ht:label?: x1-6015r  -->
+<!-- tex4ht:label?: x1-6016r  -->
 
 
-<!-- l. 67 -->
+<!-- l. 68 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">
 </p>
    
@@ -222,7 +223,7 @@ seed input are run quickly by AFL in Listing <a href="#x1-6008r5" style="overfl
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-7000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>SA-15: Development Process, Standards, and Tools</h4>
 
 
-<!-- l. 68 -->
+<!-- l. 69 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">The tools, explicitly including the <strong>tool options and tool configurations</strong>, must be documented. This includes the
 compiler and pipeline options used to build production-like binaries. The documentation of permitted tool options
 allows oversight and visibility into how the products coming out of a pipeline are built. Requiring the
@@ -234,14 +235,14 @@ compiler flags <span class="ec-lmtt-10" style="font-family: monospace,monospace;
                                                                                          
                                                                                          
 </p>
-<!-- l. 70 -->
+<!-- l. 71 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   When someone adds in potentially unsafe flags like <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fno-stack-protector</span>, <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fpermissive</span>, <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-gnatp</span>, <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fno-pie</span>,
 <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fno-pic</span>, <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fno-strict-aliasing</span>, or even compiling the production library with debug symbols (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-g</span>), this
 deviates from the whitelist of permitted flags. Even changing memory alignment (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fpack-struct</span>) or
 changing the math calculation precision (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-ffast-math</span>) can cause serious and detrimental issues to a
 program.
 </p>
-<!-- l. 72 -->
+<!-- l. 73 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   There are new compiler flags coming out frequently, and sticking to a whitelist of permitted flags,
 allowing them to change only with proper change management processes, is the best way to prevent
 potentially dangerous ones from getting in and being extremely difficult to find. This leads to an important
@@ -254,7 +255,7 @@ portability of the code. Having a dedicated security specialist watching for the
 architecture and design of application changes helps prevent issues from making it into the supply
 chain.
 </p>
-<!-- l. 74 -->
+<!-- l. 75 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
 </p>
    
@@ -262,11 +263,11 @@ chain.
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-8000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>SA-16: Developer-Provided Training</h4>
 
 
-<!-- l. 75 -->
+<!-- l. 76 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Having standards and practices is important, but making sure the developers are trained to abide by those
 standards brings a level of depth and ownership to issues as they are encountered.
 </p>
-<!-- l. 77 -->
+<!-- l. 78 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
 </p>
    
@@ -274,7 +275,7 @@ standards brings a level of depth and ownership to issues as they are encountere
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-9000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>SA-17(3) and SA-17(4): Correspondence</h4>
 
 
-<!-- l. 78 -->
+<!-- l. 79 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">The Application Security and Development Security Technical Implementation Guide (STIG) maps the requirement
 to have a secure coding standard to CCI-3323 which falls under RMF control SA-17(4). Note that the primary
 concern for STIGs isn’t functionality coding standards, such as the JTA-Army, ADA compliance, and
@@ -284,7 +285,7 @@ violated in our example (such as MEM35-C and STR31-C). Establishing a set of cod
 forbid this type of code from being created, particularly when combined with the developer training
 programs.
 </p>
-<!-- l. 80 -->
+<!-- l. 81 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
 </p>
    
@@ -292,14 +293,14 @@ programs.
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-10000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>SR-9: Tamper Resistance and Detection</h4>
 
 
-<!-- l. 81 -->
+<!-- l. 82 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Application whitelisting, binary signing, source fortification (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-D_FORTIFY_SOURCE</span>), control flow fortification
 (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fcf-protection</span>), position-independent executables and libraries (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fPIE </span>and <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fPIC</span>), non-executable stacks
 (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-z,noexecstack</span>), stronger stack protection canaries (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fstack-protector-strong </span>and <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-fstack-protector-all</span>),
 and many other techniques for preventing a secured, approved binary from being tampered with can be enacted.
 When a binary deviates from what is expected, it should be detected.
 </p>
-<!-- l. 83 -->
+<!-- l. 84 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Though easy to tamper with, doing extra, unexpected, additional verification can be useful. Compiling a binary
 with <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-frecord-gcc-switches </span>will store the compiler flags used by GCC in a comment inside the binary; including
 a manual check to make sure that this comment is consistent with the development plan’s permitted flags provides
@@ -308,7 +309,7 @@ it is not stripped out prior to delivery.
                                                                                          
                                                                                          
 </p>
-<!-- l. 85 -->
+<!-- l. 86 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
 </p>
    
@@ -316,7 +317,7 @@ it is not stripped out prior to delivery.
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-11000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusion</h4>
 
 
-<!-- l. 86 -->
+<!-- l. 87 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">There are many areas where issues caused by an errant compiler flag, and even the errant flags themselves, can be
 detected. No single point of failure is to blame when supply chain compromises sneak their way into production.
 Testing the detection mechanisms that are in place with blue team events and cooperative vulnerability assessments
@@ -332,7 +333,7 @@ enforcement.
 <h3 class="sectionHead" style="line-height: 1.2; font-size: 1.5157em;"><a id="x1-12000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
 
 
-<!-- l. 50 -->
+<!-- l. 51 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
 </p>
 
@@ -340,7 +341,7 @@ enforcement.
 <dl class="thebibliography"><dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
 [1]  
 </dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
-<!-- l. 50 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0_swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="uline" style="text-decoration: underline;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
+<!-- l. 51 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="uline" style="text-decoration: underline;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
 
  
 

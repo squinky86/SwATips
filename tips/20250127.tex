@@ -3,7 +3,7 @@ A Software Development Plan should be well-structured and implement secure princ
 \subsection*{An Example Issue}
 Suppose that we are given the example code in Listing~\ref{lst:20250127:overflow}. This code will be used to show the breadth of areas where the issue can escalate in security impact and examine how each layer of Software Assurance can identify it.
 
-\begin{lstlisting}[caption={User Input Buffer Overflow},captionpos=b,style=CStyle,basicstyle=\small,label={lst:20250127:overflow},literate={"}{"}1,upquote=true]
+\begin{lstlisting}[caption={User Input Buffer Overflow},captionpos=b,style=CStyle,basicstyle=\small,label={lst:20250127:overflow},literate={"}{"}1,upquote=true,backgroundcolor=\color{lightgray}]
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -26,7 +26,7 @@ This example is compiled with the \texttt{-fno-stack-protector} flag. It represe
 \subsection*{SA-11(1): Static Code Analysis}
 Most static analysis tools would be able to identify the issue in the code. Making sure that Static Application Security Testing (SAST) is enabled and enforcing is a good, easy first-line of defense. Using the static code analysis tool \texttt{infer}, the issue is detected in Listing~\ref{lst:20250127:sast}.
 
-\begin{lstlisting}[caption={SAST Detection of Buffer Overrun},captionpos=b,style=BashStyle,literate={-}{-}1,label={lst:20250127:sast}]
+\begin{lstlisting}[caption={SAST Detection of Buffer Overrun},backgroundcolor=\color{lightgray},captionpos=b,style=BashStyle,literate={-}{-}1,label={lst:20250127:sast}]
 $ infer -P --bufferoverrun analyze -- gcc -c test.c
 test.c:13: error: Buffer Overrun L2
   Offset: [0, 99] Size: 32 by call to `vulnF`.
@@ -38,7 +38,7 @@ Manual code reviews, peer reviews, peer programming, and acceptance reviews of c
 \subsection*{SA-11(5): Penetration Testing}
 Pentesting events should include the software below the system level. A robust pentest event will make sure that the binaries installed on the system under test have proper protections enabled. In the case of this binary, the stack smashing canaries (which get overridden for detecting an overflow) are missing, letting the pentest team know that defense-in-depth protection is missing from it. Listing~\ref{lst:20250127:pentest} shows a snippet of one pentesting tool which identifies the missing stack protections.
 
-\begin{lstlisting}[caption={Pentest Detection of Stack Protection},captionpos=b,style=BashStyle,literate={-}{-}1,label={lst:20250127:pentest}]
+\begin{lstlisting}[caption={Pentest Detection of Stack Protection},backgroundcolor=\color{lightgray},captionpos=b,style=BashStyle,literate={-}{-}1,label={lst:20250127:pentest}]
 $ checksec --file=test
 STACK CANARY      NX            PIE
 No canary found   NX enabled    PIE enabled
@@ -47,7 +47,7 @@ No canary found   NX enabled    PIE enabled
 \subsection*{SA-11(8): Dynamic Code Analysis}
 Several dynamic analysis techniques are able to identify the issue. Debugging and dynamic execution with sufficiently large input results in detection of the issue as shown in Listing~\ref{lst:20250127:dynamic} using Memcheck with Valgrind. Instrumenting the binary and fuzzing the application is also a form of dynamic analysis, where a good and a bad seed input are run quickly by AFL in Listing~\ref{lst:20250127:fuzz}.
 
-\begin{lstlisting}[caption={Valgrind Detection of Memory Overlap},captionpos=b,style=BashStyle,literate={-}{-}1,label={lst:20250127:dynamic}]
+\begin{lstlisting}[caption={Valgrind Detection of Memory Overlap},backgroundcolor=\color{lightgray},captionpos=b,style=BashStyle,literate={-}{-}1,label={lst:20250127:dynamic}]
 $ valgrind --leak-check=yes ./test
 ==43968== Memcheck, a memory error detector
 Enter input: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -55,9 +55,10 @@ Input copied: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ==43968== Jump to the invalid address stated on the next line
 \end{lstlisting}
 
-\begin{lstlisting}[caption={Fuzzing for Crashes},captionpos=b,style=BashStyle,literate={-}{-}1,label={lst:20250127:fuzz}]
+\begin{lstlisting}[caption={Fuzzing for Crashes},backgroundcolor=\color{lightgray},captionpos=b,style=BashStyle,literate={-}{-}1,label={lst:20250127:fuzz}]
 $ AFL_USE_ASAN=1 afl-clang-fast test.c -o test
-[+] Instrumented 2 locations with no collisions (non-hardened, ASAN mode) of which are 0 handled and 0 unhandled selects.
+[+] Instrumented 2 locations with no collisions (non-hardened, ASAN mode)
+of which are 0 handled and 0 unhandled selects.
 $ afl-fuzz -i in -o out -- ./test
 cycles done : 2
 corpus count : 2
