@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Leaking Through the Cracks: Rust's Soft Memory Shell}
+\newcommand{\ArticleDate}{\formatdate{12}{5}{2025}}
+\addbibresource{20250512.bib}

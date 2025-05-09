@@ -1,3 +1,4 @@
+<li>20250512 - <a href="articles/20250512.html">Leaking Through the Cracks: Rust's Soft Memory Shell</a></li>
 <li>20250127 - <a href="articles/20250127.html">Defensive Development Plans</a></li>
 <li>20241118 - <a href="articles/20241118.html">Fuzzy Coverage</a></li>
 <li>20240902 - <a href="articles/20240902.html">Back to the Building Blocks: Codifying Complacency</a></li>
@@ -7,4 +8,3 @@
 <li>20230918 - <a href="articles/20230918.html">A History of Verification, Validation, and Code Scanning</a></li>
 <li>20230515 - <a href="articles/20230515.html">Checkmarx: Use of Obsolete Function</a></li>
 <li>20230410 - <a href="articles/20230410.html">Ada Unchecked Conversions</a></li>
-<li>20230403 - <a href="articles/20230403.html">Coverity BAD_CAST</a></li>

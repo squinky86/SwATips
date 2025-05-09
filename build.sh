@@ -172,7 +172,7 @@ if [ $PDF == true ]; then
 		NUM=${NUM/\.tex/}
 		echo -n "Building ${NUM}..."
 		ARTICLENAME="UNKNOWN"
-		cp templates/article.tex templates/sources.bib ${TMPDIR}/
+		cp templates/article.tex templates/sources.bib templates/listings-rust.sty ${TMPDIR}/
 		cp templates/article.html ${TMPDIR}/article_template.html
 		cp tips/${NUM}.* ${TMPDIR}/
 		ARTICLENAME=$(grep ArticleName ${TMPDIR}/${NUM}.pre | sed -e 's:\\sout{\([^}]*\)}:<del>\1</del>:g' | sed -e 's:\\def \\ArticleName{::g' -e 's:}::g' -e 's:\\::g')

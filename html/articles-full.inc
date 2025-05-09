@@ -39,3 +39,4 @@
 <li>20240902 - <a href="articles/20240902.html">Back to the Building Blocks: Codifying Complacency</a></li>
 <li>20241118 - <a href="articles/20241118.html">Fuzzy Coverage</a></li>
 <li>20250127 - <a href="articles/20250127.html">Defensive Development Plans</a></li>
+<li>20250512 - <a href="articles/20250512.html">Leaking Through the Cracks: Rust's Soft Memory Shell</a></li>

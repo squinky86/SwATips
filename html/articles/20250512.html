@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html xml:lang='en-US' lang='en-US'>
+<head>
+<title>Leaking Through the Cracks: Rust's Soft Memory Shell</title>
+ 
+
+<meta charset="utf-8"/>
+ 
+
+<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
+ 
+
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+ 
+
+ 
+
+<meta content="article.tex" name="src"/>
+ 
+
+<script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
+<style>
+ 
+/* start css.sty */
+.ec-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmr-12{font-size:120%;}
+.ec-lmr-9{font-size:90%;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmr-8{font-size:80%;}
+.ec-lmtt-9{font-size:90%; font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{font-size:90%; font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtti-10x-x-90{font-size:90%; font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ts1-lmtti10-x-x-90{font-size:90%;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+p{margin-top:0;margin-bottom:0}
+p.indent{text-indent:0;}
+p + p{margin-top:1em;}
+p + div, p + pre {margin-top:1em;}
+div + p, pre + p {margin-top:1em;}
+a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+@media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+img.math{vertical-align:middle;}
+div.par-math-display, div.math-display{text-align:center;}
+body{ margin:1em auto; max-width:80ch; padding:0 .62em; }
+h1,h2,h3,h4,h5 { line-height:1.2; }
+@media print{ body{ max-width:none } }
+.partHead, .likepartHead { font-size: 2em; }
+.chapterHead, .likechapterHead { font-size: 1.7411em; }
+.sectionHead, .likesectionHead { font-size: 1.5157em; }
+.subsectionHead, .likesubsectionHead { font-size: 1.3195em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1.1487em; }
+ @media (prefers-color-scheme: dark) { img[src^="article"]{filter: invert(1); } } 
+ body { background-color: Canvas; color: CanvasText; color-scheme: light dark; } 
+li p.indent { text-indent: 0em }
+li p:first-child{ margin-top:0em; }
+li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
+li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.footnotes{border-top:solid 1px black; border-bottom:solid 1px black; padding-bottom:1ex; padding-top:0.5ex; margin-right:15%; margin-top:2ex; font-style:italic; font-size:85%;}
+div.footnotes p{margin-top:0; margin-bottom:0; text-indent:0;}
+code.verb{font-family:monospace,monospace;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
+.hline:first-child{border-bottom:1px solid black;border-top:none;}
+.tabbing-right {text-align:right;}
+div.float, div.figure {margin-left: auto; margin-right: auto;}
+div.float img {text-align:center;}
+div.figure img {text-align:center;}
+.marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.reversemarginpar{float:left;}
+table.equation {width:100%;}
+.equation td{text-align:center; }
+td.equation { margin-top:1em; margin-bottom:1em; } 
+td.equation-label { width:5%; text-align:center; }
+td.eqnarray4 { width:5%; white-space: normal; }
+td.eqnarray2 { width:5%; }
+table.eqnarray-star, table.eqnarray {width:100%;}
+div.eqnarray{text-align:center;}
+div.array {text-align:center;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.pmatrix img{vertical-align:middle;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.bar-css {text-decoration:overline;}
+img.cdots{vertical-align:middle;}
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption span.id{font-weight: bold; white-space: nowrap; }
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.abstract p {margin-left:5%; margin-right:5%;}
+div.abstract {width:100%;}
+.abstracttitle{text-align:center;margin-bottom:1em;}
+.subsectionToc, .likesubsectionToc {margin-left:1em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:2em;}
+.paragraphToc, .likeparagraphToc {margin-left:3em;}
+.subparagraphToc, .likesubparagraphToc {margin-left:4em;}
+figure.float, div.figure {margin-left: auto; margin-right: auto;}
+figure.figure {text-align:center;}
+figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
+figcaption.caption span.id{font-weight: bold; white-space: nowrap; }
+p + figcaption, img + figcaption{margin-top: 1em;}
+.abstract{margin:1em;}
+dt.printshorthands{float:left; clear:left; margin-right:1em;}
+dd.thebibliography {margin-left: 2.5em;}
+dt.thebibliography {float:left; clear:left; margin-right:1em;}
+code.lstinline{font-family:monospace,monospace;}
+pre.listings{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
+.lstlisting .label{margin-right:0.5em; }
+pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; }
+.lstinputlisting .label{margin-right:0.5em;}
+.small-caps{font-variant: small-caps;}
+.uline,.uline-math{ text-decoration:underline; }
+.uuline,.uuline-math{ text-decoration:underline double; }
+span.sout, .sout-math {text-decoration: line-through }
+span.xout, .xout-math {text-decoration: line-through underline }
+span.uwave, .uwave-math {text-decoration:underline wavy; }
+span.dashuline, .dashuline-math {text-decoration:underline dashed;}
+span.dotuline, .dotuline-math {text-decoration:underline dotted;}
+.rotatebox{display: inline-block;}
+#listing-1{background-color:#BFBFBF;}
+#listing-2{background-color:#BFBFBF;}
+/* end css.sty */
+
+</style>
+</head>
+<body>
+<p><a href="../"><img src="images/swatips.svg" width="120" alt="SwATips" /></a>| <a href="20250512.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="images/by.svg" width="60" height="21" alt="CC-BY" /></a></p>
+<div class='maketitle'>
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
+A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0_swatips'>3</a>]<br />
+</h2>
+ <div class='author'><span class='ec-lmr-12'>Jon Hood</span></div><br />
+<div class='date'><span class='ec-lmr-12'>Monday 12</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-12'> May, 2025</span></div>
+</div>
+                                                                                         
+                                                                                         
+   
+<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Leaking Through the Cracks: Rust’s Soft Memory Shell</h3>
+<!-- l. 47 --><p class='noindent'><span class='ec-lmr-8'>Updated Friday 9</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> May, 2025</span>
+</p><!-- l. 1 --><p class='indent'>   Last year, Cybersecurity leadership in the U.S. encouraged organizations to use memory-safe programming
+languages. I criticized the blanket recommendation[<a id='x1-1001'></a><a href='#cite.0_20250512_hood2'>2</a>] as a partial solution for a more serious underlying concern in
+developer training, citing the problems faced with legacy Ada code[<a id='x1-1002'></a><a href='#cite.0_20250512_hood'>1</a>]. Recently, I have had the privilege of sitting
+through lengthy meetings extoling the virtues of memory-safe languages and creating policies that enumerate the
+languages that developers must use for certain contracts. In spite of all the warnings, it looks like certain
+government agencies are pushing ahead with the recommendation.
+</p><!-- l. 3 --><p class='indent'>   But is requiring a memory-safe language the panacea to memory safety? Certainly not! Heap inspection, logical
+errors caused by algorithm complexity, and memory leaks are not areas of memory safety guaranteed by Rust. After
+appreciated and constructive criticism from my last article focusing on Ada, I have been politely asked to
+demonstrate memory concerns that should be considered in Rust.
+</p><!-- l. 5 --><p class='noindent'>
+</p>   
+<h4 class='likesubsectionHead'><a id='x1-2000'></a>Rust Background</h4>
+<!-- l. 6 --><p class='noindent'>In “safe” code (and most of the development in Rust is safe by default unless you use the <span class='ec-lmtt-10'>unsafe </span>keyword), many of
+the memory safety concerns have very strong mitigations. At compile time, the Rust borrow checker will prevent
+most dangling pointers, use-after-free errors, memory-related TOCTOU and data race issues, invalid
+memory accesses, and more. At runtime, additional checks will panic in ways that can be handled
+appropriately.
+</p><!-- l. 8 --><p class='indent'>   What doesn’t get caught, however, are the profundity of memory issues related to data confidentiality (heap
+inspections), integrity (logical errors due to algorithm complexity), and availability (memory leaks and DoS attacks)
+that plague safety-critical systems today.
+</p><!-- l. 10 --><p class='noindent'>
+</p>   
+<h4 class='likesubsectionHead'><a id='x1-3000'></a>A Demonstration of Memory Leaks</h4>
+<!-- l. 12 --><p class='noindent'>Consider the intentional memory leak in Listing <a href='#x1-3001r1'>1<!-- tex4ht:ref: lst:20250512:leak  --></a>.
+</p>   
+<!-- l. 14 -->
+<p><a id='x1-3001r1'></a>
+<a id='x1-3002'></a>   
+</p><pre class='lstlisting' id='listing-1'><span class='label'><a id='x1-3003r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>use</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>std::rc::</span><span class='ec-lmtk-10x-x-90'>Rc</span><span class='ec-lmtt-9'>;</span> 
+</span><span class='label'><a id='x1-3004r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>use</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>std::cell::</span><span class='ec-lmtk-10x-x-90'>RefCell</span><span class='ec-lmtt-9'>;</span> 
+</span><span class='label'><a id='x1-3005r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>use</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>std::thread;</span> 
+</span><span class='label'><a id='x1-3006r4'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>use</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>std::</span><span class='ec-lmtk-10x-x-90'>time</span><span class='ec-lmtt-9'>::</span><span class='ec-lmtk-10x-x-90'>Duration</span><span class='ec-lmtt-9'>;</span> 
+</span><span class='label'><a id='x1-3007r5'></a></span> 
+<span class='label'><a id='x1-3008r6'></a></span><span style='color:#0000BF'><span class='ec-lmtti-10x-x-90'>#[</span></span><span style='color:#0000BF'><span class='ec-lmtti-10x-x-90'>derive</span></span><span style='color:#0000BF'><span class='ec-lmtti-10x-x-90'>(</span></span><span style='color:#0000BF'><span class='ec-lmtti-10x-x-90'>Debug</span></span><span style='color:#0000BF'><span class='ec-lmtti-10x-x-90'>)</span></span><span style='color:#0000BF'><span class='ec-lmtti-10x-x-90'>]</span></span> 
+<span class='label'><a id='x1-3009r7'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>struct</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>Node {</span> 
+</span><span class='label'><a id='x1-3010r8'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>value</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span><span style='color:#000000'> <span class='ec-lmtk-10x-x-90'>i32</span><span class='ec-lmtt-9'>,</span> 
+</span><span class='label'><a id='x1-3011r9'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>next</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span><span style='color:#000000'> <span class='ec-lmtk-10x-x-90'>RefCell</span><span class='ec-lmtt-9'>&lt;</span><span class='ec-lmtk-10x-x-90'>Option</span><span class='ec-lmtt-9'>&lt;</span><span class='ec-lmtk-10x-x-90'>Rc</span><span class='ec-lmtt-9'>&lt;Node&gt;&gt;&gt;,</span> 
+</span><span class='label'><a id='x1-3012r10'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span> 
+<span class='label'><a id='x1-3013r11'></a></span> 
+<span class='label'><a id='x1-3014r12'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>fn</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>create_and_leak(n: </span><span class='ec-lmtk-10x-x-90'>i32</span><span class='ec-lmtt-9'>) {</span> 
+</span><span class='label'><a id='x1-3015r13'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>let</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>a = </span><span class='ec-lmtk-10x-x-90'>Rc</span><span class='ec-lmtt-9'>::new(Node { value: n + 1, next: </span><span class='ec-lmtk-10x-x-90'>RefCell</span><span class='ec-lmtt-9'>::new(</span><span class='ec-lmtk-10x-x-90'>None</span><span class='ec-lmtt-9'>) });</span> 
+</span><span class='label'><a id='x1-3016r14'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>let</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>b = </span><span class='ec-lmtk-10x-x-90'>Rc</span><span class='ec-lmtt-9'>::new(Node { value: n + 2, next: </span><span class='ec-lmtk-10x-x-90'>RefCell</span><span class='ec-lmtt-9'>::new(</span><span class='ec-lmtk-10x-x-90'>None</span><span class='ec-lmtt-9'>) });</span> 
+</span><span class='label'><a id='x1-3017r15'></a></span> 
+<span class='label'><a id='x1-3018r16'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>a</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>next</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>borrow_mut</span></span><span style='color:#000000'><span class='ec-lmtt-9'>().</span></span><span style='color:#000000'><span class='ec-lmtt-9'>replace</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>Rc</span></span><span style='color:#000000'><span class='ec-lmtt-9'>::</span></span><span style='color:#000000'><span class='ec-lmtt-9'>clone</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(&amp;</span></span><span style='color:#000000'><span class='ec-lmtt-9'>b</span></span><span style='color:#000000'><span class='ec-lmtt-9'>));</span></span> 
+<span class='label'><a id='x1-3019r17'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>b</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>next</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>borrow_mut</span></span><span style='color:#000000'><span class='ec-lmtt-9'>().</span></span><span style='color:#000000'><span class='ec-lmtt-9'>replace</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>Rc</span></span><span style='color:#000000'><span class='ec-lmtt-9'>::</span></span><span style='color:#000000'><span class='ec-lmtt-9'>clone</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(&amp;</span></span><span style='color:#000000'><span class='ec-lmtt-9'>a</span></span><span style='color:#000000'><span class='ec-lmtt-9'>));</span></span> 
+<span class='label'><a id='x1-3020r18'></a></span> 
+<span class='label'><a id='x1-3021r19'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>println!</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>Leaky</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>cycle {}.", a.value);</span> 
+</span><span class='label'><a id='x1-3022r20'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>println!</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>Reference</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>counts: a = {}, b = {}.", </span><span class='ec-lmtk-10x-x-90'>Rc</span><span class='ec-lmtt-9'>::strong_count(&amp;a), </span><span class='ec-lmtk-10x-x-90'>Rc</span><span class='ec-lmtt-9'>::strong_count(&amp;b));</span> 
+</span><span class='label'><a id='x1-3023r21'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>println!</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>Values</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>a = {}, b = {}.", a.value, b.value);</span> 
+</span><span class='label'><a id='x1-3024r22'></a></span> 
+<span class='label'><a id='x1-3025r23'></a></span><span class='ec-lmtti-10x-x-90'>    </span><span style='color:#000000'><span class='ec-lmtti-10x-x-90'>//</span></span><span style='color:#000000'> <span class='ts1-lmtti10-x-x-90'>'</span><span class='ec-lmtti-10x-x-90'>a</span><span class='ts1-lmtti10-x-x-90'>' </span><span class='ec-lmtti-10x-x-90'>and </span><span class='ts1-lmtti10-x-x-90'>'</span><span class='ec-lmtti-10x-x-90'>b</span><span class='ts1-lmtti10-x-x-90'>' </span><span class='ec-lmtti-10x-x-90'>go out of scope but are not deallocated.</span> 
+</span><span class='label'><a id='x1-3026r24'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span> 
+<span class='label'><a id='x1-3027r25'></a></span> 
+<span class='label'><a id='x1-3028r26'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>fn</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main() {</span> 
+</span><span class='label'><a id='x1-3029r27'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>println!</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>Starting</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>the main </span><span class='ec-lmtk-10x-x-90'>loop</span><span class='ec-lmtt-9'>...");</span> 
+</span><span class='label'><a id='x1-3030r28'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>for</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>i </span><span class='ec-lmtk-10x-x-90'>in </span><span class='ec-lmtt-9'>0..2 {</span> 
+</span><span class='label'><a id='x1-3031r29'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>create_and_leak</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>i</span></span><span style='color:#000000'><span class='ec-lmtt-9'>);</span></span> 
+<span class='label'><a id='x1-3032r30'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>thread</span></span><span style='color:#000000'><span class='ec-lmtt-9'>::</span></span><span style='color:#000000'><span class='ec-lmtt-9'>sleep</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>Duration</span></span><span style='color:#000000'><span class='ec-lmtt-9'>::</span></span><span style='color:#000000'><span class='ec-lmtt-9'>from_secs</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(1));</span></span> 
+<span class='label'><a id='x1-3033r31'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span> 
+<span class='label'><a id='x1-3034r32'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 1: </span><span class='content'>leaky.rs: Intentional Memory Leak</span></figcaption><!-- tex4ht:label?: x1-3034r  -->
+<!-- l. 49 --><p class='indent'>   The code can be compiled, executed, and run through the tool <span class='ec-lmtt-10'>heaptrack </span>on the command line as shown in
+Listing <a href='#x1-3035r2'>2<!-- tex4ht:ref: lst:20250512:run  --></a>.
+</p>   
+<!-- l. 51 -->
+<p><a id='x1-3035r2'></a>
+<a id='x1-3036'></a>   
+</p><pre class='lstlisting' id='listing-2'><span class='label'><a id='x1-3037r1'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>$</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>rustc leaky.rs</span> 
+</span><span class='label'><a id='x1-3038r2'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>$</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>heaptrack ./leaky</span> 
+</span><span class='label'><a id='x1-3039r3'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>heaptrack</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>output will be written to "./heaptrack.leaky.10245.zst"</span> 
+</span><span class='label'><a id='x1-3040r4'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>starting</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>application, this might take some time...</span> 
+</span><span class='label'><a id='x1-3041r5'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>Starting</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>the main loop...</span> 
+</span><span class='label'><a id='x1-3042r6'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>Leaky</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>cycle 1.</span> 
+</span><span class='label'><a id='x1-3043r7'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>Reference</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>counts: a = 2, b = 2.</span> 
+</span><span class='label'><a id='x1-3044r8'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>Values</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>a = 1, b = 2.</span> 
+</span><span class='label'><a id='x1-3045r9'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>NOTE</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>heaptrack detected DEBUGINFOD_URLS but will disable it to prevent</span> 
+</span><span class='label'><a id='x1-3046r10'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>unintended</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>network delays during recording</span> 
+</span><span class='label'><a id='x1-3047r11'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>If</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>you really want to use DEBUGINFOD, </span><span class='ec-lmtk-10x-x-90'>export </span><span class='ec-lmtt-9'>HEAPTRACK_ENABLE_DEBUGINFOD=1</span> 
+</span><span class='label'><a id='x1-3048r12'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>Leaky</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>cycle 2.</span> 
+</span><span class='label'><a id='x1-3049r13'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>Reference</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>counts: a = 2, b = 2.</span> 
+</span><span class='label'><a id='x1-3050r14'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>Values</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>a = 2, b = 3.</span> 
+</span><span class='label'><a id='x1-3051r15'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>heaptrack</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>stats:</span> 
+</span><span class='label'><a id='x1-3052r16'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>allocations</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span><span style='color:#000000'> </span><span class='ec-lmtt-9'>          </span><span style='color:#000000'><span class='ec-lmtt-9'>19</span></span> 
+<span class='label'><a id='x1-3053r17'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>leaked</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>allocations:</span> </span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>4</span></span> 
+<span class='label'><a id='x1-3054r18'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>temporary</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>allocations:</span> </span><span class='ec-lmtt-9'> </span><span style='color:#000000'><span class='ec-lmtt-9'>1</span></span> 
+<span class='label'><a id='x1-3055r19'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>Heaptrack</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>finished! Now run the following to investigate the data:</span> 
+</span><span class='label'><a id='x1-3056r20'></a></span> 
+<span class='label'><a id='x1-3057r21'></a></span><span class='ec-lmtt-9'>  </span><span style='color:#000000'><span class='ec-lmtt-9'>heaptrack</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>--analyze "./heaptrack.leaky.10245.zst"</span> 
+</span><span class='label'><a id='x1-3058r22'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>$</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>heaptrack_print heaptrack.leaky.10245.zst | grep "^total memory"</span> 
+</span><span class='label'><a id='x1-3059r23'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>total</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>memory leaked: 160B</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 2: </span><span class='content'>Heaptrack</span></figcaption><!-- tex4ht:label?: x1-3059r  -->
+                                                                                         
+                                                                                         
+<!-- l. 77 --><p class='noindent'>
+</p>   
+<h4 class='likesubsectionHead'><a id='x1-4000'></a>Conclusion</h4>
+<!-- l. 78 --><p class='noindent'>In the mid-2000s, Gentoo Linux was at the height of its popularity. It had an active community and extremely
+friendly documentation. The bugfixes, performance improvements, and security enhancements it brought to the
+Linux community are a shining beacon of what new technologies can do for the overall community. In like manner,
+Rust and other memory-safe languages are ushering in a new age security-conscious development. Proposals for
+memory-safe C++, safety-critical Rust technologies like Ferrocene, and even experimental borrow
+checkers in other languages have exploded onto the scene. The benefits of Rust cannot be overstated, and
+the second-order effects of the Rust community on other programming languages will have good and
+meaningful cybersecurity enhancements for developers who may never have a desire to learn Rust.
+The programming landscape is changing. Just as Chrome OS wouldn’t exist without Gentoo Linux,
+the same can be said about many of the upcoming C++26 proposals inspired by Rust programming
+paradigms.
+</p><!-- l. 80 --><p class='indent'>   I cannot say enough good things about Rust, Ada, and other memory-safe programming languages; however,
+that praise should be tempered with the realization that these languages are not the silver bullet of memory safety
+to mandate at an organizational level. Doing so will cause leadership to develop a false sense of security that will be
+dangerous in the long run.
+                                                                                         
+                                                                                         
+</p>   
+<h3 class='sectionHead'><a id='x1-5000'></a>References</h3>
+<!-- l. 52 --><p class='noindent'>    
+</p>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-20250512_hood'>
+[1]  
+</dt><dd class='thebibliography' id='bib-1'>
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20250512_hood'></a>Jon     Hood.     “Ada     Unchecked     Conversions”.     In:     <span class='uline'>SwATips.com</span>     (2023).     <span class='small-caps'>url</span>:     
+<a class='url' href='https://www.swatips.com/articles/20230410.html'><span class='ec-lmtt-10'>https://www.swatips.com/articles/20230410.html</span></a>.
+</p>    
+</dd>
+<dt class='thebibliography' id='X0-20250512_hood2'>
+[2]  
+</dt><dd class='thebibliography' id='bib-2'>
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20250512_hood2'></a>Jon Hood. “Back to the Building Blocks: Codifying Complacency”. In: <span class='uline'>SwATips.com</span> (2024). <span class='small-caps'>url</span>: 
+<a class='url' href='https://www.swatips.com/articles/20240902.html'><span class='ec-lmtt-10'>https://www.swatips.com/articles/20240902.html</span></a>.
+</p>    
+</dd>
+<dt class='thebibliography' id='X0-swatips'>
+[3]  
+</dt><dd class='thebibliography' id='bib-3'>
+<!-- l. 52 --><p class='noindent'><a id='cite.0_swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.</p></dd></dl>
+ 
+</body> 
+</html>
