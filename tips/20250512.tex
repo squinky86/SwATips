@@ -9,7 +9,7 @@ What doesn't get caught, however, are the profundity of memory issues related to
 
 \subsection*{A Demonstration of Memory Leaks}
 
-Consider the intentional memory leak in Listing~\ref{lst:20250512:leak}.
+Consider the situation of a linked list where one node references an earlier node. This thought experiment using two nodes is demonstrated in Listing~\ref{lst:20250512:leak}. In this code, a linked list results in a circular reference. In Rust, the memory is always referenced by itself, resulting in it never getting freed when it goes out of scope.
 
 \begin{lstlisting}[caption={leaky.rs: Intentional Memory Leak},captionpos=b,style=RustStyle,basicstyle=\small,label={lst:20250512:leak},literate={"}{"}1,upquote=true,backgroundcolor=\color{lightgray}]
 use std::rc::Rc;

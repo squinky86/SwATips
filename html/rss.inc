@@ -73,7 +73,10 @@ that plague safety-critical systems today.
 
 
 <!-- l. 12 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Consider the intentional memory leak in Listing <a href="#x1-3001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20250512:leak  --></a>.
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Consider the situation of a linked list where one node references an earlier node. This thought experiment using
+two nodes is demonstrated in Listing <a href="#x1-3001r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20250512:leak  --></a>. In this code, a linked list results in a circular reference. In
+Rust, the memory is always referenced by itself, resulting in it never getting freed when it goes out of
+scope.
 </p>
    
 
