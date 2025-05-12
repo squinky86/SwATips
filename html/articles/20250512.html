@@ -109,6 +109,7 @@ h1,h2,h3,h4,h5 { line-height:1.2; }
 .subsectionHead, .likesubsectionHead { font-size: 1.3195em; }
 .subsubsectionHead, .likesubsubsectionHead { font-size: 1.1487em; }
  @media (prefers-color-scheme: dark) { img[src^="article"]{filter: invert(1); } } 
+ body { background-color: Canvas; color: CanvasText; color-scheme: light dark; } 
 li p.indent { text-indent: 0em }
 li p:first-child{ margin-top:0em; }
 li p:last-child, li div:last-child { margin-bottom:0.5em; }
@@ -254,7 +255,7 @@ span.dotuline, .dotuline-math {text-decoration:underline dotted;}
                                                                                          
 
 <h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
-A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0@swatips'>3</a>]<br />
+A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0_swatips'>3</a>]<br />
 </h2>
  <div class='author'><span class='ec-lmr-12'>Jon Hood</span></div><br />
 <div class='date'><span class='ec-lmr-12'>Monday 12</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-12'> May, 2025</span></div>
@@ -265,8 +266,8 @@ A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0@
 <h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Leaking Through the Cracks: Rust’s Soft Memory Shell</h3>
 <!-- l. 47 --><p class='noindent'><span class='ec-lmr-8'>Updated Monday 12</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> May, 2025</span>
 </p><!-- l. 1 --><p class='indent'>   Last year, Cybersecurity leadership in the U.S. encouraged organizations to use memory-safe programming
-languages. I criticized the blanket recommendation[<a id='x1-1001'></a><a href='#cite.0@20250512:hood2'>2</a>] as a partial solution for a more serious underlying concern in
-developer training, citing the problems faced with legacy Ada code[<a id='x1-1002'></a><a href='#cite.0@20250512:hood'>1</a>]. Recently, I have had the privilege of sitting
+languages. I criticized the blanket recommendation[<a id='x1-1001'></a><a href='#cite.0_20250512_hood2'>2</a>] as a partial solution for a more serious underlying concern in
+developer training, citing the problems faced with legacy Ada code[<a id='x1-1002'></a><a href='#cite.0_20250512_hood'>1</a>, <a id='x1-1003'></a><a href='#cite.0_20250512_keen'>4</a>]. Recently, I have had the privilege of sitting
 through lengthy meetings extoling the virtues of memory-safe languages and creating policies that enumerate the
 languages that developers must use for certain contracts. In spite of all the warnings, it looks like certain
 government agencies are pushing ahead with the recommendation.
@@ -385,24 +386,31 @@ dangerous in the long run.
 <h3 class='sectionHead'><a id='x1-5000'></a>References</h3>
 <!-- l. 52 --><p class='noindent'>    
 </p>
-<dl class='thebibliography'><dt class='thebibliography' id='X0-20250512:hood'>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-20250512_hood'>
 [1]  
 </dt><dd class='thebibliography' id='bib-1'>
-<!-- l. 52 --><p class='noindent'><a id='cite.0@20250512:hood'></a>Jon     Hood.     “Ada     Unchecked     Conversions”.     In:     <span class='uline'>SwATips.com</span>     (2023).     <span class='small-caps'>url</span>:     
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20250512_hood'></a>Jon     Hood.     “Ada     Unchecked     Conversions”.     In:     <span class='uline'>SwATips.com</span>     (2023).     <span class='small-caps'>url</span>:     
 <a class='url' href='https://www.swatips.com/articles/20230410.html'><span class='ec-lmtt-10'>https://www.swatips.com/articles/20230410.html</span></a>.
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20250512:hood2'>
+<dt class='thebibliography' id='X0-20250512_hood2'>
 [2]  
 </dt><dd class='thebibliography' id='bib-2'>
-<!-- l. 52 --><p class='noindent'><a id='cite.0@20250512:hood2'></a>Jon Hood. “Back to the Building Blocks: Codifying Complacency”. In: <span class='uline'>SwATips.com</span> (2024). <span class='small-caps'>url</span>: 
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20250512_hood2'></a>Jon Hood. “Back to the Building Blocks: Codifying Complacency”. In: <span class='uline'>SwATips.com</span> (2024). <span class='small-caps'>url</span>: 
 <a class='url' href='https://www.swatips.com/articles/20240902.html'><span class='ec-lmtt-10'>https://www.swatips.com/articles/20240902.html</span></a>.
 </p>    
 </dd>
 <dt class='thebibliography' id='X0-swatips'>
 [3]  
 </dt><dd class='thebibliography' id='bib-3'>
-<!-- l. 52 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.</p></dd></dl>
+<!-- l. 52 --><p class='noindent'><a id='cite.0_swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt class='thebibliography' id='X0-20250512_keen'>
+[4]  
+</dt><dd class='thebibliography' id='bib-4'>
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20250512_keen'></a>Kevin    Keen.    “Ada    <span class='sout'>Low</span>High    Integrity    Profiles”.    In:    <span class='uline'>SwATips.com</span>    (2021).    <span class='small-caps'>url</span>:    
+<a class='url' href='https://www.swatips.com/articles/20210809.html'><span class='ec-lmtt-10'>https://www.swatips.com/articles/20210809.html</span></a>.</p></dd></dl>
  
 </body> 
 </html>

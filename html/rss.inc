@@ -14,7 +14,7 @@
                                                                                          
 
 <h2 class="titleHead" style="line-height: 1.2; text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]<br/>
+A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0_swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]<br/>
 </h2>
  <div class="author" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
 <div class="date" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Monday 12</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-12" style="font-size: 120%;"> May, 2025</span></div>
@@ -32,8 +32,8 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap:
 </p>
 <!-- l. 1 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Last year, Cybersecurity leadership in the U.S. encouraged organizations to use memory-safe programming
-languages. I criticized the blanket recommendation[<a id="x1-1001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20250512:hood2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] as a partial solution for a more serious underlying concern in
-developer training, citing the problems faced with legacy Ada code[<a id="x1-1002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@20250512:hood" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]. Recently, I have had the privilege of sitting
+languages. I criticized the blanket recommendation[<a id="x1-1001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0_20250512_hood2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>] as a partial solution for a more serious underlying concern in
+developer training, citing the problems faced with legacy Ada code[<a id="x1-1002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0_20250512_hood" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>, <a id="x1-1003" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0_20250512_keen" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>]. Recently, I have had the privilege of sitting
 through lengthy meetings extoling the virtues of memory-safe languages and creating policies that enumerate the
 languages that developers must use for certain contracts. In spite of all the warnings, it looks like certain
 government agencies are pushing ahead with the recommendation.
@@ -206,24 +206,31 @@ dangerous in the long run.
 </p>
 
 
-<dl class="thebibliography"><dt class="thebibliography" id="X0-20250512:hood" style="float: left; clear: left; margin-right: 1em;">
+<dl class="thebibliography"><dt class="thebibliography" id="X0-20250512_hood" style="float: left; clear: left; margin-right: 1em;">
 [1]  
 </dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
-<!-- l. 52 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20250512:hood" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon     Hood.     “Ada     Unchecked     Conversions”.     In:     <span class="uline" style="text-decoration: underline;">SwATips.com</span>     (2023).     <span class="small-caps" style="font-variant: small-caps;">url</span>:     
+<!-- l. 52 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0_20250512_hood" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon     Hood.     “Ada     Unchecked     Conversions”.     In:     <span class="uline" style="text-decoration: underline;">SwATips.com</span>     (2023).     <span class="small-caps" style="font-variant: small-caps;">url</span>:     
 <a class="url" href="https://www.swatips.com/articles/20230410.html" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.swatips.com/articles/20230410.html</span></a>.
 </p>    
 </dd>
-<dt class="thebibliography" id="X0-20250512:hood2" style="float: left; clear: left; margin-right: 1em;">
+<dt class="thebibliography" id="X0-20250512_hood2" style="float: left; clear: left; margin-right: 1em;">
 [2]  
 </dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
-<!-- l. 52 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@20250512:hood2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood. “Back to the Building Blocks: Codifying Complacency”. In: <span class="uline" style="text-decoration: underline;">SwATips.com</span> (2024). <span class="small-caps" style="font-variant: small-caps;">url</span>: 
+<!-- l. 52 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0_20250512_hood2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood. “Back to the Building Blocks: Codifying Complacency”. In: <span class="uline" style="text-decoration: underline;">SwATips.com</span> (2024). <span class="small-caps" style="font-variant: small-caps;">url</span>: 
 <a class="url" href="https://www.swatips.com/articles/20240902.html" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.swatips.com/articles/20240902.html</span></a>.
 </p>    
 </dd>
 <dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
 [3]  
 </dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
-<!-- l. 52 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="uline" style="text-decoration: underline;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
+<!-- l. 52 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0_swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="uline" style="text-decoration: underline;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20250512_keen" style="float: left; clear: left; margin-right: 1em;">
+[4]  
+</dt><dd class="thebibliography" id="bib-4" style="margin-left: 2.5em;">
+<!-- l. 52 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0_20250512_keen" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Kevin    Keen.    “Ada    <span class="sout" style="text-decoration: line-through;">Low</span>High    Integrity    Profiles”.    In:    <span class="uline" style="text-decoration: underline;">SwATips.com</span>    (2021).    <span class="small-caps" style="font-variant: small-caps;">url</span>:    
+<a class="url" href="https://www.swatips.com/articles/20210809.html" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.swatips.com/articles/20210809.html</span></a>.</p></dd></dl>
 
  
 
