@@ -1,0 +1,4 @@
+\def \AuthorName{Chris Ramsey}
+\def \ArticleName{The -Wall GCC Flag and CWE-457: Why -Wall Does Not Offer Sufficient Protection Against Uninitialized Variables}
+\newcommand{\ArticleDate}{\formatdate{7}{7}{2025}}
+\addbibresource{20250707.bib}
