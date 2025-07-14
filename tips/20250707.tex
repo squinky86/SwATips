@@ -2,6 +2,8 @@
 
 CWE-457 is a category of software weakness related to the use of uninitialized variables.\autocite{20250707:cwe-457} In some programming languages---C and C++ in particular---local (stack) variables are not automatically initialized. Instead, they contain garbage data, consisting of leftover values from previous operations. Using uninitialized variables can easily lead to unpredictable behavior and security vulnerabilities.
 
+\vspace{0.5cm}
+
 The \texttt{-Wall} command-line argument in the GNU Compiler Collection (GCC) enables a wide range of useful warnings, including some that help detect the use of uninitialized variables. For example, consider the program in Listing~\ref{lst:20250707:1}. When compiled with the GCC arguments \texttt{-Wall} and \texttt{-Werror}, the uninitialized value is properly detected as shown in Listing~\ref{lst:20250707:2}.
 
 
@@ -49,7 +51,7 @@ int main() {
 }
 \end{lstlisting}
 
-\begin{lstlisting}[caption={Execution of Conditional Leak},captionpos=b,style=BashStyle,basicstyle=\small,label={lst:20250707:4},literate={"}{"}1,upquote=true,backgroundcolor=\color{lightgray},morekeywords={32765}]
+\begin{lstlisting}[caption={Execution Showing Uninitialized Variable},captionpos=b,style=BashStyle,basicstyle=\small,label={lst:20250707:4},literate={"}{"}1,upquote=true,backgroundcolor=\color{lightgray},morekeywords={32765}]
 ./main.exe
 10
 ./main.exe

@@ -270,7 +270,7 @@ A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0_
    
 <h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>The -Wall GCC Flag and CWE-457: Why -Wall Does Not Offer Sufficient Protection Against Uninitialized
 Variables</h3>
-<!-- l. 47 --><p class='noindent'><span class='ec-lmr-8'>Updated Monday 7</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> July, 2025</span>
+<!-- l. 47 --><p class='noindent'><span class='ec-lmr-8'>Updated Monday 14</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> July, 2025</span>
 </p><!-- l. 1 --><p class='noindent'>
 </p>   
 <h4 class='subsectionHead'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Introduction</h4>
@@ -278,12 +278,12 @@ Variables</h3>
 languages—C and C++ in particular—local (stack) variables are not automatically initialized. Instead, they contain
 garbage data, consisting of leftover values from previous operations. Using uninitialized variables can easily lead to
 unpredictable behavior and security vulnerabilities.
-</p><!-- l. 5 --><p class='indent'>   The <span class='ec-lmtt-10'>-Wall </span>command-line argument in the GNU Compiler Collection (GCC) enables a wide range of useful
+</p><!-- l. 7 --><p class='indent'>   The <span class='ec-lmtt-10'>-Wall </span>command-line argument in the GNU Compiler Collection (GCC) enables a wide range of useful
 warnings, including some that help detect the use of uninitialized variables. For example, consider the program in
 Listing <a href='#x1-2002r1'>1<!-- tex4ht:ref: lst:20250707:1  --></a>. When compiled with the GCC arguments <span class='ec-lmtt-10'>-Wall </span>and <span class='ec-lmtt-10'>-Werror</span>, the uninitialized value is properly detected
 as shown in Listing <a href='#x1-2012r2'>2<!-- tex4ht:ref: lst:20250707:2  --></a>.
 </p>   
-<!-- l. 8 -->
+<!-- l. 10 -->
 <p><a id='x1-2002r1'></a>
 <a id='x1-2003'></a>   
 </p><pre class='lstlisting' id='listing-1'><span class='label'><a id='x1-2004r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;cstdio&gt;</span> 
@@ -296,7 +296,7 @@ as shown in Listing <a href='#x1-2012r2'>2<!-- tex4ht:ref: lst:20250707:2  --><
 </span><span class='label'><a id='x1-2011r8'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
 <figcaption class='caption'><span class='id'>Listing 1: </span><span class='content'>Simple Uninitialized Variable</span></figcaption><!-- tex4ht:label?: x1-2011r1.1  -->
    
-<!-- l. 19 -->
+<!-- l. 21 -->
 <p><a id='x1-2012r2'></a>
 <a id='x1-2013'></a>   
 </p><pre class='lstlisting' id='listing-2'><span class='label'><a id='x1-2014r1'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>main</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>cpp</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>In </span><span class='ec-lmtk-10x-x-90'>function</span> </span><span class='ec-lmtt-9'>‘</span><span style='color:#000000'><span class='ec-lmtt-9'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main</span></span><span class='ec-lmtt-9'>’</span><span style='color:#000000'><span class='ec-lmtt-9'>():</span></span> 
@@ -308,17 +308,17 @@ as shown in Listing <a href='#x1-2012r2'>2<!-- tex4ht:ref: lst:20250707:2  --><
 </span><span class='label'><a id='x1-2020r7'></a></span><span class='ec-lmtt-9'>      </span><span style='color:#000000'><span class='ec-lmtt-9'>|</span></span><span style='color:#000000'> </span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>^</span></span> 
 <span class='label'><a id='x1-2021r8'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>cc1plus</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>all warnings being treated as errors</span></span></pre>
 <figcaption class='caption'><span class='id'>Listing 2: </span><span class='content'>Compilation with -Wall and -Werror</span></figcaption><!-- tex4ht:label?: x1-2021r1.1  -->
-<!-- l. 30 --><p class='indent'>   This has led to a common misconception: that the <span class='ec-lmtt-10'>-Wall </span>flag offers developers sufficient protection against
+<!-- l. 32 --><p class='indent'>   This has led to a common misconception: that the <span class='ec-lmtt-10'>-Wall </span>flag offers developers sufficient protection against
 CWE-457. However, this is not the case. In this SwA tip, we explore some common situations where <span class='ec-lmtt-10'>-Wall </span>fails to
 detect the use of uninitialized variables.
-</p><!-- l. 32 --><p class='noindent'>
+</p><!-- l. 34 --><p class='noindent'>
 </p>   
 <h4 class='likesubsectionHead'><a id='x1-3000'></a>Example 1: Conditional Assignment</h4>
-<!-- l. 34 --><p class='noindent'>Consider the example in Listing <a href='#x1-3001r3'>3<!-- tex4ht:ref: lst:20250707:3  --></a>. Compiling this program with GCC version (Ubuntu 13.3.0-6ubuntu2 24.04)
+<!-- l. 36 --><p class='noindent'>Consider the example in Listing <a href='#x1-3001r3'>3<!-- tex4ht:ref: lst:20250707:3  --></a>. Compiling this program with GCC version (Ubuntu 13.3.0-6ubuntu2 24.04)
 13.3.0 using the <span class='ec-lmtt-10'>-Wall </span>command-line argument produces no warnings. However, running the program a few times is
 usually sufficient to demonstrate the issue. Sometimes, it does not output <span class='ec-lmtt-10'>10 </span>(see Listing <a href='#x1-3016r4'>4<!-- tex4ht:ref: lst:20250707:4  --></a>).
 </p>   
-<!-- l. 36 -->
+<!-- l. 38 -->
 <p><a id='x1-3001r3'></a>
 <a id='x1-3002'></a>   
 </p><pre class='lstlisting' id='listing-3'><span class='label'><a id='x1-3003r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;stdio.h&gt;</span> 
@@ -336,27 +336,26 @@ usually sufficient to demonstrate the issue. Sometimes, it does not output <span
 </span><span class='label'><a id='x1-3015r13'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
 <figcaption class='caption'><span class='id'>Listing 3: </span><span class='content'>Conditionally Uninitialized Variable</span></figcaption><!-- tex4ht:label?: x1-3015r  -->
    
-<!-- l. 52 -->
+<!-- l. 54 -->
+                                                                                         
+                                                                                         
 <p><a id='x1-3016r4'></a>
-<a id='x1-3017'></a>
-                                                                                         
-                                                                                         
-   
+<a id='x1-3017'></a>   
 </p><pre class='lstlisting' id='listing-4'><span class='label'><a id='x1-3018r1'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>./</span></span><span style='color:#000000'><span class='ec-lmtt-9'>main</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>exe</span></span> 
 <span class='label'><a id='x1-3019r2'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>10</span></span> 
 <span class='label'><a id='x1-3020r3'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>./</span></span><span style='color:#000000'><span class='ec-lmtt-9'>main</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>exe</span></span> 
 <span class='label'><a id='x1-3021r4'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>10</span></span> 
 <span class='label'><a id='x1-3022r5'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>./</span></span><span style='color:#000000'><span class='ec-lmtt-9'>main</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>exe</span></span> 
 <span class='label'><a id='x1-3023r6'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>32765</span></span></pre>
-<figcaption class='caption'><span class='id'>Listing 4: </span><span class='content'>Execution of Conditional Leak</span></figcaption><!-- tex4ht:label?: x1-3023r  -->
-<!-- l. 61 --><p class='noindent'>
+<figcaption class='caption'><span class='id'>Listing 4: </span><span class='content'>Execution Showing Uninitialized Variable</span></figcaption><!-- tex4ht:label?: x1-3023r  -->
+<!-- l. 63 --><p class='noindent'>
 </p>   
 <h4 class='likesubsectionHead'><a id='x1-4000'></a>Example 2: Function Scope Escape</h4>
-<!-- l. 63 --><p class='noindent'>Consider the example in Listing <a href='#x1-4001r5'>5<!-- tex4ht:ref: lst:20250707:5  --></a>. Using the same compiler as Example 1, GCC does not detect that variable
+<!-- l. 65 --><p class='noindent'>Consider the example in Listing <a href='#x1-4001r5'>5<!-- tex4ht:ref: lst:20250707:5  --></a>. Using the same compiler as Example 1, GCC does not detect that variable
 <span class='ec-lmtt-10'>x </span>remains uninitialized after the call to <span class='ec-lmtt-10'>foo</span>. Passing a pointer to the variable is enough to fool the
 compiler.
 </p>   
-<!-- l. 65 -->
+<!-- l. 67 -->
 <p><a id='x1-4001r5'></a>
 <a id='x1-4002'></a>   
 </p><pre class='lstlisting' id='listing-5'><span class='label'><a id='x1-4003r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;cstdio&gt;</span> 
@@ -372,13 +371,13 @@ compiler.
 </span><span class='label'><a id='x1-4013r11'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span> 
 </span><span class='label'><a id='x1-4014r12'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
 <figcaption class='caption'><span class='id'>Listing 5: </span><span class='content'>Function Scope Escape Uninitialized Variable</span></figcaption><!-- tex4ht:label?: x1-4014r  -->
-<!-- l. 80 --><p class='noindent'>
+<!-- l. 82 --><p class='noindent'>
 </p>   
 <h4 class='likesubsectionHead'><a id='x1-5000'></a>Example 3: Uninitialized Class Member</h4>
-<!-- l. 82 --><p class='noindent'>Consider the example in Listing <a href='#x1-5001r6'>6<!-- tex4ht:ref: lst:20250707:6  --></a>. The private member variable <span class='ec-lmtt-10'>m_x </span>is used uninitialized without any warning from
+<!-- l. 84 --><p class='noindent'>Consider the example in Listing <a href='#x1-5001r6'>6<!-- tex4ht:ref: lst:20250707:6  --></a>. The private member variable <span class='ec-lmtt-10'>m_x </span>is used uninitialized without any warning from
 the same GCC version as the previous examples.
 </p>   
-<!-- l. 84 -->
+<!-- l. 86 -->
 <p><a id='x1-5001r6'></a>
 <a id='x1-5002'></a>   
 </p><pre class='lstlisting' id='listing-6'><span class='label'><a id='x1-5003r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;cstdio&gt;</span> 
@@ -398,10 +397,10 @@ the same GCC version as the previous examples.
 <span class='label'><a id='x1-5017r15'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span> 
 </span><span class='label'><a id='x1-5018r16'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
 <figcaption class='caption'><span class='id'>Listing 6: </span><span class='content'>Class Member Uninitialized</span></figcaption><!-- tex4ht:label?: x1-5018r  -->
-<!-- l. 103 --><p class='noindent'>
+<!-- l. 105 --><p class='noindent'>
 </p>   
 <h4 class='likesubsectionHead'><a id='x1-6000'></a>Conclusion</h4>
-<!-- l. 105 --><p class='noindent'>While the <span class='ec-lmtt-10'>-Wall </span>flag does provide some protection by detecting simple instances of CWE-457, many common cases
+<!-- l. 107 --><p class='noindent'>While the <span class='ec-lmtt-10'>-Wall </span>flag does provide some protection by detecting simple instances of CWE-457, many common cases
 remain undetected. The SwA team generally recommends developers follow industry best practices—such
 as always initializing variables—and use static analysis tools whenever practical to help detect this
 issue.

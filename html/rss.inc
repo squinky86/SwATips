@@ -29,7 +29,7 @@ Variables</h3>
 
 
 <!-- l. 47 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Monday 7</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> July, 2025</span>
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Monday 14</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> July, 2025</span>
 </p>
 <!-- l. 1 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
@@ -45,7 +45,7 @@ languages—C and C++ in particular—local (stack) variables are not automatica
 garbage data, consisting of leftover values from previous operations. Using uninitialized variables can easily lead to
 unpredictable behavior and security vulnerabilities.
 </p>
-<!-- l. 5 -->
+<!-- l. 7 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wall </span>command-line argument in the GNU Compiler Collection (GCC) enables a wide range of useful
 warnings, including some that help detect the use of uninitialized variables. For example, consider the program in
 Listing <a href="#x1-2002r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1<!-- tex4ht:ref: lst:20250707:1  --></a>. When compiled with the GCC arguments <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wall </span>and <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Werror</span>, the uninitialized value is properly detected
@@ -53,7 +53,7 @@ as shown in Listing <a href="#x1-2012r2" style="overflow-wrap: break-word; word
 </p>
    
 
-<!-- l. 8 -->
+<!-- l. 10 -->
 
 
 <p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-2002r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
@@ -74,7 +74,7 @@ as shown in Listing <a href="#x1-2012r2" style="overflow-wrap: break-word; word
 
    
 
-<!-- l. 19 -->
+<!-- l. 21 -->
 
 
 <p style="margin-top: 0; margin-bottom: 0;"><a id="x1-2012r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
@@ -94,12 +94,12 @@ as shown in Listing <a href="#x1-2012r2" style="overflow-wrap: break-word; word
 <!-- tex4ht:label?: x1-2021r1.1  -->
 
 
-<!-- l. 30 -->
+<!-- l. 32 -->
 <p class="indent" style="margin-top: 0; margin-bottom: 0; text-indent: 0;">   This has led to a common misconception: that the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wall </span>flag offers developers sufficient protection against
 CWE-457. However, this is not the case. In this SwA tip, we explore some common situations where <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wall </span>fails to
 detect the use of uninitialized variables.
 </p>
-<!-- l. 32 -->
+<!-- l. 34 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;">
 </p>
    
@@ -107,14 +107,14 @@ detect the use of uninitialized variables.
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-3000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Example 1: Conditional Assignment</h4>
 
 
-<!-- l. 34 -->
+<!-- l. 36 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Consider the example in Listing <a href="#x1-3001r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3<!-- tex4ht:ref: lst:20250707:3  --></a>. Compiling this program with GCC version (Ubuntu 13.3.0-6ubuntu2 24.04)
 13.3.0 using the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wall </span>command-line argument produces no warnings. However, running the program a few times is
 usually sufficient to demonstrate the issue. Sometimes, it does not output <span class="ec-lmtt-10" style="font-family: monospace,monospace;">10 </span>(see Listing <a href="#x1-3016r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4<!-- tex4ht:ref: lst:20250707:4  --></a>).
 </p>
    
 
-<!-- l. 36 -->
+<!-- l. 38 -->
 
 
 <p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-3001r3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
@@ -140,14 +140,13 @@ usually sufficient to demonstrate the issue. Sometimes, it does not output <span
 
    
 
-<!-- l. 52 -->
+<!-- l. 54 -->
 
+                                                                                         
+                                                                                         
 
 <p style="margin-top: 0; margin-bottom: 0;"><a id="x1-3016r4" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-<a id="x1-3017" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
-                                                                                         
-                                                                                         
-   
+<a id="x1-3017" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>   
 </p>
 <pre class="lstlisting" id="listing-4" style="font-family: monospace,monospace; white-space: pre-wrap; margin-top: 0.5em; margin-bottom: 0.5em; background-color: #BFBFBF;"><span class="label" style="margin-right: 0.5em;"><a id="x1-3018r1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">./</span></span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">main</span></span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">.</span></span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">exe</span></span> 
 <span class="label" style="margin-right: 0.5em;"><a id="x1-3019r2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">10</span></span> 
@@ -157,11 +156,11 @@ usually sufficient to demonstrate the issue. Sometimes, it does not output <span
 <span class="label" style="margin-right: 0.5em;"><a id="x1-3023r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/></span><span style="color:#000000"><span class="ec-lmtt-9" style="font-size: 90%; font-family: monospace,monospace;">32765</span></span></pre>
 
 
-<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 4: </span><span class="content">Execution of Conditional Leak</span></figcaption>
+<figcaption class="caption" style="text-indent: -2em; margin-left: 3em; margin-right: 1em; text-align: center;"><span class="id" style="font-weight: bold; white-space: nowrap;">Listing 4: </span><span class="content">Execution Showing Uninitialized Variable</span></figcaption>
 <!-- tex4ht:label?: x1-3023r  -->
 
 
-<!-- l. 61 -->
+<!-- l. 63 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">
 </p>
    
@@ -169,14 +168,14 @@ usually sufficient to demonstrate the issue. Sometimes, it does not output <span
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-4000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Example 2: Function Scope Escape</h4>
 
 
-<!-- l. 63 -->
+<!-- l. 65 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Consider the example in Listing <a href="#x1-4001r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5<!-- tex4ht:ref: lst:20250707:5  --></a>. Using the same compiler as Example 1, GCC does not detect that variable
 <span class="ec-lmtt-10" style="font-family: monospace,monospace;">x </span>remains uninitialized after the call to <span class="ec-lmtt-10" style="font-family: monospace,monospace;">foo</span>. Passing a pointer to the variable is enough to fool the
 compiler.
 </p>
    
 
-<!-- l. 65 -->
+<!-- l. 67 -->
 
 
 <p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-4001r5" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
@@ -200,7 +199,7 @@ compiler.
 <!-- tex4ht:label?: x1-4014r  -->
 
 
-<!-- l. 80 -->
+<!-- l. 82 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">
 </p>
    
@@ -208,13 +207,13 @@ compiler.
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-5000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Example 3: Uninitialized Class Member</h4>
 
 
-<!-- l. 82 -->
+<!-- l. 84 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Consider the example in Listing <a href="#x1-5001r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">6<!-- tex4ht:ref: lst:20250707:6  --></a>. The private member variable <span class="ec-lmtt-10" style="font-family: monospace,monospace;">m_x </span>is used uninitialized without any warning from
 the same GCC version as the previous examples.
 </p>
    
 
-<!-- l. 84 -->
+<!-- l. 86 -->
 
 
 <p style="margin-bottom: 0; margin-top: 1em;"><a id="x1-5001r6" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>
@@ -242,7 +241,7 @@ the same GCC version as the previous examples.
 <!-- tex4ht:label?: x1-5018r  -->
 
 
-<!-- l. 103 -->
+<!-- l. 105 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">
 </p>
    
@@ -250,7 +249,7 @@ the same GCC version as the previous examples.
 <h4 class="likesubsectionHead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-6000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusion</h4>
 
 
-<!-- l. 105 -->
+<!-- l. 107 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">While the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">-Wall </span>flag does provide some protection by detecting simple instances of CWE-457, many common cases
 remain undetected. The SwA team generally recommends developers follow industry best practices—such
 as always initializing variables—and use static analysis tools whenever practical to help detect this
