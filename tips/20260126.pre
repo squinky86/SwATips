@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Unsafe at Any Speed: The Designed-In Dangers of DevSecOps}
+\newcommand{\ArticleDate}{\formatdate{26}{1}{2026}}
+\addbibresource{20260126.bib}

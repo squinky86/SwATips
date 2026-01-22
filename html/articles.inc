@@ -1,3 +1,4 @@
+<li>20260126 - <a href="articles/20260126.html">Unsafe at Any Speed: The Designed-In Dangers of DevSecOps</a></li>
 <li>20250707 - <a href="articles/20250707.html">The -Wall GCC Flag and CWE-457: Why -Wall Does Not Offer Sufficient Protection Against Uninitialized Variables</a></li>
 <li>20250512 - <a href="articles/20250512.html">Leaking Through the Cracks: Rust's Soft Memory Shell</a></li>
 <li>20250127 - <a href="articles/20250127.html">Defensive Development Plans</a></li>
@@ -7,4 +8,3 @@
 <li>20240527 - <a href="articles/20240527.html">Sorry Root, You're Not the Boss of Me!</a></li>
 <li>20240212 - <a href="articles/20240212.html">Assess Only v. Assess and Authorize</a></li>
 <li>20230918 - <a href="articles/20230918.html">A History of Verification, Validation, and Code Scanning</a></li>
-<li>20230515 - <a href="articles/20230515.html">Checkmarx: Use of Obsolete Function</a></li>

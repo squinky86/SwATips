@@ -1,0 +1,36 @@
+\subsection{Introduction}
+
+In 1965, Ralph Nader published his book, \textit{Unsafe at Any Speed: The Designed-In Dangers of the American Automobile.} In it, one of his critiques included the ignorance of ``Crashworthiness'' standards, claiming that vehicle manufacturers knew about the secondary crash events (riders hitting the internal parts of a vehicle and suffering injury) but chose to save cost and do nothing about it.
+
+Sixty years later, we have an administration pushing forward sound standards that are actively being ignored and redefined. In this week's SwATip, we'll take a look at the Department of War's latest software development memorandums and guidelines, then get a boots-on-the-ground look at how they're being redefined.
+
+\subsection*{Lethal Speed}
+In March 2025, Secretary Hegseth published a memo directing the Department of Defense to adopt the Software Acquisition Pathway (SWP), DoDI 5000.87, as the means of acquiring, developing, and iterating updates for software.\autocite{20260126:lethal}
+
+\paragraph{The false claim} is that the DoD/DoW is focusing on fielding quickly in favor of lethality rather than bureaucratic processes like software assurance, validation, and accreditation. Software development organizations are pointing to this memo as justification for completely skipping the processes that make code delivery secure.
+
+\paragraph{Reality} is the exact opposite. Instead, SWP pushes the old DoD way of doing things into the modern era. ``Cybersecurity and program protection will be addressed from program inception throughout the program’s lifecycle\ldots'' Instead of a point-in-time inspection and waterfall-like process of evaluating software after it's written, cybersecurity policies related to software must perform the cybersecurity validation as part of the development process, earlier in the lifecycle when it will not slow down deployment. ``Software assurance, cyber security, test and evaluation are integral parts of this approach to continually assess and measure cybersecurity preparedness and responsiveness, identify and address risks and execute mitigation actions.''\autocite{20260126:dodi500087} Leadership is forcing something that we've seen for decades: the need to bring cybersecurity assessment into the development pipelines early.\autocite{20260126:hood}
+
+The DoW isn't saying to just ignore the processes that identify risks. Yes, the need to field and achieve lethality may be greater than the risk of fielding, but that risk should still be enumerated and identified as early in the process as possible.
+
+\subsection*{RMF Is Dead}
+In September 2025, the DoW announced the move to the Cybersecurity Risk Management Construct (CSRMC). The Risk Management Framework's (RMF) documentation-heavy approach relied on static point-in-time inspections and checklists, a concept already denounced in the aforementioned Hegseth memo.
+
+\paragraph{The partially false claim} is that RMF is dead; therefore, its cybersecurity requirements are no longer valid.
+
+\paragraph{Reality} is that cybersecurity professionals engaged in technical activities are celebrating. CSRMC moves from these static assessments to the continuous assessment frameworks already accounted for in the RMF continuous monitoring construct. This frees up cybersecurity teams. Instead of point-in-time inspections, they must rely on automated, AI-enabled tools to continuously assess networks, systems, and components. The standard is no longer whether a cybersecurity professional can spend weeks or even months documenting their findings and getting security managers to push their assessment results into eMASS; it's now on their ability to flag concerns in the automated and continuous assessment pipelines that are now required. Red teaming, blue teaming, and pentesting are all moved into the \textbf{Test} portion of the CSRMC while Software Assurance is embedded into the security requirements of the architecture in the very first \textbf{Design} phase.
+
+The reports of RMF's death are greatly exaggerated. Had your program been implementing continuous monitoring, ``RMF 2.0,'' or continuous ATO guidance, it would be in shape to implement what's coming with CSRMC. Shifting left into automated pipelines instead of documenting findings in reports attached to eMASS that are ignored until there's a problem represents a proactive (rather than reactive) cybersecurity posture.
+
+\subsection*{Less Cybersecurity Training}
+Also in September, Secretary Hegseth announced a reduction in mandatory annual training.\autocite{20260126:hegseth} In the memo, Secretary Hegseth instructed the CIO to relax the mandatory frequency for cybersecurity training.\autocite{20260126:hegseth2}
+
+\paragraph{The false claim} is that cybersecurity training and requirements are being eliminated.
+
+\paragraph{Reality} is that consolidating and simplifying the frequency of addressing these topics helps prioritize the execution of warfighting, strengthening lethality (tying it to the first memorandum).
+
+\subsection*{Conclusion}
+
+Another critique in Nader's \textit{Unsafe at Any Speed} is that those responsible for developing vehicles would blame ``the nut behind the wheel,'' shifting safety and operation to the driver's fault rather than building a sound vehicle that could protect them better. Today, we are seeing outrage at sound policies that can be implemented appropriately and safely. Nevertheless, there has been no shortage of development organizations attempting to convince leadership to ignore cybersecurity in favor of going fast. These organizations abuse the memorandums and standards established for them and construct a fortress around themselves to protect them from the fallout. DevSecOps environments are created on the platforms which shift risk and blame to external stakeholders who cannot mitigate it rather than taking the accountability demanded by leadership.
+
+Nader ended his book noting the coming struggle for safety, begging the government to step in and reform the organizations that prioritized profits over safety. Today we stand on the edge of that happening again: can vendors be trusted to police themselves by bringing the cybersecurity responsibilities into the development pipeline, or will they commit the same mistakes as the auto industry of the 1960's by relaxing cybersecurity standards and blaming others? If you hear of a development organization pushing any of the false claims documented here, then it may be already too late. The development organization isn't ``shifting left'' and moving cybersecurity where it is mandated to be; they're simply doing nothing and hoping for the best.

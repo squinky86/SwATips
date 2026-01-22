@@ -1,4 +1,253 @@
 	<item>
+		<title>Unsafe at Any Speed: The Designed-In Dangers of DevSecOps</title>
+		<link>https://www.SwATips.com/articles/20260126.html</link>
+		<pubDate>Mon, 26 Jan 2026 00:00:00 -0600</pubDate>
+<description><![CDATA[
+
+<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20260126.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
+
+
+<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="line-height: 1.2; text-align: center;"> <strong>Software Assurance Tips</strong><br/>
+A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0_swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">5</a>]<br/>
+</h2>
+ <div class="author" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Jon Hood</span></div><br/>
+<div class="date" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Monday 26</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-12" style="font-size: 120%;"> January, 2026</span></div>
+</div>
+
+                                                                                         
+                                                                                         
+   
+
+
+<h3 class="sectionHead" id="unsafe-at-any-speed-the-designedin-dangers-of-devsecops" style="line-height: 1.2; font-size: 1.5157em;"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Unsafe at Any Speed: The Designed-In Dangers of DevSecOps</h3>
+
+
+<!-- l. 47 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Thursday 22</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">nd</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> January, 2026</span>
+
+</p>
+   
+
+<h4 class="subsectionHead" id="introduction" style="line-height: 1.2; font-size: 1.3195em;"><span class="titlemark">1.1   </span> <a id="x1-20001.1" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Introduction</h4>
+
+
+<!-- l. 3 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">In 1965, Ralph Nader published his book, <i>Unsafe at Any Speed: The Designed-In Dangers of the American
+Automobile.</i> In it, one of his critiques included the ignorance of “Crashworthiness” standards, claiming that vehicle
+manufacturers knew about the secondary crash events (riders hitting the internal parts of a vehicle and suffering
+injury) but chose to save cost and do nothing about it.
+</p>
+<!-- l. 5 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Sixty years later, we have an administration pushing forward sound standards that are actively being ignored
+and redefined. In this week’s SwATip, we’ll take a look at the Department of War’s latest software
+development memorandums and guidelines, then get a boots-on-the-ground look at how they’re being
+redefined.
+
+</p>
+   
+
+<h4 class="likesubsectionHead" id="lethal-speed" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-3000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Lethal Speed</h4>
+
+
+<!-- l. 8 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">In March 2025, Secretary Hegseth published a memo directing the Department of Defense to adopt the Software
+Acquisition Pathway (SWP), DoDI 5000.87, as the means of acquiring, developing, and iterating updates for
+software.[<a id="x1-3001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0_20260126_lethal" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">2</a>]
+
+</p>
+
+
+<!-- l. 10 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;"><span class="paragraphHead" id="the-false-claim" style="margin-top: 2em; font-weight: bold;"><a id="x1-4000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="ec-lmbx-10" style="font-weight: bold;">The false claim</span></span>
+is that the DoD/DoW is focusing on fielding quickly in favor of lethality rather than bureaucratic
+processes like software assurance, validation, and accreditation. Software development organizations are
+pointing to this memo as justification for completely skipping the processes that make code delivery
+secure.
+
+</p>
+
+
+<!-- l. 12 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;"><span class="paragraphHead" id="reality" style="margin-top: 2em; font-weight: bold;"><a id="x1-5000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="ec-lmbx-10" style="font-weight: bold;">Reality</span></span>
+is the exact opposite. Instead, SWP pushes the old DoD way of doing things into the modern era. “Cybersecurity
+and program protection will be addressed from program inception throughout the program’s lifecycle…” Instead of a
+point-in-time inspection and waterfall-like process of evaluating software after it’s written, cybersecurity policies
+related to software must perform the cybersecurity validation as part of the development process, earlier in the
+lifecycle when it will not slow down deployment. “Software assurance, cyber security, test and evaluation are integral
+parts of this approach to continually assess and measure cybersecurity preparedness and responsiveness,
+identify and address risks and execute mitigation actions.”[<a id="x1-5001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0_20260126_dodi500087" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>] Leadership is forcing something that
+we’ve seen for decades: the need to bring cybersecurity assessment into the development pipelines
+early.[<a id="x1-5002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0_20260126_hood" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">4</a>]
+</p>
+<!-- l. 14 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The DoW isn’t saying to just ignore the processes that identify risks. Yes, the need to field and achieve lethality
+may be greater than the risk of fielding, but that risk should still be enumerated and identified as early in the
+process as possible.
+
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h4 class="likesubsectionHead" id="rmf-is-dead" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-6000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>RMF Is Dead</h4>
+
+
+<!-- l. 17 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">In September 2025, the DoW announced the move to the Cybersecurity Risk Management Construct
+(CSRMC). The Risk Management Framework’s (RMF) documentation-heavy approach relied on static
+point-in-time inspections and checklists, a concept already denounced in the aforementioned Hegseth
+memo.
+
+</p>
+
+
+<!-- l. 19 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;"><span class="paragraphHead" id="the-partially-false-claim" style="margin-top: 2em; font-weight: bold;"><a id="x1-7000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="ec-lmbx-10" style="font-weight: bold;">The partially false claim</span></span>
+is that RMF is dead; therefore, its cybersecurity requirements are no longer valid.
+
+</p>
+
+
+<!-- l. 21 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;"><span class="paragraphHead" id="reality1" style="margin-top: 2em; font-weight: bold;"><a id="x1-8000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="ec-lmbx-10" style="font-weight: bold;">Reality</span></span>
+is that cybersecurity professionals engaged in technical activities are celebrating. CSRMC moves from these
+static assessments to the continuous assessment frameworks already accounted for in the RMF continuous
+monitoring construct. This frees up cybersecurity teams. Instead of point-in-time inspections, they must rely on
+automated, AI-enabled tools to continuously assess networks, systems, and components. The standard is no
+longer whether a cybersecurity professional can spend weeks or even months documenting their findings
+and getting security managers to push their assessment results into eMASS; it’s now on their ability
+to flag concerns in the automated and continuous assessment pipelines that are now required. Red
+teaming, blue teaming, and pentesting are all moved into the <strong>Test</strong> portion of the CSRMC while Software
+Assurance is embedded into the security requirements of the architecture in the very first <strong>Design</strong>
+phase.
+</p>
+<!-- l. 23 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   The reports of RMF’s death are greatly exaggerated. Had your program been implementing continuous
+monitoring, “RMF 2.0,” or continuous ATO guidance, it would be in shape to implement what’s coming with
+CSRMC. Shifting left into automated pipelines instead of documenting findings in reports attached to eMASS
+that are ignored until there’s a problem represents a proactive (rather than reactive) cybersecurity
+posture.
+
+</p>
+   
+
+<h4 class="likesubsectionHead" id="less-cybersecurity-training" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-9000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Less Cybersecurity Training</h4>
+
+
+<!-- l. 26 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Also in September, Secretary Hegseth announced a reduction in mandatory annual training.[<a id="x1-9001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0_20260126_hegseth" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">6</a>] In
+the memo, Secretary Hegseth instructed the CIO to relax the mandatory frequency for cybersecurity
+training.[<a id="x1-9002" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0_20260126_hegseth2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">3</a>]
+
+</p>
+
+
+<!-- l. 28 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;"><span class="paragraphHead" id="the-false-claim1" style="margin-top: 2em; font-weight: bold;"><a id="x1-10000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="ec-lmbx-10" style="font-weight: bold;">The false claim</span></span>
+is that cybersecurity training and requirements are being eliminated.
+
+</p>
+
+
+<!-- l. 30 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;"><span class="paragraphHead" id="reality2" style="margin-top: 2em; font-weight: bold;"><a id="x1-11000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="ec-lmbx-10" style="font-weight: bold;">Reality</span></span>
+is that consolidating and simplifying the frequency of addressing these topics helps prioritize the execution of
+warfighting, strengthening lethality (tying it to the first memorandum).
+
+                                                                                         
+                                                                                         
+</p>
+   
+
+<h4 class="likesubsectionHead" id="conclusion" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-12000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusion</h4>
+
+
+<!-- l. 34 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">Another critique in Nader’s <i>Unsafe at Any Speed</i> is that those responsible for developing vehicles would blame “the
+nut behind the wheel,” shifting safety and operation to the driver’s fault rather than building a sound vehicle that
+could protect them better. Today, we are seeing outrage at sound policies that can be implemented
+appropriately and safely. Nevertheless, there has been no shortage of development organizations attempting
+to convince leadership to ignore cybersecurity in favor of going fast. These organizations abuse the
+memorandums and standards established for them and construct a fortress around themselves to protect them
+from the fallout. DevSecOps environments are created on the platforms which shift risk and blame
+to external stakeholders who cannot mitigate it rather than taking the accountability demanded by
+leadership.
+</p>
+<!-- l. 36 -->
+<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Nader ended his book noting the coming struggle for safety, begging the government to step in and reform the
+organizations that prioritized profits over safety. Today we stand on the edge of that happening again: can vendors
+be trusted to police themselves by bringing the cybersecurity responsibilities into the development pipeline,
+or will they commit the same mistakes as the auto industry of the 1960’s by relaxing cybersecurity
+standards and blaming others? If you hear of a development organization pushing any of the false claims
+documented here, then it may be already too late. The development organization isn’t “shifting left” and
+moving cybersecurity where it is mandated to be; they’re simply doing nothing and hoping for the
+best.
+                                                                                         
+                                                                                         
+   
+
+</p>
+   
+
+<h3 class="sectionHead" id="references" style="line-height: 1.2; font-size: 1.5157em;"><a id="x1-13000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+
+
+<!-- l. 52 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
+</p>
+
+
+<dl class="thebibliography"><dt class="thebibliography" id="X0-20260126_dodi500087" style="float: left; clear: left; margin-right: 1em;">
+[1]  
+</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
+<!-- l. 52 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0_20260126_dodi500087" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Department  of  Defense.  <span class="uline" style="text-decoration: underline;">Department  of  Defense  Instruction  5000.87.  Operation  of  the  Software
+Acquisition   Pathway</span>.   Tech.   rep.   Washington,   D.C.:   Department   of   Defense,   2020.   <span class="small-caps" style="font-variant: small-caps;">url</span>:   
+<a class="url" href="https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/500087p.PDF" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/500087p.PDF</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20260126_lethal" style="float: left; clear: left; margin-right: 1em;">
+[2]  
+</dt><dd class="thebibliography" id="bib-2" style="margin-left: 2.5em;">
+<!-- l. 52 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0_20260126_lethal" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Peter Hegseth. <span class="uline" style="text-decoration: underline;">Directing Modern Software Acquisition to Maximize Lethality</span>. 2025. <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://media.defense.gov/2025/Mar/07/2003662943/-1/-1/1/DIRECTING-MODERN-SOFTWARE-ACQUISITION-TO-MAXIMIZE-LETHALITY.PDF" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://media.defense.gov/2025/Mar/07/2003662943/-1/-1/1/DIRECTING-MODERN-SOFTWARE-ACQUISITION-TO-MAXIMIZE-LETHALITY.PDF</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20260126_hegseth2" style="float: left; clear: left; margin-right: 1em;">
+[3]  
+</dt><dd class="thebibliography" id="bib-3" style="margin-left: 2.5em;">
+<!-- l. 52 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0_20260126_hegseth2" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Peter Hegseth. <span class="uline" style="text-decoration: underline;">Reduction of Mandatory Training Requirements to Restore Mission Focus</span>. 2025. <span class="small-caps" style="font-variant: small-caps;">url</span>: 
+<a class="url" href="https://media.defense.gov/2025/Sep/30/2003812317/-1/-1/1/SECRETARY-OF-WAR-ANNOUNCED-MEMORANDUMS.PDF" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://media.defense.gov/2025/Sep/30/2003812317/-1/-1/1/SECRETARY-OF-WAR-ANNOUNCED-MEMORANDUMS.PDF</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20260126_hood" style="float: left; clear: left; margin-right: 1em;">
+[4]  
+</dt><dd class="thebibliography" id="bib-4" style="margin-left: 2.5em;">
+<!-- l. 52 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0_20260126_hood" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon     Hood.     “Defensive     Development     Plans”.     In:     <span class="uline" style="text-decoration: underline;">SwATips.com</span>     (2025).     <span class="small-caps" style="font-variant: small-caps;">url</span>:     
+<a class="url" href="https://www.swatips.com/articles/20250127.html" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.swatips.com/articles/20250127.html</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
+[5]  
+</dt><dd class="thebibliography" id="bib-5" style="margin-left: 2.5em;">
+<!-- l. 52 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0_swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="uline" style="text-decoration: underline;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20260126_hegseth" style="float: left; clear: left; margin-right: 1em;">
+[6]  
+</dt><dd class="thebibliography" id="bib-6" style="margin-left: 2.5em;">
+<!-- l. 52 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0_20260126_hegseth" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>U.S. Department of War. “Hegseth Announces War Department Reforms in Sweeping Speech to Top
+Military Brass”. In: (Sept. 2025). <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://www.war.gov/News/News-Stories/Article/Article/4318394/hegseth-announces-war-department-reforms-in-sweeping-speech-to-top-military-bra/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.war.gov/News/News-Stories/Article/Article/4318394/hegseth-announces-war-department-reforms-in-sweeping-speech-to-top-military-bra/</span></a>.</p></dd></dl>
+
+ 
+
+]]></description>
+	</item>
+	<item>
 		<title>The -Wall GCC Flag and CWE-457: Why -Wall Does Not Offer Sufficient Protection Against Uninitialized Variables</title>
 		<link>https://www.SwATips.com/articles/20250707.html</link>
 		<pubDate>Mon, 07 Jul 2025 00:00:00 -0500</pubDate>
@@ -1944,103 +2193,6 @@ Washington, D.C.: U.S. Department of Commerce, 2020. <span class="small-caps" st
                                                                                          
                                                                                          
    
- 
-
-]]></description>
-	</item>
-	<item>
-		<title>Checkmarx: Use of Obsolete Function</title>
-		<link>https://www.SwATips.com/articles/20230515.html</link>
-		<pubDate>Mon, 15 May 2023 00:00:00 -0500</pubDate>
-<description><![CDATA[
-
-<p style="margin-top: 0; margin-bottom: 0;"><a href="/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/swatips.svg" width="120" alt="SwATips" style="border-top: 0; border-left: 0; border-right: 0;"/></a>| <a href="articles/20230515.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><img src="https://www.swatips.com/articles/images/by.svg" width="60" height="21" alt="CC-BY" style="border-top: 0; border-left: 0; border-right: 0;"/></a></p>
-
-
-<div class="maketitle" style="margin-top: 1em; text-align: center; margin-bottom: 2em;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="line-height: 1.2; text-align: center;"> <strong>Software Assurance Tips</strong><br/>
-A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">1</a>]<br/>
-</h2>
-<div class="author" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Kevin Keen</span></div><br/>
-<div class="date" style="text-align: center;"><span class="ec-lmr-12" style="font-size: 120%;">Monday 15</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-12" style="font-size: 120%;"> May, 2023</span></div>
-</div>
-
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead" style="line-height: 1.2; font-size: 1.5157em;"><span class="titlemark">1   </span> <a id="x1-10001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Checkmarx: Use of Obsolete Function</h3>
-
-
-<!-- l. 44 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Saturday 13</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> May, 2023</span>
-</p>
-<!-- l. 1 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   One of the things that Checkmarx can scan for is <i>Use of Obsolete Functions</i>. While scanning some Java code
-recently, we were pleasantly surprised to find that the scanner is smart enough to look at the definition of a method
-and, if the implementation is marked with the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">@Deprecated </span>annotation, it will mark the call site as a finding. This
-is desired behavior, and we applaud the scanner for considering that annotation. That having been said, there are
-several frequent false positives for which to watch. We speculate that much of the scanning for this particular finding
-is based on a purely text search.
-</p>
-<!-- l. 3 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Some of the false positives we saw were flagging <span class="ec-lmtt-10" style="font-family: monospace,monospace;">hashCode </span>as an obsolete function. This made no sense to us, as
-<span class="ec-lmtt-10" style="font-family: monospace,monospace;">hashCode </span>is an integral part of the language and has never been deprecated to our knowledge. Upon further
-inspection, it became apparent that the only uses of <span class="ec-lmtt-10" style="font-family: monospace,monospace;">hashCode </span>which were being flagged were on instances where the
-variable was named <span class="ec-lmtt-10" style="font-family: monospace,monospace;">identity</span>. There was an <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Identity </span>class (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">java.security.Identity</span>) which has long
-since been deprecated. As the whole class was deprecated, that included the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">hashCode </span>method of
-that class. We presume a text search is being performed that will flag any <span class="ec-lmtt-10" style="font-family: monospace,monospace;">identity.hashCode </span>as
-deprecated regardless of whether or not the variable <span class="ec-lmtt-10" style="font-family: monospace,monospace;">identity </span>is actually a <span class="ec-lmtt-10" style="font-family: monospace,monospace;">java.security.Identity</span>
-object.
-</p>
-<!-- l. 5 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Another group of false positives stem from the use of <span class="ec-lmtt-10" style="font-family: monospace,monospace;">component </span>and <span class="ec-lmtt-10" style="font-family: monospace,monospace;">size</span>. These findings flag the use of
-the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">size() </span>method as obsolete. It appears that methods or variables ending in <span class="ec-lmtt-10" style="font-family: monospace,monospace;">component</span>, which
-have a <span class="ec-lmtt-10" style="font-family: monospace,monospace;">size() </span>method called on it such as <span class="ec-lmtt-10" style="font-family: monospace,monospace;">component().size() </span>will trigger this finding. There is a
-deprecated <span class="ec-lmtt-10" style="font-family: monospace,monospace;">size </span>method which is a part of the awt <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Component </span>class. We speculate that this false positive is
-a result of text searches that assume any <span class="ec-lmtt-10" style="font-family: monospace,monospace;">component.size() </span>is an awt <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Component </span>whether it is or
-not.
-</p>
-<!-- l. 7 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Another class of false positives is particularly bothersome. It appears that if any version of a method carries the
-<span class="ec-lmtt-10" style="font-family: monospace,monospace;">@Deprecated </span>annotation, then all overloads of that method will be considered deprecated by this scanner. Ideally,
-we would like to see the scanner take into account the type / order of parameters and only flag the invocations of
-the method that were actually annotated as deprecated.
-</p>
-<!-- l. 9 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Lastly, we have seen uses of <span class="ec-lmtt-10" style="font-family: monospace,monospace;">toString </span>marked as obsolete. There did appear to be a bit more context awareness
-with these findings, as the variable names were allowed a wider degree of variation. The commonality in these
-<span class="ec-lmtt-10" style="font-family: monospace,monospace;">toString </span>findings was the class of the variable. In all cases they were of class <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Permission</span>. There is an interface in
-Java named <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Permission </span>which has been deprecated (<span class="ec-lmtt-10" style="font-family: monospace,monospace;">java.security.acl.Permission</span>). We speculate that all
-objects declared to be of a class named <span class="ec-lmtt-10" style="font-family: monospace,monospace;">Permission </span>which call <span class="ec-lmtt-10" style="font-family: monospace,monospace;">toString </span>will be flagged regardless of whether or not
-they implement the <span class="ec-lmtt-10" style="font-family: monospace,monospace;">java.security.acl.Permission </span>interface.
-</p>
-<!-- l. 11 -->
-<p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   There are likely other false positives to be found. Although this scanner can provide some useful information, we
-hope to see it updated in the future to incorporate more type checking.
-                                                                                         
-                                                                                         
-</p>
-   
-
-<h3 class="sectionHead" style="line-height: 1.2; font-size: 1.5157em;"><a id="x1-2000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
-
-
-<!-- l. 49 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;">    
-</p>
-
-
-<dl class="thebibliography"><dt class="thebibliography" id="X0-swatips" style="float: left; clear: left; margin-right: 1em;">
-[1]  
-</dt><dd class="thebibliography" id="bib-1" style="margin-left: 2.5em;">
-<!-- l. 49 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0@swatips" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Jon Hood, ed. <span class="uline" style="text-decoration: underline;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.SwATips.com/</span></a>.</p></dd></dl>
-
  
 
 ]]></description>
