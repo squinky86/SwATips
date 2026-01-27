@@ -178,7 +178,7 @@ chain security as they deem appropriate for their programs.[<a id="x1-12001" sty
 
 <!-- l. 35 -->
 <p class="noindent" style="margin-bottom: 0; margin-top: 1em;"><span class="paragraphHead" id="the-false-claim2" style="margin-top: 2em; font-weight: bold;"><a id="x1-13000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="ec-lmbx-10" style="font-weight: bold;">The false claim</span></span>
-has been made that broadly applies this rescinsion to all of Software Assurance when the focus is on dependency
+has been made that broadly applies this rescission to all of Software Assurance when the focus is on dependency
 lists, Bills of Material, and other supply chain security requirements.
 
 </p>
