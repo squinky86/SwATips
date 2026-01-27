@@ -29,7 +29,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="overflow-wrap:
 
 
 <!-- l. 47 -->
-<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Thursday 22</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">nd</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> January, 2026</span>
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;"><span class="ec-lmr-8" style="font-size: 80%;">Updated Tuesday 27</span><sup class="textsuperscript"><span class="ec-lmr-9" style="font-size: 90%;">th</span></sup><span class="ec-lmr-8" style="font-size: 80%;"> January, 2026</span>
 
 </p>
    
@@ -165,10 +165,39 @@ warfighting, strengthening lethality (tying it to the first memorandum).
 </p>
    
 
-<h4 class="likesubsectionHead" id="conclusion" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-12000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusion</h4>
+<h4 class="likesubsectionHead" id="bidenera-software-assurance-is-rescinded" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-12000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Biden-Era Software Assurance Is Rescinded</h4>
 
 
-<!-- l. 34 -->
+<!-- l. 33 -->
+<p class="noindent" style="margin-top: 0; margin-bottom: 0;">In January 2026, the Office of Management and Budget published a memo rescinding the Biden-era SBOM
+requirements, moving the monolithic SBOM approach decisions back to the project offices to implement supply
+chain security as they deem appropriate for their programs.[<a id="x1-12001" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><a href="#cite.0_20260126_vought" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;">7</a>]
+
+</p>
+
+
+<!-- l. 35 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;"><span class="paragraphHead" id="the-false-claim2" style="margin-top: 2em; font-weight: bold;"><a id="x1-13000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="ec-lmbx-10" style="font-weight: bold;">The false claim</span></span>
+has been made that broadly applies this rescinsion to all of Software Assurance when the focus is on dependency
+lists, Bills of Material, and other supply chain security requirements.
+
+</p>
+
+
+<!-- l. 37 -->
+<p class="noindent" style="margin-bottom: 0; margin-top: 1em;"><span class="paragraphHead" id="reality3" style="margin-top: 2em; font-weight: bold;"><a id="x1-14000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/><span class="ec-lmbx-10" style="font-weight: bold;">Reality</span></span>
+is that the burden of software security is not one-size-fits-all. Giving the programs back their authority to
+determine software security puts risk decisions back into the management chain where it belongs. “Agencies shall
+continue to maintain a complete inventory of software and hardware and develop software and hardware assurance
+policies and processes that match their risk determinations and mission needs.”
+
+</p>
+   
+
+<h4 class="likesubsectionHead" id="conclusion" style="line-height: 1.2; font-size: 1.3195em;"><a id="x1-15000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Conclusion</h4>
+
+
+<!-- l. 41 -->
 <p class="noindent" style="margin-top: 0; margin-bottom: 0;">Another critique in Nader’s <i>Unsafe at Any Speed</i> is that those responsible for developing vehicles would blame “the
 nut behind the wheel,” shifting safety and operation to the driver’s fault rather than building a sound vehicle that
 could protect them better. Today, we are seeing outrage at sound policies that can be implemented
@@ -179,7 +208,7 @@ from the fallout. DevSecOps environments are created on the platforms which shif
 to external stakeholders who cannot mitigate it rather than taking the accountability demanded by
 leadership.
 </p>
-<!-- l. 36 -->
+<!-- l. 43 -->
 <p class="indent" style="margin-bottom: 0; margin-top: 1em; text-indent: 0;">   Nader ended his book noting the coming struggle for safety, begging the government to step in and reform the
 organizations that prioritized profits over safety. Today we stand on the edge of that happening again: can vendors
 be trusted to police themselves by bringing the cybersecurity responsibilities into the development pipeline,
@@ -195,7 +224,7 @@ best.
 </p>
    
 
-<h3 class="sectionHead" id="references" style="line-height: 1.2; font-size: 1.5157em;"><a id="x1-13000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
+<h3 class="sectionHead" id="references" style="line-height: 1.2; font-size: 1.5157em;"><a id="x1-16000" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>References</h3>
 
 
 <!-- l. 52 -->
@@ -241,7 +270,14 @@ Acquisition   Pathway</span>.   Tech.   rep.   Washington,   D.C.:   Department 
 [6]  
 </dt><dd class="thebibliography" id="bib-6" style="margin-left: 2.5em;">
 <!-- l. 52 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0_20260126_hegseth" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>U.S. Department of War. “Hegseth Announces War Department Reforms in Sweeping Speech to Top
-Military Brass”. In: (Sept. 2025). <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://www.war.gov/News/News-Stories/Article/Article/4318394/hegseth-announces-war-department-reforms-in-sweeping-speech-to-top-military-bra/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.war.gov/News/News-Stories/Article/Article/4318394/hegseth-announces-war-department-reforms-in-sweeping-speech-to-top-military-bra/</span></a>.</p></dd></dl>
+Military Brass”. In: (Sept. 2025). <span class="small-caps" style="font-variant: small-caps;">url</span>: <a class="url" href="https://www.war.gov/News/News-Stories/Article/Article/4318394/hegseth-announces-war-department-reforms-in-sweeping-speech-to-top-military-bra/" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.war.gov/News/News-Stories/Article/Article/4318394/hegseth-announces-war-department-reforms-in-sweeping-speech-to-top-military-bra/</span></a>.
+</p>    
+</dd>
+<dt class="thebibliography" id="X0-20260126_vought" style="float: left; clear: left; margin-right: 1em;">
+[7]  
+</dt><dd class="thebibliography" id="bib-7" style="margin-left: 2.5em;">
+<!-- l. 52 --><p class="noindent" style="margin-top: 0; margin-bottom: 0;"><a id="cite.0_20260126_vought" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"/>Russell Vought. <span class="uline" style="text-decoration: underline;">Adopting a Risk-based Approach to Software and Hardware Security</span>. 2026. <span class="small-caps" style="font-variant: small-caps;">url</span>: 
+<a class="url" href="https://www.whitehouse.gov/wp-content/uploads/2026/01/M-26-05-Adopting-a-Risk-based-Approach-to-Software-and-Hardware-Security.pdf" style="overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto;"><span class="ec-lmtt-10" style="font-family: monospace,monospace;">https://www.whitehouse.gov/wp-content/uploads/2026/01/M-26-05-Adopting-a-Risk-based-Approach-to-Software-and-Hardware-Security.pdf</span></a>.</p></dd></dl>
 
  
 
