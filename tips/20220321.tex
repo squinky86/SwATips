@@ -102,12 +102,12 @@ We have also had success with the following distributions and have excluded them
 \begin{lstlisting}[caption={Modify RHEL Benchmark for Springdale Linux},captionpos=b,style=BashStyle,basicstyle=\small,label={lst:20220321:sle},literate=*{-}{-}1,breaklines=true]
 # sed -i -e 's|redhat:enterprise_linux\(.*\)</pattern>|springdale:enterprise_linux\1*</pattern>|g' \
 	/opt/scc/Resources/Content/SCAP12_Content/U_RHEL_8_*_STIG_SCAP_1-2_Benchmark.xml
-\end{listing}
+\end{lstlisting}
 
 \begin{lstlisting}[caption={Modify RHEL Benchmark for EuroLinux},captionpos=b,style=BashStyle,basicstyle=\small,label={lst:20220321:el},literate=*{-}{-}1,breaklines=true]
 # sed -i -e 's|redhat:enterprise_linux\(.*\)</pattern>|eurolinux:eurolinux\1*</pattern>|g' \
 	/opt/scc/Resources/Content/SCAP12_Content/U_RHEL_8_*_STIG_SCAP_1-2_Benchmark.xml
-\end{listing}
+\end{lstlisting}
 
 \subsection{Concluding Remarks}
 

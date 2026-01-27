@@ -1,42 +1,77 @@
 <!DOCTYPE html>
 <html xml:lang='en-US' lang='en-US'>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Heap Inspection</title>
- 
-
-<meta charset="utf-8"/>
- 
-
-<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)"/>
- 
-
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
- 
-
- 
-
-<meta name="src" content="article.tex"/>
- 
-
+<link rel="stylesheet" href="../styles.css">
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
 <style>
  
 /* start css.sty */
-.rm-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
-.rm-lmr-12{font-size:120%;}
-.rm-lmr-9{font-size:90%;}
+.ec-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmr-12{font-size:120%;}
+.ec-lmr-9{font-size:90%;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
-.rm-lmr-8{font-size:80%;}
-.rm-lmri-10{ font-style:italic;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmr-8{font-size:80%;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
 .ec-lmtt-9{font-size:90%; font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
 .ec-lmtt-9{ font-family: monospace,monospace;}
 .ec-lmtt-9{ font-family: monospace,monospace;}
 .ec-lmtk-10x-x-90{font-size:90%; font-family: monospace,monospace;}
 .ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
 .ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
-.rm-lmcsc-10{font-variant: small-caps;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
 p{margin-top:0;margin-bottom:0}
 p.indent{text-indent:0;}
 p + p{margin-top:1em;}
@@ -44,21 +79,34 @@ p + div, p + pre {margin-top:1em;}
 div + p, pre + p {margin-top:1em;}
 a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
 @media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
 a img { border-top: 0; border-left: 0; border-right: 0; }
 center { margin-top:1em; margin-bottom:1em; }
 td center { margin-top:0em; margin-bottom:0em; }
 .Canvas { position:relative; }
 img.math{vertical-align:middle;}
 div.par-math-display, div.math-display{text-align:center;}
+body{ margin:1em auto; max-width:80ch; padding:0 .62em; }
+h1,h2,h3,h4,h5 { line-height:1.2; }
+@media print{ body{ max-width:none } }
+.partHead, .likepartHead { font-size: 2em; }
+.chapterHead, .likechapterHead { font-size: 1.7411em; }
+.sectionHead, .likesectionHead { font-size: 1.5157em; }
+.subsectionHead, .likesubsectionHead { font-size: 1.3195em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1.1487em; }
+ @media (prefers-color-scheme: dark) { img[src^="article"]{filter: invert(1); } } 
+ body { background-color: Canvas; color: CanvasText; color-scheme: light dark; } 
 li p.indent { text-indent: 0em }
 li p:first-child{ margin-top:0em; }
 li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
 li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
 .enumerate1 {list-style-type:decimal;}
 .enumerate2 {list-style-type:lower-alpha;}
 .enumerate3 {list-style-type:lower-roman;}
 .enumerate4 {list-style-type:upper-alpha;}
 div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
 .obeylines-h,.obeylines-v {white-space: nowrap; }
 div.obeylines-v p { margin-top:0; margin-bottom:0; }
 .overline{ text-decoration:overline; }
@@ -86,6 +134,7 @@ span.thank-mark{ vertical-align: super }
 span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
 div.footnotes{border-top:solid 1px black; border-bottom:solid 1px black; padding-bottom:1ex; padding-top:0.5ex; margin-right:15%; margin-top:2ex; font-style:italic; font-size:85%;}
 div.footnotes p{margin-top:0; margin-bottom:0; text-indent:0;}
+code.verb{font-family:monospace,monospace;}
 div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
 table.tabular td p{margin-top:0em;}
 table.tabular {margin-left: auto; margin-right: auto;}
@@ -104,6 +153,8 @@ table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
 .hline hr, .cline hr{ height : 0px; margin:0px; }
 .hline td, .cline td{ padding: 0; }
 .hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
 .tabbing-right {text-align:right;}
 div.float, div.figure {margin-left: auto; margin-right: auto;}
 div.float img {text-align:center;}
@@ -126,16 +177,15 @@ span.pmatrix img{vertical-align:middle;}
 div.pmatrix {text-align:center;}
 table.pmatrix {width:100%;}
 span.bar-css {text-decoration:overline;}
-table.tabular{border-collapse: collapse; border-spacing: 0;}
 img.cdots{vertical-align:middle;}
 .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
 .index-item, .index-subitem, .index-subsubitem {display:block}
-div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center; margin-top: 0.5rem;}
 div.caption span.id{font-weight: bold; white-space: nowrap; }
 h1.partHead{text-align: center}
 p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
 .verse{white-space:nowrap; margin-left:2em}
@@ -147,31 +197,188 @@ div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
 div.abstract p {margin-left:5%; margin-right:5%;}
 div.abstract {width:100%;}
 .abstracttitle{text-align:center;margin-bottom:1em;}
+.subsectionToc, .likesubsectionToc {margin-left:1em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:2em;}
+.paragraphToc, .likeparagraphToc {margin-left:3em;}
+.subparagraphToc, .likesubparagraphToc {margin-left:4em;}
 figure.float, div.figure {margin-left: auto; margin-right: auto;}
-figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}
 figure.figure {text-align:center;}
 figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
 figcaption.caption span.id{font-weight: bold; white-space: nowrap; }
+p + figcaption, img + figcaption{margin-top: 1em;}
 .abstract{margin:1em;}
 dt.printshorthands{float:left; clear:left; margin-right:1em;}
 dd.thebibliography {margin-left: 2.5em;}
 dt.thebibliography {float:left; clear:left; margin-right:1em;}
+code.lstinline{font-family:monospace,monospace;}
+pre.listings{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
 .lstlisting .label{margin-right:0.5em; }
-div.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
-div.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
+pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; text-align: left; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; text-align: left; }
 .lstinputlisting .label{margin-right:0.5em;}
 .small-caps{font-variant: small-caps;}
-.uline{ text-decoration:underline; }
-.uuline{ text-decoration:underline; }
-span.sout {text-decoration: line-through }
-span.xout {text-decoration: line-through }
-span.uwave {text-decoration:underline }
+.uline,.uline-math{ text-decoration:underline; }
+.uuline,.uuline-math{ text-decoration:underline double; }
+span.sout, .sout-math {text-decoration: line-through }
+span.xout, .xout-math {text-decoration: line-through underline }
+span.uwave, .uwave-math {text-decoration:underline wavy; }
+span.dashuline, .dashuline-math {text-decoration:underline dashed;}
+span.dotuline, .dotuline-math {text-decoration:underline dotted;}
+.rotatebox{display: inline-block;}
 /* end css.sty */
 
 </style>
 </head>
 <body>
-<p><a href="../"><img src="images/swatips.svg" width="120" alt="SwATips" /></a> | <a href="20210419.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="images/by.svg" width="60" height="21" alt="CC-BY" /></a></p>
+<div class="container">
+<article>
+<style>
+  article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  article h1, article h2, article h3, article h4, article h5, article h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #222;
+    font-weight: 600;
+  }
+
+  article h1 {
+    font-size: 2em;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+    margin-top: 0;
+  }
+
+  article p {
+    margin-bottom: 1em;
+  }
+
+  article a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  article a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+  }
+
+  article code {
+    background: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
+  }
+
+  article pre {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1em 0;
+    border-left: 4px solid #667eea;
+  }
+
+  article pre code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  article blockquote {
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+    margin-left: 0;
+    color: #666;
+    font-style: italic;
+  }
+
+  article ul, article ol {
+    margin-left: 2em;
+    margin-bottom: 1em;
+  }
+
+  article li {
+    margin-bottom: 0.5em;
+  }
+
+  article table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+  }
+
+  article th, article td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+
+  article th {
+    background: #f5f5f5;
+    font-weight: 600;
+  }
+
+  article tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 40px;
+    font-size: 0.95em;
+  }
+
+  .article-meta a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .article-meta a:hover {
+    color: #764ba2;
+  }
+
+  .home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .license-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .license-badge img {
+    height: 21px;
+    width: auto;
+  }
+</style>
+
+<div class="article-meta">
+  <div class="home-link">
+    <a href="../index.php">← Back to Home</a>
+  </div>
+  <div style="display: flex; gap: 20px;">
+    <a href="20210419.pdf">📄 View PDF</a>
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" class="license-badge" title="Licensed under Creative Commons Attribution 4.0 International">
+      <img src="images/by.svg" alt="CC-BY" />
+    </a>
+  </div>
+</div>
 <div class='maketitle'>
                                                                                          
                                                                                          
@@ -179,23 +386,24 @@ span.uwave {text-decoration:underline }
                                                                                          
 
 <h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
-A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>2</a>]<br />
+A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0_swatips'>2</a>]<br />
 </h2>
-<div class='author'><span class='rm-lmr-12'>Andrew Perry</span></div><br />
-<div class='date'><span class='rm-lmr-12'>Monday 19</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> April, 2021</span></div>
+ <div class='author'><span class='ec-lmr-12'>Andrew Perry</span></div><br />
+<div class='date'><span class='ec-lmr-12'>Monday 19</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-12'> April, 2021</span></div>
 </div>
                                                                                          
                                                                                          
    
-<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Heap Inspection</h3>
-<!-- l. 42 --><p class='noindent'><span class='rm-lmr-8'>Updated Friday 6</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-8'> August, 2021</span>
+
+<h3 class='sectionHead' id='heap-inspection'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Heap Inspection</h3>
+<!-- l. 47 --><p class='noindent'><span class='ec-lmr-8'>Updated Tuesday 27</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> January, 2026</span>
 </p><!-- l. 1 --><p class='indent'>   One of the first findings that I found when I began validating software assurance scans and something that
-intrigued me to learn more about was <i>Heap Inspections</i>.[<a href='#cite.0@20210419-cwe-244'>1</a>] In order to know how to resolve this issue, there are some
+intrigued me to learn more about was <i>Heap Inspections</i>.[<a id='x1-1001'></a><a href='#cite.0_20210419-cwe-244'>1</a>] In order to know how to resolve this issue, there are some
 things to understand about how heap is used in RAM in order to see how this vulnerability plays out and ways to
 fix it.
-</p><!-- l. 3 --><p class='noindent'>
+
 </p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>What is Heap?</h4>
+<h4 class='subsectionHead' id='what-is-heap'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>What is Heap?</h4>
 <!-- l. 5 --><p class='noindent'>When we declare a variable in an application, it allocates some memory in RAM. A stack is an array of memory
 that stores variables and implements a block allocation that is reserved in a LIFO (Last in, First out). When data
 are written, the stack trends downwards towards the heap. The heap is a location in memory that a program can
@@ -203,38 +411,40 @@ use to store data in some various amount that may not be known until the program
 upwards when data is passed whereas a stack trends in a downward direction. When creating an object string that
 points to the stack memory, its value is stored in the heap. Heap is different than stack in that it is dynamically
 stored in memory which means that it can be stored and removed in any order. If the heap has data that has
-a fixed length memory block, it will overwrite expired or free values that were originally stored.[<a href='#cite.0@20210419-guru99'>5</a>,
-<a href='#cite.0@20210419-indika'>3</a>]
-</p><!-- l. 7 --><p class='noindent'>
+a fixed length memory block, it will overwrite expired or free values that were originally stored.[<a id='x1-2001'></a><a href='#cite.0_20210419-guru99'>5</a>,
+<a id='x1-2002'></a><a href='#cite.0_20210419-indika'>3</a>] 
+
 </p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.2   </span> <a id='x1-30001.2'></a>What is Heap Inspection?</h4>
+<h4 class='subsectionHead' id='what-is-heap-inspection'><span class='titlemark'>1.2   </span> <a id='x1-30001.2'></a>What is Heap Inspection?</h4>
 <!-- l. 9 --><p class='noindent'>In the case of a Heap Inspection, when information is stored in machine memory that is unencrypted and is using a
 <span class='ec-lmtt-10'>realloc() </span>function to increase the size of the block of allocated memory, an attacker can perform a memory dump
 that could compromise the system. This can cause all kinds of problems such as crash the program, but it can also
 expose sensitive information because it is not removed from memory properly. There are some ways to help mitigate
 this issue in C# or .NET applications.
-</p><!-- l. 11 --><p class='noindent'>
+
 </p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.3   </span> <a id='x1-40001.3'></a>Heap Inspection Prevention</h4>
+<h4 class='subsectionHead' id='heap-inspection-prevention'><span class='titlemark'>1.3   </span> <a id='x1-40001.3'></a>Heap Inspection Prevention</h4>
 <!-- l. 13 --><p class='noindent'>Using the <span class='ec-lmtt-10'>String </span>object should not be used if the information contains sensitive information such as a password,
 credit card number, etc. It is important to not allow plain text passwords; hash them with a crytographically secure
 hasing algorithm. An important note is to invoke a Disposable method to use as a garbage collector to
 free computer memory when an object is no longer needed. One of the ways you can avoid a heap
-inspection and to protect sensitive data is by using a <span class='ec-lmtt-10'>SecureString</span>. Consider the code in Listing <a href='#x1-4001r1'>1<!-- tex4ht:ref: fig:20210419:1  --></a>.[<a href='#cite.0@20210419-codeproject'>6</a>,
-<a href='#cite.0@20210419-swain'>4</a>]
+inspection and to protect sensitive data is by using a <span class='ec-lmtt-10'>SecureString</span>. Consider the code in Listing <a href='#x1-4003r1'>1<!-- tex4ht:ref: fig:20210419:1  --></a>.[<a id='x1-4001'></a><a href='#cite.0_20210419-codeproject'>6</a>,
+<a id='x1-4002'></a><a href='#cite.0_20210419-swain'>4</a>]
 </p>   
 <!-- l. 15 -->
-<p><a id='x1-4001r1'></a></p>
-<p><a id='x1-4002'></a></p>   
-<div class='lstlisting' id='listing-1'><span class='label'><a id='x1-4003r1'></a></span><span class='ec-lmtt-9'>SecureString securePwd = </span><span class='ec-lmtk-10x-x-90'>new</span><span class='ec-lmtt-9'> SecureString(); </span><br /><span class='label'><a id='x1-4004r2'></a></span><span class='ec-lmtt-9'>ConsoleKeyInfo key; </span><br /><span class='label'><a id='x1-4005r3'></a></span><span class='ec-lmtt-9'>Console.Write("Enter password: "); </span><br /><span class='label'><a id='x1-4006r4'></a></span><span class='ec-lmtk-10x-x-90'>do</span><span class='ec-lmtt-9'> { </span><br /><span class='label'><a id='x1-4007r5'></a></span><span class='ec-lmtt-9'>        key = Console.ReadKey(</span><span class='ec-lmtk-10x-x-90'>true</span><span class='ec-lmtt-9'>);…</span>
-<figcaption class='caption'><span class='id'>Listing 1:</span><span class='content'>SecureString Example</span></figcaption><!-- tex4ht:label?: x1-4001r1  -->
+<p><a id='x1-4003r1'></a>   
+</p><pre class='lstlisting' id='listing-1'><span class='label'><a id='x1-4004r1'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>SecureString</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>securePwd = </span><span class='ec-lmtk-10x-x-90'>new </span><span class='ec-lmtt-9'>SecureString();</span> 
+</span><span class='label'><a id='x1-4005r2'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>ConsoleKeyInfo</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>key;</span> 
+</span><span class='label'><a id='x1-4006r3'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>Console</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>Write</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>Enter</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>password: ");</span> 
+</span><span class='label'><a id='x1-4007r4'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>do</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>{</span> 
+</span><span class='label'><a id='x1-4008r5'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>key</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>= Console.ReadKey(</span><span class='ec-lmtk-10x-x-90'>true</span><span class='ec-lmtt-9'>);</span></span><span class='ec-lmtt-9'>…</span></pre>
+<figcaption class='caption'><span class='id'>Listing 1: </span><span class='content'>SecureString Example</span></figcaption><!-- tex4ht:label?: x1-4010r1.3  -->
    
-</div>
+
                                                                                          
                                                                                          
-<!-- l. 24 --><p class='noindent'>
-</p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.4   </span> <a id='x1-50001.4'></a>Conclusion</h4>
+   
+<h4 class='subsectionHead' id='conclusion'><span class='titlemark'>1.4   </span> <a id='x1-50001.4'></a>Conclusion</h4>
 <!-- l. 26 --><p class='noindent'>In conclusion, avoiding this issue can be a challenge, if not impossible. However, it’s important that if this finding
 has been found in a static analysis scan, it should not be marked as a false positive, particularly if the code
 could ever be placed in a shared environment. Doing so may allow the code to go unnoticed while
@@ -242,47 +452,52 @@ it continues to have unintended results and could allow sensitive information to
 adversary.
                                                                                          
                                                                                          
+   
+
 </p>   
-<h3 class='sectionHead'><a id='x1-60001.4'></a>References</h3>
-<!-- l. 47 --><p class='noindent'>    
+<h3 class='sectionHead' id='references'><a id='x1-6000'></a>References</h3>
+<!-- l. 52 --><p class='noindent'>    
 </p>
 <dl class='thebibliography'><dt class='thebibliography' id='X0-20210419-cwe-244'>
 [1]  
 </dt><dd class='thebibliography' id='bib-1'>
-<!-- l. 47 --><p class='noindent'><a id='cite.0@20210419-cwe-244'></a>CWE  Content  Team.  “CWE-244:  Improper  Clearing  of  Heap  Memory  Before  Release  (’Heap
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20210419-cwe-244'></a>CWE  Content  Team.  “CWE-244:  Improper  Clearing  of  Heap  Memory  Before  Release  (’Heap
 Inspection’)”. In: (2020). <span class='small-caps'>url</span>: <a class='url' href='https://cwe.mitre.org/data/definitions/244.html'><span class='ec-lmtt-10'>https://cwe.mitre.org/data/definitions/244.html</span></a>.
 </p>    
 </dd>
 <dt class='thebibliography' id='X0-swatips'>
 [2]  
 </dt><dd class='thebibliography' id='bib-2'>
-<!-- l. 47 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+<!-- l. 52 --><p class='noindent'><a id='cite.0_swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
 <dt class='thebibliography' id='X0-20210419-indika'>
 [3]  
 </dt><dd class='thebibliography' id='bib-3'>
-<!-- l. 47 --><p class='noindent'><a id='cite.0@20210419-indika'></a>Indika.        “Difference        Between        Stack        and        Heap”.        In:        (2011).        <span class='small-caps'>url</span>:
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20210419-indika'></a>Indika.       “Difference       Between       Stack       and       Heap”.       In:       (2011).       <span class='small-caps'>url</span>:       
 <a class='url' href='https://www.differencebetween.com/difference-between-stack-and-vs-heap/'><span class='ec-lmtt-10'>https://www.differencebetween.com/difference-between-stack-and-vs-heap/</span></a>.
 </p>    
 </dd>
 <dt class='thebibliography' id='X0-20210419-swain'>
 [4]  
 </dt><dd class='thebibliography' id='bib-4'>
-<!-- l. 47 --><p class='noindent'><a id='cite.0@20210419-swain'></a>Chittaranjan Swain. “How to fix heap inspection vulnerability in c#”. In: (2019). <span class='small-caps'>url</span>: <a class='url' href='https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp'><span class='ec-lmtt-10'>https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp</span></a>.
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20210419-swain'></a>Chittaranjan Swain. “How to fix heap inspection vulnerability in c#”. In: (2019). <span class='small-caps'>url</span>: <a class='url' href='https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp'><span class='ec-lmtt-10'>https://www.c-sharpcorner.com/forums/how-to-fix-heap-inspection-vulnerability-in-c-sharp</span></a>.
 </p>    
 </dd>
 <dt class='thebibliography' id='X0-20210419-guru99'>
 [5]  
 </dt><dd class='thebibliography' id='bib-5'>
-<!-- l. 47 --><p class='noindent'><a id='cite.0@20210419-guru99'></a>Unknown.       “Stack       vs       Heap:       Know       the       Difference”.       In:       ().       <span class='small-caps'>url</span>:
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20210419-guru99'></a>Unknown.      “Stack      vs      Heap:      Know      the      Difference”.      In:      ().      <span class='small-caps'>url</span>:      
 <a class='url' href='https://www.guru99.com/stack-vs-heap.html'><span class='ec-lmtt-10'>https://www.guru99.com/stack-vs-heap.html</span></a>.
 </p>    
 </dd>
 <dt class='thebibliography' id='X0-20210419-codeproject'>
 [6]  
 </dt><dd class='thebibliography' id='bib-6'>
-<!-- l. 47 --><p class='noindent'><a id='cite.0@20210419-codeproject'></a>Unknown. “To Avoid Heap Inspection”. In: (2015). <span class='small-caps'>url</span>: <a class='url' href='https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste'><span class='ec-lmtt-10'>https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste</span></a>.</p></dd></dl>
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20210419-codeproject'></a>Unknown. “To Avoid Heap Inspection”. In: (2015). <span class='small-caps'>url</span>: <a class='url' href='https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste'><span class='ec-lmtt-10'>https://www.codeproject.com/Questions/1039781/To-Avoid-Heap-Inspection-I-Used-Securestring-Inste</span></a>.</p></dd></dl>
  
-</body> 
-</html>
+</article>
+<footer>
+<p>&copy; 2021-2026 Software Assurance Tips. Some rights reserved. Please see the terms of the Creative Commons Attribution license.</p>
+</footer>
+</div>

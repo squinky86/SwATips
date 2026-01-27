@@ -1,23 +1,10 @@
 <!DOCTYPE html>
 <html xml:lang='en-US' lang='en-US'>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>COTS, GOTS, and NOTS software in RMF for the Army</title>
- 
-
-<meta charset="utf-8"/>
- 
-
-<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
- 
-
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
- 
-
- 
-
-<meta content="article.tex" name="src"/>
- 
-
+<link rel="stylesheet" href="../styles.css">
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
 <style>
  
@@ -153,7 +140,6 @@ table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
 .hline hr, .cline hr{border:none;border-top:1px solid black;}
 .hline {border-top: 1px solid black;}
 .hline + .vspace:last-child{display:none;}
-.hline:first-child{border-bottom:1px solid black;border-top:none;}
 .tabbing-right {text-align:right;}
 div.float, div.figure {margin-left: auto; margin-right: auto;}
 div.float img {text-align:center;}
@@ -179,7 +165,7 @@ span.bar-css {text-decoration:overline;}
 img.cdots{vertical-align:middle;}
 .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
 .index-item, .index-subitem, .index-subsubitem {display:block}
-div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center; margin-top: 0.5rem;}
 div.caption span.id{font-weight: bold; white-space: nowrap; }
 h1.partHead{text-align: center}
 p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
@@ -212,8 +198,8 @@ dt.thebibliography {float:left; clear:left; margin-right:1em;}
 code.lstinline{font-family:monospace,monospace;}
 pre.listings{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
 .lstlisting .label{margin-right:0.5em; }
-pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
-pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; }
+pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; text-align: left; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; text-align: left; }
 .lstinputlisting .label{margin-right:0.5em;}
 .small-caps{font-variant: small-caps;}
 .uline,.uline-math{ text-decoration:underline; }
@@ -229,7 +215,155 @@ span.dotuline, .dotuline-math {text-decoration:underline dotted;}
 </style>
 </head>
 <body>
-<p><a href="../"><img src="images/swatips.svg" width="120" alt="SwATips" /></a>| <a href="20210405.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="images/by.svg" width="60" height="21" alt="CC-BY" /></a></p>
+<div class="container">
+<article>
+<style>
+  article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  article h1, article h2, article h3, article h4, article h5, article h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #222;
+    font-weight: 600;
+  }
+
+  article h1 {
+    font-size: 2em;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+    margin-top: 0;
+  }
+
+  article p {
+    margin-bottom: 1em;
+  }
+
+  article a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  article a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+  }
+
+  article code {
+    background: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
+  }
+
+  article pre {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1em 0;
+    border-left: 4px solid #667eea;
+  }
+
+  article pre code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  article blockquote {
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+    margin-left: 0;
+    color: #666;
+    font-style: italic;
+  }
+
+  article ul, article ol {
+    margin-left: 2em;
+    margin-bottom: 1em;
+  }
+
+  article li {
+    margin-bottom: 0.5em;
+  }
+
+  article table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+  }
+
+  article th, article td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+
+  article th {
+    background: #f5f5f5;
+    font-weight: 600;
+  }
+
+  article tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 40px;
+    font-size: 0.95em;
+  }
+
+  .article-meta a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .article-meta a:hover {
+    color: #764ba2;
+  }
+
+  .home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .license-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .license-badge img {
+    height: 21px;
+    width: auto;
+  }
+</style>
+
+<div class="article-meta">
+  <div class="home-link">
+    <a href="../index.php">← Back to Home</a>
+  </div>
+  <div style="display: flex; gap: 20px;">
+    <a href="20210405.pdf">📄 View PDF</a>
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" class="license-badge" title="Licensed under Creative Commons Attribution 4.0 International">
+      <img src="images/by.svg" alt="CC-BY" />
+    </a>
+  </div>
+</div>
 <div class='maketitle'>
                                                                                          
                                                                                          
@@ -245,8 +379,9 @@ A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0_
                                                                                          
                                                                                          
    
-<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>COTS, GOTS, and NOTS software in RMF for the Army</h3>
-<!-- l. 45 --><p class='noindent'><span class='ec-lmr-8'>Updated Thursday 12</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> December, 2024</span>
+
+<h3 class='sectionHead' id='cots-gots-and-nots-software-in-rmf-for-the-army'><span class='titlemark'>1   </span> <a id='x1-10001'></a>COTS, GOTS, and NOTS software in RMF for the Army</h3>
+<!-- l. 47 --><p class='noindent'><span class='ec-lmr-8'>Updated Tuesday 27</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> January, 2026</span>
 </p><!-- l. 1 --><p class='indent'>   When working as a government contractor security professional for a system that includes custom software, three
 different classes of software must be considered as part of the RMF process: </p>
 <ul class='itemize1'>     
@@ -257,9 +392,9 @@ different classes of software must be considered as part of the RMF process: </p
 <li class='itemize'>NOTS—Not Off-The-Shelf</li></ul>
 <!-- l. 8 --><p class='indent'>   A compliant Risk Management Framework (RMF) software list or Software Bill of Materials (S-BoM) manages
 the different approval paths for these types of software.
-</p><!-- l. 10 --><p class='noindent'>
+
 </p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Identifying the Software</h4>
+<h4 class='subsectionHead' id='identifying-the-software'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Identifying the Software</h4>
 <!-- l. 12 --><p class='noindent'>COTS software includes any software built for non-government, public activity. While COTS software implies a
 commercial aspect to the application, open-source and public domain software are also included in the definition of
 COTS software. While Shareware, Freeware, Adware, and as-is trial software are also COTS, they require explicit
@@ -286,9 +421,6 @@ government agencies or protect at appropriate levels.
 the government gives direction to create software, this should include contract language to direct the
 company creating it. By default, the restrictions of DFARS, specifically 48 CFR § 252.227-7014, apply
 to the software.
-                                                                                         
-                                                                                         
-     
 </li>
 <li class='enumerate' id='x1-2007x3'><i>Software assigned to government ownership.</i> When software is created by the government, it falls
 under non-copyrighted public-domain software. When a copyright holder assigns copyright to the US,
@@ -296,9 +428,8 @@ the software is treated as public-domain, but the attribution of copyright assig
 non-repudiation purposes. You will see something like, “Copyright © 2020 Jon Hood; assigned to US
 government on 8/9/2020” in the source files. There must be a valid previous copyright holder to assign
 the copyright to the government.</li></ol>
-<!-- l. 21 --><p class='noindent'>
-</p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.2   </span> <a id='x1-30001.2'></a>Assessing the Software</h4>
+   
+<h4 class='subsectionHead' id='assessing-the-software'><span class='titlemark'>1.2   </span> <a id='x1-30001.2'></a>Assessing the Software</h4>
 <!-- l. 23 --><p class='noindent'>COTS products can be assessed in multiple ways: </p>
 <ul class='itemize1'>     
 <li class='itemize'>If the COTS product has an official Security Technical Implementation Guide (STIG) or Security
@@ -327,11 +458,10 @@ development processes and requirements can be marked as Not Applicable because t
 has already been selected for fulfilling a requirements for a particular mission. If a mission dictates
 new requirements that require custom development, that development should consider falling under
 GOTS.
+                                                                                         
+                                                                                         
 </p><!-- l. 36 --><p class='indent'>   For GOTS software, the software is first assessed for compliance from a legal perspective: </p>
-                                                                                         
-                                                                                         
-     
-<ul class='itemize1'>
+<ul class='itemize1'>     
 <li class='itemize'>Is the software in the public domain with source code available?
 </li>
 <li class='itemize'>Does  the  software  meet  the  definition  of  “computer  software”  under  GOTS  Fdederal  Acquisition
@@ -373,7 +503,10 @@ the definition of Computer Software for GOTS. COTS software must be procured thr
 acquisition channels (<a class='url' href='https://www.acquisition.gov/content/2101-definitions#i1125359'><span class='ec-lmtt-10'>https://www.acquisition.gov/content/2101-definitions#i1125359</span></a>),
 and  GOTS  computer  software  must  provide  source  code  and  build  instructions  (48  CFR  §
 252.227-7014).”
-</li>
+                                                                                         
+                                                                                         
+     
+</li>     
 <li class='itemize'>Tailor  in  (if  not  already  in  the  baseline)  and  mark  as  NON-COMPLIANT  RMF  control  SA-22,
 CCI-3376 with the comment, “A software package does not provide either COTS or GOTS support
 mechanisms.”
@@ -389,29 +522,34 @@ the finding in their POA&amp;M for tracking, and they must obtain AO approval fo
 software.
                                                                                          
                                                                                          
+   
+
 </p>   
-<h3 class='sectionHead'><a id='x1-4000'></a>References</h3>
-<!-- l. 50 --><p class='noindent'>    
+<h3 class='sectionHead' id='references'><a id='x1-4000'></a>References</h3>
+<!-- l. 52 --><p class='noindent'>    
 </p>
 <dl class='thebibliography'><dt class='thebibliography' id='X0-20210405-far'>
 [1]  
 </dt><dd class='thebibliography' id='bib-1'>
-<!-- l. 50 --><p class='noindent'><a id='cite.0_20210405-far'></a>GSA.   <span class='uline'>Federal   Acuisition   Regulation.   Definitions</span>.   Department   of   Defense.   2019.   <span class='small-caps'>url</span>:   
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20210405-far'></a>GSA.   <span class='uline'>Federal   Acuisition   Regulation.   Definitions</span>.   Department   of   Defense.   2019.   <span class='small-caps'>url</span>:   
 <a class='url' href='https://www.acquisition.gov/far/2.101'><span class='ec-lmtt-10'>https://www.acquisition.gov/far/2.101</span></a>.
 </p>    
 </dd>
 <dt class='thebibliography' id='X0-swatips'>
 [2]  
 </dt><dd class='thebibliography' id='bib-2'>
-<!-- l. 50 --><p class='noindent'><a id='cite.0_swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+<!-- l. 52 --><p class='noindent'><a id='cite.0_swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
 <dt class='thebibliography' id='X0-20210405-ar25-2'>
 [3]  
 </dt><dd class='thebibliography' id='bib-3'>
-<!-- l. 50 --><p class='noindent'><a id='cite.0_20210405-ar25-2'></a>HQDA. <span class='uline'>Army Regulation 25–2. Information Management: Information Assurance</span>. Department of the
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20210405-ar25-2'></a>HQDA. <span class='uline'>Army Regulation 25–2. Information Management: Information Assurance</span>. Department of the
 Army.              Washington,              DC,              USA,              2019.              <span class='small-caps'>url</span>:              
 <a class='url' href='https://armypubs.army.mil/epubs/DR_pubs/DR_a/pdf/web/ARN17503_AR25_2_Admin_FINAL.pdf'><span class='ec-lmtt-10'>https://armypubs.army.mil/epubs/DR_pubs/DR_a/pdf/web/ARN17503_AR25_2_Admin_FINAL.pdf</span></a>.</p></dd></dl>
  
-</body> 
-</html>
+</article>
+<footer>
+<p>&copy; 2021-2026 Software Assurance Tips. Some rights reserved. Please see the terms of the Creative Commons Attribution license.</p>
+</footer>
+</div>

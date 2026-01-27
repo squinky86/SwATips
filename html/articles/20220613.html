@@ -1,23 +1,10 @@
 <!DOCTYPE html>
 <html xml:lang='en-US' lang='en-US'>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Don't Limit your CWEs</title>
- 
-
-<meta charset="utf-8"/>
- 
-
-<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
- 
-
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
- 
-
- 
-
-<meta content="article.tex" name="src"/>
- 
-
+<link rel="stylesheet" href="../styles.css">
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
 <style>
  
@@ -61,6 +48,15 @@
 .ec-lmbx-10{ font-weight: bold;}
 .ec-lmbx-10{ font-weight: bold;}
 .ec-lmbx-10{ font-weight: bold;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
 p{margin-top:0;margin-bottom:0}
 p.indent{text-indent:0;}
 p + p{margin-top:1em;}
@@ -75,6 +71,16 @@ td center { margin-top:0em; margin-bottom:0em; }
 .Canvas { position:relative; }
 img.math{vertical-align:middle;}
 div.par-math-display, div.math-display{text-align:center;}
+body{ margin:1em auto; max-width:80ch; padding:0 .62em; }
+h1,h2,h3,h4,h5 { line-height:1.2; }
+@media print{ body{ max-width:none } }
+.partHead, .likepartHead { font-size: 2em; }
+.chapterHead, .likechapterHead { font-size: 1.7411em; }
+.sectionHead, .likesectionHead { font-size: 1.5157em; }
+.subsectionHead, .likesubsectionHead { font-size: 1.3195em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1.1487em; }
+ @media (prefers-color-scheme: dark) { img[src^="article"]{filter: invert(1); } } 
+ body { background-color: Canvas; color: CanvasText; color-scheme: light dark; } 
 li p.indent { text-indent: 0em }
 li p:first-child{ margin-top:0em; }
 li p:last-child, li div:last-child { margin-bottom:0.5em; }
@@ -113,6 +119,7 @@ span.thank-mark{ vertical-align: super }
 span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
 div.footnotes{border-top:solid 1px black; border-bottom:solid 1px black; padding-bottom:1ex; padding-top:0.5ex; margin-right:15%; margin-top:2ex; font-style:italic; font-size:85%;}
 div.footnotes p{margin-top:0; margin-bottom:0; text-indent:0;}
+code.verb{font-family:monospace,monospace;}
 div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
 table.tabular td p{margin-top:0em;}
 table.tabular {margin-left: auto; margin-right: auto;}
@@ -132,6 +139,7 @@ table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
 .hline td, .cline td{ padding: 0; }
 .hline hr, .cline hr{border:none;border-top:1px solid black;}
 .hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
 .tabbing-right {text-align:right;}
 div.float, div.figure {margin-left: auto; margin-right: auto;}
 div.float img {text-align:center;}
@@ -156,13 +164,13 @@ table.pmatrix {width:100%;}
 span.bar-css {text-decoration:overline;}
 img.cdots{vertical-align:middle;}
 .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
 .index-item, .index-subitem, .index-subsubitem {display:block}
-div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center; margin-top: 0.5rem;}
 div.caption span.id{font-weight: bold; white-space: nowrap; }
 h1.partHead{text-align: center}
 p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
 .verse{white-space:nowrap; margin-left:2em}
@@ -174,6 +182,10 @@ div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
 div.abstract p {margin-left:5%; margin-right:5%;}
 div.abstract {width:100%;}
 .abstracttitle{text-align:center;margin-bottom:1em;}
+.subsectionToc, .likesubsectionToc {margin-left:1em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:2em;}
+.paragraphToc, .likeparagraphToc {margin-left:3em;}
+.subparagraphToc, .likesubparagraphToc {margin-left:4em;}
 figure.float, div.figure {margin-left: auto; margin-right: auto;}
 figure.figure {text-align:center;}
 figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
@@ -184,22 +196,174 @@ dt.printshorthands{float:left; clear:left; margin-right:1em;}
 dd.thebibliography {margin-left: 2.5em;}
 dt.thebibliography {float:left; clear:left; margin-right:1em;}
 code.lstinline{font-family:monospace,monospace;}
+pre.listings{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
 .lstlisting .label{margin-right:0.5em; }
-pre.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
-pre.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
+pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; text-align: left; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; text-align: left; }
 .lstinputlisting .label{margin-right:0.5em;}
 .small-caps{font-variant: small-caps;}
-.uline{ text-decoration:underline; }
-.uuline{ text-decoration:underline; }
-span.sout {text-decoration: line-through }
-span.xout {text-decoration: line-through }
-span.uwave {text-decoration:underline }
+.uline,.uline-math{ text-decoration:underline; }
+.uuline,.uuline-math{ text-decoration:underline double; }
+span.sout, .sout-math {text-decoration: line-through }
+span.xout, .xout-math {text-decoration: line-through underline }
+span.uwave, .uwave-math {text-decoration:underline wavy; }
+span.dashuline, .dashuline-math {text-decoration:underline dashed;}
+span.dotuline, .dotuline-math {text-decoration:underline dotted;}
+.rotatebox{display: inline-block;}
 /* end css.sty */
 
 </style>
 </head>
 <body>
-<p><a href="../"><img src="images/swatips.svg" width="120" alt="SwATips" /></a>| <a href="20220613.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="images/by.svg" width="60" height="21" alt="CC-BY" /></a></p>
+<div class="container">
+<article>
+<style>
+  article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  article h1, article h2, article h3, article h4, article h5, article h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #222;
+    font-weight: 600;
+  }
+
+  article h1 {
+    font-size: 2em;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+    margin-top: 0;
+  }
+
+  article p {
+    margin-bottom: 1em;
+  }
+
+  article a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  article a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+  }
+
+  article code {
+    background: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
+  }
+
+  article pre {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1em 0;
+    border-left: 4px solid #667eea;
+  }
+
+  article pre code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  article blockquote {
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+    margin-left: 0;
+    color: #666;
+    font-style: italic;
+  }
+
+  article ul, article ol {
+    margin-left: 2em;
+    margin-bottom: 1em;
+  }
+
+  article li {
+    margin-bottom: 0.5em;
+  }
+
+  article table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+  }
+
+  article th, article td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+
+  article th {
+    background: #f5f5f5;
+    font-weight: 600;
+  }
+
+  article tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 40px;
+    font-size: 0.95em;
+  }
+
+  .article-meta a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .article-meta a:hover {
+    color: #764ba2;
+  }
+
+  .home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .license-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .license-badge img {
+    height: 21px;
+    width: auto;
+  }
+</style>
+
+<div class="article-meta">
+  <div class="home-link">
+    <a href="../index.php">← Back to Home</a>
+  </div>
+  <div style="display: flex; gap: 20px;">
+    <a href="20220613.pdf">📄 View PDF</a>
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" class="license-badge" title="Licensed under Creative Commons Attribution 4.0 International">
+      <img src="images/by.svg" alt="CC-BY" />
+    </a>
+  </div>
+</div>
 <div class='maketitle'>
                                                                                          
                                                                                          
@@ -207,16 +371,17 @@ span.uwave {text-decoration:underline }
                                                                                          
 
 <h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
-A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0@swatips'>4</a>]<br />
+A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0_swatips'>4</a>]<br />
 </h2>
-<div class='author'><span class='ec-lmr-12'>Jon Hood</span></div><br />
+ <div class='author'><span class='ec-lmr-12'>Jon Hood</span></div><br />
 <div class='date'><span class='ec-lmr-12'>Monday 13</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-12'> June, 2022</span></div>
 </div>
                                                                                          
                                                                                          
    
+
 <h3 class='sectionHead' id='dont-limit-your-cwes'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Don’t Limit your CWEs</h3>
-<!-- l. 44 --><p class='noindent'><span class='ec-lmr-8'>Updated Friday 10</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> June, 2022</span>
+<!-- l. 47 --><p class='noindent'><span class='ec-lmr-8'>Updated Tuesday 27</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> January, 2026</span>
 </p><!-- l. 1 --><p class='indent'>   One of the trends becoming popular in recent DoD contracts is a requirement for Prime contractors to scan for
 and fix a subset of Common Weakness Enumerations (CWEs) based on a list of what the government deems to be
 the most relevant to the system. Much of the language is derived from sample contract language provided by the
@@ -227,7 +392,7 @@ DoD. Some sample language includes:
 All software delivered by the Prime contractor shall be free of all of the CWEs in the Government’s
 Top-<i>n</i> CWE list. If a CWE in the Government’s Top-<i>n</i> CWE list is found to be present in the
 delivered software, the Prime contractor shall be liable only to repair the defect within XX-days
-at the contractor’s expense.[<a id='x1-1001'></a><a href='#cite.0@20220613:marien'>5</a>]</p></blockquote>
+at the contractor’s expense.[<a id='x1-1001'></a><a href='#cite.0_20220613_marien'>5</a>]</p></blockquote>
 <!-- l. 6 --><p class='indent'>   Including language such as this in contracts creates difficulties that the acquisition team should be aware of.
 Those difficulties include:
 </p>     
@@ -240,7 +405,7 @@ Those difficulties include:
 <!-- l. 13 --><p class='indent'>   Today’s Software Assurance Tip will attempt to draw attention to these pitfalls in an effort to help acquisition
 teams be aware of behaviors and metrics that may introduce unintended security errors for a program’s software
 assurance process.
-</p><!-- l. 15 --><p class='noindent'>
+
 </p>   
 <h4 class='subsectionHead' id='manipulative-primes-and-customers'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Manipulative Primes and Customers</h4>
 <!-- l. 16 --><p class='noindent'>Prime development teams involved in acquisition contracts often have the difficult task of balancing the desire to
@@ -249,15 +414,15 @@ much a company spends on security and safety, there is always something else the
 improve their security stance. It’s why RMF controls and cybersecurity are built into the acquisition
 process: the customer must define “how much is enough” security to have confidence in the delivered
 system.
-</p><!-- l. 18 --><p class='indent'>   The Top-<i>n</i> language[<a href='#cite.0@20220613:marien'>5</a>] is one such “how much is enough” limiter intended to give the customer reasonable levels
+</p><!-- l. 18 --><p class='indent'>   The Top-<i>n</i> language[<a href='#cite.0_20220613_marien'>5</a>] is one such “how much is enough” limiter intended to give the customer reasonable levels
 of assurance while limiting the liability of the Prime contractor from having to do an overly burdensome number of
 security verifications.
+                                                                                         
+                                                                                         
 </p><!-- l. 20 --><p class='indent'>   This creates a potential situation of abuse if relationships between the Prime and the Customer become strained.
 Since the CWEs are a hierarchy in addition to being a list, it becomes trivial to hide a buffer overflow from having
-to be addressed. Consider the Top 25 CWEs for 2021.[<a id='x1-2001'></a><a href='#cite.0@20220613:2021Dangerous'>1</a>] While operating outside of the bounds of memory
+to be addressed. Consider the Top 25 CWEs for 2021.[<a id='x1-2001'></a><a href='#cite.0_20220613_2021Dangerous'>1</a>] While operating outside of the bounds of memory
 (CWE-119) is 17 on the list, many tools report the issue to CWE-120 which is absent from the list. Lest the
-                                                                                         
-                                                                                         
 acquisition team attempt to compensate for this and add CWE-120 to their top-<i>n</i> list, the Prime
 can just classify them at an even lower level as stack-based or heap-based overflows (CWE-121 and
 CWE-122 respectively). By the time an acquisition team traverses the CWEs to include everything that
@@ -267,25 +432,25 @@ hierarchy.
 dynamically changing list of CWEs that must be addressed. After all, as new CWEs and classes of
 weaknesses are released and included in the CWEs, shouldn’t a program’s software assurance process adapt
 to changing threats? In 2017, homoglyphs were introduced to the CWE list, and we have observed
-how they can absolutely cripple a weapons system.[<a id='x1-2002'></a><a href='#cite.0@20220613:hood'>2</a>, <a id='x1-2003'></a><a href='#cite.0@20220613:hood2'>3</a>] Nevertheless, I’ve never seen CWE-1007 on
+how they can absolutely cripple a weapons system.[<a id='x1-2002'></a><a href='#cite.0_20220613_hood'>2</a>, <a id='x1-2003'></a><a href='#cite.0_20220613_hood2'>3</a>] Nevertheless, I’ve never seen CWE-1007 on
 any top-<i>n</i> list! Suppose the threat landscape changes such that homographic representation issues
 become important. The program should absolutely have the power to include it in their list of important
 CWEs.
 </p><!-- l. 24 --><p class='indent'>   Overzealous acquisition Customers and manipulative Prime developers pose a serious and meaningful threat to
 this type of contract language.
-</p><!-- l. 26 --><p class='noindent'>
+
 </p>   
 <h4 class='subsectionHead' id='forgotten-cwes'><span class='titlemark'>1.2   </span> <a id='x1-30001.2'></a>Forgotten CWEs</h4>
 <!-- l. 27 --><p class='noindent'>In addition to the CWE-1007 example above, another important example that we have run into frequently is the
 presence of CWE-917, Expression Language Injection, which made its debut on the 2021 Top 25 list by being listed
-in the <i>Weaknesses on the Cusp</i> list as #30.[<a id='x1-3001'></a><a href='#cite.0@20220613:2021Dangerous'>1</a>] Since 2016, our software assurance team has identified this as one of
+in the <i>Weaknesses on the Cusp</i> list as #30.[<a id='x1-3001'></a><a href='#cite.0_20220613_2021Dangerous'>1</a>] Since 2016, our software assurance team has identified this as one of
 the most dangerous weaknesses we run into, and the National Vulnerability Database agrees with an average CVSS
 score of 9.05: higher than any other CWE on the list.
 </p><!-- l. 29 --><p class='indent'>   A contract which implements a CWE limit must balance the <strong>prevalence</strong> of an issue with the <strong>security impact</strong>
 of the risk it presents. What’s more dangerous for the program: ignoring 1000 resource leaks that may exist in the
 software or the 1 location where an attacker controls the input into a regular expression match? That answer may
 differ amongst varying systems.
-</p><!-- l. 31 --><p class='noindent'>
+
 </p>   
 <h4 class='subsectionHead' id='a-moving-target'><span class='titlemark'>1.3   </span> <a id='x1-40001.3'></a>A Moving Target</h4>
 <!-- l. 32 --><p class='noindent'>Because of the changing system and threat landscapes, a top-<i>n</i> list is unreasonable to define statically in
@@ -298,55 +463,61 @@ following:
 <blockquote class='quote'>
 <ul class='itemize1'>    
 <li class='itemize'>The Top-<i>n</i> list may be changed at most yearly by the acquisition team.
-</li>
+                                                                                         
+                                                                                         
+    
+</li>    
 <li class='itemize'>Each reported CWE must also be reported as findings against its hierarchy of CWEs as
 defined by the Research Concepts view (CWE-1000).</li></ul>
 </blockquote>
-                                                                                         
-                                                                                         
-
 <!-- l. 39 --><p class='noindent'>Placing a limit on how often the Top-<i>n</i> list can change prevents an abusive acquisition team that creates a constantly
 moving target that the Prime can never hit while still permitting reasonable updates to the security posture of the
 system. Requiring Prime teams to report the hierarchy of their findings prevents an issue with them hiding behind
 more esoteric CWEs.
                                                                                          
                                                                                          
+   
+
 </p>   
-<h3 class='sectionHead' id='references'><a id='x1-50001.3'></a>References</h3>
-<!-- l. 49 --><p class='noindent'>    
+<h3 class='sectionHead' id='references'><a id='x1-5000'></a>References</h3>
+<!-- l. 52 --><p class='noindent'>    
 </p>
-<dl class='thebibliography'><dt class='thebibliography' id='X0-20220613:2021Dangerous'>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-20220613_2021Dangerous'>
 [1]  
 </dt><dd class='thebibliography' id='bib-1'>
-<!-- l. 49 --><p class='noindent'><a id='cite.0@20220613:2021Dangerous'></a>CWE Content Team. “2021 CWE Top 25 Most Dangerous Software Weaknesses”. In: (2021). <span class='small-caps'>url</span>:
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20220613_2021Dangerous'></a>CWE Content Team. “2021 CWE Top 25 Most Dangerous Software Weaknesses”. In: (2021). <span class='small-caps'>url</span>: 
 <a class='url' href='https://cwe.mitre.org/top25/archive/2021/2021_cwe_top25.html'><span class='ec-lmtt-10'>https://cwe.mitre.org/top25/archive/2021/2021_cwe_top25.html</span></a>.
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20220613:hood'>
+<dt class='thebibliography' id='X0-20220613_hood'>
 [2]  
 </dt><dd class='thebibliography' id='bib-2'>
-<!-- l. 49 --><p class='noindent'><a id='cite.0@20220613:hood'></a>Jon    Hood.    “Homoglyphs    and    Homographic    Attacks”.    In:    SwATips.com    (2021).    <span class='small-caps'>url</span>:
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20220613_hood'></a>Jon   Hood.   “Homoglyphs   and   Homographic   Attacks”.   In:   <span class='uline'>SwATips.com</span>   (2021).   <span class='small-caps'>url</span>:   
 <a class='url' href='https://www.swatips.com/articles/20210510.html'><span class='ec-lmtt-10'>https://www.swatips.com/articles/20210510.html</span></a>.
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20220613:hood2'>
+<dt class='thebibliography' id='X0-20220613_hood2'>
 [3]  
 </dt><dd class='thebibliography' id='bib-3'>
-<!-- l. 49 --><p class='noindent'><a id='cite.0@20220613:hood2'></a>Jon    Hood.    “Malicious    Injection    of    Source    Code”.    In:    SwATips.com    (2021).    <span class='small-caps'>url</span>:
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20220613_hood2'></a>Jon    Hood.    “Malicious    Injection    of    Source    Code”.    In:    <span class='uline'>SwATips.com</span>    (2021).    <span class='small-caps'>url</span>:    
 <a class='url' href='https://www.swatips.com/articles/20211129.html'><span class='ec-lmtt-10'>https://www.swatips.com/articles/20211129.html</span></a>.
 </p>    
 </dd>
 <dt class='thebibliography' id='X0-swatips'>
 [4]  
 </dt><dd class='thebibliography' id='bib-4'>
-<!-- l. 49 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips.     <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+<!-- l. 52 --><p class='noindent'><a id='cite.0_swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20220613:marien'>
+<dt class='thebibliography' id='X0-20220613_marien'>
 [5]  
 </dt><dd class='thebibliography' id='bib-5'>
-<!-- l. 49 --><p class='noindent'><a id='cite.0@20220613:marien'></a>John R. Marien and Robert A. Martin. Incorporating Software Assurance into Department of Defense Acquisition Contracts.
-Washington, D.C., 2017. <span class='small-caps'>url</span>:   <a class='url' href='https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf'><span class='ec-lmtt-10'>https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf</span></a>.</p></dd></dl>
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20220613_marien'></a>John R. Marien and Robert A. Martin. <span class='uline'>Incorporating Software Assurance into Department of Defense
+Acquisition Contracts</span>. Tech. rep. Washington, D.C.: Office of the Deputy Assistant Secretary of Defense
+for Systems Engineering, 2017. <span class='small-caps'>url</span>: <a class='url' href='https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf'><span class='ec-lmtt-10'>https://rt.cto.mil/wp-content/uploads/2019/06/Incorporating-SwA-Contracts-2017-11-15.pdf</span></a>.</p></dd></dl>
  
-</body> 
-</html>
+</article>
+<footer>
+<p>&copy; 2021-2026 Software Assurance Tips. Some rights reserved. Please see the terms of the Creative Commons Attribution license.</p>
+</footer>
+</div>

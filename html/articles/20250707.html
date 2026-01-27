@@ -1,23 +1,10 @@
 <!DOCTYPE html>
 <html xml:lang='en-US' lang='en-US'>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The -Wall GCC Flag and CWE-457: Why -Wall Does Not Offer Sufficient Protection Against Uninitialized Variables</title>
- 
-
-<meta charset="utf-8"/>
- 
-
-<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
- 
-
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
- 
-
- 
-
-<meta content="article.tex" name="src"/>
- 
-
+<link rel="stylesheet" href="../styles.css">
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
 <style>
  
@@ -170,7 +157,6 @@ table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
 .hline hr, .cline hr{border:none;border-top:1px solid black;}
 .hline {border-top: 1px solid black;}
 .hline + .vspace:last-child{display:none;}
-.hline:first-child{border-bottom:1px solid black;border-top:none;}
 .tabbing-right {text-align:right;}
 div.float, div.figure {margin-left: auto; margin-right: auto;}
 div.float img {text-align:center;}
@@ -196,7 +182,7 @@ span.bar-css {text-decoration:overline;}
 img.cdots{vertical-align:middle;}
 .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
 .index-item, .index-subitem, .index-subsubitem {display:block}
-div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center; margin-top: 0.5rem;}
 div.caption span.id{font-weight: bold; white-space: nowrap; }
 h1.partHead{text-align: center}
 p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
@@ -229,8 +215,8 @@ dt.thebibliography {float:left; clear:left; margin-right:1em;}
 code.lstinline{font-family:monospace,monospace;}
 pre.listings{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
 .lstlisting .label{margin-right:0.5em; }
-pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
-pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; }
+pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; text-align: left; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; text-align: left; }
 .lstinputlisting .label{margin-right:0.5em;}
 .small-caps{font-variant: small-caps;}
 .uline,.uline-math{ text-decoration:underline; }
@@ -252,7 +238,155 @@ span.dotuline, .dotuline-math {text-decoration:underline dotted;}
 </style>
 </head>
 <body>
-<p><a href="../"><img src="images/swatips.svg" width="120" alt="SwATips" /></a>| <a href="20250707.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="images/by.svg" width="60" height="21" alt="CC-BY" /></a></p>
+<div class="container">
+<article>
+<style>
+  article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  article h1, article h2, article h3, article h4, article h5, article h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #222;
+    font-weight: 600;
+  }
+
+  article h1 {
+    font-size: 2em;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+    margin-top: 0;
+  }
+
+  article p {
+    margin-bottom: 1em;
+  }
+
+  article a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  article a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+  }
+
+  article code {
+    background: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
+  }
+
+  article pre {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1em 0;
+    border-left: 4px solid #667eea;
+  }
+
+  article pre code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  article blockquote {
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+    margin-left: 0;
+    color: #666;
+    font-style: italic;
+  }
+
+  article ul, article ol {
+    margin-left: 2em;
+    margin-bottom: 1em;
+  }
+
+  article li {
+    margin-bottom: 0.5em;
+  }
+
+  article table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+  }
+
+  article th, article td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+
+  article th {
+    background: #f5f5f5;
+    font-weight: 600;
+  }
+
+  article tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 40px;
+    font-size: 0.95em;
+  }
+
+  .article-meta a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .article-meta a:hover {
+    color: #764ba2;
+  }
+
+  .home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .license-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .license-badge img {
+    height: 21px;
+    width: auto;
+  }
+</style>
+
+<div class="article-meta">
+  <div class="home-link">
+    <a href="../index.php">← Back to Home</a>
+  </div>
+  <div style="display: flex; gap: 20px;">
+    <a href="20250707.pdf">📄 View PDF</a>
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" class="license-badge" title="Licensed under Creative Commons Attribution 4.0 International">
+      <img src="images/by.svg" alt="CC-BY" />
+    </a>
+  </div>
+</div>
 <div class='maketitle'>
                                                                                          
                                                                                          
@@ -268,12 +402,13 @@ A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0_
                                                                                          
                                                                                          
    
-<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>The -Wall GCC Flag and CWE-457: Why -Wall Does Not Offer Sufficient Protection Against Uninitialized
+
+<h3 class='sectionHead' id='the-wall-gcc-flag-and-cwe-why-wall-does-not-offer-sufficient-protection-against-uninitialized-variables'><span class='titlemark'>1   </span> <a id='x1-10001'></a>The -Wall GCC Flag and CWE-457: Why -Wall Does Not Offer Sufficient Protection Against Uninitialized
 Variables</h3>
-<!-- l. 47 --><p class='noindent'><span class='ec-lmr-8'>Updated Monday 14</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> July, 2025</span>
-</p><!-- l. 1 --><p class='noindent'>
+<!-- l. 47 --><p class='noindent'><span class='ec-lmr-8'>Updated Tuesday 27</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> January, 2026</span>
+
 </p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Introduction</h4>
+<h4 class='subsectionHead' id='introduction'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Introduction</h4>
 <!-- l. 3 --><p class='noindent'>CWE-457 is a category of software weakness related to the use of uninitialized variables.[<a id='x1-2001'></a><a href='#cite.0_20250707_cwe-457'>1</a>] In some programming
 languages—C and C++ in particular—local (stack) variables are not automatically initialized. Instead, they contain
 garbage data, consisting of leftover values from previous operations. Using uninitialized variables can easily lead to
@@ -281,133 +416,129 @@ unpredictable behavior and security vulnerabilities.
 </p><!-- l. 7 --><p class='indent'>   The <span class='ec-lmtt-10'>-Wall </span>command-line argument in the GNU Compiler Collection (GCC) enables a wide range of useful
 warnings, including some that help detect the use of uninitialized variables. For example, consider the program in
 Listing <a href='#x1-2002r1'>1<!-- tex4ht:ref: lst:20250707:1  --></a>. When compiled with the GCC arguments <span class='ec-lmtt-10'>-Wall </span>and <span class='ec-lmtt-10'>-Werror</span>, the uninitialized value is properly detected
-as shown in Listing <a href='#x1-2012r2'>2<!-- tex4ht:ref: lst:20250707:2  --></a>.
+as shown in Listing <a href='#x1-2011r2'>2<!-- tex4ht:ref: lst:20250707:2  --></a>.
 </p>   
 <!-- l. 10 -->
-<p><a id='x1-2002r1'></a>
-<a id='x1-2003'></a>   
-</p><pre class='lstlisting' id='listing-1'><span class='label'><a id='x1-2004r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;cstdio&gt;</span> 
-</span><span class='label'><a id='x1-2005r2'></a></span> 
-<span class='label'><a id='x1-2006r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main() {</span> 
-</span><span class='label'><a id='x1-2007r4'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>x;</span> 
-</span><span class='label'><a id='x1-2008r5'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>y = x + 1; </span><span class='ec-lmtti-10x-x-90'>// </span><span class='ts1-lmtti10-x-x-90'>'</span><span class='ec-lmtti-10x-x-90'>x</span><span class='ts1-lmtti10-x-x-90'>' </span><span class='ec-lmtti-10x-x-90'>is used uninitialized</span> 
-</span><span class='label'><a id='x1-2009r6'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>printf</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>%</span></span><span style='color:#000000'><span class='ec-lmtt-9'>d</span></span><span style='color:#000000'><span class='ec-lmtt-9'>\</span></span><span style='color:#000000'><span class='ec-lmtt-9'>n</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>y);</span> 
-</span><span class='label'><a id='x1-2010r7'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span> 
-</span><span class='label'><a id='x1-2011r8'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
-<figcaption class='caption'><span class='id'>Listing 1: </span><span class='content'>Simple Uninitialized Variable</span></figcaption><!-- tex4ht:label?: x1-2011r1.1  -->
+<p><a id='x1-2002r1'></a>   
+</p><pre class='lstlisting' id='listing-1'><span class='label'><a id='x1-2003r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;cstdio&gt;</span> 
+</span><span class='label'><a id='x1-2004r2'></a></span> 
+<span class='label'><a id='x1-2005r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main() {</span> 
+</span><span class='label'><a id='x1-2006r4'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>x;</span> 
+</span><span class='label'><a id='x1-2007r5'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>y = x + 1; </span><span class='ec-lmtti-10x-x-90'>// </span><span class='ts1-lmtti10-x-x-90'>'</span><span class='ec-lmtti-10x-x-90'>x</span><span class='ts1-lmtti10-x-x-90'>' </span><span class='ec-lmtti-10x-x-90'>is used uninitialized</span> 
+</span><span class='label'><a id='x1-2008r6'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>printf</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>%</span></span><span style='color:#000000'><span class='ec-lmtt-9'>d</span></span><span style='color:#000000'><span class='ec-lmtt-9'>\</span></span><span style='color:#000000'><span class='ec-lmtt-9'>n</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>y);</span> 
+</span><span class='label'><a id='x1-2009r7'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span> 
+</span><span class='label'><a id='x1-2010r8'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 1: </span><span class='content'>Simple Uninitialized Variable</span></figcaption><!-- tex4ht:label?: x1-2010r1.1  -->
    
 <!-- l. 21 -->
-<p><a id='x1-2012r2'></a>
-<a id='x1-2013'></a>   
-</p><pre class='lstlisting' id='listing-2'><span class='label'><a id='x1-2014r1'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>main</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>cpp</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>In </span><span class='ec-lmtk-10x-x-90'>function</span> </span><span class='ec-lmtt-9'>‘</span><span style='color:#000000'><span class='ec-lmtt-9'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main</span></span><span class='ec-lmtt-9'>’</span><span style='color:#000000'><span class='ec-lmtt-9'>():</span></span> 
-<span class='label'><a id='x1-2015r2'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>main</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>cpp</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:5:9:</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>error:</span> </span><span class='ec-lmtt-9'>‘’</span><span style='color:#000000'><span class='ec-lmtt-9'>x</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>is used uninitialized [-Werror=uninitialized]</span> 
-</span><span class='label'><a id='x1-2016r3'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>5</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>|</span> </span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>y = x + 1; // </span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>x</span><span class='ts1-lmtt9-'>' </span><span class='ec-lmtt-9'>is used uninitialized</span> 
-</span><span class='label'><a id='x1-2017r4'></a></span><span class='ec-lmtt-9'>      </span><span style='color:#000000'><span class='ec-lmtt-9'>|</span></span><span style='color:#000000'> </span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>^</span></span> 
-<span class='label'><a id='x1-2018r5'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>main</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>cpp</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:4:9:</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>note:</span> </span><span class='ec-lmtt-9'>‘’</span><span style='color:#000000'><span class='ec-lmtt-9'>x</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>was declared here</span> 
-</span><span class='label'><a id='x1-2019r6'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>4</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>|</span> </span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>x;</span> 
-</span><span class='label'><a id='x1-2020r7'></a></span><span class='ec-lmtt-9'>      </span><span style='color:#000000'><span class='ec-lmtt-9'>|</span></span><span style='color:#000000'> </span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>^</span></span> 
-<span class='label'><a id='x1-2021r8'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>cc1plus</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>all warnings being treated as errors</span></span></pre>
-<figcaption class='caption'><span class='id'>Listing 2: </span><span class='content'>Compilation with -Wall and -Werror</span></figcaption><!-- tex4ht:label?: x1-2021r1.1  -->
+<p><a id='x1-2011r2'></a>   
+</p><pre class='lstlisting' id='listing-2'><span class='label'><a id='x1-2012r1'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>main</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>cpp</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>In </span><span class='ec-lmtk-10x-x-90'>function</span> </span><span class='ec-lmtt-9'>‘</span><span style='color:#000000'><span class='ec-lmtt-9'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main</span></span><span class='ec-lmtt-9'>’</span><span style='color:#000000'><span class='ec-lmtt-9'>():</span></span> 
+<span class='label'><a id='x1-2013r2'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>main</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>cpp</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:5:9:</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>error:</span> </span><span class='ec-lmtt-9'>‘’</span><span style='color:#000000'><span class='ec-lmtt-9'>x</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>is used uninitialized [-Werror=uninitialized]</span> 
+</span><span class='label'><a id='x1-2014r3'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>5</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>|</span> </span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>y = x + 1; // </span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>x</span><span class='ts1-lmtt9-'>' </span><span class='ec-lmtt-9'>is used uninitialized</span> 
+</span><span class='label'><a id='x1-2015r4'></a></span><span class='ec-lmtt-9'>      </span><span style='color:#000000'><span class='ec-lmtt-9'>|</span></span><span style='color:#000000'> </span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>^</span></span> 
+<span class='label'><a id='x1-2016r5'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>main</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>cpp</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:4:9:</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>note:</span> </span><span class='ec-lmtt-9'>‘’</span><span style='color:#000000'><span class='ec-lmtt-9'>x</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>was declared here</span> 
+</span><span class='label'><a id='x1-2017r6'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>4</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>|</span> </span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>x;</span> 
+</span><span class='label'><a id='x1-2018r7'></a></span><span class='ec-lmtt-9'>      </span><span style='color:#000000'><span class='ec-lmtt-9'>|</span></span><span style='color:#000000'> </span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>^</span></span> 
+<span class='label'><a id='x1-2019r8'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>cc1plus</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>all warnings being treated as errors</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 2: </span><span class='content'>Compilation with -Wall and -Werror</span></figcaption><!-- tex4ht:label?: x1-2019r1.1  -->
 <!-- l. 32 --><p class='indent'>   This has led to a common misconception: that the <span class='ec-lmtt-10'>-Wall </span>flag offers developers sufficient protection against
 CWE-457. However, this is not the case. In this SwA tip, we explore some common situations where <span class='ec-lmtt-10'>-Wall </span>fails to
 detect the use of uninitialized variables.
-</p><!-- l. 34 --><p class='noindent'>
+
 </p>   
-<h4 class='likesubsectionHead'><a id='x1-3000'></a>Example 1: Conditional Assignment</h4>
+<h4 class='likesubsectionHead' id='example-conditional-assignment'><a id='x1-3000'></a>Example 1: Conditional Assignment</h4>
 <!-- l. 36 --><p class='noindent'>Consider the example in Listing <a href='#x1-3001r3'>3<!-- tex4ht:ref: lst:20250707:3  --></a>. Compiling this program with GCC version (Ubuntu 13.3.0-6ubuntu2 24.04)
 13.3.0 using the <span class='ec-lmtt-10'>-Wall </span>command-line argument produces no warnings. However, running the program a few times is
-usually sufficient to demonstrate the issue. Sometimes, it does not output <span class='ec-lmtt-10'>10 </span>(see Listing <a href='#x1-3016r4'>4<!-- tex4ht:ref: lst:20250707:4  --></a>).
+usually sufficient to demonstrate the issue. Sometimes, it does not output <span class='ec-lmtt-10'>10 </span>(see Listing <a href='#x1-3015r4'>4<!-- tex4ht:ref: lst:20250707:4  --></a>).
 </p>   
 <!-- l. 38 -->
-<p><a id='x1-3001r3'></a>
-<a id='x1-3002'></a>   
-</p><pre class='lstlisting' id='listing-3'><span class='label'><a id='x1-3003r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;stdio.h&gt;</span> 
-</span><span class='label'><a id='x1-3004r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;stdlib.h&gt;</span> 
-</span><span class='label'><a id='x1-3005r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;time.h&gt;</span> 
-</span><span class='label'><a id='x1-3006r4'></a></span> 
-<span class='label'><a id='x1-3007r5'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main() {</span> 
-</span><span class='label'><a id='x1-3008r6'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>x;</span> 
-</span><span class='label'><a id='x1-3009r7'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>srand</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>time</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>NULL</span></span><span style='color:#000000'><span class='ec-lmtt-9'>));</span></span> 
-<span class='label'><a id='x1-3010r8'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>if</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>(rand() % 2 == 0) { </span><span class='ec-lmtti-10x-x-90'>// 50% chance of being true</span> 
-</span><span class='label'><a id='x1-3011r9'></a></span><span class='ec-lmtt-9'>               </span><span style='color:#000000'><span class='ec-lmtt-9'>x</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>= 10;</span> 
-</span><span class='label'><a id='x1-3012r10'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span> 
-<span class='label'><a id='x1-3013r11'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>printf</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>%</span></span><span style='color:#000000'><span class='ec-lmtt-9'>d</span></span><span style='color:#000000'><span class='ec-lmtt-9'>\</span></span><span style='color:#000000'><span class='ec-lmtt-9'>n</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>x);</span> 
-</span><span class='label'><a id='x1-3014r12'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span> 
-</span><span class='label'><a id='x1-3015r13'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
-<figcaption class='caption'><span class='id'>Listing 3: </span><span class='content'>Conditionally Uninitialized Variable</span></figcaption><!-- tex4ht:label?: x1-3015r  -->
+<p><a id='x1-3001r3'></a>   
+</p><pre class='lstlisting' id='listing-3'><span class='label'><a id='x1-3002r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;stdio.h&gt;</span> 
+</span><span class='label'><a id='x1-3003r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;stdlib.h&gt;</span> 
+</span><span class='label'><a id='x1-3004r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;time.h&gt;</span> 
+</span><span class='label'><a id='x1-3005r4'></a></span> 
+<span class='label'><a id='x1-3006r5'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main() {</span> 
+</span><span class='label'><a id='x1-3007r6'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>x;</span> 
+</span><span class='label'><a id='x1-3008r7'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>srand</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>time</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>NULL</span></span><span style='color:#000000'><span class='ec-lmtt-9'>));</span></span> 
+<span class='label'><a id='x1-3009r8'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>if</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>(rand() % 2 == 0) { </span><span class='ec-lmtti-10x-x-90'>// 50% chance of being true</span> 
+</span><span class='label'><a id='x1-3010r9'></a></span><span class='ec-lmtt-9'>               </span><span style='color:#000000'><span class='ec-lmtt-9'>x</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>= 10;</span> 
+</span><span class='label'><a id='x1-3011r10'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span> 
+<span class='label'><a id='x1-3012r11'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>printf</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>%</span></span><span style='color:#000000'><span class='ec-lmtt-9'>d</span></span><span style='color:#000000'><span class='ec-lmtt-9'>\</span></span><span style='color:#000000'><span class='ec-lmtt-9'>n</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>x);</span> 
+</span><span class='label'><a id='x1-3013r12'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span> 
+</span><span class='label'><a id='x1-3014r13'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 3: </span><span class='content'>Conditionally Uninitialized Variable</span></figcaption><!-- tex4ht:label?: x1-3014r  -->
    
 <!-- l. 54 -->
                                                                                          
                                                                                          
-<p><a id='x1-3016r4'></a>
-<a id='x1-3017'></a>   
-</p><pre class='lstlisting' id='listing-4'><span class='label'><a id='x1-3018r1'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>./</span></span><span style='color:#000000'><span class='ec-lmtt-9'>main</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>exe</span></span> 
-<span class='label'><a id='x1-3019r2'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>10</span></span> 
-<span class='label'><a id='x1-3020r3'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>./</span></span><span style='color:#000000'><span class='ec-lmtt-9'>main</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>exe</span></span> 
-<span class='label'><a id='x1-3021r4'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>10</span></span> 
-<span class='label'><a id='x1-3022r5'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>./</span></span><span style='color:#000000'><span class='ec-lmtt-9'>main</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>exe</span></span> 
-<span class='label'><a id='x1-3023r6'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>32765</span></span></pre>
-<figcaption class='caption'><span class='id'>Listing 4: </span><span class='content'>Execution Showing Uninitialized Variable</span></figcaption><!-- tex4ht:label?: x1-3023r  -->
-<!-- l. 63 --><p class='noindent'>
-</p>   
-<h4 class='likesubsectionHead'><a id='x1-4000'></a>Example 2: Function Scope Escape</h4>
+<p><a id='x1-3015r4'></a>   
+</p><pre class='lstlisting' id='listing-4'><span class='label'><a id='x1-3016r1'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>./</span></span><span style='color:#000000'><span class='ec-lmtt-9'>main</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>exe</span></span> 
+<span class='label'><a id='x1-3017r2'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>10</span></span> 
+<span class='label'><a id='x1-3018r3'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>./</span></span><span style='color:#000000'><span class='ec-lmtt-9'>main</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>exe</span></span> 
+<span class='label'><a id='x1-3019r4'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>10</span></span> 
+<span class='label'><a id='x1-3020r5'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>./</span></span><span style='color:#000000'><span class='ec-lmtt-9'>main</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>exe</span></span> 
+<span class='label'><a id='x1-3021r6'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>32765</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 4: </span><span class='content'>Execution Showing Uninitialized Variable</span></figcaption><!-- tex4ht:label?: x1-3021r  -->
+   
+
+<h4 class='likesubsectionHead' id='example-function-scope-escape'><a id='x1-4000'></a>Example 2: Function Scope Escape</h4>
 <!-- l. 65 --><p class='noindent'>Consider the example in Listing <a href='#x1-4001r5'>5<!-- tex4ht:ref: lst:20250707:5  --></a>. Using the same compiler as Example 1, GCC does not detect that variable
 <span class='ec-lmtt-10'>x </span>remains uninitialized after the call to <span class='ec-lmtt-10'>foo</span>. Passing a pointer to the variable is enough to fool the
 compiler.
 </p>   
 <!-- l. 67 -->
-<p><a id='x1-4001r5'></a>
-<a id='x1-4002'></a>   
-</p><pre class='lstlisting' id='listing-5'><span class='label'><a id='x1-4003r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;cstdio&gt;</span> 
-</span><span class='label'><a id='x1-4004r2'></a></span> 
-<span class='label'><a id='x1-4005r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>void</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>foo(</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'>* x) {</span> 
-</span><span class='label'><a id='x1-4006r4'></a></span><span class='ec-lmtti-10x-x-90'>        </span><span style='color:#000000'><span class='ec-lmtti-10x-x-90'>//</span></span><span style='color:#000000'> <span class='ec-lmtti-10x-x-90'>does nothing</span> 
-</span><span class='label'><a id='x1-4007r5'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span> 
-<span class='label'><a id='x1-4008r6'></a></span> 
-<span class='label'><a id='x1-4009r7'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main() {</span> 
-</span><span class='label'><a id='x1-4010r8'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>x;</span> 
-</span><span class='label'><a id='x1-4011r9'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>foo</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(&amp;</span></span><span style='color:#000000'><span class='ec-lmtt-9'>x</span></span><span style='color:#000000'><span class='ec-lmtt-9'>);</span></span> 
-<span class='label'><a id='x1-4012r10'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>printf</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>%</span></span><span style='color:#000000'><span class='ec-lmtt-9'>d</span></span><span style='color:#000000'><span class='ec-lmtt-9'>\</span></span><span style='color:#000000'><span class='ec-lmtt-9'>n</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>x);</span> 
-</span><span class='label'><a id='x1-4013r11'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span> 
-</span><span class='label'><a id='x1-4014r12'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
-<figcaption class='caption'><span class='id'>Listing 5: </span><span class='content'>Function Scope Escape Uninitialized Variable</span></figcaption><!-- tex4ht:label?: x1-4014r  -->
-<!-- l. 82 --><p class='noindent'>
-</p>   
-<h4 class='likesubsectionHead'><a id='x1-5000'></a>Example 3: Uninitialized Class Member</h4>
+<p><a id='x1-4001r5'></a>   
+</p><pre class='lstlisting' id='listing-5'><span class='label'><a id='x1-4002r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;cstdio&gt;</span> 
+</span><span class='label'><a id='x1-4003r2'></a></span> 
+<span class='label'><a id='x1-4004r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>void</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>foo(</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'>* x) {</span> 
+</span><span class='label'><a id='x1-4005r4'></a></span><span class='ec-lmtti-10x-x-90'>        </span><span style='color:#000000'><span class='ec-lmtti-10x-x-90'>//</span></span><span style='color:#000000'> <span class='ec-lmtti-10x-x-90'>does nothing</span> 
+</span><span class='label'><a id='x1-4006r5'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span> 
+<span class='label'><a id='x1-4007r6'></a></span> 
+<span class='label'><a id='x1-4008r7'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main() {</span> 
+</span><span class='label'><a id='x1-4009r8'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>x;</span> 
+</span><span class='label'><a id='x1-4010r9'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>foo</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(&amp;</span></span><span style='color:#000000'><span class='ec-lmtt-9'>x</span></span><span style='color:#000000'><span class='ec-lmtt-9'>);</span></span> 
+<span class='label'><a id='x1-4011r10'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>printf</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>%</span></span><span style='color:#000000'><span class='ec-lmtt-9'>d</span></span><span style='color:#000000'><span class='ec-lmtt-9'>\</span></span><span style='color:#000000'><span class='ec-lmtt-9'>n</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>x);</span> 
+</span><span class='label'><a id='x1-4012r11'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span> 
+</span><span class='label'><a id='x1-4013r12'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 5: </span><span class='content'>Function Scope Escape Uninitialized Variable</span></figcaption><!-- tex4ht:label?: x1-4013r  -->
+   
+
+<h4 class='likesubsectionHead' id='example-uninitialized-class-member'><a id='x1-5000'></a>Example 3: Uninitialized Class Member</h4>
 <!-- l. 84 --><p class='noindent'>Consider the example in Listing <a href='#x1-5001r6'>6<!-- tex4ht:ref: lst:20250707:6  --></a>. The private member variable <span class='ec-lmtt-10'>m_x </span>is used uninitialized without any warning from
 the same GCC version as the previous examples.
 </p>   
 <!-- l. 86 -->
-<p><a id='x1-5001r6'></a>
-<a id='x1-5002'></a>   
-</p><pre class='lstlisting' id='listing-6'><span class='label'><a id='x1-5003r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;cstdio&gt;</span> 
-</span><span class='label'><a id='x1-5004r2'></a></span> 
-<span class='label'><a id='x1-5005r3'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>class</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>MyClass {</span> 
-</span><span class='label'><a id='x1-5006r4'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>m_x;</span> 
-</span><span class='label'><a id='x1-5007r5'></a></span> 
-<span class='label'><a id='x1-5008r6'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>public</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span> 
-<span class='label'><a id='x1-5009r7'></a></span><span class='ec-lmtt-9'>               </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>void</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>print() {</span> 
-</span><span class='label'><a id='x1-5010r8'></a></span><span class='ec-lmtt-9'>                       </span><span style='color:#000000'><span class='ec-lmtt-9'>printf</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>%</span></span><span style='color:#000000'><span class='ec-lmtt-9'>d</span></span><span style='color:#000000'><span class='ec-lmtt-9'>\</span></span><span style='color:#000000'><span class='ec-lmtt-9'>n</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>m_x);</span> 
-</span><span class='label'><a id='x1-5011r9'></a></span><span class='ec-lmtt-9'>               </span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span> 
-<span class='label'><a id='x1-5012r10'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>};</span></span> 
-<span class='label'><a id='x1-5013r11'></a></span> 
-<span class='label'><a id='x1-5014r12'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main() {</span> 
-</span><span class='label'><a id='x1-5015r13'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>MyClass</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>obj;</span> 
-</span><span class='label'><a id='x1-5016r14'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>obj</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>print</span></span><span style='color:#000000'><span class='ec-lmtt-9'>();</span></span> 
-<span class='label'><a id='x1-5017r15'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span> 
-</span><span class='label'><a id='x1-5018r16'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
-<figcaption class='caption'><span class='id'>Listing 6: </span><span class='content'>Class Member Uninitialized</span></figcaption><!-- tex4ht:label?: x1-5018r  -->
-<!-- l. 105 --><p class='noindent'>
-</p>   
-<h4 class='likesubsectionHead'><a id='x1-6000'></a>Conclusion</h4>
+<p><a id='x1-5001r6'></a>   
+</p><pre class='lstlisting' id='listing-6'><span class='label'><a id='x1-5002r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;cstdio&gt;</span> 
+</span><span class='label'><a id='x1-5003r2'></a></span> 
+<span class='label'><a id='x1-5004r3'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>class</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>MyClass {</span> 
+</span><span class='label'><a id='x1-5005r4'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>m_x;</span> 
+</span><span class='label'><a id='x1-5006r5'></a></span> 
+<span class='label'><a id='x1-5007r6'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>public</span></span><span style='color:#000000'><span class='ec-lmtt-9'>:</span></span> 
+<span class='label'><a id='x1-5008r7'></a></span><span class='ec-lmtt-9'>               </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>void</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>print() {</span> 
+</span><span class='label'><a id='x1-5009r8'></a></span><span class='ec-lmtt-9'>                       </span><span style='color:#000000'><span class='ec-lmtt-9'>printf</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>%</span></span><span style='color:#000000'><span class='ec-lmtt-9'>d</span></span><span style='color:#000000'><span class='ec-lmtt-9'>\</span></span><span style='color:#000000'><span class='ec-lmtt-9'>n</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>m_x);</span> 
+</span><span class='label'><a id='x1-5010r9'></a></span><span class='ec-lmtt-9'>               </span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span> 
+<span class='label'><a id='x1-5011r10'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>};</span></span> 
+<span class='label'><a id='x1-5012r11'></a></span> 
+<span class='label'><a id='x1-5013r12'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main() {</span> 
+</span><span class='label'><a id='x1-5014r13'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>MyClass</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>obj;</span> 
+</span><span class='label'><a id='x1-5015r14'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>obj</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>print</span></span><span style='color:#000000'><span class='ec-lmtt-9'>();</span></span> 
+<span class='label'><a id='x1-5016r15'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span> 
+</span><span class='label'><a id='x1-5017r16'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 6: </span><span class='content'>Class Member Uninitialized</span></figcaption><!-- tex4ht:label?: x1-5017r  -->
+   
+
+<h4 class='likesubsectionHead' id='conclusion'><a id='x1-6000'></a>Conclusion</h4>
 <!-- l. 107 --><p class='noindent'>While the <span class='ec-lmtt-10'>-Wall </span>flag does provide some protection by detecting simple instances of CWE-457, many common cases
 remain undetected. The SwA team generally recommends developers follow industry best practices—such
 as always initializing variables—and use static analysis tools whenever practical to help detect this
 issue.
                                                                                          
                                                                                          
+   
+
 </p>   
-<h3 class='sectionHead'><a id='x1-7000'></a>References</h3>
+<h3 class='sectionHead' id='references'><a id='x1-7000'></a>References</h3>
 <!-- l. 52 --><p class='noindent'>    
 </p>
 <dl class='thebibliography'><dt class='thebibliography' id='X0-20250707_cwe-457'>
@@ -422,5 +553,8 @@ issue.
 </dt><dd class='thebibliography' id='bib-2'>
 <!-- l. 52 --><p class='noindent'><a id='cite.0_swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.</p></dd></dl>
  
-</body> 
-</html>
+</article>
+<footer>
+<p>&copy; 2021-2026 Software Assurance Tips. Some rights reserved. Please see the terms of the Creative Commons Attribution license.</p>
+</footer>
+</div>

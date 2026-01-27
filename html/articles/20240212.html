@@ -1,23 +1,10 @@
 <!DOCTYPE html>
 <html xml:lang='en-US' lang='en-US'>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Assess Only v. Assess and Authorize</title>
- 
-
-<meta charset="utf-8"/>
- 
-
-<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
- 
-
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
- 
-
- 
-
-<meta content="article.tex" name="src"/>
- 
-
+<link rel="stylesheet" href="../styles.css">
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
 <style>
  
@@ -49,6 +36,14 @@
 .ec-lmri-10{ font-style:italic;}
 .ec-lmri-10{ font-style:italic;}
 .ec-lmri-10{ font-style:italic;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
 p{margin-top:0;margin-bottom:0}
 p.indent{text-indent:0;}
 p + p{margin-top:1em;}
@@ -66,12 +61,13 @@ div.par-math-display, div.math-display{text-align:center;}
 body{ margin:1em auto; max-width:80ch; padding:0 .62em; }
 h1,h2,h3,h4,h5 { line-height:1.2; }
 @media print{ body{ max-width:none } }
-.partHead, likepartHead { font-size: 2em; }
-.chapterHead, likechapterHead { font-size: 1.7411em; }
-.sectionHead, likesectionHead { font-size: 1.5157em; }
-.subsectionHead, likesubsectionHead { font-size: 1.3195em; }
-.subsubsectionHead, likesubsubsectionHead { font-size: 1.1487em; }
+.partHead, .likepartHead { font-size: 2em; }
+.chapterHead, .likechapterHead { font-size: 1.7411em; }
+.sectionHead, .likesectionHead { font-size: 1.5157em; }
+.subsectionHead, .likesubsectionHead { font-size: 1.3195em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1.1487em; }
  @media (prefers-color-scheme: dark) { img[src^="article"]{filter: invert(1); } } 
+ body { background-color: Canvas; color: CanvasText; color-scheme: light dark; } 
 li p.indent { text-indent: 0em }
 li p:first-child{ margin-top:0em; }
 li p:last-child, li div:last-child { margin-bottom:0.5em; }
@@ -110,6 +106,7 @@ span.thank-mark{ vertical-align: super }
 span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
 div.footnotes{border-top:solid 1px black; border-bottom:solid 1px black; padding-bottom:1ex; padding-top:0.5ex; margin-right:15%; margin-top:2ex; font-style:italic; font-size:85%;}
 div.footnotes p{margin-top:0; margin-bottom:0; text-indent:0;}
+code.verb{font-family:monospace,monospace;}
 div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
 table.tabular td p{margin-top:0em;}
 table.tabular {margin-left: auto; margin-right: auto;}
@@ -130,7 +127,6 @@ table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
 .hline hr, .cline hr{border:none;border-top:1px solid black;}
 .hline {border-top: 1px solid black;}
 .hline + .vspace:last-child{display:none;}
-.hline:first-child{border-bottom:1px solid black;border-top:none;}
 .tabbing-right {text-align:right;}
 div.float, div.figure {margin-left: auto; margin-right: auto;}
 div.float img {text-align:center;}
@@ -155,9 +151,8 @@ table.pmatrix {width:100%;}
 span.bar-css {text-decoration:overline;}
 img.cdots{vertical-align:middle;}
 .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
 .index-item, .index-subitem, .index-subsubitem {display:block}
-div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center; margin-top: 0.5rem;}
 div.caption span.id{font-weight: bold; white-space: nowrap; }
 h1.partHead{text-align: center}
 p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
@@ -174,6 +169,10 @@ div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
 div.abstract p {margin-left:5%; margin-right:5%;}
 div.abstract {width:100%;}
 .abstracttitle{text-align:center;margin-bottom:1em;}
+.subsectionToc, .likesubsectionToc {margin-left:1em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:2em;}
+.paragraphToc, .likeparagraphToc {margin-left:3em;}
+.subparagraphToc, .likesubparagraphToc {margin-left:4em;}
 figure.float, div.figure {margin-left: auto; margin-right: auto;}
 figure.figure {text-align:center;}
 figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
@@ -186,8 +185,8 @@ dt.thebibliography {float:left; clear:left; margin-right:1em;}
 code.lstinline{font-family:monospace,monospace;}
 pre.listings{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
 .lstlisting .label{margin-right:0.5em; }
-pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
-pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; }
+pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; text-align: left; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; text-align: left; }
 .lstinputlisting .label{margin-right:0.5em;}
 .small-caps{font-variant: small-caps;}
 .uline,.uline-math{ text-decoration:underline; }
@@ -203,7 +202,155 @@ span.dotuline, .dotuline-math {text-decoration:underline dotted;}
 </style>
 </head>
 <body>
-<p><a href="../"><img src="images/swatips.svg" width="120" alt="SwATips" /></a>| <a href="20240212.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="images/by.svg" width="60" height="21" alt="CC-BY" /></a></p>
+<div class="container">
+<article>
+<style>
+  article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  article h1, article h2, article h3, article h4, article h5, article h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #222;
+    font-weight: 600;
+  }
+
+  article h1 {
+    font-size: 2em;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+    margin-top: 0;
+  }
+
+  article p {
+    margin-bottom: 1em;
+  }
+
+  article a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  article a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+  }
+
+  article code {
+    background: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
+  }
+
+  article pre {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1em 0;
+    border-left: 4px solid #667eea;
+  }
+
+  article pre code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  article blockquote {
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+    margin-left: 0;
+    color: #666;
+    font-style: italic;
+  }
+
+  article ul, article ol {
+    margin-left: 2em;
+    margin-bottom: 1em;
+  }
+
+  article li {
+    margin-bottom: 0.5em;
+  }
+
+  article table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+  }
+
+  article th, article td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+
+  article th {
+    background: #f5f5f5;
+    font-weight: 600;
+  }
+
+  article tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 40px;
+    font-size: 0.95em;
+  }
+
+  .article-meta a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .article-meta a:hover {
+    color: #764ba2;
+  }
+
+  .home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .license-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .license-badge img {
+    height: 21px;
+    width: auto;
+  }
+</style>
+
+<div class="article-meta">
+  <div class="home-link">
+    <a href="../index.php">← Back to Home</a>
+  </div>
+  <div style="display: flex; gap: 20px;">
+    <a href="20240212.pdf">📄 View PDF</a>
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" class="license-badge" title="Licensed under Creative Commons Attribution 4.0 International">
+      <img src="images/by.svg" alt="CC-BY" />
+    </a>
+  </div>
+</div>
 <div class='maketitle'>
                                                                                          
                                                                                          
@@ -211,27 +358,28 @@ span.dotuline, .dotuline-math {text-decoration:underline dotted;}
                                                                                          
 
 <h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
-A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0@swatips'>4</a>]<br />
+A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0_swatips'>4</a>]<br />
 </h2>
-<div class='author'><span class='ec-lmr-12'>Jon Hood and Kevin Keen</span></div><br />
+ <div class='author'><span class='ec-lmr-12'>Jon Hood and Kevin Keen</span></div><br />
 <div class='date'><span class='ec-lmr-12'>Monday 12</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-12'> February, 2024</span></div>
 </div>
                                                                                          
                                                                                          
    
+
 <h3 class='sectionHead' id='assess-only-v-assess-and-authorize'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Assess Only v. Assess and Authorize</h3>
-<!-- l. 45 --><p class='noindent'><span class='ec-lmr-8'>Updated Friday 22</span><sup class='textsuperscript'><span class='ec-lmr-9'>nd</span></sup><span class='ec-lmr-8'> March, 2024</span>
+<!-- l. 47 --><p class='noindent'><span class='ec-lmr-8'>Updated Tuesday 27</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> January, 2026</span>
 </p><!-- l. 1 --><p class='indent'>   A trend we have been seeing lately in the DoD is the misuse of the Assess Only framework. The Assess Only
 process was created to provide a way of assessing unique technologies below the system level which do not require an
 authorization like an Authority to Operate, Authority to Connect, Authority to Test, or their interim kin (ATO,
-ATC, ATT, IATO, IATC, IATT).[<a id='x1-1001'></a><a href='#cite.0@20240212:dodi851001'>3</a>, p. 13]
+ATC, ATT, IATO, IATC, IATT).[<a id='x1-1001'></a><a href='#cite.0_20240212_dodi851001'>3</a>, p. 13]
 </p><!-- l. 3 --><p class='indent'>   Misusing the Assess Only process results in a security hole. The primary result of misuse includes bypassing the
 Assess &amp; Authorize (A&amp;A) process protections. This evasion of the A&amp;A process results in increased
 operational risk, inadequate risk management, a lack of accountability, and a misalignment with mission
 requirements. To help organizations identify their holes in Assess Only processes, the following items provide
 a litmus test for making sure that your organization does not abuse RMF policies in a dangerous
 way:
-</p><!-- l. 5 --><p class='noindent'>
+
 </p>   
 <h4 class='subsectionHead' id='assess-only-systems'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Assess Only Systems</h4>
 <!-- l. 6 --><p class='noindent'>Referring to “Assess Only Systems” indicates a lack of understanding of what may go through the Assess
@@ -240,14 +388,14 @@ the Assess &amp; Authorize process. Organizations that refer to “Assess Only S
 misunderstanding of what an assessment approval is intended to accomplish. Words have meaning,
 and using the wrong words creates an inconsistency which introduces weaknesses in a cybersecurity
 program.
-</p><!-- l. 8 --><p class='indent'>   The guidance in DoDI 8500.01 (Figure <a href='#-assess-only-and-assess-authorize-in-dod-policy'>1<!-- tex4ht:ref: fig:20240212:dodit  --></a>) can help in understanding this distinction.[<a id='x1-2001'></a><a href='#cite.0@20240212:dodi850001'>2</a>] Systems do not qualify
+</p><!-- l. 8 --><p class='indent'>   The guidance in DoDI 8500.01 (Figure <a href='#assess-only-and-assess-authorize-in-dod-policy'>1<!-- tex4ht:ref: fig:20240212:dodit  --></a>) can help in understanding this distinction.[<a id='x1-2001'></a><a href='#cite.0_20240212_dodi850001'>2</a>] Systems do not qualify
 for the Assess Only process.
 </p>   
-<figure class='figure' id='-assess-only-and-assess-authorize-in-dod-policy'> 
+<figure class='figure' id='x1-20021'><span id='assess-only-and-assess-authorize-in-dod-policy'></span> 
 
                                                                                          
                                                                                          
-<a id='x1-20021'></a>
+
                                                                                          
                                                                                          
 <!-- l. 12 --><p class='noindent'><img alt='PIC' height='146' src='images/20240212-1.png' width='398' />
@@ -257,22 +405,23 @@ for the Assess Only process.
                                                                                          
    
 </figure>
+   
 <h4 class='subsectionHead' id='what-is-being-approved'><span class='titlemark'>1.2   </span> <a id='x1-30001.2'></a>What is Being Approved</h4>
 <!-- l. 18 --><p class='noindent'>There are two flavors of the Assess Only process. A program may use the <i>Assess &amp; Approve</i> process to approve
 single-purpose, non-connecting IT-enabled devices and services, or they can use the <i>Assess &amp; Incorporate</i> process to
-approve an assessment which can be associated with or incorporated into an already authorized boundary.[<a id='x1-3001'></a><a href='#cite.0@20240212:vaglia2017'>7</a>, p. 11]
+approve an assessment which can be associated with or incorporated into an already authorized boundary.[<a id='x1-3001'></a><a href='#cite.0_20240212_vaglia2017'>7</a>, p. 11]
 For software applications, notice that the assessment is the focal point of the approval, and the system that
 wants to associate with that assessment should have a process for incorporating it into their boundary.
 This article does not delve into the assessments of single-purpose PIT components are Assessed and
 Approved, such as single-purpose It-enabled devices that “do not become a part of an incorporating
-system’s authorization boundary.”[<a id='x1-3002'></a><a href='#cite.0@20240212:legislation'>5</a>, DoD CIO Risk Management Framework Assess Only Guidance
+system’s authorization boundary.”[<a id='x1-3002'></a><a href='#cite.0_20240212_legislation'>5</a>, DoD CIO Risk Management Framework Assess Only Guidance
 2017]
 </p><!-- l. 20 --><p class='indent'>   Reciprocity requires the incorporating organization to perform due diligence when associating with an approved
 assessment, and that includes review of the assessment data. Organizations that treat an Assessment Approval of
 software as if it were a blanket, protean approval of the product (rather than an approval of the assessment) are
 bypassing the authorization mechanism in RMF and the reciprocity controls of their organization if the process does
 not include reviewing the assessment data.
-</p><!-- l. 22 --><p class='noindent'>
+
 </p>   
 <h4 class='subsectionHead' id='assess-only-ato-atc-and-att'><span class='titlemark'>1.3   </span> <a id='x1-40001.3'></a>Assess Only ATO, ATC, and ATT</h4>
 <!-- l. 23 --><p class='noindent'>An ATO, ATC, and ATT (and by extension, their interim cousins, IATO, IATC, and IATT) begin with the word
@@ -281,24 +430,24 @@ the place of an operational authorization.
 </p><!-- l. 25 --><p class='indent'>   An authorized boundary which does have an ATO, ATC, or ATT may define policies for associating with an
 approved assessment to become an authority for the operation of IT below the system level. Those policies should
 include the review of Assess Only data; however, systems and networks, like the DODIN, may require a full ATO or
-ATC under the A&amp;A process.[<a id='x1-4001'></a><a href='#cite.0@20240212:disncpg'>1</a>]
+ATC under the A&amp;A process.[<a id='x1-4001'></a><a href='#cite.0_20240212_disncpg'>1</a>]
 </p><!-- l. 27 --><p class='indent'>   Organizations which refer to an “Assess Only ATO” or “Assess Only ATC” are trying to mix Step 6 of the RMF
 process (Authorization) with an approval mechanism that ends at Step 5 (Assessment).
-</p><!-- l. 29 --><p class='noindent'>
+
 </p>   
 <h4 class='subsectionHead' id='assess-only-conmon'><span class='titlemark'>1.4   </span> <a id='x1-50001.4'></a>Assess Only ConMon</h4>
 <!-- l. 30 --><p class='noindent'>Taking the misuse of the Assess Only construct a step further are organizations which refer to an “Assess Only
 ConMon.” These organizations attempt to implement Step 7 of the RMF process (Monitoring) in non-standard
 ways. <i>Monitoring</i> in the RMF process refers to the surveillance of authorized assets and controls approved in the
-Step 6 (Authorized) boundary.[<a id='x1-5001'></a><a href='#cite.0@20240212:nist80037rev2'>6</a>] This is one of the reasons why DoD elements often refer to this as a ConMon
-Authorization or Continuous ATO (cATO). Consider the wheel in Figure <a href='#-rmf-process-wheel'>2<!-- tex4ht:ref: fig:20240212:rmfwheel  --></a> to help understand where authorization
+Step 6 (Authorized) boundary.[<a id='x1-5001'></a><a href='#cite.0_20240212_nist80037rev2'>6</a>] This is one of the reasons why DoD elements often refer to this as a ConMon
+Authorization or Continuous ATO (cATO). Consider the wheel in Figure <a href='#rmf-process-wheel'>2<!-- tex4ht:ref: fig:20240212:rmfwheel  --></a> to help understand where authorization
 and monitoring fall in the RMF process.
 </p>   
-<figure class='figure' id='-rmf-process-wheel'> 
+<figure class='figure' id='x1-50022'><span id='rmf-process-wheel'></span> 
 
                                                                                          
                                                                                          
-<a id='x1-50022'></a>
+
                                                                                          
                                                                                          
 <!-- l. 34 --><p class='noindent'><img alt='PIC' height='276' src='images/20240212-2.png' width='284' />
@@ -313,6 +462,7 @@ and monitoring fall in the RMF process.
 continuous assessment for products below the system level, but to redefine continuous monitoring as meaning
 continuous assessment gives organizations a false sense of security by bypassing Authorization and answering the
 final RMF step at the wrong level.
+
 </p>   
 <h4 class='subsectionHead' id='conclusion'><span class='titlemark'>1.5   </span> <a id='x1-60001.5'></a>Conclusion</h4>
 <!-- l. 42 --><p class='noindent'>Organizations trying to implement the RMF process should be commended. A program doing their due diligence to
@@ -320,30 +470,32 @@ implement cybersecurity principles should consider the litmus test provided here
 comply with existing DoD guidance.
                                                                                          
                                                                                          
+   
+
 </p>   
 <h3 class='sectionHead' id='references'><a id='x1-7000'></a>References</h3>
-<!-- l. 50 --><p class='noindent'>    
+<!-- l. 52 --><p class='noindent'>    
 </p>
-<dl class='thebibliography'><dt class='thebibliography' id='X0-20240212:disncpg'>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-20240212_disncpg'>
 [1]  
 </dt><dd class='thebibliography' id='bib-1'>
-<!-- l. 50 --><p class='noindent'><a id='cite.0@20240212:disncpg'></a>Defense             Information             Systems             Agency.             <span class='uline'>Defense             Informatoin
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20240212_disncpg'></a>Defense             Information             Systems             Agency.             <span class='uline'>Defense             Informatoin
 System Network (DISN) Connection Process Guide (CPG)</span>. Tech. rep. Fort Meade, Maryland, 2023.
 <span class='small-caps'>url</span>: <a class='url' href='https://dl.dod.cyber.mil/wp-content/uploads/connect/pdf/unclass-DISN_CPG.pdf'><span class='ec-lmtt-10'>https://dl.dod.cyber.mil/wp-content/uploads/connect/pdf/unclass-DISN_CPG.pdf</span></a>.
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20240212:dodi850001'>
+<dt class='thebibliography' id='X0-20240212_dodi850001'>
 [2]  
 </dt><dd class='thebibliography' id='bib-2'>
-<!-- l. 50 --><p class='noindent'><a id='cite.0@20240212:dodi850001'></a>Department  of  Defense.  <span class='uline'>Department  of  Defense  Instruction  8500.01</span>.  Tech.  rep.  Incorporating
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20240212_dodi850001'></a>Department  of  Defense.  <span class='uline'>Department  of  Defense  Instruction  8500.01</span>.  Tech.  rep.  Incorporating
 Change   1,   October   7,   2019.   Washington,   D.C.:   Department   of   Defense,   2019.   <span class='small-caps'>url</span>:   
 <a class='url' href='https://www.esd.whs.mil/portals/54/documents/dd/issuances/dodi/850001_2014.pdf'><span class='ec-lmtt-10'>https://www.esd.whs.mil/portals/54/documents/dd/issuances/dodi/850001_2014.pdf</span></a>.
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20240212:dodi851001'>
+<dt class='thebibliography' id='X0-20240212_dodi851001'>
 [3]  
 </dt><dd class='thebibliography' id='bib-3'>
-<!-- l. 50 --><p class='noindent'><a id='cite.0@20240212:dodi851001'></a>Department  of  Defense.  <span class='uline'>Department  of  Defense  Instruction  8510.01.  Risk  Management  Framework
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20240212_dodi851001'></a>Department  of  Defense.  <span class='uline'>Department  of  Defense  Instruction  8510.01.  Risk  Management  Framework
 for   DoD   Systems</span>.   Tech.   rep.   Washington,   D.C.:   Department   of   Defense,   2022.   <span class='small-caps'>url</span>:   
 <a class='url' href='https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/851001p.pdf'><span class='ec-lmtt-10'>https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/851001p.pdf</span></a>.
 </p>    
@@ -351,30 +503,33 @@ for   DoD   Systems</span>.   Tech.   rep.   Washington,   D.C.:   Department   
 <dt class='thebibliography' id='X0-swatips'>
 [4]  
 </dt><dd class='thebibliography' id='bib-4'>
-<!-- l. 50 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+<!-- l. 52 --><p class='noindent'><a id='cite.0_swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20240212:legislation'>
+<dt class='thebibliography' id='X0-20240212_legislation'>
 [5]  
 </dt><dd class='thebibliography' id='bib-5'>
-<!-- l. 50 --><p class='noindent'><a id='cite.0@20240212:legislation'></a>SERDP-ESTCP.  <span class='uline'>Legislation,  Instructions,  Manuals,  Policies,  Plans  and  Memos</span>.  Tech.  rep.  <span class='small-caps'>url</span>:  
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20240212_legislation'></a>SERDP-ESTCP.  <span class='uline'>Legislation,  Instructions,  Manuals,  Policies,  Plans  and  Memos</span>.  Tech.  rep.  <span class='small-caps'>url</span>:  
 <a class='url' href='https://serdp-estcp.mil/page/f7ad7b6f-e8ef-11ec-9685-026db1cbe810'><span class='ec-lmtt-10'>https://serdp-estcp.mil/page/f7ad7b6f-e8ef-11ec-9685-026db1cbe810</span></a>.
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20240212:nist80037rev2'>
+<dt class='thebibliography' id='X0-20240212_nist80037rev2'>
 [6]  
 </dt><dd class='thebibliography' id='bib-6'>
-<!-- l. 50 --><p class='noindent'><a id='cite.0@20240212:nist80037rev2'></a>National  Institute  of  Standards  and  Technology.  <span class='uline'>Risk  Management  Framework  for  Information
-Systems  and  Organizations</span>.  Tech.  rep.  Special  Publication  (SP)  800-37  Revision  2.  Washington,
-D.C.:  U.S.  Department  of  Commerce,  2018.  <span class='small-caps'>doi</span>:  <a href='https://doi.org/10.6028/NIST.SP.800-37r2'><span class='ec-lmtt-10'>10 . 6028 / NIST . SP . 800 - 37r2</span></a>.  <span class='small-caps'>url</span>:  
-<a class='url' href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf'><span class='ec-lmtt-10'>https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf</span></a>.
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20240212_nist80037rev2'></a>National Institute of Standards and Technology. <span class='uline'>Risk Management Framework for Information Systems
+and         Organizations</span>.         Tech.         rep.         Special         Publication         (SP)         800-37
+Revision 2. Washington, D.C.: U.S. Department of Commerce, 2018. <span class='small-caps'>doi</span>:  <a href='https://doi.org/10.6028/NIST.SP.800-37r2'>10.6028/NIST.SP.800-37r2</a>.
+<span class='small-caps'>url</span>: <a class='url' href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf'><span class='ec-lmtt-10'>https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf</span></a>.
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20240212:vaglia2017'>
+<dt class='thebibliography' id='X0-20240212_vaglia2017'>
 [7]  
 </dt><dd class='thebibliography' id='bib-7'>
-<!-- l. 50 --><p class='noindent'><a id='cite.0@20240212:vaglia2017'></a>Laura Vaglia and Jey Castleberry. <span class='uline'>Facility Related Control System Inventory</span>. Tech. rep. 2017. <span class='small-caps'>url</span>: 
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20240212_vaglia2017'></a>Laura Vaglia and Jey Castleberry. <span class='uline'>Facility Related Control System Inventory</span>. Tech. rep. 2017. <span class='small-caps'>url</span>: 
 <a class='url' href='https://usarsustainabilitydotcom.files.wordpress.com/2017/12/facility-related-control-system-inventory.pdf'><span class='ec-lmtt-10'>https://usarsustainabilitydotcom.files.wordpress.com/2017/12/facility-related-control-system-inventory.pdf</span></a>.</p></dd></dl>
  
-</body> 
-</html>
+</article>
+<footer>
+<p>&copy; 2021-2026 Software Assurance Tips. Some rights reserved. Please see the terms of the Creative Commons Attribution license.</p>
+</footer>
+</div>

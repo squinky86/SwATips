@@ -182,21 +182,35 @@ if [ $PDF == true ]; then
 			sed -i -e "s:NUM:${NUM}:g" article_template.html
 			lmk article >/dev/null 2>&1
 			if [ $HTML == true ]; then
-				make4ht -l article "fn-in,svg" > /dev/null
+				make4ht -l article "fn-in,svg" >/dev/null 2>&1
+				if [ ! -f article.html ] || [ ! -f article.css ]; then
+					echo "Error: make4ht failed to generate article.html or article.css"
+					popd >/dev/null
+					rm -rf ${TMPDIR}
+					continue
+				fi
 				echo '<!DOCTYPE html>' > ${NUM}.html
 				echo "<html xml:lang='en-US' lang='en-US'>" >> ${NUM}.html
 				echo "<head>" >> ${NUM}.html
-				xmllint --pretty --format --xpath "//head/node()" article.html >> ${NUM}.html
+				echo "<meta charset=\"utf-8\">" >> ${NUM}.html
+				echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">" >> ${NUM}.html
+				echo "<title>${ARTICLENAME}</title>" >> ${NUM}.html
+				echo "<link rel=\"stylesheet\" href=\"../styles.css\">" >> ${NUM}.html
 				echo "<script async=\"async\" src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130\" crossorigin=\"anonymous\"></script>" >> ${NUM}.html
 				echo "<style>" >> ${NUM}.html
 				cat article.css >> ${NUM}.html
 				echo "</style>" >> ${NUM}.html
 				echo "</head>" >> ${NUM}.html
 				echo "<body>" >> ${NUM}.html
+				echo "<div class=\"container\">" >> ${NUM}.html
+				echo "<article>" >> ${NUM}.html
 				cat article_template.html >> ${NUM}.html
-				tail -n +12 article.html >> ${NUM}.html
-				sed -i -z "s|<title>.*</title>|<title>${ARTICLENAME}</title>|g" ${NUM}.html
-				sed -i -e '/article.css/d' ${NUM}.html
+				sed -n '/<body/,/<\/body>/p' article.html | sed -e '1d;$d' >> ${NUM}.html
+				echo "</article>" >> ${NUM}.html
+				echo "<footer>" >> ${NUM}.html
+				echo "<p>&copy; 2021-2026 Software Assurance Tips. Some rights reserved. Please see the terms of the Creative Commons Attribution license.</p>" >> ${NUM}.html
+				echo "</footer>" >> ${NUM}.html
+				echo "</div>" >> ${NUM}.html
 				#copy images
 				mkdir images
 				i=0
@@ -276,9 +290,9 @@ if [ $PDF == true ]; then
 		TMPFILE=html/articles/${NUMS[$i]}.html.tmp
 		TMPFILE2=html/articles/${NUMS[$i]}.html.tmp2
 		cp html/articles/${NUMS[$i]}.html ${TMPFILE2}
-		sed -i -e '/<script/d' ${TMPFILE2}
-		juice --remove-style-tags true --xml-mode true ${TMPFILE2} ${TMPFILE}
-		xmllint --pretty --format --xpath "//body/node()" ${TMPFILE} | sed -e "s:href=\"${NUMS[$i]}.pdf\":href=\"articles/${NUMS[$i]}.pdf\":g" -e "s:href=\"../\":href=\"/\":g" -e "s:images/:https\://www.swatips.com/articles/images/:g" >> html/rss.inc
+		sed -i -e '/<script/d' -e '/<style/,/<\/style>/d' ${TMPFILE2}
+		juice --remove-style-tags true ${TMPFILE2} ${TMPFILE} 2>/dev/null || cp ${TMPFILE2} ${TMPFILE}
+		sed -n '/<article/,/<\/article>/p' ${TMPFILE} | sed -e '1d;$d' -e "s:href=\"${NUMS[$i]}.pdf\":href=\"articles/${NUMS[$i]}.pdf\":g" -e "s:href=\"../\":href=\"/\":g" -e "s:images/:https\://www.swatips.com/articles/images/:g" >> html/rss.inc
 		rm ${TMPFILE} ${TMPFILE2}
 		echo "]]></description>" >> html/rss.inc
 		echo "	</item>" >> html/rss.inc

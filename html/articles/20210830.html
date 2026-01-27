@@ -1,36 +1,57 @@
 <!DOCTYPE html>
 <html xml:lang='en-US' lang='en-US'>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A CWE-499 Breakdown: Serializing Sensitive Data</title>
- 
-
-<meta charset="utf-8"/>
- 
-
-<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
- 
-
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
- 
-
- 
-
-<meta content="article.tex" name="src"/>
- 
-
+<link rel="stylesheet" href="../styles.css">
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
 <style>
  
 /* start css.sty */
-.rm-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
-.rm-lmr-12{font-size:120%;}
-.rm-lmr-9{font-size:90%;}
+.ec-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmr-12{font-size:120%;}
+.ec-lmr-9{font-size:90%;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
-.rm-lmr-8{font-size:80%;}
-.rm-lmbx-10{ font-weight: bold;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmr-8{font-size:80%;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmbx-10{ font-weight: bold;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
+.ec-lmtk-10{ font-family: monospace,monospace;}
 .ec-lmtk-10{ font-family: monospace,monospace;}
 .ec-lmtk-10{ font-family: monospace,monospace;}
 .ec-lmtk-10{ font-family: monospace,monospace;}
@@ -39,11 +60,35 @@
 .ec-lmtt-8x-x-87{ font-family: monospace,monospace;}
 .ec-lmtt-8x-x-87{ font-family: monospace,monospace;}
 .ec-lmtt-8x-x-87{ font-family: monospace,monospace;}
+.ec-lmtt-8x-x-87{ font-family: monospace,monospace;}
+.ec-lmtt-8x-x-87{ font-family: monospace,monospace;}
+.ec-lmtt-8x-x-87{ font-family: monospace,monospace;}
+.ec-lmtt-8x-x-87{ font-family: monospace,monospace;}
+.ec-lmtt-8x-x-87{ font-family: monospace,monospace;}
+.ec-lmtt-8x-x-87{ font-family: monospace,monospace;}
+.ec-lmtt-8x-x-87{ font-family: monospace,monospace;}
 .ec-lmtk-10x-x-70{font-size:70%; font-family: monospace,monospace;}
 .ec-lmtk-10x-x-70{ font-family: monospace,monospace;}
 .ec-lmtk-10x-x-70{ font-family: monospace,monospace;}
 .ec-lmtk-10x-x-70{ font-family: monospace,monospace;}
-.rm-lmcsc-10{font-variant: small-caps;}
+.ec-lmtk-10x-x-70{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-70{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-70{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-70{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-70{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-70{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-70{ font-family: monospace,monospace;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
 p{margin-top:0;margin-bottom:0}
 p.indent{text-indent:0;}
 p + p{margin-top:1em;}
@@ -51,21 +96,34 @@ p + div, p + pre {margin-top:1em;}
 div + p, pre + p {margin-top:1em;}
 a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
 @media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
 a img { border-top: 0; border-left: 0; border-right: 0; }
 center { margin-top:1em; margin-bottom:1em; }
 td center { margin-top:0em; margin-bottom:0em; }
 .Canvas { position:relative; }
 img.math{vertical-align:middle;}
 div.par-math-display, div.math-display{text-align:center;}
+body{ margin:1em auto; max-width:80ch; padding:0 .62em; }
+h1,h2,h3,h4,h5 { line-height:1.2; }
+@media print{ body{ max-width:none } }
+.partHead, .likepartHead { font-size: 2em; }
+.chapterHead, .likechapterHead { font-size: 1.7411em; }
+.sectionHead, .likesectionHead { font-size: 1.5157em; }
+.subsectionHead, .likesubsectionHead { font-size: 1.3195em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1.1487em; }
+ @media (prefers-color-scheme: dark) { img[src^="article"]{filter: invert(1); } } 
+ body { background-color: Canvas; color: CanvasText; color-scheme: light dark; } 
 li p.indent { text-indent: 0em }
 li p:first-child{ margin-top:0em; }
 li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
 li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
 .enumerate1 {list-style-type:decimal;}
 .enumerate2 {list-style-type:lower-alpha;}
 .enumerate3 {list-style-type:lower-roman;}
 .enumerate4 {list-style-type:upper-alpha;}
 div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
 .obeylines-h,.obeylines-v {white-space: nowrap; }
 div.obeylines-v p { margin-top:0; margin-bottom:0; }
 .overline{ text-decoration:overline; }
@@ -93,6 +151,7 @@ span.thank-mark{ vertical-align: super }
 span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
 div.footnotes{border-top:solid 1px black; border-bottom:solid 1px black; padding-bottom:1ex; padding-top:0.5ex; margin-right:15%; margin-top:2ex; font-style:italic; font-size:85%;}
 div.footnotes p{margin-top:0; margin-bottom:0; text-indent:0;}
+code.verb{font-family:monospace,monospace;}
 div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
 table.tabular td p{margin-top:0em;}
 table.tabular {margin-left: auto; margin-right: auto;}
@@ -111,6 +170,8 @@ table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
 .hline hr, .cline hr{ height : 0px; margin:0px; }
 .hline td, .cline td{ padding: 0; }
 .hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
 .tabbing-right {text-align:right;}
 div.float, div.figure {margin-left: auto; margin-right: auto;}
 div.float img {text-align:center;}
@@ -133,16 +194,15 @@ span.pmatrix img{vertical-align:middle;}
 div.pmatrix {text-align:center;}
 table.pmatrix {width:100%;}
 span.bar-css {text-decoration:overline;}
-table.tabular{border-collapse: collapse; border-spacing: 0;}
 img.cdots{vertical-align:middle;}
 .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
 .index-item, .index-subitem, .index-subsubitem {display:block}
-div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center; margin-top: 0.5rem;}
 div.caption span.id{font-weight: bold; white-space: nowrap; }
 h1.partHead{text-align: center}
 p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
 .verse{white-space:nowrap; margin-left:2em}
@@ -154,31 +214,188 @@ div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
 div.abstract p {margin-left:5%; margin-right:5%;}
 div.abstract {width:100%;}
 .abstracttitle{text-align:center;margin-bottom:1em;}
+.subsectionToc, .likesubsectionToc {margin-left:1em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:2em;}
+.paragraphToc, .likeparagraphToc {margin-left:3em;}
+.subparagraphToc, .likesubparagraphToc {margin-left:4em;}
 figure.float, div.figure {margin-left: auto; margin-right: auto;}
-figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}
 figure.figure {text-align:center;}
 figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
 figcaption.caption span.id{font-weight: bold; white-space: nowrap; }
+p + figcaption, img + figcaption{margin-top: 1em;}
 .abstract{margin:1em;}
 dt.printshorthands{float:left; clear:left; margin-right:1em;}
 dd.thebibliography {margin-left: 2.5em;}
 dt.thebibliography {float:left; clear:left; margin-right:1em;}
+code.lstinline{font-family:monospace,monospace;}
+pre.listings{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
 .lstlisting .label{margin-right:0.5em; }
-div.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
-div.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
+pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; text-align: left; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; text-align: left; }
 .lstinputlisting .label{margin-right:0.5em;}
 .small-caps{font-variant: small-caps;}
-.uline{ text-decoration:underline; }
-.uuline{ text-decoration:underline; }
-span.sout {text-decoration: line-through }
-span.xout {text-decoration: line-through }
-span.uwave {text-decoration:underline }
+.uline,.uline-math{ text-decoration:underline; }
+.uuline,.uuline-math{ text-decoration:underline double; }
+span.sout, .sout-math {text-decoration: line-through }
+span.xout, .xout-math {text-decoration: line-through underline }
+span.uwave, .uwave-math {text-decoration:underline wavy; }
+span.dashuline, .dashuline-math {text-decoration:underline dashed;}
+span.dotuline, .dotuline-math {text-decoration:underline dotted;}
+.rotatebox{display: inline-block;}
 /* end css.sty */
 
 </style>
 </head>
 <body>
-<p><a href="../"><img src="images/swatips.svg" width="120" alt="SwATips" /></a> | <a href="20210830.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="images/by.svg" width="60" height="21" alt="CC-BY" /></a></p>
+<div class="container">
+<article>
+<style>
+  article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  article h1, article h2, article h3, article h4, article h5, article h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #222;
+    font-weight: 600;
+  }
+
+  article h1 {
+    font-size: 2em;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+    margin-top: 0;
+  }
+
+  article p {
+    margin-bottom: 1em;
+  }
+
+  article a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  article a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+  }
+
+  article code {
+    background: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
+  }
+
+  article pre {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1em 0;
+    border-left: 4px solid #667eea;
+  }
+
+  article pre code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  article blockquote {
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+    margin-left: 0;
+    color: #666;
+    font-style: italic;
+  }
+
+  article ul, article ol {
+    margin-left: 2em;
+    margin-bottom: 1em;
+  }
+
+  article li {
+    margin-bottom: 0.5em;
+  }
+
+  article table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+  }
+
+  article th, article td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+
+  article th {
+    background: #f5f5f5;
+    font-weight: 600;
+  }
+
+  article tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 40px;
+    font-size: 0.95em;
+  }
+
+  .article-meta a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .article-meta a:hover {
+    color: #764ba2;
+  }
+
+  .home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .license-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .license-badge img {
+    height: 21px;
+    width: auto;
+  }
+</style>
+
+<div class="article-meta">
+  <div class="home-link">
+    <a href="../index.php">← Back to Home</a>
+  </div>
+  <div style="display: flex; gap: 20px;">
+    <a href="20210830.pdf">📄 View PDF</a>
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" class="license-badge" title="Licensed under Creative Commons Attribution 4.0 International">
+      <img src="images/by.svg" alt="CC-BY" />
+    </a>
+  </div>
+</div>
 <div class='maketitle'>
                                                                                          
                                                                                          
@@ -186,106 +403,143 @@ span.uwave {text-decoration:underline }
                                                                                          
 
 <h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
-A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>3</a>]<br />
+A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0_swatips'>3</a>]<br />
 </h2>
-<div class='author'><span class='rm-lmr-12'>Chris Ramsey</span></div><br />
-<div class='date'><span class='rm-lmr-12'>Monday 30</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> August, 2021</span></div>
+ <div class='author'><span class='ec-lmr-12'>Chris Ramsey</span></div><br />
+<div class='date'><span class='ec-lmr-12'>Monday 30</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-12'> August, 2021</span></div>
 </div>
                                                                                          
                                                                                          
    
-<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>A CWE-499 Breakdown: Serializing Sensitive Data</h3>
-<!-- l. 43 --><p class='noindent'><span class='rm-lmr-8'>Updated Monday 30</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-8'> August, 2021</span>
+
+<h3 class='sectionHead' id='a-cwe-breakdown-serializing-sensitive-data'><span class='titlemark'>1   </span> <a id='x1-10001'></a>A CWE-499 Breakdown: Serializing Sensitive Data</h3>
+<!-- l. 47 --><p class='noindent'><span class='ec-lmr-8'>Updated Tuesday 27</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> January, 2026</span>
 </p><!-- l. 1 --><p class='indent'>   Recently, we detected a potential CWE-499 on some of the source being scanned in the lab. It raised some
 questions and debate among us, and left me scratching my head. Being a curious fellow, I took it upon myself to
 play around with it to try to figure it out. I’m not a Java developer by any stretch of the imagination, but I am a
 certified security professional with a background in software development. So, with a fresh install of Eclipse, I went
 to work.
-</p><!-- l. 3 --><p class='noindent'>
+
 </p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>The CWE</h4>
+<h4 class='subsectionHead' id='the-cwe'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>The CWE</h4>
 <!-- l. 4 --><p class='noindent'>Below, you can see the summary and description of this CWE:
 </p>     
-<blockquote class='quote'>
+<blockquote class='quote' id='example-'>
 <!-- l. 6 --><p class='noindent'><strong>CWE-499: Serializable Class Containing Sensitive Data</strong>
+
 </p>     
-<!-- l. 8 --><p class='noindent'><span class='paragraphHead'><a id='x1-30001.1'></a><span class='rm-lmbx-10'>Description</span></span>
+<!-- l. 8 --><p class='noindent'><span class='paragraphHead' id='description'><a id='x1-3000'></a><span class='ec-lmbx-10'>Description</span></span>
  <br class='newline' />The code contains a class with sensitive data, but the class does not explicitly deny serialization. The
 data can be accessed by serializing the class through another class.
+
 </p>     
-<!-- l. 11 --><p class='noindent'><span class='paragraphHead'><a id='x1-40001.1'></a><span class='rm-lmbx-10'>Extended Description</span></span>
+<!-- l. 11 --><p class='noindent'><span class='paragraphHead' id='extended-description'><a id='x1-4000'></a><span class='ec-lmbx-10'>Extended Description</span></span>
  <br class='newline' />Serializable classes are effectively open classes since data cannot be hidden in them. Classes that do not
 explicitly deny serialization can be serialized by any other class, which can then in turn use the data
 stored inside it.
+
 </p>     
-<!-- l. 14 --><p class='noindent'><span class='paragraphHead'><a id='x1-50001.1'></a><span class='rm-lmbx-10'>Applicable Languages</span></span>
+<!-- l. 14 --><p class='noindent'><span class='paragraphHead' id='applicable-languages'><a id='x1-5000'></a><span class='ec-lmbx-10'>Applicable Languages</span></span>
  <br class='newline' />Java (Undetermined Prevalence)
+
 </p>     
-<!-- l. 17 --><p class='noindent'><span class='paragraphHead'><a id='x1-60001.1'></a><span class='rm-lmbx-10'>Demonstrative Example</span></span>
+<!-- l. 17 --><p class='noindent'><span class='paragraphHead' id='demonstrative-example'><a id='x1-6000'></a><span class='ec-lmbx-10'>Demonstrative Example</span></span>
  <br class='newline' /></p><!-- l. 18 -->
+                                                                                         
+                                                                                         
 <a id='x1-6001r1'></a>
-<a id='x1-6002'></a>
-<div id='listing-1' class='lstlisting'><span class='label'><a id='x1-6003r1'></a></span><span class='ec-lmtk-10'>class</span><span class='ec-lmtt-10'> PatientRecord { </span><br /><span class='label'><a id='x1-6004r2'></a></span><span class='ec-lmtt-10'>       </span><span class='ec-lmtk-10'>private</span><span class='ec-lmtt-10'> String name; </span><br /><span class='label'><a id='x1-6005r3'></a></span><span class='ec-lmtt-10'>       </span><span class='ec-lmtk-10'>private</span><span class='ec-lmtt-10'> String socialSecurityNum; </span><br /><span class='label'><a id='x1-6006r4'></a></span><span class='ec-lmtt-10'>       </span><span class='ec-lmtk-10'>public</span><span class='ec-lmtt-10'> Patient(String name,String ssn) { </span><br /><span class='label'><a id='x1-6007r5'></a></span><span class='ec-lmtt-10'>               </span><span class='ec-lmtk-10'>this</span><span class='ec-lmtt-10'>.SetName(name); </span><br /><span class='label'><a id='x1-6008r6'></a></span><span class='ec-lmtt-10'>               </span><span class='ec-lmtk-10'>this</span><span class='ec-lmtt-10'>.SetSocialSecurityNumber(ssn); </span><br /><span class='label'><a id='x1-6009r7'></a></span><span class='ec-lmtt-10'>       } </span><br /><span class='label'><a id='x1-6010r8'></a></span><span class='ec-lmtt-10'>}</span>
-<figcaption class='caption'><span class='id'>Listing 1:</span><span class='content'>Example 1</span></figcaption><!-- tex4ht:label?: x1-6001r1  -->
-                                                                                         
-                                                                                         
+<pre class='lstlisting' id='listing-1'><span class='label'><a id='x1-6002r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10'>class</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>PatientRecord {</span> 
+</span><span class='label'><a id='x1-6003r2'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtk-10'>private</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>String name;</span> 
+</span><span class='label'><a id='x1-6004r3'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtk-10'>private</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>String socialSecurityNum;</span> 
+</span><span class='label'><a id='x1-6005r4'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtk-10'>public</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>Patient(String name,String ssn) {</span> 
+</span><span class='label'><a id='x1-6006r5'></a></span><span class='ec-lmtt-10'>               </span><span style='color:#000000'><span class='ec-lmtk-10'>this</span></span><span style='color:#000000'><span class='ec-lmtt-10'>.</span></span><span style='color:#000000'><span class='ec-lmtt-10'>SetName</span></span><span style='color:#000000'><span class='ec-lmtt-10'>(</span></span><span style='color:#000000'><span class='ec-lmtt-10'>name</span></span><span style='color:#000000'><span class='ec-lmtt-10'>);</span></span> 
+<span class='label'><a id='x1-6007r6'></a></span><span class='ec-lmtt-10'>               </span><span style='color:#000000'><span class='ec-lmtk-10'>this</span></span><span style='color:#000000'><span class='ec-lmtt-10'>.</span></span><span style='color:#000000'><span class='ec-lmtt-10'>SetSocialSecurityNumber</span></span><span style='color:#000000'><span class='ec-lmtt-10'>(</span></span><span style='color:#000000'><span class='ec-lmtt-10'>ssn</span></span><span style='color:#000000'><span class='ec-lmtt-10'>);</span></span> 
+<span class='label'><a id='x1-6008r7'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtt-10'>}</span></span> 
+<span class='label'><a id='x1-6009r8'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 1: </span><span class='content'>Example 1</span></figcaption><!-- tex4ht:label?: x1-6009r  -->
      
-</div>
-<!-- l. 27 --><p class='noindent'>[<a href='#cite.0@20210830:cwe-499'>2</a>]</p></blockquote>
+<!-- l. 27 --><p class='noindent'>[<a id='x1-6010'></a><a href='#cite.0_20210830_cwe-499'>2</a>]</p></blockquote>
 <!-- l. 30 --><p class='indent'>   Did I read that right? Sensitive data contained within a class that doesn’t explicitly deny serialization can be
 accessed by serializing the class through another class‽ This, I’ve got to see.
-</p><!-- l. 32 --><p class='noindent'>
+
 </p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.2   </span> <a id='x1-70001.2'></a>ClassA—Sensitive Data Container</h4>
+<h4 class='subsectionHead' id='classasensitive-data-container'><span class='titlemark'>1.2   </span> <a id='x1-70001.2'></a>ClassA—Sensitive Data Container</h4>
 <!-- l. 33 --><p class='noindent'>So, let’s start with a simple class that contains some sensitive data. Duplicating the example from the CWE should
 suffice. </p><!-- l. 34 -->
-<p><a id='x1-7001r2'></a></p>
-<p><a id='x1-7002'></a></p>   
-<div id='listing-2' class='lstlisting'><span class='label'><a id='x1-7003r1'></a></span><span class='ec-lmtk-10'>package</span><span class='ec-lmtt-10'> swa; </span><br /><span class='label'><a id='x1-7004r2'></a></span><span class='ec-lmtk-10'>public</span><span class='ec-lmtt-10'> </span><span class='ec-lmtk-10'>class</span><span class='ec-lmtt-10'> ClassA { </span><br /><span class='label'><a id='x1-7005r3'></a></span><span class='ec-lmtt-10'>       </span><span class='ec-lmtk-10'>private</span><span class='ec-lmtt-10'> String name; </span><br /><span class='label'><a id='x1-7006r4'></a></span><span class='ec-lmtt-10'>       </span><span class='ec-lmtk-10'>private</span><span class='ec-lmtt-10'> String socialSecurityNum; </span><br /><span class='label'><a id='x1-7007r5'></a></span><span class='ec-lmtt-10'>       </span><span class='ec-lmtk-10'>public</span><span class='ec-lmtt-10'> ClassA(String name,String ssn) { </span><br /><span class='label'><a id='x1-7008r6'></a></span><span class='ec-lmtt-10'>               </span><span class='ec-lmtk-10'>this</span><span class='ec-lmtt-10'>.SetName(name); </span><br /><span class='label'><a id='x1-7009r7'></a></span><span class='ec-lmtt-10'>               </span><span class='ec-lmtk-10'>this</span><span class='ec-lmtt-10'>.SetSocialSecurityNumber(ssn); </span><br /><span class='label'><a id='x1-7010r8'></a></span><span class='ec-lmtt-10'>       } </span><br /><span class='label'><a id='x1-7011r9'></a></span><span class='ec-lmtt-10'>}</span>
-<figcaption class='caption'><span class='id'>Listing 2:</span><span class='content'>ClassA</span></figcaption><!-- tex4ht:label?: x1-7001r1  -->
-   
-</div>
+<p><a id='x1-7001r2'></a>   
+</p><pre class='lstlisting' id='listing-2'><span class='label'><a id='x1-7002r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10'>package</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>swa;</span> 
+</span><span class='label'><a id='x1-7003r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10'>public</span></span><span style='color:#000000'> <span class='ec-lmtk-10'>class </span><span class='ec-lmtt-10'>ClassA {</span> 
+</span><span class='label'><a id='x1-7004r3'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtk-10'>private</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>String name;</span> 
+</span><span class='label'><a id='x1-7005r4'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtk-10'>private</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>String socialSecurityNum;</span> 
+</span><span class='label'><a id='x1-7006r5'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtk-10'>public</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>ClassA(String name,String ssn) {</span> 
+</span><span class='label'><a id='x1-7007r6'></a></span><span class='ec-lmtt-10'>               </span><span style='color:#000000'><span class='ec-lmtk-10'>this</span></span><span style='color:#000000'><span class='ec-lmtt-10'>.</span></span><span style='color:#000000'><span class='ec-lmtt-10'>SetName</span></span><span style='color:#000000'><span class='ec-lmtt-10'>(</span></span><span style='color:#000000'><span class='ec-lmtt-10'>name</span></span><span style='color:#000000'><span class='ec-lmtt-10'>);</span></span> 
+<span class='label'><a id='x1-7008r7'></a></span><span class='ec-lmtt-10'>               </span><span style='color:#000000'><span class='ec-lmtk-10'>this</span></span><span style='color:#000000'><span class='ec-lmtt-10'>.</span></span><span style='color:#000000'><span class='ec-lmtt-10'>SetSocialSecurityNumber</span></span><span style='color:#000000'><span class='ec-lmtt-10'>(</span></span><span style='color:#000000'><span class='ec-lmtt-10'>ssn</span></span><span style='color:#000000'><span class='ec-lmtt-10'>);</span></span> 
+<span class='label'><a id='x1-7009r8'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtt-10'>}</span></span> 
+<span class='label'><a id='x1-7010r9'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 2: </span><span class='content'>ClassA</span></figcaption><!-- tex4ht:label?: x1-7010r1.2  -->
 <!-- l. 46 --><p class='indent'>   Given this is meant to be a container of sensitive data, I didn’t make the class in Listing <a href='#x1-7001r2'>2<!-- tex4ht:ref: lst:20210830:classa  --></a> serializable. Let’s
 create a serializable wrapper around it and see if we can get at the data.
-</p><!-- l. 48 --><p class='noindent'>
+
 </p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.3   </span> <a id='x1-80001.3'></a>ClassB—Serializable Wrapper</h4>
+<h4 class='subsectionHead' id='classbserializable-wrapper'><span class='titlemark'>1.3   </span> <a id='x1-80001.3'></a>ClassB—Serializable Wrapper</h4>
 <!-- l. 50 -->
-<p><a id='x1-8001r3'></a></p>
-<p><a id='x1-8002'></a></p>   
-<div id='listing-3' class='lstlisting'><span class='label'><a id='x1-8003r1'></a></span><span class='ec-lmtk-10'>package</span><span class='ec-lmtt-10'> swa; </span><br /><span class='label'><a id='x1-8004r2'></a></span><span class='ec-lmtk-10'>import</span><span class='ec-lmtt-10'> java.io.Serializable; </span><br /><span class='label'><a id='x1-8005r3'></a></span><span class='ec-lmtk-10'>public</span><span class='ec-lmtt-10'> </span><span class='ec-lmtk-10'>class</span><span class='ec-lmtt-10'> ClassB </span><span class='ec-lmtk-10'>implements</span><span class='ec-lmtt-10'> Serializable { </span><br /><span class='label'><a id='x1-8006r4'></a></span><span class='ec-lmtt-10'>       </span><span class='ec-lmtk-10'>private</span><span class='ec-lmtt-10'> </span><span class='ec-lmtk-10'>static</span><span class='ec-lmtt-10'> </span><span class='ec-lmtk-10'>final</span><span class='ec-lmtt-10'> </span><span class='ec-lmtk-10'>long</span><span class='ec-lmtt-10'> serialVersionUID = 1L; </span><br /><span class='label'><a id='x1-8007r5'></a></span><span class='ec-lmtt-10'>       ClassA obj; </span><br /><span class='label'><a id='x1-8008r6'></a></span><span class='ec-lmtt-10'>       </span><span class='ec-lmtk-10'>public</span><span class='ec-lmtt-10'> ClassB(ClassA objVal) { </span><br /><span class='label'><a id='x1-8009r7'></a></span><span class='ec-lmtt-10'>               </span><span class='ec-lmtk-10'>this</span><span class='ec-lmtt-10'>.obj = objVal; </span><br /><span class='label'><a id='x1-8010r8'></a></span><span class='ec-lmtt-10'>       } </span><br /><span class='label'><a id='x1-8011r9'></a></span><span class='ec-lmtt-10'>}</span>
-<figcaption class='caption'><span class='id'>Listing 3:</span><span class='content'>ClassB</span></figcaption><!-- tex4ht:label?: x1-8001r1  -->
-   
-</div>
-<!-- l. 62 --><p class='indent'>   Listing <a href='#x1-8001r3'>3<!-- tex4ht:ref: lst:20210830:classb  --></a> demonstrates a serializable wrapper class around the class with sensitive information.
-</p><!-- l. 64 --><p class='noindent'>
+<p><a id='x1-8001r3'></a>   
+</p><pre class='lstlisting' id='listing-3'><span class='label'><a id='x1-8002r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10'>package</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>swa;</span> 
+</span><span class='label'><a id='x1-8003r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10'>import</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>java.io.Serializable;</span> 
+</span><span class='label'><a id='x1-8004r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10'>public</span></span><span style='color:#000000'> <span class='ec-lmtk-10'>class </span><span class='ec-lmtt-10'>ClassB </span><span class='ec-lmtk-10'>implements </span><span class='ec-lmtt-10'>Serializable {</span> 
+</span><span class='label'><a id='x1-8005r4'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtk-10'>private</span></span><span style='color:#000000'> <span class='ec-lmtk-10'>static final long </span><span class='ec-lmtt-10'>serialVersionUID = 1L;</span> 
+</span><span class='label'><a id='x1-8006r5'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtt-10'>ClassA</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>obj;</span> 
+</span><span class='label'><a id='x1-8007r6'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtk-10'>public</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>ClassB(ClassA objVal) {</span> 
+</span><span class='label'><a id='x1-8008r7'></a></span><span class='ec-lmtt-10'>               </span><span style='color:#000000'><span class='ec-lmtk-10'>this</span></span><span style='color:#000000'><span class='ec-lmtt-10'>.</span></span><span style='color:#000000'><span class='ec-lmtt-10'>obj</span></span><span style='color:#000000'> <span class='ec-lmtt-10'>= objVal;</span> 
+</span><span class='label'><a id='x1-8009r8'></a></span><span class='ec-lmtt-10'>       </span><span style='color:#000000'><span class='ec-lmtt-10'>}</span></span> 
+<span class='label'><a id='x1-8010r9'></a></span><span style='color:#000000'><span class='ec-lmtt-10'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 3: </span><span class='content'>ClassB</span></figcaption><!-- tex4ht:label?: x1-8010r1.3  -->
+<!-- l. 62 --><p class='noindent'>Listing <a href='#x1-8001r3'>3<!-- tex4ht:ref: lst:20210830:classb  --></a> demonstrates a serializable wrapper class around the class with sensitive information.
+
 </p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.4   </span> <a id='x1-90001.4'></a>The Driver</h4>
+<h4 class='subsectionHead' id='the-driver'><span class='titlemark'>1.4   </span> <a id='x1-90001.4'></a>The Driver</h4>
 <!-- l. 65 --><p class='noindent'>With our two classes written, it’s time for the show. Let’s create a program that creates an instance of the sensitive
 data container, set it on our wrapper, and then serialize the wrapper to file.
 </p>   
 <!-- l. 67 -->
-<p><a id='x1-9001r4'></a></p>
-<p><a id='x1-9002'></a></p>   
-<div id='listing-4' class='lstlisting'><span class='label'><a id='x1-9003r1'></a></span><span class='ec-lmtk-10x-x-70'>package</span><span class='ec-lmtt-8x-x-87'> swa; </span><br /><span class='label'><a id='x1-9004r2'></a></span><span class='ec-lmtk-10x-x-70'>import</span><span class='ec-lmtt-8x-x-87'> java.io.*; </span><br /><span class='label'><a id='x1-9005r3'></a></span><span class='ec-lmtk-10x-x-70'>public</span><span class='ec-lmtt-8x-x-87'> </span><span class='ec-lmtk-10x-x-70'>class</span><span class='ec-lmtt-8x-x-87'> SerializeExample { </span><br /><span class='label'><a id='x1-9006r4'></a></span><span class='ec-lmtt-8x-x-87'>        </span><span class='ec-lmtk-10x-x-70'>public</span><span class='ec-lmtt-8x-x-87'> </span><span class='ec-lmtk-10x-x-70'>static</span><span class='ec-lmtt-8x-x-87'> </span><span class='ec-lmtk-10x-x-70'>void</span><span class='ec-lmtt-8x-x-87'> main(String[] args) { </span><br /><span class='label'><a id='x1-9007r5'></a></span><span class='ec-lmtt-8x-x-87'>                 ClassA objA = </span><span class='ec-lmtk-10x-x-70'>new</span><span class='ec-lmtt-8x-x-87'> ClassA("swa","123456789"); </span><br /><span class='label'><a id='x1-9008r6'></a></span><span class='ec-lmtt-8x-x-87'>                 ClassB objB = </span><span class='ec-lmtk-10x-x-70'>new</span><span class='ec-lmtt-8x-x-87'> ClassB(objA); </span><br /><span class='label'><a id='x1-9009r7'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span class='ec-lmtk-10x-x-70'>try</span><span class='ec-lmtt-8x-x-87'> { </span><br /><span class='label'><a id='x1-9010r8'></a></span><span class='ec-lmtt-8x-x-87'>                         FileOutputStream fos = </span><span class='ec-lmtk-10x-x-70'>new</span><span class='ec-lmtt-8x-x-87'> FileOutputStream("/home/swa/data.ser"); </span><br /><span class='label'><a id='x1-9011r9'></a></span><span class='ec-lmtt-8x-x-87'>                         ObjectOutputStream oos = </span><span class='ec-lmtk-10x-x-70'>new</span><span class='ec-lmtt-8x-x-87'> ObjectOutputStream(fos); </span><br /><span class='label'><a id='x1-9012r10'></a></span><span class='ec-lmtt-8x-x-87'>                         oos.writeObject(objB); </span><br /><span class='label'><a id='x1-9013r11'></a></span><span class='ec-lmtt-8x-x-87'>                         oos.close(); </span><br /><span class='label'><a id='x1-9014r12'></a></span><span class='ec-lmtt-8x-x-87'>                         fos.close(); </span><br /><span class='label'><a id='x1-9015r13'></a></span><span class='ec-lmtt-8x-x-87'>                 } </span><span class='ec-lmtk-10x-x-70'>catch</span><span class='ec-lmtt-8x-x-87'> (IOException i) { </span><br /><span class='label'><a id='x1-9016r14'></a></span><span class='ec-lmtt-8x-x-87'>                         i.printStackTrace(); </span><br /><span class='label'><a id='x1-9017r15'></a></span><span class='ec-lmtt-8x-x-87'>                 } </span><br /><span class='label'><a id='x1-9018r16'></a></span><span class='ec-lmtt-8x-x-87'>        } </span><br /><span class='label'><a id='x1-9019r17'></a></span><span class='ec-lmtt-8x-x-87'>}</span>
-<figcaption class='caption'><span class='id'>Listing 4:</span><span class='content'>Serialization Driver</span></figcaption><!-- tex4ht:label?: x1-9001r1  -->
-   
-</div>
+<p><a id='x1-9001r4'></a>   
+</p><pre class='lstlisting' id='listing-4'><span class='label'><a id='x1-9002r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>package</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>swa;</span> 
+</span><span class='label'><a id='x1-9003r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>import</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>java.io.*;</span> 
+</span><span class='label'><a id='x1-9004r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>public</span></span><span style='color:#000000'> <span class='ec-lmtk-10x-x-70'>class </span><span class='ec-lmtt-8x-x-87'>SerializeExample {</span> 
+</span><span class='label'><a id='x1-9005r4'></a></span><span class='ec-lmtt-8x-x-87'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>public</span></span><span style='color:#000000'> <span class='ec-lmtk-10x-x-70'>static void </span><span class='ec-lmtt-8x-x-87'>main(String[] args) {</span> 
+</span><span class='label'><a id='x1-9006r5'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>ClassA</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>objA = </span><span class='ec-lmtk-10x-x-70'>new </span><span class='ec-lmtt-8x-x-87'>ClassA("swa","123456789");</span> 
+</span><span class='label'><a id='x1-9007r6'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>ClassB</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>objB = </span><span class='ec-lmtk-10x-x-70'>new </span><span class='ec-lmtt-8x-x-87'>ClassB(objA);</span> 
+</span><span class='label'><a id='x1-9008r7'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>try</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>{</span> 
+</span><span class='label'><a id='x1-9009r8'></a></span><span class='ec-lmtt-8x-x-87'>                         </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>FileOutputStream</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>fos = </span><span class='ec-lmtk-10x-x-70'>new </span><span class='ec-lmtt-8x-x-87'>FileOutputStream("/home/swa/data.ser");</span> 
+</span><span class='label'><a id='x1-9010r9'></a></span><span class='ec-lmtt-8x-x-87'>                         </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>ObjectOutputStream</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>oos = </span><span class='ec-lmtk-10x-x-70'>new </span><span class='ec-lmtt-8x-x-87'>ObjectOutputStream(fos);</span> 
+</span><span class='label'><a id='x1-9011r10'></a></span><span class='ec-lmtt-8x-x-87'>                         </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>oos</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>writeObject</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>(</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>objB</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>);</span></span> 
+<span class='label'><a id='x1-9012r11'></a></span><span class='ec-lmtt-8x-x-87'>                         </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>oos</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>close</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>();</span></span> 
+<span class='label'><a id='x1-9013r12'></a></span><span class='ec-lmtt-8x-x-87'>                         </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>fos</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>close</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>();</span></span> 
+<span class='label'><a id='x1-9014r13'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>}</span></span><span style='color:#000000'> <span class='ec-lmtk-10x-x-70'>catch </span><span class='ec-lmtt-8x-x-87'>(IOException i) {</span> 
+</span><span class='label'><a id='x1-9015r14'></a></span><span class='ec-lmtt-8x-x-87'>                         </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>i</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>printStackTrace</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>();</span></span> 
+<span class='label'><a id='x1-9016r15'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>}</span></span> 
+<span class='label'><a id='x1-9017r16'></a></span><span class='ec-lmtt-8x-x-87'>        </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>}</span></span> 
+<span class='label'><a id='x1-9018r17'></a></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 4: </span><span class='content'>Serialization Driver</span></figcaption><!-- tex4ht:label?: x1-9018r1.4  -->
 <!-- l. 88 --><p class='indent'>   Time for the main event! What happens when I run this? </p><!-- l. 89 -->
+<p><a id='x1-9019r5'></a>   
+</p><pre class='lstlisting' id='listing-5'><span class='label'><a id='x1-9020r1'></a></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>java</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>io</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>NotSerializableException</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>:</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>swa.ClassA</span> 
+</span><span class='label'><a id='x1-9021r2'></a></span><span class='ec-lmtt-8x-x-87'>             </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>at</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1192)</span> 
+</span><span class='label'><a id='x1-9022r3'></a></span><span class='ec-lmtt-8x-x-87'>             </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>at</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>java.base/java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1577)</span> 
+</span><span class='label'><a id='x1-9023r4'></a></span><span class='ec-lmtt-8x-x-87'>             </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>at</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>java.base/java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1534)</span> 
+</span><span class='label'><a id='x1-9024r5'></a></span><span class='ec-lmtt-8x-x-87'>             </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>at</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>java.base/java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1443)</span> 
+</span><span class='label'><a id='x1-9025r6'></a></span><span class='ec-lmtt-8x-x-87'>             </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>at</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1186)</span> 
+</span><span class='label'><a id='x1-9026r7'></a></span><span class='ec-lmtt-8x-x-87'>             </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>at</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:352)</span> 
+</span><span class='label'><a id='x1-9027r8'></a></span><span class='ec-lmtt-8x-x-87'>             </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>at</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>swa/swa.SerializeExample.main(SerializeExample.java:14)</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 5: </span><span class='content'>Driver Output</span></figcaption><!-- tex4ht:label?: x1-9027r1.4  -->
                                                                                          
                                                                                          
-<p><a id='x1-9020r5'></a></p>
-<p><a id='x1-9021'></a></p>   
-<div id='listing-5' class='lstlisting'><span class='label'><a id='x1-9022r1'></a></span><span class='ec-lmtt-8x-x-87'>java.io.NotSerializableException: swa.ClassA </span><br /><span class='label'><a id='x1-9023r2'></a></span><span class='ec-lmtt-8x-x-87'>             at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1192) </span><br /><span class='label'><a id='x1-9024r3'></a></span><span class='ec-lmtt-8x-x-87'>             at java.base/java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1577) </span><br /><span class='label'><a id='x1-9025r4'></a></span><span class='ec-lmtt-8x-x-87'>             at java.base/java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1534) </span><br /><span class='label'><a id='x1-9026r5'></a></span><span class='ec-lmtt-8x-x-87'>             at java.base/java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1443) </span><br /><span class='label'><a id='x1-9027r6'></a></span><span class='ec-lmtt-8x-x-87'>             at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1186) </span><br /><span class='label'><a id='x1-9028r7'></a></span><span class='ec-lmtt-8x-x-87'>             at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:352) </span><br /><span class='label'><a id='x1-9029r8'></a></span><span class='ec-lmtt-8x-x-87'>             at swa/swa.SerializeExample.main(SerializeExample.java:14)</span>
-<figcaption class='caption'><span class='id'>Listing 5:</span><span class='content'>Driver Output</span></figcaption><!-- tex4ht:label?: x1-9020r1  -->
-   
-</div>
 <!-- l. 101 --><p class='indent'>   Alas, no joy. Even though <span class='ec-lmtt-10'>ClassA </span>contains sensitive data and does not explicitly deny serialization, I couldn’t get
 at the sensitive data by serializing a wrapper. That’s a bit of a bummer–I was looking forward to being able to
 trumpet this one from the rooftops.
-</p><!-- l. 103 --><p class='noindent'>
+
 </p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.5   </span> <a id='x1-100001.5'></a>What Gives?</h4>
+<h4 class='subsectionHead' id='what-gives'><span class='titlemark'>1.5   </span> <a id='x1-100001.5'></a>What Gives?</h4>
 <!-- l. 104 --><p class='noindent'>So I took my disappointment and went to Google, trying to make sense of this mysterious CWE. The first thing I
 found was this tidbit:
 </p>     
@@ -293,25 +547,42 @@ found was this tidbit:
 <!-- l. 106 --><p class='noindent'>Notice that for a class to be serialized successfully, two conditions must be met: </p>
 <ul class='itemize1'>    
 <li class='itemize'>The class must implement the java.io.Serializable interface.
-</li>    
+</li>
 <li class='itemize'>All of the fields in the class must be serializable. If a field is not serializable, it must be
 marked transient.</li></ul>
-<!-- l. 110 --><p class='noindent'>[<a href='#cite.0@20210830:javaserialization'>4</a>]</p></blockquote>
+<!-- l. 110 --><p class='noindent' id='a-cwe-breakdown-serializing-sensitive-data'>[<a id='x1-10001'></a><a href='#cite.0_20210830_javaserialization'>4</a>]</p></blockquote>
 <!-- l. 113 --><p class='indent'>   What a refreshingly reasonable approach to have! For me to access <span class='ec-lmtt-10'>ClassA</span>’s sensitive data, it would have to be
 made serializable.
-</p><!-- l. 115 --><p class='noindent'>
+
 </p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.6   </span> <a id='x1-110001.6'></a>Caveats</h4>
+<h4 class='subsectionHead' id='caveats'><span class='titlemark'>1.6   </span> <a id='x1-110001.6'></a>Caveats</h4>
 <!-- l. 116 --><p class='noindent'>Not all serialization libraries are created equally. For example the Kryo library will work with the above example
-and serialize the private data by changing the driver to the one described in Listing <a href='#x1-11001r6'>6<!-- tex4ht:ref: lst:20210830:kryo  --></a>.[<a href='#cite.0@20210830:kryo'>1</a>]
+and serialize the private data by changing the driver to the one described in Listing <a href='#x1-11002r6'>6<!-- tex4ht:ref: lst:20210830:kryo  --></a>.[<a id='x1-11001'></a><a href='#cite.0_20210830_kryo'>1</a>]
 </p>   
 <!-- l. 118 -->
-<p><a id='x1-11001r6'></a></p>
-<p><a id='x1-11002'></a></p>   
-<div id='listing-6' class='lstlisting'><span class='label'><a id='x1-11003r1'></a></span><span class='ec-lmtk-10x-x-70'>package</span><span class='ec-lmtt-8x-x-87'> swa; </span><br /><span class='label'><a id='x1-11004r2'></a></span><span class='ec-lmtk-10x-x-70'>import</span><span class='ec-lmtt-8x-x-87'> java.io.FileOutputStream; </span><br /><span class='label'><a id='x1-11005r3'></a></span><span class='ec-lmtk-10x-x-70'>import</span><span class='ec-lmtt-8x-x-87'> java.io.IOException; </span><br /><span class='label'><a id='x1-11006r4'></a></span><span class='ec-lmtk-10x-x-70'>import</span><span class='ec-lmtt-8x-x-87'> com.esotericsoftware.kryo.Kryo; </span><br /><span class='label'><a id='x1-11007r5'></a></span><span class='ec-lmtk-10x-x-70'>import</span><span class='ec-lmtt-8x-x-87'> com.esotericsoftware.kryo.io.Output; </span><br /><span class='label'><a id='x1-11008r6'></a></span><span class='ec-lmtk-10x-x-70'>public</span><span class='ec-lmtt-8x-x-87'> </span><span class='ec-lmtk-10x-x-70'>class</span><span class='ec-lmtt-8x-x-87'> SerializeExample { </span><br /><span class='label'><a id='x1-11009r7'></a></span><span class='ec-lmtt-8x-x-87'>        </span><span class='ec-lmtk-10x-x-70'>public</span><span class='ec-lmtt-8x-x-87'> </span><span class='ec-lmtk-10x-x-70'>static</span><span class='ec-lmtt-8x-x-87'> </span><span class='ec-lmtk-10x-x-70'>void</span><span class='ec-lmtt-8x-x-87'> main(String[] args) { </span><br /><span class='label'><a id='x1-11010r8'></a></span><span class='ec-lmtt-8x-x-87'>                 Kryo kryo = </span><span class='ec-lmtk-10x-x-70'>new</span><span class='ec-lmtt-8x-x-87'> Kryo(); </span><br /><span class='label'><a id='x1-11011r9'></a></span><span class='ec-lmtt-8x-x-87'>                 kryo.register(ClassA.</span><span class='ec-lmtk-10x-x-70'>class</span><span class='ec-lmtt-8x-x-87'>); </span><br /><span class='label'><a id='x1-11012r10'></a></span><span class='ec-lmtt-8x-x-87'>                 kryo.register(ClassB.</span><span class='ec-lmtk-10x-x-70'>class</span><span class='ec-lmtt-8x-x-87'>); </span><br /><span class='label'><a id='x1-11013r11'></a></span><span class='ec-lmtt-8x-x-87'>                 ClassA objA = </span><span class='ec-lmtk-10x-x-70'>new</span><span class='ec-lmtt-8x-x-87'> ClassA("swa", "123456789"); </span><br /><span class='label'><a id='x1-11014r12'></a></span><span class='ec-lmtt-8x-x-87'>                 ClassB objB = </span><span class='ec-lmtk-10x-x-70'>new</span><span class='ec-lmtt-8x-x-87'> ClassB(objA); </span><br /><span class='label'><a id='x1-11015r13'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span class='ec-lmtk-10x-x-70'>try</span><span class='ec-lmtt-8x-x-87'> { </span><br /><span class='label'><a id='x1-11016r14'></a></span><span class='ec-lmtt-8x-x-87'>                         Output fos = </span><span class='ec-lmtk-10x-x-70'>new</span><span class='ec-lmtt-8x-x-87'> Output(</span><span class='ec-lmtk-10x-x-70'>new</span><span class='ec-lmtt-8x-x-87'> FileOutputStream("/home/swa/data.ser")); </span><br /><span class='label'><a id='x1-11017r15'></a></span><span class='ec-lmtt-8x-x-87'>                         kryo.writeObject(fos, objB); </span><br /><span class='label'><a id='x1-11018r16'></a></span><span class='ec-lmtt-8x-x-87'>                         fos.close(); </span><br /><span class='label'><a id='x1-11019r17'></a></span><span class='ec-lmtt-8x-x-87'>                 } </span><span class='ec-lmtk-10x-x-70'>catch</span><span class='ec-lmtt-8x-x-87'> (IOException i) { </span><br /><span class='label'><a id='x1-11020r18'></a></span><span class='ec-lmtt-8x-x-87'>                         i.printStackTrace(); </span><br /><span class='label'><a id='x1-11021r19'></a></span><span class='ec-lmtt-8x-x-87'>                 } </span><br /><span class='label'><a id='x1-11022r20'></a></span><span class='ec-lmtt-8x-x-87'>        } </span><br /><span class='label'><a id='x1-11023r21'></a></span><span class='ec-lmtt-8x-x-87'>}</span>
-<figcaption class='caption'><span class='id'>Listing 6:</span><span class='content'>Kryo Driver</span></figcaption><!-- tex4ht:label?: x1-11001r1  -->
-   
-</div>
+<p><a id='x1-11002r6'></a>   
+</p><pre class='lstlisting' id='listing-6'><span class='label'><a id='x1-11003r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>package</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>swa;</span> 
+</span><span class='label'><a id='x1-11004r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>import</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>java.io.FileOutputStream;</span> 
+</span><span class='label'><a id='x1-11005r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>import</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>java.io.IOException;</span> 
+</span><span class='label'><a id='x1-11006r4'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>import</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>com.esotericsoftware.kryo.Kryo;</span> 
+</span><span class='label'><a id='x1-11007r5'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>import</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>com.esotericsoftware.kryo.io.Output;</span> 
+</span><span class='label'><a id='x1-11008r6'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>public</span></span><span style='color:#000000'> <span class='ec-lmtk-10x-x-70'>class </span><span class='ec-lmtt-8x-x-87'>SerializeExample {</span> 
+</span><span class='label'><a id='x1-11009r7'></a></span><span class='ec-lmtt-8x-x-87'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>public</span></span><span style='color:#000000'> <span class='ec-lmtk-10x-x-70'>static void </span><span class='ec-lmtt-8x-x-87'>main(String[] args) {</span> 
+</span><span class='label'><a id='x1-11010r8'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>Kryo</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>kryo = </span><span class='ec-lmtk-10x-x-70'>new </span><span class='ec-lmtt-8x-x-87'>Kryo();</span> 
+</span><span class='label'><a id='x1-11011r9'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>kryo</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>register</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>(</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>ClassA</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>class</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>);</span></span> 
+<span class='label'><a id='x1-11012r10'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>kryo</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>register</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>(</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>ClassB</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>class</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>);</span></span> 
+<span class='label'><a id='x1-11013r11'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>ClassA</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>objA = </span><span class='ec-lmtk-10x-x-70'>new </span><span class='ec-lmtt-8x-x-87'>ClassA("swa", "123456789");</span> 
+</span><span class='label'><a id='x1-11014r12'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>ClassB</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>objB = </span><span class='ec-lmtk-10x-x-70'>new </span><span class='ec-lmtt-8x-x-87'>ClassB(objA);</span> 
+</span><span class='label'><a id='x1-11015r13'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>try</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>{</span> 
+</span><span class='label'><a id='x1-11016r14'></a></span><span class='ec-lmtt-8x-x-87'>                         </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>Output</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>fos = </span><span class='ec-lmtk-10x-x-70'>new </span><span class='ec-lmtt-8x-x-87'>Output(</span><span class='ec-lmtk-10x-x-70'>new </span><span class='ec-lmtt-8x-x-87'>FileOutputStream("/home/swa/data.ser"));</span> 
+</span><span class='label'><a id='x1-11017r15'></a></span><span class='ec-lmtt-8x-x-87'>                         </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>kryo</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>writeObject</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>(</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>fos</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>objB);</span> 
+</span><span class='label'><a id='x1-11018r16'></a></span><span class='ec-lmtt-8x-x-87'>                         </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>fos</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>close</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>();</span></span> 
+<span class='label'><a id='x1-11019r17'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>}</span></span><span style='color:#000000'> <span class='ec-lmtk-10x-x-70'>catch </span><span class='ec-lmtt-8x-x-87'>(IOException i) {</span> 
+</span><span class='label'><a id='x1-11020r18'></a></span><span class='ec-lmtt-8x-x-87'>                         </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>i</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>printStackTrace</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>();</span></span> 
+<span class='label'><a id='x1-11021r19'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>}</span></span> 
+<span class='label'><a id='x1-11022r20'></a></span><span class='ec-lmtt-8x-x-87'>        </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>}</span></span> 
+<span class='label'><a id='x1-11023r21'></a></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 6: </span><span class='content'>Kryo Driver</span></figcaption><!-- tex4ht:label?: x1-11023r1.6  -->
 <!-- l. 142 --><p class='indent'>   To prevent Kryo from serializing the private data, the fields storing the data must be marked <span class='ec-lmtt-10'>transient</span>.
 </p><!-- l. 144 --><p class='indent'>   But is that really enough to protect a private class in Java? No! Kryo works by using reflection, and Java
 reflection permits the developer to change the security context of even private variables. Suppose that <span class='ec-lmtt-10'>ssn </span>is marked
@@ -319,31 +590,44 @@ as <span class='ec-lmtt-10'>transient</span>. This variable may still be accesse
 Listing <a href='#x1-11024r7'>7<!-- tex4ht:ref: lst:20210830:reflection  --></a>.
 </p>   
 <!-- l. 146 -->
-                                                                                         
-                                                                                         
-<p><a id='x1-11024r7'></a></p>
-<p><a id='x1-11025'></a></p>   
-<div id='listing-7' class='lstlisting'><span class='label'><a id='x1-11026r1'></a></span><span class='ec-lmtk-10x-x-70'>package</span><span class='ec-lmtt-8x-x-87'> swa; </span><br /><span class='label'><a id='x1-11027r2'></a></span><span class='ec-lmtk-10x-x-70'>import</span><span class='ec-lmtt-8x-x-87'> java.lang.reflect.Field; </span><br /><span class='label'><a id='x1-11028r3'></a></span><span class='ec-lmtk-10x-x-70'>public</span><span class='ec-lmtt-8x-x-87'> </span><span class='ec-lmtk-10x-x-70'>class</span><span class='ec-lmtt-8x-x-87'> SerializeExample { </span><br /><span class='label'><a id='x1-11029r4'></a></span><span class='ec-lmtt-8x-x-87'>        </span><span class='ec-lmtk-10x-x-70'>public</span><span class='ec-lmtt-8x-x-87'> </span><span class='ec-lmtk-10x-x-70'>static</span><span class='ec-lmtt-8x-x-87'> </span><span class='ec-lmtk-10x-x-70'>void</span><span class='ec-lmtt-8x-x-87'> main(String[] args) { </span><br /><span class='label'><a id='x1-11030r5'></a></span><span class='ec-lmtt-8x-x-87'>                 ClassA objA = </span><span class='ec-lmtk-10x-x-70'>new</span><span class='ec-lmtt-8x-x-87'> ClassA("swa","123456789"); </span><br /><span class='label'><a id='x1-11031r6'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span class='ec-lmtk-10x-x-70'>try</span><span class='ec-lmtt-8x-x-87'> { </span><br /><span class='label'><a id='x1-11032r7'></a></span><span class='ec-lmtt-8x-x-87'>                         Field f = objA.getClass().getDeclaredField("ssn"); </span><br /><span class='label'><a id='x1-11033r8'></a></span><span class='ec-lmtt-8x-x-87'>                         f.setAccessible(</span><span class='ec-lmtk-10x-x-70'>true</span><span class='ec-lmtt-8x-x-87'>); </span><br /><span class='label'><a id='x1-11034r9'></a></span><span class='ec-lmtt-8x-x-87'>                         System.out.println(f.get(objA)); </span><br /><span class='label'><a id='x1-11035r10'></a></span><span class='ec-lmtt-8x-x-87'>                 } </span><span class='ec-lmtk-10x-x-70'>catch</span><span class='ec-lmtt-8x-x-87'> (NoSuchFieldException e) { </span><br /><span class='label'><a id='x1-11036r11'></a></span><span class='ec-lmtt-8x-x-87'>                         e.printStackTrace(); </span><br /><span class='label'><a id='x1-11037r12'></a></span><span class='ec-lmtt-8x-x-87'>                 } </span><span class='ec-lmtk-10x-x-70'>catch</span><span class='ec-lmtt-8x-x-87'> (SecurityException e) { </span><br /><span class='label'><a id='x1-11038r13'></a></span><span class='ec-lmtt-8x-x-87'>                         e.printStackTrace(); </span><br /><span class='label'><a id='x1-11039r14'></a></span><span class='ec-lmtt-8x-x-87'>                 } </span><span class='ec-lmtk-10x-x-70'>catch</span><span class='ec-lmtt-8x-x-87'> (IllegalArgumentException e) { </span><br /><span class='label'><a id='x1-11040r15'></a></span><span class='ec-lmtt-8x-x-87'>                         e.printStackTrace(); </span><br /><span class='label'><a id='x1-11041r16'></a></span><span class='ec-lmtt-8x-x-87'>                 } </span><span class='ec-lmtk-10x-x-70'>catch</span><span class='ec-lmtt-8x-x-87'> (IllegalAccessException e) { </span><br /><span class='label'><a id='x1-11042r17'></a></span><span class='ec-lmtt-8x-x-87'>                         e.printStackTrace(); </span><br /><span class='label'><a id='x1-11043r18'></a></span><span class='ec-lmtt-8x-x-87'>                 } </span><br /><span class='label'><a id='x1-11044r19'></a></span><span class='ec-lmtt-8x-x-87'>        } </span><br /><span class='label'><a id='x1-11045r20'></a></span><span class='ec-lmtt-8x-x-87'>}</span>
-<figcaption class='caption'><span class='id'>Listing 7:</span><span class='content'>Reflection Driver</span></figcaption><!-- tex4ht:label?: x1-11024r1  -->
+<p><a id='x1-11024r7'></a>   
+</p><pre class='lstlisting' id='listing-7'><span class='label'><a id='x1-11025r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>package</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>swa;</span> 
+</span><span class='label'><a id='x1-11026r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>import</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>java.lang.reflect.Field;</span> 
+</span><span class='label'><a id='x1-11027r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>public</span></span><span style='color:#000000'> <span class='ec-lmtk-10x-x-70'>class </span><span class='ec-lmtt-8x-x-87'>SerializeExample {</span> 
+</span><span class='label'><a id='x1-11028r4'></a></span><span class='ec-lmtt-8x-x-87'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>public</span></span><span style='color:#000000'> <span class='ec-lmtk-10x-x-70'>static void </span><span class='ec-lmtt-8x-x-87'>main(String[] args) {</span> 
+</span><span class='label'><a id='x1-11029r5'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>ClassA</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>objA = </span><span class='ec-lmtk-10x-x-70'>new </span><span class='ec-lmtt-8x-x-87'>ClassA("swa","123456789");</span> 
+</span><span class='label'><a id='x1-11030r6'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>try</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>{</span> 
+</span><span class='label'><a id='x1-11031r7'></a></span><span class='ec-lmtt-8x-x-87'>                         </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>Field</span></span><span style='color:#000000'> <span class='ec-lmtt-8x-x-87'>f = objA.getClass().getDeclaredField("ssn");</span> 
+</span><span class='label'><a id='x1-11032r8'></a></span><span class='ec-lmtt-8x-x-87'>                         </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>f</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>setAccessible</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>(</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-70'>true</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>);</span></span> 
+<span class='label'><a id='x1-11033r9'></a></span><span class='ec-lmtt-8x-x-87'>                         </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>System</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>out</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>println</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>(</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>f</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>get</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>(</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>objA</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>));</span></span> 
+<span class='label'><a id='x1-11034r10'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>}</span></span><span style='color:#000000'> <span class='ec-lmtk-10x-x-70'>catch </span><span class='ec-lmtt-8x-x-87'>(NoSuchFieldException e) {</span> 
+</span><span class='label'><a id='x1-11035r11'></a></span><span class='ec-lmtt-8x-x-87'>                         </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>e</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>printStackTrace</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>();</span></span> 
+<span class='label'><a id='x1-11036r12'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>}</span></span><span style='color:#000000'> <span class='ec-lmtk-10x-x-70'>catch </span><span class='ec-lmtt-8x-x-87'>(SecurityException e) {</span> 
+</span><span class='label'><a id='x1-11037r13'></a></span><span class='ec-lmtt-8x-x-87'>                         </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>e</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>printStackTrace</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>();</span></span> 
+<span class='label'><a id='x1-11038r14'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>}</span></span><span style='color:#000000'> <span class='ec-lmtk-10x-x-70'>catch </span><span class='ec-lmtt-8x-x-87'>(IllegalArgumentException e) {</span> 
+</span><span class='label'><a id='x1-11039r15'></a></span><span class='ec-lmtt-8x-x-87'>                         </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>e</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>printStackTrace</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>();</span></span> 
+<span class='label'><a id='x1-11040r16'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>}</span></span><span style='color:#000000'> <span class='ec-lmtk-10x-x-70'>catch </span><span class='ec-lmtt-8x-x-87'>(IllegalAccessException e) {</span> 
+</span><span class='label'><a id='x1-11041r17'></a></span><span class='ec-lmtt-8x-x-87'>                         </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>e</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>.</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>printStackTrace</span></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>();</span></span> 
+<span class='label'><a id='x1-11042r18'></a></span><span class='ec-lmtt-8x-x-87'>                 </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>}</span></span> 
+<span class='label'><a id='x1-11043r19'></a></span><span class='ec-lmtt-8x-x-87'>        </span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>}</span></span> 
+<span class='label'><a id='x1-11044r20'></a></span><span style='color:#000000'><span class='ec-lmtt-8x-x-87'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 7: </span><span class='content'>Reflection Driver</span></figcaption><!-- tex4ht:label?: x1-11044r1.6  -->
    
-</div>
-<!-- l. 169 --><p class='noindent'>
-</p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.7   </span> <a id='x1-120001.7'></a>Conclusions</h4>
+
+                                                                                         
+                                                                                         
+   
+<h4 class='subsectionHead' id='conclusions'><span class='titlemark'>1.7   </span> <a id='x1-120001.7'></a>Conclusions</h4>
 <!-- l. 170 --><p class='noindent'>So the next time I see a CWE-499, I know to check the following factors:
 </p>     
 <ol class='enumerate1'>
-<li id='x1-12002x1' class='enumerate'>     
-Does the class contain sensitive data?
-</li>     
-<li id='x1-12004x2' class='enumerate'>
-Is the class (or its parent) serializable?
-</li>     
-<li id='x1-12006x3' class='enumerate'>
-Is the field that contains the sensitive data marked transient?
-</li>     
-<li id='x1-12008x4' class='enumerate'>
-Does the project disable reflection?</li></ol>
+<li class='enumerate' id='x1-12002x1'>Does the class contain sensitive data?
+</li>
+<li class='enumerate' id='x1-12004x2'>Is the class (or its parent) serializable?
+</li>
+<li class='enumerate' id='x1-12006x3'>Is the field that contains the sensitive data marked transient?
+</li>
+<li class='enumerate' id='x1-12008x4'>Does the project disable reflection?</li></ol>
 <!-- l. 178 --><p class='indent'>   If the class doesn’t truly contain sensitive data, then it would be a False Positive. If it does, then the other three
 factors help guide us to an appropriate conclusion. The CWE would most likely be confirmed if the class is
 serializable and the field is not marked transient. But, if either of those conditions are false, then it may be a merely
@@ -352,41 +636,45 @@ changes.
 </p><!-- l. 180 --><p class='indent'>   And, that’s not all. I’ll go ahead and add one last thing to check to our list:
 </p>     
 <ol class='enumerate1'>
-<li id='x1-12010x5' class='enumerate'>     
-Is the sensitive data stored unencrypted?</li></ol>
+<li class='enumerate' id='x1-12010x5'>Is the sensitive data stored unencrypted?</li></ol>
 <!-- l. 186 --><p class='indent'>   While this one falls under the umbrella of a different CWE (311), it’s worth checking while you’re evaluating a
 instance of 499.
                                                                                          
                                                                                          
+   
+
 </p>   
-<h3 class='sectionHead'><a id='x1-130001.7'></a>References</h3>
-<!-- l. 48 --><p class='noindent'>    
+<h3 class='sectionHead' id='references'><a id='x1-13000'></a>References</h3>
+<!-- l. 52 --><p class='noindent'>    
 </p>
-<dl class='thebibliography'><dt class='thebibliography' id='X0-20210830:kryo'>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-20210830_kryo'>
 [1]  
 </dt><dd class='thebibliography' id='bib-1'>
-<!-- l. 48 --><p class='noindent'><a id='cite.0@20210830:kryo'></a>Kryo      Contributors.      Kryo. Java binary serialization and cloning.      Aug. 26,      2021.      <span class='small-caps'>url</span>:
-<a href='https://github.com/EsotericSoftware/kryo' class='url'><span class='ec-lmtt-10'>https://github.com/EsotericSoftware/kryo</span></a> (visited on 08/26/2021).
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20210830_kryo'></a>Kryo   Contributors.   <span class='uline'>Kryo.   Java   binary   serialization   and   cloning</span>.   Aug. 26,   2021.   <span class='small-caps'>url</span>:   
+<a class='url' href='https://github.com/EsotericSoftware/kryo'><span class='ec-lmtt-10'>https://github.com/EsotericSoftware/kryo</span></a> (visited on 08/26/2021).
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20210830:cwe-499'>
+<dt class='thebibliography' id='X0-20210830_cwe-499'>
 [2]  
 </dt><dd class='thebibliography' id='bib-2'>
-<!-- l. 48 --><p class='noindent'><a id='cite.0@20210830:cwe-499'></a>CWE  Content  Team.  “CWE-499:  Serializable  Class  Containing  Sensitive  Data”.  In:  (2021).  <span class='small-caps'>url</span>:
-<a href='https://cwe.mitre.org/data/definitions/499.html' class='url'><span class='ec-lmtt-10'>https://cwe.mitre.org/data/definitions/499.html</span></a>.
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20210830_cwe-499'></a>CWE  Content  Team.  “CWE-499:  Serializable  Class  Containing  Sensitive  Data”.  In:  (2021).  <span class='small-caps'>url</span>:  
+<a class='url' href='https://cwe.mitre.org/data/definitions/499.html'><span class='ec-lmtt-10'>https://cwe.mitre.org/data/definitions/499.html</span></a>.
 </p>    
 </dd>
 <dt class='thebibliography' id='X0-swatips'>
 [3]  
 </dt><dd class='thebibliography' id='bib-3'>
-<!-- l. 48 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips. <a href='https://www.SwATips.com/' class='url'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+<!-- l. 52 --><p class='noindent'><a id='cite.0_swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt class='thebibliography' id='X0-20210830:javaserialization'>
+<dt class='thebibliography' id='X0-20210830_javaserialization'>
 [4]  
 </dt><dd class='thebibliography' id='bib-4'>
-<!-- l. 48 --><p class='noindent'><a id='cite.0@20210830:javaserialization'></a>Tutorials             Point.             Java - Serialization.             Mar. 26,             2018.             <span class='small-caps'>url</span>:
-<a href='https://www.tutorialspoint.com/java/java_serialization.htm' class='url'><span class='ec-lmtt-10'>https://www.tutorialspoint.com/java/java_serialization.htm</span></a> (visited on 08/26/2021).</p></dd></dl>
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20210830_javaserialization'></a>Tutorials        Point.        <span class='uline'>Java        -        Serialization</span>.        Mar. 26,        2018.        <span class='small-caps'>url</span>:        
+<a class='url' href='https://www.tutorialspoint.com/java/java_serialization.htm'><span class='ec-lmtt-10'>https://www.tutorialspoint.com/java/java_serialization.htm</span></a> (visited on 08/26/2021).</p></dd></dl>
  
-</body> 
-</html>
+</article>
+<footer>
+<p>&copy; 2021-2026 Software Assurance Tips. Some rights reserved. Please see the terms of the Creative Commons Attribution license.</p>
+</footer>
+</div>

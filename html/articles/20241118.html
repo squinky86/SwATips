@@ -1,23 +1,10 @@
 <!DOCTYPE html>
 <html xml:lang='en-US' lang='en-US'>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fuzzy Coverage</title>
- 
-
-<meta charset="utf-8"/>
- 
-
-<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
- 
-
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
- 
-
- 
-
-<meta content="article.tex" name="src"/>
- 
-
+<link rel="stylesheet" href="../styles.css">
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
 <style>
  
@@ -185,7 +172,6 @@ table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
 .hline hr, .cline hr{border:none;border-top:1px solid black;}
 .hline {border-top: 1px solid black;}
 .hline + .vspace:last-child{display:none;}
-.hline:first-child{border-bottom:1px solid black;border-top:none;}
 .tabbing-right {text-align:right;}
 div.float, div.figure {margin-left: auto; margin-right: auto;}
 div.float img {text-align:center;}
@@ -211,7 +197,7 @@ span.bar-css {text-decoration:overline;}
 img.cdots{vertical-align:middle;}
 .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
 .index-item, .index-subitem, .index-subsubitem {display:block}
-div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center; margin-top: 0.5rem;}
 div.caption span.id{font-weight: bold; white-space: nowrap; }
 h1.partHead{text-align: center}
 p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
@@ -244,8 +230,8 @@ dt.thebibliography {float:left; clear:left; margin-right:1em;}
 code.lstinline{font-family:monospace,monospace;}
 pre.listings{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
 .lstlisting .label{margin-right:0.5em; }
-pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
-pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; }
+pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; text-align: left; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; text-align: left; }
 .lstinputlisting .label{margin-right:0.5em;}
 .small-caps{font-variant: small-caps;}
 .uline,.uline-math{ text-decoration:underline; }
@@ -261,7 +247,155 @@ span.dotuline, .dotuline-math {text-decoration:underline dotted;}
 </style>
 </head>
 <body>
-<p><a href="../"><img src="images/swatips.svg" width="120" alt="SwATips" /></a>| <a href="20241118.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="images/by.svg" width="60" height="21" alt="CC-BY" /></a></p>
+<div class="container">
+<article>
+<style>
+  article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  article h1, article h2, article h3, article h4, article h5, article h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #222;
+    font-weight: 600;
+  }
+
+  article h1 {
+    font-size: 2em;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+    margin-top: 0;
+  }
+
+  article p {
+    margin-bottom: 1em;
+  }
+
+  article a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  article a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+  }
+
+  article code {
+    background: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
+  }
+
+  article pre {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1em 0;
+    border-left: 4px solid #667eea;
+  }
+
+  article pre code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  article blockquote {
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+    margin-left: 0;
+    color: #666;
+    font-style: italic;
+  }
+
+  article ul, article ol {
+    margin-left: 2em;
+    margin-bottom: 1em;
+  }
+
+  article li {
+    margin-bottom: 0.5em;
+  }
+
+  article table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+  }
+
+  article th, article td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+
+  article th {
+    background: #f5f5f5;
+    font-weight: 600;
+  }
+
+  article tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 40px;
+    font-size: 0.95em;
+  }
+
+  .article-meta a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .article-meta a:hover {
+    color: #764ba2;
+  }
+
+  .home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .license-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .license-badge img {
+    height: 21px;
+    width: auto;
+  }
+</style>
+
+<div class="article-meta">
+  <div class="home-link">
+    <a href="../index.php">← Back to Home</a>
+  </div>
+  <div style="display: flex; gap: 20px;">
+    <a href="20241118.pdf">📄 View PDF</a>
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" class="license-badge" title="Licensed under Creative Commons Attribution 4.0 International">
+      <img src="images/by.svg" alt="CC-BY" />
+    </a>
+  </div>
+</div>
 <div class='maketitle'>
                                                                                          
                                                                                          
@@ -277,8 +411,9 @@ A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0_
                                                                                          
                                                                                          
    
-<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Fuzzy Coverage</h3>
-<!-- l. 45 --><p class='noindent'><span class='ec-lmr-8'>Updated Monday 18</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> November, 2024</span>
+
+<h3 class='sectionHead' id='fuzzy-coverage'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Fuzzy Coverage</h3>
+<!-- l. 47 --><p class='noindent'><span class='ec-lmr-8'>Updated Tuesday 27</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> January, 2026</span>
 </p><!-- l. 1 --><p class='indent'>   One of the questions we get asked frequently is, “How much fuzzing is enough?” This question is usually
 derived from a DoD mentality of checking the box on cybersecurity activities. With Security Technical
 Implementation Guides (STIGs), IAVMs, and RMF Control checklists, cybersecurity practitioners
@@ -316,29 +451,28 @@ completed or when <span class='ec-lmtt-10'>lcov </span>or <span class='ec-lmtt-1
 false sense of security.
 </p>   
 <!-- l. 11 -->
-<p><a id='x1-1003r1'></a>
-<a id='x1-1004'></a>   
-</p><pre class='lstlisting' id='listing-1'><span class='label'><a id='x1-1005r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;stdio.h&gt;</span> 
-</span><span class='label'><a id='x1-1006r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;string.h&gt;</span> 
-</span><span class='label'><a id='x1-1007r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main() {</span> 
-</span><span class='label'><a id='x1-1008r4'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>char</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>buffer[10];</span> 
-</span><span class='label'><a id='x1-1009r5'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>printf</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>Enter</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>your name: ");</span> 
-</span><span class='label'><a id='x1-1010r6'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>fgets</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>buffer</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>100, stdin);</span> 
-</span><span class='label'><a id='x1-1011r7'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>printf</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>Hello</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>%s!\n", buffer);</span> 
-</span><span class='label'><a id='x1-1012r8'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span> 
-</span><span class='label'><a id='x1-1013r9'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
-<figcaption class='caption'><span class='id'>Listing 1: </span><span class='content'>Simple Buffer Overflow</span></figcaption><!-- tex4ht:label?: x1-1013r1  -->
+<p><a id='x1-1003r1'></a>   
+</p><pre class='lstlisting' id='listing-1'><span class='label'><a id='x1-1004r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;stdio.h&gt;</span> 
+</span><span class='label'><a id='x1-1005r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;string.h&gt;</span> 
+</span><span class='label'><a id='x1-1006r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main() {</span> 
+</span><span class='label'><a id='x1-1007r4'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>char</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>buffer[10];</span> 
+</span><span class='label'><a id='x1-1008r5'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>printf</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>Enter</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>your name: ");</span> 
+</span><span class='label'><a id='x1-1009r6'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>fgets</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>buffer</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>100, stdin);</span> 
+</span><span class='label'><a id='x1-1010r7'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtt-9'>printf</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>Hello</span></span><span style='color:#000000'><span class='ec-lmtt-9'>,</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>%s!\n", buffer);</span> 
+</span><span class='label'><a id='x1-1011r8'></a></span><span class='ec-lmtt-9'>    </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span> 
+</span><span class='label'><a id='x1-1012r9'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 1: </span><span class='content'>Simple Buffer Overflow</span></figcaption><!-- tex4ht:label?: x1-1012r1  -->
 <!-- l. 23 --><p class='indent'>   Instead, experts should review the harnesses to make sure that the critical areas of code are properly being
 fuzzed continuously. One way to complete this is to do a criticality analysis and functional traceability report into
-the code, such as the design traceability analysis[<a id='x1-1014'></a><a href='#cite.0_20241118_ieee1012'>2</a>, p. 114] and source code traceability analysis[<a href='#cite.0_20241118_ieee1012'>2</a>, p. 119].
+the code, such as the design traceability analysis[<a id='x1-1013'></a><a href='#cite.0_20241118_ieee1012'>2</a>, p. 114] and source code traceability analysis[<a href='#cite.0_20241118_ieee1012'>2</a>, p. 119].
 Leveraging these functionality reviews to define whether the critical parts of the code have been harnessed allows a
 DoD program office to say, “Yea, verily, the fuzzing being conducted by this effort satisfies our fuzzing
 requirements.”
+
                                                                                          
                                                                                          
-</p><!-- l. 25 --><p class='noindent'>
 </p>   
-<h4 class='likesubsectionHead'><a id='x1-2000'></a>Summary</h4>
+<h4 class='likesubsectionHead' id='summary'><a id='x1-2000'></a>Summary</h4>
 <!-- l. 26 --><p class='noindent'>Remember the misconceptions of fuzzing: </p>
 <ul class='itemize1'>     
 <li class='itemize'>The lack of findings from fuzzing does not indicate the absence of defects.
@@ -349,20 +483,22 @@ requirements.”
 <!-- l. 33 --><p class='indent'>   The right fuzzing program is the one still running against critically important code.
                                                                                          
                                                                                          
+   
+
 </p>   
-<h3 class='sectionHead'><a id='x1-3000'></a>References</h3>
-<!-- l. 50 --><p class='noindent'>    
+<h3 class='sectionHead' id='references'><a id='x1-3000'></a>References</h3>
+<!-- l. 52 --><p class='noindent'>    
 </p>
 <dl class='thebibliography'><dt class='thebibliography' id='X0-swatips'>
 [1]  
 </dt><dd class='thebibliography' id='bib-1'>
-<!-- l. 50 --><p class='noindent'><a id='cite.0_swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+<!-- l. 52 --><p class='noindent'><a id='cite.0_swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
 <dt class='thebibliography' id='X0-20241118_ieee1012'>
 [2]  
 </dt><dd class='thebibliography' id='bib-2'>
-<!-- l. 50 --><p class='noindent'><a id='cite.0_20241118_ieee1012'></a>IEEE Standards Association. “IEEE Standard for System, Software, and Hardware Verification and
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20241118_ieee1012'></a>IEEE Standards Association. “IEEE Standard for System, Software, and Hardware Verification and
 Validation”.  In:  <span class='uline'>IEEE  Std  1012-2016  (Revision  of  IEEE  Std  1012-2012/  Incorporates  IEEE  Std
 1012-2016/Cor1-2017)</span> (2017), pp. 1–260. <span class='small-caps'>doi</span>:  <a href='https://doi.org/10.1109/IEEESTD.2017.8055462'>10.1109/IEEESTD.2017.8055462</a>.
 </p>    
@@ -370,7 +506,7 @@ Validation”.  In:  <span class='uline'>IEEE  Std  1012-2016  (Revision  of  IE
 <dt class='thebibliography' id='X0-20241118_nist80053rev5'>
 [3]  
 </dt><dd class='thebibliography' id='bib-3'>
-<!-- l. 50 --><p class='noindent'><a id='cite.0_20241118_nist80053rev5'></a>National Institute of Standards and Technology. <span class='uline'>Security and Privacy Controls for Information Systems
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20241118_nist80053rev5'></a>National Institute of Standards and Technology. <span class='uline'>Security and Privacy Controls for Information Systems
 and         Organizations</span>.         Tech.         rep.         Special         Publication         (SP)         800-53
 Revision 5. Washington, D.C.: U.S. Department of Commerce, 2020. <span class='small-caps'>doi</span>:  <a href='https://doi.org/10.6028/NIST.SP.800-53r5'>10.6028/NIST.SP.800-53r5</a>.
 <span class='small-caps'>url</span>: <a class='url' href='https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf'><span class='ec-lmtt-10'>https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf</span></a>.
@@ -379,9 +515,12 @@ Revision 5. Washington, D.C.: U.S. Department of Commerce, 2020. <span class='sm
 <dt class='thebibliography' id='X0-20241118_wikifuzzing'>
 [4]  
 </dt><dd class='thebibliography' id='bib-4'>
-<!-- l. 50 --><p class='noindent'><a id='cite.0_20241118_wikifuzzing'></a>Wikipedia
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20241118_wikifuzzing'></a>Wikipedia
 contributors. <span class='uline'>Fuzzing — Wikipedia, The Free Encyclopedia</span>. [Online; accessed 18-November-2024]. 2024.
 <span class='small-caps'>url</span>: <a class='url' href='https://en.wikipedia.org/w/index.php?title=Fuzzing&amp;oldid=1249540069'><span class='ec-lmtt-10'>https://en.wikipedia.org/w/index.php?title=Fuzzing&amp;oldid=1249540069</span></a>.</p></dd></dl>
  
-</body> 
-</html>
+</article>
+<footer>
+<p>&copy; 2021-2026 Software Assurance Tips. Some rights reserved. Please see the terms of the Creative Commons Attribution license.</p>
+</footer>
+</div>

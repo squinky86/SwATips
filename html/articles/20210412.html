@@ -1,37 +1,58 @@
 <!DOCTYPE html>
 <html xml:lang='en-US' lang='en-US'>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sticking with a RAII Standard</title>
- 
-
-<meta charset="utf-8"/>
- 
-
-<meta content="TeX4ht (https://tug.org/tex4ht/)" name="generator"/>
- 
-
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
- 
-
- 
-
-<meta content="article.tex" name="src"/>
- 
-
+<link rel="stylesheet" href="../styles.css">
 <script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
 <style>
  
 /* start css.sty */
-.rm-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
-.rm-lmr-12{font-size:120%;}
-.rm-lmr-9{font-size:90%;}
+.ec-lmbx-12x-x-144{font-size:172%; font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmbx-12x-x-144{ font-weight: bold;}
+.ec-lmr-12{font-size:120%;}
+.ec-lmr-9{font-size:90%;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
 .ec-lmtt-10{ font-family: monospace,monospace;}
-.rm-lmr-8{font-size:80%;}
-.rm-lmri-10{ font-style:italic;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmtt-10{ font-family: monospace,monospace;}
+.ec-lmr-8{font-size:80%;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
+.ec-lmri-10{ font-style:italic;}
 .ec-lmtt-9{font-size:90%; font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
+.ec-lmtt-9{ font-family: monospace,monospace;}
 .ec-lmtt-9{ font-family: monospace,monospace;}
 .ec-lmtt-9{ font-family: monospace,monospace;}
 .ec-lmtt-9{ font-family: monospace,monospace;}
@@ -39,12 +60,37 @@
 .ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
 .ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
 .ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
+.ec-lmtk-10x-x-90{ font-family: monospace,monospace;}
 .ts1-lmtt9-{font-size:90%;}
+.cmtt-9{font-size:90%;font-family: monospace,monospace;}
 .ec-lmtti-10x-x-90{font-size:90%; font-family: monospace,monospace; font-style:italic;}
 .ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
 .ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
 .ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
-.rm-lmcsc-10{font-variant: small-caps;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ec-lmtti-10x-x-90{ font-family: monospace,monospace; font-style:italic;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
+.ec-lmcsc-10{ font-variant: small-caps;}
 p{margin-top:0;margin-bottom:0}
 p.indent{text-indent:0;}
 p + p{margin-top:1em;}
@@ -52,21 +98,34 @@ p + div, p + pre {margin-top:1em;}
 div + p, pre + p {margin-top:1em;}
 a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
 @media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
 a img { border-top: 0; border-left: 0; border-right: 0; }
 center { margin-top:1em; margin-bottom:1em; }
 td center { margin-top:0em; margin-bottom:0em; }
 .Canvas { position:relative; }
 img.math{vertical-align:middle;}
 div.par-math-display, div.math-display{text-align:center;}
+body{ margin:1em auto; max-width:80ch; padding:0 .62em; }
+h1,h2,h3,h4,h5 { line-height:1.2; }
+@media print{ body{ max-width:none } }
+.partHead, .likepartHead { font-size: 2em; }
+.chapterHead, .likechapterHead { font-size: 1.7411em; }
+.sectionHead, .likesectionHead { font-size: 1.5157em; }
+.subsectionHead, .likesubsectionHead { font-size: 1.3195em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1.1487em; }
+ @media (prefers-color-scheme: dark) { img[src^="article"]{filter: invert(1); } } 
+ body { background-color: Canvas; color: CanvasText; color-scheme: light dark; } 
 li p.indent { text-indent: 0em }
 li p:first-child{ margin-top:0em; }
 li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
 li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
 .enumerate1 {list-style-type:decimal;}
 .enumerate2 {list-style-type:lower-alpha;}
 .enumerate3 {list-style-type:lower-roman;}
 .enumerate4 {list-style-type:upper-alpha;}
 div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
 .obeylines-h,.obeylines-v {white-space: nowrap; }
 div.obeylines-v p { margin-top:0; margin-bottom:0; }
 .overline{ text-decoration:overline; }
@@ -94,6 +153,7 @@ span.thank-mark{ vertical-align: super }
 span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
 div.footnotes{border-top:solid 1px black; border-bottom:solid 1px black; padding-bottom:1ex; padding-top:0.5ex; margin-right:15%; margin-top:2ex; font-style:italic; font-size:85%;}
 div.footnotes p{margin-top:0; margin-bottom:0; text-indent:0;}
+code.verb{font-family:monospace,monospace;}
 div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
 table.tabular td p{margin-top:0em;}
 table.tabular {margin-left: auto; margin-right: auto;}
@@ -112,6 +172,8 @@ table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
 .hline hr, .cline hr{ height : 0px; margin:0px; }
 .hline td, .cline td{ padding: 0; }
 .hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
 .tabbing-right {text-align:right;}
 div.float, div.figure {margin-left: auto; margin-right: auto;}
 div.float img {text-align:center;}
@@ -134,16 +196,15 @@ span.pmatrix img{vertical-align:middle;}
 div.pmatrix {text-align:center;}
 table.pmatrix {width:100%;}
 span.bar-css {text-decoration:overline;}
-table.tabular{border-collapse: collapse; border-spacing: 0;}
 img.cdots{vertical-align:middle;}
 .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
 .index-item, .index-subitem, .index-subsubitem {display:block}
-div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center; margin-top: 0.5rem;}
 div.caption span.id{font-weight: bold; white-space: nowrap; }
 h1.partHead{text-align: center}
 p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
 .verse{white-space:nowrap; margin-left:2em}
@@ -155,31 +216,188 @@ div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
 div.abstract p {margin-left:5%; margin-right:5%;}
 div.abstract {width:100%;}
 .abstracttitle{text-align:center;margin-bottom:1em;}
+.subsectionToc, .likesubsectionToc {margin-left:1em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:2em;}
+.paragraphToc, .likeparagraphToc {margin-left:3em;}
+.subparagraphToc, .likesubparagraphToc {margin-left:4em;}
 figure.float, div.figure {margin-left: auto; margin-right: auto;}
-figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}
 figure.figure {text-align:center;}
 figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:center;}
 figcaption.caption span.id{font-weight: bold; white-space: nowrap; }
+p + figcaption, img + figcaption{margin-top: 1em;}
 .abstract{margin:1em;}
 dt.printshorthands{float:left; clear:left; margin-right:1em;}
 dd.thebibliography {margin-left: 2.5em;}
 dt.thebibliography {float:left; clear:left; margin-right:1em;}
+code.lstinline{font-family:monospace,monospace;}
+pre.listings{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
 .lstlisting .label{margin-right:0.5em; }
-div.lstlisting{font-family: monospace,monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
-div.lstinputlisting{ font-family: monospace,monospace; white-space: nowrap; }
+pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; text-align: left; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; text-align: left; }
 .lstinputlisting .label{margin-right:0.5em;}
 .small-caps{font-variant: small-caps;}
-.uline{ text-decoration:underline; }
-.uuline{ text-decoration:underline; }
-span.sout {text-decoration: line-through }
-span.xout {text-decoration: line-through }
-span.uwave {text-decoration:underline }
+.uline,.uline-math{ text-decoration:underline; }
+.uuline,.uuline-math{ text-decoration:underline double; }
+span.sout, .sout-math {text-decoration: line-through }
+span.xout, .xout-math {text-decoration: line-through underline }
+span.uwave, .uwave-math {text-decoration:underline wavy; }
+span.dashuline, .dashuline-math {text-decoration:underline dashed;}
+span.dotuline, .dotuline-math {text-decoration:underline dotted;}
+.rotatebox{display: inline-block;}
 /* end css.sty */
 
 </style>
 </head>
 <body>
-<p><a href="../"><img src="images/swatips.svg" width="120" alt="SwATips" /></a> | <a href="20210412.pdf">pdf</a> | <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img src="images/by.svg" width="60" height="21" alt="CC-BY" /></a></p>
+<div class="container">
+<article>
+<style>
+  article {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  article h1, article h2, article h3, article h4, article h5, article h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #222;
+    font-weight: 600;
+  }
+
+  article h1 {
+    font-size: 2em;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+    margin-top: 0;
+  }
+
+  article p {
+    margin-bottom: 1em;
+  }
+
+  article a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  article a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+  }
+
+  article code {
+    background: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
+  }
+
+  article pre {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1em 0;
+    border-left: 4px solid #667eea;
+  }
+
+  article pre code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  article blockquote {
+    border-left: 4px solid #667eea;
+    padding-left: 15px;
+    margin-left: 0;
+    color: #666;
+    font-style: italic;
+  }
+
+  article ul, article ol {
+    margin-left: 2em;
+    margin-bottom: 1em;
+  }
+
+  article li {
+    margin-bottom: 0.5em;
+  }
+
+  article table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+  }
+
+  article th, article td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+
+  article th {
+    background: #f5f5f5;
+    font-weight: 600;
+  }
+
+  article tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 40px;
+    font-size: 0.95em;
+  }
+
+  .article-meta a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .article-meta a:hover {
+    color: #764ba2;
+  }
+
+  .home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .license-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .license-badge img {
+    height: 21px;
+    width: auto;
+  }
+</style>
+
+<div class="article-meta">
+  <div class="home-link">
+    <a href="../index.php">← Back to Home</a>
+  </div>
+  <div style="display: flex; gap: 20px;">
+    <a href="20210412.pdf">📄 View PDF</a>
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" class="license-badge" title="Licensed under Creative Commons Attribution 4.0 International">
+      <img src="images/by.svg" alt="CC-BY" />
+    </a>
+  </div>
+</div>
 <div class='maketitle'>
                                                                                          
                                                                                          
@@ -187,16 +405,17 @@ span.uwave {text-decoration:underline }
                                                                                          
 
 <h2 class='titleHead'> <strong>Software Assurance Tips</strong><br />
-A product of the Software Assurance Tips Team[<a href='#cite.0@swatips'>1</a>]<br />
+A product of the Software Assurance Tips Team[<a id='x1-3'></a><a href='#cite.0_swatips'>1</a>]<br />
 </h2>
-<div class='author'><span class='rm-lmr-12'>Jon Hood</span></div><br />
-<div class='date'><span class='rm-lmr-12'>Monday 12</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-12'> April, 2021</span></div>
+ <div class='author'><span class='ec-lmr-12'>Jon Hood</span></div><br />
+<div class='date'><span class='ec-lmr-12'>Monday 12</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-12'> April, 2021</span></div>
 </div>
                                                                                          
                                                                                          
    
-<h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Sticking with a RAII Standard</h3>
-<!-- l. 43 --><p class='noindent'><span class='rm-lmr-8'>Updated Monday 30</span><sup class='textsuperscript'><span class='rm-lmr-9'>th</span></sup><span class='rm-lmr-8'> August, 2021</span>
+
+<h3 class='sectionHead' id='sticking-with-a-raii-standard'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Sticking with a RAII Standard</h3>
+<!-- l. 47 --><p class='noindent'><span class='ec-lmr-8'>Updated Tuesday 27</span><sup class='textsuperscript'><span class='ec-lmr-9'>th</span></sup><span class='ec-lmr-8'> January, 2026</span>
 </p><!-- l. 1 --><p class='indent'>   Resource Acquisition Is Initialization (RAII). When working with legacy code, variables and memory
 management often do not use RAII concepts. When memory is created in an uninitialized state, developers risk the
 use of uninitialized memory further down in the application data flow.
@@ -205,99 +424,124 @@ initialization. While default initialization is typically faster, developers qui
 reasons to keep memory uninitialized. Initializing memory as soon as it’s allocated keeps developers from shooting
 themselves in the foot.
 </p><!-- l. 5 --><p class='indent'>   One of the best ways to prevent memory errors is to use RAII. Particularly in exception-based code, RAII
-concepts provide a memory-safe technique for resource management.[<a href='#cite.0@20210412:stroustrup2001'>2</a>] Several issues face developers when
+concepts provide a memory-safe technique for resource management.[<a id='x1-1001'></a><a href='#cite.0_20210412_stroustrup2001'>2</a>] Several issues face developers when
 maintaining legacy code with new programming concepts, particularly in the DoD. Legacy code is
 generally void of RAII concepts and has not been built with the latest standards of safe programming
 practices.
-</p><!-- l. 7 --><p class='noindent'>
+
 </p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Updating the Code</h4>
+<h4 class='subsectionHead' id='updating-the-code'><span class='titlemark'>1.1   </span> <a id='x1-20001.1'></a>Updating the Code</h4>
 <!-- l. 9 --><p class='noindent'>The first option for maintaining legacy code in a memory-safe way is to update the code. Wrapping old pointers in
 smart pointers can help make the code more maintainable.
 </p>   
 <!-- l. 11 -->
-<p><a id='x1-2001r1'></a></p>
-<p><a id='x1-2002'></a></p>   
-<div id='listing-1' class='lstlisting'><span class='label'><a id='x1-2003r1'></a></span><span class='ec-lmtt-9'>bool *newBool = new bool(); </span><br /><span class='label'><a id='x1-2004r2'></a></span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*newBool) </span><br /><span class='label'><a id='x1-2005r3'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re␣true!"␣&lt;&lt;␣endl; </span><br /><span class='label'><a id='x1-2006r4'></a></span><span class='ec-lmtt-9'>else </span><br /><span class='label'><a id='x1-2007r5'></a></span><span class='ec-lmtt-9'>␣␣␣␣␣␣␣␣cout␣&lt;&lt;␣"We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re false!" &lt;&lt; endl; </span><br /><span class='label'><a id='x1-2008r6'></a></span><span class='ec-lmtt-9'>delete newBool;</span>
-<figcaption class='caption'><span class='id'>Listing 1:</span><span class='content'>Non-compliant listing</span></figcaption><!-- tex4ht:label?: x1-2001r1  -->
+<p><a id='x1-2001r1'></a>   
+</p><pre class='lstlisting' id='listing-1'><span class='label'><a id='x1-2002r1'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>bool</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>*newBool = new bool();</span> 
+</span><span class='label'><a id='x1-2003r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>if</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>(*newBool)</span> 
+</span><span class='label'><a id='x1-2004r3'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>cout</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;&lt; "We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re</span><span class='cmtt-9'>␣</span><span class='ec-lmtt-9'>true!"</span><span class='cmtt-9'>␣</span><span class='ec-lmtt-9'>&lt;&lt;</span><span class='cmtt-9'>␣</span><span class='ec-lmtt-9'>endl;</span> 
+</span><span class='label'><a id='x1-2005r4'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>else</span></span> 
+<span class='label'><a id='x1-2006r5'></a></span><span style='color:#000000'><span class='cmtt-9'>␣␣␣␣␣␣␣␣</span></span><span style='color:#000000'><span class='ec-lmtt-9'>cout</span></span><span style='color:#000000'><span class='cmtt-9'>␣</span></span><span style='color:#000000'><span class='ec-lmtt-9'>&lt;&lt;</span></span><span style='color:#000000'><span class='cmtt-9'>␣</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>We</span></span><span style='color:#000000'><span class='ts1-lmtt9-'>'</span></span><span style='color:#000000'><span class='ec-lmtt-9'>re</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>false!" &lt;&lt; endl;</span> 
+</span><span class='label'><a id='x1-2007r6'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>delete</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>newBool;</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 1: </span><span class='content'>Non-compliant listing</span></figcaption><!-- tex4ht:label?: x1-2007r1.1  -->
    
-</div>
 <!-- l. 20 -->
-<p><a id='x1-2009r2'></a></p>
-<p><a id='x1-2010'></a></p>   
-<div id='listing-2' class='lstlisting'><span class='label'><a id='x1-2011r1'></a></span><span class='ec-lmtk-10x-x-90'>auto</span><span class='ec-lmtt-9'> newBool = make_shared&lt;bool&gt;(); </span><br /><span class='label'><a id='x1-2012r2'></a></span><span class='ec-lmtti-10x-x-90'>//Another way: shared_ptr&lt;bool&gt; newBool(new bool());</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-2013r3'></a></span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*newBool) </span><br /><span class='label'><a id='x1-2014r4'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re␣true!"␣&lt;&lt;␣endl; </span><br /><span class='label'><a id='x1-2015r5'></a></span><span class='ec-lmtt-9'>else </span><br /><span class='label'><a id='x1-2016r6'></a></span><span class='ec-lmtt-9'>␣␣␣␣␣␣␣␣cout␣&lt;&lt;␣"We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re false!" &lt;&lt; endl;</span>
-<figcaption class='caption'><span class='id'>Listing 2:</span><span class='content'>RAII-compliant listing</span></figcaption><!-- tex4ht:label?: x1-2009r1  -->
-   
-</div>
+<p><a id='x1-2008r2'></a>   
+</p><pre class='lstlisting' id='listing-2'><span class='label'><a id='x1-2009r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>auto</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>newBool = make_shared&lt;bool&gt;();</span> 
+</span><span class='label'><a id='x1-2010r2'></a></span><span style='color:#000000'><span class='ec-lmtti-10x-x-90'>//</span></span><span style='color:#000000'><span class='ec-lmtti-10x-x-90'>Another</span></span><span style='color:#000000'> <span class='ec-lmtti-10x-x-90'>way: shared_ptr&lt;bool&gt; newBool(new bool());</span> 
+</span><span class='label'><a id='x1-2011r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>if</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>(*newBool)</span> 
+</span><span class='label'><a id='x1-2012r4'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>cout</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;&lt; "We</span><span class='ts1-lmtt9-'>'</span><span class='ec-lmtt-9'>re</span><span class='cmtt-9'>␣</span><span class='ec-lmtt-9'>true!"</span><span class='cmtt-9'>␣</span><span class='ec-lmtt-9'>&lt;&lt;</span><span class='cmtt-9'>␣</span><span class='ec-lmtt-9'>endl;</span> 
+</span><span class='label'><a id='x1-2013r5'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>else</span></span> 
+<span class='label'><a id='x1-2014r6'></a></span><span style='color:#000000'><span class='cmtt-9'>␣␣␣␣␣␣␣␣</span></span><span style='color:#000000'><span class='ec-lmtt-9'>cout</span></span><span style='color:#000000'><span class='cmtt-9'>␣</span></span><span style='color:#000000'><span class='ec-lmtt-9'>&lt;&lt;</span></span><span style='color:#000000'><span class='cmtt-9'>␣</span></span><span style='color:#000000'><span class='ec-lmtt-9'>"</span></span><span style='color:#000000'><span class='ec-lmtt-9'>We</span></span><span style='color:#000000'><span class='ts1-lmtt9-'>'</span></span><span style='color:#000000'><span class='ec-lmtt-9'>re</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>false!" &lt;&lt; endl;</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 2: </span><span class='content'>RAII-compliant listing</span></figcaption><!-- tex4ht:label?: x1-2014r1.1  -->
 <!-- l. 29 --><p class='indent'>   There are several issues with updating the old code to the RAII-compliant code:
 </p>     
 <ol class='enumerate1'>
-<li id='x1-2018x1' class='enumerate'>     
-Forgetting to remove the manual memory management can cause double-free errors.
-</li>     
-<li id='x1-2020x2' class='enumerate'>
-Updating the code can cause translation issues (eg: between default and value initialization)
-</li>     
-<li id='x1-2022x3' class='enumerate'>
-Inconsistency can increase maintenance burdens for maintained code.
-</li>     
-<li id='x1-2024x4' class='enumerate'>
-Deletion of arrays require special handling.</li></ol>
+<li class='enumerate' id='x1-2016x1'>Forgetting to remove the manual memory management can cause double-free errors.
+</li>
+<li class='enumerate' id='x1-2018x2'>Updating the code can cause translation issues (eg: between default and value initialization)
+</li>
+<li class='enumerate' id='x1-2020x3'>Inconsistency can increase maintenance burdens for maintained code.
                                                                                          
                                                                                          
-<!-- l. 37 --><p class='noindent'>
-</p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.2   </span> <a id='x1-30001.2'></a>Double Frees</h4>
+     
+</li>
+<li class='enumerate' id='x1-2022x4'>Deletion of arrays require special handling.</li></ol>
+   
+<h4 class='subsectionHead' id='double-frees'><span class='titlemark'>1.2   </span> <a id='x1-30001.2'></a>Double Frees</h4>
 <!-- l. 39 --><p class='noindent'>Developers can introduce double free conditions where a pointer is managed by both a smart pointer and in the
 code itself. Also, conditions arise when a single pointer is handed over to multiple smart pointers for
 management.
 </p><!-- l. 41 --><p class='indent'>   At the time of this writing, the latest versions of Fortify, Coverity, Checkmarx, Parasoft, clang-analyzer,
 and the GCC 10 <span class='ec-lmtt-10'>-fanalyzer </span>flag are all incapable of identifying the double free in Listings <a href='#x1-3001r3'>3<!-- tex4ht:ref: lst:20210412:1  --></a> and
-<a href='#x1-3007r4'>4<!-- tex4ht:ref: lst:20210412:2  --></a>.
+<a href='#x1-3006r4'>4<!-- tex4ht:ref: lst:20210412:2  --></a>.
 </p>   
 <!-- l. 43 -->
-<p><a id='x1-3001r3'></a></p>
-<p><a id='x1-3002'></a></p>   
-<div id='listing-3' class='lstlisting'><span class='label'><a id='x1-3003r1'></a></span><span class='ec-lmtt-9'>bool *newBool = new bool(); </span><br /><span class='label'><a id='x1-3004r2'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1 (newBool); </span><br /><span class='label'><a id='x1-3005r3'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test2 (newBool); </span><br /><span class='label'><a id='x1-3006r4'></a></span><span class='ec-lmtti-10x-x-90'>//...</span>
-<figcaption class='caption'><span class='id'>Listing 3:</span><span class='content'>Double Smart Pointer</span></figcaption><!-- tex4ht:label?: x1-3001r1  -->
+<p><a id='x1-3001r3'></a>   
+</p><pre class='lstlisting' id='listing-3'><span class='label'><a id='x1-3002r1'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>bool</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>*newBool = new bool();</span> 
+</span><span class='label'><a id='x1-3003r2'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>shared_ptr</span></span><span style='color:#000000'><span class='ec-lmtt-9'>&lt;</span></span><span style='color:#000000'><span class='ec-lmtt-9'>bool</span></span><span style='color:#000000'><span class='ec-lmtt-9'>&gt;</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>test1 (newBool);</span> 
+</span><span class='label'><a id='x1-3004r3'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>shared_ptr</span></span><span style='color:#000000'><span class='ec-lmtt-9'>&lt;</span></span><span style='color:#000000'><span class='ec-lmtt-9'>bool</span></span><span style='color:#000000'><span class='ec-lmtt-9'>&gt;</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>test2 (newBool);</span> 
+</span><span class='label'><a id='x1-3005r4'></a></span><span style='color:#000000'><span class='ec-lmtti-10x-x-90'>//</span></span><span style='color:#000000'><span class='ec-lmtti-10x-x-90'>...</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 3: </span><span class='content'>Double Smart Pointer</span></figcaption><!-- tex4ht:label?: x1-3005r1.2  -->
    
-</div>
 <!-- l. 50 -->
-<p><a id='x1-3007r4'></a></p>
-<p><a id='x1-3008'></a></p>   
-<div id='listing-4' class='lstlisting'><span class='label'><a id='x1-3009r1'></a></span><span class='ec-lmtt-9'>bool *newBool = new bool(); </span><br /><span class='label'><a id='x1-3010r2'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1 (newBool); </span><br /><span class='label'><a id='x1-3011r3'></a></span><span class='ec-lmtti-10x-x-90'>//...</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-3012r4'></a></span><span class='ec-lmtt-9'>delete newBool;</span>
-<figcaption class='caption'><span class='id'>Listing 4:</span><span class='content'>Smart and Dumb Pointer</span></figcaption><!-- tex4ht:label?: x1-3007r1  -->
+<p><a id='x1-3006r4'></a>   
+</p><pre class='lstlisting' id='listing-4'><span class='label'><a id='x1-3007r1'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>bool</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>*newBool = new bool();</span> 
+</span><span class='label'><a id='x1-3008r2'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>shared_ptr</span></span><span style='color:#000000'><span class='ec-lmtt-9'>&lt;</span></span><span style='color:#000000'><span class='ec-lmtt-9'>bool</span></span><span style='color:#000000'><span class='ec-lmtt-9'>&gt;</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>test1 (newBool);</span> 
+</span><span class='label'><a id='x1-3009r3'></a></span><span style='color:#000000'><span class='ec-lmtti-10x-x-90'>//</span></span><span style='color:#000000'><span class='ec-lmtti-10x-x-90'>...</span></span> 
+<span class='label'><a id='x1-3010r4'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>delete</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>newBool;</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 4: </span><span class='content'>Smart and Dumb Pointer</span></figcaption><!-- tex4ht:label?: x1-3010r1.2  -->
    
-</div>
-<!-- l. 57 --><p class='noindent'>
-</p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.3   </span> <a id='x1-40001.3'></a>Initialization Errors</h4>
+
+<h4 class='subsectionHead' id='initialization-errors'><span class='titlemark'>1.3   </span> <a id='x1-40001.3'></a>Initialization Errors</h4>
 <!-- l. 59 --><p class='noindent'>We’ve also seen a large number of initialization errors when updating to smart pointers. Using the
 above examples, it’s tempting for a developer to use shortcuts and commit the error demonstrated in
 Listing <a href='#x1-4001r5'>5<!-- tex4ht:ref: lst:20210412:3  --></a>.
 </p>   
 <!-- l. 61 -->
-<p><a id='x1-4001r5'></a></p>
-<p><a id='x1-4002'></a></p>   
-<div id='listing-5' class='lstlisting'><span class='label'><a id='x1-4003r1'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1 (new bool); </span><br /><span class='label'><a id='x1-4004r2'></a></span><span class='ec-lmtt-9'>cout &lt;&lt; "Test1 is: " &lt;&lt; *test1 &lt;&lt; endl;</span>
-<figcaption class='caption'><span class='id'>Listing 5:</span><span class='content'>Uninitialized Boolean</span></figcaption><!-- tex4ht:label?: x1-4001r1  -->
-   
-</div>
-<!-- l. 66 --><p class='indent'>   The unpredictable nature of this issue can be demonstrated in the example in Listing <a href='#x1-4005r6'>6<!-- tex4ht:ref: lst:20210412:4  --></a> where the Boolean uses
+<p><a id='x1-4001r5'></a>   
+</p><pre class='lstlisting' id='listing-5'><span class='label'><a id='x1-4002r1'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>shared_ptr</span></span><span style='color:#000000'><span class='ec-lmtt-9'>&lt;</span></span><span style='color:#000000'><span class='ec-lmtt-9'>bool</span></span><span style='color:#000000'><span class='ec-lmtt-9'>&gt;</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>test1 (new bool);</span> 
+</span><span class='label'><a id='x1-4003r2'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>cout</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;&lt; "Test1 is: "</span></span><span class='ec-lmtt-9'> </span><span style='color:#000000'><span class='ec-lmtt-9'>&lt;&lt;</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>*test1 &lt;&lt; endl;</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 5: </span><span class='content'>Uninitialized Boolean</span></figcaption><!-- tex4ht:label?: x1-4003r1.3  -->
+<!-- l. 66 --><p class='indent'>   The unpredictable nature of this issue can be demonstrated in the example in Listing <a href='#x1-4004r6'>6<!-- tex4ht:ref: lst:20210412:4  --></a> where the Boolean uses
 default initialization and obtains a random value from previously-freed memory.
 </p>   
 <!-- l. 68 -->
-<p><a id='x1-4005r6'></a></p>
-<p><a id='x1-4006'></a></p>   
-<div id='listing-6' class='lstlisting'><span class='label'><a id='x1-4007r1'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;climits&gt; </span><br /><span class='label'><a id='x1-4008r2'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;iostream&gt; </span><br /><span class='label'><a id='x1-4009r3'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;memory&gt; </span><br /><span class='label'><a id='x1-4010r4'></a></span><span class='ec-lmtk-10x-x-90'>#include</span><span class='ec-lmtt-9'> &lt;random&gt; </span><br /><span class='label'><a id='x1-4011r5'></a></span><span class='ec-lmtt-9'>using namespace std; </span><br /><span class='label'><a id='x1-4012r6'></a></span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> main() </span><br /><span class='label'><a id='x1-4013r7'></a></span><span class='ec-lmtt-9'>{ </span><br /><span class='label'><a id='x1-4014r8'></a></span><span class='ec-lmtt-9'>        random_device rd; </span><br /><span class='label'><a id='x1-4015r9'></a></span><span class='ec-lmtt-9'>        mt19937 gen(rd()); </span><br /><span class='label'><a id='x1-4016r10'></a></span><span class='ec-lmtt-9'>        uniform_int_distribution&lt;&gt; distrib(INT_MIN, INT_MAX); </span><br /><span class='label'><a id='x1-4017r11'></a></span><span class='ec-lmtt-9'>        vector&lt;</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'>*&gt; deleteLater; </span><br /><span class='label'><a id='x1-4018r12'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>for</span><span class='ec-lmtt-9'> (</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> i = 0; i &lt; 100; i++) </span><br /><span class='label'><a id='x1-4019r13'></a></span><span class='ec-lmtt-9'>        { </span><br /><span class='label'><a id='x1-4020r14'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> *deleteMe = new </span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'>; </span><br /><span class='label'><a id='x1-4021r15'></a></span><span class='ec-lmtt-9'>               *deleteMe = distrib(gen); </span><br /><span class='label'><a id='x1-4022r16'></a></span><span class='ec-lmtti-10x-x-90'>               //delete some memory now</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4023r17'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>if</span><span class='ec-lmtt-9'> (*deleteMe &gt; 0) </span><br /><span class='label'><a id='x1-4024r18'></a></span><span class='ec-lmtt-9'>                       delete deleteMe; </span><br /><span class='label'><a id='x1-4025r19'></a></span><span class='ec-lmtt-9'>               </span><span class='ec-lmtk-10x-x-90'>else</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4026r20'></a></span><span class='ec-lmtt-9'>                       deleteLater.push_back(deleteMe); </span><br /><span class='label'><a id='x1-4027r21'></a></span><span class='ec-lmtt-9'>        } </span><br /><span class='label'><a id='x1-4028r22'></a></span><span class='ec-lmtt-9'>        shared_ptr&lt;bool&gt; newBool(new bool); </span><br /><span class='label'><a id='x1-4029r23'></a></span><span class='ec-lmtt-9'>        cout &lt;&lt; "Value: " &lt;&lt; *newBool &lt;&lt; endl; </span><br /><span class='label'><a id='x1-4030r24'></a></span><span class='ec-lmtti-10x-x-90'>        //delete some memory later</span><span class='ec-lmtt-9'> </span><br /><span class='label'><a id='x1-4031r25'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>for</span><span class='ec-lmtt-9'> (</span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'> *n : deleteLater) </span><br /><span class='label'><a id='x1-4032r26'></a></span><span class='ec-lmtt-9'>               delete n; </span><br /><span class='label'><a id='x1-4033r27'></a></span><span class='ec-lmtt-9'>        </span><span class='ec-lmtk-10x-x-90'>return</span><span class='ec-lmtt-9'> 0; </span><br /><span class='label'><a id='x1-4034r28'></a></span><span class='ec-lmtt-9'>}</span>
-<figcaption class='caption'><span class='id'>Listing 6:</span><span class='content'>Uninitialized Boolean</span></figcaption><!-- tex4ht:label?: x1-4005r1  -->
+<p><a id='x1-4004r6'></a>   
+</p><pre class='lstlisting' id='listing-6'><span class='label'><a id='x1-4005r1'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;climits&gt;</span> 
+</span><span class='label'><a id='x1-4006r2'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-4007r3'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;memory&gt;</span> 
+</span><span class='label'><a id='x1-4008r4'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>#</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>include</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;random&gt;</span> 
+</span><span class='label'><a id='x1-4009r5'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>using</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>namespace std;</span> 
+</span><span class='label'><a id='x1-4010r6'></a></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>main()</span> 
+</span><span class='label'><a id='x1-4011r7'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>{</span></span> 
+<span class='label'><a id='x1-4012r8'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>random_device</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>rd;</span> 
+</span><span class='label'><a id='x1-4013r9'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>mt19937</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>gen(rd());</span> 
+</span><span class='label'><a id='x1-4014r10'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>uniform_int_distribution</span></span><span style='color:#000000'><span class='ec-lmtt-9'>&lt;&gt;</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>distrib(INT_MIN, INT_MAX);</span> 
+</span><span class='label'><a id='x1-4015r11'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>vector</span></span><span style='color:#000000'><span class='ec-lmtt-9'>&lt;</span></span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'><span class='ec-lmtt-9'>*&gt;</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>deleteLater;</span> 
+</span><span class='label'><a id='x1-4016r12'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>for</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>(</span><span class='ec-lmtk-10x-x-90'>int </span><span class='ec-lmtt-9'>i = 0; i &lt; 100; i++)</span> 
+</span><span class='label'><a id='x1-4017r13'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>{</span></span> 
+<span class='label'><a id='x1-4018r14'></a></span><span class='ec-lmtt-9'>               </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>int</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>*deleteMe = new </span><span class='ec-lmtk-10x-x-90'>int</span><span class='ec-lmtt-9'>;</span> 
+</span><span class='label'><a id='x1-4019r15'></a></span><span class='ec-lmtt-9'>               </span><span style='color:#000000'><span class='ec-lmtt-9'>*</span></span><span style='color:#000000'><span class='ec-lmtt-9'>deleteMe</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>= distrib(gen);</span> 
+</span><span class='label'><a id='x1-4020r16'></a></span><span class='ec-lmtti-10x-x-90'>               </span><span style='color:#000000'><span class='ec-lmtti-10x-x-90'>//</span></span><span style='color:#000000'><span class='ec-lmtti-10x-x-90'>delete</span></span><span style='color:#000000'> <span class='ec-lmtti-10x-x-90'>some memory now</span> 
+</span><span class='label'><a id='x1-4021r17'></a></span><span class='ec-lmtt-9'>               </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>if</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>(*deleteMe &gt; 0)</span> 
+</span><span class='label'><a id='x1-4022r18'></a></span><span class='ec-lmtt-9'>                       </span><span style='color:#000000'><span class='ec-lmtt-9'>delete</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>deleteMe;</span> 
+</span><span class='label'><a id='x1-4023r19'></a></span><span class='ec-lmtt-9'>               </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>else</span></span> 
+<span class='label'><a id='x1-4024r20'></a></span><span class='ec-lmtt-9'>                       </span><span style='color:#000000'><span class='ec-lmtt-9'>deleteLater</span></span><span style='color:#000000'><span class='ec-lmtt-9'>.</span></span><span style='color:#000000'><span class='ec-lmtt-9'>push_back</span></span><span style='color:#000000'><span class='ec-lmtt-9'>(</span></span><span style='color:#000000'><span class='ec-lmtt-9'>deleteMe</span></span><span style='color:#000000'><span class='ec-lmtt-9'>);</span></span> 
+<span class='label'><a id='x1-4025r21'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span> 
+<span class='label'><a id='x1-4026r22'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>shared_ptr</span></span><span style='color:#000000'><span class='ec-lmtt-9'>&lt;</span></span><span style='color:#000000'><span class='ec-lmtt-9'>bool</span></span><span style='color:#000000'><span class='ec-lmtt-9'>&gt;</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>newBool(new bool);</span> 
+</span><span class='label'><a id='x1-4027r23'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>cout</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>&lt;&lt; "Value: "</span></span><span class='ec-lmtt-9'> </span><span style='color:#000000'><span class='ec-lmtt-9'>&lt;&lt;</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>*newBool &lt;&lt; endl;</span> 
+</span><span class='label'><a id='x1-4028r24'></a></span><span class='ec-lmtti-10x-x-90'>        </span><span style='color:#000000'><span class='ec-lmtti-10x-x-90'>//</span></span><span style='color:#000000'><span class='ec-lmtti-10x-x-90'>delete</span></span><span style='color:#000000'> <span class='ec-lmtti-10x-x-90'>some memory later</span> 
+</span><span class='label'><a id='x1-4029r25'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>for</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>(</span><span class='ec-lmtk-10x-x-90'>int </span><span class='ec-lmtt-9'>*n : deleteLater)</span> 
+</span><span class='label'><a id='x1-4030r26'></a></span><span class='ec-lmtt-9'>               </span><span style='color:#000000'><span class='ec-lmtt-9'>delete</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>n;</span> 
+</span><span class='label'><a id='x1-4031r27'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtk-10x-x-90'>return</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>0;</span> 
+</span><span class='label'><a id='x1-4032r28'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>}</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 6: </span><span class='content'>Uninitialized Boolean</span></figcaption><!-- tex4ht:label?: x1-4032r1.3  -->
    
-</div>
+
                                                                                          
                                                                                          
-<!-- l. 99 --><p class='noindent'>
-</p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.4   </span> <a id='x1-50001.4'></a>Inconsistency Can Increase Maintenance Costs</h4>
+   
+<h4 class='subsectionHead' id='inconsistency-can-increase-maintenance-costs'><span class='titlemark'>1.4   </span> <a id='x1-50001.4'></a>Inconsistency Can Increase Maintenance Costs</h4>
 <!-- l. 101 --><p class='noindent'>Consider updated code that uses a multitude of different memory handling methods. Some memory is managed
 manually using <span class='ec-lmtt-10'>malloc </span>and <span class='ec-lmtt-10'>free</span>. Some pass the previous pointer values to smart pointers for their management.
 Others have been updated to use the <span class='ec-lmtt-10'>make_shared </span>construct. Still others have been updated to custom classes and
@@ -306,43 +550,47 @@ structs.
 code increases its complexity. If old memory handling methods cannot be replaced or are not planned to be replaced,
 it may make more sense to stick with confusing (but consistent) code rather than adding additional
 complexity.
-</p><!-- l. 105 --><p class='noindent'>
+
 </p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.5   </span> <a id='x1-60001.5'></a>Smart Pointers and Arrays</h4>
+<h4 class='subsectionHead' id='smart-pointers-and-arrays'><span class='titlemark'>1.5   </span> <a id='x1-60001.5'></a>Smart Pointers and Arrays</h4>
 <!-- l. 107 --><p class='noindent'>Finally, some special considerations are needed for allowing smart pointers to handle arrays. The <span class='ec-lmtt-10'>shared_ptr</span>
 construct permits the developer to define a custom deleter like the one for this array of 10 Booleans:
 </p>   
 <!-- l. 109 -->
-<p><a id='x1-6001r7'></a></p>
-<p><a id='x1-6002'></a></p>   
-<div id='listing-7' class='lstlisting'><span class='label'><a id='x1-6003r1'></a></span><span class='ec-lmtt-9'>shared_ptr&lt;bool&gt; test1{ </span><br /><span class='label'><a id='x1-6004r2'></a></span><span class='ec-lmtt-9'>        new bool[10], [](</span><span class='ec-lmtk-10x-x-90'>const</span><span class='ec-lmtt-9'> bool *ptr) { delete [] ptr; } </span><br /><span class='label'><a id='x1-6005r3'></a></span><span class='ec-lmtt-9'>};</span>
-<figcaption class='caption'><span class='id'>Listing 7:</span><span class='content'>Custom Deleter</span></figcaption><!-- tex4ht:label?: x1-6001r1  -->
+<p><a id='x1-6001r7'></a>   
+</p><pre class='lstlisting' id='listing-7'><span class='label'><a id='x1-6002r1'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>shared_ptr</span></span><span style='color:#000000'><span class='ec-lmtt-9'>&lt;</span></span><span style='color:#000000'><span class='ec-lmtt-9'>bool</span></span><span style='color:#000000'><span class='ec-lmtt-9'>&gt;</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>test1{</span> 
+</span><span class='label'><a id='x1-6003r2'></a></span><span class='ec-lmtt-9'>        </span><span style='color:#000000'><span class='ec-lmtt-9'>new</span></span><span style='color:#000000'> <span class='ec-lmtt-9'>bool[10], [](</span><span class='ec-lmtk-10x-x-90'>const </span><span class='ec-lmtt-9'>bool *ptr) { delete [] ptr; }</span> 
+</span><span class='label'><a id='x1-6004r3'></a></span><span style='color:#000000'><span class='ec-lmtt-9'>};</span></span></pre>
+<figcaption class='caption'><span class='id'>Listing 7: </span><span class='content'>Custom Deleter</span></figcaption><!-- tex4ht:label?: x1-6004r1.5  -->
    
-</div>
-<!-- l. 115 --><p class='noindent'>
-</p>   
-<h4 class='subsectionHead'><span class='titlemark'>1.6   </span> <a id='x1-70001.6'></a>Conclusion</h4>
+
+<h4 class='subsectionHead' id='conclusion'><span class='titlemark'>1.6   </span> <a id='x1-70001.6'></a>Conclusion</h4>
 <!-- l. 117 --><p class='noindent'>Smart pointers and RAII concepts help developers prevent memory errors that can plague software. Updating legacy
 code to RAII concepts can increase its maintainability, usefulness, and security. Nevertheless, updates to the code
 should not come at a price of inconsistency. When updates can only be applied partially or introduce additional
 complexity, consistency should be preferred.
                                                                                          
                                                                                          
+   
+
 </p>   
-<h3 class='sectionHead'><a id='x1-80001.6'></a>References</h3>
-<!-- l. 48 --><p class='noindent'>    
+<h3 class='sectionHead' id='references'><a id='x1-8000'></a>References</h3>
+<!-- l. 52 --><p class='noindent'>    
 </p>
-<dl class='thebibliography'><dt id='X0-swatips' class='thebibliography'>
+<dl class='thebibliography'><dt class='thebibliography' id='X0-swatips'>
 [1]  
-</dt><dd id='bib-1' class='thebibliography'>
-<!-- l. 48 --><p class='noindent'><a id='cite.0@swatips'></a>Jon Hood, ed. SwATips. <a href='https://www.SwATips.com/' class='url'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
+</dt><dd class='thebibliography' id='bib-1'>
+<!-- l. 52 --><p class='noindent'><a id='cite.0_swatips'></a>Jon Hood, ed. <span class='uline'>SwATips</span>. <a class='url' href='https://www.SwATips.com/'><span class='ec-lmtt-10'>https://www.SwATips.com/</span></a>.
 </p>    
 </dd>
-<dt id='X0-20210412:stroustrup2001' class='thebibliography'>
+<dt class='thebibliography' id='X0-20210412_stroustrup2001'>
 [2]  
-</dt><dd id='bib-2' class='thebibliography'>
-<!-- l. 48 --><p class='noindent'><a id='cite.0@20210412:stroustrup2001'></a>Bjarne    Stroustrup.    “Exception    Safety:    Concepts    and    Techniques”.    In:    (2001).    <span class='small-caps'>url</span>:
-<a href='https://www.stroustrup.com/except.pdf' class='url'><span class='ec-lmtt-10'>https://www.stroustrup.com/except.pdf</span></a>.</p></dd></dl>
+</dt><dd class='thebibliography' id='bib-2'>
+<!-- l. 52 --><p class='noindent'><a id='cite.0_20210412_stroustrup2001'></a>Bjarne    Stroustrup.    “Exception    Safety:    Concepts    and    Techniques”.    In:    (2001).    <span class='small-caps'>url</span>:    
+<a class='url' href='https://www.stroustrup.com/except.pdf'><span class='ec-lmtt-10'>https://www.stroustrup.com/except.pdf</span></a>.</p></dd></dl>
  
-</body> 
-</html>
+</article>
+<footer>
+<p>&copy; 2021-2026 Software Assurance Tips. Some rights reserved. Please see the terms of the Creative Commons Attribution license.</p>
+</footer>
+</div>
