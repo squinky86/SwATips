@@ -119,6 +119,52 @@
 				padding: 20px;
 			}
 		}
+
+		.year-group {
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ffffff;
+        }
+
+        .year-group summary {
+            background: #f0f2f9;
+            padding: 15px 20px;
+            font-size: 1.5em;
+            font-weight: 700;
+            cursor: pointer;
+            outline: none;
+            color: #333;
+            border-bottom: 1px solid #e0e0e0;
+            transition: background 0.3s ease;
+        }
+
+        .year-group summary:hover {
+            background: #e0e2e9;
+        }
+
+        .year-group summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .year-group[open] summary {
+            background: #e0e2e9;
+            border-bottom-color: #d0d2d9;
+        }
+
+        .year-group ul {
+            padding: 20px;
+        }
+
+        .year-group ul li {
+            background: #ffffff;
+            border-left-color: #5a67d8;
+        }
+
+        .year-group ul li:hover {
+            background: #f8f9fa;
+        }
 	</style>
 </head>
 <body>
@@ -129,9 +175,40 @@
 			<p>Complete collection of all published articles</p>
 		</header>
 		<main>
-			<ul>
-				<?PHP require('articles-full.inc'); ?>
-			</ul>
+			<?PHP
+				$articlesContent = file_get_contents('articles-full.inc');
+				$articles = explode("</li>", $articlesContent);
+				array_pop($articles); // Remove the last empty element
+
+				$articlesByYear = [];
+				foreach ($articles as $article) {
+					$article = trim($article);
+					if (preg_match('/^<li>(\d{8}) - <a href="(articles\/\d{8}\.html)">([^<]+)<\/a>$/', $article, $matches)) {
+						$datestamp = $matches[1];
+						$year = substr($datestamp, 0, 4);
+						$monthDay = date('M d', strtotime($datestamp));
+						$link = $matches[2];
+						$title = $matches[3];
+						$articlesByYear[$year][] = "<li>$monthDay - <a href=\"$link\">$title</a></li>";
+					}
+				}
+
+				krsort($articlesByYear); // Sort years in descending order
+
+				$currentYear = date('Y');
+
+				foreach ($articlesByYear as $year => $articles) {
+					$expanded = ($year == $currentYear) ? 'open' : '';
+					echo "<details class=\"year-group\" $expanded>";
+					echo "<summary>$year</summary>";
+					echo "<ul>";
+					foreach ($articles as $article) {
+						echo $article;
+					}
+					echo "</ul>";
+					echo "</details>";
+				}
+			?>
 		</main>
 		<footer>
 			<p>&copy; 2021-2026 Software Assurance Tips. Some rights reserved. Please see the terms of the Creative Commons Attribution license.</p>
