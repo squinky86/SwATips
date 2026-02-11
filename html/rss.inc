@@ -1,8 +1,9 @@
-	<item>
-		<title>Unsafe at Any Speed: The Designed-In Dangers of DevSecOps</title>
-		<link>https://www.SwATips.com/articles/20260126.html</link>
-		<pubDate>Mon, 26 Jan 2026 00:00:00 -0600</pubDate>
+<item>
+<title>Unsafe at Any Speed: The Designed-In Dangers of DevSecOps</title>
+<link>https://www.SwATips.com/articles/20260126.html</link>
+<pubDate>Mon, 26 Jan 2026 00:00:00 -0600</pubDate>
 <description><![CDATA[
+
 <div class="article-meta" style="margin: 0; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-top: 1px solid #e0e0e0; font-size: 0.95em;">
   <div class="home-link" style="margin: 0; padding: 0; box-sizing: border-box; display: inline-flex; align-items: center; gap: 5px;">
     <a href="../index.php" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">← Back to Home</a>
@@ -31,7 +32,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="margin: 0; pad
    
 
 <h3 class="sectionHead" id="unsafe-at-any-speed-the-designedin-dangers-of-devsecops" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.3em;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1   </span> <a id="x1-10001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Unsafe at Any Speed: The Designed-In Dangers of DevSecOps</h3>
-<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Tuesday 27</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> January, 2026</span>
+<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Wednesday 11</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> February, 2026</span>
 
 </p>   
 <h4 class="subsectionHead" id="introduction" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1.1   </span> <a id="x1-20001.1" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Introduction</h4>
@@ -211,14 +212,14 @@ Military Brass”. In: (Sept. 2025). <span class="small-caps" style="margin: 0; 
 </dt><dd class="thebibliography" id="bib-7" style="margin: 0; padding: 0; box-sizing: border-box;">
 <!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260126_vought" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Russell Vought. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Adopting a Risk-based Approach to Software and Hardware Security</span>. 2026. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: 
 <a class="url" href="https://www.whitehouse.gov/wp-content/uploads/2026/01/M-26-05-Adopting-a-Risk-based-Approach-to-Software-and-Hardware-Security.pdf" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://www.whitehouse.gov/wp-content/uploads/2026/01/M-26-05-Adopting-a-Risk-based-Approach-to-Software-and-Hardware-Security.pdf</span></a>.</p></dd></dl>
- 
-]]></description>
-	</item>
-	<item>
-		<title>The -Wall GCC Flag and CWE-457: Why -Wall Does Not Offer Sufficient Protection Against Uninitialized Variables</title>
-		<link>https://www.SwATips.com/articles/20250707.html</link>
-		<pubDate>Mon, 07 Jul 2025 00:00:00 -0500</pubDate>
+ ]]></description>
+</item>
+<item>
+<title>The -Wall GCC Flag and CWE-457: Why -Wall Does Not Offer Sufficient Protection Against Uninitialized Variables</title>
+<link>https://www.SwATips.com/articles/20250707.html</link>
+<pubDate>Mon, 07 Jul 2025 00:00:00 -0500</pubDate>
 <description><![CDATA[
+
 <div class="article-meta" style="margin: 0; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-top: 1px solid #e0e0e0; font-size: 0.95em;">
   <div class="home-link" style="margin: 0; padding: 0; box-sizing: border-box; display: inline-flex; align-items: center; gap: 5px;">
     <a href="../index.php" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">← Back to Home</a>
@@ -248,7 +249,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="margin: 0; pad
 
 <h3 class="sectionHead" id="the-wall-gcc-flag-and-cwe-why-wall-does-not-offer-sufficient-protection-against-uninitialized-variables" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.3em;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1   </span> <a id="x1-10001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>The -Wall GCC Flag and CWE-457: Why -Wall Does Not Offer Sufficient Protection Against Uninitialized
 Variables</h3>
-<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Tuesday 27</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> January, 2026</span>
+<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Wednesday 11</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> February, 2026</span>
 
 </p>   
 <h4 class="subsectionHead" id="introduction" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1.1   </span> <a id="x1-20001.1" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Introduction</h4>
@@ -395,14 +396,14 @@ issue.
 [2]  
 </dt><dd class="thebibliography" id="bib-2" style="margin: 0; padding: 0; box-sizing: border-box;">
 <!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_swatips" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Jon Hood, ed. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://www.SwATips.com/</span></a>.</p></dd></dl>
- 
-]]></description>
-	</item>
-	<item>
-		<title>Leaking Through the Cracks: Rust's Soft Memory Shell</title>
-		<link>https://www.SwATips.com/articles/20250512.html</link>
-		<pubDate>Mon, 12 May 2025 00:00:00 -0500</pubDate>
+ ]]></description>
+</item>
+<item>
+<title>Leaking Through the Cracks: Rust's Soft Memory Shell</title>
+<link>https://www.SwATips.com/articles/20250512.html</link>
+<pubDate>Mon, 12 May 2025 00:00:00 -0500</pubDate>
 <description><![CDATA[
+
 <div class="article-meta" style="margin: 0; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-top: 1px solid #e0e0e0; font-size: 0.95em;">
   <div class="home-link" style="margin: 0; padding: 0; box-sizing: border-box; display: inline-flex; align-items: center; gap: 5px;">
     <a href="../index.php" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">← Back to Home</a>
@@ -431,7 +432,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="margin: 0; pad
    
 
 <h3 class="sectionHead" id="leaking-through-the-cracks-rusts-soft-memory-shell" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.3em;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1   </span> <a id="x1-10001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Leaking Through the Cracks: Rust’s Soft Memory Shell</h3>
-<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Tuesday 27</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> January, 2026</span>
+<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Wednesday 11</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> February, 2026</span>
 </p><!-- l. 1 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   Last year, Cybersecurity leadership in the U.S. encouraged organizations to use memory-safe programming
 languages. I criticized the blanket recommendation[<a id="x1-1001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20250512_hood2" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">2</a>] as a partial solution for a more serious underlying concern in
 developer training, citing the problems faced with legacy Ada code[<a id="x1-1002" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20250512_hood" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">1</a>, <a id="x1-1003" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20250512_keen" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">4</a>]. Recently, I have had the privilege of sitting
@@ -579,14 +580,14 @@ dangerous in the long run.
 </dt><dd class="thebibliography" id="bib-4" style="margin: 0; padding: 0; box-sizing: border-box;">
 <!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20250512_keen" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Kevin    Keen.    “Ada    <span class="sout" style="margin: 0; padding: 0; box-sizing: border-box;">Low</span>High    Integrity    Profiles”.    In:    <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">SwATips.com</span>    (2021).    <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>:    
 <a class="url" href="https://www.swatips.com/articles/20210809.html" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://www.swatips.com/articles/20210809.html</span></a>.</p></dd></dl>
- 
-]]></description>
-	</item>
-	<item>
-		<title>Defensive Development Plans</title>
-		<link>https://www.SwATips.com/articles/20250127.html</link>
-		<pubDate>Mon, 27 Jan 2025 00:00:00 -0600</pubDate>
+ ]]></description>
+</item>
+<item>
+<title>Defensive Development Plans</title>
+<link>https://www.SwATips.com/articles/20250127.html</link>
+<pubDate>Mon, 27 Jan 2025 00:00:00 -0600</pubDate>
 <description><![CDATA[
+
 <div class="article-meta" style="margin: 0; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-top: 1px solid #e0e0e0; font-size: 0.95em;">
   <div class="home-link" style="margin: 0; padding: 0; box-sizing: border-box; display: inline-flex; align-items: center; gap: 5px;">
     <a href="../index.php" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">← Back to Home</a>
@@ -615,7 +616,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="margin: 0; pad
    
 
 <h3 class="sectionHead" id="defensive-development-plans" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.3em;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1   </span> <a id="x1-10001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Defensive Development Plans</h3>
-<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Tuesday 27</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> January, 2026</span>
+<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Wednesday 11</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> February, 2026</span>
 </p><!-- l. 1 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   A Software Development Plan should be well-structured and implement secure principles for the lifecycle of a
 software product. The plan should be rigid in the areas of security while remaining flexible to changing
 threats and discoveries. When security needs change, a robust change management board can make sure
@@ -795,14 +796,14 @@ enforcement.
 [1]  
 </dt><dd class="thebibliography" id="bib-1" style="margin: 0; padding: 0; box-sizing: border-box;">
 <!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_swatips" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Jon Hood, ed. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://www.SwATips.com/</span></a>.</p></dd></dl>
- 
-]]></description>
-	</item>
-	<item>
-		<title>Fuzzy Coverage</title>
-		<link>https://www.SwATips.com/articles/20241118.html</link>
-		<pubDate>Mon, 18 Nov 2024 00:00:00 -0600</pubDate>
+ ]]></description>
+</item>
+<item>
+<title>Fuzzy Coverage</title>
+<link>https://www.SwATips.com/articles/20241118.html</link>
+<pubDate>Mon, 18 Nov 2024 00:00:00 -0600</pubDate>
 <description><![CDATA[
+
 <div class="article-meta" style="margin: 0; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-top: 1px solid #e0e0e0; font-size: 0.95em;">
   <div class="home-link" style="margin: 0; padding: 0; box-sizing: border-box; display: inline-flex; align-items: center; gap: 5px;">
     <a href="../index.php" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">← Back to Home</a>
@@ -831,7 +832,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="margin: 0; pad
    
 
 <h3 class="sectionHead" id="fuzzy-coverage" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.3em;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1   </span> <a id="x1-10001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Fuzzy Coverage</h3>
-<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Tuesday 27</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> January, 2026</span>
+<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Wednesday 11</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> February, 2026</span>
 </p><!-- l. 1 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   One of the questions we get asked frequently is, “How much fuzzing is enough?” This question is usually
 derived from a DoD mentality of checking the box on cybersecurity activities. With Security Technical
 Implementation Guides (STIGs), IAVMs, and RMF Control checklists, cybersecurity practitioners
@@ -892,12 +893,12 @@ requirements.”
 </p>   
 <h4 class="likesubsectionHead" id="summary" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><a id="x1-2000" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Summary</h4>
 <!-- l. 26 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">Remember the misconceptions of fuzzing: </p>
-<ul class="itemize1" style="margin: 0; padding: 0; box-sizing: border-box; margin-left: 2em; margin-bottom: 1em;">     
-<li class="itemize" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 0.5em;">The lack of findings from fuzzing does not indicate the absence of defects.
+<ul class="itemize1" style="margin: 0; padding: 0; box-sizing: border-box; list-style: none; margin-left: 2em; margin-bottom: 1em;">     
+<li class="itemize" style="margin: 0; box-sizing: border-box; margin-bottom: 0.5em; padding: 0; background: none; border-left: none; border-radius: 0; transition: none;">The lack of findings from fuzzing does not indicate the absence of defects.
 </li>
-<li class="itemize" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 0.5em;">No amount of fuzzing is “enough.”
+<li class="itemize" style="margin: 0; box-sizing: border-box; margin-bottom: 0.5em; padding: 0; background: none; border-left: none; border-radius: 0; transition: none;">No amount of fuzzing is “enough.”
 </li>
-<li class="itemize" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 0.5em;">Code coverage is not a meaningful metric for fuzz test completion.</li></ul>
+<li class="itemize" style="margin: 0; box-sizing: border-box; margin-bottom: 0.5em; padding: 0; background: none; border-left: none; border-radius: 0; transition: none;">Code coverage is not a meaningful metric for fuzz test completion.</li></ul>
 <!-- l. 33 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   The right fuzzing program is the one still running against critically important code.
                                                                                          
                                                                                          
@@ -936,14 +937,14 @@ Revision 5. Washington, D.C.: U.S. Department of Commerce, 2020. <span class="sm
 <!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20241118_wikifuzzing" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Wikipedia
 contributors. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Fuzzing — Wikipedia, The Free Encyclopedia</span>. [Online; accessed 18-November-2024]. 2024.
 <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://en.wikipedia.org/w/index.php?title=Fuzzing&amp;oldid=1249540069" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://en.wikipedia.org/w/index.php?title=Fuzzing&amp;oldid=1249540069</span></a>.</p></dd></dl>
- 
-]]></description>
-	</item>
-	<item>
-		<title>Back to the Building Blocks: Codifying Complacency</title>
-		<link>https://www.SwATips.com/articles/20240902.html</link>
-		<pubDate>Mon, 02 Sep 2024 00:00:00 -0500</pubDate>
+ ]]></description>
+</item>
+<item>
+<title>Back to the Building Blocks: Codifying Complacency</title>
+<link>https://www.SwATips.com/articles/20240902.html</link>
+<pubDate>Mon, 02 Sep 2024 00:00:00 -0500</pubDate>
 <description><![CDATA[
+
 <div class="article-meta" style="margin: 0; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-top: 1px solid #e0e0e0; font-size: 0.95em;">
   <div class="home-link" style="margin: 0; padding: 0; box-sizing: border-box; display: inline-flex; align-items: center; gap: 5px;">
     <a href="../index.php" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">← Back to Home</a>
@@ -972,7 +973,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="margin: 0; pad
    
 
 <h3 class="sectionHead" id="back-to-the-building-blocks-codifying-complacency" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.3em;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1   </span> <a id="x1-10001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Back to the Building Blocks: Codifying Complacency</h3>
-<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Tuesday 27</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> January, 2026</span>
+<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Wednesday 11</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> February, 2026</span>
 </p><!-- l. 1 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   In February, the National Cyber Director, Harry Coker, presented the White House’s strategy for combating
 cyber threats. Included in this strategy, the White House instructed technical practitioners to heed reports such as
 <i style="margin: 0; padding: 0; box-sizing: border-box;">Back to the Building Blocks: A Path Toward Secure and Measurable Software</i>.[<a id="x1-1001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20240902_coker" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">1</a>]
@@ -1056,14 +1057,14 @@ House.
 <!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20240902_whitehouse" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>The White House. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Back to the Building Blocks. A Path Toward Secure and Measurable Software</span>. 2024.
 <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>:                                                                                                                                 
 <a class="url" href="https://www.whitehouse.gov/wp-content/uploads/2024/02/Final-ONCD-Technical-Report.pdf" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://www.whitehouse.gov/wp-content/uploads/2024/02/Final-ONCD-Technical-Report.pdf</span></a>.</p></dd></dl>
- 
-]]></description>
-	</item>
-	<item>
-		<title>The Zero Trust Paradox: Second Guessing the Good Guys</title>
-		<link>https://www.SwATips.com/articles/20240610.html</link>
-		<pubDate>Mon, 10 Jun 2024 00:00:00 -0500</pubDate>
+ ]]></description>
+</item>
+<item>
+<title>The Zero Trust Paradox: Second Guessing the Good Guys</title>
+<link>https://www.SwATips.com/articles/20240610.html</link>
+<pubDate>Mon, 10 Jun 2024 00:00:00 -0500</pubDate>
 <description><![CDATA[
+
 <div class="article-meta" style="margin: 0; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-top: 1px solid #e0e0e0; font-size: 0.95em;">
   <div class="home-link" style="margin: 0; padding: 0; box-sizing: border-box; display: inline-flex; align-items: center; gap: 5px;">
     <a href="../index.php" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">← Back to Home</a>
@@ -1092,7 +1093,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="margin: 0; pad
    
 
 <h3 class="sectionHead" id="the-zero-trust-paradox-second-guessing-the-good-guys" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.3em;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1   </span> <a id="x1-10001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>The Zero Trust Paradox: Second Guessing the Good Guys</h3>
-<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Tuesday 27</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> January, 2026</span>
+<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Wednesday 11</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> February, 2026</span>
 </p><!-- l. 1 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   In February, the DoD CIO issued RMF security control guidance intending to be a starting point for programs
 “required to implement zero trust within the DoD.’’[<a id="x1-1001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20240610_cio" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">5</a>, p. 2] These security controls, when properly implemented,
 can help monitor for threats, conduct continuous assessments, automate the security posture evaluations of
@@ -1104,16 +1105,16 @@ follow.
 </p><!-- l. 3 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   But what happens when the assessment data itself is bad? Though these are not tied to individual systems, the
 following issues have been observed:
 </p>     
-<ul class="itemize1" style="margin: 0; padding: 0; box-sizing: border-box; margin-left: 2em; margin-bottom: 1em;">
-<li class="itemize" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 0.5em;">One organization scanned their software with a custom Fortify rulepack that suppressed or omitted
+<ul class="itemize1" style="margin: 0; padding: 0; box-sizing: border-box; list-style: none; margin-left: 2em; margin-bottom: 1em;">
+<li class="itemize" style="margin: 0; box-sizing: border-box; margin-bottom: 0.5em; padding: 0; background: none; border-left: none; border-radius: 0; transition: none;">One organization scanned their software with a custom Fortify rulepack that suppressed or omitted
 most rules.
 </li>
-<li class="itemize" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 0.5em;">Another organization used SonarQube to scan Ada code, a language not supported by the tool.
+<li class="itemize" style="margin: 0; box-sizing: border-box; margin-bottom: 0.5em; padding: 0; background: none; border-left: none; border-radius: 0; transition: none;">Another organization used SonarQube to scan Ada code, a language not supported by the tool.
 </li>
-<li class="itemize" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 0.5em;">A command created a process to do a scan with Coverity, then promptly deleted the results without
+<li class="itemize" style="margin: 0; box-sizing: border-box; margin-bottom: 0.5em; padding: 0; background: none; border-left: none; border-radius: 0; transition: none;">A command created a process to do a scan with Coverity, then promptly deleted the results without
 ever looking at them.
 </li>
-<li class="itemize" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 0.5em;">Enterprise software received an Assess Only assessment approval with the assessment, “The software
+<li class="itemize" style="margin: 0; box-sizing: border-box; margin-bottom: 0.5em; padding: 0; background: none; border-left: none; border-radius: 0; transition: none;">Enterprise software received an Assess Only assessment approval with the assessment, “The software
 was not available for review, so no issues are identified.”</li></ul>
 <!-- l. 12 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   This begs the question that is referred to here as the Zero Trust Paradox. If you trust your implementation of
 Zero Trust controls, you have failed to implement the key tenet of Zero Trust: its namesake, <i style="margin: 0; padding: 0; box-sizing: border-box;">Zero
@@ -1189,14 +1190,14 @@ it—trust me!
 </dt><dd class="thebibliography" id="bib-5" style="margin: 0; padding: 0; box-sizing: border-box;">
 <!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20240610_cio" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Office  of  the  Chief  Information  Officer.  <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Department  of  Defense  Zero  Trust  Overlays</span>.  2024.  <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>:  
 <a class="url" href="https://dodcio.defense.gov/Portals/0/Documents/Library/ZeroTrustOverlays-2024Feb.pdf" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://dodcio.defense.gov/Portals/0/Documents/Library/ZeroTrustOverlays-2024Feb.pdf</span></a>.</p></dd></dl>
- 
-]]></description>
-	</item>
-	<item>
-		<title>Sorry Root, You're Not the Boss of Me!</title>
-		<link>https://www.SwATips.com/articles/20240527.html</link>
-		<pubDate>Mon, 27 May 2024 00:00:00 -0500</pubDate>
+ ]]></description>
+</item>
+<item>
+<title>Sorry Root, You're Not the Boss of Me!</title>
+<link>https://www.SwATips.com/articles/20240527.html</link>
+<pubDate>Mon, 27 May 2024 00:00:00 -0500</pubDate>
 <description><![CDATA[
+
 <div class="article-meta" style="margin: 0; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-top: 1px solid #e0e0e0; font-size: 0.95em;">
   <div class="home-link" style="margin: 0; padding: 0; box-sizing: border-box; display: inline-flex; align-items: center; gap: 5px;">
     <a href="../index.php" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">← Back to Home</a>
@@ -1225,7 +1226,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="margin: 0; pad
    
 
 <h3 class="sectionHead" id="sorry-root-youre-not-the-boss-of-me" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.3em;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1   </span> <a id="x1-10001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Sorry Root, You’re Not the Boss of Me!</h3>
-<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Tuesday 27</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> January, 2026</span>
+<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Wednesday 11</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> February, 2026</span>
 </p><!-- l. 1 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   In most Unix-like systems like Linux, the root user can do anything it wants. Everyone knows this. If root wants
 to edit a file, that file will say whatever root wants it to. If root wants to delete everything inside a
 directory, that directory is toast. Sure, maybe there are some weird hardware things a super-smart
@@ -1279,14 +1280,14 @@ worked!
 [2]  
 </dt><dd class="thebibliography" id="bib-2" style="margin: 0; padding: 0; box-sizing: border-box;">
 <!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_swatips" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Jon Hood, ed. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://www.SwATips.com/</span></a>.</p></dd></dl>
- 
-]]></description>
-	</item>
-	<item>
-		<title>Assess Only v. Assess and Authorize</title>
-		<link>https://www.SwATips.com/articles/20240212.html</link>
-		<pubDate>Mon, 12 Feb 2024 00:00:00 -0600</pubDate>
+ ]]></description>
+</item>
+<item>
+<title>Assess Only v. Assess and Authorize</title>
+<link>https://www.SwATips.com/articles/20240212.html</link>
+<pubDate>Mon, 12 Feb 2024 00:00:00 -0600</pubDate>
 <description><![CDATA[
+
 <div class="article-meta" style="margin: 0; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-top: 1px solid #e0e0e0; font-size: 0.95em;">
   <div class="home-link" style="margin: 0; padding: 0; box-sizing: border-box; display: inline-flex; align-items: center; gap: 5px;">
     <a href="../index.php" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">← Back to Home</a>
@@ -1315,7 +1316,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="margin: 0; pad
    
 
 <h3 class="sectionHead" id="assess-only-v-assess-and-authorize" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.3em;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1   </span> <a id="x1-10001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Assess Only v. Assess and Authorize</h3>
-<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Tuesday 27</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> January, 2026</span>
+<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Wednesday 11</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> February, 2026</span>
 </p><!-- l. 1 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   A trend we have been seeing lately in the DoD is the misuse of the Assess Only framework. The Assess Only
 process was created to provide a way of assessing unique technologies below the system level which do not require an
 authorization like an Authority to Operate, Authority to Connect, Authority to Test, or their interim kin (ATO,
@@ -1474,14 +1475,14 @@ Revision 2. Washington, D.C.: U.S. Department of Commerce, 2018. <span class="sm
 </dt><dd class="thebibliography" id="bib-7" style="margin: 0; padding: 0; box-sizing: border-box;">
 <!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20240212_vaglia2017" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Laura Vaglia and Jey Castleberry. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Facility Related Control System Inventory</span>. Tech. rep. 2017. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: 
 <a class="url" href="https://usarsustainabilitydotcom.files.wordpress.com/2017/12/facility-related-control-system-inventory.pdf" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://usarsustainabilitydotcom.files.wordpress.com/2017/12/facility-related-control-system-inventory.pdf</span></a>.</p></dd></dl>
- 
-]]></description>
-	</item>
-	<item>
-		<title>A History of Verification, Validation, and Code Scanning</title>
-		<link>https://www.SwATips.com/articles/20230918.html</link>
-		<pubDate>Mon, 18 Sep 2023 00:00:00 -0500</pubDate>
+ ]]></description>
+</item>
+<item>
+<title>A History of Verification, Validation, and Code Scanning</title>
+<link>https://www.SwATips.com/articles/20230918.html</link>
+<pubDate>Mon, 18 Sep 2023 00:00:00 -0500</pubDate>
 <description><![CDATA[
+
 <div class="article-meta" style="margin: 0; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-top: 1px solid #e0e0e0; font-size: 0.95em;">
   <div class="home-link" style="margin: 0; padding: 0; box-sizing: border-box; display: inline-flex; align-items: center; gap: 5px;">
     <a href="../index.php" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">← Back to Home</a>
@@ -1510,7 +1511,7 @@ A product of the Software Assurance Tips Team[<a id="x1-3" style="margin: 0; pad
    
 
 <h3 class="sectionHead" id="a-history-of-verification-validation-and-code-scanning" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.3em;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1   </span> <a id="x1-10001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>A History of Verification, Validation, and Code Scanning</h3>
-<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Tuesday 27</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> January, 2026</span>
+<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Wednesday 11</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> February, 2026</span>
 </p><!-- l. 1 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   One of the DoD and NASA trends we have seen lately is the confusion of functional VV&amp;A with
 cybersecurity tasks. The blurring of these two distinct efforts from organizations implementing an
 IV&amp;V program and a cybersecurity program can cause collisions with the definitions of what is being
@@ -1529,15 +1530,15 @@ perspective has the goal of verifying the integrity of the logic that goes into 
 module.
 </p><!-- l. 8 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   This ties into the current DoD VV&amp;A process for Verification, Validation, and Accreditation in DoD Instruction
 5000.61. These are defined as:[<a id="x1-2002" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20230918_dodi500061" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">2</a>] </p>
-<ul class="itemize1" style="margin: 0; padding: 0; box-sizing: border-box; margin-left: 2em; margin-bottom: 1em;">     
-<li class="itemize" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 0.5em;"><i style="margin: 0; padding: 0; box-sizing: border-box;">Verification</i>—The process of determining that a model or simulation implementation and its associated
+<ul class="itemize1" style="margin: 0; padding: 0; box-sizing: border-box; list-style: none; margin-left: 2em; margin-bottom: 1em;">     
+<li class="itemize" style="margin: 0; box-sizing: border-box; margin-bottom: 0.5em; padding: 0; background: none; border-left: none; border-radius: 0; transition: none;"><i style="margin: 0; padding: 0; box-sizing: border-box;">Verification</i>—The process of determining that a model or simulation implementation and its associated
 data accurately represent the developer’s conceptual description and specifications.
 </li>
-<li class="itemize" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 0.5em;"><i style="margin: 0; padding: 0; box-sizing: border-box;">Validation</i>—The process of determining the degree to which a model or simulation and its associated
+<li class="itemize" style="margin: 0; box-sizing: border-box; margin-bottom: 0.5em; padding: 0; background: none; border-left: none; border-radius: 0; transition: none;"><i style="margin: 0; padding: 0; box-sizing: border-box;">Validation</i>—The process of determining the degree to which a model or simulation and its associated
 data are an accurate representation of the real world from the perspective of the intended uses of the
 model.
 </li>
-<li class="itemize" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 0.5em;"><i style="margin: 0; padding: 0; box-sizing: border-box;">Accreditation</i>—The  official  certification  that  a  model  or  simulation  and  its  associated  data  are
+<li class="itemize" style="margin: 0; box-sizing: border-box; margin-bottom: 0.5em; padding: 0; background: none; border-left: none; border-radius: 0; transition: none;"><i style="margin: 0; padding: 0; box-sizing: border-box;">Accreditation</i>—The  official  certification  that  a  model  or  simulation  and  its  associated  data  are
 acceptable for use for a specific purpose.</li></ul>
 <!-- l. 15 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   One way to accomplish these goals is by implementing IEEE 1012, the IEEE Standard for System, Software, and
 Hardware Verification and Validation. This lays out the purpose of V&amp;V: “to help the organization build quality
@@ -1682,6 +1683,5 @@ Revision 5. Washington, D.C.: U.S. Department of Commerce, 2020. <span class="sm
                                                                                          
                                                                                          
    
- 
-]]></description>
-	</item>
+ ]]></description>
+</item>

@@ -11,14 +11,10 @@ AUTOADD=false
 # Dependency Variables
 BIBER=1
 GIT=1
-KPSEWHICH=1
 LATEXMK=1
 LUALATEX=1
 LUAOTFLOAD=1
 JUICE=1
-
-# Latex Package Dependencies
-SCANNEDPACKAGES=()
 
 # Article List
 ARTICLES=()
@@ -31,65 +27,120 @@ fi
 function check() {
 	if [ $1 -gt 0 ]; then
 		echo -n "Checking for $2..."
-		checkCommand $2 "e"
-		RET=$?
-		if [ $RET -gt 0 ]; then
+		if ! command -v $2 > /dev/null 2>&1; then
+			echo "Please install $2."
 			exit 1
 		fi
 		echo "OK!"
-		if [ ! -z "${3}" ]; then
+		if [ -n "${3}" ]; then
 			echo "${3}=0" >> build.sh.cache
 		fi
-		return $RET
 	fi
 	return 0
-}
-
-function scanHeader() {
-	if [[ " ${SCANNEDPACKAGES[@]} " =~ " ${1} " ]]; then
-		return 0
-	fi
-	SCANNEDPACKAGES+=( $1 )
-	check "$KPSEWHICH" "kpsewhich" "KPSEWHICH"
-	KPSEWHICH=$?
-	echo -n "Checking for ${1}.sty..."
-	kpsewhich ${1}.sty > /dev/null 2>&1
-	if [ $? -gt 0 ]; then
-		echo "Please install the LaTeX package corresponding to ${1}.sty."
-		exit 1
-	fi
-	echo "SCANNEDPACKAGES+=( \"${1}\" )" >> build.sh.cache
-	echo "OK!"
-	return 0
-}
-
-function findPackages() {
-	#get dependencies
-	if [ -f "${1}.tex" ]; then
-		for x in `grep '^\\\\usepackage\|^\\\\RequirePackage' ${1}.tex | sed -e 's:^.*{\(.*\)}$:\1:g'`; do
-			scanHeader "${x}"
-		done
-	fi
-	if [ -f "${1}.pre" ]; then
-	for x in `grep '^\\\\usepackage\|^\\\\RequirePackage' ${1}.pre | sed -e 's:^.*{\(.*\)}$:\1:g'`; do
-			scanHeader "${x}"
-		done
-	fi
 }
 
 function lmk() {
 	latexmk -quiet -e '$biber='"'"'biber --isbn-normalise %O %S'"'" -pdflatex=lualatex -pdf $1
 }
 
-function checkCommand() {
-	if ! command -v $1 > /dev/null 2>&1; then
-		echo "Please install $1."
-		if [ "$2" != "e" ]; then
-			exit 1
+function build_article() {
+	local NUM=$1
+	local TMPDIR=$(mktemp -d)
+	local ARTICLENAME="UNKNOWN"
+	cp templates/article.tex templates/sources.bib templates/listings-rust.sty ${TMPDIR}/
+	cp templates/article.html ${TMPDIR}/article_template.html
+	cp tips/${NUM}.* ${TMPDIR}/
+	ARTICLENAME=$(grep ArticleName ${TMPDIR}/${NUM}.pre | sed -e 's:\\sout{\([^}]*\)}:<del>\1</del>:g' | sed -e 's:\\def \\ArticleName{::g' -e 's:}::g' -e 's:\\::g')
+	echo "${ARTICLENAME}" > html/articles/${NUM}.meta
+	if [ ! -f "html/articles/${NUM}.pdf" ] || [ $REBUILD == true ]; then
+		pushd ${TMPDIR} > /dev/null
+		sed -i -e "s:NUM:${NUM}:g" article.tex
+		sed -i -e "s:NUM:${NUM}:g" article_template.html
+		lmk article >/dev/null 2>&1
+		if [ $HTML == true ]; then
+			make4ht -l article "fn-in,svg" >/dev/null 2>&1
+			if [ ! -f article.html ] || [ ! -f article.css ]; then
+				echo "Error: make4ht failed to generate article.html or article.css for ${NUM}"
+				popd >/dev/null
+				rm -rf ${TMPDIR}
+				return 1
+			fi
+			cat <<-HTMLHEAD > ${NUM}.html
+			<!DOCTYPE html>
+			<html xml:lang='en-US' lang='en-US'>
+			<head>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>${ARTICLENAME}</title>
+			<link rel="stylesheet" href="../styles.css">
+			<script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130" crossorigin="anonymous"></script>
+			<style>
+			HTMLHEAD
+			cat article.css >> ${NUM}.html
+			cat <<-HTMLBODY >> ${NUM}.html
+			</style>
+			</head>
+			<body>
+			<div class="container">
+			<article>
+			HTMLBODY
+			cat article_template.html >> ${NUM}.html
+			sed -n '/<body/,/<\/body>/p' article.html | sed -e '1d;$d' >> ${NUM}.html
+			cat <<-HTMLFOOT >> ${NUM}.html
+			</article>
+			<footer>
+			<p>&copy; 2021-2026 Software Assurance Tips. Some rights reserved. Please see the terms of the Creative Commons Attribution license.</p>
+			</footer>
+			</div>
+			HTMLFOOT
+			#copy images
+			mkdir images
+			local i=0
+			for ext in svg png; do
+				if compgen -G "*.${ext}" > /dev/null; then
+					for x in *.${ext}; do
+						if [ "${ext}" = "svg" ] && [ -f "${x/.svg/.png}" ]; then
+							rm ${x/.svg/.png}
+						fi
+						((i=i+1))
+						local NEWNAME="images/${NUM}-${i}.${ext}"
+						cp ${x} ${NEWNAME}
+						sed -i -e "s:${x}:${NEWNAME}:g" ${NUM}.html
+					done
+				fi
+			done
 		fi
-		return 1
+		if [ -f "${NUM}.post" ]; then
+			. ${NUM}.post
+		fi
+		popd >/dev/null
+		cp ${TMPDIR}/article.pdf html/articles/${NUM}.pdf
+		if [ ${AUTOADD} == true ]; then
+			git ls-files --error-unmatch html/articles/${NUM}.pdf > /dev/null 2>&1 || git add html/articles/${NUM}.pdf > /dev/null
+		fi
+		if [ $HTML == true ]; then
+			cp ${TMPDIR}/${NUM}.html html/articles/
+			for ext in svg png; do
+				if compgen -G "${TMPDIR}/images/*.${ext}" > /dev/null; then
+					cp ${TMPDIR}/images/*.${ext} html/articles/images/
+				fi
+			done
+			if [ ${AUTOADD} == true ]; then
+				git ls-files --error-unmatch html/articles/${NUM}.html >/dev/null 2>&1 || git add html/articles/${NUM}.html > /dev/null
+				for ext in svg png; do
+					if compgen -G "html/articles/images/${NUM}-*.${ext}" > /dev/null; then
+						for x in html/articles/images/${NUM}-*.${ext}; do
+							git ls-files --error-unmatch ${x} >/dev/null 2>&1 || git add ${x} > /dev/null
+						done
+					fi
+				done
+			fi
+		fi
+		echo "Built ${NUM}."
+	else
+		echo "Already built ${NUM}."
 	fi
-	return 0
+	rm -rf ${TMPDIR}
 }
 
 if [ $# -gt 0 ]; then
@@ -156,145 +207,71 @@ if [ $PDF == true ]; then
 	echo -n "" > html/articles.inc
 	echo -n "" > html/articles-full.inc
 	echo -n "" > html/rss.inc
-	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" > html/sitemap.xml
-	echo "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">" >> html/sitemap.xml
-	echo "<url>" >> html/sitemap.xml
-	echo -e "\t<loc>https://www.SwATips.com/</loc>" >> html/sitemap.xml
-	echo -e "\t<lastmod>$(date -Iseconds)</lastmod>" >> html/sitemap.xml
-	echo "</url>" >> html/sitemap.xml
-	echo "<url>" >> html/sitemap.xml
-	echo -e "\t<loc>https://www.SwATips.com/articles.php</loc>" >> html/sitemap.xml
-	echo -e "\t<lastmod>$(date -Iseconds)</lastmod>" >> html/sitemap.xml
-	echo "</url>" >> html/sitemap.xml
+	cat <<-SITEMAP > html/sitemap.xml
+	<?xml version="1.0" encoding="UTF-8"?>
+	<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://www.SwATips.com/</loc>
+		<lastmod>$(date -Iseconds)</lastmod>
+	</url>
+	<url>
+		<loc>https://www.SwATips.com/articles.php</loc>
+		<lastmod>$(date -Iseconds)</lastmod>
+	</url>
+	SITEMAP
+	# Phase 1: Build articles in parallel
+	MAXJOBS=$(nproc)
+	JOBCOUNT=0
 	for x in tips/*.tex; do
-		TMPDIR=$(mktemp -d)
 		NUM=${x/tips\//}
 		NUM=${NUM/\.tex/}
-		echo -n "Building ${NUM}..."
-		ARTICLENAME="UNKNOWN"
-		cp templates/article.tex templates/sources.bib templates/listings-rust.sty ${TMPDIR}/
-		cp templates/article.html ${TMPDIR}/article_template.html
-		cp tips/${NUM}.* ${TMPDIR}/
-		ARTICLENAME=$(grep ArticleName ${TMPDIR}/${NUM}.pre | sed -e 's:\\sout{\([^}]*\)}:<del>\1</del>:g' | sed -e 's:\\def \\ArticleName{::g' -e 's:}::g' -e 's:\\::g')
-		if [ ! -f "html/articles/${NUM}.pdf" ] || [ $REBUILD == true ]; then
-			pushd ${TMPDIR} > /dev/null
-			sed -i -e "s:NUM:${NUM}:g" article.tex
-			sed -i -e "s:NUM:${NUM}:g" article_template.html
-			lmk article >/dev/null 2>&1
-			if [ $HTML == true ]; then
-				make4ht -l article "fn-in,svg" >/dev/null 2>&1
-				if [ ! -f article.html ] || [ ! -f article.css ]; then
-					echo "Error: make4ht failed to generate article.html or article.css"
-					popd >/dev/null
-					rm -rf ${TMPDIR}
-					continue
-				fi
-				echo '<!DOCTYPE html>' > ${NUM}.html
-				echo "<html xml:lang='en-US' lang='en-US'>" >> ${NUM}.html
-				echo "<head>" >> ${NUM}.html
-				echo "<meta charset=\"utf-8\">" >> ${NUM}.html
-				echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">" >> ${NUM}.html
-				echo "<title>${ARTICLENAME}</title>" >> ${NUM}.html
-				echo "<link rel=\"stylesheet\" href=\"../styles.css\">" >> ${NUM}.html
-				echo "<script async=\"async\" src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4110907817782130\" crossorigin=\"anonymous\"></script>" >> ${NUM}.html
-				echo "<style>" >> ${NUM}.html
-				cat article.css >> ${NUM}.html
-				echo "</style>" >> ${NUM}.html
-				echo "</head>" >> ${NUM}.html
-				echo "<body>" >> ${NUM}.html
-				echo "<div class=\"container\">" >> ${NUM}.html
-				echo "<article>" >> ${NUM}.html
-				cat article_template.html >> ${NUM}.html
-				sed -n '/<body/,/<\/body>/p' article.html | sed -e '1d;$d' >> ${NUM}.html
-				echo "</article>" >> ${NUM}.html
-				echo "<footer>" >> ${NUM}.html
-				echo "<p>&copy; 2021-2026 Software Assurance Tips. Some rights reserved. Please see the terms of the Creative Commons Attribution license.</p>" >> ${NUM}.html
-				echo "</footer>" >> ${NUM}.html
-				echo "</div>" >> ${NUM}.html
-				#copy images
-				mkdir images
-				i=0
-				if compgen -G "*.svg" > /dev/null; then
-					for x in *.svg; do
-						#remove extraneous png file if we use the SVG instead
-						if [ -f "${x/.svg/.png}" ]; then
-							rm ${x/.svg/.png}
-						fi
-						((i=i+1))
-						NEWNAME="images/${NUM}-${i}.svg"
-						cp ${x} ${NEWNAME}
-						sed -i -e "s:${x}:${NEWNAME}:g" ${NUM}.html
-					done
-				fi
-				if compgen -G "*.png" > /dev/null; then
-					for x in *.png; do
-						((i=i+1))
-						NEWNAME="images/${NUM}-${i}.png"
-						cp ${x} ${NEWNAME}
-						sed -i -e "s:${x}:${NEWNAME}:g" ${NUM}.html
-					done
-				fi
-			fi
-			if [ -f "${NUM}.post" ]; then
-				. ${NUM}.post
-			fi
-			popd >/dev/null
-			cp ${TMPDIR}/article.pdf html/articles/${NUM}.pdf
-			if [ ${AUTOADD} == true ]; then
-				git ls-files --error-unmatch html/articles/${NUM}.pdf > /dev/null 2>&1 || git add html/articles/${NUM}.pdf > /dev/null
-			fi
-			if [ $HTML == true ]; then
-				cp ${TMPDIR}/${NUM}.html html/articles/
-				if compgen -G "${TMPDIR}/images/*.svg" > /dev/null; then
-					cp ${TMPDIR}/images/*.svg html/articles/images/
-				fi
-				if compgen -G "${TMPDIR}/images/*.png" > /dev/null; then
-					cp ${TMPDIR}/images/*.png html/articles/images/
-				fi
-				if [ ${AUTOADD} == true ]; then
-					git ls-files --error-unmatch html/articles/${NUM}.html >/dev/null 2>&1 || git add html/articles/${NUM}.html > /dev/null
-				fi
-				if compgen -G "html/articles/images/${NUM}-*.svg" > /dev/null; then
-					for x in html/articles/images/${NUM}-*.svg; do
-						git ls-files --error-unmatch ${x} >/dev/null 2>&1 || git add ${x} > /dev/null
-					done
-				fi
-				if compgen -G "html/articles/images/${NUM}-*.png" > /dev/null; then
-					for x in html/articles/images/${NUM}-*.png; do
-						git ls-files --error-unmatch ${x} >/dev/null 2>&1 || git add ${x} > /dev/null
-					done
-				fi
-			fi
-			echo "OK!"
+		build_article "${NUM}" &
+		((JOBCOUNT=JOBCOUNT+1))
+		if [ $JOBCOUNT -ge $MAXJOBS ]; then
+			wait -n
+			((JOBCOUNT=JOBCOUNT-1))
+		fi
+	done
+	wait
+
+	# Phase 2: Collect metadata sequentially
+	for x in tips/*.tex; do
+		NUM=${x/tips\//}
+		NUM=${NUM/\.tex/}
+		if [ -f "html/articles/${NUM}.meta" ]; then
+			ARTICLENAME=$(cat html/articles/${NUM}.meta)
+			rm html/articles/${NUM}.meta
 		else
-			echo "Already built!"
+			ARTICLENAME="UNKNOWN"
 		fi
 		ARTICLES+=( "${ARTICLENAME}" )
 		NUMS+=( "${NUM}" )
 		echo "<li>${NUM} - <a href=\"articles/${NUM}.html\">${ARTICLENAME}</a></li>" >> html/articles-full.inc
-		echo "<url>" >> html/sitemap.xml
-		echo -e "\t<loc>https://www.SwATips.com/articles/${NUM}.html</loc>" >> html/sitemap.xml
-		echo -e "\t<lastmod>$(date -Iseconds -r tips/${NUM}.tex)</lastmod>" >> html/sitemap.xml
-		echo "</url>" >> html/sitemap.xml
-		rm -rf ${TMPDIR}
+		cat <<-SITEMAPENTRY >> html/sitemap.xml
+		<url>
+			<loc>https://www.SwATips.com/articles/${NUM}.html</loc>
+			<lastmod>$(date -Iseconds -r tips/${NUM}.tex)</lastmod>
+		</url>
+		SITEMAPENTRY
 	done
 	echo "</urlset>" >> html/sitemap.xml
 	MAXNUMARTICLES=${#ARTICLES[@]}
 	for ((i=${MAXNUMARTICLES} - 1; i >= ($MAXNUMARTICLES >= 10 ? ${MAXNUMARTICLES} - 10 : 0); i--)); do
 		echo "<li>${NUMS[$i]} - <a href=\"articles/${NUMS[$i]}.html\">${ARTICLES[$i]}</a></li>" >> html/articles.inc
-		echo "	<item>" >> html/rss.inc
-		echo "		<title>${ARTICLES[$i]}</title>" >> html/rss.inc
-		echo "		<link>https://www.SwATips.com/articles/${NUMS[$i]}.html</link>" >> html/rss.inc
-		echo "		<pubDate>$(date -R -d "${NUMS[$i]}")</pubDate>" >> html/rss.inc
-		echo -n "<description><![CDATA[" >> html/rss.inc
 		TMPFILE=html/articles/${NUMS[$i]}.html.tmp
 		TMPFILE2=html/articles/${NUMS[$i]}.html.tmp2
 		cp html/articles/${NUMS[$i]}.html ${TMPFILE2}
 		sed -i -e '/<script/d' -e '/<style/,/<\/style>/d' ${TMPFILE2}
 		juice --remove-style-tags true ${TMPFILE2} ${TMPFILE} 2>/dev/null || cp ${TMPFILE2} ${TMPFILE}
-		sed -n '/<article/,/<\/article>/p' ${TMPFILE} | sed -e '1d;$d' -e "s:href=\"${NUMS[$i]}.pdf\":href=\"articles/${NUMS[$i]}.pdf\":g" -e "s:href=\"../\":href=\"/\":g" -e "s:images/:https\://www.swatips.com/articles/images/:g" >> html/rss.inc
+		RSS_BODY=$(sed -n '/<article/,/<\/article>/p' ${TMPFILE} | sed -e '1d;$d' -e "s:href=\"${NUMS[$i]}.pdf\":href=\"articles/${NUMS[$i]}.pdf\":g" -e "s:href=\"../\":href=\"/\":g" -e "s:images/:https\://www.swatips.com/articles/images/:g")
 		rm ${TMPFILE} ${TMPFILE2}
-		echo "]]></description>" >> html/rss.inc
-		echo "	</item>" >> html/rss.inc
+		cat <<-RSSITEM >> html/rss.inc
+			<item>
+				<title>${ARTICLES[$i]}</title>
+				<link>https://www.SwATips.com/articles/${NUMS[$i]}.html</link>
+				<pubDate>$(date -R -d "${NUMS[$i]}")</pubDate>
+				<description><![CDATA[${RSS_BODY}]]></description>
+			</item>
+		RSSITEM
 	done
 fi
