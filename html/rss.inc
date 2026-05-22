@@ -1,4 +1,254 @@
 <item>
+<title>Software Assurance Tools Belong in Expert Hands</title>
+<link>https://www.SwATips.com/articles/20260525.html</link>
+<pubDate>Mon, 25 May 2026 00:00:00 -0500</pubDate>
+<description><![CDATA[
+
+<div class="article-meta" style="margin: 0; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-top: 1px solid #e0e0e0; font-size: 0.95em;">
+  <div class="home-link" style="margin: 0; padding: 0; box-sizing: border-box; display: inline-flex; align-items: center; gap: 5px;">
+    <a href="../index.php" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">← Back to Home</a>
+  </div>
+  <div style="margin: 0; padding: 0; box-sizing: border-box; display: flex; gap: 20px;">
+    <a href="articles/20260525.pdf" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">📄 View PDF</a>
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" class="license-badge" title="Licensed under Creative Commons Attribution 4.0 International" style="margin: 0; padding: 0; box-sizing: border-box; display: inline-flex; align-items: center; gap: 8px; color: #667eea; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">
+      <img src="https://www.swatips.com/articles/images/by.svg" alt="CC-BY" style="padding: 0; box-sizing: border-box; max-width: 100%; margin: 1em 0; border-radius: 4px; height: 21px; width: auto;" width="auto" height="21">
+    </a>
+  </div>
+</div>
+<div class="maketitle" style="margin: 0; padding: 0; box-sizing: border-box;">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.6em;"> <strong style="margin: 0; padding: 0; box-sizing: border-box;">Software Assurance Tips</strong><br style="margin: 0; padding: 0; box-sizing: border-box;">
+A product of the Software Assurance Tips Team[<a id="x1-3" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_swatips" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">5</a>]<br style="margin: 0; padding: 0; box-sizing: border-box;">
+</h2>
+ <div class="author" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-12" style="margin: 0; padding: 0; box-sizing: border-box;">Jon Hood</span></div><br style="margin: 0; padding: 0; box-sizing: border-box;">
+<div class="date" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-12" style="margin: 0; padding: 0; box-sizing: border-box;">Monday 25</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-12" style="margin: 0; padding: 0; box-sizing: border-box;"> May, 2026</span></div>
+</div>
+                                                                                         
+                                                                                         
+   
+
+<h3 class="sectionHead" id="software-assurance-tools-belong-in-expert-hands" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.3em;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1   </span> <a id="x1-10001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Software Assurance Tools Belong in Expert Hands</h3>
+<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Friday 22</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">nd</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> May, 2026</span>
+
+</p>   
+<h4 class="subsectionHead" id="introduction" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1.1   </span> <a id="x1-20001.1" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Introduction</h4>
+<!-- l. 3 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">There is a comforting narrative in modern DevSecOps: install a suite of Software Assurance tools into the
+developer’s pipeline, hand every engineer a dashboard, and the codebase will defend itself. The narrative is
+comforting because it is convenient. It also misunderstands what these tools actually are. Static analyzers,
+composition analyzers, fuzzers, and supply chain scanners are precision instruments built by specialists for
+specialists. Exposing scan results to developers is healthy. Letting developers (or, increasingly, a build server with
+broad credentials) own the selection, configuration, deployment, and maintenance of those tools is
+not.
+</p><!-- l. 5 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   Three news items from the last six weeks make the case better than any opinion piece can. Each of them involves
+a Software Assurance tool that was either misconfigured by non-experts, misunderstood by its users, or weaponized
+against the very pipelines it was installed to protect.
+
+</p>   
+<h4 class="likesubsectionHead" id="cppcheck-trustedsafe-environments-is-not-a-suggestion" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><a id="x1-3000" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>CppCheck: “Trusted/Safe Environments” Is Not a Suggestion</h4>
+<!-- l. 9 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">On 12 May 2026, Daniel Marjamäki, the long-time maintainer of Cppcheck, opened ticket #14749 against his own
+project. The defect is small in scope and large in implication:[<a id="x1-3001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_cppcheck14749" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">9</a>]
+</p><!-- l. 11 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">     
+</p>
+<blockquote class="quote" style="margin: 0; padding: 0; box-sizing: border-box; border-left: 4px solid #667eea; padding-left: 15px; margin-left: 0; color: #666; font-style: italic;">     
+<!-- l. 12 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">We  use  <span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">popen </span>to  execute  addons.  Even  though  I  believe  Cppcheck  should  only  be  used  in
+trusted/safe environments, we could be careful about the commands that is executed to not leave
+a door open for some kind of remote execution vulnerabilities.
+</p>     
+<!-- l. 14 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">We should escape or reject certain characters in the command line that the shell could treat in
+unwanted ways. I.e. a “;” in a filename could be treated as a command separator. Filenames are
+quoted if they contain spaces but not tabs.</p></blockquote>
+<!-- l. 17 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   The fix is scheduled for the 2.21 milestone. Read the parenthetical, however: <i style="margin: 0; padding: 0; box-sizing: border-box;">Cppcheck should only be used in
+trusted/safe environments.</i> The maintainer is telling us, in plain English, that the tool is not designed to survive
+hostile input. Yet a typical “shift-left” rollout drops Cppcheck into a CI runner that processes pull requests from
+arbitrary contributors (exactly the untrusted environment the maintainer warns against). A cybersecurity expert
+who has read the documentation knows to sandbox the runner, strip addon execution, and treat filenames from
+untrusted branches as adversarial input. A developer who simply installed the <span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">cppcheck </span>package is feeding
+attacker-controlled filenames into a shell pipeline.
+
+</p>   
+<h4 class="likesubsectionHead" id="flawfinder-the-author-himself-tells-you-what-it-cannot-do" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><a id="x1-4000" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Flawfinder: The Author Himself Tells You What It Cannot Do</h4>
+<!-- l. 21 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">Five days later, on 17 May 2026, David A. Wheeler added thirteen lines to the Flawfinder manpage. The commit
+message is unusually direct: “Flawfinder really isn’t a good tool for intentionally <i style="margin: 0; padding: 0; box-sizing: border-box;">malicious</i> code; frankly few things
+are.”[<a id="x1-4001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_flawfinder" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">11</a>] The expanded warning that now ships in the man page reads:
+                                                                                         
+                                                                                         
+</p><!-- l. 23 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">     
+</p>
+<blockquote class="quote" style="margin: 0; padding: 0; box-sizing: border-box; border-left: 4px solid #667eea; padding-left: 15px; margin-left: 0; color: #666; font-style: italic;">     
+<!-- l. 24 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">Note that flawfinder is primarily designed to find <i style="margin: 0; padding: 0; box-sizing: border-box;">unintentional</i> vulnerabilities (common mistakes)
+by looking for specific patterns. As a result, it is much less likely to find <i style="margin: 0; padding: 0; box-sizing: border-box;">malicious</i> code (such
+as Trojan horses) that has been intentionally inserted. Malicious programmers can easily insert
+code that is not detected by this kind of tool. This tool should only be used to find unintentional
+vulnerabilities; other techniques (such as thorough human review of all changes) are needed to
+find intentionally malicious code. (You can try using AI to analyze for malicious code, but beware,
+such code may include AI-focused injections that themselves may make the AI ineffective or
+malicious.)</p></blockquote>
+<!-- l. 27 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   Unfortunately, the reaction to this kind of language by the wrong stakeholder could be to remove the SwA tools
+from the compliance pipeline. It should instead be required reading. Wheeler is the author of the tool and a
+long-time voice in secure development; he is also being precise about its blast radius. Flawfinder finds patterns. It
+does not find adversaries. An expert running Flawfinder knows to pair it with code review, build provenance
+attestation, and reproducible builds. A developer running Flawfinder as the last gate before merge believes the green
+check mark means something it does not.
+
+</p>   
+<h4 class="likesubsectionHead" id="checkmarx-when-the-scanner-is-the-attack-vector" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><a id="x1-5000" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Checkmarx: When the Scanner Is the Attack Vector</h4>
+<!-- l. 31 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">The most expensive lesson comes from Checkmarx, and we are still early in the season of the onslaught of SwA
+weaknesses. Starting 23 March 2026, the cybercrime group tracked as TeamPCP leveraged credentials stolen during
+the earlier Trivy compromise to push malicious code into Checkmarx’s KICS Docker images, two OpenVSX
+extensions (<span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">ast-results </span>v2.53.0 and <span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">cx-dev-assist </span>v1.7.0), and GitHub Actions workflows.[<a id="x1-5001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_checkmarx" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">2</a>, <a id="x1-5002" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_register" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">3</a>] The
+vulnerability is tracked as CVE-2026-33634 with a CVSS score of 9.4.
+</p><!-- l. 33 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   The attack was a credential stealer designed to run wherever the scanner ran. CI/CD secrets, cloud credentials,
+SSH keys, and Kubernetes configurations were exfiltrated from runners on 30 March 2026 and posted to a dark-web
+leak site on 25 April 2026.[<a id="x1-5003" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_securityweek" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">7</a>] Even after Checkmarx revoked credentials and removed malicious artifacts, the
+attackers retained access. On 22 April 2026 they published a second wave of poisoned artifacts—another KICS
+Docker image, another GitHub Action, another VS Code extension. The collateral was significant: the
+Bitwarden CLI npm package (<span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">@bitwarden/cli@2026.4.0</span>) was briefly compromised during a 93-minute
+window on the same day, riding the same intrusion outward to roughly ten million Bitwarden users.[<a id="x1-5004" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_bitwarden" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">1</a>]
+A third escalation in May saw TeamPCP rename the Checkmarx Jenkins AST Plugin repository to
+“Checkmarx-Fully-Hacked-by-TeamPCP-and-Their-Customers-Should-Cancel-Now.”[<a id="x1-5005" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_thn" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">8</a>]
+</p><!-- l. 35 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   The story is not that Checkmarx was breached. Mature vendors are breached. The story is what the scanner was
+wired into. A typical Checkmarx rollout grants the scanner read access to the entire source tree, write access to
+merge status, and an injected secret per protected environment. That posture is sensible when an expert chooses the
+integration boundaries deliberately. It is catastrophic when “the security tool gets all the permissions” is the default
+DevSecOps onboarding script. The blast radius of any Software Assurance tool is exactly the blast radius the
+integrating team gave it.
+
+</p>   
+<h4 class="likesubsectionHead" id="more-tools-more-doors" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><a id="x1-6000" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>More Tools, More Doors</h4>
+<!-- l. 39 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">These three incidents are not isolated. NIST SP 800-53’s Supply Chain Risk Management (SR) controls, particularly
+SR-3 (Supply Chain Controls and Processes) and SR-4 (Provenance), already treat the development toolchain as
+part of the system’s attack surface, not separate from it.[<a id="x1-6001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_nist80053rev5" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">6</a>] CWE-1395 (Dependency on Vulnerable Third-Party
+Component) applies just as much to a static analyzer wired into a CI pipeline as it does to a logging library shipped
+in production.[<a id="x1-6002" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_cwe1395" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">4</a>] Unit 42’s continuing telemetry on npm shows the trendline accelerating: “attacks evolving from
+                                                                                         
+                                                                                         
+isolated typosquatting incidents into systematic campaigns by various threat actors to weaponize the trust that
+powers modern software development.”[<a id="x1-6003" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_unit42" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">10</a>]
+</p><!-- l. 41 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   Every additional tool added to a DevSecOps stack introduces three new attack surfaces: the tool binary, the
+credentials the tool holds, and the network paths the tool requires. Stacking ten “best-of-breed” scanners without an
+expert curator produces ten new attack surfaces guarded by whichever team happened to click through the installer.
+Recall the XZ Utils backdoor of 2024, the eslint-scope npm compromise of 2018, the Codecov bash uploader breach
+of 2021, and the SolarWinds Orion compromise. The common thread is not that the victim organizations were lax
+about scanning. Most of them scanned aggressively. The common thread is that the scanning infrastructure itself
+was treated as a developer convenience rather than a privileged piece of cybersecurity infrastructure under expert
+care.
+
+</p>   
+<h4 class="likesubsectionHead" id="what-expert-custody-looks-like" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><a id="x1-7000" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>What Expert Custody Looks Like</h4>
+<!-- l. 45 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">A Software Assurance tool under expert custody has a tool owner who reads the maintainer’s documentation
+(including the parentheticals), tracks the upstream issue tracker, validates the supply chain of every plugin, scopes
+the credentials the tool can reach, isolates the runner that executes the tool, reviews findings before they reach
+developers, and tunes rule sets against the program’s threat model. Developers still see the results. Developers still
+fix the findings. Developers do not own the deployment, and the build server does not get an unattended root
+credential because “the scanner needed it.”
+</p><!-- l. 47 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   This is no different from any other safety-critical instrument. We do not ask the patient to operate the
+MRI. We do not ask the passenger to torque the engine bolts. We expose the output. We restrict the
+operation.
+
+</p>   
+<h4 class="likesubsectionHead" id="conclusion" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><a id="x1-8000" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Conclusion</h4>
+<!-- l. 51 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">The CppCheck ticket reminds us that even simple static analyzers assume a trusted environment that
+DevSecOps rarely provides. The Flawfinder commit reminds us that the people who write these tools are
+clear-eyed about what their tools cannot do, and the rest of us should take note. The Checkmarx incident
+reminds us that a scanner with broad credentials is a credential broker waiting to be subpoenaed by an
+attacker.
+</p><!-- l. 53 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   A scalpel does not make a surgeon. A scanner does not make a security engineer. Software Assurance tools
+belong in the hands of those who know how to sharpen them, sheath them, and put them down when the work is
+done.
+</p><!-- l. 56 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   <i style="margin: 0; padding: 0; box-sizing: border-box;">Disclosure: This article was drafted with AI assistance.</i>
+                                                                                         
+                                                                                         
+   
+
+</p>   
+<h3 class="sectionHead" id="references" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.3em;"><a id="x1-9000" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>References</h3>
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">     
+</p>
+<dl class="thebibliography" style="margin: 0; padding: 0; box-sizing: border-box;"><dt class="thebibliography" id="X0-20260525_bitwarden" style="margin: 0; padding: 0; box-sizing: border-box;"> 
+[1]  
+</dt><dd class="thebibliography" id="bib-1" style="margin: 0; padding: 0; box-sizing: border-box;">
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_bitwarden" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Bitwarden. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Bitwarden Statement on Checkmarx Supply Chain Incident</span>. 2026. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://community.bitwarden.com/t/bitwarden-statement-on-checkmarx-supply-chain-incident/96127" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://community.bitwarden.com/t/bitwarden-statement-on-checkmarx-supply-chain-incident/96127</span></a>.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-20260525_checkmarx" style="margin: 0; padding: 0; box-sizing: border-box;">
+[2]  
+</dt><dd class="thebibliography" id="bib-2" style="margin: 0; padding: 0; box-sizing: border-box;">
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_checkmarx" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Checkmarx.   <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Update:   Ongoing   Checkmarx   Supply   Chain   Security   Incident</span>.   2026.   <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>:   
+<a class="url" href="https://checkmarx.com/blog/supply-chain-security-incident-update/" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://checkmarx.com/blog/supply-chain-security-incident-update/</span></a>.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-20260525_register" style="margin: 0; padding: 0; box-sizing: border-box;">
+[3]  
+</dt><dd class="thebibliography" id="bib-3" style="margin: 0; padding: 0; box-sizing: border-box;">
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_register" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Thomas Claburn. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Ongoing supply-chain attack targets security, dev tools</span>. The Register. Apr. 2026.
+<span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://www.theregister.com/2026/04/27/supply_chain_campaign_targets_security/" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://www.theregister.com/2026/04/27/supply_chain_campaign_targets_security/</span></a>.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-20260525_cwe1395" style="margin: 0; padding: 0; box-sizing: border-box;">
+[4]  
+</dt><dd class="thebibliography" id="bib-4" style="margin: 0; padding: 0; box-sizing: border-box;">
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_cwe1395" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>CWE Content Team. “CWE-1395: Dependency on Vulnerable Third-Party Component”. In: (2024).
+<span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://cwe.mitre.org/data/definitions/1395.html" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://cwe.mitre.org/data/definitions/1395.html</span></a>.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-swatips" style="margin: 0; padding: 0; box-sizing: border-box;">
+[5]  
+</dt><dd class="thebibliography" id="bib-5" style="margin: 0; padding: 0; box-sizing: border-box;">
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_swatips" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Jon Hood, ed. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://www.SwATips.com/</span></a>.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-20260525_nist80053rev5" style="margin: 0; padding: 0; box-sizing: border-box;">
+[6]  
+</dt><dd class="thebibliography" id="bib-6" style="margin: 0; padding: 0; box-sizing: border-box;">
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_nist80053rev5" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Joint Task Force. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">NIST Special Publication 800-53, Revision 5. Security and Privacy Controls for
+Information Systems and Organizations</span>. Tech. rep. National Institute of Standards and Technology,
+2020. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://doi.org/10.6028/NIST.SP.800-53r5" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://doi.org/10.6028/NIST.SP.800-53r5</span></a>.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-20260525_securityweek" style="margin: 0; padding: 0; box-sizing: border-box;">
+[7]  
+</dt><dd class="thebibliography" id="bib-7" style="margin: 0; padding: 0; box-sizing: border-box;">
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_securityweek" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Eduard Kovacs. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Checkmarx Confirms Data Stolen in Supply Chain Attack</span>. SecurityWeek. 2026. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: 
+<a class="url" href="https://www.securityweek.com/checkmarx-confirms-data-stolen-in-supply-chain-attack/" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://www.securityweek.com/checkmarx-confirms-data-stolen-in-supply-chain-attack/</span></a>.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-20260525_thn" style="margin: 0; padding: 0; box-sizing: border-box;">
+[8]  
+</dt><dd class="thebibliography" id="bib-8" style="margin: 0; padding: 0; box-sizing: border-box;">
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_thn" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Ravie                Lakshmanan.                <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">TeamPCP                Compromises                Checkmarx
+Jenkins AST Plugin Weeks After KICS Supply Chain Attack</span>. The Hacker News. May 2026. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: 
+<a class="url" href="https://thehackernews.com/2026/05/teampcp-compromises-checkmarx-jenkins.html" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://thehackernews.com/2026/05/teampcp-compromises-checkmarx-jenkins.html</span></a>.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-20260525_cppcheck14749" style="margin: 0; padding: 0; box-sizing: border-box;">
+[9]  
+</dt><dd class="thebibliography" id="bib-9" style="margin: 0; padding: 0; box-sizing: border-box;">
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_cppcheck14749" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Daniel  Marjamäki.  <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Ticket  #14749:  cmdFilename:  handle  more  bash  special  characters</span>.  Cppcheck
+Project. May 2026. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://trac.cppcheck.net/ticket/14749" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://trac.cppcheck.net/ticket/14749</span></a>.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-20260525_unit42" style="margin: 0; padding: 0; box-sizing: border-box;">
+[10]  
+</dt><dd class="thebibliography" id="bib-10" style="margin: 0; padding: 0; box-sizing: border-box;">
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_unit42" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Unit 42. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">The npm Threat Landscape: Attack Surface and Mitigations</span>. Palo Alto Networks. 2026. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>:
+<a class="url" href="https://unit42.paloaltonetworks.com/monitoring-npm-supply-chain-attacks/" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://unit42.paloaltonetworks.com/monitoring-npm-supply-chain-attacks/</span></a>.
+</p>     
+</dd>
+<dt class="thebibliography" id="X0-20260525_flawfinder" style="margin: 0; padding: 0; box-sizing: border-box;">
+[11]  
+</dt><dd class="thebibliography" id="bib-11" style="margin: 0; padding: 0; box-sizing: border-box;">
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_flawfinder" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>David A. Wheeler. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Commit d6464e7: Emphasize limitations on malicious code</span>. flawfinder. May 2026.
+<span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://github.com/david-a-wheeler/flawfinder/commit/d6464e7014f5986fb31acbe533bb8eea414b5d3a" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://github.com/david-a-wheeler/flawfinder/commit/d6464e7014f5986fb31acbe533bb8eea414b5d3a</span></a>.</p></dd></dl>
+                                                                                         
+                                                                                         
+   
+ ]]></description>
+</item>
+<item>
 <title>Unsafe at Any Speed: The Designed-In Dangers of DevSecOps</title>
 <link>https://www.SwATips.com/articles/20260126.html</link>
 <pubDate>Mon, 26 Jan 2026 00:00:00 -0600</pubDate>
@@ -1475,213 +1725,5 @@ Revision 2. Washington, D.C.: U.S. Department of Commerce, 2018. <span class="sm
 </dt><dd class="thebibliography" id="bib-7" style="margin: 0; padding: 0; box-sizing: border-box;">
 <!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20240212_vaglia2017" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Laura Vaglia and Jey Castleberry. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Facility Related Control System Inventory</span>. Tech. rep. 2017. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: 
 <a class="url" href="https://usarsustainabilitydotcom.files.wordpress.com/2017/12/facility-related-control-system-inventory.pdf" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://usarsustainabilitydotcom.files.wordpress.com/2017/12/facility-related-control-system-inventory.pdf</span></a>.</p></dd></dl>
- ]]></description>
-</item>
-<item>
-<title>A History of Verification, Validation, and Code Scanning</title>
-<link>https://www.SwATips.com/articles/20230918.html</link>
-<pubDate>Mon, 18 Sep 2023 00:00:00 -0500</pubDate>
-<description><![CDATA[
-
-<div class="article-meta" style="margin: 0; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-top: 1px solid #e0e0e0; font-size: 0.95em;">
-  <div class="home-link" style="margin: 0; padding: 0; box-sizing: border-box; display: inline-flex; align-items: center; gap: 5px;">
-    <a href="../index.php" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">← Back to Home</a>
-  </div>
-  <div style="margin: 0; padding: 0; box-sizing: border-box; display: flex; gap: 20px;">
-    <a href="articles/20230918.pdf" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">📄 View PDF</a>
-    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" class="license-badge" title="Licensed under Creative Commons Attribution 4.0 International" style="margin: 0; padding: 0; box-sizing: border-box; display: inline-flex; align-items: center; gap: 8px; color: #667eea; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">
-      <img src="https://www.swatips.com/articles/images/by.svg" alt="CC-BY" style="padding: 0; box-sizing: border-box; max-width: 100%; margin: 1em 0; border-radius: 4px; height: 21px; width: auto;" width="auto" height="21">
-    </a>
-  </div>
-</div>
-<div class="maketitle" style="margin: 0; padding: 0; box-sizing: border-box;">
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-<h2 class="titleHead" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.6em;"> <strong style="margin: 0; padding: 0; box-sizing: border-box;">Software Assurance Tips</strong><br style="margin: 0; padding: 0; box-sizing: border-box;">
-A product of the Software Assurance Tips Team[<a id="x1-3" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_swatips" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">5</a>]<br style="margin: 0; padding: 0; box-sizing: border-box;">
-</h2>
- <div class="author" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-12" style="margin: 0; padding: 0; box-sizing: border-box;">Jon Hood</span></div><br style="margin: 0; padding: 0; box-sizing: border-box;">
-<div class="date" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-12" style="margin: 0; padding: 0; box-sizing: border-box;">Monday 18</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-12" style="margin: 0; padding: 0; box-sizing: border-box;"> September, 2023</span></div>
-</div>
-                                                                                         
-                                                                                         
-   
-
-<h3 class="sectionHead" id="a-history-of-verification-validation-and-code-scanning" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.3em;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1   </span> <a id="x1-10001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>A History of Verification, Validation, and Code Scanning</h3>
-<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Wednesday 11</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> February, 2026</span>
-</p><!-- l. 1 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   One of the DoD and NASA trends we have seen lately is the confusion of functional VV&amp;A with
-cybersecurity tasks. The blurring of these two distinct efforts from organizations implementing an
-IV&amp;V program and a cybersecurity program can cause collisions with the definitions of what is being
-accomplished.
-</p><!-- l. 3 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   Static code analysis is one of those definitions. The meaning of static code analysis is very different from a
-Functional, VV&amp;A IV&amp;V program when compared to the static code analysis conducted by a cybersecurity
-program. The etymology of static analysis comes from completely diverging goals.
-
-</p>   
-<h4 class="subsectionHead" id="verification-and-validation" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1.1   </span> <a id="x1-20001.1" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Verification and Validation</h4>
-<!-- l. 6 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">“Haste makes waste.” In the 1960s and 1970s, a static code walkthrough was recommended before ever compiling the
-module. “The verification sessions should occur before the first compilation of the module.” Since “few if any
-compilers are capable of detecting every syntax error,” syntax errors were considered logic errors in
-the software.[<a id="x1-2001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20230918_myers1976" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">8</a>, pp. 144, 149, 292] The static analysis and formal walkthrough of code from a V&amp;V
-perspective has the goal of verifying the integrity of the logic that goes into the design of the software
-module.
-</p><!-- l. 8 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   This ties into the current DoD VV&amp;A process for Verification, Validation, and Accreditation in DoD Instruction
-5000.61. These are defined as:[<a id="x1-2002" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20230918_dodi500061" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">2</a>] </p>
-<ul class="itemize1" style="margin: 0; padding: 0; box-sizing: border-box; list-style: none; margin-left: 2em; margin-bottom: 1em;">     
-<li class="itemize" style="margin: 0; box-sizing: border-box; margin-bottom: 0.5em; padding: 0; background: none; border-left: none; border-radius: 0; transition: none;"><i style="margin: 0; padding: 0; box-sizing: border-box;">Verification</i>—The process of determining that a model or simulation implementation and its associated
-data accurately represent the developer’s conceptual description and specifications.
-</li>
-<li class="itemize" style="margin: 0; box-sizing: border-box; margin-bottom: 0.5em; padding: 0; background: none; border-left: none; border-radius: 0; transition: none;"><i style="margin: 0; padding: 0; box-sizing: border-box;">Validation</i>—The process of determining the degree to which a model or simulation and its associated
-data are an accurate representation of the real world from the perspective of the intended uses of the
-model.
-</li>
-<li class="itemize" style="margin: 0; box-sizing: border-box; margin-bottom: 0.5em; padding: 0; background: none; border-left: none; border-radius: 0; transition: none;"><i style="margin: 0; padding: 0; box-sizing: border-box;">Accreditation</i>—The  official  certification  that  a  model  or  simulation  and  its  associated  data  are
-acceptable for use for a specific purpose.</li></ul>
-<!-- l. 15 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   One way to accomplish these goals is by implementing IEEE 1012, the IEEE Standard for System, Software, and
-Hardware Verification and Validation. This lays out the purpose of V&amp;V: “to help the organization build quality
-into the system during the life cycle. V&amp;V processes provide an objective assessment of products and processes
-throughout the life cycle. This assessment demonstrates whether requirements are correct, complete, accurate,
-consistent, and testable.” This standard recommends a process for inspecting source code to “verify that
-the source code implementation is traceable to the design” and a static walkthrough of the code for
-the same types of logic issues Myers mentions in his book.[<a id="x1-2003" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20230918_ieee1012" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">6</a>, pp. 10, 213, 216] Cybersecurity static
-code analysis scans are circumstantial evidence used to demonstrate the testability of the codebase.[<a href="#cite.0_20230918_ieee1012" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">6</a>,
-p. 206]
-</p><!-- l. 17 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   If you want to certify that a simulation or software model correctly reflects the real-world scenario and
-requirements that define the software module, VV&amp;A is the way to go. Static code walkthroughs are often employed
-as a tool to accomplish this task.
-                                                                                         
-                                                                                         
-</p><!-- l. 19 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   Static analysis tools for proving the logic of code include flow provability tools such as GNATprove, property
-checkers[<a id="x1-2004" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20230918_foster2015trends" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">4</a>] such as RapidCheck and QuickCheck[<a id="x1-2005" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20230918_jones2003" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">7</a>], SlithIR SSA, Prusti, and many more static analysis
-tools.
-
-</p>   
-<h4 class="subsectionHead" id="cybersecurity" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1.2   </span> <a id="x1-30001.2" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Cybersecurity</h4>
-<!-- l. 23 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">Static analysis is defined in the cybersecurity realm by DoDI 8500.01 as part of the Risk Management
-Framework which implements NIST 800-53.[<a id="x1-3001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20230918_dodi850001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">3</a>] Static analysis and the tools which conduct it are defined in
-controls RA-5, SA-11, and SA-11(1). “Static code analysis provides a technology and methodology for
-security reviews and includes checking for weaknesses in the code as well as for the incorporation of
-libraries or other included code with known vulnerabilities or that are out-of-date and not supported.
-Static code analysis can be used to identify vulnerabilities and enforce secure coding practices.”[<a id="x1-3002" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20230918_nist80053rev5" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">10</a>,
-p. 277]
-</p><!-- l. 25 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   Cybersecurity static analysis usually maps issues against Common Weakness Enumerations (CWEs), Common
-Vulnerabilities and Exposures (CVEs), and software assurance defects. A good framework for defining these secure
-code security analysis tools is NIST 500-268 which defines functional requirements of cybersecurity static analysis
-tools. Buffer overflows (such as stack and heap overflows, CWEs 121 and 122), uninitialized variables (CWE-457),
-TOCTOU (CWE-367), and injections (such as command, SQL, and LDAP injections, CWEs 78, 89, and 90) are
-examples of cybersecurity concerns.[<a id="x1-3003" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20230918_nist500268" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">9</a>]
-</p><!-- l. 27 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   Tools that conduct these checks include Fortify, Checkmarx, and many more. The performance of these scans is
-implemented as part of the Application Security and Development STIG[<a id="x1-3004" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20230918_ASDStig" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">1</a>] which provides even more guidance on
-how to establish coding standards (SV-222653r879887_rule), independent testing (SV-222627r879887_rule), and
-even specifies some minimum requirements for static code analysis such as race conditions (SV-222567r879887_rule),
-storing sensitive information in hidden fields (SV-222601r879812_rule), cross-site scripting (XSS)
-(SV-222602r879652_rule), cross-site request forgeries (CSRF) (SV-222603r879652_rule), command injections
-(SV-222604r879652_rule), canonical representation vulnerabilities (SV-222605r879652_rule), input
-validation/handling (SV-222606r879652_rule/SV-222609r879818_rule), SQL injections (SV-222607r879652_rule),
-XML-based attacks (SV-222608r879652_rule), and overflows (including buffer overflow, heap overflows, stack
-overflows, and wrap-around issues) (SV-222612r879821_rule).
-
-</p>   
-<h4 class="subsectionHead" id="conclusion" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1.3   </span> <a id="x1-40001.3" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Conclusion</h4>
-<!-- l. 31 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">We have seen an increase in VV&amp;A organizations claiming that they’re conducting the static analysis defined by
-VV&amp;A processes yet instead conduct cybersecurity static analyses. A good program will incorporate the DoDI
-5000.61 requirements, and static analysis tools that speak the language of logic, proofs, and contracts is one small
-portion of the capabilities such organizations should implement. If your program needs accreditation or
-authorization from a cybersecurity perspective (such as an Assess and Authorize under RMF), a cybersecurity
-program will employ static analysis tools that speak the language of weaknesses, vulnerabilities, and coding
-standards.
-</p><!-- l. 33 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   Perform a litmus test on your own programs today. Is your VV&amp;A program using cybersecurity tools such as
-Cppcheck, Code Dx, Checkmarx, Fortify, or Coverity? Suppose your program has a requirement to draw a circle.
-These are the tools that allow you to say, “Yeah, verily, this is the most secure square that has ever been drawn on a
-screen.” But these tools do not allow you to say, “You drew a square when the requirements contract for the code is
-that you draw a circle.” That involves provability and qualification testing that your VV&amp;A program should be
-concentrating on.
-                                                                                         
-                                                                                         
-   
-
-</p>   
-<h3 class="sectionHead" id="references" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.3em;"><a id="x1-5000" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>References</h3>
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">     
-</p>
-<dl class="thebibliography" style="margin: 0; padding: 0; box-sizing: border-box;"><dt class="thebibliography" id="X0-20230918_ASDStig" style="margin: 0; padding: 0; box-sizing: border-box;"> 
-[1]  
-</dt><dd class="thebibliography" id="bib-1" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20230918_ASDStig" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Application    Security    and    Development    STIG    V5R3</span>.    Tech.    rep.    July    2023.    <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>:    
-<a class="url" href="https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_ASD_V5R3_STIG.zip" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_ASD_V5R3_STIG.zip</span></a>.
-</p>     
-</dd>
-<dt class="thebibliography" id="X0-20230918_dodi500061" style="margin: 0; padding: 0; box-sizing: border-box;">
-[2]  
-</dt><dd class="thebibliography" id="bib-2" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20230918_dodi500061" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Department  of  Defense.  <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Department  of  Defense  Instruction  5000.61</span>.  Tech.  rep.  Incorporating
-Change   1,   October   15,   2018.   Washington,   D.C.:   Department   of   Defense,   2018.   <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>:   
-<a class="url" href="https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/500061p.pdf" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/500061p.pdf</span></a>.
-</p>     
-</dd>
-<dt class="thebibliography" id="X0-20230918_dodi850001" style="margin: 0; padding: 0; box-sizing: border-box;">
-[3]  
-</dt><dd class="thebibliography" id="bib-3" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20230918_dodi850001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Department  of  Defense.  <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Department  of  Defense  Instruction  8500.01</span>.  Tech.  rep.  Incorporating
-Change   1,   October   7,   2019.   Washington,   D.C.:   Department   of   Defense,   2019.   <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>:   
-<a class="url" href="https://www.esd.whs.mil/portals/54/documents/dd/issuances/dodi/850001_2014.pdf" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://www.esd.whs.mil/portals/54/documents/dd/issuances/dodi/850001_2014.pdf</span></a>.
-</p>     
-</dd>
-<dt class="thebibliography" id="X0-20230918_foster2015trends" style="margin: 0; padding: 0; box-sizing: border-box;">
-[4]  
-</dt><dd class="thebibliography" id="bib-4" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20230918_foster2015trends" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Harry D Foster. “Trends in functional verification: A 2014 industry study”. In: <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Proceedings of the 52nd
-Annual Design Automation Conference</span>. 2015, pp. 1–6.
-</p>     
-</dd>
-<dt class="thebibliography" id="X0-swatips" style="margin: 0; padding: 0; box-sizing: border-box;">
-[5]  
-</dt><dd class="thebibliography" id="bib-5" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_swatips" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Jon Hood, ed. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://www.SwATips.com/</span></a>.
-</p>     
-</dd>
-<dt class="thebibliography" id="X0-20230918_ieee1012" style="margin: 0; padding: 0; box-sizing: border-box;">
-[6]  
-</dt><dd class="thebibliography" id="bib-6" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20230918_ieee1012" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>IEEE Standards Association. “IEEE Standard for System, Software, and Hardware Verification and
-Validation”.  In:  <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">IEEE  Std  1012-2016  (Revision  of  IEEE  Std  1012-2012/  Incorporates  IEEE  Std
-1012-2016/Cor1-2017)</span> (2017), pp. 1–260. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">doi</span>:  <a href="https://doi.org/10.1109/IEEESTD.2017.8055462" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">10.1109/IEEESTD.2017.8055462</a>.
-</p>     
-</dd>
-<dt class="thebibliography" id="X0-20230918_jones2003" style="margin: 0; padding: 0; box-sizing: border-box;">
-[7]  
-</dt><dd class="thebibliography" id="bib-7" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20230918_jones2003" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Andrew  Jones  and  Jeremy  Sonander.  “An  Introduction  To  Property  Checkers  For  Functional
-Verification”. In: (2003). <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://averant.com:8443/assets/pdf/Intro_PropVer.pdf" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://averant.com:8443/assets/pdf/Intro_PropVer.pdf</span></a>.
-</p>     
-</dd>
-<dt class="thebibliography" id="X0-20230918_myers1976" style="margin: 0; padding: 0; box-sizing: border-box;">
-[8]  
-</dt><dd class="thebibliography" id="bib-8" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20230918_myers1976" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Glenford J Myers. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Software Reliability</span>. John Wiley &amp; Sons, Inc., 1976. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">isbn</span>: 978-0-471-62765-4.
-</p>     
-</dd>
-<dt class="thebibliography" id="X0-20230918_nist500268" style="margin: 0; padding: 0; box-sizing: border-box;">
-[9]  
-</dt><dd class="thebibliography" id="bib-9" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20230918_nist500268" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>National  Institute  of  Standards  and  Technology.  <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Security  and  Privacy  Controls  for  Information
-Systems  and  Organizations</span>.  Tech.  rep.  Special  Publication  (SP)  500-268  v1.1.  Washington,
-D.C.:   U.S.   Department   of   Commerce,   2011.   <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">doi</span>:      <a href="https://doi.org/10.6028/NIST.SP.500-268v1.1" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">10.6028/NIST.SP.500-268v1.1</a>.   <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>:   
-<a class="url" href="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-268v1.1.pdf" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-268v1.1.pdf</span></a>.
-</p>     
-</dd>
-<dt class="thebibliography" id="X0-20230918_nist80053rev5" style="margin: 0; padding: 0; box-sizing: border-box;">
-[10]  
-</dt><dd class="thebibliography" id="bib-10" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20230918_nist80053rev5" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>National Institute of Standards and Technology. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Security and Privacy Controls for Information Systems
-and        Organizations</span>.        Tech.        rep.        Special        Publication        (SP)        800-53
-Revision 5. Washington, D.C.: U.S. Department of Commerce, 2020. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">doi</span>:  <a href="https://doi.org/10.6028/NIST.SP.800-53r5" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">10.6028/NIST.SP.800-53r5</a>.
-<span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf</span></a>.</p></dd></dl>
-                                                                                         
-                                                                                         
-   
  ]]></description>
 </item>

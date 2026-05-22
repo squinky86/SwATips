@@ -1,0 +1,4 @@
+\def \AuthorName{Jon Hood}
+\def \ArticleName{Software Assurance Tools Belong in Expert Hands}
+\newcommand{\ArticleDate}{\formatdate{25}{5}{2026}}
+\addbibresource{20260525.bib}
