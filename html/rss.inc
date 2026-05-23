@@ -21,18 +21,18 @@
                                                                                          
                                                                                          
 
-<h2 class="titleHead" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.6em;"> <strong style="margin: 0; padding: 0; box-sizing: border-box;">Software Assurance Tips</strong><br style="margin: 0; padding: 0; box-sizing: border-box;">
-A product of the Software Assurance Tips Team[<a id="x1-3" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_swatips" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">5</a>]<br style="margin: 0; padding: 0; box-sizing: border-box;">
-</h2>
- <div class="author" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-12" style="margin: 0; padding: 0; box-sizing: border-box;">Jon Hood</span></div><br style="margin: 0; padding: 0; box-sizing: border-box;">
-<div class="date" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-12" style="margin: 0; padding: 0; box-sizing: border-box;">Monday 25</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="ec-lmr-12" style="margin: 0; padding: 0; box-sizing: border-box;"> May, 2026</span></div>
+<h1 class="titleHead" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; margin-top: 0;"> <strong style="margin: 0; padding: 0; box-sizing: border-box;">Software Assurance Tips</strong><br style="margin: 0; padding: 0; box-sizing: border-box;">
+A product of the Software Assurance Tips Team[<a id="x1-3" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a id="page.3" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="article.html#X0-swatips" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">5</a>]<br style="margin: 0; padding: 0; box-sizing: border-box;">
+</h1>
+ <div class="author" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="rm-lmr-12" style="margin: 0; padding: 0; box-sizing: border-box;">Jon Hood</span></div><br style="margin: 0; padding: 0; box-sizing: border-box;">
+<div class="date" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="rm-lmr-12" style="margin: 0; padding: 0; box-sizing: border-box;">Monday 25</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="rm-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">th</span></sup><span class="rm-lmr-12" style="margin: 0; padding: 0; box-sizing: border-box;"> May, 2026</span></div>
 </div>
                                                                                          
                                                                                          
    
 
 <h3 class="sectionHead" id="software-assurance-tools-belong-in-expert-hands" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600; font-size: 1.3em;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1   </span> <a id="x1-10001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Software Assurance Tools Belong in Expert Hands</h3>
-<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Friday 22</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="ec-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">nd</span></sup><span class="ec-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> May, 2026</span>
+<!-- l. 47 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><span class="rm-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;">Updated Saturday 23</span><sup class="textsuperscript" style="margin: 0; padding: 0; box-sizing: border-box;"><span class="rm-lmr-9" style="margin: 0; padding: 0; box-sizing: border-box;">rd</span></sup><span class="rm-lmr-8" style="margin: 0; padding: 0; box-sizing: border-box;"> May, 2026</span>
 
 </p>   
 <h4 class="subsectionHead" id="introduction" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><span class="titlemark" style="margin: 0; padding: 0; box-sizing: border-box;">1.1   </span> <a id="x1-20001.1" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Introduction</h4>
@@ -50,7 +50,7 @@ against the very pipelines it was installed to protect.
 </p>   
 <h4 class="likesubsectionHead" id="cppcheck-trustedsafe-environments-is-not-a-suggestion" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><a id="x1-3000" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>CppCheck: “Trusted/Safe Environments” Is Not a Suggestion</h4>
 <!-- l. 9 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">On 12 May 2026, Daniel Marjamäki, the long-time maintainer of Cppcheck, opened ticket #14749 against his own
-project. The defect is small in scope and large in implication:[<a id="x1-3001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_cppcheck14749" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">9</a>]
+project. The defect is small in scope and large in implication:[<a id="x1-3001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a id="page.4" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="article.html#X0-20260525_cppcheck14749" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">9</a>]
 </p><!-- l. 11 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">     
 </p>
 <blockquote class="quote" style="margin: 0; padding: 0; box-sizing: border-box; border-left: 4px solid #667eea; padding-left: 15px; margin-left: 0; color: #666; font-style: italic;">     
@@ -73,7 +73,7 @@ attacker-controlled filenames into a shell pipeline.
 <h4 class="likesubsectionHead" id="flawfinder-the-author-himself-tells-you-what-it-cannot-do" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><a id="x1-4000" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Flawfinder: The Author Himself Tells You What It Cannot Do</h4>
 <!-- l. 21 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">Five days later, on 17 May 2026, David A. Wheeler added thirteen lines to the Flawfinder manpage. The commit
 message is unusually direct: “Flawfinder really isn’t a good tool for intentionally <i style="margin: 0; padding: 0; box-sizing: border-box;">malicious</i> code; frankly few things
-are.”[<a id="x1-4001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_flawfinder" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">11</a>] The expanded warning that now ships in the man page reads:
+are.”[<a id="x1-4001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="article.html#X0-20260525_flawfinder" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">11</a>] The expanded warning that now ships in the man page reads:
                                                                                          
                                                                                          
 </p><!-- l. 23 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">     
@@ -87,29 +87,36 @@ vulnerabilities; other techniques (such as thorough human review of all changes)
 find intentionally malicious code. (You can try using AI to analyze for malicious code, but beware,
 such code may include AI-focused injections that themselves may make the AI ineffective or
 malicious.)</p></blockquote>
-<!-- l. 27 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   Unfortunately, the reaction to this kind of language by the wrong stakeholder could be to remove the SwA tools
-from the compliance pipeline. It should instead be required reading. Wheeler is the author of the tool and a
-long-time voice in secure development; he is also being precise about its blast radius. Flawfinder finds patterns. It
-does not find adversaries. An expert running Flawfinder knows to pair it with code review, build provenance
-attestation, and reproducible builds. A developer running Flawfinder as the last gate before merge believes the green
-check mark means something it does not.
+<!-- l. 27 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   Unfortunately, the reaction to this kind of language by the wrong stakeholder could be to remove the SwA
+tools from the compliance pipeline. It should instead be required reading. Wheeler is the author of the
+tool and a long-time voice in secure development; he is also being precise about its blast radius. Six
+days later, on 23 May 2026, Wheeler made that warning concrete by publishing GHSA-4c3c-r6p8-c863
+against Flawfinder versions prior to 2.0.20: malicious filenames containing ANSI escape sequences could
+manipulate terminal output to hide findings, “falsely making it appear to a human reviewer that no security
+issues were found,” and untrusted fields could inject into the CSV and XML reports that downstream
+tools such as SonarQube ingest.[<a id="x1-4002" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a id="page.5" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="article.html#X0-20260525_flawfinderghsa" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">12</a>] The advisory notes it “only impacts users who use flawfinder to
+evaluate intentionally malicious filenames or file contents”—precisely the population a pull-request CI
+rollout creates. Flawfinder finds patterns. It does not find adversaries. An expert running Flawfinder
+knows to pair it with code review, build provenance attestation, and reproducible builds. A developer
+running Flawfinder as the last gate before merge believes the green check mark means something it does
+not.
 
 </p>   
 <h4 class="likesubsectionHead" id="checkmarx-when-the-scanner-is-the-attack-vector" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><a id="x1-5000" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Checkmarx: When the Scanner Is the Attack Vector</h4>
 <!-- l. 31 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">The most expensive lesson comes from Checkmarx, and we are still early in the season of the onslaught of SwA
 weaknesses. Starting 23 March 2026, the cybercrime group tracked as TeamPCP leveraged credentials stolen during
 the earlier Trivy compromise to push malicious code into Checkmarx’s KICS Docker images, two OpenVSX
-extensions (<span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">ast-results </span>v2.53.0 and <span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">cx-dev-assist </span>v1.7.0), and GitHub Actions workflows.[<a id="x1-5001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_checkmarx" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">2</a>, <a id="x1-5002" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_register" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">3</a>] The
+extensions (<span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">ast-results </span>v2.53.0 and <span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">cx-dev-assist </span>v1.7.0), and GitHub Actions workflows.[<a id="x1-5001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="article.html#X0-20260525_checkmarx" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">2</a>, <a id="x1-5002" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="article.html#X0-20260525_register" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">3</a>] The
 vulnerability is tracked as CVE-2026-33634 with a CVSS score of 9.4.
 </p><!-- l. 33 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   The attack was a credential stealer designed to run wherever the scanner ran. CI/CD secrets, cloud credentials,
 SSH keys, and Kubernetes configurations were exfiltrated from runners on 30 March 2026 and posted to a dark-web
-leak site on 25 April 2026.[<a id="x1-5003" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_securityweek" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">7</a>] Even after Checkmarx revoked credentials and removed malicious artifacts, the
+leak site on 25 April 2026.[<a id="x1-5003" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="article.html#X0-20260525_securityweek" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">7</a>] Even after Checkmarx revoked credentials and removed malicious artifacts, the
 attackers retained access. On 22 April 2026 they published a second wave of poisoned artifacts—another KICS
 Docker image, another GitHub Action, another VS Code extension. The collateral was significant: the
 Bitwarden CLI npm package (<span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">@bitwarden/cli@2026.4.0</span>) was briefly compromised during a 93-minute
-window on the same day, riding the same intrusion outward to roughly ten million Bitwarden users.[<a id="x1-5004" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_bitwarden" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">1</a>]
+window on the same day, riding the same intrusion outward to roughly ten million Bitwarden users.[<a id="x1-5004" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="article.html#X0-20260525_bitwarden" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">1</a>]
 A third escalation in May saw TeamPCP rename the Checkmarx Jenkins AST Plugin repository to
-“Checkmarx-Fully-Hacked-by-TeamPCP-and-Their-Customers-Should-Cancel-Now.”[<a id="x1-5005" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_thn" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">8</a>]
+“Checkmarx-Fully-Hacked-by-TeamPCP-and-Their-Customers-Should-Cancel-Now.”[<a id="x1-5005" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="article.html#X0-20260525_thn" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">8</a>]
 </p><!-- l. 35 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   The story is not that Checkmarx was breached. Mature vendors are breached. The story is what the scanner was
 wired into. A typical Checkmarx rollout grants the scanner read access to the entire source tree, write access to
 merge status, and an injected secret per protected environment. That posture is sensible when an expert chooses the
@@ -117,17 +124,17 @@ integration boundaries deliberately. It is catastrophic when “the security too
 DevSecOps onboarding script. The blast radius of any Software Assurance tool is exactly the blast radius the
 integrating team gave it.
 
+                                                                                         
+                                                                                         
 </p>   
 <h4 class="likesubsectionHead" id="more-tools-more-doors" style="margin: 0; padding: 0; box-sizing: border-box; margin-top: 1.5em; margin-bottom: 0.5em; color: #222; font-weight: 600;"><a id="x1-6000" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>More Tools, More Doors</h4>
 <!-- l. 39 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">These three incidents are not isolated. NIST SP 800-53’s Supply Chain Risk Management (SR) controls, particularly
 SR-3 (Supply Chain Controls and Processes) and SR-4 (Provenance), already treat the development toolchain as
-part of the system’s attack surface, not separate from it.[<a id="x1-6001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_nist80053rev5" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">6</a>] CWE-1395 (Dependency on Vulnerable Third-Party
+part of the system’s attack surface, not separate from it.[<a id="x1-6001" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a id="page.6" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="article.html#X0-20260525_nist80053rev5" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">6</a>] CWE-1395 (Dependency on Vulnerable Third-Party
 Component) applies just as much to a static analyzer wired into a CI pipeline as it does to a logging library shipped
-in production.[<a id="x1-6002" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_cwe1395" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">4</a>] Unit 42’s continuing telemetry on npm shows the trendline accelerating: “attacks evolving from
-                                                                                         
-                                                                                         
+in production.[<a id="x1-6002" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="article.html#X0-20260525_cwe1395" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">4</a>] Unit 42’s continuing telemetry on npm shows the trendline accelerating: “attacks evolving from
 isolated typosquatting incidents into systematic campaigns by various threat actors to weaponize the trust that
-powers modern software development.”[<a id="x1-6003" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="#cite.0_20260525_unit42" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">10</a>]
+powers modern software development.”[<a id="x1-6003" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="article.html#X0-20260525_unit42" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;">10</a>]
 </p><!-- l. 41 --><p class="indent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">   Every additional tool added to a DevSecOps stack introduces three new attack surfaces: the tool binary, the
 credentials the tool holds, and the network paths the tool requires. Stacking ten “best-of-breed” scanners without an
 expert curator produces ten new attack surfaces guarded by whichever team happened to click through the installer.
@@ -171,40 +178,40 @@ done.
 <dl class="thebibliography" style="margin: 0; padding: 0; box-sizing: border-box;"><dt class="thebibliography" id="X0-20260525_bitwarden" style="margin: 0; padding: 0; box-sizing: border-box;"> 
 [1]  
 </dt><dd class="thebibliography" id="bib-1" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_bitwarden" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Bitwarden. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Bitwarden Statement on Checkmarx Supply Chain Incident</span>. 2026. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://community.bitwarden.com/t/bitwarden-statement-on-checkmarx-supply-chain-incident/96127" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://community.bitwarden.com/t/bitwarden-statement-on-checkmarx-supply-chain-incident/96127</span></a>.
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="page.7" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a><a href="article.html" id="X0-" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Bitwarden. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Bitwarden Statement on Checkmarx Supply Chain Incident</span>. 2026. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://community.bitwarden.com/t/bitwarden-statement-on-checkmarx-supply-chain-incident/96127" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://community.bitwarden.com/t/bitwarden-statement-on-checkmarx-supply-chain-incident/96127</span></a>.
 </p>     
 </dd>
 <dt class="thebibliography" id="X0-20260525_checkmarx" style="margin: 0; padding: 0; box-sizing: border-box;">
 [2]  
 </dt><dd class="thebibliography" id="bib-2" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_checkmarx" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Checkmarx.   <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Update:   Ongoing   Checkmarx   Supply   Chain   Security   Incident</span>.   2026.   <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>:   
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">Checkmarx.   <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Update:   Ongoing   Checkmarx   Supply   Chain   Security   Incident</span>.   2026.   <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>:   
 <a class="url" href="https://checkmarx.com/blog/supply-chain-security-incident-update/" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://checkmarx.com/blog/supply-chain-security-incident-update/</span></a>.
 </p>     
 </dd>
 <dt class="thebibliography" id="X0-20260525_register" style="margin: 0; padding: 0; box-sizing: border-box;">
 [3]  
 </dt><dd class="thebibliography" id="bib-3" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_register" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Thomas Claburn. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Ongoing supply-chain attack targets security, dev tools</span>. The Register. Apr. 2026.
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">Thomas Claburn. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Ongoing supply-chain attack targets security, dev tools</span>. The Register. Apr. 2026.
 <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://www.theregister.com/2026/04/27/supply_chain_campaign_targets_security/" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://www.theregister.com/2026/04/27/supply_chain_campaign_targets_security/</span></a>.
 </p>     
 </dd>
 <dt class="thebibliography" id="X0-20260525_cwe1395" style="margin: 0; padding: 0; box-sizing: border-box;">
 [4]  
 </dt><dd class="thebibliography" id="bib-4" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_cwe1395" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>CWE Content Team. “CWE-1395: Dependency on Vulnerable Third-Party Component”. In: (2024).
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">CWE Content Team. “CWE-1395: Dependency on Vulnerable Third-Party Component”. In: (2024).
 <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://cwe.mitre.org/data/definitions/1395.html" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://cwe.mitre.org/data/definitions/1395.html</span></a>.
 </p>     
 </dd>
 <dt class="thebibliography" id="X0-swatips" style="margin: 0; padding: 0; box-sizing: border-box;">
 [5]  
 </dt><dd class="thebibliography" id="bib-5" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_swatips" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Jon Hood, ed. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://www.SwATips.com/</span></a>.
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">Jon Hood, ed. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">SwATips</span>. <a class="url" href="https://www.SwATips.com/" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://www.SwATips.com/</span></a>.
 </p>     
 </dd>
 <dt class="thebibliography" id="X0-20260525_nist80053rev5" style="margin: 0; padding: 0; box-sizing: border-box;">
 [6]  
 </dt><dd class="thebibliography" id="bib-6" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_nist80053rev5" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Joint Task Force. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">NIST Special Publication 800-53, Revision 5. Security and Privacy Controls for
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">Joint Task Force. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">NIST Special Publication 800-53, Revision 5. Security and Privacy Controls for
 Information Systems and Organizations</span>. Tech. rep. National Institute of Standards and Technology,
 2020. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://doi.org/10.6028/NIST.SP.800-53r5" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://doi.org/10.6028/NIST.SP.800-53r5</span></a>.
 </p>     
@@ -212,14 +219,14 @@ Information Systems and Organizations</span>. Tech. rep. National Institute of S
 <dt class="thebibliography" id="X0-20260525_securityweek" style="margin: 0; padding: 0; box-sizing: border-box;">
 [7]  
 </dt><dd class="thebibliography" id="bib-7" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_securityweek" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Eduard Kovacs. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Checkmarx Confirms Data Stolen in Supply Chain Attack</span>. SecurityWeek. 2026. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: 
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">Eduard Kovacs. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Checkmarx Confirms Data Stolen in Supply Chain Attack</span>. SecurityWeek. 2026. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: 
 <a class="url" href="https://www.securityweek.com/checkmarx-confirms-data-stolen-in-supply-chain-attack/" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://www.securityweek.com/checkmarx-confirms-data-stolen-in-supply-chain-attack/</span></a>.
 </p>     
 </dd>
 <dt class="thebibliography" id="X0-20260525_thn" style="margin: 0; padding: 0; box-sizing: border-box;">
 [8]  
 </dt><dd class="thebibliography" id="bib-8" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_thn" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Ravie                Lakshmanan.                <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">TeamPCP                Compromises                Checkmarx
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">Ravie                Lakshmanan.                <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">TeamPCP                Compromises                Checkmarx
 Jenkins AST Plugin Weeks After KICS Supply Chain Attack</span>. The Hacker News. May 2026. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: 
 <a class="url" href="https://thehackernews.com/2026/05/teampcp-compromises-checkmarx-jenkins.html" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://thehackernews.com/2026/05/teampcp-compromises-checkmarx-jenkins.html</span></a>.
 </p>     
@@ -227,25 +234,32 @@ Jenkins AST Plugin Weeks After KICS Supply Chain Attack</span>. The Hacker News.
 <dt class="thebibliography" id="X0-20260525_cppcheck14749" style="margin: 0; padding: 0; box-sizing: border-box;">
 [9]  
 </dt><dd class="thebibliography" id="bib-9" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_cppcheck14749" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Daniel  Marjamäki.  <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Ticket  #14749:  cmdFilename:  handle  more  bash  special  characters</span>.  Cppcheck
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">Daniel  Marjamäki.  <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Ticket  #14749:  cmdFilename:  handle  more  bash  special  characters</span>.  Cppcheck
 Project. May 2026. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://trac.cppcheck.net/ticket/14749" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://trac.cppcheck.net/ticket/14749</span></a>.
 </p>     
 </dd>
 <dt class="thebibliography" id="X0-20260525_unit42" style="margin: 0; padding: 0; box-sizing: border-box;">
 [10]  
 </dt><dd class="thebibliography" id="bib-10" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_unit42" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>Unit 42. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">The npm Threat Landscape: Attack Surface and Mitigations</span>. Palo Alto Networks. 2026. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>:
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">Unit 42. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">The npm Threat Landscape: Attack Surface and Mitigations</span>. Palo Alto Networks. 2026. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>:
 <a class="url" href="https://unit42.paloaltonetworks.com/monitoring-npm-supply-chain-attacks/" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://unit42.paloaltonetworks.com/monitoring-npm-supply-chain-attacks/</span></a>.
 </p>     
 </dd>
 <dt class="thebibliography" id="X0-20260525_flawfinder" style="margin: 0; padding: 0; box-sizing: border-box;">
 [11]  
 </dt><dd class="thebibliography" id="bib-11" style="margin: 0; padding: 0; box-sizing: border-box;">
-<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;"><a id="cite.0_20260525_flawfinder" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"></a>David A. Wheeler. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Commit d6464e7: Emphasize limitations on malicious code</span>. flawfinder. May 2026.
-<span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://github.com/david-a-wheeler/flawfinder/commit/d6464e7014f5986fb31acbe533bb8eea414b5d3a" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://github.com/david-a-wheeler/flawfinder/commit/d6464e7014f5986fb31acbe533bb8eea414b5d3a</span></a>.</p></dd></dl>
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">David A. Wheeler. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">Commit d6464e7: Emphasize limitations on malicious code</span>. flawfinder. May 2026.
+<span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://github.com/david-a-wheeler/flawfinder/commit/d6464e7014f5986fb31acbe533bb8eea414b5d3a" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://github.com/david-a-wheeler/flawfinder/commit/d6464e7014f5986fb31acbe533bb8eea414b5d3a</span></a>.
                                                                                          
                                                                                          
-   
+     
+</p>
+</dd>     
+<dt class="thebibliography" id="X0-20260525_flawfinderghsa" style="margin: 0; padding: 0; box-sizing: border-box;">
+[12]  
+</dt><dd class="thebibliography" id="bib-12" style="margin: 0; padding: 0; box-sizing: border-box;">
+<!-- l. 52 --><p class="noindent" style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 1em;">David A. Wheeler. <span class="uline" style="margin: 0; padding: 0; box-sizing: border-box;">GHSA-4c3c-r6p8-c863: Flawfinder output manipulation via untrusted filenames and
+source text</span>. GitHub Security Advisories. May 2026. <span class="small-caps" style="margin: 0; padding: 0; box-sizing: border-box;">url</span>: <a class="url" href="https://github.com/david-a-wheeler/flawfinder/security/advisories/GHSA-4c3c-r6p8-c863" style="margin: 0; padding: 0; box-sizing: border-box; color: #667eea; text-decoration: none; transition: color 0.3s ease;"><span class="ec-lmtt-10" style="margin: 0; padding: 0; box-sizing: border-box;">https://github.com/david-a-wheeler/flawfinder/security/advisories/GHSA-4c3c-r6p8-c863</span></a>.</p></dd></dl>
  ]]></description>
 </item>
 <item>
