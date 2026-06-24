@@ -23,7 +23,7 @@
 				$articlesByYear = [];
 				foreach ($articles as $article) {
 					$article = trim($article);
-					if (preg_match('/^<li>(\d{8}) - <a href="(articles\/\d{8}\.html)">([^<]+)<\/a>$/', $article, $matches)) {
+					if (preg_match('/^<li>(\d{8}) - <a href="(articles\/\d{8}\.html)">(.*)<\/a>$/', $article, $matches)) {
 						$datestamp = $matches[1];
 						$year = substr($datestamp, 0, 4);
 						$monthDay = date('M d', strtotime($datestamp));
