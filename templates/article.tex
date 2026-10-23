@@ -9,6 +9,11 @@
 \usepackage{fancyhdr}
 \usepackage[letterpaper, top=1in, bottom=1in, left=1in, right=1in]{geometry}
 \usepackage{listings, listings-rust}
+\ifdefined\HCode
+	% TeX4ht needs T1 text fonts: OT1 maps literal <, > and | to ¡, ¿ and —.
+	% Select it before noto/fontspec so Unicode character handling is preserved.
+	\usepackage[T1]{fontenc}
+\fi
 \usepackage{noto}
 \usepackage{textcomp}
 \usepackage{ulem}

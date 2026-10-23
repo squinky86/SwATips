@@ -47,20 +47,30 @@ function build_article() {
 	local NUM=$1
 	local TMPDIR=$(mktemp -d)
 	local ARTICLENAME="UNKNOWN"
+	local NEEDS_BUILD=$REBUILD
+	local SOURCE
+	if [ ! -f "html/articles/${NUM}.pdf" ] || { [ "$HTML" == true ] && [ ! -f "html/articles/${NUM}.html" ]; }; then
+		NEEDS_BUILD=true
+	fi
+	for SOURCE in templates/* tips/${NUM}.*; do
+		if [ "$SOURCE" -nt "html/articles/${NUM}.pdf" ] || { [ "$HTML" == true ] && [ "$SOURCE" -nt "html/articles/${NUM}.html" ]; }; then
+			NEEDS_BUILD=true
+		fi
+	done
 	cp templates/article.tex templates/sources.bib templates/listings-rust.sty ${TMPDIR}/
 	cp templates/article.html ${TMPDIR}/article_template.html
 	cp tips/${NUM}.* ${TMPDIR}/
 	ARTICLENAME=$(grep ArticleName ${TMPDIR}/${NUM}.pre | sed -e 's:\\sout{\([^}]*\)}:<del>\1</del>:g' | sed -e 's:\\def \\ArticleName{::g' -e 's:}::g' -e 's:\\::g')
 	echo "${ARTICLENAME}" > html/articles/${NUM}.meta
-	if [ ! -f "html/articles/${NUM}.pdf" ] || [ $REBUILD == true ]; then
+	if [ "$NEEDS_BUILD" == true ]; then
 		pushd ${TMPDIR} > /dev/null
 		sed -i -e "s:NUM:${NUM}:g" article.tex
 		sed -i -e "s:NUM:${NUM}:g" article_template.html
 		lmk article >/dev/null 2>&1
 		if [ $HTML == true ]; then
-			make4ht -l article "fn-in,svg" >/dev/null 2>&1
-			if [ ! -f article.html ] || [ ! -f article.css ]; then
-				echo "Error: make4ht failed to generate article.html or article.css for ${NUM}"
+			if ! make4ht -l article "fn-in,svg" > make4ht.log 2>&1 || [ ! -f article.html ] || [ ! -f article.css ]; then
+				echo "Error: make4ht failed to generate article.html or article.css for ${NUM}" >&2
+				cat make4ht.log >&2
 				popd >/dev/null
 				rm -rf ${TMPDIR}
 				return 1
@@ -203,6 +213,32 @@ if [ $PDF == true ]; then
 	JUICE=$?
 	check "$GIT" "git" "GIT"
 	GIT=$?
+	if [ "$HTML" == true ]; then
+		check 1 "make4ht"
+		bash tests/check-html-encoding.sh || exit 1
+	fi
+
+	# Phase 1: Build articles in parallel
+	MAXJOBS=$(nproc)
+	PIDS=()
+	BUILD_FAILED=false
+	for x in tips/*.tex; do
+		NUM=${x/tips\//}
+		NUM=${NUM/\.tex/}
+		build_article "${NUM}" &
+		PIDS+=( "$!" )
+		if [ ${#PIDS[@]} -ge "$MAXJOBS" ]; then
+			wait "${PIDS[0]}" || BUILD_FAILED=true
+			PIDS=( "${PIDS[@]:1}" )
+		fi
+	done
+	for PID in "${PIDS[@]}"; do
+		wait "$PID" || BUILD_FAILED=true
+	done
+	if [ "$BUILD_FAILED" == true ]; then
+		echo "Error: article generation failed; site indexes were not updated." >&2
+		exit 1
+	fi
 
 	echo -n "" > html/articles.inc
 	echo -n "" > html/articles-full.inc
@@ -219,20 +255,6 @@ if [ $PDF == true ]; then
 		<lastmod>$(date -Iseconds)</lastmod>
 	</url>
 	SITEMAP
-	# Phase 1: Build articles in parallel
-	MAXJOBS=$(nproc)
-	JOBCOUNT=0
-	for x in tips/*.tex; do
-		NUM=${x/tips\//}
-		NUM=${NUM/\.tex/}
-		build_article "${NUM}" &
-		((JOBCOUNT=JOBCOUNT+1))
-		if [ $JOBCOUNT -ge $MAXJOBS ]; then
-			wait -n
-			((JOBCOUNT=JOBCOUNT-1))
-		fi
-	done
-	wait
 
 	# Phase 2: Collect metadata sequentially
 	for x in tips/*.tex; do
